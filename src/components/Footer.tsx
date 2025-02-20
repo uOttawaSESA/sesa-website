@@ -70,11 +70,12 @@ export default function Footer() {
                         <Button className="!p-3">Y</Button>
                     </div>
                 </div>
+                <p className="sm:col-span-2 text-left text-gray-400">
+                    &copy; 2014&ndash;{new Date().getFullYear()} uOttawa Software Engineering Student
+                    Association (SESA)
+                </p>
+                <a href="#" className="sm:col-span-2 text-right text-gray-400">Back to top</a>
             </div>
-            <p>
-                &copy; 2014&ndash;{new Date().getFullYear()} uOttawa Software Engineering Student
-                Association (SESA)
-            </p>
         </footer>
     );
 }
