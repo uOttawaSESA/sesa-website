@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Button from "./Button";
 
 export default function Footer() {
@@ -64,10 +65,38 @@ export default function Footer() {
                 <div className="flex flex-col gap-4">
                     <h3 className="color-gradient font-mono">Socials</h3>
                     <div className="flex justify-center gap-2">
-                        <Button className="!p-3">I</Button>
-                        <Button className="!p-3">D</Button>
-                        <Button className="!p-3">L</Button>
-                        <Button className="!p-3">Y</Button>
+                        <Button className="!p-3" variant="outline">
+                            <Image
+                                src="icons/instagram-plain.svg"
+                                width={25}
+                                height={25}
+                                alt="Instagram Logo"
+                            />
+                        </Button>
+                        <Button className="!p-3" variant="outline">
+                            <Image
+                                src="icons/discord-plain.svg"
+                                width={25}
+                                height={25}
+                                alt="Discord Logo"
+                            />
+                        </Button>
+                        <Button className="!p-3" variant="outline">
+                            <Image
+                                src="icons/linkedin-plain.svg"
+                                width={25}
+                                height={25}
+                                alt="LinkedIn Logo"
+                            />
+                        </Button>
+                        <Button className="!p-3" variant="outline">
+                            <Image
+                                src="icons/youtube-plain.svg"
+                                width={25}
+                                height={25}
+                                alt="YouTube Logo"
+                            />
+                        </Button>
                     </div>
                 </div>
                 <p className="text-left text-gray-400 sm:col-span-2">
