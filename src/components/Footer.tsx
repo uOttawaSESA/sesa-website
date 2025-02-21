@@ -102,6 +102,7 @@ export default function Footer() {
                                 className="!p-3"
                                 variant="outline"
                                 href="https://www.instagram.com/uottawasesa/"
+                                target="_blank"
                             >
                                 <Image
                                     src="icons/instagram-plain.svg"
@@ -114,6 +115,7 @@ export default function Footer() {
                                 className="!p-3"
                                 variant="outline"
                                 href="https://discord.com/invite/atYdx5HHCs"
+                                target="_blank"
                             >
                                 <Image
                                     src="icons/discord-plain.svg"
@@ -126,6 +128,7 @@ export default function Footer() {
                                 className="!p-3"
                                 variant="outline"
                                 href="https://www.linkedin.com/company/software-engineering-students-association/"
+                                target="_blank"
                             >
                                 <Image
                                     src="icons/linkedin-plain.svg"
@@ -138,6 +141,7 @@ export default function Footer() {
                                 className="!p-3"
                                 variant="outline"
                                 href="https://www.youtube.com/@uottawasesa52"
+                                target="_blank"
                             >
                                 <Image
                                     src="icons/youtube-plain.svg"
