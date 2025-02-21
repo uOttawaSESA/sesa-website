@@ -17,7 +17,8 @@ const CircleImage = ({ className, innerClassName, size, ...rest }: CircleImagePr
         >
             {/* eslint-disable-next-line jsx-a11y/alt-text */}
             <Image
-                className={`rounded-[50%] w-[${size}px] h-[${size}px] ${innerClassName}`}
+                style={{ width: `${size}px`, height: `${size}px` }}
+                className={`rounded-[50%] ${innerClassName || ""}`}
                 {...rest}
                 width={size}
                 height={size}
