@@ -48,7 +48,7 @@ const ContactForm: React.FC = () => {
     return (
         <form onSubmit={handleSubmit} className="space-y-6">
             <div className="mb-8">
-                <h2 className="font-vcr-osd-mono text-[20px] text-white mb-4">
+                <h2 className="font-vcr-osd-mono mb-4 text-[20px] text-white">
                     TELL US ABOUT YOURSELF
                 </h2>
 
@@ -59,7 +59,7 @@ const ContactForm: React.FC = () => {
                             name="firstName"
                             value={formData.firstName}
                             onChange={handleInputChange}
-                            className="w-full bg-gray-100 text-white border border-gray-700 px-3 py-2 font-sans rounded-none placeholder:text-thistle focus:outline-none focus:ring-2 focus:ring-blueviolet-100"
+                            className="w-full rounded-none border border-gray-700 bg-gray-100 px-3 py-2 font-sans text-white placeholder:text-thistle focus:outline-none focus:ring-2 focus:ring-blueviolet-100"
                             placeholder="First name"
                             required
                         />
@@ -71,7 +71,7 @@ const ContactForm: React.FC = () => {
                             name="lastName"
                             value={formData.lastName}
                             onChange={handleInputChange}
-                            className="w-full bg-gray-100 text-white border border-gray-700 px-3 py-2 font-sans rounded-none placeholder:text-thistle focus:outline-none focus:ring-2 focus:ring-blueviolet-100"
+                            className="w-full rounded-none border border-gray-700 bg-gray-100 px-3 py-2 font-sans text-white placeholder:text-thistle focus:outline-none focus:ring-2 focus:ring-blueviolet-100"
                             placeholder="Last name"
                             required
                         />
@@ -80,7 +80,7 @@ const ContactForm: React.FC = () => {
             </div>
 
             <div className="mb-8">
-                <h2 className="font-vcr-osd-mono text-[20px] text-white mb-4">
+                <h2 className="font-vcr-osd-mono mb-4 text-[20px] text-white">
                     HOW CAN WE REACH YOU? (SO WE CAN REPLY TO YOU)
                 </h2>
 
@@ -89,14 +89,14 @@ const ContactForm: React.FC = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full bg-gray-100 text-white border border-gray-700 px-3 py-2 font-sans rounded-none placeholder:text-thistle focus:outline-none focus:ring-2 focus:ring-blueviolet-100"
+                    className="w-full rounded-none border border-gray-700 bg-gray-100 px-3 py-2 font-sans text-white placeholder:text-thistle focus:outline-none focus:ring-2 focus:ring-blueviolet-100"
                     placeholder="Email address"
                     required
                 />
             </div>
 
             <div className="mb-8">
-                <h2 className="font-vcr-osd-mono text-[20px] text-white mb-4">
+                <h2 className="font-vcr-osd-mono mb-4 text-[20px] text-white">
                     WHAT’S YOUR MESSAGE ABOUT?
                 </h2>
 
@@ -104,7 +104,7 @@ const ContactForm: React.FC = () => {
                     name="topic"
                     value={formData.topic}
                     onChange={handleInputChange}
-                    className={`w-full bg-gray-100 border border-gray-700 px-3 py-2 font-sans rounded-none placeholder:text-thistle focus:outline-none focus:ring-2 focus:ring-blueviolet-100 ${
+                    className={`w-full rounded-none border border-gray-700 bg-gray-100 px-3 py-2 font-sans placeholder:text-thistle focus:outline-none focus:ring-2 focus:ring-blueviolet-100 ${
                         formData.topic === "" ? "text-thistle" : "text-white"
                     }`}
                     required
@@ -125,7 +125,7 @@ const ContactForm: React.FC = () => {
             </div>
 
             <div className="mb-8">
-                <h2 className="font-vcr-osd-mono text-[20px] text-white mb-4">
+                <h2 className="font-vcr-osd-mono mb-4 text-[20px] text-white">
                     HOW CAN WE HELP YOU?
                 </h2>
 
@@ -133,14 +133,14 @@ const ContactForm: React.FC = () => {
                     name="message"
                     value={formData.message}
                     onChange={handleInputChange}
-                    className="w-full h-32 bg-gray-100 text-thistle border border-gray-700 px-3 py-2 font-sans rounded-none placeholder:text-thistle focus:outline-none focus:ring-2 focus:ring-blueviolet-100"
+                    className="h-32 w-full rounded-none border border-gray-700 bg-gray-100 px-3 py-2 font-sans text-thistle placeholder:text-thistle focus:outline-none focus:ring-2 focus:ring-blueviolet-100"
                     placeholder="Include as much detail as you can"
                     required
                 />
             </div>
 
             <div className="mb-8">
-                <p className="font-heading text-m text-white">
+                <p className="text-m font-heading text-white">
                     By submitting this form, I confirm that I have read and accept the{" "}
                     <a href="#" className="underline">
                         Privacy & Terms
