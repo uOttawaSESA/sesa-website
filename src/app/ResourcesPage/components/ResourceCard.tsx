@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { useState } from "react";
+import Image from "next/image";
 
 export const ResourceCard = ({
   title,
@@ -19,8 +19,7 @@ export const ResourceCard = ({
   return (
     <div
       className="bg-gray-100 p-px hover:bg-gradient-to-r from-blueviolet-100 to-darkmagenta transition-all border border-gray-300 font-heading"
-      onMouseEnter={() => setShowOpen(true)}
-      onMouseLeave={() => setShowOpen(false)}
+      onMouseEnter={() => setShowOpen(true)} // Show "Open" on hover
     >
       <div className="bg-gray-100 p-6 h-full relative">
         {/* Category Badges */}
