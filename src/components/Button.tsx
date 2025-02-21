@@ -17,7 +17,7 @@ const Button = forwardRef<HTMLAnchorElement, ButtonProps>(
                     <a
                         role="button"
                         ref={ref}
-                        className={`${baseStyle} fill-gradient ${className} ${disabled ? disabledClass : ""}`}
+                        className={`${baseStyle} fill-gradient ${className || ""} ${disabled ? disabledClass : ""}`}
                         {...(disabled ? {} : rest)}
                     >
                         {children}
@@ -28,7 +28,7 @@ const Button = forwardRef<HTMLAnchorElement, ButtonProps>(
                     <a
                         role="button"
                         ref={ref}
-                        className={`${baseStyle} outline-gradient ${className} ${disabled ? disabledClass : ""}`}
+                        className={`${baseStyle} outline-gradient ${className || ""} ${disabled ? disabledClass : ""}`}
                         {...(disabled ? {} : rest)}
                     >
                         {children}
@@ -39,7 +39,7 @@ const Button = forwardRef<HTMLAnchorElement, ButtonProps>(
                     <a
                         role="button"
                         ref={ref}
-                        className={`${baseStyle} color-gradient ${className} ${disabled ? disabledClass : ""}`}
+                        className={`${baseStyle} color-gradient ${className || ""} ${disabled ? disabledClass : ""}`}
                         {...(disabled ? {} : rest)}
                     >
                         {children}
