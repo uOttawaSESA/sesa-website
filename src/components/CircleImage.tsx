@@ -1,6 +1,7 @@
 import Image from "next/image";
 
-export interface CircleImageProps extends Omit<React.ComponentProps<typeof Image>, 'width' | 'height'> {
+export interface CircleImageProps
+    extends Omit<React.ComponentProps<typeof Image>, "width" | "height"> {
     /** Class info to pass along to the inner image. */
     innerClassName?: string | undefined;
     /** The width and height of the image. */
@@ -9,10 +10,20 @@ export interface CircleImageProps extends Omit<React.ComponentProps<typeof Image
 
 /** A circular image with a gradient border. */
 const CircleImage = ({ className, innerClassName, size, ...rest }: CircleImageProps) => {
-    return <div className={`flex items-center justify-center rounded-[50%] p-0.5 fill-gradient h-min ${className}`} {...rest}>
-        {/* eslint-disable-next-line jsx-a11y/alt-text */}
-        <Image className={`rounded-[50%] w-[${size}px] h-[${size}px] ${innerClassName}`} {...rest} width={size} height={size} />
-    </div>
-}
+    return (
+        <div
+            className={`fill-gradient flex h-min items-center justify-center rounded-[50%] p-0.5 ${className}`}
+            {...rest}
+        >
+            {/* eslint-disable-next-line jsx-a11y/alt-text */}
+            <Image
+                className={`rounded-[50%] w-[${size}px] h-[${size}px] ${innerClassName}`}
+                {...rest}
+                width={size}
+                height={size}
+            />
+        </div>
+    );
+};
 
 export default CircleImage;
