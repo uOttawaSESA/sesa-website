@@ -39,6 +39,10 @@ body {
     src: url(/fonts/monocode-regular.ttf);
 }
 
+.sponsor {
+    @apply outline-gradient mx-4 flex h-40 w-64 items-center justify-center;
+}
+
 .outline-gradient {
     border: 2px solid #8824dc;
 }
