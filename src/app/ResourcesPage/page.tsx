@@ -5,6 +5,7 @@ import SearchFilterBar from "./components/SearchFilterBar";
 import Button from "@/components/Button";
 import Pagination from "./components/Pagination";
 import { resources } from "./utils/resourcesData";
+import "../globals.css";
 
 const ResourcesPage: FC = () => {
   // Pagination state
@@ -31,7 +32,7 @@ const ResourcesPage: FC = () => {
       <div className="container mx-auto px-4 py-8 relative z-10">
         {/* Page Header */}
         <div className="mb-12">
-          <span className="font-mono text-transparent bg-clip-text bg-gradient-to-r from-blueviolet-100 to-darkmagenta">
+          <span className="font-mono text-transparent color-gradient">
             Resources
           </span>
           <h1 className="text-4xl uppercase mt-4 font-heading">

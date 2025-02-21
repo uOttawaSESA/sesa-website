@@ -32,7 +32,7 @@ const Pagination: FC<PaginationProps> = ({
       <Button
         variant="outline"
         onClick={handlePrev}
-        disabled={currentPage === 1} // Disable on the first page
+        disabled={currentPage === 1}
         className={`flex items-center justify-center ${currentPage === 1 ? "opacity-50 cursor-not-allowed" : ""}`}
       >
         <Image
@@ -61,7 +61,7 @@ const Pagination: FC<PaginationProps> = ({
       <Button
         variant="outline"
         onClick={handleNext}
-        disabled={currentPage === totalPages} // Disable on the last page
+        disabled={currentPage === totalPages} 
         className={`flex items-center justify-center ${currentPage === totalPages ? "opacity-50 cursor-not-allowed" : ""}`}
       >
         <Image

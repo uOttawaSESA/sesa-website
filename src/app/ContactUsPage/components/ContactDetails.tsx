@@ -6,7 +6,7 @@ import Button from "@/components/Button";
 const ContactDetails = () => {
   return (
     <div className="flex-1">
-      <div className="font-sans !bg-clip-text text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#6E1CB0,_#8E1A7D)]">
+      <div className="font-mono color-gradient">
         Contact us
       </div>
 
