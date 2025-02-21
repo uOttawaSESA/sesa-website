@@ -65,7 +65,11 @@ export default function Footer() {
                 <div className="flex flex-col gap-4">
                     <h3 className="color-gradient font-mono">Socials</h3>
                     <div className="flex justify-center gap-2">
-                        <Button className="!p-3" variant="outline">
+                        <Button
+                            className="!p-3"
+                            variant="outline"
+                            href="https://www.instagram.com/uottawasesa/"
+                        >
                             <Image
                                 src="icons/instagram-plain.svg"
                                 width={25}
@@ -73,7 +77,11 @@ export default function Footer() {
                                 alt="Instagram Logo"
                             />
                         </Button>
-                        <Button className="!p-3" variant="outline">
+                        <Button
+                            className="!p-3"
+                            variant="outline"
+                            href="https://discord.com/invite/hZbhGwaXNS"
+                        >
                             <Image
                                 src="icons/discord-plain.svg"
                                 width={25}
@@ -81,7 +89,11 @@ export default function Footer() {
                                 alt="Discord Logo"
                             />
                         </Button>
-                        <Button className="!p-3" variant="outline">
+                        <Button
+                            className="!p-3"
+                            variant="outline"
+                            href="https://www.linkedin.com/company/software-engineering-students-association/"
+                        >
                             <Image
                                 src="icons/linkedin-plain.svg"
                                 width={25}
@@ -89,7 +101,11 @@ export default function Footer() {
                                 alt="LinkedIn Logo"
                             />
                         </Button>
-                        <Button className="!p-3" variant="outline">
+                        <Button
+                            className="!p-3"
+                            variant="outline"
+                            href="https://www.youtube.com/@uottawasesa52"
+                        >
                             <Image
                                 src="icons/youtube-plain.svg"
                                 width={25}
