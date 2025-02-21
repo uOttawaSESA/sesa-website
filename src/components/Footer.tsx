@@ -80,7 +80,7 @@ export default function Footer() {
                         <Button
                             className="!p-3"
                             variant="outline"
-                            href="https://discord.com/invite/hZbhGwaXNS"
+                            href="https://discord.com/invite/atYdx5HHCs"
                         >
                             <Image
                                 src="icons/discord-plain.svg"
