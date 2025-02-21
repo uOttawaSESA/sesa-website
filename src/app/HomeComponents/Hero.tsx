@@ -3,9 +3,9 @@ import Button from "@/components/Button";
 
 export default function Hero() {
     return (
-        <section className="relative flex h-[80vh] w-full items-center justify-between bg-black text-white md:pe-0 md:ps-32 2xl:pe-0 2xl:ps-96">
+        <section className="relative flex h-[80vh] w-full items-center justify-between text-white md:pe-0 md:ps-32 2xl:pe-0 2xl:ps-96">
             {/* Background Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#1b1b1b] to-[#381e4b]" />
+            <div className="absolute inset-0" />
 
             <div className="grid-overlay md:h-[43.93rem] md:w-[53vw]"></div>
 

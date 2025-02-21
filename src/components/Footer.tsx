@@ -18,7 +18,7 @@ import Button from "./Button";
 
 export default function Footer() {
     return (
-        <footer className="mx-0 flex flex-col gap-2 px-0 pt-8">
+        <footer className="mx-0 flex flex-col gap-2 bg-transparent px-0 pt-8 backdrop-blur-[50px]">
             {/* SESA logo + text */}
             <div className="mx-8 flex justify-center gap-4 sm:justify-start xl:mx-32 2xl:mx-64">
                 <Image
@@ -37,7 +37,7 @@ export default function Footer() {
                 />
             </div>
             {/* Navigation links and socials */}
-            <div className="bg-gray mx-8 my-8 flex flex-col gap-4 xl:mx-32 2xl:mx-64">
+            <div className="mx-8 my-8 flex flex-col gap-4 xl:mx-32 2xl:mx-64">
                 <div className="grid grid-cols-1 gap-4 text-center sm:grid-cols-2 sm:text-left lg:grid-cols-4">
                     <div className="flex flex-col gap-4">
                         <h3 className="color-gradient font-mono">Contact</h3>
