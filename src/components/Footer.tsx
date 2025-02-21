@@ -4,7 +4,24 @@ import Marquee from "react-fast-marquee";
 
 export default function Footer() {
     return (
-        <footer className="mx-0 px-0 pt-8">
+        <footer className="mx-0 flex flex-col gap-2 px-0 pt-8">
+            {/* SESA logo + text */}
+            <div className="mx-8 mb-4 flex justify-center gap-4 sm:justify-start xl:mx-32 2xl:mx-64">
+                <Image
+                    className="my-0"
+                    width="50"
+                    height="50"
+                    src="sesa-logo.svg"
+                    alt="SESA Logo"
+                />
+                <Image
+                    className="my-0"
+                    width="109"
+                    height="25"
+                    src="logo-text.svg"
+                    alt="SESA Logo Text"
+                />
+            </div>
             {/* Sponsors marquee */}
             {/* Implementation detail: SVG's are inlined so that the colour may be changed based on browser theme */}
             <Marquee pauseOnHover autoFill>
@@ -18,6 +35,7 @@ export default function Footer() {
                     <p className="text-4xl">SPONSOR</p>
                 </div>
             </Marquee>
+            {/* Navigation links and socials */}
             <div className="bg-gray mx-8 my-8 flex flex-col gap-4 xl:mx-32 2xl:mx-64">
                 <div className="grid grid-cols-1 gap-4 text-center sm:grid-cols-2 sm:text-left lg:grid-cols-4">
                     <div className="flex flex-col gap-4">
