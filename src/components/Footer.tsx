@@ -55,12 +55,12 @@ export default function Footer() {
                         <h3 className="color-gradient font-mono">Legal</h3>
                         <ul className="flex flex-col gap-4">
                             <li>
-                                <a className="font-mono text-xl uppercase" href="#">
+                                <a className="font-heading text-xl uppercase" href="#">
                                     Privacy Policy
                                 </a>
                             </li>
                             <li>
-                                <a className="font-mono text-xl uppercase" href="#">
+                                <a className="font-heading text-xl uppercase" href="#">
                                     Terms of Service
                                 </a>
                             </li>
@@ -70,27 +70,27 @@ export default function Footer() {
                         <h3 className="color-gradient font-mono">Navigation</h3>
                         <ul className="flex flex-col gap-4">
                             <li>
-                                <a className="font-mono text-xl uppercase" href="#">
+                                <a className="font-heading text-xl uppercase" href="#">
                                     Team
                                 </a>
                             </li>
                             <li>
-                                <a className="font-mono text-xl uppercase" href="#">
+                                <a className="font-heading text-xl uppercase" href="#">
                                     Events
                                 </a>
                             </li>
                             <li>
-                                <a className="font-mono text-xl uppercase" href="#">
+                                <a className="font-heading text-xl uppercase" href="#">
                                     Resources
                                 </a>
                             </li>
                             <li>
-                                <a className="font-mono text-xl uppercase" href="#">
+                                <a className="font-heading text-xl uppercase" href="#">
                                     Contact
                                 </a>
                             </li>
                             <li>
-                                <a className="font-mono text-xl uppercase" href="#">
+                                <a className="font-heading text-xl uppercase" href="#">
                                     Sponsor
                                 </a>
                             </li>
