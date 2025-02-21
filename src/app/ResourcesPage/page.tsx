@@ -1,19 +1,24 @@
 "use client";
+import { FC, useState } from "react";
 import { ResourceCard } from "./components/ResourceCard";
 import SearchFilterBar from "./components/SearchFilterBar";
 import Button from "@/components/Button";
+import Pagination from "./components/Pagination";
+import { resources } from "./utils/resourcesData";
 
-const ResourcesPage = () => {
-  const resources = [
-    {
-      title: "Maximize Your Learning Potential",
-      category: "Academic",
-      course: "ITI1121",
-      rating: "70",
-      grade: "B",
-    },
-    // Add all other resource entries...
-  ];
+const ResourcesPage: FC = () => {
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const resourcesPerPage = 9; // Adjust the number of items per page for 3 rows (3 x 3)
+
+  // Calculate total pages
+  const totalPages = Math.ceil(resources.length / resourcesPerPage);
+
+  // Get the current resources to display
+  const currentResources = resources.slice(
+    (currentPage - 1) * resourcesPerPage,
+    currentPage * resourcesPerPage
+  );
 
   return (
     <div 
@@ -41,26 +46,33 @@ const ResourcesPage = () => {
         <SearchFilterBar />
 
         {/* Resources Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-          {resources.map((resource, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 mt-12">
+          {currentResources.map((resource, index) => (
             <ResourceCard key={index} {...resource} />
           ))}
         </div>
+
+        {/* Pagination */}
+        <Pagination 
+          currentPage={currentPage} 
+          totalPages={totalPages} 
+          onPageChange={setCurrentPage} 
+        />
       </div>
 
-        {/* CTA Section */}
-        <div className="mt-24 flex items-center justify-center gap-6">
-            <div className="flex flex-col items-center text-center">
-                <h2 className="text-l uppercase mb-8 font-heading">
-                    Interested in Contributing or Requesting Resources?
-                </h2>
-            </div>
-            <div className="flex items-center justify-center transform  -translate-y-4">
-                <Button href="#" className="font-heading uppercase text-xl">
-                    Join Our Discord
-                </Button>
-            </div>
+      {/* CTA Section */}
+      <div className="mt-8 flex items-center justify-center gap-6">
+        <div className="flex flex-col items-center text-center">
+          <h2 className="text-l uppercase mb-8 font-heading">
+            Interested in Contributing or Requesting Resources?
+          </h2>
         </div>
+        <div className="flex items-center justify-center transform -translate-y-4">
+          <Button href="#" className="font-heading uppercase text-xl">
+            Join Our Discord
+          </Button>
+        </div>
+      </div>
 
       {/* Background Effects */}
       <div className="fixed inset-0 pointer-events-none">
