@@ -22,7 +22,7 @@ export default function Navbar() {
                     <a className="my-4 font-heading text-xl uppercase" href="#">
                         Events
                     </a>
-                    <a className="my-4 font-heading text-xl uppercase" href="#">
+                    <a href="/ResourcesPage" className="my-4 font-heading text-xl uppercase">
                         Resources
                     </a>
                     <Link href="/ContactUsPage" className="my-4 font-heading text-xl uppercase">
