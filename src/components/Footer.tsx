@@ -1,10 +1,10 @@
 import Image from "next/image";
-import Button from "./Button";
+import IconButton from "./IconButton";
 
 export default function Footer() {
     return (
-        <footer className="mx-8 xl:mx-32 2xl:mx-64 my-8 bg-gray">
-            <div className="flex flex-col lg:flex-row justify-between [backdrop-filter:blur(100px)]">
+        <footer className="bg-gray mx-8 my-8 xl:mx-32 2xl:mx-64">
+            <div className="flex flex-col justify-between [backdrop-filter:blur(100px)] lg:flex-row">
                 <div className="flex items-center justify-center gap-4">
                     <Image
                         className="my-0"
@@ -21,7 +21,7 @@ export default function Footer() {
                         alt="SESA Logo Text"
                     />
                 </div>
-                <div className="flex flex-col md:flex-row md:gap-12 justify-center items-center">
+                <div className="flex flex-col items-center justify-center md:flex-row md:gap-12">
                     <a className="my-4 font-heading text-xl uppercase" href="#">
                         Team
                     </a>
@@ -48,7 +48,7 @@ export default function Footer() {
                     Student Association (SESA)
                 </p>
                 <div className="flex gap-4">
-                    <Button href="#" variant="outline" className="!p-3">
+                    <IconButton href="#" variant="outline">
                         {" "}
                         <Image
                             width="25"
@@ -56,8 +56,8 @@ export default function Footer() {
                             src="sesa-logo.svg"
                             alt="Instagram Logo"
                         />{" "}
-                    </Button>
-                    <Button href="#" variant="outline" className="!p-3">
+                    </IconButton>
+                    <IconButton href="#" variant="outline">
                         {" "}
                         <Image
                             width="25"
@@ -65,8 +65,8 @@ export default function Footer() {
                             src="sesa-logo.svg"
                             alt="Instagram Logo"
                         />{" "}
-                    </Button>
-                    <Button href="#" variant="outline" className="!p-3">
+                    </IconButton>
+                    <IconButton href="#" variant="outline">
                         {" "}
                         <Image
                             width="25"
@@ -74,8 +74,8 @@ export default function Footer() {
                             src="sesa-logo.svg"
                             alt="Instagram Logo"
                         />{" "}
-                    </Button>
-                    <Button href="#" variant="outline" className="!p-3">
+                    </IconButton>
+                    <IconButton href="#" variant="outline">
                         {" "}
                         <Image
                             width="25"
@@ -83,8 +83,8 @@ export default function Footer() {
                             src="sesa-logo.svg"
                             alt="Instagram Logo"
                         />{" "}
-                    </Button>
-                    <Button href="#" variant="outline" className="!p-3">
+                    </IconButton>
+                    <IconButton href="#" variant="outline">
                         {" "}
                         <Image
                             width="25"
@@ -92,8 +92,8 @@ export default function Footer() {
                             src="sesa-logo.svg"
                             alt="Instagram Logo"
                         />{" "}
-                    </Button>
-                    <Button href="#" variant="outline" className="!p-3">
+                    </IconButton>
+                    <IconButton href="#" variant="outline">
                         {" "}
                         <Image
                             width="25"
@@ -101,7 +101,7 @@ export default function Footer() {
                             src="sesa-logo.svg"
                             alt="Instagram Logo"
                         />{" "}
-                    </Button>
+                    </IconButton>
                 </div>
             </div>
         </footer>

@@ -16,7 +16,7 @@ const ContactForm: React.FC = () => {
     });
 
     const handleInputChange = (
-        e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+        e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
     ) => {
         const { name, value } = e.target;
         setFormData(prevState => ({
@@ -58,7 +58,7 @@ const ContactForm: React.FC = () => {
                             name="firstName"
                             value={formData.firstName}
                             onChange={handleInputChange}
-                            className="font-sans w-full rounded border border-gray-300 px-3 py-2 text-black placeholder:text-thistle focus:border-blueviolet-100 focus:ring-2 focus:ring-blueviolet-100"
+                            className="w-full rounded border border-gray-300 px-3 py-2 font-sans text-black placeholder:text-thistle focus:border-blueviolet-100 focus:ring-2 focus:ring-blueviolet-100"
                             placeholder="First name"
                             required
                         />
@@ -70,7 +70,7 @@ const ContactForm: React.FC = () => {
                             name="lastName"
                             value={formData.lastName}
                             onChange={handleInputChange}
-                            className="font-sans w-full rounded border border-gray-300 px-3 py-2 text-black placeholder:text-thistle focus:border-blueviolet-100 focus:ring-2 focus:ring-blueviolet-100"
+                            className="w-full rounded border border-gray-300 px-3 py-2 font-sans text-black placeholder:text-thistle focus:border-blueviolet-100 focus:ring-2 focus:ring-blueviolet-100"
                             placeholder="Last name"
                             required
                         />
@@ -88,7 +88,7 @@ const ContactForm: React.FC = () => {
                         name="email"
                         value={formData.email}
                         onChange={handleInputChange}
-                        className="font-sans w-full rounded border border-gray-300 px-3 py-2 text-black placeholder:text-thistle focus:border-blueviolet-100 focus:ring-2 focus:ring-blueviolet-100"
+                        className="w-full rounded border border-gray-300 px-3 py-2 font-sans text-black placeholder:text-thistle focus:border-blueviolet-100 focus:ring-2 focus:ring-blueviolet-100"
                         placeholder="Email address"
                         required
                     />
@@ -96,7 +96,7 @@ const ContactForm: React.FC = () => {
             </div>
 
             <div>
-                <h2 className="font-heading mb-4 text-[20px] text-thistle">
+                <h2 className="mb-4 font-heading text-[20px] text-thistle">
                     WHAT’S YOUR MESSAGE ABOUT?
                 </h2>
                 <div>
@@ -104,7 +104,7 @@ const ContactForm: React.FC = () => {
                         name="topic"
                         value={formData.topic}
                         onChange={handleInputChange}
-                        className={`font-sans w-full rounded border border-gray-300 px-3 py-2 ${
+                        className={`w-full rounded border border-gray-300 px-3 py-2 font-sans ${
                             formData.topic === "" ? "text-thistle" : "text-black"
                         } focus:border-blueviolet-100 focus:ring-2 focus:ring-blueviolet-100`}
                         required
@@ -132,7 +132,7 @@ const ContactForm: React.FC = () => {
                         name="message"
                         value={formData.message}
                         onChange={handleInputChange}
-                        className="font-sans h-32 w-full rounded border border-gray-300 px-3 py-2 text-black placeholder:text-thistle focus:border-blueviolet-100 focus:ring-2 focus:ring-blueviolet-100"
+                        className="h-32 w-full rounded border border-gray-300 px-3 py-2 font-sans text-black placeholder:text-thistle focus:border-blueviolet-100 focus:ring-2 focus:ring-blueviolet-100"
                         placeholder="Include as much detail as you can"
                         required
                     />
@@ -152,7 +152,7 @@ const ContactForm: React.FC = () => {
             <div className="flex justify-start">
                 <Button
                     type="submit"
-                    className="font-heading text-xl uppercase mt-4 flex items-center gap-3"
+                    className="mt-4 flex items-center gap-3 font-heading text-xl uppercase"
                 >
                     Send message
                 </Button>
