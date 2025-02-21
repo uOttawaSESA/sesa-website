@@ -20,6 +20,7 @@ export const ResourceCard = ({
     <div
       className="bg-gray-100 p-px hover:bg-gradient-to-r from-blueviolet-100 to-darkmagenta transition-all border border-gray-300 font-heading"
       onMouseEnter={() => setShowOpen(true)} // Show "Open" on hover
+      onMouseLeave={() => setShowOpen(false)} // Hide "Open" when not hovering
     >
       <div className="bg-gray-100 p-6 h-full relative">
         {/* Category Badges */}
