@@ -16,7 +16,7 @@ const ContactDetails = () => {
                 </span>
             </h1>
 
-            <p className="mt-4 max-w-[558px] font-sans text-[20px] text-thistle">
+            <p className="mt-4 max-w-[558px] font-mono text-[20px] text-thistle">
                 Questions about our organization? Interest in collaborating with us? Send a message
                 to our email, or complete the inquiry form, and we’ll respond as soon as possible.
             </p>

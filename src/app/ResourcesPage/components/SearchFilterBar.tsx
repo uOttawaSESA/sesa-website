@@ -2,7 +2,6 @@ import Image from "next/image";
 import { useState } from "react";
 
 export const SearchFilterBar = () => {
-  // State for filter and sort options
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [filterOptions, setFilterOptions] = useState<{
     course: string;
@@ -20,11 +19,13 @@ export const SearchFilterBar = () => {
 
   const [sortOption, setSortOption] = useState<string>("relevance");
 
-  // State for showing the dropdowns
   const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false);
   const [isSortOpen, setIsSortOpen] = useState<boolean>(false);
 
-  const handleFilterChange = (e: React.ChangeEvent<HTMLSelectElement>, key: keyof typeof filterOptions) => {
+  const handleFilterChange = (
+    e: React.ChangeEvent<HTMLSelectElement>,
+    key: keyof typeof filterOptions
+  ) => {
     setFilterOptions({ ...filterOptions, [key]: e.target.value });
     setIsFilterOpen(false); // Close filter dropdown after selection
   };
@@ -66,11 +67,14 @@ export const SearchFilterBar = () => {
 
         <div className="flex gap-6 ml-4">
           <div className="relative">
-            <button className="flex items-center gap-2 uppercase text-thistle" onClick={toggleFilterDropdown}>
+            <button
+              className="flex items-center gap-2 uppercase text-thistle"
+              onClick={toggleFilterDropdown}
+            >
               Filter <span className="text-xl">▾</span>
             </button>
             {isFilterOpen && (
-              <div className="absolute right-0 mt-1 w-48 bg-gradient-to-r from-blueviolet-100 to-darkmagenta p-2 rounded shadow-md text-thistle">
+              <div className="absolute right-0 mt-1 w-72 bg-gradient-to-r from-blueviolet-100 to-darkmagenta p-2 rounded shadow-md text-thistle z-10">
                 {Object.entries(filterOptions).map(([key, value]) => (
                   <div className="mb-2" key={key}>
                     <label htmlFor={key} className="block text-sm">
@@ -130,11 +134,14 @@ export const SearchFilterBar = () => {
           </div>
 
           <div className="relative">
-            <button className="flex items-center gap-2 uppercase text-thistle" onClick={toggleSortDropdown}>
+            <button
+              className="flex items-center gap-2 uppercase text-thistle"
+              onClick={toggleSortDropdown}
+            >
               Sort <span className="text-xl">▾</span>
             </button>
             {isSortOpen && (
-              <div className="absolute right-0 mt-1 w-48 bg-gradient-to-r from-blueviolet-100 to-darkmagenta p-2 rounded shadow-md text-thistle">
+              <div className="absolute right-0 mt-1 w-72 bg-gradient-to-r from-blueviolet-100 to-darkmagenta p-2 rounded shadow-md text-thistle z-10">
                 <div className="mb-2">
                   <label htmlFor="sort" className="block text-sm">
                     Sort by
