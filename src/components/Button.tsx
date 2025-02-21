@@ -1,12 +1,15 @@
 import { AnchorHTMLAttributes, forwardRef } from "react";
 
 export interface ButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-    variant?: "outline" | "fill" | "ghost" | undefined;
+    variant?: "outline" | "fill" | "ghost";
+    disabled?: boolean;
 }
 
 const Button = forwardRef<HTMLAnchorElement, ButtonProps>(
-    ({ children, variant = "fill", className, ...rest }, ref) => {
+    ({ children, variant = "fill", className, disabled, ...rest }, ref) => {
         const baseStyle = "px-6 py-2";
+
+        const disabledClass = "opacity-50 cursor-not-allowed pointer-events-none";
 
         switch (variant) {
             case "fill":
@@ -14,8 +17,8 @@ const Button = forwardRef<HTMLAnchorElement, ButtonProps>(
                     <a
                         role="button"
                         ref={ref}
-                        className={`${baseStyle} fill-gradient ${className}`}
-                        {...rest}
+                        className={`${baseStyle} fill-gradient ${className} ${disabled ? disabledClass : ""}`}
+                        {...(disabled ? {} : rest)}
                     >
                         {children}
                     </a>
@@ -25,8 +28,8 @@ const Button = forwardRef<HTMLAnchorElement, ButtonProps>(
                     <a
                         role="button"
                         ref={ref}
-                        className={`${baseStyle} outline-gradient ${className}`}
-                        {...rest}
+                        className={`${baseStyle} outline-gradient ${className} ${disabled ? disabledClass : ""}`}
+                        {...(disabled ? {} : rest)}
                     >
                         {children}
                     </a>
@@ -36,8 +39,8 @@ const Button = forwardRef<HTMLAnchorElement, ButtonProps>(
                     <a
                         role="button"
                         ref={ref}
-                        className={`${baseStyle} color-gradient ${className}`}
-                        {...rest}
+                        className={`${baseStyle} color-gradient ${className} ${disabled ? disabledClass : ""}`}
+                        {...(disabled ? {} : rest)}
                     >
                         {children}
                     </a>

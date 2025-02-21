@@ -6,10 +6,7 @@ import Button from "@/components/Button";
 const ContactDetails = () => {
     return (
         <div className="flex-1">
-            <div className="!bg-clip-text font-sans text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#6E1CB0,_#8E1A7D)]">
-                Contact us
-            </div>
-
+            <div className="color-gradient font-mono">Contact us</div>
             <h1 className="mt-4 text-[48px] uppercase">
                 Get in{" "}
                 <span className="relative [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]">
@@ -17,7 +14,7 @@ const ContactDetails = () => {
                 </span>
             </h1>
 
-            <p className="mt-4 max-w-[558px] font-sans text-[20px] text-thistle">
+            <p className="mt-4 max-w-[558px] font-mono text-[20px] text-thistle">
                 Questions about our organization? Interest in collaborating with us? Send a message
                 to our email, or complete the inquiry form, and we’ll respond as soon as possible.
             </p>
