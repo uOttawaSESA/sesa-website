@@ -4,7 +4,7 @@ import Button from "./Button";
 export default function Footer() {
     return (
         <footer className="bg-gray mx-8 my-8 flex flex-col gap-4 xl:mx-32 2xl:mx-64">
-            <div className="grid grid-cols-1 gap-4 text-center sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-1 gap-4 text-center sm:grid-cols-2 sm:text-left lg:grid-cols-4">
                 <div className="flex flex-col gap-4">
                     <h3 className="color-gradient font-mono">Contact</h3>
                     <p className="font-mono text-gray-400">
@@ -64,7 +64,7 @@ export default function Footer() {
                 </div>
                 <div className="flex flex-col gap-4">
                     <h3 className="color-gradient font-mono">Socials</h3>
-                    <div className="flex justify-center gap-2">
+                    <div className="flex justify-center gap-2 sm:justify-start">
                         <Button
                             className="!p-3"
                             variant="outline"
