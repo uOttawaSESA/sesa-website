@@ -7,7 +7,8 @@ export default function Hero() {
             {/* Background Gradient */}
             <div className="absolute inset-0" />
 
-            <div className="grid-overlay md:h-[43.93rem] md:w-[53vw]"></div>
+            {/* Grid Gradient Back */}
+            <div className="grid-overlay-right md:h-[43.93rem] md:w-[53vw]"></div>
 
             {/* Content Container */}
             <div className="relative z-10 max-w-2xl">

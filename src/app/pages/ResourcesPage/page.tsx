@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import ModeToggle from "./components/ModeToggle";
 import RowSelector from "./components/RowSelector";
 import ResourceList from "./components/ResourceList";
+import Image from "next/image";
 
 const ResourcesPage: FC = () => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -23,7 +24,7 @@ const ResourcesPage: FC = () => {
     );
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-gray-100 via-blueviolet-200 to-darkmagenta">
+        <div className="min-h-screen bg-gradient-to-b from-gray-100 via-blueviolet-200 to-[#361D49]">
             {/* Main Content Container */}
             <div className="container relative z-10 mx-auto px-4 py-8">
                 <Header />
@@ -62,6 +63,51 @@ const ResourcesPage: FC = () => {
                     <Button href="#" className="font-heading text-xl uppercase">
                         Join Our Discord
                     </Button>
+                </div>
+            </div>
+
+            {/* Ange quote section */}
+            <div className="my-36 flex h-[45rem] items-center justify-start gap-12 align-middle">
+                {/* Grid Gradient Back */}
+                <div className="grid-overlay-left md:h-[43.93rem] md:w-[53vw]"></div>
+
+                <div className="relative z-10 lg:block">
+                    <Image
+                        src="/resources-page/ange-quote.png"
+                        alt="SESA Group Photo"
+                        className="h-[500px] w-auto object-contain"
+                        width={703}
+                        height={700}
+                    />
+                </div>
+
+                <div className="max-w-lg text-left text-white">
+                    <p className="font-heading text-2xl">
+                        “TRUE EDUCATION IS BORN WHERE{" "}
+                        <span className="[background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]">
+                            KNOWLEDGE MEETS ACCESSIBILITY.
+                        </span>{" "}
+                        SESA’S ACADEMIC TEAM IS PROUD TO STAND AT THAT INTERSECTION.”
+                    </p>
+                    <div className="my-3 flex items-center gap-4">
+                        <Image
+                            src="/imgs/team/ange.png"
+                            alt="Ange Emmanuel"
+                            className="h-14 w-14 rounded-full object-cover"
+                            width={50}
+                            height={50}
+                        />
+                        <div>
+                            <p className="mt-4 font-bold">Ange Emmanuel</p>
+                            <p className="text-sm opacity-70">Academic Lead</p>
+                        </div>
+                    </div>
+                    {/* Call To Action Button */}
+                    <div className="mt-6">
+                        <Button href="#" className="font-heading text-lg uppercase">
+                            Join Our Team
+                        </Button>
+                    </div>
                 </div>
             </div>
         </div>

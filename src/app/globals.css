@@ -89,7 +89,7 @@ select::placeholder {
     font-size: 16px;
 }
 
-.grid-overlay {
+.grid-overlay-right {
     position: absolute;
     right: 0;
     background-size: 50px 50px;
@@ -103,5 +103,22 @@ select::placeholder {
         rgba(0, 0, 0, 0.3) 40%,
         rgba(0, 0, 0, 0.7) 70%,
         black 100%
+    );
+}
+
+.grid-overlay-left {
+    position: absolute;
+    left: 0;
+    background-size: 50px 50px;
+    background-image:
+        linear-gradient(to right, #a122af 3px, transparent 3px),
+        linear-gradient(to bottom, #a122af 3px, transparent 3px);
+    mask-image: linear-gradient(
+        to right,
+        black 0%,
+        rgba(0, 0, 0, 0.7) 30%,
+        rgba(0, 0, 0, 0.3) 60%,
+        rgba(0, 0, 0, 0.05) 90%,
+        transparent 100%
     );
 }
