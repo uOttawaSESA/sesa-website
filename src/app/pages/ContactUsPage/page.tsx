@@ -2,7 +2,7 @@
 
 import ContactForm from "./components/ContactForm";
 import ContactDetails from "./components/ContactDetails";
-import "../globals.css";
+// import "../globals.css";
 
 const ContactUsPage: React.FC = () => {
     return (

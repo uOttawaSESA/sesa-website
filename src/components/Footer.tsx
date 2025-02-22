@@ -25,14 +25,14 @@ export default function Footer() {
                     className="my-0"
                     width="50"
                     height="50"
-                    src="sesa-logo.svg"
+                    src="/sesa-logo.svg"
                     alt="SESA Logo"
                 />
                 <Image
                     className="my-0"
                     width="109"
                     height="25"
-                    src="logo-text.svg"
+                    src="/logo-text.svg"
                     alt="SESA Logo Text"
                 />
             </div>
@@ -106,7 +106,7 @@ export default function Footer() {
                                 target="_blank"
                             >
                                 <Image
-                                    src="icons/instagram-plain.svg"
+                                    src="/icons/instagram-plain.svg"
                                     width={25}
                                     height={25}
                                     alt="Instagram Logo"
@@ -119,7 +119,7 @@ export default function Footer() {
                                 target="_blank"
                             >
                                 <Image
-                                    src="icons/discord-plain.svg"
+                                    src="/icons/discord-plain.svg"
                                     width={25}
                                     height={25}
                                     alt="Discord Logo"
@@ -132,7 +132,7 @@ export default function Footer() {
                                 target="_blank"
                             >
                                 <Image
-                                    src="icons/linkedin-plain.svg"
+                                    src="/icons/linkedin-plain.svg"
                                     width={25}
                                     height={25}
                                     alt="LinkedIn Logo"
@@ -145,7 +145,7 @@ export default function Footer() {
                                 target="_blank"
                             >
                                 <Image
-                                    src="icons/youtube-plain.svg"
+                                    src="/icons/youtube-plain.svg"
                                     width={25}
                                     height={25}
                                     alt="YouTube Logo"

@@ -11,7 +11,7 @@ export default function Navbar() {
                         className="my-0"
                         width="50"
                         height="50"
-                        src="sesa-logo.svg"
+                        src="/sesa-logo.svg"
                         alt="SESA Logo"
                     />
                 </Link>
@@ -22,10 +22,13 @@ export default function Navbar() {
                     <a className="my-4 font-heading text-xl uppercase" href="#">
                         Events
                     </a>
-                    <a href="/ResourcesPage" className="my-4 font-heading text-xl uppercase">
+                    <a href="/pages/ResourcesPage" className="my-4 font-heading text-xl uppercase">
                         Resources
                     </a>
-                    <Link href="/ContactUsPage" className="my-4 font-heading text-xl uppercase">
+                    <Link
+                        href="/pages/ContactUsPage"
+                        className="my-4 font-heading text-xl uppercase"
+                    >
                         Contact
                     </Link>
                 </div>
