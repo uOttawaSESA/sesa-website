@@ -33,7 +33,6 @@ const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange
             >
                 <Image
                     src="/resources-page/arrow_backword.svg"
-                    src="/resources-page/arrow_backword.svg"
                     alt="Previous"
                     width={28}
                     height={28}
