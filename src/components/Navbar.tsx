@@ -4,19 +4,37 @@ import Image from "next/image";
 import Button from "./Button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-/* const gradientBorderClass = `
-  relative
-  before:absolute before:inset-0
-  before:p-[1px]
-  before:bg-gradient-to-r before:from-[rgba(136,36,220,0.7)] before:to-[rgba(177,33,157,0.7)]
-  before:content-['']
-  before:transition-all
-  hover:before:rounded-3xl
-`; */
+import { useState } from "react";
+import Dropdown from "./Dropdown";
 
 export default function Navbar() {
     const pathname = usePathname();
+    const [selectedLang, setSelectedLang] = useState("EN");
+    const [isOpen, setIsOpen] = useState(false);
+
+    const gradientBorderClass = `
+        border-[1px]
+        border-solid
+        [border-image:linear-gradient(55deg,rgba(136,36,220,0.7)_41.93%,rgba(177,33,157,0.7)_81.89%)_1]
+    `;
+
+    const languageItems = [
+        {
+            label: "EN",
+            value: "EN",
+            onClick: () => setSelectedLang("EN"),
+        },
+        {
+            label: "FR",
+            value: "FR",
+            onClick: () => setSelectedLang("FR"),
+        },
+    ];
+
+    const handleItemClick = (onClick: () => void) => {
+        onClick();
+        setIsOpen(false);
+    };
 
     const isActivePage = (path: string) => {
         return pathname === path;
@@ -81,9 +99,29 @@ export default function Navbar() {
                 </nav>
 
                 <div className="flex items-center gap-4">
-                    <Button variant="outline" className="font-heading text-base uppercase">
-                        FR
-                    </Button>
+                    <div className="relative">
+                        <button
+                            onClick={() => setIsOpen(!isOpen)}
+                            className={`${gradientBorderClass} flex items-center gap-2 bg-transparent px-6 py-3 font-heading text-base uppercase text-white`}
+                        >
+                            {selectedLang}
+                            <Image
+                                src="/navbar/caret-down.svg"
+                                alt="Language selector"
+                                width={12}
+                                height={12}
+                                className={`transition-transform duration-200 ${
+                                    isOpen ? "rotate-180" : ""
+                                }`}
+                            />
+                        </button>
+
+                        <Dropdown
+                            items={languageItems}
+                            isOpen={isOpen}
+                            onItemClick={handleItemClick}
+                        />
+                    </div>
                     <Button className="font-heading text-base uppercase">Sponsor us</Button>
                 </div>
             </header>

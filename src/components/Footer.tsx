@@ -75,17 +75,26 @@ export default function Footer() {
                                 </a>
                             </li>
                             <li>
-                                <a className="font-heading text-xl uppercase" href="#">
+                                <a
+                                    className="font-heading text-xl uppercase"
+                                    href="/pages/EventsPage"
+                                >
                                     Events
                                 </a>
                             </li>
                             <li>
-                                <a className="font-heading text-xl uppercase" href="#">
+                                <a
+                                    className="font-heading text-xl uppercase"
+                                    href="/pages/ResourcesPage"
+                                >
                                     Resources
                                 </a>
                             </li>
                             <li>
-                                <a className="font-heading text-xl uppercase" href="#">
+                                <a
+                                    className="font-heading text-xl uppercase"
+                                    href="/pages/ContactUsPage"
+                                >
                                     Contact
                                 </a>
                             </li>

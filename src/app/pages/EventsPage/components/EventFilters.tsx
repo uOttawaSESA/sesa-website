@@ -1,7 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import Button from "@/components/Button";
+
+const gradientBorderClass = `
+    border-[1px]
+    border-solid
+    [border-image:linear-gradient(55deg,rgba(136,36,220,0.7)_41.93%,rgba(177,33,157,0.7)_81.89%)_1]
+`;
 
 type EventType = "All" | "Workshop" | "Networking Event" | "Social Event" | "Academic Support";
 type TimeFilter = "All" | "Past" | "Today" | "Upcoming";
@@ -54,43 +61,40 @@ const EventFilters: React.FC<{
 
             {/* Right Side: Event Type Dropdown */}
             <div className="relative">
-                {/* Dropdown Trigger Button */}
-                <Button
-                    variant="outline"
-                    className="flex items-center gap-2 font-heading uppercase text-white"
+                <button
+                    className="flex items-center gap-2 uppercase text-thistle"
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 >
-                    Filter
-                    <svg
-                        className={`h-4 w-4 transition-transform ${isDropdownOpen ? "rotate-180" : ""}`}
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M19 9l-7 7-7-7"
-                        />
-                    </svg>
-                </Button>
+                    {activeFilter}
+                    <Image
+                        src="/contact-page/arrows.svg"
+                        alt="Filter Arrow"
+                        width={16}
+                        height={16}
+                        className={`transition-transform duration-200 ${
+                            isDropdownOpen ? "rotate-180" : ""
+                        }`}
+                    />
+                </button>
 
-                {/* Dropdown Menu */}
                 {isDropdownOpen && (
-                    <div className="absolute right-0 z-10 mt-2 w-48 rounded-lg border border-gray-700 bg-gray-800 shadow-lg">
-                        {filters.map(filter => (
-                            <button
-                                key={filter}
-                                className={`w-full px-4 py-2 text-left font-heading text-sm uppercase text-white transition-all hover:bg-gray-700 ${
-                                    activeFilter === filter ? "bg-gray-700" : ""
-                                }`}
-                                onClick={() => handleFilterClick(filter)}
-                            >
-                                {filter}
-                            </button>
-                        ))}
+                    <div className="absolute right-0 z-20 mt-2 min-w-[18rem]">
+                        <div
+                            className={`${gradientBorderClass} bg-[rgba(27,27,27,0.3)] backdrop-blur-md backdrop-saturate-150`}
+                        >
+                            {filters.map(filter => (
+                                <button
+                                    key={filter}
+                                    onClick={() => {
+                                        handleFilterClick(filter);
+                                        setIsDropdownOpen(false);
+                                    }}
+                                    className="w-full px-6 py-3 text-left font-heading text-base uppercase text-white transition-colors duration-200 hover:bg-[rgba(27,27,27,0.4)]"
+                                >
+                                    {filter}
+                                </button>
+                            ))}
+                        </div>
                     </div>
                 )}
             </div>

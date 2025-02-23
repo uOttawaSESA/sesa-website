@@ -107,6 +107,18 @@ const ResourcesPage: FC = () => {
                         <Button href="#" className="font-heading text-lg uppercase">
                             Join Our Team
                         </Button>
+                        <div className="mt-6 flex items-center gap-2">
+                            <Image
+                                src="/resources-page/thumbsup.svg"
+                                alt="Thumbs Up"
+                                width={20}
+                                height={20}
+                                className="h-5 w-5"
+                            />
+                            <div className="font-[Monocode] leading-[100%] text-thistle">
+                                95% average helpfulness, 1000+ students helped
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

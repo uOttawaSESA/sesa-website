@@ -1,5 +1,12 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import Dropdown from "@/components/Dropdown";
+
+const gradientBorderClass = `
+    border-[1px]
+    border-solid
+    [border-image:linear-gradient(55deg,rgba(136,36,220,0.7)_41.93%,rgba(177,33,157,0.7)_81.89%)_1]
+`;
 
 export const SearchFilterBar = () => {
     const [searchTerm, setSearchTerm] = useState<string>("");
@@ -22,6 +29,23 @@ export const SearchFilterBar = () => {
     const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false);
     const [isSortOpen, setIsSortOpen] = useState<boolean>(false);
 
+    const filterRef = useRef<HTMLDivElement>(null);
+    const sortRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (filterRef.current && !filterRef.current.contains(event.target as Node)) {
+                setIsFilterOpen(false);
+            }
+            if (sortRef.current && !sortRef.current.contains(event.target as Node)) {
+                setIsSortOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+
     const handleFilterChange = (
         e: React.ChangeEvent<HTMLSelectElement>,
         key: keyof typeof filterOptions,
@@ -30,8 +54,8 @@ export const SearchFilterBar = () => {
         setIsFilterOpen(false); // Close filter dropdown after selection
     };
 
-    const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        setSortOption(e.target.value);
+    const handleSortChange = (value: string) => {
+        setSortOption(value);
         setIsSortOpen(false); // Close sort dropdown after selection
     };
 
@@ -66,105 +90,149 @@ export const SearchFilterBar = () => {
                 </div>
 
                 <div className="ml-4 flex gap-6">
-                    <div className="relative">
+                    <div className="relative" ref={filterRef}>
                         <button
                             className="flex items-center gap-2 uppercase text-thistle"
                             onClick={toggleFilterDropdown}
                         >
-                            Filter <span className="text-xl">▾</span>
+                            {Object.values(filterOptions).some(value => value !== "")
+                                ? "Filters Active"
+                                : "Filter"}
+                            <Image
+                                src="/contact-page/arrows.svg"
+                                alt="Filter Arrow"
+                                width={16}
+                                height={16}
+                                className={`transition-transform duration-200 ${
+                                    isFilterOpen ? "rotate-180" : ""
+                                }`}
+                            />
                         </button>
+
                         {isFilterOpen && (
-                            <div className="absolute right-0 z-10 mt-1 w-72 rounded bg-gradient-to-r from-blueviolet-100 to-darkmagenta p-2 text-thistle shadow-md">
-                                {Object.entries(filterOptions).map(([key, value]) => (
-                                    <div className="mb-2" key={key}>
-                                        <label htmlFor={key} className="block text-sm">
-                                            {key.charAt(0).toUpperCase() + key.slice(1)}
-                                        </label>
-                                        <select
-                                            id={key}
-                                            value={value}
-                                            onChange={e =>
-                                                handleFilterChange(
-                                                    e,
-                                                    key as keyof typeof filterOptions,
-                                                )
-                                            }
-                                            className="w-full rounded border bg-gray-100 p-1 text-thistle"
-                                        >
-                                            {key === "course" && (
-                                                <>
-                                                    <option value="">Select Course</option>
-                                                    <option value="ITI1100">ITI1100</option>
-                                                    <option value="CS101">CS101</option>
-                                                    <option value="MATH150">MATH150</option>
-                                                </>
-                                            )}
-                                            {key === "type" && (
-                                                <>
-                                                    <option value="">Select Type</option>
-                                                    <option value="academic">Academic</option>
-                                                    <option value="career">Career</option>
-                                                    <option value="technical">Technical</option>
-                                                </>
-                                            )}
-                                            {key === "format" && (
-                                                <>
-                                                    <option value="">Select Format</option>
-                                                    <option value="video">Video</option>
-                                                    <option value="pdf">PDF</option>
-                                                    <option value="website">Website</option>
-                                                </>
-                                            )}
-                                            {key === "language" && (
-                                                <>
-                                                    <option value="">Select Language</option>
-                                                    <option value="english">English</option>
-                                                    <option value="french">French</option>
-                                                </>
-                                            )}
-                                            {key === "tier" && (
-                                                <>
-                                                    <option value="">Select Tier</option>
-                                                    <option value="A">Tier A</option>
-                                                    <option value="B">Tier B</option>
-                                                    <option value="C">Tier C</option>
-                                                    <option value="D">Tier D</option>
-                                                </>
-                                            )}
-                                        </select>
-                                    </div>
-                                ))}
+                            <div className="absolute right-0 z-50 mt-2 min-w-[18rem]">
+                                <div
+                                    className={`${gradientBorderClass} bg-[rgba(27,27,27,0.3)] p-4 backdrop-blur-md backdrop-saturate-150`}
+                                >
+                                    {Object.entries(filterOptions).map(([key, value]) => (
+                                        <div className="mb-4 last:mb-0" key={key}>
+                                            <label
+                                                htmlFor={key}
+                                                className="mb-2 block font-heading text-base uppercase text-white"
+                                            >
+                                                {key.charAt(0).toUpperCase() + key.slice(1)}
+                                            </label>
+                                            <select
+                                                id={key}
+                                                value={value}
+                                                onChange={e =>
+                                                    handleFilterChange(
+                                                        e,
+                                                        key as keyof typeof filterOptions,
+                                                    )
+                                                }
+                                                className="w-full bg-[rgba(27,27,27,0.05)] px-3 py-2 font-heading text-base uppercase text-white focus:outline-none"
+                                            >
+                                                {key === "course" && (
+                                                    <>
+                                                        <option value="">Select Course</option>
+                                                        <option value="ITI1100">ITI1100</option>
+                                                        <option value="CS101">CS101</option>
+                                                        <option value="MATH150">MATH150</option>
+                                                    </>
+                                                )}
+                                                {key === "type" && (
+                                                    <>
+                                                        <option value="">Select Type</option>
+                                                        <option value="academic">Academic</option>
+                                                        <option value="career">Career</option>
+                                                        <option value="technical">Technical</option>
+                                                    </>
+                                                )}
+                                                {key === "format" && (
+                                                    <>
+                                                        <option value="">Select Format</option>
+                                                        <option value="video">Video</option>
+                                                        <option value="pdf">PDF</option>
+                                                        <option value="website">Website</option>
+                                                    </>
+                                                )}
+                                                {key === "language" && (
+                                                    <>
+                                                        <option value="">Select Language</option>
+                                                        <option value="english">English</option>
+                                                        <option value="french">French</option>
+                                                    </>
+                                                )}
+                                                {key === "tier" && (
+                                                    <>
+                                                        <option value="">Select Tier</option>
+                                                        <option value="A">Tier A</option>
+                                                        <option value="B">Tier B</option>
+                                                        <option value="C">Tier C</option>
+                                                        <option value="D">Tier D</option>
+                                                    </>
+                                                )}
+                                            </select>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         )}
                     </div>
 
-                    <div className="relative">
+                    <div className="relative" ref={sortRef}>
                         <button
                             className="flex items-center gap-2 uppercase text-thistle"
                             onClick={toggleSortDropdown}
                         >
-                            Sort <span className="text-xl">▾</span>
+                            {sortOption === "relevance"
+                                ? "Relevance"
+                                : sortOption === "rating"
+                                  ? "Most Highly Rated"
+                                  : sortOption === "alphabetical"
+                                    ? "Alphabetical Order"
+                                    : sortOption === "recent"
+                                      ? "Most Recently Added"
+                                      : "Sort"}
+                            <Image
+                                src="/contact-page/arrows.svg"
+                                alt="Sort Arrow"
+                                width={16}
+                                height={16}
+                                className={`transition-transform duration-200 ${
+                                    isSortOpen ? "rotate-180" : ""
+                                }`}
+                            />
                         </button>
-                        {isSortOpen && (
-                            <div className="absolute right-0 z-10 mt-1 w-72 rounded bg-gradient-to-r from-blueviolet-100 to-darkmagenta p-2 text-thistle shadow-md">
-                                <div className="mb-2">
-                                    <label htmlFor="sort" className="block text-sm">
-                                        Sort by
-                                    </label>
-                                    <select
-                                        id="sort"
-                                        value={sortOption}
-                                        onChange={handleSortChange}
-                                        className="w-full rounded border bg-gray-100 p-1 text-thistle"
-                                    >
-                                        <option value="relevance">Relevance</option>
-                                        <option value="rating">Most Highly Rated</option>
-                                        <option value="alphabetical">Alphabetical Order</option>
-                                        <option value="recent">Most Recently Added</option>
-                                    </select>
-                                </div>
-                            </div>
-                        )}
+
+                        <Dropdown
+                            items={[
+                                {
+                                    label: "Relevance",
+                                    value: "relevance",
+                                    onClick: () => handleSortChange("relevance"),
+                                },
+                                {
+                                    label: "Most Highly Rated",
+                                    value: "rating",
+                                    onClick: () => handleSortChange("rating"),
+                                },
+                                {
+                                    label: "Alphabetical Order",
+                                    value: "alphabetical",
+                                    onClick: () => handleSortChange("alphabetical"),
+                                },
+                                {
+                                    label: "Most Recently Added",
+                                    value: "recent",
+                                    onClick: () => handleSortChange("recent"),
+                                },
+                            ]}
+                            isOpen={isSortOpen}
+                            onItemClick={onClick => onClick()}
+                            buttonClassName="w-full px-6 py-3 text-left font-heading text-base uppercase text-white"
+                        />
                     </div>
                 </div>
             </div>

@@ -16,8 +16,9 @@ export default function Hero() {
                     uOttawa Software Engineering Students Association
                 </p>
                 <h1 className="mt-4 font-heading text-5xl leading-tight">
-                    <span className="relative w-full [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]">
+                    <span className="relative inline-block">
                         BRIDGING THE GAP
+                        <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                     </span>{" "}
                     <br />
                     BETWEEN STUDENTS <br />

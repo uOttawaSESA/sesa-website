@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Button from "@/components/Button";
+import Dropdown from "@/components/Dropdown";
 
 const gradientBorderClass = `
   border-[1px]
@@ -35,6 +36,35 @@ const ContactForm: React.FC = () => {
         topic: "",
         message: "",
     });
+
+    const [isTopicOpen, setIsTopicOpen] = useState(false);
+
+    const topicItems = [
+        {
+            label: "General Inquiry",
+            value: "general",
+            onClick: () => {
+                setFormData(prev => ({ ...prev, topic: "general" }));
+                setIsTopicOpen(false);
+            },
+        },
+        {
+            label: "Partnership",
+            value: "partnership",
+            onClick: () => {
+                setFormData(prev => ({ ...prev, topic: "partnership" }));
+                setIsTopicOpen(false);
+            },
+        },
+        {
+            label: "Support",
+            value: "support",
+            onClick: () => {
+                setFormData(prev => ({ ...prev, topic: "support" }));
+                setIsTopicOpen(false);
+            },
+        },
+    ];
 
     const handleInputChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
@@ -125,36 +155,31 @@ const ContactForm: React.FC = () => {
 
                 <div className={gradientBorderClass}>
                     <div className="relative">
-                        <select
-                            name="topic"
-                            value={formData.topic}
-                            onChange={handleInputChange}
-                            className={`${inputClass} appearance-none pr-10 ${
-                                formData.topic === "" ? "text-thistle" : "text-white"
-                            }`}
-                            required
+                        <button
+                            type="button"
+                            onClick={() => setIsTopicOpen(!isTopicOpen)}
+                            className={`${inputClass} flex items-center justify-between`}
                         >
-                            <option value="" className="text-thistle">
-                                Select a topic
-                            </option>
-                            <option value="general" className="text-white">
-                                General Inquiry
-                            </option>
-                            <option value="partnership" className="text-white">
-                                Partnership
-                            </option>
-                            <option value="support" className="text-white">
-                                Support
-                            </option>
-                        </select>
-                        <div className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2">
+                            {formData.topic
+                                ? topicItems.find(item => item.value === formData.topic)?.label
+                                : "Select a topic"}
                             <Image
                                 src="/contact-page/arrows.svg"
                                 alt="Select Arrow"
                                 width={16}
                                 height={16}
+                                className={`transition-transform duration-200 ${
+                                    isTopicOpen ? "rotate-180" : ""
+                                }`}
                             />
-                        </div>
+                        </button>
+
+                        <Dropdown
+                            items={topicItems}
+                            isOpen={isTopicOpen}
+                            onItemClick={(onClick: () => void) => onClick()}
+                            buttonClassName="w-full px-6 py-3 text-left font-sans text-base text-thistle"
+                        />
                     </div>
                 </div>
             </div>
@@ -169,7 +194,7 @@ const ContactForm: React.FC = () => {
                         name="message"
                         value={formData.message}
                         onChange={handleInputChange}
-                        className={`${inputClass} md: h-32 h-48`}
+                        className={`${inputClass} md: h-48`}
                         placeholder="Include as much detail as you can"
                         required
                     />

@@ -48,18 +48,16 @@ export default {
             },
             animation: {
                 "spin-slow": "spin 30s linear infinite",
-                highlight: "highlight 0.5s ease-out forwards",
+                highlight: "highlight 0.5s ease-out 1s forwards",
             },
             keyframes: {
                 highlight: {
                     "0%": {
                         width: "0",
-                        right: "0",
-                        left: "auto",
+                        left: "100%",
                     },
                     "100%": {
                         width: "100%",
-                        right: "auto",
                         left: "0",
                     },
                 },
