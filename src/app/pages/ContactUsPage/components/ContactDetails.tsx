@@ -20,14 +20,14 @@ const ContactDetails = () => {
                     Get in{" "}
                     <span className="relative inline-block">
                         Touch
-                        <div className="absolute inset-0 z-10 bg-gradient-to-r from-blueviolet-100/25 to-darkmagenta/25"></div>
+                        <div className="absolute right-0 top-0 h-full w-0 animate-highlight bg-gradient-to-r from-blueviolet-100/25 to-darkmagenta/25"></div>
                     </span>
                 </h1>
 
                 <p className="mt-4 max-w-[558px] font-sans text-xl text-thistle">
                     Questions about our organization? Interest in collaborating with us? Send a
-                    message to our email, or complete the inquiry form, and we'll respond as soon as
-                    possible.
+                    message to our email, or complete the inquiry form, and we&apos;ll respond as
+                    soon as possible.
                 </p>
 
                 <Button

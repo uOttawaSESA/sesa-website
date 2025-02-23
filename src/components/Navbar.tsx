@@ -5,7 +5,7 @@ import Button from "./Button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const gradientBorderClass = `
+/* const gradientBorderClass = `
   relative
   before:absolute before:inset-0
   before:p-[1px]
@@ -13,7 +13,7 @@ const gradientBorderClass = `
   before:content-['']
   before:transition-all
   hover:before:rounded-3xl
-`;
+`; */
 
 export default function Navbar() {
     const pathname = usePathname();
