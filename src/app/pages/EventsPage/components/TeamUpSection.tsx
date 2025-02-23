@@ -10,7 +10,7 @@ const TeamUpSection: React.FC = () => {
 
             <div className="relative z-10 lg:block">
                 <Image
-                    src="/imgs/Events/image.png"
+                    src="/imgs/Events/team-up.png"
                     alt="SESA Group Photo"
                     className="h-[500px] w-auto"
                     width={700}
