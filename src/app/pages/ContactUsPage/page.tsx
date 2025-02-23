@@ -6,16 +6,24 @@ import ContactDetails from "./components/ContactDetails";
 
 const ContactUsPage: React.FC = () => {
     return (
-        <div
-            className="min-h-screen p-8 font-heading text-white"
-            style={{
-                background: "linear-gradient(#1B1B1B, #701BB7, #8824DC, #B1219D)",
-            }}
-        >
-            <div className="mx-auto flex max-w-7xl flex-col gap-8 md:flex-row">
-                <ContactDetails />
-                <div className="flex-1">
-                    <ContactForm />
+        <div className="relative min-h-screen">
+            <div
+                className="absolute inset-0"
+                style={{
+                    background: "linear-gradient(to bottom right, #3b1e52, #2b1c39)",
+                }}
+            />
+
+            <div className="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-gray-100 to-transparent" />
+
+            <div className="md:pt-26 relative px-8 pb-16 pt-24 font-heading text-white md:px-12 md:pb-20 lg:px-16 xl:px-24">
+                <div className="mx-auto flex max-w-7xl flex-col gap-12 md:flex-row md:gap-16">
+                    <div className="flex flex-1 justify-center">
+                        <ContactDetails />
+                    </div>
+                    <div className="flex-1">
+                        <ContactForm />
+                    </div>
                 </div>
             </div>
         </div>

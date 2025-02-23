@@ -44,6 +44,9 @@ export default {
                 sans: ["var(--font-raleway)", "Arial", "sans-serif"],
                 mono: ["Monocode", "Courier New", "Courier", "monospace"],
             },
+            animation: {
+                "spin-slow": "spin 30s linear infinite",
+            },
         },
     },
     plugins: [],
