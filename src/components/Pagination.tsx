@@ -32,7 +32,7 @@ const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange
                 className={`flex items-center justify-center ${currentPage === 1 ? "cursor-not-allowed opacity-50" : ""}`}
             >
                 <Image
-                    src="/resources-page/arrow_backward.svg"
+                    src="/resources-page/arrow_backword.svg"
                     alt="Previous"
                     width={28}
                     height={28}
