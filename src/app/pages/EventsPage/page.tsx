@@ -1,3 +1,4 @@
+// app/events/page.jsx
 "use client";
 
 import React, { useState } from "react";
@@ -7,13 +8,15 @@ import EventsList from "./components/EventsList";
 import Pagination from "@/components/Pagination";
 import { events } from "./utils/eventData";
 import TeamUpSection from "./components/TeamUpSection";
+import ConnectSESA from "./components/ConnectSESA";
+import InfiniteCarousel from "./components/InfiniteCarousel";
 
 const parseEventDate = (dateString: string): Date => {
     const datePart = dateString.split(",").slice(1, 3).join(",").trim();
     return new Date(datePart);
 };
 
-const EventsPage: React.FC = () => {
+const EventsPage = () => {
     const [filteredEvents, setFilteredEvents] = useState(events);
     const [currentPage, setCurrentPage] = useState(1);
     const eventsPerPage = 3;
@@ -98,6 +101,11 @@ const EventsPage: React.FC = () => {
             </div>
 
             <TeamUpSection />
+            <ConnectSESA />
+
+            <div className="mb-32">
+                <InfiniteCarousel />
+            </div>
         </div>
     );
 };

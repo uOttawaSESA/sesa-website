@@ -122,3 +122,20 @@ select::placeholder {
         transparent 100%
     );
 }
+
+@keyframes infinite-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-infinite-scroll {
+    animation: infinite-scroll 25s linear infinite;
+}
+
+.animation-paused {
+    animation-play-state: paused;
+}

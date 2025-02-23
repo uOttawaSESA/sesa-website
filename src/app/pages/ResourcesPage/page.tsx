@@ -26,7 +26,7 @@ const ResourcesPage: FC = () => {
     return (
         <div className="min-h-screen bg-gradient-to-b from-gray-100 via-blueviolet-200 to-[#361D49]">
             {/* Main Content Container */}
-            <div className="container relative z-10 mx-auto px-4 py-8">
+            <div className="container relative z-10 mx-auto max-w-7xl px-4 py-8">
                 <Header />
                 <SearchFilterBar />
 
