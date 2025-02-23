@@ -122,3 +122,80 @@ select::placeholder {
         transparent 100%
     );
 }
+
+/*** MARKDOWN STYLING ***/
+/* Headings */
+.markdown h1 {
+    @apply mb-4 mt-8 font-heading text-3xl uppercase;
+}
+
+.markdown h2 {
+    @apply mb-3 mt-6 font-heading text-2xl uppercase;
+}
+
+.markdown h3 {
+    @apply mb-2 mt-4 font-heading text-xl uppercase;
+}
+
+.markdown h4 {
+    @apply mb-2 mt-4 font-heading text-lg uppercase;
+}
+
+.markdown h5 {
+    @apply mb-2 mt-4 font-heading text-base uppercase;
+}
+
+.markdown h6 {
+    @apply mb-2 mt-4 font-heading text-sm uppercase;
+}
+
+/* Paragraphs and links */
+.markdown p {
+    @apply mb-4 leading-relaxed;
+}
+
+.markdown a {
+    @apply text-blue-500 hover:underline;
+}
+
+/* Lists */
+.markdown ul {
+    @apply ml-6 list-disc;
+}
+
+.markdown ol {
+    @apply ml-6 list-decimal;
+}
+
+.markdown li {
+    @apply mb-1;
+}
+
+/* Blockquote */
+.markdown blockquote {
+    @apply my-4 border-l-4 border-gray-400 pl-4 italic;
+}
+
+/* Inline code and code blocks */
+.markdown code {
+    @apply rounded bg-gray-100 px-1 py-0.5 font-mono text-sm;
+}
+
+.markdown pre {
+    @apply my-4 overflow-auto rounded bg-gray-100 p-4;
+}
+
+/* Horizontal rule */
+.markdown hr {
+    @apply my-8 border-t border-gray-200;
+}
+
+/* (Optional) Tables */
+.markdown table {
+    @apply mb-4 w-full border-collapse;
+}
+
+.markdown th,
+.markdown td {
+    @apply border border-gray-300 px-4 py-2;
+}
