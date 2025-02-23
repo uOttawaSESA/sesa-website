@@ -13,6 +13,7 @@
         "prepare": "husky"
     },
     "dependencies": {
+        "framer-motion": "^12.4.7",
         "husky": "^9.1.7",
         "next": "15.1.7",
         "prettier": "^3.5.1",

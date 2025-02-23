@@ -46,6 +46,24 @@ export default {
                 sans: ["var(--font-raleway)", "Arial", "sans-serif"],
                 mono: ["Monocode", "Courier New", "Courier", "monospace"],
             },
+            animation: {
+                "spin-slow": "spin 30s linear infinite",
+                highlight: "highlight 0.5s ease-out forwards",
+            },
+            keyframes: {
+                highlight: {
+                    "0%": {
+                        width: "0",
+                        right: "0",
+                        left: "auto",
+                    },
+                    "100%": {
+                        width: "100%",
+                        right: "auto",
+                        left: "0",
+                    },
+                },
+            },
         },
     },
     plugins: [],

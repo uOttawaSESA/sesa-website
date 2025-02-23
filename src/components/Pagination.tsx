@@ -61,6 +61,7 @@ const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange
                 className={`flex items-center justify-center ${currentPage === totalPages ? "cursor-not-allowed opacity-50" : ""}`}
             >
                 <Image src="/resources-page/arrow_forward.svg" alt="Next" width={28} height={28} />
+
             </Button>
         </div>
     );
