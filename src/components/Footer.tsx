@@ -153,7 +153,7 @@ export default function Footer() {
                             </Button>
                         </div>
                     </div>
-                    <p className="text-left text-gray-400 sm:col-span-2">
+                    <p className="text-left text-sm text-gray-400 sm:col-span-2">
                         &copy; 2014&ndash;{new Date().getFullYear()} uOttawa Software Engineering
                         Student Association (SESA)
                     </p>
