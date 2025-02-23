@@ -32,7 +32,7 @@ const Header = () => {
                 </Button>
 
                 <div className="mt-4 font-mono text-base text-thistle">
-                    <p>Syncs with Apple or Google Calendar,</p>
+                    <p>Syncs with Apple, Outlook, Yahoo, or Google,</p>
                     <p>unsubscribe any time.</p>
                 </div>
             </div>

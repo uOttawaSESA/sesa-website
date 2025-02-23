@@ -6,6 +6,7 @@ import EventFilters from "./components/EventFilters";
 import EventsList from "./components/EventsList";
 import Pagination from "@/components/Pagination";
 import { events } from "./utils/eventData";
+import TeamUpSection from "./components/TeamUpSection";
 
 const parseEventDate = (dateString: string): Date => {
     const datePart = dateString.split(",").slice(1, 3).join(",").trim();
@@ -66,12 +67,7 @@ const EventsPage: React.FC = () => {
     const totalPages = Math.ceil(filteredEvents.length / eventsPerPage);
 
     return (
-        <div
-            className="min-h-screen p-8 font-heading text-white"
-            style={{
-                background: "linear-gradient(#1B1B1B, #701BB7, #8824DC, #B1219D)",
-            }}
-        >
+        <div className="min-h-screen bg-gradient-to-b from-gray-100 via-blueviolet-200 to-[#361D49] font-heading text-white">
             <div className="mx-auto max-w-7xl">
                 <Header />
                 <EventFilters
@@ -100,6 +96,8 @@ const EventsPage: React.FC = () => {
                     </>
                 )}
             </div>
+
+            <TeamUpSection />
         </div>
     );
 };
