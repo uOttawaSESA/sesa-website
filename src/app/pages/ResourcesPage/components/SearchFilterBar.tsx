@@ -50,7 +50,7 @@ export const SearchFilterBar = () => {
             <div className="flex items-center justify-between bg-gray-100 p-4">
                 <div className="flex flex-1 items-center gap-4 text-thistle">
                     <Image
-                        src="/resources-page/search_24dp_2C2C2C_FILL0_wght400_GRAD0_opsz24 1.svg"
+                        src="/resources-page/search.svg"
                         alt="Search"
                         width={24}
                         height={24}

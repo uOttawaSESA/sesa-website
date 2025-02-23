@@ -32,7 +32,7 @@ const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange
                 className={`flex items-center justify-center ${currentPage === 1 ? "cursor-not-allowed opacity-50" : ""}`}
             >
                 <Image
-                    src="/resources-page/arrow_backward_ios_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24 2.svg"
+                    src="/resources-page/arrow_backward.svg"
                     alt="Previous"
                     width={28}
                     height={28}
@@ -60,12 +60,7 @@ const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange
                 disabled={currentPage === totalPages}
                 className={`flex items-center justify-center ${currentPage === totalPages ? "cursor-not-allowed opacity-50" : ""}`}
             >
-                <Image
-                    src="/resources-page/arrow_forward_ios_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24 2 (1).svg"
-                    alt="Next"
-                    width={28}
-                    height={28}
-                />
+                <Image src="/resources-page/arrow_forward.svg" alt="Next" width={28} height={28} />
             </Button>
         </div>
     );

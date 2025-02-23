@@ -2,7 +2,7 @@
 
 import React from "react";
 import EventCard from "./EventCard";
-import { Event } from "../utils/eventData";
+import { Event } from "../utils/types";
 
 interface EventsListProps {
     events: Event[];

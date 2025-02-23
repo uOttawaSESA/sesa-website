@@ -45,7 +45,7 @@ export const ResourceCard = ({
                         {/* Thumbs Up SVG with Tooltip */}
                         <div className="group relative flex items-center gap-1">
                             <Image
-                                src="/resources-page/thumb_up_24dp_000000_FILL0_wght400_GRAD0_opsz24 1.svg"
+                                src="/resources-page/thumbsup.svg"
                                 alt="Thumbs Up"
                                 width={20}
                                 height={20}
@@ -60,7 +60,7 @@ export const ResourceCard = ({
                         {/* Document SVG with Tooltip */}
                         <div className="group relative flex items-center gap-1">
                             <Image
-                                src="/resources-page/description_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24 (1) 1.svg"
+                                src="/resources-page/description.svg"
                                 alt="Document"
                                 width={20}
                                 height={20}
