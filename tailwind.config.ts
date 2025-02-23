@@ -35,6 +35,8 @@ export default {
                 "8xs": "5px",
             },
             fontSize: {
+                xs: "0.75rem",
+                sm: "0.875rem",
                 base: "16px",
                 xl: "20px",
                 inherit: "inherit",
