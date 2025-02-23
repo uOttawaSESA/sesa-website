@@ -32,7 +32,7 @@ const Header = () => {
 
                 <div className="mt-4 font-mono text-base text-thistle">
                     <p>Syncs with Apple or Google Calendar,</p>
-                    <p>unsubscribe at any time.</p>
+                    <p>unsubscribe any time.</p>
                 </div>
             </div>
         </div>

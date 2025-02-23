@@ -2,7 +2,7 @@
 import { FC, useState } from "react";
 import SearchFilterBar from "./components/SearchFilterBar";
 import Button from "@/components/Button";
-import Pagination from "./components/Pagination";
+import Pagination from "../../../components/Pagination";
 import { resources } from "./utils/resourcesData";
 import Header from "./components/Header";
 import ModeToggle from "./components/ModeToggle";
