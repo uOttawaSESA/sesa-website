@@ -1,7 +1,9 @@
 export interface Event {
     title: string;
     type: string;
-    date: string;
+    date: Date;
+    startTime: Date;
+    endTime: Date;
     location: string;
     description: string;
     image: string;

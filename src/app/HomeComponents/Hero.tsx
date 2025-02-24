@@ -4,16 +4,13 @@ import Button from "@/components/Button";
 export default function Hero() {
     return (
         <section className="relative flex h-[80vh] w-full items-center justify-between text-white md:pe-0 md:ps-32 2xl:pe-0 2xl:ps-96">
-            {/* Background Gradient */}
-            <div className="absolute inset-0" />
-
             {/* Grid Gradient Back */}
             <div className="grid-overlay-right md:h-[43.93rem] md:w-[53vw]"></div>
 
             {/* Content Container */}
             <div className="relative z-10 max-w-2xl">
                 <p className="font-monocode relative inline-block !bg-clip-text text-left text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
-                    uOttawa Software Engineering Students Association
+                    We are SESA
                 </p>
                 <h1 className="mt-4 font-heading text-5xl leading-tight">
                     <span className="relative inline-block">

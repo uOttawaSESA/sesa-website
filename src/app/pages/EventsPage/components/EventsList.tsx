@@ -17,6 +17,8 @@ const EventsList: React.FC<EventsListProps> = ({ events }) => {
                     title={event.title}
                     type={event.type}
                     date={event.date}
+                    startTime={event.startTime}
+                    endTime={event.endTime}
                     location={event.location}
                     description={event.description}
                     image={event.image}
