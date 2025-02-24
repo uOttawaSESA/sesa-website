@@ -1,9 +1,7 @@
 "use client";
 
 import EventCard from "./EventCard";
-import IconButton from "@/components/IconButton";
-import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 const CARD_WIDTH = 350;
 
@@ -76,7 +74,7 @@ const EventsCarousel = ({
     // When Nav buttons from Events.tsx are pressed, call scrollItems
     useEffect(() => {
         setScrollFunction(() => scrollItems);
-    }, []);
+    }, [setScrollFunction]);
 
     const scrollItems = (direction: "left" | "right") => {
         const scrollAmount = CARD_WIDTH;
