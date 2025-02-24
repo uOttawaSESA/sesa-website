@@ -123,6 +123,27 @@ select::placeholder {
     );
 }
 
+.other-resources-container::before {
+    content: "";
+    z-index: 99;
+    width: 10%;
+    height: 100%;
+    position: absolute;
+    left: 4rem;
+    top: 0;
+    background: linear-gradient(to left, transparent, #301d3f);
+}
+
+.other-resources-container::after {
+    content: "";
+    width: 10%;
+    height: 100%;
+    position: absolute;
+    right: 4rem;
+    top: 0;
+    background: linear-gradient(to right, transparent, #301d3f);
+}
+
 /*** MARKDOWN STYLING ***/
 /* Headings */
 .markdown h1 {
