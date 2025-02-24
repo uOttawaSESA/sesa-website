@@ -166,7 +166,7 @@ export const SearchFilterBar = () => {
                                                 {key === "tier" && (
                                                     <>
                                                         <option value="">Select Tier</option>
-                                                        <option value="A">Tier S</option>
+                                                        <option value="S">Tier S</option>
                                                         <option value="A">Tier A</option>
                                                         <option value="B">Tier B</option>
                                                         <option value="C">Tier C</option>
