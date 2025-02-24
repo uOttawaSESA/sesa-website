@@ -1,5 +1,6 @@
 "use client";
 
+import Marquee from "react-fast-marquee";
 import { SocialMediaCard } from "../components/SocialMediaCard";
 
 const InfiniteCarousel = () => {
@@ -39,22 +40,21 @@ const InfiniteCarousel = () => {
         },
     ];
 
-    const duplicatedPosts = [...socialMediaPosts, ...socialMediaPosts, ...socialMediaPosts];
-
     return (
-        <div className="relative my-8 overflow-hidden">
-            <div className="animate-infinite-scroll flex w-max gap-4">
-                {duplicatedPosts.map((post, index) => (
-                    <SocialMediaCard
-                        key={index}
-                        image={post.image}
-                        title={post.title}
-                        description={post.description}
-                        logo={post.logo}
-                        postLink={post.postLink}
-                    />
+        <div className="my-8 overflow-hidden">
+            <Marquee pauseOnHover autoFill>
+                {socialMediaPosts.map((post, index) => (
+                    <div key={index} className="mx-6">
+                        <SocialMediaCard
+                            image={post.image}
+                            title={post.title}
+                            description={post.description}
+                            logo={post.logo}
+                            postLink={post.postLink}
+                        />
+                    </div>
                 ))}
-            </div>
+            </Marquee>
         </div>
     );
 };

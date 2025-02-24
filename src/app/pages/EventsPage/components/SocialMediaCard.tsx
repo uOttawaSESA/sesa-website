@@ -49,12 +49,12 @@ export const SocialMediaCard = ({
                 <p className="mt-2 flex-grow font-mono text-sm text-thistle">{description}</p>
 
                 {/* View Post Button */}
-                <div className="mt-auto pl-0 text-left">
+                <div className="py- mt-auto pl-0 text-left">
                     {" "}
                     {/* mt-auto pushes the button to the bottom */}
                     <Button
                         variant="ghost"
-                        className="!p-0 font-heading text-sm uppercase text-blue-500 hover:underline"
+                        className="text-l !p-0 font-heading uppercase text-blue-500 hover:underline"
                         href={postLink}
                         target="_blank"
                     >

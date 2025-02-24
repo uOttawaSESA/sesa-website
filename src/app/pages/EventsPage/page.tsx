@@ -9,7 +9,6 @@ import { events } from "./utils/eventData";
 import TeamUpSection from "./components/TeamUpSection";
 import ConnectSESA from "./components/ConnectSESA";
 import InfiniteCarousel from "./components/InfiniteCarousel";
-import { parseISO } from "date-fns";
 
 const parseEventDate = (date: Date): Date => {
     return date;

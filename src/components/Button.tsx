@@ -7,7 +7,7 @@ export interface ButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
 
 const Button = forwardRef<HTMLAnchorElement, ButtonProps>(
     ({ children, variant = "fill", className, disabled, ...rest }, ref) => {
-        const baseStyle = "px-6 py-3";
+        const baseStyle = "px-6 py-3 transition-all ease-in-out hover:rounded-3xl";
         const disabledClass = "opacity-50 cursor-not-allowed pointer-events-none";
 
         switch (variant) {
