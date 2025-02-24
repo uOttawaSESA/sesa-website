@@ -7,6 +7,7 @@ export const events: Event[] = [
         date: new Date("2024-03-25"),
         startTime: new Date("2024-03-25T18:00:00"),
         endTime: new Date("2024-03-25T20:00:00"),
+
         location: "STM117",
         description:
             "Calling all Tech Enthusiasts! SESA is hosting an engaging AI and LLM workshop with uOttawa’s Microsoft Student Ambassador - Hamza ‼️",
