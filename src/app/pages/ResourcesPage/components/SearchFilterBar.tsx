@@ -138,7 +138,6 @@ export const SearchFilterBar = () => {
                                                         <option value="">Select Course</option>
                                                         <option value="ITI1100">ITI1100</option>
                                                         <option value="CS101">CS101</option>
-                                                        <option value="MATH150">MATH150</option>
                                                     </>
                                                 )}
                                                 {key === "type" && (
@@ -167,10 +166,10 @@ export const SearchFilterBar = () => {
                                                 {key === "tier" && (
                                                     <>
                                                         <option value="">Select Tier</option>
+                                                        <option value="A">Tier S</option>
                                                         <option value="A">Tier A</option>
                                                         <option value="B">Tier B</option>
                                                         <option value="C">Tier C</option>
-                                                        <option value="D">Tier D</option>
                                                     </>
                                                 )}
                                             </select>
