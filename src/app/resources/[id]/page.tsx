@@ -2,10 +2,8 @@ import { notFound } from "next/navigation";
 import DOMPurify from "dompurify";
 import { JSDOM } from "jsdom";
 import { marked } from "marked";
-import { use, useMemo, useRef } from "react";
+import { use, useMemo } from "react";
 import Button from "@/components/Button";
-import IconButton from "@/components/IconButton";
-import Image from "next/image";
 
 import OtherResources from "./OtherResources";
 
