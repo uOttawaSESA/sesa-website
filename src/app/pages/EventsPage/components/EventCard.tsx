@@ -4,12 +4,14 @@ import Image from "next/image";
 import Button from "@/components/Button";
 import { useState } from "react";
 import { Event } from "../utils/types";
-import { format, parseISO } from "date-fns"; // Import date-fns functions
+import { format } from "date-fns";
 
 export const EventCard = ({
     title,
     type,
     date,
+    startTime,
+    endTime,
     location,
     description,
     image,
@@ -20,14 +22,16 @@ export const EventCard = ({
     const [isRegistered, setIsRegistered] = useState(false);
     const [showFullDescription, setShowFullDescription] = useState(false);
 
-    // Parse the date string into a Date object
-    const eventDate = parseISO(date);
+    const eventDate = date;
+    const eventStartTime = startTime;
+    const eventEndTime = endTime;
+
     const isPastEvent = eventDate < new Date();
 
     const formattedDate = format(eventDate, "MMM dd, yyyy"); // e.g., "Mar 25, 2024"
     const day = format(eventDate, "dd"); // e.g., "25"
     const dayOfWeek = format(eventDate, "EEE").toUpperCase(); // e.g., "FRI"
-    const timeRange = format(eventDate, "ha"); // e.g., "6PM"
+    const timeRange = `${format(eventStartTime, "ha")} - ${format(eventEndTime, "ha")}`; // e.g., "6PM - 8PM"
 
     // Handle registration
     const handleRegister = () => {

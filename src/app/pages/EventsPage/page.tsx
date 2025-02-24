@@ -1,4 +1,3 @@
-// app/events/page.jsx
 "use client";
 
 import React, { useState } from "react";
@@ -10,10 +9,9 @@ import { events } from "./utils/eventData";
 import TeamUpSection from "./components/TeamUpSection";
 import ConnectSESA from "./components/ConnectSESA";
 import InfiniteCarousel from "./components/InfiniteCarousel";
-import { parseISO } from "date-fns";
 
-const parseEventDate = (dateString: string): Date => {
-    return parseISO(dateString);
+const parseEventDate = (date: Date): Date => {
+    return date;
 };
 
 const EventsPage = () => {
