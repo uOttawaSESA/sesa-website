@@ -6,7 +6,6 @@ import { useState } from "react";
 import { Event } from "../utils/types";
 import { format } from "date-fns";
 
-
 export const EventCard = ({
     title,
     type,
@@ -33,7 +32,6 @@ export const EventCard = ({
     const day = format(eventDate, "dd"); // e.g., "25"
     const dayOfWeek = format(eventDate, "EEE").toUpperCase(); // e.g., "FRI"
     const timeRange = `${format(eventStartTime, "ha")} - ${format(eventEndTime, "ha")}`; // e.g., "6PM - 8PM"
-
 
     // Handle registration
     const handleRegister = () => {
