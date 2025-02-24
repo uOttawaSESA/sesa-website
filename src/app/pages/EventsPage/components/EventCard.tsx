@@ -4,6 +4,7 @@ import Image from "next/image";
 import Button from "@/components/Button";
 import { useState } from "react";
 import { Event } from "../utils/types";
+import { format, parseISO } from "date-fns"; // Import date-fns functions
 
 export const EventCard = ({
     title,
@@ -19,15 +20,14 @@ export const EventCard = ({
     const [isRegistered, setIsRegistered] = useState(false);
     const [showFullDescription, setShowFullDescription] = useState(false);
 
-    // Extract the day from the date string (e.g., "Fri, Mar 25, 2024" -> "25")
-    const day = date.split(" ")[2].replace(",", "");
-    // Extract the abbreviated day of the week and remove the comma (e.g., "Fri, Mar 25, 2024" -> "FRI")
-    const dayOfWeek = date.split(" ")[0].replace(",", "").toUpperCase();
-
-    // Extract the date portion (e.g., "Mar 25, 2024") and parse it
-    const dateString = date.split(",").slice(1, 3).join(",").trim();
-    const eventDate = new Date(dateString);
+    // Parse the date string into a Date object
+    const eventDate = parseISO(date);
     const isPastEvent = eventDate < new Date();
+
+    const formattedDate = format(eventDate, "MMM dd, yyyy"); // e.g., "Mar 25, 2024"
+    const day = format(eventDate, "dd"); // e.g., "25"
+    const dayOfWeek = format(eventDate, "EEE").toUpperCase(); // e.g., "FRI"
+    const timeRange = format(eventDate, "ha"); // e.g., "6PM"
 
     // Handle registration
     const handleRegister = () => {
@@ -103,7 +103,9 @@ export const EventCard = ({
 
                         {/* Date and Location Text */}
                         <div className="flex flex-col gap-2">
-                            <span>{date}</span>
+                            <span>
+                                {formattedDate}, {timeRange}
+                            </span>
                             <span className="text-thistle">{location}</span>
                         </div>
                     </div>
