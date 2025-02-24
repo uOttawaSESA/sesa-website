@@ -26,7 +26,7 @@ const ResourcesPage: FC = () => {
     return (
         <div className="min-h-screen bg-gradient-to-b from-gray-100 via-blueviolet-200 to-[#361D49]">
             {/* Main Content Container */}
-            <div className="container relative z-10 mx-auto px-4 py-8">
+            <div className="container relative z-10 mx-auto max-w-7xl px-4 py-8">
                 <Header />
                 <SearchFilterBar />
 
@@ -81,14 +81,15 @@ const ResourcesPage: FC = () => {
                     />
                 </div>
 
-                <div className="max-w-lg text-left text-white">
-                    <p className="font-heading text-2xl">
+                <div className="z-10 max-w-lg text-left text-white">
+                    <div className="font-heading text-2xl">
                         “TRUE EDUCATION IS BORN WHERE{" "}
-                        <span className="[background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]">
-                            KNOWLEDGE MEETS ACCESSIBILITY.
+                        <span className="relative inline-block">
+                            KNOWLEDGE MEETS ACCESSIBILITY
+                            <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                         </span>{" "}
                         SESA’S ACADEMIC TEAM IS PROUD TO STAND AT THAT INTERSECTION.”
-                    </p>
+                    </div>
                     <div className="my-3 flex items-center gap-4">
                         <Image
                             src="/imgs/team/ange.png"
@@ -104,7 +105,10 @@ const ResourcesPage: FC = () => {
                     </div>
                     {/* Call To Action Button */}
                     <div className="mt-6">
-                        <Button href="#" className="font-heading text-lg uppercase">
+                        <Button
+                            href="/pages/TeamPage"
+                            className="relative z-10 font-heading text-lg uppercase"
+                        >
                             Join Our Team
                         </Button>
                         <div className="mt-6 flex items-center gap-2">
