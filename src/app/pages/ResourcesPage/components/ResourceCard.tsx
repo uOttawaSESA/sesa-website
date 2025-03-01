@@ -7,19 +7,19 @@ export const ResourceCard = ({
     category,
     course,
     rating,
-    grade,
+    tier, // Replaced "grade" with "tier"
 }: {
     title: string;
     category: string;
     course?: string;
     rating: string;
-    grade: string;
+    tier: string;
 }) => {
     const [showOpen, setShowOpen] = useState(false);
 
-    // Tooltip content based on grade
-    const getGradeTooltip = (grade: string) => {
-        switch (grade.toUpperCase()) {
+    // Tooltip content based on tier
+    const getTierTooltip = (tier: string) => {
+        switch (tier.toUpperCase()) {
             case "S":
                 return "S Tier: The absolute best (only resource you need realistically).";
             case "A":
@@ -36,8 +36,8 @@ export const ResourceCard = ({
     return (
         <div
             className="border border-gray-300 bg-gray-100 from-blueviolet-100 to-darkmagenta p-px font-heading transition-all hover:bg-gradient-to-r"
-            onMouseEnter={() => setShowOpen(true)} // Show "Open" on hover
-            onMouseLeave={() => setShowOpen(false)} // Hide "Open" when not hovering
+            onMouseEnter={() => setShowOpen(true)}
+            onMouseLeave={() => setShowOpen(false)}
         >
             <div className="relative flex h-full flex-col bg-gray-100 p-6">
                 {/* Category Badges */}
@@ -79,9 +79,10 @@ export const ResourceCard = ({
                                 height={20}
                                 className="h-5 w-5"
                             />
-                            <span className="text-sm">{grade}</span>
+                            <span className="text-sm">{tier}</span>{" "}
+                            {/* Replaced "grade" with "tier" */}
                             <div className="absolute -top-8 left-0 z-10 whitespace-nowrap rounded bg-black px-2 py-1 text-xs text-white opacity-0 transition-opacity group-hover:opacity-100">
-                                {getGradeTooltip(grade)}
+                                {getTierTooltip(tier)} {/* Replaced "grade" with "tier" */}
                             </div>
                         </div>
                     </div>

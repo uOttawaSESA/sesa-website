@@ -14,6 +14,24 @@ interface SearchFilterBarProps {
     setIsGridMode: (mode: boolean) => void;
     rowsToShow: number;
     setRowsToShow: (rows: number) => void;
+    searchTerm: string;
+    setSearchTerm: (term: string) => void;
+    filterOptions: {
+        course: string;
+        type: string;
+        format: string;
+        language: string;
+        tier: string;
+    };
+    setFilterOptions: (options: {
+        course: string;
+        type: string;
+        format: string;
+        language: string;
+        tier: string;
+    }) => void;
+    sortOption: string; // Add this
+    setSortOption: (option: string) => void; // Add this
 }
 
 export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
@@ -21,16 +39,13 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
     setIsGridMode,
     rowsToShow,
     setRowsToShow,
+    searchTerm,
+    setSearchTerm,
+    filterOptions,
+    setFilterOptions,
+    sortOption, // Destructure sortOption
+    setSortOption, // Destructure setSortOption
 }) => {
-    const [searchTerm, setSearchTerm] = useState<string>("");
-    const [filterOptions, setFilterOptions] = useState({
-        course: "",
-        type: "",
-        format: "",
-        language: "",
-        tier: "",
-    });
-    const [sortOption, setSortOption] = useState<string>("relevance");
     const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false);
     const [isSortOpen, setIsSortOpen] = useState<boolean>(false);
     const [isViewOpen, setIsViewOpen] = useState<boolean>(false);
@@ -67,7 +82,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
     };
 
     const handleSortChange = (value: string) => {
-        setSortOption(value);
+        setSortOption(value); // Use setSortOption from props
         setIsSortOpen(false);
     };
 
