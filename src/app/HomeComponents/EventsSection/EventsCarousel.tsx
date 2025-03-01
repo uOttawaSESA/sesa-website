@@ -40,7 +40,7 @@ const events = [
         details: "#",
     },
     {
-        title: "PPOWER UP YOUR NETWORK WITH CIENA!",
+        title: "POWER UP YOUR NETWORK WITH CIENA!",
         date: new Date("2024-11-02"),
         startTime: new Date("2024-11-02T19:00:00"),
         endTime: new Date("2024-11-02T21:00:00"),

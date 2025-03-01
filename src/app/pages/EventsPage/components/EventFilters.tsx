@@ -17,8 +17,8 @@ const EventFilters: React.FC<{
     onFilterChange: (filter: EventType) => void;
     onTimeFilterChange: (filter: TimeFilter) => void;
 }> = ({ onFilterChange, onTimeFilterChange }) => {
-    const [activeFilter, setActiveFilter] = useState<EventType>("All"); // For event type filter
-    const [activeTimeFilter, setActiveTimeFilter] = useState<TimeFilter>("All"); // For time filter
+    const [activeFilter, setActiveFilter] = useState<EventType>("All");
+    const [activeTimeFilter, setActiveTimeFilter] = useState<TimeFilter>("All");
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     const filters: EventType[] = [

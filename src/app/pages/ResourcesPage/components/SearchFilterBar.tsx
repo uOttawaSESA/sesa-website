@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import Dropdown from "@/components/Dropdown";
+import RowSelector from "../components/RowSelector";
 
 const gradientBorderClass = `
     border-[1px]
@@ -8,29 +9,52 @@ const gradientBorderClass = `
     [border-image:linear-gradient(55deg,rgba(136,36,220,0.7)_41.93%,rgba(177,33,157,0.7)_81.89%)_1]
 `;
 
-export const SearchFilterBar = () => {
-    const [searchTerm, setSearchTerm] = useState<string>("");
-    const [filterOptions, setFilterOptions] = useState<{
+interface SearchFilterBarProps {
+    isGridMode: boolean;
+    setIsGridMode: (mode: boolean) => void;
+    rowsToShow: number;
+    setRowsToShow: (rows: number) => void;
+    searchTerm: string;
+    setSearchTerm: (term: string) => void;
+    filterOptions: {
         course: string;
         type: string;
         format: string;
         language: string;
         tier: string;
-    }>({
-        course: "",
-        type: "",
-        format: "",
-        language: "",
-        tier: "",
-    });
+    };
+    setFilterOptions: (options: {
+        course: string;
+        type: string;
+        format: string;
+        language: string;
+        tier: string;
+    }) => void;
+    sortOption: string; // Add this
+    setSortOption: (option: string) => void; // Add this
+}
 
-    const [sortOption, setSortOption] = useState<string>("relevance");
-
+export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
+    isGridMode,
+    setIsGridMode,
+    rowsToShow,
+    setRowsToShow,
+    searchTerm,
+    setSearchTerm,
+    filterOptions,
+    setFilterOptions,
+    sortOption, // Destructure sortOption
+    setSortOption, // Destructure setSortOption
+}) => {
     const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false);
     const [isSortOpen, setIsSortOpen] = useState<boolean>(false);
+    const [isViewOpen, setIsViewOpen] = useState<boolean>(false);
+    const [isRowSelectorOpen, setIsRowSelectorOpen] = useState<boolean>(false);
 
     const filterRef = useRef<HTMLDivElement>(null);
     const sortRef = useRef<HTMLDivElement>(null);
+    const viewRef = useRef<HTMLDivElement>(null);
+    const rowSelectorRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -40,33 +64,54 @@ export const SearchFilterBar = () => {
             if (sortRef.current && !sortRef.current.contains(event.target as Node)) {
                 setIsSortOpen(false);
             }
+            if (viewRef.current && !viewRef.current.contains(event.target as Node)) {
+                setIsViewOpen(false);
+            }
+            if (rowSelectorRef.current && !rowSelectorRef.current.contains(event.target as Node)) {
+                setIsRowSelectorOpen(false);
+            }
         };
 
         document.addEventListener("mousedown", handleClickOutside);
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
-    const handleFilterChange = (
-        e: React.ChangeEvent<HTMLSelectElement>,
-        key: keyof typeof filterOptions,
-    ) => {
+    const handleFilterChange = (e: React.ChangeEvent<HTMLSelectElement>, key: string) => {
         setFilterOptions({ ...filterOptions, [key]: e.target.value });
-        setIsFilterOpen(false); // Close filter dropdown after selection
+        setIsFilterOpen(false);
     };
 
     const handleSortChange = (value: string) => {
-        setSortOption(value);
-        setIsSortOpen(false); // Close sort dropdown after selection
+        setSortOption(value); // Use setSortOption from props
+        setIsSortOpen(false);
     };
 
     const toggleFilterDropdown = () => {
         setIsFilterOpen(!isFilterOpen);
-        if (isSortOpen) setIsSortOpen(false); // Close sort dropdown if it's open
+        if (isSortOpen) setIsSortOpen(false);
+        if (isViewOpen) setIsViewOpen(false);
+        if (isRowSelectorOpen) setIsRowSelectorOpen(false);
     };
 
     const toggleSortDropdown = () => {
         setIsSortOpen(!isSortOpen);
-        if (isFilterOpen) setIsFilterOpen(false); // Close filter dropdown if it's open
+        if (isFilterOpen) setIsFilterOpen(false);
+        if (isViewOpen) setIsViewOpen(false);
+        if (isRowSelectorOpen) setIsRowSelectorOpen(false);
+    };
+
+    const toggleViewDropdown = () => {
+        setIsViewOpen(!isViewOpen);
+        if (isFilterOpen) setIsFilterOpen(false);
+        if (isSortOpen) setIsSortOpen(false);
+        if (isRowSelectorOpen) setIsRowSelectorOpen(false);
+    };
+
+    const toggleRowSelector = () => {
+        setIsRowSelectorOpen(!isRowSelectorOpen);
+        if (isFilterOpen) setIsFilterOpen(false);
+        if (isSortOpen) setIsSortOpen(false);
+        if (isViewOpen) setIsViewOpen(false);
     };
 
     return (
@@ -90,6 +135,65 @@ export const SearchFilterBar = () => {
                 </div>
 
                 <div className="ml-4 flex gap-6">
+                    {/* View Dropdown */}
+                    <div className="relative" ref={viewRef}>
+                        <button
+                            className="flex items-center gap-2 uppercase text-thistle"
+                            onClick={toggleViewDropdown}
+                        >
+                            View
+                            <Image
+                                src="/contact-page/arrows.svg"
+                                alt="View Arrow"
+                                width={16}
+                                height={16}
+                                className={`transition-transform duration-200 ${
+                                    isViewOpen ? "rotate-180" : ""
+                                }`}
+                            />
+                        </button>
+
+                        {isViewOpen && (
+                            <div className="absolute right-0 z-50 mt-2 min-w-[5rem]">
+                                <div
+                                    className={`${gradientBorderClass} bg-[rgba(27,27,27,0.3)] backdrop-blur-md backdrop-saturate-150`}
+                                >
+                                    <button
+                                        onClick={() => {
+                                            setIsGridMode(true);
+                                            setIsViewOpen(false);
+                                        }}
+                                        className="w-full px-6 py-3 text-left font-heading text-base uppercase text-white transition-colors duration-200 hover:bg-[rgba(27,27,27,0.4)]"
+                                    >
+                                        Grid
+                                    </button>
+                                    <button
+                                        onClick={() => {
+                                            setIsGridMode(false);
+                                            setIsViewOpen(false);
+                                        }}
+                                        className="w-full px-6 py-3 text-left font-heading text-base uppercase text-white transition-colors duration-200 hover:bg-[rgba(27,27,27,0.4)]"
+                                    >
+                                        Row
+                                    </button>
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Row Selector */}
+                    {isGridMode && (
+                        <div ref={rowSelectorRef}>
+                            <RowSelector
+                                rowsToShow={rowsToShow}
+                                setRowsToShow={setRowsToShow}
+                                isOpen={isRowSelectorOpen}
+                                toggleDropdown={toggleRowSelector}
+                            />
+                        </div>
+                    )}
+
+                    {/* Filter Button */}
                     <div className="relative" ref={filterRef}>
                         <button
                             className="flex items-center gap-2 uppercase text-thistle"
@@ -125,12 +229,7 @@ export const SearchFilterBar = () => {
                                             <select
                                                 id={key}
                                                 value={value}
-                                                onChange={e =>
-                                                    handleFilterChange(
-                                                        e,
-                                                        key as keyof typeof filterOptions,
-                                                    )
-                                                }
+                                                onChange={e => handleFilterChange(e, key)}
                                                 className="w-full bg-[rgba(27,27,27,0.05)] px-3 py-2 font-heading text-base uppercase text-white focus:outline-none"
                                             >
                                                 {key === "course" && (
@@ -138,7 +237,6 @@ export const SearchFilterBar = () => {
                                                         <option value="">Select Course</option>
                                                         <option value="ITI1100">ITI1100</option>
                                                         <option value="CS101">CS101</option>
-                                                        <option value="MATH150">MATH150</option>
                                                     </>
                                                 )}
                                                 {key === "type" && (
@@ -167,10 +265,10 @@ export const SearchFilterBar = () => {
                                                 {key === "tier" && (
                                                     <>
                                                         <option value="">Select Tier</option>
+                                                        <option value="S">Tier S</option>
                                                         <option value="A">Tier A</option>
                                                         <option value="B">Tier B</option>
                                                         <option value="C">Tier C</option>
-                                                        <option value="D">Tier D</option>
                                                     </>
                                                 )}
                                             </select>
@@ -181,6 +279,7 @@ export const SearchFilterBar = () => {
                         )}
                     </div>
 
+                    {/* Sort Button */}
                     <div className="relative" ref={sortRef}>
                         <button
                             className="flex items-center gap-2 uppercase text-thistle"

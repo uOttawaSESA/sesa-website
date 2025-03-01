@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 
 const gradientBorderClass = `
@@ -10,16 +10,21 @@ const gradientBorderClass = `
 interface RowSelectorProps {
     rowsToShow: number;
     setRowsToShow: (value: number) => void;
+    isOpen: boolean;
+    toggleDropdown: () => void;
 }
 
-const RowSelector: React.FC<RowSelectorProps> = ({ rowsToShow, setRowsToShow }) => {
-    const [isOpen, setIsOpen] = useState(false);
-
+const RowSelector: React.FC<RowSelectorProps> = ({
+    rowsToShow,
+    setRowsToShow,
+    isOpen,
+    toggleDropdown,
+}) => {
     return (
         <div className="relative">
             <button
                 className="flex items-center gap-2 uppercase text-thistle"
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={toggleDropdown}
             >
                 {rowsToShow} Rows
                 <Image
@@ -41,7 +46,7 @@ const RowSelector: React.FC<RowSelectorProps> = ({ rowsToShow, setRowsToShow }) 
                                 key={rows}
                                 onClick={() => {
                                     setRowsToShow(rows);
-                                    setIsOpen(false);
+                                    toggleDropdown();
                                 }}
                                 className="w-full px-6 py-3 text-left font-heading text-base uppercase text-white transition-colors duration-200 hover:bg-[rgba(27,27,27,0.4)]"
                             >

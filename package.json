@@ -13,9 +13,11 @@
         "prepare": "husky"
     },
     "dependencies": {
+        "dompurify": "^3.2.4",
         "date-fns": "^4.1.0",
         "framer-motion": "^12.4.7",
         "husky": "^9.1.7",
+        "marked": "^15.0.7",
         "next": "15.1.7",
         "prettier": "^3.5.1",
         "react": "^19.0.0",
@@ -24,12 +26,14 @@
     },
     "devDependencies": {
         "@eslint/eslintrc": "^3",
+        "@types/jsdom": "latest",
         "@types/node": "^20",
         "@types/react": "^19",
         "@types/react-dom": "^19",
         "eslint": "^9",
         "eslint-config-next": "15.1.7",
         "husky": "^9.1.7",
+        "jsdom": "latest",
         "lint-staged": "^15.4.3",
         "postcss": "^8",
         "prettier-plugin-tailwindcss": "^0.6.11",

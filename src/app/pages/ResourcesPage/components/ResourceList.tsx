@@ -3,7 +3,7 @@ import { ResourceCard } from "./ResourceCard";
 import { Resource } from "../utils/resourcesData";
 
 interface ResourceListProps {
-    currentResources: Resource[]; // Use correct type
+    currentResources: Resource[];
     isGridMode: boolean;
 }
 
