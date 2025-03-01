@@ -59,6 +59,22 @@ body {
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent;
     -moz-text-fill-color: transparent;
+    transition: background-position 0.5s ease;
+}
+
+.color-gradient-clickable {
+    background-color: #8824dc;
+    background-image: linear-gradient(55deg, #8824dc 20%, #b1219d 75%);
+    background-size: 200% 100%; /* Double the size for animation */
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    transition: background-position 0.3s ease;
+}
+
+.color-gradient-clickable:hover {
+    background-position: 100% 0; /* Move gradient to the right */
 }
 
 .clip-corner {
