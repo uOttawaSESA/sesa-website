@@ -1,7 +1,7 @@
 import { AnchorHTMLAttributes, forwardRef } from "react";
 
 export interface ButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-    variant?: "outline" | "fill" | "ghost";
+    variant?: "outline" | "fill" | "ghost" | "ghost-plain";
     disabled?: boolean;
 }
 
@@ -39,6 +39,17 @@ const Button = forwardRef<HTMLAnchorElement, ButtonProps>(
                         role="button"
                         ref={ref}
                         className={`${baseStyle} color-gradient ${className || ""} ${disabled ? disabledClass : ""}`}
+                        {...(disabled ? {} : rest)}
+                    >
+                        {children}
+                    </a>
+                );
+            case "ghost-plain":
+                return (
+                    <a
+                        role="button"
+                        ref={ref}
+                        className={`${baseStyle} ${className || ""} ${disabled ? disabledClass : ""}`}
                         {...(disabled ? {} : rest)}
                     >
                         {children}

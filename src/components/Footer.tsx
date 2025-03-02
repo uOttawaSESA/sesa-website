@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Button from "./Button";
+import Dropdown from "./Dropdown";
 
 // === Removed sponsor marquee, in case we want it again: ===
 // {/* Sponsors marquee */}
@@ -18,95 +19,68 @@ import Button from "./Button";
 
 export default function Footer() {
     return (
-        <footer className="mx-0 flex flex-col gap-2 bg-transparent px-0 pt-8 backdrop-blur-[50px]">
-            {/* SESA logo + text */}
-            <div className="mx-8 flex justify-center gap-4 sm:justify-start xl:mx-32 2xl:mx-64">
-                <Image
-                    className="my-0"
-                    width="50"
-                    height="50"
-                    src="/sesa-logo.svg"
-                    alt="SESA Logo"
-                />
-                <Image
-                    className="my-0"
-                    width="109"
-                    height="25"
-                    src="/logo-text.svg"
-                    alt="SESA Logo Text"
-                />
-            </div>
+        <footer className="mx-0 mb-16 flex flex-col gap-2 bg-transparent px-0 pt-8 backdrop-blur-[50px]">
             {/* Navigation links and socials */}
-            <div className="mx-8 my-8 flex flex-col gap-4 xl:mx-32 2xl:mx-64">
+            <div className="mx-8 mb-4 mt-8 flex flex-col gap-4 xl:mx-32 2xl:mx-64">
                 <div className="grid grid-cols-1 gap-4 text-center sm:grid-cols-2 sm:text-left lg:grid-cols-4">
                     <div className="flex flex-col gap-4">
-                        <h3 className="color-gradient font-mono">Contact</h3>
-                        <p className="font-mono text-gray-400">
+                        <h3 className="color-gradient font-heading uppercase">SESA/AÉGL</h3>
+                        <p className="max-w-64 text-lg/5 text-gray-400">
+                            We connect SEG &amp; EECS students with software engineering industry
+                            professionals, providing resources and support.
+                        </p>
+                        <p className="text-lg/5 text-gray-400">
+                            &copy; 2014&ndash;{new Date().getFullYear()}{" "}
+                        </p>
+                    </div>
+                    <div className="flex flex-col gap-4">
+                        <h3 className="color-gradient font-heading uppercase">Sitemap</h3>
+                        <ul className="flex flex-col gap-2 text-lg leading-none text-gray-400">
+                            <li>
+                                <a href="#">Home</a>
+                            </li>
+                            <li>
+                                <a href="#">About</a>
+                            </li>
+                            <li>
+                                <a href="#">Events</a>
+                            </li>
+                            <li>
+                                <a href="#">Resources</a>
+                            </li>
+                            <li>
+                                <a href="#">Contact</a>
+                            </li>
+                            <li>
+                                <a href="#">Sponsor</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="flex flex-col gap-4">
+                        <h3 className="color-gradient font-heading uppercase">Policies</h3>
+                        <ul className="flex flex-col gap-2 text-lg leading-none text-gray-400">
+                            <li>
+                                <a href="#">Privacy</a>
+                            </li>
+                            <li>
+                                <a href="#">Terms</a>
+                            </li>
+                            <li>
+                                <a href="#">Constitution</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="flex flex-col gap-4">
+                        <h3 className="color-gradient font-heading uppercase">Contact</h3>
+                        <p className="text-lg/5 text-gray-400">
                             800 King Edward Ave,
                             <br />
                             Ottawa, ON, K1N 1A2,
                             <br />
                             STE 0109
                             <br />
-                            uottawa.sesa@gmail.com
+                            <a href="mailto:uottawa.sesa@gmail.com">uottawa.sesa@gmail.com</a>
                         </p>
-                    </div>
-                    <div className="flex flex-col gap-4">
-                        <h3 className="color-gradient font-mono">Legal</h3>
-                        <ul className="flex flex-col gap-4">
-                            <li>
-                                <a className="font-heading text-xl uppercase" href="#">
-                                    Privacy Policy
-                                </a>
-                            </li>
-                            <li>
-                                <a className="font-heading text-xl uppercase" href="#">
-                                    Terms of Service
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="flex flex-col gap-4">
-                        <h3 className="color-gradient font-mono">Navigation</h3>
-                        <ul className="flex flex-col gap-4">
-                            <li>
-                                <a className="font-heading text-xl uppercase" href="#">
-                                    Team
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    className="font-heading text-xl uppercase"
-                                    href="/pages/EventsPage"
-                                >
-                                    Events
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    className="font-heading text-xl uppercase"
-                                    href="/pages/ResourcesPage"
-                                >
-                                    Resources
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    className="font-heading text-xl uppercase"
-                                    href="/pages/ContactUsPage"
-                                >
-                                    Contact
-                                </a>
-                            </li>
-                            <li>
-                                <a className="font-heading text-xl uppercase" href="#">
-                                    Sponsor
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="flex flex-col gap-4">
-                        <h3 className="color-gradient font-mono">Socials</h3>
                         <div className="flex justify-center gap-2 sm:justify-start">
                             <Button
                                 className="!p-3"
@@ -162,13 +136,35 @@ export default function Footer() {
                             </Button>
                         </div>
                     </div>
-                    <p className="text-left text-sm text-gray-400 sm:col-span-2">
-                        &copy; 2014&ndash;{new Date().getFullYear()} uOttawa Software Engineering
-                        Student Association (SESA)
-                    </p>
-                    <a href="#" className="text-right text-gray-400 sm:col-span-2">
-                        Back to top
-                    </a>
+                </div>
+                <hr className="fill-gradient mt-6 p-[0.25px]" />
+            </div>
+            <div className="mx-8 flex items-center justify-between xl:mx-32 2xl:mx-64">
+                {/* SESA logo + text */}
+                <div className="flex justify-center gap-4 sm:justify-start">
+                    <Image
+                        className="my-0"
+                        width="50"
+                        height="50"
+                        src="/sesa-logo.svg"
+                        alt="SESA Logo"
+                    />
+                    <Image
+                        className="my-0"
+                        width="109"
+                        height="25"
+                        src="/logo-text.svg"
+                        alt="SESA Logo Text"
+                    />
+                </div>
+                <div className="flex items-center">
+                    <Button href="#" variant="ghost-plain" className="h-min font-heading uppercase">
+                        Back to Top
+                    </Button>
+                    {/* TODO: Make this a real dropdown */}
+                    <Button href="#" variant="outline" className="h-min font-heading uppercase">
+                        English
+                    </Button>
                 </div>
             </div>
         </footer>
