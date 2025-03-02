@@ -144,20 +144,20 @@ export default function Footer() {
                 <div className="flex justify-center gap-4 sm:justify-start">
                     <Image
                         className="my-0"
-                        width="50"
-                        height="50"
+                        width="45"
+                        height="45"
                         src="/sesa-logo.svg"
                         alt="SESA Logo"
                     />
                     <Image
                         className="my-0"
-                        width="109"
-                        height="25"
+                        width="100"
+                        height="20"
                         src="/logo-text.svg"
                         alt="SESA Logo Text"
                     />
                 </div>
-                <div className="flex items-center">
+                <div className="mt-8 flex items-center">
                     <Button href="#" variant="ghost-plain" className="h-min font-heading uppercase">
                         Back to Top
                     </Button>
