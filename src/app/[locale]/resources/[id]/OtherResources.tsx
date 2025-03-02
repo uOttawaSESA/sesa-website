@@ -1,7 +1,7 @@
 "use client";
 
-import { resources as otherResources } from "@/app/pages/ResourcesPage/utils/resourcesData";
-import ResourceCard from "@/app/pages/ResourcesPage/components/ResourceCard";
+import { resources as otherResources } from "@/app/[locale]/ResourcesPage/utils/resourcesData";
+import ResourceCard from "@/app/[locale]/ResourcesPage/components/ResourceCard";
 import IconButton from "@/components/IconButton";
 import Image from "next/image";
 import { useRef } from "react";
