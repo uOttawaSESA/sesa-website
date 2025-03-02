@@ -18,4 +18,20 @@ export const goalsData: Goal[] = [
         ],
         mainImg: "/imgs/Home/goals/academic.png",
     },
+    {
+        goalType: "Our event goals",
+        title: "We organize",
+        highlightTitle: "social events",
+        description: `While SESA's mission is to prepare the next generation of software engineers at uOttawa, we also host fun social events each semester. 
+        We organize events, including movie nights, dog therapy, game nights, and parties. These events are designed to reduce student stress and develop their social skills!`,
+        buttonLink: "/pages/EventsPage",
+        buttonText: "Learn More",
+        memberImgLinks: [
+            "/imgs/team/jack.png",
+            "/imgs/team/shirina.png",
+            "/imgs/team/shuaib.png",
+            "/imgs/team/ange.png",
+        ],
+        mainImg: "/imgs/Home/goals/social.png",
+    },
 ];
