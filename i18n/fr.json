@@ -11,5 +11,9 @@
         "events_heading": "avec nos prochains événements",
         "events_subheading": "placeholder",
         "view_all_events": "Voir tous les événements"
+    },
+    "footer": {
+        "blurb": "placeholder",
+        "back_to_top": "Retour en haut"
     }
 }

@@ -11,5 +11,9 @@
         "events_heading": "with our upcoming events",
         "events_subheading": "Register today and save the date. Add our events to your calendar using the built-in embed feature!",
         "view_all_events": "View All Events"
+    },
+    "footer": {
+        "blurb": "We connect SEG & EECS students with software engineering industry professionals, providing resources and support.",
+        "back_to_top": "Back to top"
     }
 }

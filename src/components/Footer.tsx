@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Button from "./Button";
 import Dropdown from "./Dropdown";
+import { useTranslations } from "next-intl";
 
 // === Removed sponsor marquee, in case we want it again: ===
 // {/* Sponsors marquee */}
@@ -18,6 +19,8 @@ import Dropdown from "./Dropdown";
 // </Marquee>
 
 export default function Footer() {
+    const t = useTranslations("footer");
+
     return (
         <footer className="mx-0 mb-16 flex flex-col gap-2 bg-transparent px-0 pt-8 backdrop-blur-[50px]">
             {/* Navigation links and socials */}
@@ -25,10 +28,7 @@ export default function Footer() {
                 <div className="grid grid-cols-1 gap-4 text-center sm:grid-cols-2 sm:text-left lg:grid-cols-4">
                     <div className="flex flex-col gap-4">
                         <h3 className="color-gradient font-heading uppercase">SESA/AÉGL</h3>
-                        <p className="max-w-64 text-lg/5 text-gray-400">
-                            We connect SEG &amp; EECS students with software engineering industry
-                            professionals, providing resources and support.
-                        </p>
+                        <p className="max-w-64 text-lg/5 text-gray-400">{t("blurb")}</p>
                         <p className="text-lg/5 text-gray-400">
                             &copy; 2014&ndash;{new Date().getFullYear()}{" "}
                         </p>
@@ -159,7 +159,7 @@ export default function Footer() {
                 </div>
                 <div className="mt-8 flex items-center">
                     <Button href="#" variant="ghost-plain" className="h-min font-heading uppercase">
-                        Back to Top
+                        {t("back_to_top")}
                     </Button>
                     {/* TODO: Make this a real dropdown */}
                     <Button href="#" variant="outline" className="h-min font-heading uppercase">
