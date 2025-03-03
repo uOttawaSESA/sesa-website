@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Button from "./Button";
-import Dropdown from "./Dropdown";
 import { useTranslations } from "next-intl";
 
 // === Removed sponsor marquee, in case we want it again: ===
