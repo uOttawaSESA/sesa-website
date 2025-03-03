@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Button from "./Button";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Dropdown from "./Dropdown";
@@ -37,7 +37,8 @@ export default function Navbar() {
     };
 
     const isActivePage = (path: string) => {
-        return pathname === path;
+        const withoutLocale = pathname.split("/").slice(2).join("/");
+        return withoutLocale === path;
     };
 
     const navLinkClass = "font-heading text-lg uppercase transition-all hover:opacity-80";
@@ -68,31 +69,31 @@ export default function Navbar() {
                 <nav className="flex items-center justify-center gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16">
                     <Link
                         href="/"
-                        className={`${navLinkClass} ${isActivePage("/") ? activeNavLinkClass : "text-white"}`}
+                        className={`${navLinkClass} ${isActivePage("") ? activeNavLinkClass : "text-white"}`}
                     >
                         Home
                     </Link>
                     <Link
                         href="#"
-                        className={`${navLinkClass} ${isActivePage("/about") ? activeNavLinkClass : "text-white"}`}
+                        className={`${navLinkClass} ${isActivePage("about") ? activeNavLinkClass : "text-white"}`}
                     >
                         About
                     </Link>
                     <Link
-                        href="/pages/EventsPage"
-                        className={`${navLinkClass} ${isActivePage("/pages/EventsPage") ? activeNavLinkClass : "text-white"}`}
+                        href="/EventsPage"
+                        className={`${navLinkClass} ${isActivePage("EventsPage") ? activeNavLinkClass : "text-white"}`}
                     >
                         Events
                     </Link>
                     <Link
-                        href="/pages/ResourcesPage"
-                        className={`${navLinkClass} ${isActivePage("/pages/ResourcesPage") ? activeNavLinkClass : "text-white"}`}
+                        href="/ResourcesPage"
+                        className={`${navLinkClass} ${isActivePage("ResourcesPage") ? activeNavLinkClass : "text-white"}`}
                     >
                         Resources
                     </Link>
                     <Link
-                        href="/pages/ContactUsPage"
-                        className={`${navLinkClass} ${isActivePage("/pages/ContactUsPage") ? activeNavLinkClass : "text-white"}`}
+                        href="/ContactUsPage"
+                        className={`${navLinkClass} ${isActivePage("ContactUsPage") ? activeNavLinkClass : "text-white"}`}
                     >
                         Contact
                     </Link>

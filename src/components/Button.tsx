@@ -1,13 +1,13 @@
 import { AnchorHTMLAttributes, forwardRef } from "react";
 
 export interface ButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-    variant?: "outline" | "fill" | "ghost";
+    variant?: "outline" | "fill" | "ghost" | "ghost-plain";
     disabled?: boolean;
 }
 
 const Button = forwardRef<HTMLAnchorElement, ButtonProps>(
     ({ children, variant = "fill", className, disabled, ...rest }, ref) => {
-        const baseStyle = "px-6 py-3 transition-all ease-in-out hover:rounded-3xl";
+        const baseStyle = "px-6 py-3 transition-all ease-in-out";
         const disabledClass = "opacity-50 cursor-not-allowed pointer-events-none";
 
         switch (variant) {
@@ -39,6 +39,17 @@ const Button = forwardRef<HTMLAnchorElement, ButtonProps>(
                         role="button"
                         ref={ref}
                         className={`${baseStyle} color-gradient ${className || ""} ${disabled ? disabledClass : ""}`}
+                        {...(disabled ? {} : rest)}
+                    >
+                        {children}
+                    </a>
+                );
+            case "ghost-plain":
+                return (
+                    <a
+                        role="button"
+                        ref={ref}
+                        className={`${baseStyle} ${className || ""} ${disabled ? disabledClass : ""}`}
                         {...(disabled ? {} : rest)}
                     >
                         {children}

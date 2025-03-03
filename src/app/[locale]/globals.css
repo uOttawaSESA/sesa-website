@@ -1,0 +1,240 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply m-0 leading-[normal];
+}
+
+*,
+::before,
+::after {
+    border-width: 0;
+}
+
+:root {
+    --background: #ffffff;
+    --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #0a0a0a;
+        --foreground: #ededed;
+    }
+}
+
+@font-face {
+    font-family: "VCR OSD Mono";
+    font-display: swap;
+    src: url(/fonts/VCR_OSD_MONO_1.001.ttf);
+}
+
+@font-face {
+    font-family: "Monocode";
+    font-display: swap;
+    src: url(/fonts/monocode-regular.ttf);
+}
+
+.sponsor {
+    @apply outline-gradient mx-4 flex h-40 w-64 items-center justify-center;
+}
+
+.outline-gradient {
+    border: 1px solid #8824dc;
+}
+
+.fill-gradient {
+    background: linear-gradient(55deg, #8824dc 41.93%, #b1219d 81.89%);
+}
+
+.color-gradient {
+    background-color: #8824dc;
+    background-image: linear-gradient(55deg, #8824dc 41.93%, #b1219d 81.89%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
+.clip-corner {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
+}
+
+.clip-corner-inner {
+    clip-path: polygon(
+        2px 2px,
+        calc(100% - 2px) 2px,
+        calc(100% - 2px) calc(100% - 17px),
+        calc(100% - 17px) calc(100% - 2px),
+        2px calc(100% - 2px)
+    );
+}
+
+body {
+    color: var(--foreground);
+    background: var(--background);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+input::placeholder,
+textarea::placeholder,
+select::placeholder {
+    font-family: "raleway";
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+}
+
+.grid-overlay-right {
+    position: absolute;
+    right: 0;
+    background-size: 50px 50px;
+    background-image:
+        linear-gradient(to right, #a122af 3px, transparent 3px),
+        linear-gradient(to bottom, #a122af 3px, transparent 3px);
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        rgba(0, 0, 0, 0.05) 10%,
+        rgba(0, 0, 0, 0.3) 40%,
+        rgba(0, 0, 0, 0.7) 70%,
+        black 100%
+    );
+}
+
+.grid-overlay-left {
+    position: absolute;
+    left: 0;
+    background-size: 50px 50px;
+    background-image:
+        linear-gradient(to right, #a122af 3px, transparent 3px),
+        linear-gradient(to bottom, #a122af 3px, transparent 3px);
+    mask-image: linear-gradient(
+        to right,
+        black 0%,
+        rgba(0, 0, 0, 0.7) 30%,
+        rgba(0, 0, 0, 0.3) 60%,
+        rgba(0, 0, 0, 0.05) 90%,
+        transparent 100%
+    );
+}
+
+@keyframes infinite-scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-infinite-scroll {
+    animation: infinite-scroll 25s linear infinite;
+}
+
+.animation-paused {
+    animation-play-state: paused;
+}
+
+.other-resources-container::before {
+    content: "";
+    z-index: 99;
+    width: 10%;
+    height: 100%;
+    position: absolute;
+    left: 4rem;
+    top: 0;
+    background: linear-gradient(to left, transparent, #301d3f);
+}
+
+.other-resources-container::after {
+    content: "";
+    width: 10%;
+    height: 100%;
+    position: absolute;
+    right: 4rem;
+    top: 0;
+    background: linear-gradient(to right, transparent, #301d3f);
+}
+
+/*** MARKDOWN STYLING ***/
+/* Headings */
+.markdown h1 {
+    @apply mb-4 mt-8 font-heading text-3xl uppercase;
+}
+
+.markdown h2 {
+    @apply mb-3 mt-6 font-heading text-2xl uppercase;
+}
+
+.markdown h3 {
+    @apply mb-2 mt-4 font-heading text-xl uppercase;
+}
+
+.markdown h4 {
+    @apply mb-2 mt-4 font-heading text-lg uppercase;
+}
+
+.markdown h5 {
+    @apply mb-2 mt-4 font-heading text-base uppercase;
+}
+
+.markdown h6 {
+    @apply mb-2 mt-4 font-heading text-sm uppercase;
+}
+
+/* Paragraphs and links */
+.markdown p {
+    @apply mb-4 leading-relaxed;
+}
+
+.markdown a {
+    @apply text-blue-500 hover:underline;
+}
+
+/* Lists */
+.markdown ul {
+    @apply ml-6 list-disc;
+}
+
+.markdown ol {
+    @apply ml-6 list-decimal;
+}
+
+.markdown li {
+    @apply mb-1;
+}
+
+/* Blockquote */
+.markdown blockquote {
+    @apply my-4 border-l-4 border-gray-400 pl-4 italic;
+}
+
+/* Inline code and code blocks */
+.markdown code {
+    @apply rounded bg-gray-100 px-1 py-0.5 font-mono text-sm;
+}
+
+.markdown pre {
+    @apply my-4 overflow-auto rounded bg-gray-100 p-4;
+}
+
+/* Horizontal rule */
+.markdown hr {
+    @apply my-8 border-t border-gray-200;
+}
+
+/* (Optional) Tables */
+.markdown table {
+    @apply mb-4 w-full border-collapse;
+}
+
+.markdown th,
+.markdown td {
+    @apply border border-gray-300 px-4 py-2;
+}
