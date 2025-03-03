@@ -13,9 +13,9 @@
         "prepare": "husky"
     },
     "dependencies": {
-        "dotenv": "^16.4.7",
         "date-fns": "^4.1.0",
         "dompurify": "^3.2.4",
+        "dotenv": "^16.4.7",
         "framer-motion": "^12.4.7",
         "husky": "^9.1.7",
         "marked": "^15.0.7",
@@ -31,6 +31,7 @@
         "@eslint/eslintrc": "^3",
         "@types/jsdom": "latest",
         "@types/node": "^20",
+        "@types/nodemailer": "^6.4.17",
         "@types/react": "^19",
         "@types/react-dom": "^19",
         "eslint": "^9",
