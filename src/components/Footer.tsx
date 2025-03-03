@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Button from "./Button";
+import { Link } from "@/i18n/navigation";
 
 // === Removed sponsor marquee, in case we want it again: ===
 // {/* Sponsors marquee */}
@@ -75,33 +76,30 @@ export default function Footer() {
                                 </a>
                             </li>
                             <li>
-                                <a
-                                    className="font-heading text-xl uppercase"
-                                    href="/pages/EventsPage"
-                                >
+                                <Link className="font-heading text-xl uppercase" href="/EventsPage">
                                     Events
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a
+                                <Link
                                     className="font-heading text-xl uppercase"
-                                    href="/pages/ResourcesPage"
+                                    href="/ResourcesPage"
                                 >
                                     Resources
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a
+                                <Link
                                     className="font-heading text-xl uppercase"
-                                    href="/pages/ContactUsPage"
+                                    href="/ContactUsPage"
                                 >
                                     Contact
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a className="font-heading text-xl uppercase" href="#">
+                                <Link className="font-heading text-xl uppercase" href="#">
                                     Sponsor
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>
