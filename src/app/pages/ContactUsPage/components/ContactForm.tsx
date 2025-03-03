@@ -76,8 +76,10 @@ const ContactForm: React.FC = () => {
         }));
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        setLoading(true);
 
         // Basic validation
         if (
@@ -88,16 +90,51 @@ const ContactForm: React.FC = () => {
             !formData.message
         ) {
             alert("Please fill out all fields.");
+            setLoading(false);
+
             return;
         }
 
         // Simulate form submission (replace with API call)
-        console.log("Form data submitted:", formData);
-        router.push("/thank-you"); // Redirect after submission
+
+        try {
+            // get reCAPTCHA token
+            const recaptchaToken = await new Promise<string>(resolve => {
+                if (window.grecaptcha) {
+                    window.grecaptcha.read(() => {
+                        window.grecaptcha
+                            .execute("RECAPTCHA_SITE_KEY", { action: "submit" })
+                            .then((token: string) => {
+                                resolve(token);
+                            });
+                    });
+                }
+            });
+
+            const response = await fetch("/api/send-email", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ ...formData, recaptchaToken }),
+            });
+
+            const data = await response.json();
+            if (data.success) {
+                console.log("Form data submitted:", formData);
+                router.push("/thank-you"); // Redirect after submission
+            }
+        } catch (error) {
+            console.error("Error occured: ", error);
+        }
     };
 
+    // would need to add the reCAPTCHA script to the page
     return (
         <form onSubmit={handleSubmit} className="space-y-6">
+            <script
+                src={`https://www.google.com/recaptcha/api.js?render=YOUR_RECAPTCHA_SITE_KEY`}
+            ></script>
             <div className="mb-8">
                 <h2 className="font-vcr-osd-mono mb-4 text-sm text-white md:text-sm lg:text-base xl:text-base">
                     TELL US ABOUT YOURSELF
