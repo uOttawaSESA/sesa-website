@@ -1,8 +1,8 @@
-import Button from "@/components/Button";
+// import Button from "@/components/Button";
 import Goal from "./types/Goal";
-import CircleImage from "@/components/CircleImage";
 import Image from "next/image";
 import { TeamBadgeStack } from "@/components/TeamBadgeStack";
+import { Link } from "@/i18n/navigation";
 
 export const GoalCard: React.FC<{ goal: Goal }> = ({ goal }) => {
     const {
@@ -16,15 +16,15 @@ export const GoalCard: React.FC<{ goal: Goal }> = ({ goal }) => {
         mainImg,
     } = goal;
     return (
-        <div className="my-36 flex h-[45rem] items-center justify-start gap-12 align-middle md:w-screen 2xl:w-[70vw]">
+        <div className="my-36 flex h-[45rem] items-center justify-start gap-12 align-middle md:w-screen">
             {/* Left Image */}
-            <div className="grid-overlay-left md:h-[43.93rem] md:w-[48vw] 2xl:w-[28vw]"></div>
+            <div className="grid-overlay-left md:h-[43.93rem] md:w-[48vw] 2xl:w-[32vw]"></div>
             <div className="relative z-10 lg:block">
                 <Image
                     src={mainImg}
                     alt="Goal Main Image"
-                    className="h-[500px] w-auto object-contain"
-                    width={703}
+                    className="w-full object-contain md:h-[500px] 2xl:h-[600px] 2xl:max-w-3xl"
+                    width={700}
                     height={700}
                 />
             </div>
@@ -41,17 +41,19 @@ export const GoalCard: React.FC<{ goal: Goal }> = ({ goal }) => {
                         <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                     </span>
                 </h1>
-                <p className="relative flex w-[40rem] items-center text-left font-sans text-xl text-thistle">
+                <p className="relative flex w-[35rem] items-center text-left font-sans text-xl text-thistle 2xl:w-[40rem]">
                     {description}
                 </p>
 
                 <div className="mt-6 flex">
-                    <Button
+                    <Link
                         href={buttonLink}
-                        className="relative z-10 font-heading text-lg uppercase"
+                        className="fill-gradient relative z-10 px-6 py-2 font-heading text-lg uppercase transition-all ease-in-out"
                     >
+                        {/* <Button className="relative z-10 font-heading text-lg uppercase"> */}
                         {buttonText}
-                    </Button>
+                        {/* </Button> */}
+                    </Link>
                 </div>
                 <TeamBadgeStack imgs={memberImgLinks} />
             </div>

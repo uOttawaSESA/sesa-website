@@ -8,7 +8,7 @@ export const goalsData: Goal[] = [
         description: `SESA hosts exam review and mentorship sessions for engineering and science classes each academic term. 
         Throughout the school year, we conduct workshops to improve technical and soft skills. Meanwhile, we manage a free online 
         platform where we prepare resources for students by students about students.`,
-        buttonLink: "/pages/ResourcesPage",
+        buttonLink: "/ResourcesPage",
         buttonText: "BROWSE RESOURCES",
         memberImgLinks: [
             "/imgs/team/jack.png",
@@ -24,7 +24,7 @@ export const goalsData: Goal[] = [
         highlightTitle: "social events",
         description: `While SESA's mission is to prepare the next generation of software engineers at uOttawa, we also host fun social events each semester. 
         We organize events, including movie nights, dog therapy, game nights, and parties. These events are designed to reduce student stress and develop their social skills!`,
-        buttonLink: "/pages/EventsPage",
+        buttonLink: "/EventsPage",
         buttonText: "Learn More",
         memberImgLinks: [
             "/imgs/team/jack.png",

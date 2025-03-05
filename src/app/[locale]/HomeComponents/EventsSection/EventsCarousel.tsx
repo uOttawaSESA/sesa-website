@@ -2,7 +2,7 @@
 
 import EventCard from "./EventCard";
 import { useEffect, useRef } from "react";
-import { events } from "@/app/pages/EventsPage/utils/eventData";
+import { events } from "@/app/[locale]/EventsPage/utils/eventData";
 
 const CARD_WIDTH = 350;
 

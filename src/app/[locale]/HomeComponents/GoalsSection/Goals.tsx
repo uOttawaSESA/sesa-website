@@ -8,25 +8,25 @@ const Goals = () => {
     const items = useRef<HTMLDivElement>(null);
     const [isAtStart, setIsAtStart] = useState(true);
     const [isAtEnd, setIsAtEnd] = useState(false);
-    const [scrollDistance, setScrollDistance] = useState(0);
+    // const [scrollDistance, setScrollDistance] = useState(0);
 
     // Measure the width of a GoalCard and set scroll distance
-    useEffect(() => {
-        const updateScrollDistance = () => {
-            if (items.current && items.current.children[0]) {
-                const cardWidth = items.current.children[0].clientWidth; // Width of the first GoalCard
-                console.log("cardWidth:", cardWidth);
-                setScrollDistance(cardWidth + 20);
-            }
-        };
+    // useEffect(() => {
+    //     const updateScrollDistance = () => {
+    //         if (items.current && items.current.children[0]) {
+    //             const cardWidth = items.current.children[0].clientWidth; // Width of the first GoalCard
+    //             console.log("cardWidth:", cardWidth);
+    //             setScrollDistance(cardWidth);
+    //         }
+    //     };
 
-        // Initial calculation
-        updateScrollDistance();
+    //     // Initial calculation
+    //     updateScrollDistance();
 
-        // Recalculate on window resize
-        window.addEventListener("resize", updateScrollDistance);
-        return () => window.removeEventListener("resize", updateScrollDistance);
-    }, []);
+    //     // Recalculate on window resize
+    //     window.addEventListener("resize", updateScrollDistance);
+    //     return () => window.removeEventListener("resize", updateScrollDistance);
+    // }, []);
 
     // Scroll to the leftmost position on mount
     useEffect(() => {
@@ -53,28 +53,29 @@ const Goals = () => {
         }
     };
     const scrollItems = (direction: "left" | "right") => {
-        if (items.current) {
-            if (direction === "left") {
-                console.log("Scroll Goals left.");
-                items.current.scrollBy({ left: -scrollDistance, behavior: "smooth" });
-            } else {
-                console.log("Scroll Goals right.");
-                items.current.scrollBy({ left: scrollDistance, behavior: "smooth" });
-            }
-        }
+        if (!items.current) return;
+
+        // Calculate based on container's visible width
+        const containerWidth = items.current.clientWidth;
+        const scrollAmount = containerWidth + 40;
+
+        items.current.scrollBy({
+            left: direction === "left" ? -scrollAmount : scrollAmount,
+            behavior: "smooth",
+        });
     };
     return (
         <>
-            <section className="relative mt-20 w-full items-center justify-between text-white">
+            <section className="relative mt-20 items-center justify-between text-white md:w-full">
                 {/* Carousel */}
                 <div
                     ref={items}
                     className="flex w-full overflow-x-hidden scroll-smooth"
                     style={{
                         maskImage:
-                            "linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)",
+                            "linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%)",
                         WebkitMaskImage:
-                            "linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%)",
+                            "linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%)",
                     }}
                 >
                     {goalsData.map((goal, index) => (
@@ -85,7 +86,7 @@ const Goals = () => {
                 </div>
 
                 {/* Navigation Buttons */}
-                <div className="absolute bottom-0 right-0 flex items-center gap-2 p-4">
+                <div className="absolute bottom-40 flex items-center gap-2 p-4 md:right-40">
                     <IconButton
                         variant="outline"
                         onClick={() => scrollItems("left")}
