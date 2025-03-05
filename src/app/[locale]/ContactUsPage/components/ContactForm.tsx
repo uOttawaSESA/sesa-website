@@ -1,10 +1,9 @@
-"use client";
-
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Button from "@/components/Button";
 import Dropdown from "@/components/Dropdown";
+import { useTranslations } from "next-intl";
 
 const gradientBorderClass = `
   border-[1px]
@@ -27,6 +26,8 @@ const inputClass = `
 `;
 
 const ContactForm: React.FC = () => {
+    const t = useTranslations("contact_us");
+
     const router = useRouter();
 
     const [formData, setFormData] = useState({
@@ -99,8 +100,8 @@ const ContactForm: React.FC = () => {
     return (
         <form onSubmit={handleSubmit} className="space-y-6">
             <div className="mb-8">
-                <h2 className="font-vcr-osd-mono mb-4 text-sm text-white md:text-sm lg:text-base xl:text-base">
-                    TELL US ABOUT YOURSELF
+                <h2 className="font-vcr-osd-mono mb-4 text-sm uppercase text-white md:text-sm lg:text-base xl:text-base">
+                    {t("form_name_label")}
                 </h2>
 
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -111,7 +112,7 @@ const ContactForm: React.FC = () => {
                             value={formData.firstName}
                             onChange={handleInputChange}
                             className={inputClass}
-                            placeholder="First name"
+                            placeholder={t("form_firstname")}
                             required
                         />
                     </div>
@@ -123,7 +124,7 @@ const ContactForm: React.FC = () => {
                             value={formData.lastName}
                             onChange={handleInputChange}
                             className={inputClass}
-                            placeholder="Last name"
+                            placeholder={t("form_lastname")}
                             required
                         />
                     </div>
@@ -131,8 +132,8 @@ const ContactForm: React.FC = () => {
             </div>
 
             <div className="mb-8">
-                <h2 className="font-vcr-osd-mono mb-4 text-sm text-white md:text-sm lg:text-base xl:text-base">
-                    HOW CAN WE REACH YOU? (SO WE CAN REPLY TO YOU)
+                <h2 className="font-vcr-osd-mono mb-4 text-sm uppercase text-white md:text-sm lg:text-base xl:text-base">
+                    {t("form_email_label")}
                 </h2>
 
                 <div className={gradientBorderClass}>
@@ -142,15 +143,15 @@ const ContactForm: React.FC = () => {
                         value={formData.email}
                         onChange={handleInputChange}
                         className={inputClass}
-                        placeholder="Email address"
+                        placeholder={t("form_email")}
                         required
                     />
                 </div>
             </div>
 
             <div className="mb-8">
-                <h2 className="font-vcr-osd-mono mb-4 text-sm text-white md:text-sm lg:text-base xl:text-base">
-                    WHAT’S YOUR MESSAGE ABOUT?
+                <h2 className="font-vcr-osd-mono mb-4 text-sm uppercase text-white md:text-sm lg:text-base xl:text-base">
+                    {t("form_subject_label")}
                 </h2>
 
                 <div className={gradientBorderClass}>
@@ -162,7 +163,7 @@ const ContactForm: React.FC = () => {
                         >
                             {formData.topic
                                 ? topicItems.find(item => item.value === formData.topic)?.label
-                                : "Select a topic"}
+                                : t("form_subject")}
                             <Image
                                 src="/contact-page/arrows.svg"
                                 alt="Select Arrow"
@@ -185,8 +186,8 @@ const ContactForm: React.FC = () => {
             </div>
 
             <div className="mb-8">
-                <h2 className="font-vcr-osd-mono mb-4 text-sm text-white md:text-sm lg:text-base xl:text-base">
-                    HOW CAN WE HELP YOU?
+                <h2 className="font-vcr-osd-mono mb-4 text-sm uppercase text-white md:text-sm lg:text-base xl:text-base">
+                    {t("form_body_label")}
                 </h2>
 
                 <div className={gradientBorderClass}>
@@ -195,7 +196,7 @@ const ContactForm: React.FC = () => {
                         value={formData.message}
                         onChange={handleInputChange}
                         className={`${inputClass} md: h-48`}
-                        placeholder="Include as much detail as you can"
+                        placeholder={t("form_body_placeholder")}
                         required
                     />
                 </div>
@@ -203,9 +204,9 @@ const ContactForm: React.FC = () => {
 
             <div className="mb-8">
                 <p className="font-mono text-xs text-[#AB9DB6]">
-                    By submitting this form, I confirm that I have read and accept the{" "}
+                    {t("form_disclosure")}{" "}
                     <a href="#" className="underline">
-                        Privacy & Terms
+                        {t("form_disclosure_link")}
                     </a>
                     .
                 </p>
@@ -216,7 +217,7 @@ const ContactForm: React.FC = () => {
                     type="submit"
                     className="mt-4 flex items-center gap-3 font-heading text-xl uppercase"
                 >
-                    Send message
+                    {t("send_message")}
                 </Button>
             </div>
         </form>

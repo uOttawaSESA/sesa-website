@@ -12,6 +12,24 @@
         "events_subheading": "Register today and save the date. Add our events to your calendar using the built-in embed feature!",
         "view_all_events": "View All Events"
     },
+    "contact_us": {
+        "contact_us": "Contact us",
+        "get_in_touch": "Get in",
+        "get_in_touch_hl": "touch",
+        "questions_blurb": "Questions about our organization? Interest in collaborating with us? Send a message to our email, or complete the inquiry form, and we'll respond as soon as possible.",
+        "form_name_label": "Tell us about yourself",
+        "form_firstname": "First name",
+        "form_lastname": "Last name",
+        "form_email_label": "How can we reach you? (So we can reply to you)",
+        "form_email": "Email address",
+        "form_subject_label": "What's your message about?",
+        "form_subject": "Select a topic",
+        "form_body_label": "How can we help you?",
+        "form_body_placeholder": "Include as much detail as you can.",
+        "form_disclosure": "By submitting this form, I confirm that I have read and accept the",
+        "form_disclosure_link": "Privacy & Terms",
+        "send_message": "Send Message"
+    },
     "footer": {
         "blurb": "We connect SEG & EECS students with software engineering industry professionals, providing resources and support.",
         "back_to_top": "Back to top"
