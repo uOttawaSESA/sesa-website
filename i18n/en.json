@@ -69,7 +69,22 @@
         "avg_helpfulness": "{percentage}% average helpfulness",
         "students_helped": "{students} students helped"
     },
+    "navigation": {
+        "home": "Home",
+        "about": "About",
+        "events": "Events",
+        "resources": "Resources",
+        "contact": "Contact",
+        "sponsor": "Sponsor",
+        "sponsor_us": "Sponsor Us"
+    },
     "footer": {
+        "sitemap": "Sitemap",
+        "policies": "Policies",
+        "privacy": "Privacy",
+        "terms": "Terms",
+        "constitution": "Constitution",
+        "contact": "Contact",
         "blurb": "We connect SEG & EECS students with software engineering industry professionals, providing resources and support.",
         "back_to_top": "Back to top"
     }

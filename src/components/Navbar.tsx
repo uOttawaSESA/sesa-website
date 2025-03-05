@@ -6,8 +6,11 @@ import { Link } from "@/i18n/navigation";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Dropdown from "./Dropdown";
+import { useTranslations } from "next-intl";
 
 export default function Navbar() {
+    const t = useTranslations("navigation");
+
     const pathname = usePathname();
     const [selectedLang, setSelectedLang] = useState("EN");
     const [isOpen, setIsOpen] = useState(false);
@@ -71,31 +74,31 @@ export default function Navbar() {
                         href="/"
                         className={`${navLinkClass} ${isActivePage("") ? activeNavLinkClass : "text-white"}`}
                     >
-                        Home
+                        {t("home")}
                     </Link>
                     <Link
                         href="#"
                         className={`${navLinkClass} ${isActivePage("about") ? activeNavLinkClass : "text-white"}`}
                     >
-                        About
+                        {t("about")}
                     </Link>
                     <Link
                         href="/EventsPage"
                         className={`${navLinkClass} ${isActivePage("EventsPage") ? activeNavLinkClass : "text-white"}`}
                     >
-                        Events
+                        {t("events")}
                     </Link>
                     <Link
                         href="/ResourcesPage"
                         className={`${navLinkClass} ${isActivePage("ResourcesPage") ? activeNavLinkClass : "text-white"}`}
                     >
-                        Resources
+                        {t("resources")}
                     </Link>
                     <Link
                         href="/ContactUsPage"
                         className={`${navLinkClass} ${isActivePage("ContactUsPage") ? activeNavLinkClass : "text-white"}`}
                     >
-                        Contact
+                        {t("contact")}
                     </Link>
                 </nav>
 
@@ -123,7 +126,7 @@ export default function Navbar() {
                             onItemClick={handleItemClick}
                         />
                     </div>
-                    <Button className="font-heading text-base uppercase">Sponsor us</Button>
+                    <Button className="font-heading text-base uppercase">{t("sponsor")}</Button>
                 </div>
             </header>
 
