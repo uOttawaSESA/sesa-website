@@ -2,23 +2,25 @@
 
 import Button from "@/components/Button";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const ConnectSESA = () => {
+    const t = useTranslations("events");
+
     return (
         <div className="w-full">
             <div className="mx-auto max-w-7xl text-center">
-                <div className="color-gradient font-mono">Connect with SESA</div>
+                <div className="color-gradient font-mono">{t("connect_with_sesa")}</div>
                 <h1 className="mt-4 text-[36px] uppercase">
                     <span className="relative inline-block">
-                        STAY UPDATED
+                        {t("stay_updated")}
                         <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                     </span>
-                    <span className="ml-7">BY FOLLOWING US</span>
+                    <span className="ml-7">{t("stay_updated_hl")}</span>
                 </h1>
 
                 <p className="mx-auto mb-6 mt-6 max-w-[558px] font-mono text-[16px] text-thistle">
-                    Stay in the loop with SESA’s updates, events, and announcements by following our
-                    social media channels!
+                    {t("stay_updated_blurb")}
                 </p>
 
                 <div className="mt-8 flex justify-center gap-4">

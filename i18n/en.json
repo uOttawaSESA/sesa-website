@@ -30,6 +30,29 @@
         "form_disclosure_link": "Privacy & Terms",
         "send_message": "Send Message"
     },
+    "events": {
+        "no_events": "No events found",
+        "connect_with_sesa": "Connect with SESA",
+        "stay_updated": "Stay updated",
+        "stay_updated_hl": "by following us",
+        "stay_updated_blurb": "Stay in the loop with SESA’s updates, events, and announcements by following our social media channels!",
+        "our_events": "Our events",
+        "stay_up_to_date_hl": "Stay",
+        "stay_up_to_date": "up to date",
+        "stay_up_to_date_blurb": "Add our calendar to yours to stay informed about all our activities, or select specific events you’d like to add.",
+        "btn_subscribe": "Subscribe to our calendar for free",
+        "subscribe_info_line1": "Syncs with Apple, Outlook, Yahoo, or Google.",
+        "subscribe_info_line2": "Unsubscribe at any time.",
+        "btn_details": "Details",
+        "btn_register": "Register",
+        "btn_calendar": "Add to Calendar",
+        "work_with_us": "Work with us",
+        "teamup_heading": "Interested in teaming up on an event?",
+        "teamup_blurb": "Whether you’re an organization or student club, we’re open to exploring partnerships that deliver meaningful opportunities and experiences to students pursuing software engineering at the University of Ottawa.",
+        "btn_talk": "Let's Talk",
+        "btn_meet_team": "Meet the Team",
+        "btn_view_post": "View Post"
+    },
     "footer": {
         "blurb": "We connect SEG & EECS students with software engineering industry professionals, providing resources and support.",
         "back_to_top": "Back to top"

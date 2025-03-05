@@ -1,23 +1,23 @@
-"use client";
-
 import Button from "@/components/Button";
+import { useTranslations } from "next-intl";
 
 const Header = () => {
+    const t = useTranslations("events");
+
     return (
         <div className="w-full pt-8">
             <div className="mx-auto max-w-7xl text-center">
-                <div className="color-gradient font-mono">Our events</div>
+                <div className="color-gradient font-mono">{t("our_events")}</div>
                 <h1 className="mt-4 text-[48px] uppercase">
                     <span className="relative inline-block">
-                        STAY
+                        {t("stay_up_to_date_hl")}
                         <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                     </span>
-                    <span className="ml-7">UP TO DATE</span>
+                    <span className="ml-7">{t("stay_up_to_date")}</span>
                 </h1>
 
                 <p className="mx-auto mb-6 mt-6 max-w-[558px] font-mono text-[16px] text-thistle">
-                    Add our calendar to yours to stay informed about all our activities, or select
-                    specific events you’d like to add.
+                    {t("stay_up_to_date_blurb")}
                 </p>
 
                 <Button
@@ -28,12 +28,12 @@ const Header = () => {
                         console.log("Subscribed to calendar!");
                     }}
                 >
-                    SUBSCRIBE TO OUR CALENDAR FOR FREE
+                    {t("btn_subscribe")}
                 </Button>
 
                 <div className="mt-4 font-mono text-base text-thistle">
-                    <p>Syncs with Apple, Outlook, Yahoo, or Google,</p>
-                    <p>unsubscribe any time.</p>
+                    <p>{t("subscribe_info_line1")}</p>
+                    <p>{t("subscribe_info_line2")}</p>
                 </div>
             </div>
         </div>

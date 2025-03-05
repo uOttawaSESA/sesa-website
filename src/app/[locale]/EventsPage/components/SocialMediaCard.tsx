@@ -1,7 +1,6 @@
-"use client";
-
 import Image from "next/image";
 import Button from "@/components/Button";
+import { useTranslations } from "next-intl";
 
 export const SocialMediaCard = ({
     image,
@@ -16,6 +15,8 @@ export const SocialMediaCard = ({
     logo: string;
     postLink: string;
 }) => {
+    const t = useTranslations("events");
+
     return (
         <div className="mt-10 flex h-[400px] w-[300px] flex-shrink-0 flex-col overflow-hidden rounded-lg border border-gray-200 shadow-lg">
             {/* Top 60% - Image */}
@@ -58,7 +59,7 @@ export const SocialMediaCard = ({
                         href={postLink}
                         target="_blank"
                     >
-                        View Post
+                        {t("btn_view_post")}
                     </Button>
                 </div>
             </div>

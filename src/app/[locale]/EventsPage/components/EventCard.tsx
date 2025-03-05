@@ -5,6 +5,7 @@ import Button from "@/components/Button";
 import { useState } from "react";
 import { Event } from "../utils/types";
 import { format } from "date-fns";
+import { useTranslations } from "next-intl";
 
 export const EventCard = ({
     title,
@@ -19,6 +20,8 @@ export const EventCard = ({
     instagramLink,
     registrationLink,
 }: Event) => {
+    const t = useTranslations("events");
+
     const [isRegistered, setIsRegistered] = useState(false);
     const [showFullDescription, setShowFullDescription] = useState(false);
 
@@ -136,7 +139,7 @@ export const EventCard = ({
                             disabled={isPastEvent} // Disable for past events
                             variant="fill" // Always use the filled variant
                         >
-                            DETAILS
+                            {t("btn_details")}
                         </Button>
 
                         {/* Register Button (only for events that require registration) */}
@@ -146,7 +149,7 @@ export const EventCard = ({
                                 onClick={handleRegister}
                                 variant="fill" // Always use the filled variant
                             >
-                                REGISTER
+                                {t("btn_register")}
                             </Button>
                         )}
 
@@ -157,7 +160,7 @@ export const EventCard = ({
                             disabled={isPastEvent} // Disable for past events
                             variant="outline" // Keep the outline variant
                         >
-                            ADD TO CALENDAR
+                            {t("btn_calendar")}
                         </Button>
                     </div>
                 </div>
