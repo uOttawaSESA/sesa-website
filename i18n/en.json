@@ -53,6 +53,22 @@
         "btn_meet_team": "Meet the Team",
         "btn_view_post": "View Post"
     },
+    "resources": {
+        "resources": "Resources",
+        "resources_heading": "Resources",
+        "resources_heading_hl": "for students, by students",
+        "resources_blurb": "Our academic team actively curates free resources to support software engineering students in their studies.",
+        "search_placeholder": "Search by title, category, course, or author",
+        "contributing_heading": "Interested in contributing or requesting resources?",
+        "btn_join_discord": "Join Our Discord",
+        "education_quote_1": "True education is born where",
+        "education_quote_1_hl": "knowledge meets accessibility",
+        "education_quote_2": "SESA's academic team is proud to stand at that intersection",
+        "academic_lead": "Academic Lead",
+        "btn_join_team": "Join Our Team",
+        "avg_helpfulness": "{percentage}% average helpfulness",
+        "students_helped": "{students} students helped"
+    },
     "footer": {
         "blurb": "We connect SEG & EECS students with software engineering industry professionals, providing resources and support.",
         "back_to_top": "Back to top"
