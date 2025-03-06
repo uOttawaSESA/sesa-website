@@ -8,8 +8,12 @@ const CARD_WIDTH = 350;
 
 const EventsCarousel = ({
     setScrollFunction,
+    setIsAtStart,
+    setIsAtEnd,
 }: {
     setScrollFunction: (func: (direction: "left" | "right") => void) => void;
+    setIsAtStart: (value: boolean) => void;
+    setIsAtEnd: (value: boolean) => void;
 }) => {
     const items = useRef<HTMLDivElement>(null);
 
@@ -25,6 +29,23 @@ const EventsCarousel = ({
             items.current?.scrollBy({ left: -scrollAmount, behavior: "smooth" });
         } else {
             items.current?.scrollBy({ left: scrollAmount, behavior: "smooth" });
+        }
+    };
+
+    // Add scroll event listener for checking position of carousel
+    useEffect(() => {
+        const carousel = items.current;
+        if (carousel) {
+            carousel.addEventListener("scroll", checkScrollPosition);
+            return () => carousel.removeEventListener("scroll", checkScrollPosition);
+        }
+    });
+    // Check scroll position and update state
+    const checkScrollPosition = () => {
+        if (items.current) {
+            const { scrollLeft, scrollWidth, clientWidth } = items.current;
+            setIsAtStart(scrollLeft === 0);
+            setIsAtEnd(scrollLeft + clientWidth >= scrollWidth);
         }
     };
 

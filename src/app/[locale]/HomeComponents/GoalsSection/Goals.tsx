@@ -35,7 +35,7 @@ const Goals = () => {
         }
     }, []);
 
-    // Add scroll event listener
+    // Add scroll event listener for checking position of carousel
     useEffect(() => {
         const carousel = items.current;
         if (carousel) {

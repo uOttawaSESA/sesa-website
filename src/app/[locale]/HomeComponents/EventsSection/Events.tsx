@@ -9,6 +9,8 @@ export default function Events() {
     const [scrollItems, setScrollItems] = useState<((direction: "left" | "right") => void) | null>(
         null,
     );
+    const [isAtStart, setIsAtStart] = useState(true);
+    const [isAtEnd, setIsAtEnd] = useState(false);
 
     const t = useTranslations("homepage");
 
@@ -46,6 +48,7 @@ export default function Events() {
                             <IconButton
                                 variant="outline"
                                 onClick={() => scrollItems && scrollItems("left")}
+                                disabled={isAtStart}
                             >
                                 <Image
                                     src="/resources-page/arrow_backword.svg"
@@ -57,6 +60,7 @@ export default function Events() {
                             <IconButton
                                 variant="outline"
                                 onClick={() => scrollItems && scrollItems("right")}
+                                disabled={isAtEnd}
                             >
                                 <Image
                                     src="/resources-page/arrow_forward.svg"
@@ -71,7 +75,11 @@ export default function Events() {
             </section>
 
             {/* Carousel */}
-            <EventsCarousel setScrollFunction={setScrollItems} />
+            <EventsCarousel
+                setScrollFunction={setScrollItems}
+                setIsAtStart={setIsAtStart}
+                setIsAtEnd={setIsAtEnd}
+            />
         </>
     );
 }
