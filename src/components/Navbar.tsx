@@ -71,7 +71,7 @@ export default function Navbar() {
                         {t("home")}
                     </Link>
                     <Link
-                        href="#"
+                        href="/about"
                         className={`${navLinkClass} ${isActivePage("about") ? activeNavLinkClass : "text-white"}`}
                     >
                         {t("about")}
