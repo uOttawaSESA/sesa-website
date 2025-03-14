@@ -2,6 +2,7 @@ import Button from "@/components/Button";
 import CircleImage from "@/components/CircleImage";
 import Metric from "@/components/Metric";
 import Image from "next/image";
+import { Link } from "@/i18n/navigation";
 
 export default function AboutPage() {
     const images = [
@@ -58,7 +59,11 @@ export default function AboutPage() {
                 <div className="my-8 flex max-w-[28rem] flex-col gap-2 md:ml-[50%]">
                     <p className="color-gradient font-mono">Who are we?</p>
                     <h1 className="font-heading text-3xl uppercase">
-                        We&apos;re a student-led organization made up of nerdy tech geeks
+                        We&apos;re a student-led organization made up of{" "}
+                        <span className="relative inline-block">
+                            nerdy tech geeks
+                            <div className="highlight-gradient"></div>
+                        </span>
                     </h1>
                     <p className="text-gray-400">
                         <b>Founded in 2014</b>, the Software Engineering Student Association (SESA)
@@ -74,15 +79,65 @@ export default function AboutPage() {
                 </div>
                 {/* Figures */}
                 <div className="mx-16 flex items-center justify-between">
-                    <Metric className="w-64" figure="3500+" caption="EECS students" border />
-                    <Metric className="w-64" figure="21" caption="Previous partners" border />
+                    <Metric className="!w-64" figure="3500+" caption="EECS students" border />
+                    <Metric className="!w-64" figure="21" caption="Previous partners" border />
                     <Metric
-                        className="w-64"
+                        className="!w-64"
                         figure="2300+"
                         caption="Total event attendees"
                         border
                     />
-                    <Metric className="w-64" figure="34" caption="Total events" border />
+                    <Metric className="!w-64" figure="34" caption="Total events" border />
+                </div>
+                {/* "What do we do" */}
+                <div className="my-8 flex flex-col gap-2">
+                    <p className="color-gradient font-mono">What do we do?</p>
+                    <h1 className="font-heading text-3xl uppercase">
+                        Where{" "}
+                        <span className="relative inline-block">
+                            students meet industry
+                            <div className="highlight-gradient"></div>
+                        </span>
+                    </h1>
+                    <div className="max-w-[28rem]">
+                        <p className="text-gray-400">
+                            <b>We&apos;re preparing the next generation</b> of software engineers
+                            for the workplace by offering exciting experiences and opportunities in
+                            partnership with industry professionals.
+                        </p>
+                    </div>
+                    {/* TODO: replace this with a <Button> when it supports localized links */}
+                    <Link
+                        href="/sponsor-us"
+                        className="fill-gradient w-fit px-6 py-3 font-heading uppercase transition-all ease-in-out"
+                    >
+                        Become a Sponsor
+                    </Link>
+                </div>
+                {/* TODO: insert cards */}
+                {/* Introducing our team */}
+                <div className="align-center flex flex-col items-center text-center">
+                    <p className="color-gradient font-mono">Introducing our team</p>
+                    <h1 className="font-heading text-3xl uppercase">
+                        <span className="relative inline-block">
+                            Meet the people
+                            <div className="highlight-gradient"></div>
+                        </span>{" "}
+                        who make SESA
+                    </h1>
+                    <p className="my-1 max-w-[32rem] text-lg leading-tight text-gray-400">
+                        Meet the incredible back-end team that drives our front-end success and
+                        makes everything possible.
+                    </p>
+                    <div className="mt-4 font-heading uppercase">
+                        <Button variant="outline">Co-directors</Button>
+                        <Button variant="outline">Partnerships</Button>
+                        <Button variant="outline">Events</Button>
+                        <Button variant="outline">Communications</Button>
+                        <Button variant="outline">Development</Button>
+                        <Button variant="outline">Academic</Button>
+                        <Button variant="outline">Advisors</Button>
+                    </div>
                 </div>
             </div>
         </div>
