@@ -7,9 +7,9 @@
         "build": "next build",
         "start": "next start",
         "lint:next": "next lint",
-        "lint:prettier": "prettier --check .",
+        "lint:prettier": "prettier --cache --check .",
         "lint": "npm run lint:next && npm run lint:prettier",
-        "format": "prettier --write .",
+        "format": "prettier --cache --write .",
         "prepare": "husky"
     },
     "dependencies": {
