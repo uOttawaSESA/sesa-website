@@ -85,7 +85,7 @@ export const resources: Resource[] = [
         category: "Career",
         course: "",
         rating: "80",
-        tier: "D",
+        tier: "C",
         type: "career",
         format: "video",
         language: "english",
