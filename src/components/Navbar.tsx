@@ -120,7 +120,9 @@ export default function Navbar() {
                             onItemClick={handleItemClick}
                         />
                     </div>
-                    <Button className="font-heading text-base uppercase">{t("sponsor")}</Button>
+                    <Link href="/SponsorsPage">
+                        <Button className="font-heading text-base uppercase">{t("sponsor")}</Button>
+                    </Link>
                 </div>
             </header>
 
