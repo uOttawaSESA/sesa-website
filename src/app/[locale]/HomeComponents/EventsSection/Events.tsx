@@ -35,10 +35,7 @@ export default function Events() {
 
                     <div className="mt-6 flex w-[90%] flex-row items-center justify-between">
                         <div className="flex font-heading">
-                            <Button
-                                className="font-heading text-lg uppercase"
-                                href="/pages/EventsPage"
-                            >
+                            <Button className="font-heading text-lg uppercase" href="/EventsPage">
                                 {t("view_all_events")}
                             </Button>
                         </div>

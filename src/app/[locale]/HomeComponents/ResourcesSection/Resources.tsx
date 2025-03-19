@@ -59,11 +59,16 @@ const Resources = () => {
                 </Marquee>
                 <div className="mt-14 flex justify-center">
                     <div className="flex space-x-4 font-heading">
-                        <Button className="font-heading text-lg uppercase">
+                        <Button className="font-heading text-lg uppercase" href="/ResourcesPage">
                             Explore all resources{" "}
                             <span className="text-gray opacity-50">{">"}</span>
                         </Button>
-                        <Button className="font-heading text-lg uppercase" variant="outline">
+                        <Button
+                            className="font-heading text-lg uppercase"
+                            variant="outline"
+                            href="https://discord.com/invite/atYdx5HHCs"
+                            external
+                        >
                             Join our discord
                         </Button>
                     </div>

@@ -8,6 +8,7 @@ import Quotes from "./HomeComponents/QuotesSection/Quotes";
 import Sponsors from "./HomeComponents/SponsorSection/Sponsors";
 import FAQ from "./HomeComponents/FAQ/FAQ";
 import Connect from "./HomeComponents/ConnectSection/Connect";
+import Team from "./HomeComponents/TeamSection/Team";
 
 const Home = () => {
     return (
@@ -20,6 +21,7 @@ const Home = () => {
             <Sponsors />
             <FAQ />
             <Connect />
+            <Team />
         </div>
     );
 };
