@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import { GoalCard } from "./GoalCard";
-import { goalsData } from "./GoalsData";
+import { QuoteCard } from "./QuoteCard";
+import { quotesData } from "./QuotesData";
 import IconButton from "@/components/IconButton";
 import Image from "next/image";
 
-const Goals = () => {
+const Quotes = () => {
     const items = useRef<HTMLDivElement>(null);
     const [isAtStart, setIsAtStart] = useState(true);
     const [isAtEnd, setIsAtEnd] = useState(false);
@@ -47,27 +47,30 @@ const Goals = () => {
     };
     return (
         <>
-            <section className="relative mt-20 items-center justify-between text-white md:w-full">
+            <section className="relative items-center justify-between text-white md:w-full">
+                {/* Right Image */}
+                <div className="grid-overlay-right absolute top-[10rem] md:h-[43.93rem] md:w-[48vw] 2xl:w-[32vw]"></div>
+                <div className="absolute right-0 top-[16.3rem] z-50 lg:block">
+                    <Image
+                        src="/imgs/Home/goals/academic.png"
+                        alt="Quote Main Image"
+                        className="w-full object-contain md:h-[500px] 2xl:h-[600px] 2xl:max-w-3xl"
+                        width={700}
+                        height={700}
+                    />
+                </div>
+
                 {/* Carousel */}
-                <div
-                    ref={items}
-                    className="flex w-full overflow-x-hidden scroll-smooth"
-                    style={{
-                        maskImage:
-                            "linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%)",
-                        WebkitMaskImage:
-                            "linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%)",
-                    }}
-                >
-                    {goalsData.map((goal, index) => (
+                <div ref={items} className="flex w-full overflow-x-hidden scroll-smooth">
+                    {quotesData.map((quote, index) => (
                         <div key={index} className="flex-shrink-0">
-                            <GoalCard goal={goal} />
+                            <QuoteCard quote={quote} />
                         </div>
                     ))}
                 </div>
 
                 {/* Navigation Buttons */}
-                <div className="absolute bottom-40 flex items-center gap-2 p-4 md:right-40">
+                <div className="absolute bottom-40 flex items-center gap-2 p-4 md:left-20">
                     <IconButton
                         variant="outline"
                         onClick={() => scrollItems("left")}
@@ -98,4 +101,4 @@ const Goals = () => {
     );
 };
 
-export default Goals;
+export default Quotes;

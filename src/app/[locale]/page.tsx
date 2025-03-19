@@ -4,6 +4,10 @@ import Hero from "./HomeComponents/Hero";
 import Events from "./HomeComponents/EventsSection/Events";
 import Goals from "./HomeComponents/GoalsSection/Goals";
 import Resources from "./HomeComponents/ResourcesSection/Resources";
+import Quotes from "./HomeComponents/QuotesSection/Quotes";
+import Sponsors from "./HomeComponents/SponsorSection/Sponsors";
+import FAQ from "./HomeComponents/FAQ/FAQ";
+import Connect from "./HomeComponents/ConnectSection/Connect";
 
 const Home = () => {
     return (
@@ -12,6 +16,10 @@ const Home = () => {
             <Events />
             <Goals />
             <Resources />
+            <Quotes />
+            <Sponsors />
+            <FAQ />
+            <Connect />
         </div>
     );
 };

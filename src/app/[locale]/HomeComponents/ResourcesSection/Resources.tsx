@@ -1,12 +1,14 @@
 import { resources } from "../../ResourcesPage/utils/resourcesData";
 import ResourceCard from "../../ResourcesPage/components/ResourceCard";
 import Marquee from "react-fast-marquee";
+import Button from "@/components/Button";
+import Image from "next/image";
 
 const Resources = () => {
     return (
         <>
             <section className="text-white md:w-full">
-                <div className="mb-10 flex flex-col items-center justify-center gap-2">
+                <div className="mb-20 flex flex-col items-center justify-center gap-2">
                     <p className="font-monocode color-gradient">
                         Resources by students for students
                     </p>
@@ -22,7 +24,6 @@ const Resources = () => {
                         engineering students in their studies.
                     </p>
                 </div>
-
                 {/* Carousel */}
                 <Marquee pauseOnHover>
                     <div className="flex flex-col gap-4">
@@ -56,6 +57,27 @@ const Resources = () => {
                         </div>
                     </div>
                 </Marquee>
+                <div className="mt-14 flex justify-center">
+                    <div className="flex space-x-4 font-heading">
+                        <Button className="font-heading text-lg uppercase">
+                            Explore all resources{" "}
+                            <span className="text-gray opacity-50">{">"}</span>
+                        </Button>
+                        <Button className="font-heading text-lg uppercase" variant="outline">
+                            Join our discord
+                        </Button>
+                    </div>
+                </div>
+                <div className="mt-8 flex flex-row items-center justify-center font-mono text-thistle">
+                    <Image
+                        src="/resources-page/thumbsup.svg"
+                        alt="thumbsUp"
+                        width={25}
+                        height={25}
+                        className="me-2"
+                    ></Image>
+                    <p className="text-base">95% average helpfulness, 1000+ students helped</p>
+                </div>
             </section>
         </>
     );
