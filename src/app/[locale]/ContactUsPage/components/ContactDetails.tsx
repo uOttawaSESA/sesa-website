@@ -36,7 +36,7 @@ const ContactDetails = () => {
                 >
                     uottawa.sesa@gmail.com
                     <Image
-                        src="/contact-page/vector.svg"
+                        src="/contact-page/Vector.svg"
                         alt="Vector Icon"
                         width={17}
                         height={20}
