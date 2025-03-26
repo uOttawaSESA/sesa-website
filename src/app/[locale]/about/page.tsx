@@ -3,6 +3,9 @@ import CircleImage from "@/components/CircleImage";
 import Metric from "@/components/Metric";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
+import TeamMembers from "./TeamMembers";
+import { useMemo } from "react";
+import { membersData } from "@/app/data/Members";
 
 export default function AboutPage() {
     const images = [
@@ -12,8 +15,27 @@ export default function AboutPage() {
         "/imgs/team/ange.png",
     ];
 
+    const codirectors = useMemo(
+        () => membersData.filter(member => member.team === "Co-directors"),
+        [],
+    );
+    const development = useMemo(
+        () => membersData.filter(member => member.team === "Development"),
+        [],
+    );
+    const communications = useMemo(
+        () => membersData.filter(member => member.team === "Communications"),
+        [],
+    );
+    const partnership = useMemo(
+        () => membersData.filter(member => member.team === "Partnership"),
+        [],
+    );
+    const events = useMemo(() => membersData.filter(member => member.team === "Events"), []);
+    const academic = useMemo(() => membersData.filter(member => member.team === "Academic"), []);
+
     return (
-        <div className="min-h-screen">
+        <div className="min-h-screen text-white">
             <div className="container relative mx-auto max-w-7xl px-4 py-8">
                 {/* Upper area */}
                 <div className="flex flex-col gap-2">
@@ -129,16 +151,61 @@ export default function AboutPage() {
                         Meet the incredible back-end team that drives our front-end success and
                         makes everything possible.
                     </p>
-                    <div className="mt-4 font-heading uppercase">
-                        <Button variant="outline">Co-directors</Button>
-                        <Button variant="outline">Partnerships</Button>
-                        <Button variant="outline">Events</Button>
-                        <Button variant="outline">Communications</Button>
-                        <Button variant="outline">Development</Button>
-                        <Button variant="outline">Academic</Button>
-                        <Button variant="outline">Advisors</Button>
-                    </div>
                 </div>
+                <div className="sticky top-[5.6rem] z-10 mt-4 flex items-center justify-center font-heading uppercase backdrop-blur-sm">
+                    <Button variant="outline" href="#co-directors">
+                        Co-directors
+                    </Button>
+                    <Button variant="outline" href="#partnerships">
+                        Partnerships
+                    </Button>
+                    <Button variant="outline" href="#events">
+                        Events
+                    </Button>
+                    <Button variant="outline" href="#communications">
+                        Communications
+                    </Button>
+                    <Button variant="outline" href="#development">
+                        Development
+                    </Button>
+                    <Button variant="outline" href="#academic">
+                        Academic
+                    </Button>
+                    <Button variant="outline" href="#advisors">
+                        Advisors
+                    </Button>
+                </div>
+                <br />
+                <TeamMembers
+                    title="Co-Directors"
+                    description="Meet our Co-Directors, who keep everything running smoothly. They oversee projects, support the team, and make sure goals are met with a clear vision and strong collaboration."
+                    people={codirectors}
+                />
+                <TeamMembers
+                    title="Partnerships"
+                    description="Relationship builders, collaborating with sponsors, partners, and stakeholders to drive mutual growth and opportunities."
+                    people={partnership}
+                />
+                <TeamMembers
+                    title="Events"
+                    description="The organizers and planners, bringing our community together through impactful workshops, seminars, and conferences."
+                    people={events}
+                />
+                <TeamMembers
+                    title="Communications"
+                    description="Creative minds driving social media, website design, and digital outreach with style and impact."
+                    people={communications}
+                />
+                <TeamMembers
+                    title="Development"
+                    description="The tech powerhouse behind our projects, building innovative solutions and maintaining our website."
+                    people={development}
+                />
+                <TeamMembers
+                    title="Academic"
+                    description="Experts in research and knowledge sharing, supporting educational initiatives and ensuring the quality of academic outputs."
+                    people={academic}
+                />
             </div>
         </div>
     );
