@@ -72,8 +72,8 @@ export default function TeamMembers({ title, description, people }: Props) {
             <h2 className="font-heading text-2xl uppercase">{title}</h2>
             <p className="max-w-md text-lg leading-tight text-gray-400">{description} </p>
             <div className="flex gap-2">
-                {people.map((person, i) => (
-                    <div className="outline-gradient w-64" key={i}>
+                {people.map((person) => (
+                    <div className="outline-gradient w-64" key={person.name}>
                         <Image
                             src={person.imgPath}
                             alt={`Picture of ${person.name}`}
