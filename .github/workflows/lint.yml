@@ -46,5 +46,6 @@ jobs:
               run: pnpm install
 
             - name: Lint project
-              run: pnpm next telemetry disable
+              run: |
+                  pnpm next telemetry disable
                   pnpm lint
