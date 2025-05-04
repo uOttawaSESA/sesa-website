@@ -1,17 +1,19 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# uOttawa Software Engineering Student Association (SESA)
+
+This is the repository for the main SESA website.
 
 ## Getting Started
 
-First, run the development server:
+First, make sure that Corepack (included with Node.js) is enabled:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
+```sh
+corepack enable
+```
+
+Then, start the development server:
+
+```sh
 pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
