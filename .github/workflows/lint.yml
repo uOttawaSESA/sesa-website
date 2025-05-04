@@ -6,6 +6,7 @@ on:
         paths:
             - .github/workflows/lint.yml
             - package*.json
+            - pnpm-lock.yaml
             - src/**
             - "*.config.*"
             - .prettier*
@@ -15,6 +16,7 @@ on:
         paths:
             - .github/workflows/lint.yml
             - package*.json
+            - pnpm-lock.yaml
             - src/**
             - "*.config.*"
             - .prettier*
