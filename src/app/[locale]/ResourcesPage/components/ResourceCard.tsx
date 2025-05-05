@@ -8,6 +8,7 @@ export const ResourceCard = ({
     rating,
     tier,
     format,
+    onOpen,
 }: {
     title: string;
     category: string;
@@ -15,6 +16,7 @@ export const ResourceCard = ({
     rating: string;
     tier: string;
     format: string;
+    onOpen?: () => void;
 }) => {
     const [showOpen, setShowOpen] = useState(false);
 
@@ -105,6 +107,10 @@ export const ResourceCard = ({
                         <div className="ms-20">
                             <a
                                 href="#"
+                                onClick={e => {
+                                    e.preventDefault();
+                                    onOpen?.();
+                                }}
                                 className={`color-gradient-clickable font-heading text-lg transition-opacity duration-200 ease-in-out ${
                                     showOpen ? "opacity-100" : "opacity-0"
                                 }`}

@@ -2,7 +2,9 @@
 import { FC, useState } from "react";
 import SearchFilterBar from "./components/SearchFilterBar";
 import Pagination from "@/components/Pagination";
-import { resources, Resource } from "./utils/resourcesData";
+// import { resources, Resource } from "./utils/resourcesData";
+import { resources } from "@/app/data/Resources";
+import { Resource } from "@/app/types/Resource";
 import Header from "./components/Header";
 import ResourceList from "./components/ResourceList";
 import FooterSection from "./components/FooterSection";
@@ -25,16 +27,19 @@ const ResourcesPage: FC = () => {
 
     // Filter resources based on search term and filter options
     const filteredResources = resources.filter(resource => {
-        // Match search term (title, category, or course)
         const matchesSearchTerm =
             resource.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
             resource.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            resource.course.toLowerCase().includes(searchTerm.toLowerCase());
+            resource.course?.toLowerCase().includes(searchTerm.toLowerCase());
 
-        // Match filter options
         const matchesFilters = Object.entries(filterOptions).every(([key, value]) => {
-            if (!value) return true; // If no filter is selected, skip
-            return resource[key as keyof Resource].toLowerCase() === value.toLowerCase();
+            if (!value) return true;
+
+            const resourceValue = resource[key as keyof Resource];
+            return (
+                typeof resourceValue === "string" &&
+                resourceValue.toLowerCase() === value.toLowerCase()
+            );
         });
 
         return matchesSearchTerm && matchesFilters;
@@ -74,7 +79,7 @@ const ResourcesPage: FC = () => {
     );
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-gray-100 via-blueviolet-200 to-[#361D49]">
+        <div className="min-h-screen bg-gradient-to-b from-gray-100 via-blueviolet-200 to-[#361D49] text-white">
             {/* Main Content Container */}
             <div className="container relative z-10 mx-auto max-w-7xl px-4 py-8">
                 <Header />
