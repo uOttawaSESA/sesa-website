@@ -11,6 +11,75 @@ interface ResourceModalProps {
     onClose: () => void;
 }
 
+// component for List modal
+const ListLinkCard = ({
+    name,
+    description,
+    url,
+}: {
+    name: string;
+    description: string;
+    url: string;
+}) => {
+    const domain = (() => {
+        try {
+            return new URL(url).hostname;
+        } catch {
+            return "";
+        }
+    })();
+
+    const favicon = `https://www.google.com/s2/favicons?sz=32&domain=${domain}`;
+
+    return (
+        <div className="outline-gradient flex items-start justify-between border bg-white/10 p-4 font-heading text-thistle backdrop-blur-super transition hover:border-thistle">
+            <div className="flex flex-row gap-5">
+                <Image
+                    src={favicon}
+                    alt={`${name} favicon`}
+                    width={20}
+                    height={20}
+                    className="my-auto h-8 w-8 rounded object-contain"
+                />
+                <div className="flex flex-col gap-1">
+                    <span className="w-[700px] text-base font-bold uppercase tracking-wider text-white">
+                        {name}
+                    </span>
+                    <span className="font-sans text-base text-thistle">{description}</span>
+                </div>
+            </div>
+            <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="color-gradient-clickable my-auto flex items-center gap-2 text-sm font-bold"
+            >
+                VISIT WEBSITE
+                <Image
+                    src="/resources-page/new-tab-gradient.svg"
+                    alt="New tab"
+                    width={15}
+                    height={15}
+                />
+            </a>
+        </div>
+    );
+};
+
+const extractYoutubeId = (url: string): string | null => {
+    try {
+        const parsed = new URL(url);
+        if (parsed.hostname.includes("youtube.com")) {
+            return parsed.searchParams.get("v");
+        } else if (parsed.hostname === "youtu.be") {
+            return parsed.pathname.slice(1);
+        }
+    } catch {
+        return null;
+    }
+    return null;
+};
+
 export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps) => {
     const renderViewer = () => {
         switch (resource.format.toLowerCase()) {
@@ -25,26 +94,55 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                     </div>
                 );
             case "video":
+                const youtubeId = extractYoutubeId(resource.source);
                 return (
-                    <div className="flex aspect-video w-full items-center justify-center bg-black text-white">
-                        {/* TODO: Video player */}
-                        <span>Video format viewer coming soon</span>
+                    <div className="aspect-video w-full">
+                        <iframe
+                            className="h-full w-full"
+                            src={`https://www.youtube.com/embed/${youtubeId}`}
+                            title={resource.title}
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                        />
                     </div>
                 );
             case "website":
+                if (!resource.source) {
+                    return (
+                        <div className="w-full bg-gray-800 py-16 text-center text-white">
+                            No website URL provided.
+                        </div>
+                    );
+                }
+
+                const parsed = new URL(resource.source);
+                const hostname = parsed.hostname.replace("www.", "");
+                const path = parsed.pathname + parsed.search;
+
                 return (
-                    <div className="flex aspect-video w-full items-center justify-center bg-gray-800 text-white">
-                        {/* TODO: Website preview */}
-                        <span>Website preview coming soon</span>
+                    <div className="outline-gradient font-raleway flex h-16 w-full items-center gap-2.5 border bg-white/10 px-6 text-lg text-thistle backdrop-blur-super">
+                        <Image
+                            src="/resources-page/link.svg"
+                            alt="Website Link"
+                            width={25}
+                            height={25}
+                            className="max-h-full"
+                        />
+                        <a
+                            href={resource.source}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="truncate hover:underline"
+                        >
+                            <span>https://</span>
+                            <b className="text-white">{hostname}</b>
+                            <span>{path}</span>
+                        </a>
                     </div>
                 );
             case "list":
-                return (
-                    <div className="w-full bg-gray-700 py-16 text-center text-white">
-                        {/* TODO: List viewer */}
-                        <span>List viewer coming soon</span>
-                    </div>
-                );
+                return null; // handled separately under footer
             default:
                 return (
                     <div className="w-full py-16 text-center text-red-400">Unsupported format</div>
@@ -52,16 +150,33 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
         }
     };
 
+    const renderList = () => {
+        if (resource.format.toLowerCase() !== "list" || !resource.list) return null;
+
+        return (
+            <div className="flex flex-col gap-4 p-4">
+                {resource.list.map((item, index) => (
+                    <ListLinkCard
+                        key={index}
+                        name={item.name}
+                        description={item.description}
+                        url={item.url}
+                    />
+                ))}
+            </div>
+        );
+    };
+
     return (
         <Dialog
             open={isOpen}
             onClose={onClose}
-            className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-md"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/10 backdrop-blur-md"
         >
             <div className="bg- fixed inset-0" />
             <DialogPanel className="relative z-10 w-full max-w-5xl overflow-hidden">
                 {/* Header */}
-                <div className="flex items-center justify-between border-b p-4">
+                <div className="flex items-center justify-between p-4">
                     <div>
                         {/* Category Badges */}
                         <div className="mb-4 flex gap-2 font-heading text-white">
@@ -84,11 +199,11 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                     </IconButton>
                 </div>
 
-                {/* Format-specific Viewer */}
+                {/* Format-specific Viewer (excluding list) */}
                 {renderViewer()}
 
                 {/* Footer */}
-                <div className="flex items-center justify-between border-t p-4 text-sm text-thistle">
+                <div className="flex items-center justify-between p-4 text-sm text-thistle">
                     <div className="flex flex-row flex-wrap items-center gap-4 font-[Monocode] text-sm text-thistle">
                         {/* Rating */}
                         <div className="flex items-center gap-2">
@@ -160,23 +275,28 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                         </div>
                     </div>
 
-                    <Button
-                        href={resource.source}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex flex-row items-center justify-center font-heading uppercase text-white"
-                    >
-                        Open in New Tab
-                        <span className="ps-3">
-                            <Image
-                                src="/icons/new-tab.svg"
-                                width="15"
-                                height="15"
-                                alt="Open in a new tab"
-                            ></Image>
-                        </span>
-                    </Button>
+                    {resource.format.toLowerCase() !== "list" && (
+                        <Button
+                            href={resource.source}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex flex-row items-center justify-center font-heading uppercase text-white"
+                        >
+                            Open in New Tab
+                            <span className="ps-3">
+                                <Image
+                                    src="/resources-page/new-tab.svg"
+                                    width="15"
+                                    height="15"
+                                    alt="Open in a new tab"
+                                ></Image>
+                            </span>
+                        </Button>
+                    )}
                 </div>
+
+                {/* Render List under footer */}
+                {renderList()}
             </DialogPanel>
         </Dialog>
     );

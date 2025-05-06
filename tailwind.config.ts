@@ -9,6 +9,10 @@ export default {
     ],
     theme: {
         extend: {
+            backdropBlur: {
+                super: "500px",
+            },
+
             colors: {
                 gray: {
                     "100": "#1b1b1b",

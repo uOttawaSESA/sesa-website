@@ -4,9 +4,13 @@ export interface Resource {
     course?: string;
     rating: string;
     tier: string;
-    type: string;
     format: string;
     language: string;
     source: string;
+    list?: {
+        name: string;
+        description: string;
+        url: string;
+    }[];
     pricing: string;
 }
