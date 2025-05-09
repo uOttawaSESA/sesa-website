@@ -2,9 +2,17 @@ import { AnchorHTMLAttributes, forwardRef } from "react";
 import { Link } from "@/i18n/navigation";
 
 export interface ButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+    /** Defines the styling of the button. */
     variant?: "outline" | "fill" | "ghost" | "ghost-plain";
+    /** Whether the button should be disabled. This also removes any onClick actions. */
     disabled?: boolean;
+    /** If this button should act as an anchor tag, this is the URL to go to. */
     href?: string;
+    /**
+     * Whether the link is to an external location (_not_ somewhere on the SESA site),
+     * and therefore should not be localized.
+     * @default false
+     */
     external?: boolean;
 }
 

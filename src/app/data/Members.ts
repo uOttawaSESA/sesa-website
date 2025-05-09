@@ -96,6 +96,14 @@ export const membersData: Member[] = [
         imgPath: "/imgs/team/sanika.jpeg",
     },
     {
+        name: "Peter Bou-Farah",
+        team: "Events",
+        role: "Events Lead",
+        imgPath: "/imgs/team/peter.png",
+        linkedin: "https://www.linkedin.com/in/peter-bou-farah/",
+        github: "https://github.com/peter-bf",
+    },
+    {
         name: "Ayushi Dosieah",
         team: "Events",
         role: "Events Coordinator",
@@ -113,14 +121,6 @@ export const membersData: Member[] = [
         email: "tboyl098@uottawa.ca",
     },
     {
-        name: "Peter Bou-Farah",
-        team: "Events",
-        role: "Events Lead",
-        imgPath: "/imgs/team/peter.png",
-        linkedin: "https://www.linkedin.com/in/peter-bou-farah/",
-        github: "https://github.com/peter-bf",
-    },
-    {
         name: "Darren Rakos",
         team: "Events",
         role: "Events Coordinator",
@@ -128,6 +128,15 @@ export const membersData: Member[] = [
         linkedin: "https://www.linkedin.com/in/darrenrakos/",
         github: "https://github.com/RakosDarren",
         email: "darren.y.rakos@gmail.com",
+    },
+    {
+        name: "Rayen Ben Tamarzizt",
+        team: "Partnership",
+        role: "Partnership Lead",
+        imgPath: "/imgs/team/rayen.jpg",
+        linkedin: "https://www.linkedin.com/in/rayen-ben-tamarzizt-9001152b3/",
+        github: "https://github.com/Rayen-BT",
+        email: "rayenbentamarzizt@gmail.com",
     },
     {
         name: "Taha Rashid",
@@ -146,15 +155,6 @@ export const membersData: Member[] = [
         linkedin: "https://www.linkedin.com/in/anthonykhle/",
         github: "https://github.com/Ayprusss",
         email: "anthonykhle@gmail.com",
-    },
-    {
-        name: "Rayen Ben Tamarzizt",
-        team: "Partnership",
-        role: "Partnership Lead",
-        imgPath: "/imgs/team/rayen.jpg",
-        linkedin: "https://www.linkedin.com/in/rayen-ben-tamarzizt-9001152b3/",
-        github: "https://github.com/Rayen-BT",
-        email: "rayenbentamarzizt@gmail.com",
     },
     {
         name: "Priya Dharmendra Kumar",
