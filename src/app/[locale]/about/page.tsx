@@ -2,7 +2,6 @@ import Button from "@/components/Button";
 import CircleImage from "@/components/CircleImage";
 import Metric from "@/components/Metric";
 import Image from "next/image";
-import { Link } from "@/i18n/navigation";
 import TeamMembers from "./TeamMembers";
 import { useMemo } from "react";
 import { membersData } from "@/app/data/Members";
@@ -219,11 +218,12 @@ export default function AboutPage() {
                 </h1>
                 <p className="max-w-[32rem] text-lg leading-tight text-gray-400">
                     <b>Our community of past executive members spans around the globe</b>, making
-                    their mark in top industries. Here are just a few places where you'll find the
-                    impact of our talented network driving innovation and success.
+                    their mark in top industries. Here are just a few places where you&apos;ll find
+                    the impact of our talented network driving innovation and success.
                 </p>
                 <div className="flex items-center justify-center text-center">
                     <div className="grid grid-cols-4 gap-8">
+                        {/* This just fills the grid with 8 Warp logos for the time being */}
                         {Array(8)
                             .fill(0)
                             .map((_, i) => (
@@ -242,6 +242,42 @@ export default function AboutPage() {
                             ))}
                     </div>
                 </div>
+            </div>
+            {/* Be a part of our family */}
+            <div className="mb-24 mt-32 flex items-center justify-center gap-8">
+                <div className="flex flex-col gap-2">
+                    <p className="color-gradient font-mono">Be a part of our family</p>
+                    <h1 className="max-w-[28rem] font-heading text-3xl uppercase">
+                        Are you passionate about{" "}
+                        <span className="relative inline-block">
+                            Software Engineering?
+                            <div className="highlight-gradient" />
+                        </span>
+                    </h1>
+                    <p className="max-w-[28rem] text-lg leading-tight text-gray-400">
+                        <b>Turn your passion into impact</b>. Build, learn, and connect with
+                        like-minded peers while helping shape the next generation of software
+                        engineers.
+                    </p>
+                    <Button
+                        href="/ContactUsPage"
+                        className="my-4 w-fit font-heading uppercase"
+                        disabled
+                    >
+                        Apply Now
+                    </Button>
+                    <p className="max-w-[28rem] font-mono text-gray-400">
+                        We&apos;re no longer accepting applications for Winter 2025. Stay tuned for
+                        Spring/Summer 2025 openings!
+                    </p>
+                </div>
+                <Image
+                    className="outline-gradient"
+                    src="/does-not-exist"
+                    width={800}
+                    height={500}
+                    alt="Team picture"
+                />
             </div>
         </div>
     );
