@@ -74,7 +74,7 @@ export const membersData: Member[] = [
     {
         name: "Tazim Khan",
         team: "Development",
-        role: "Team Lead",
+        role: "Development Lead",
         imgPath: "/imgs/team/tazim.jpeg",
         linkedin: "https://www.linkedin.com/in/tazim-khan/",
         github: "https://github.com/tazim04",
