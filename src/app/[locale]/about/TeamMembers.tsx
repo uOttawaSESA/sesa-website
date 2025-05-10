@@ -13,7 +13,7 @@ function memberToIcons(member: Member) {
 
     if (member.linkedin)
         icons.push(
-            <a href={member.linkedin} target="_blank">
+            <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
                 <Image
                     src="/icons/linkedin-plain.svg"
                     alt="Linkedin"
@@ -26,7 +26,7 @@ function memberToIcons(member: Member) {
 
     if (member.github)
         icons.push(
-            <a href={member.github} target="_blank">
+            <a href={member.github} target="_blank" rel="noopener noreferrer">
                 <Image
                     src="/icons/github-plain.svg"
                     alt="GitHub"
@@ -52,7 +52,7 @@ function memberToIcons(member: Member) {
 
     if (member.portfolio)
         icons.push(
-            <a href={member.portfolio} target="_blank">
+            <a href={member.portfolio} target="_blank" rel="noopener noreferrer">
                 <Image
                     src="/icons/website-plain.svg"
                     alt="Portfolio"
