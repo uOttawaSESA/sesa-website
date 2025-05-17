@@ -281,6 +281,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex flex-row items-center justify-center font-heading uppercase text-white"
+                            external
                         >
                             Open in New Tab
                             <span className="ps-3">
