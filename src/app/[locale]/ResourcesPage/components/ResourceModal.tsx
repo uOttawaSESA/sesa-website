@@ -173,7 +173,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
             onClose={onClose}
             className="fixed inset-0 z-50 flex items-center justify-center bg-black/10 backdrop-blur-md"
         >
-            <div className="bg- fixed inset-0" />
+            <div className="bg-fixed inset-0" />
             <DialogPanel className="relative z-10 w-full max-w-5xl overflow-hidden">
                 {/* Header */}
                 <div className="flex items-center justify-between p-4">
