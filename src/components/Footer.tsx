@@ -19,6 +19,7 @@ import { useTranslations } from "next-intl";
 
 export default function Footer() {
     const t = useTranslations("footer");
+    const tNav = useTranslations("navigation");
 
     return (
         <footer className="mx-0 mb-16 flex flex-col gap-2 bg-transparent px-0 pt-8 backdrop-blur-[50px]">
@@ -33,44 +34,44 @@ export default function Footer() {
                         </p>
                     </div>
                     <div className="flex flex-col gap-4">
-                        <h3 className="color-gradient font-heading uppercase">Sitemap</h3>
+                        <h3 className="color-gradient font-heading uppercase">{t("sitemap")}</h3>
                         <ul className="flex flex-col gap-2 text-lg leading-none text-gray-400">
                             <li>
-                                <a href="#">Home</a>
+                                <a href="#">{tNav("home")}</a>
                             </li>
                             <li>
-                                <a href="#">About</a>
+                                <a href="#">{tNav("about")}</a>
                             </li>
                             <li>
-                                <a href="#">Events</a>
+                                <a href="#">{tNav("events")}</a>
                             </li>
                             <li>
-                                <a href="#">Resources</a>
+                                <a href="#">{tNav("resources")}</a>
                             </li>
                             <li>
-                                <a href="#">Contact</a>
+                                <a href="#">{tNav("contact")}</a>
                             </li>
                             <li>
-                                <a href="#">Sponsor</a>
+                                <a href="#">{tNav("sponsor")}</a>
                             </li>
                         </ul>
                     </div>
                     <div className="flex flex-col gap-4">
-                        <h3 className="color-gradient font-heading uppercase">Policies</h3>
+                        <h3 className="color-gradient font-heading uppercase">{t("policies")}</h3>
                         <ul className="flex flex-col gap-2 text-lg leading-none text-gray-400">
                             <li>
-                                <a href="#">Privacy</a>
+                                <a href="#">{t("privacy")}</a>
                             </li>
                             <li>
-                                <a href="#">Terms</a>
+                                <a href="#">{t("terms")}</a>
                             </li>
                             <li>
-                                <a href="#">Constitution</a>
+                                <a href="#">{t("constitution")}</a>
                             </li>
                         </ul>
                     </div>
                     <div className="flex flex-col gap-4">
-                        <h3 className="color-gradient font-heading uppercase">Contact</h3>
+                        <h3 className="color-gradient font-heading uppercase">{t("contact")}</h3>
                         <p className="text-lg/5 text-gray-400">
                             800 King Edward Ave,
                             <br />

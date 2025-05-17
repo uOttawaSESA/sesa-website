@@ -12,13 +12,13 @@ export interface CircleImageProps
 const CircleImage = ({ className, innerClassName, size, ...rest }: CircleImageProps) => {
     return (
         <div
-            className={`fill-gradient flex h-min items-center justify-center rounded-[50%] p-0.5 ${className || ""}`}
+            className={`fill-gradient flex h-min items-center justify-center rounded-full p-0.5 ${className || ""}`}
             {...rest}
         >
             {/* eslint-disable-next-line jsx-a11y/alt-text */}
             <Image
                 style={{ width: `${size}px`, height: `${size}px` }}
-                className={`rounded-[50%] ${innerClassName || ""}`}
+                className={`rounded-full object-cover ${innerClassName || ""}`}
                 {...rest}
                 width={size}
                 height={size}

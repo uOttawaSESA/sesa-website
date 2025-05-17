@@ -9,6 +9,8 @@ export default function Events() {
     const [scrollItems, setScrollItems] = useState<((direction: "left" | "right") => void) | null>(
         null,
     );
+    const [isAtStart, setIsAtStart] = useState(true);
+    const [isAtEnd, setIsAtEnd] = useState(false);
 
     const t = useTranslations("homepage");
 
@@ -31,12 +33,9 @@ export default function Events() {
                         {t("events_subheading")}
                     </p>
 
-                    <div className="mt-6 flex flex-row items-center justify-between md:w-[70rem] 2xl:w-[100rem]">
+                    <div className="mt-6 flex w-[90%] flex-row items-center justify-between">
                         <div className="flex font-heading">
-                            <Button
-                                className="font-heading text-lg uppercase"
-                                href="/pages/EventsPage"
-                            >
+                            <Button className="font-heading text-lg uppercase" href="/EventsPage">
                                 {t("view_all_events")}
                             </Button>
                         </div>
@@ -46,6 +45,7 @@ export default function Events() {
                             <IconButton
                                 variant="outline"
                                 onClick={() => scrollItems && scrollItems("left")}
+                                disabled={isAtStart}
                             >
                                 <Image
                                     src="/resources-page/arrow_backword.svg"
@@ -57,6 +57,7 @@ export default function Events() {
                             <IconButton
                                 variant="outline"
                                 onClick={() => scrollItems && scrollItems("right")}
+                                disabled={isAtEnd}
                             >
                                 <Image
                                     src="/resources-page/arrow_forward.svg"
@@ -71,7 +72,11 @@ export default function Events() {
             </section>
 
             {/* Carousel */}
-            <EventsCarousel setScrollFunction={setScrollItems} />
+            <EventsCarousel
+                setScrollFunction={setScrollItems}
+                setIsAtStart={setIsAtStart}
+                setIsAtEnd={setIsAtEnd}
+            />
         </>
     );
 }

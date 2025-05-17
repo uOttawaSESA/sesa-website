@@ -2,8 +2,11 @@ import React from "react";
 import Image from "next/image";
 import Button from "@/components/Button";
 import CircleImage from "@/components/CircleImage"; // Import the CircleImage component
+import { useTranslations } from "next-intl";
 
 const TeamUpSection: React.FC = () => {
+    const t = useTranslations("events");
+
     return (
         <div className="my-36 flex h-[45rem] items-center justify-start gap-12 align-middle">
             <div className="grid-overlay-left md:h-[43.93rem] md:w-[53vw]"></div>
@@ -20,15 +23,11 @@ const TeamUpSection: React.FC = () => {
 
             <div className="z-10 max-w-lg text-left text-white">
                 <span className="bg-gradient-to-r from-blueviolet-100 to-darkmagenta bg-clip-text font-mono text-transparent">
-                    Work with us
+                    {t("work_with_us")}
                 </span>
-                <div className="mt-3 font-heading text-2xl">
-                    INTERESTED IN TEAMING UP ON AN EVENT?{" "}
-                </div>
+                <div className="mt-3 font-heading text-2xl uppercase">{t("teamup_heading")}</div>
                 <p className="mt-4 max-w-[558px] font-sans text-xl text-thistle">
-                    Whether you’re an organization or student club, we’re open to exploring
-                    partnerships that deliver meaningful opportunities and experiences to students
-                    pursuing software engineering at the University of Ottawa.
+                    {t("teamup_blurb")}
                 </p>
 
                 <div className="mt-6 flex gap-4">
@@ -36,7 +35,7 @@ const TeamUpSection: React.FC = () => {
                         href="/pages/ContactUsPage"
                         className="relative z-10 font-heading text-xl uppercase"
                     >
-                        Let&apos;s Talk
+                        {t("btn_talk")}
                     </Button>
 
                     <Button
@@ -44,7 +43,7 @@ const TeamUpSection: React.FC = () => {
                         href="/pages/TeamPage"
                         className="relative z-10 font-heading text-xl uppercase"
                     >
-                        Meet the Team
+                        {t("btn_meet_team")}
                     </Button>
                 </div>
 

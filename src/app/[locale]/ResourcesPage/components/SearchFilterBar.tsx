@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import Dropdown from "@/components/Dropdown";
 import RowSelector from "../components/RowSelector";
+import { useTranslations } from "next-intl";
 
 const gradientBorderClass = `
     border-[1px]
@@ -46,6 +47,8 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
     sortOption, // Destructure sortOption
     setSortOption, // Destructure setSortOption
 }) => {
+    const t = useTranslations("resources");
+
     const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false);
     const [isSortOpen, setIsSortOpen] = useState<boolean>(false);
     const [isViewOpen, setIsViewOpen] = useState<boolean>(false);
@@ -129,7 +132,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                         type="text"
                         value={searchTerm}
                         onChange={e => setSearchTerm(e.target.value)}
-                        placeholder="Search by title, category, course, or author"
+                        placeholder={t("search_placeholder")}
                         className="w-full bg-transparent font-sans text-base placeholder-thistle focus:outline-none"
                     />
                 </div>
