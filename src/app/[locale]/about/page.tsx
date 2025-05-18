@@ -1,10 +1,12 @@
 import Button from "@/components/Button";
 import CircleImage from "@/components/CircleImage";
 import Metric from "@/components/Metric";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import TeamMembers from "./TeamMembers";
 import { useMemo } from "react";
 import { membersData } from "@/app/data/Members";
+import WhatWeDoCard from "./WhatWeDoCard";
 
 export default function AboutPage() {
     const images = [
@@ -127,12 +129,34 @@ export default function AboutPage() {
                             partnership with industry professionals.
                         </p>
                     </div>
-                    {/* TODO: replace this with a <Button> when it supports localized links */}
                     <Button href="/sponsor-us" className="w-fit font-heading uppercase">
-                        Become a Sponsor
+                        Become a Sponsor &gt;
                     </Button>
                 </div>
-                {/* TODO: insert cards */}
+                {/* Cards for "What do we do" */}
+                <div className="mb-8 flex justify-center gap-8">
+                    <WhatWeDoCard
+                        icon="R"
+                        heading="Social Events"
+                        description="We organize educational events and entertaining events, such as movie nights, dog therapy, game nights, and parties."
+                        linkLabel="Discover Events"
+                        linkHref="/events"
+                    />
+                    <WhatWeDoCard
+                        icon="C"
+                        heading="Academic Support"
+                        description="We also provide academic help, including mentorship, resources, advice, and support on coursework, projects, and exams."
+                        linkLabel="Discover Resources"
+                        linkHref="/resources"
+                    />
+                    <WhatWeDoCard
+                        icon="B"
+                        heading="Professional Development"
+                        description="Additionally, we provide career development opportunities, including workshops, speaker series, and networking events."
+                        linkLabel="Discover Opportunities"
+                        linkHref="/placeholder"
+                    />
+                </div>
                 {/* Introducing our team */}
                 <div className="align-center flex flex-col items-center gap-2 text-center">
                     <p className="color-gradient font-mono">Introducing our team</p>
