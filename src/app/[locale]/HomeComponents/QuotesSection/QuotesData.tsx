@@ -25,7 +25,7 @@ export const quotesData: Quote[] = [
     },
     {
         heading: "Buiding doors together",
-        quote_part1: "Here at SESA, we don't wait for doors to open- we build our own",
+        quote_part1: "Here at SESA, we don't wait for doors to open -",
         highlightQuote: "we build our own.",
         quote_part2: "",
         buttonLink: "",
