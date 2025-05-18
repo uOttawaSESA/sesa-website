@@ -29,7 +29,7 @@ export default function WhatWeDoCard({
                 alt={`${heading} image`}
             />
             <div className="flex w-[22rem] flex-col gap-4 p-8">
-                <p className="outline-gradient flex h-10 w-10 items-center justify-center">
+                <p className="outline-gradient flex h-12 w-12 items-center justify-center">
                     {icon}
                 </p>
                 <h2 className="font-heading text-xl uppercase">{heading}</h2>

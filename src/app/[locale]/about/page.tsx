@@ -1,7 +1,6 @@
 import Button from "@/components/Button";
 import CircleImage from "@/components/CircleImage";
 import Metric from "@/components/Metric";
-import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import TeamMembers from "./TeamMembers";
 import { useMemo } from "react";
@@ -53,8 +52,10 @@ export default function AboutPage() {
                         development.
                     </p>
                     <div className="my-2 flex gap-2 font-heading uppercase">
-                        <Button>Meet The Team</Button>
-                        <Button variant="outline">Join Our Family</Button>
+                        <Button className="font-heading uppercase">Meet The Team</Button>
+                        <Button className="font-heading uppercase" variant="outline">
+                            Join Our Family
+                        </Button>
                     </div>
                     <div className="flex flex-nowrap items-center">
                         {images.map((src, i) => (
@@ -136,21 +137,45 @@ export default function AboutPage() {
                 {/* Cards for "What do we do" */}
                 <div className="mb-8 flex justify-center gap-8">
                     <WhatWeDoCard
-                        icon="R"
+                        imageHref={null}
+                        icon={
+                            <Image
+                                src="/icons/rocket-plain.svg"
+                                width={24}
+                                height={24}
+                                alt="Rocket icon"
+                            />
+                        }
                         heading="Social Events"
                         description="We organize educational events and entertaining events, such as movie nights, dog therapy, game nights, and parties."
                         linkLabel="Discover Events"
                         linkHref="/events"
                     />
                     <WhatWeDoCard
-                        icon="C"
+                        imageHref={null}
+                        icon={
+                            <Image
+                                src="/icons/school-plain.svg"
+                                width={24}
+                                height={24}
+                                alt="School icon"
+                            />
+                        }
                         heading="Academic Support"
                         description="We also provide academic help, including mentorship, resources, advice, and support on coursework, projects, and exams."
                         linkLabel="Discover Resources"
                         linkHref="/resources"
                     />
                     <WhatWeDoCard
-                        icon="B"
+                        imageHref={null}
+                        icon={
+                            <Image
+                                src="/icons/briefcase-plain.svg"
+                                width={24}
+                                height={24}
+                                alt="Briefcase icon"
+                            />
+                        }
                         heading="Professional Development"
                         description="Additionally, we provide career development opportunities, including workshops, speaker series, and networking events."
                         linkLabel="Discover Opportunities"
