@@ -41,7 +41,7 @@ function memberToIcons(member: Member) {
         icons.push(
             <a href={`mailto:${member.email}`}>
                 <Image
-                    src="/icons/email.svg"
+                    src="/icons/mail-plain.svg"
                     alt="Email"
                     width={24}
                     height={24}
@@ -54,7 +54,7 @@ function memberToIcons(member: Member) {
         icons.push(
             <a href={member.portfolio} target="_blank" rel="noopener noreferrer">
                 <Image
-                    src="/icons/website-plain.svg"
+                    src="/icons/globe-plain.svg"
                     alt="Portfolio"
                     width={24}
                     height={24}
