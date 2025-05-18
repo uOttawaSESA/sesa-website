@@ -32,8 +32,8 @@ const PastCollaboratorsCarousel = () => {
             </div>
 
             <p className="text-md max-w-2xl text-thistle">
-                We've had the privilege of working with over 20+ big and small companies that have
-                enhanced our events, including:
+                We&apos;ve had the privilege of working with over 20+ big and small companies that
+                have enhanced our events, including:
             </p>
 
             {/* Carousel container */}

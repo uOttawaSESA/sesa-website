@@ -11,13 +11,13 @@ export default function CTA() {
                 </p>
                 <Link href="/contact">
                     <Button className="px-4 py-1.5 font-heading text-sm uppercase text-white">
-                        Let's Talk
+                        Let&apos;s Talk
                     </Button>
                 </Link>
             </div>
 
             <p className="mt-4 font-sans text-sm text-thistle">
-                We'll get back to you within 48 hours.
+                We&apos;ll get back to you within 48 hours.
             </p>
         </div>
     );

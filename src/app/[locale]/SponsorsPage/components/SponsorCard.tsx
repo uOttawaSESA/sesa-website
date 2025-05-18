@@ -30,12 +30,12 @@ const SponsorCard = () => {
                     className="mb-4"
                 />
                 <div className="mt-3 font-heading text-2xl uppercase text-white">
-                    “PARTNERING WITH SESA HAS BEEN AN{" "}
+                    &ldquo;PARTNERING WITH SESA HAS BEEN AN{" "}
                     <span className="relative inline-block">
                         INCREDIBLE EXPERIENCE.
                         <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                     </span>{" "}
-                    THE VISIBILITY AND CONNECTIONS WE'VE GAINED ARE UNMATCHED.”
+                    THE VISIBILITY AND CONNECTIONS WE&apos;VE GAINED ARE UNMATCHED.&rdquo;
                 </div>
 
                 <div className="mt-4 flex items-center gap-3">
@@ -56,7 +56,7 @@ const SponsorCard = () => {
             </div>
             {/* Navigation Buttons */}
             <div className="flex items-center gap-2">
-                <IconButton variant="outline" onClick={() => scrollItems && scrollItems("left")}>
+                <IconButton variant="outline">
                     <Image
                         src="/resources-page/arrow_backword.svg"
                         width={25}
@@ -64,7 +64,7 @@ const SponsorCard = () => {
                         alt="Left"
                     />
                 </IconButton>
-                <IconButton variant="outline" onClick={() => scrollItems && scrollItems("right")}>
+                <IconButton variant="outline">
                     <Image
                         src="/resources-page/arrow_forward.svg"
                         width={25}
