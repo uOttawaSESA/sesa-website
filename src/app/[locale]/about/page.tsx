@@ -70,10 +70,10 @@ export default function AboutPage() {
                     </div>
                 </div>
                 {/* Images (TODO) */}
-                <div className="flex justify-center">
+                <div className="mt-6 flex justify-center">
                     <Image
-                        className="outline-gradient"
-                        src="/does-not-exist"
+                        className="outline-gradient h-[600px] w-[1000px] object-cover"
+                        src="/imgs/about/team-1.png"
                         width={1000}
                         height={500}
                         alt="Team picture"
@@ -137,7 +137,7 @@ export default function AboutPage() {
                 {/* Cards for "What do we do" */}
                 <div className="mb-8 flex justify-center gap-8">
                     <WhatWeDoCard
-                        imageHref={null}
+                        imageHref="/imgs/about/social-events.png"
                         icon={
                             <Image
                                 src="/icons/rocket-plain.svg"
@@ -152,7 +152,7 @@ export default function AboutPage() {
                         linkHref="/events"
                     />
                     <WhatWeDoCard
-                        imageHref={null}
+                        imageHref="/imgs/about/academic-support.png"
                         icon={
                             <Image
                                 src="/icons/school-plain.svg"
@@ -167,7 +167,7 @@ export default function AboutPage() {
                         linkHref="/resources"
                     />
                     <WhatWeDoCard
-                        imageHref={null}
+                        imageHref="/imgs/about/professional-development.png"
                         icon={
                             <Image
                                 src="/icons/briefcase-plain.svg"
@@ -321,9 +321,9 @@ export default function AboutPage() {
                     </p>
                 </div>
                 <Image
-                    className="outline-gradient"
-                    src="/does-not-exist"
-                    width={800}
+                    className="outline-gradient h-[500px] w-[700px] object-cover"
+                    src="/imgs/about/team-1.png"
+                    width={700}
                     height={500}
                     alt="Team picture"
                 />
