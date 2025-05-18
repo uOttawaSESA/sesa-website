@@ -48,27 +48,24 @@ const Button = forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>((p
 
     const buttonClasses = `${baseStyle} ${variantClass} ${className || ""} ${disabled ? disabledClass : ""}`;
 
-    // External link
-    if ("href" in props && props.href && props.external) {
-        const { href, onClick, ...anchorRest } = rest as AnchorProps;
-        return (
-            <a
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={buttonClasses}
-                ref={ref as React.Ref<HTMLAnchorElement>}
-                onClick={onClick}
-                {...(disabled ? {} : anchorRest)}
-            >
-                {children}
-            </a>
-        );
-    }
-
-    // Internal link
+    // Anchor/link case
     if ("href" in props && props.href) {
-        const { href, onClick, ...anchorRest } = rest as AnchorProps;
+        const { href, external, onClick, ...anchorRest } = rest as AnchorProps;
+        if (external) {
+            return (
+                <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={buttonClasses}
+                    ref={ref as React.Ref<HTMLAnchorElement>}
+                    onClick={onClick}
+                    {...(disabled ? {} : anchorRest)}
+                >
+                    {children}
+                </a>
+            );
+        }
         return (
             <Link
                 href={href}

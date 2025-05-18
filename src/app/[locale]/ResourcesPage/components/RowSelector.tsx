@@ -39,7 +39,7 @@ const RowSelector: React.FC<RowSelectorProps> = ({
             {isOpen && (
                 <div className="absolute right-0 z-20 mt-2 min-w-[8rem]">
                     <div
-                        className={`${gradientBorderClass} bg-[rgba(27,27,27,0.3)] backdrop-blur-md backdrop-saturate-150`}
+                        className={`${gradientBorderClass} animate-dropdown bg-[rgba(27,27,27,0.3)] backdrop-blur-md backdrop-saturate-150`}
                     >
                         {[1, 2, 3, 4, 5].map(rows => (
                             <button
