@@ -10,7 +10,7 @@ export default function CTA() {
                     Interested in joining our growing network of industry partners?
                 </p>
                 <Link href="/contact">
-                    <Button className="px-4 py-1.5 font-heading text-sm uppercase">
+                    <Button className="px-4 py-1.5 font-heading text-sm uppercase text-white">
                         Let's Talk
                     </Button>
                 </Link>
