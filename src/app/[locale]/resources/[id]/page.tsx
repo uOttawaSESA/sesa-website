@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import DOMPurify from "dompurify";
 import { JSDOM } from "jsdom";
 import { marked } from "marked";
-import { use, useMemo } from "react";
 import Button from "@/components/Button";
 
 import OtherResources from "./OtherResources";
@@ -56,19 +55,15 @@ console.log("Hello, World!");
     },
 };
 
-export default function ResourcePage({ params }: { params: Promise<{ id: string }> }) {
-    const { id } = use(params);
+export default async function ResourcePage({ params }: { params: Promise<{ id: string }> }) {
+    const { id } = await params;
 
     // 404 if the resource does not exist
     if (!(id in resources)) notFound();
 
     const resource = resources[id]!;
-    const resourceBody = useMemo(
-        () =>
-            DOMPurify(new JSDOM("<!DOCTYPE html>").window).sanitize(
-                marked(resource.body) as string,
-            ),
-        [resource.body],
+    const resourceBody = DOMPurify(new JSDOM("<!DOCTYPE html>").window).sanitize(
+        await marked(resource.body),
     );
     const resourceDate = new Date(resource.date);
 

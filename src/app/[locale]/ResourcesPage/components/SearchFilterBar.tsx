@@ -31,8 +31,8 @@ interface SearchFilterBarProps {
         language: string;
         tier: string;
     }) => void;
-    sortOption: string; // Add this
-    setSortOption: (option: string) => void; // Add this
+    sortOption: string;
+    setSortOption: (option: string) => void;
 }
 
 export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
@@ -44,8 +44,8 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
     setSearchTerm,
     filterOptions,
     setFilterOptions,
-    sortOption, // Destructure sortOption
-    setSortOption, // Destructure setSortOption
+    sortOption,
+    setSortOption,
 }) => {
     const t = useTranslations("resources");
 
@@ -53,6 +53,9 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
     const [isSortOpen, setIsSortOpen] = useState<boolean>(false);
     const [isViewOpen, setIsViewOpen] = useState<boolean>(false);
     const [isRowSelectorOpen, setIsRowSelectorOpen] = useState<boolean>(false);
+
+    // Track which filter dropdown is open
+    const [openFilterDropdown, setOpenFilterDropdown] = useState<string | null>(null);
 
     const filterRef = useRef<HTMLDivElement>(null);
     const sortRef = useRef<HTMLDivElement>(null);
@@ -63,6 +66,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
         const handleClickOutside = (event: MouseEvent) => {
             if (filterRef.current && !filterRef.current.contains(event.target as Node)) {
                 setIsFilterOpen(false);
+                setOpenFilterDropdown(null);
             }
             if (sortRef.current && !sortRef.current.contains(event.target as Node)) {
                 setIsSortOpen(false);
@@ -79,18 +83,53 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
-    const handleFilterChange = (e: React.ChangeEvent<HTMLSelectElement>, key: string) => {
-        setFilterOptions({ ...filterOptions, [key]: e.target.value });
-        setIsFilterOpen(false);
+    // Dropdown options for each filter
+    const filterDropdownOptions: Record<string, { label: string; value: string }[]> = {
+        course: [
+            { label: "Select Course", value: "" },
+            { label: "ITI1100", value: "ITI1100" },
+            { label: "CS101", value: "CS101" },
+        ],
+        type: [
+            { label: "Select Type", value: "" },
+            { label: "Academic", value: "academic" },
+            { label: "Career", value: "career" },
+            { label: "Technical", value: "technical" },
+        ],
+        format: [
+            { label: "Select Format", value: "" },
+            { label: "Video", value: "video" },
+            { label: "PDF", value: "pdf" },
+            { label: "Website", value: "website" },
+        ],
+        language: [
+            { label: "Select Language", value: "" },
+            { label: "English", value: "english" },
+            { label: "French", value: "french" },
+        ],
+        tier: [
+            { label: "Select Tier", value: "" },
+            { label: "Tier S", value: "S" },
+            { label: "Tier A", value: "A" },
+            { label: "Tier B", value: "B" },
+            { label: "Tier C", value: "C" },
+        ],
+    };
+
+    // Handler for filter dropdown selection
+    const handleDropdownFilterChange = (key: string, value: string) => {
+        setFilterOptions({ ...filterOptions, [key]: value });
+        setOpenFilterDropdown(null);
     };
 
     const handleSortChange = (value: string) => {
-        setSortOption(value); // Use setSortOption from props
+        setSortOption(value);
         setIsSortOpen(false);
     };
 
     const toggleFilterDropdown = () => {
         setIsFilterOpen(!isFilterOpen);
+        setOpenFilterDropdown(null);
         if (isSortOpen) setIsSortOpen(false);
         if (isViewOpen) setIsViewOpen(false);
         if (isRowSelectorOpen) setIsRowSelectorOpen(false);
@@ -229,52 +268,58 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                             >
                                                 {key.charAt(0).toUpperCase() + key.slice(1)}
                                             </label>
-                                            <select
-                                                id={key}
-                                                value={value}
-                                                onChange={e => handleFilterChange(e, key)}
-                                                className="w-full bg-[rgba(27,27,27,0.05)] px-3 py-2 font-heading text-base uppercase text-white focus:outline-none"
+                                            <button
+                                                type="button"
+                                                className="w-full rounded border border-thistle bg-transparent px-6 py-3 text-left font-heading text-base uppercase text-white transition-colors duration-200 hover:bg-[rgba(27,27,27,0.2)]"
+                                                onClick={() =>
+                                                    setOpenFilterDropdown(
+                                                        openFilterDropdown === key ? null : key,
+                                                    )
+                                                }
                                             >
-                                                {key === "course" && (
-                                                    <>
-                                                        <option value="">Select Course</option>
-                                                        <option value="ITI1100">ITI1100</option>
-                                                        <option value="CS101">CS101</option>
-                                                    </>
-                                                )}
-                                                {key === "type" && (
-                                                    <>
-                                                        <option value="">Select Type</option>
-                                                        <option value="academic">Academic</option>
-                                                        <option value="career">Career</option>
-                                                        <option value="technical">Technical</option>
-                                                    </>
-                                                )}
-                                                {key === "format" && (
-                                                    <>
-                                                        <option value="">Select Format</option>
-                                                        <option value="video">Video</option>
-                                                        <option value="pdf">PDF</option>
-                                                        <option value="website">Website</option>
-                                                    </>
-                                                )}
-                                                {key === "language" && (
-                                                    <>
-                                                        <option value="">Select Language</option>
-                                                        <option value="english">English</option>
-                                                        <option value="french">French</option>
-                                                    </>
-                                                )}
-                                                {key === "tier" && (
-                                                    <>
-                                                        <option value="">Select Tier</option>
-                                                        <option value="S">Tier S</option>
-                                                        <option value="A">Tier A</option>
-                                                        <option value="B">Tier B</option>
-                                                        <option value="C">Tier C</option>
-                                                    </>
-                                                )}
-                                            </select>
+                                                {filterDropdownOptions[key].find(
+                                                    opt => opt.value === value,
+                                                )?.label || filterDropdownOptions[key][0].label}
+                                                <span className="float-right">
+                                                    <Image
+                                                        src="/contact-page/arrows.svg"
+                                                        alt="Dropdown Arrow"
+                                                        width={16}
+                                                        height={16}
+                                                        className={`inline transition-transform duration-200 ${
+                                                            openFilterDropdown === key
+                                                                ? "rotate-180"
+                                                                : ""
+                                                        }`}
+                                                    />
+                                                </span>
+                                            </button>
+                                            {openFilterDropdown === key && (
+                                                <div className="relative z-50">
+                                                    <div className="absolute left-0 right-0 mt-2 min-w-full">
+                                                        <div
+                                                            className={`${gradientBorderClass} bg-[rgba(27,27,27,1)] backdrop-blur-md backdrop-saturate-150`}
+                                                        >
+                                                            {filterDropdownOptions[key].map(
+                                                                option => (
+                                                                    <button
+                                                                        key={option.value}
+                                                                        className="w-full px-6 py-3 text-left font-heading text-base uppercase text-white transition-colors duration-200 hover:bg-[rgba(27,27,27,0.4)]"
+                                                                        onClick={() => {
+                                                                            handleDropdownFilterChange(
+                                                                                key,
+                                                                                option.value,
+                                                                            );
+                                                                        }}
+                                                                    >
+                                                                        {option.label}
+                                                                    </button>
+                                                                ),
+                                                            )}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            )}
                                         </div>
                                     ))}
                                 </div>

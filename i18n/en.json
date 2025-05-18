@@ -12,6 +12,7 @@
         "events_subheading": "Register today and save the date. Add our events to your calendar using the built-in embed feature!",
         "view_all_events": "View All Events"
     },
+
     "contact_us": {
         "contact_us": "Contact us",
         "get_in_touch": "Get in",
@@ -28,7 +29,8 @@
         "form_body_placeholder": "Include as much detail as you can.",
         "form_disclosure": "By submitting this form, I confirm that I have read and accept the",
         "form_disclosure_link": "Privacy & Terms",
-        "send_message": "Send Message"
+        "send_message": "Send Message",
+        "sending": "Sending..."
     },
     "events": {
         "no_events": "No events found",

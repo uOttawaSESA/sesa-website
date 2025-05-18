@@ -6,6 +6,7 @@ on:
         paths:
             - .github/workflows/lint.yml
             - package*.json
+            - pnpm-lock.yaml
             - src/**
             - "*.config.*"
             - .prettier*
@@ -15,6 +16,7 @@ on:
         paths:
             - .github/workflows/lint.yml
             - package*.json
+            - pnpm-lock.yaml
             - src/**
             - "*.config.*"
             - .prettier*
@@ -23,27 +25,27 @@ jobs:
     lint:
         name: Lint Project
         runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [22]
 
         steps:
             - name: Checkout
               uses: actions/checkout@v4
 
-            - name: Get npm cache directory
-              id: npm-cache-dir
-              shell: bash
-              run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT}
+            - name: Install pnpm
+              uses: pnpm/action-setup@v4
 
-            - name: npm cache
-              uses: actions/cache@v4
-              id: npm-cache
+            - name: Install Node.js
+              uses: actions/setup-node@v4
               with:
-                  path: ${{ steps.npm-cache-dir.outputs.dir }}
-                  key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-                  restore-keys: |
-                      ${{ runner.os }}-node-
+                  node-version: ${{ matrix.node-version }}
+                  cache: "pnpm"
+
+            - name: Install dependencies
+              run: pnpm install
 
             - name: Lint project
               run: |
-                  npm install
-                  npx next telemetry disable
-                  npm run lint
+                  pnpm next telemetry disable
+                  pnpm lint
