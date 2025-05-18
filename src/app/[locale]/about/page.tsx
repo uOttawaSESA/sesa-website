@@ -52,8 +52,15 @@ export default function AboutPage() {
                         development.
                     </p>
                     <div className="my-2 flex gap-2 font-heading uppercase">
-                        <Button className="font-heading uppercase">Meet The Team</Button>
-                        <Button className="font-heading uppercase" variant="outline">
+                        <Button href="#introducing-our-team" className="font-heading uppercase">
+                            Meet The Team
+                        </Button>
+                        <Button
+                            href="https://linktr.ee/uottawa.sesa"
+                            external
+                            className="font-heading uppercase"
+                            variant="outline"
+                        >
                             Join Our Family
                         </Button>
                     </div>
@@ -99,7 +106,9 @@ export default function AboutPage() {
                         academic support, professional development, and engagement with the software
                         engineering industry.
                     </p>
-                    <Button className="w-fit font-heading uppercase">Meet The Team</Button>
+                    <Button href="#introducing-our-team" className="w-fit font-heading uppercase">
+                        Meet The Team
+                    </Button>
                 </div>
                 {/* Figures */}
                 <div className="mx-16 flex items-center justify-between">
@@ -183,7 +192,10 @@ export default function AboutPage() {
                     />
                 </div>
                 {/* Introducing our team */}
-                <div className="align-center flex flex-col items-center gap-2 text-center">
+                <div
+                    id="introducing-our-team"
+                    className="align-center flex flex-col items-center gap-2 text-center"
+                >
                     <p className="color-gradient font-mono">Introducing our team</p>
                     <h1 className="font-heading text-3xl uppercase">
                         <span className="relative inline-block">
