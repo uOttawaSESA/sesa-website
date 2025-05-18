@@ -22,7 +22,7 @@ export default function Dropdown({
     return (
         <div className="absolute right-0 z-50 mt-2 min-w-full">
             <div
-                className={`outline-gradient bg-[rgba(27,27,27,0.3)] backdrop-blur-md backdrop-saturate-150 ${className}`}
+                className={`outline-gradient animate-dropdown bg-[rgba(27,27,27,0.3)] backdrop-blur-md backdrop-saturate-150 ${className}`}
             >
                 {items.map(item => (
                     <button

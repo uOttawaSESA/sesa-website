@@ -1,4 +1,5 @@
-import { resources } from "../../ResourcesPage/utils/resourcesData";
+// import { resources } from "../../ResourcesPage/utils/resourcesData";
+import { resources } from "@/app/data/Resources";
 import ResourceCard from "../../ResourcesPage/components/ResourceCard";
 import Marquee from "react-fast-marquee";
 import Button from "@/components/Button";
