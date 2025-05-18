@@ -1,105 +1,102 @@
-import { AnchorHTMLAttributes, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import { Link } from "@/i18n/navigation";
 
-export interface ButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-    /** Defines the styling of the button. */
+type ButtonBaseProps = {
     variant?: "outline" | "fill" | "ghost" | "ghost-plain";
-    /** Whether the button should be disabled. This also removes any onClick actions. */
     disabled?: boolean;
-    /** If this button should act as an anchor tag, this is the URL to go to. */
-    href?: string;
-    /**
-     * Whether the link is to an external location (_not_ somewhere on the SESA site),
-     * and therefore should not be localized.
-     * @default false
-     */
-    external?: boolean;
-}
+    children: React.ReactNode;
+    className?: string;
+};
 
-const Button = forwardRef<HTMLAnchorElement, ButtonProps>(
-    (
-        {
-            children,
-            variant = "fill",
-            className,
-            disabled,
-            href,
-            external = false,
-            onClick,
-            ...rest
-        },
-        ref,
-    ) => {
-        const baseStyle = "px-6 py-3 transition-all ease-in-out";
-        const disabledClass = "opacity-50 cursor-not-allowed pointer-events-none";
+type AnchorProps = React.AnchorHTMLAttributes<HTMLAnchorElement> &
+    ButtonBaseProps & {
+        href: string;
+        external?: boolean;
+    };
 
-        // Determine styles based on variant
-        let variantClass;
-        switch (variant) {
-            case "fill":
-                variantClass = "fill-gradient";
-                break;
-            case "outline":
-                variantClass = "outline-gradient";
-                break;
-            case "ghost":
-                variantClass = "color-gradient";
-                break;
-            case "ghost-plain":
-                variantClass = "";
-                break;
-            default:
-                throw new Error(`Unknown button variant ${variant}`);
-        }
+type NativeButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
+    ButtonBaseProps & {
+        href?: undefined;
+        external?: undefined;
+    };
 
-        const buttonClasses = `${baseStyle} ${variantClass} ${className || ""} ${disabled ? disabledClass : ""}`;
+export type ButtonProps = AnchorProps | NativeButtonProps;
 
-        // If href is provided and it's external, use a regular anchor
-        if (href && external) {
-            return (
-                <a
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={buttonClasses}
-                    ref={ref}
-                    onClick={onClick}
-                    {...(disabled ? {} : rest)}
-                >
-                    {children}
-                </a>
-            );
-        }
+const Button = forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>((props, ref) => {
+    const { variant = "fill", className, disabled, children, ...rest } = props;
 
-        // If href is provided and it's internal, use the i18n Link component without legacyBehavior
-        if (href && !external) {
-            return (
-                <Link
-                    href={href}
-                    className={buttonClasses}
-                    ref={ref}
-                    onClick={onClick}
-                    {...(disabled ? {} : rest)}
-                >
-                    {children}
-                </Link>
-            );
-        }
+    const baseStyle = "px-6 py-3 transition-all ease-in-out";
+    const disabledClass = "opacity-50 cursor-not-allowed pointer-events-none";
 
-        // If no href is provided, just return the button content
+    let variantClass;
+    switch (variant) {
+        case "fill":
+            variantClass = "fill-gradient";
+            break;
+        case "outline":
+            variantClass = "outline-gradient";
+            break;
+        case "ghost":
+            variantClass = "color-gradient";
+            break;
+        case "ghost-plain":
+            variantClass = "";
+            break;
+        default:
+            throw new Error(`Unknown button variant ${variant}`);
+    }
+
+    const buttonClasses = `${baseStyle} ${variantClass} ${className || ""} ${disabled ? disabledClass : ""}`;
+
+    // External link
+    if ("href" in props && props.href && props.external) {
+        const { href, onClick, ...anchorRest } = rest as AnchorProps;
         return (
             <a
-                role="button"
-                ref={ref}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={buttonClasses}
+                ref={ref as React.Ref<HTMLAnchorElement>}
                 onClick={onClick}
-                {...(disabled ? {} : rest)}
+                {...(disabled ? {} : anchorRest)}
             >
                 {children}
             </a>
         );
-    },
-);
+    }
+
+    // Internal link
+    if ("href" in props && props.href) {
+        const { href, onClick, ...anchorRest } = rest as AnchorProps;
+        return (
+            <Link
+                href={href}
+                className={buttonClasses}
+                ref={ref as React.Ref<HTMLAnchorElement>}
+                onClick={onClick}
+                {...(disabled ? {} : anchorRest)}
+            >
+                {children}
+            </Link>
+        );
+    }
+
+    // Native button
+    const { type = "button", onClick, ...buttonRest } = rest as NativeButtonProps;
+    return (
+        <button
+            type={type}
+            ref={ref as React.Ref<HTMLButtonElement>}
+            className={buttonClasses}
+            onClick={onClick}
+            disabled={disabled}
+            {...buttonRest}
+        >
+            {children}
+        </button>
+    );
+});
 
 Button.displayName = "Button";
 

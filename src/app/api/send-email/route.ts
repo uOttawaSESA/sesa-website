@@ -1,55 +1,51 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-import dotenv from "dotenv";
-import fetch from "node-fetch";
-
-dotenv.config();
-
-// will need to create RECAPTCHA SECRET KEY and email user and pass later on.
-const RECAPTCHA_SECRET_KEY = null;
-const EMAIL_USER = null;
-const EMAIL_PASS = null;
-
-const verifyRecaptcha = async (token: string) => {
-    const response = await fetch("https://www.google.com/recaptcha/api/siteverify", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: `secret=${RECAPTCHA_SECRET_KEY}&response=${token}`,
-    });
-
-    const data = await response.json();
-    return data.success && data.score > 0.5; // accepts high-confidence users
-};
 
 export async function POST(req: NextRequest) {
+    const { firstName, lastName, email, topic, message, recaptchaToken } = await req.json();
+
+    // 1. Verify reCAPTCHA
+    const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
+    const recaptchaRes = await fetch(
+        `https://www.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${recaptchaToken}`,
+        { method: "POST" },
+    );
+    const recaptchaData = await recaptchaRes.json();
+    console.log("reCAPTCHA verification result:", recaptchaData);
+
+    if (!recaptchaData.success) {
+        return NextResponse.json({ error: "reCAPTCHA failed" }, { status: 400 });
+    }
+
+    // 2. Send email (with replyTo set to user's email)
+    const transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS,
+        },
+    });
+
     try {
-        const { firstName, lastName, email, topic, message, recaptchaToken } = await req.json();
-
-        const isHuman = await verifyRecaptcha(recaptchaToken);
-        if (!isHuman)
-            return NextResponse.json(
-                { success: false, message: "reCAPTCHA verification failed." },
-                { status: 400 },
-            );
-
-        // nodemailer transporter
-        const transporter = nodemailer.createTransport({
-            service: "gmail",
-            auth: { user: EMAIL_USER, pass: EMAIL_PASS },
-        });
-
-        //TODO: need to add our email address here.
         await transporter.sendMail({
-            from: `"${firstName} ${lastName}" <${email}>`,
-            to: `${EMAIL_USER}`,
-            subject: `New Contact Form Submission - ${topic}`,
-            text: `From ${firstName} ${lastName} (${email})\n\nMessage:\n${message}`,
+            from: process.env.EMAIL_USER, // must match authenticated user
+            to: process.env.EMAIL_USER, // your email, so you receive the message
+            replyTo: email, // user's email, so you can reply directly
+            subject: `Contact Form Submission: ${topic}`,
+            text: `
+First Name: ${firstName}
+Last Name: ${lastName}
+Email: ${email}
+Topic: ${topic}
+Message: ${message}
+            `,
         });
 
-        return NextResponse.json({ success: true, message: "Email sent successfully." });
+        return NextResponse.json({ success: true });
     } catch (error) {
+        console.error("Failed to send email:", error);
         return NextResponse.json(
-            { success: false, message: "Email failed to send.", error: error },
+            { error: "Failed to send email", details: String(error) },
             { status: 500 },
         );
     }
