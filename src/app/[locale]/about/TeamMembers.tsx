@@ -68,7 +68,7 @@ function memberToIcons(member: Member) {
 
 export default function TeamMembers({ title, description, people }: Props) {
     return (
-        <div id={title.toLowerCase()}>
+        <div id={title.toLowerCase()} className="scroll-mt-[100px]">
             <h2 className="font-heading text-2xl uppercase">{title}</h2>
             <p className="mb-4 max-w-md text-lg leading-tight text-gray-400">{description} </p>
             <div className="flex gap-2 overflow-x-scroll">

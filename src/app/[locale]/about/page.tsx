@@ -194,7 +194,7 @@ export default function AboutPage() {
                 {/* Introducing our team */}
                 <div
                     id="introducing-our-team"
-                    className="align-center flex flex-col items-center gap-2 text-center"
+                    className="align-center flex scroll-mt-28 flex-col items-center gap-2 text-center"
                 >
                     <p className="color-gradient font-mono">Introducing our team</p>
                     <h1 className="font-heading text-3xl uppercase">
