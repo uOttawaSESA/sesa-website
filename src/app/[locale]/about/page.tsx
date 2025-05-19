@@ -139,7 +139,7 @@ export default function AboutPage() {
                             partnership with industry professionals.
                         </p>
                     </div>
-                    <Button href="/sponsor-us" className="w-fit font-heading uppercase">
+                    <Button href="/SponsorsPage" className="w-fit font-heading uppercase">
                         Become a Sponsor &gt;
                     </Button>
                 </div>
