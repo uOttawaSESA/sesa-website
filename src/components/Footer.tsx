@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Button from "./Button";
 import { useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 
 // === Removed sponsor marquee, in case we want it again: ===
 // {/* Sponsors marquee */}
@@ -20,6 +21,7 @@ import { useTranslations } from "next-intl";
 export default function Footer() {
     const t = useTranslations("footer");
     const tNav = useTranslations("navigation");
+    const locale = useLocale();
 
     return (
         <footer className="mx-0 mb-16 flex flex-col gap-2 bg-transparent px-0 pt-8 backdrop-blur-[50px]">
@@ -37,22 +39,22 @@ export default function Footer() {
                         <h3 className="color-gradient font-heading uppercase">{t("sitemap")}</h3>
                         <ul className="flex flex-col gap-2 text-lg leading-none text-gray-400">
                             <li>
-                                <a href="#">{tNav("home")}</a>
+                                <a href={`/${locale}`}>{tNav("home")}</a>
                             </li>
                             <li>
-                                <a href="#">{tNav("about")}</a>
+                                <a href={`/${locale}/AboutPage`}>{tNav("about")}</a>
                             </li>
                             <li>
-                                <a href="#">{tNav("events")}</a>
+                                <a href={`/${locale}/EventsPage`}>{tNav("events")}</a>
                             </li>
                             <li>
-                                <a href="#">{tNav("resources")}</a>
+                                <a href={`/${locale}/ResourcesPage`}>{tNav("resources")}</a>
                             </li>
                             <li>
-                                <a href="#">{tNav("contact")}</a>
+                                <a href={`/${locale}/ContactUsPage`}>{tNav("contact")}</a>
                             </li>
                             <li>
-                                <a href="#">{tNav("sponsor")}</a>
+                                <a href={`/${locale}/SponsorsPage`}>{tNav("sponsor")}</a>
                             </li>
                         </ul>
                     </div>
