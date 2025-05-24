@@ -21,7 +21,7 @@ const FAQ = () => {
                     <h1 className="font-heading text-4xl uppercase leading-tight">
                         Got Questions?{" "}
                         <span className="relative inline-block">
-                            We{"'"}ve got answers!
+                            We&apos;ve got answers!
                             <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                         </span>
                     </h1>
@@ -105,10 +105,10 @@ const FAQ = () => {
                                         engineering students!
                                         <br />
                                         <br />
-                                        Whether you're a <b>high school student</b>,{" "}
+                                        Whether you&apos;re a <b>high school student</b>,{" "}
                                         <b>community member</b>, <b>undergraduate</b>,{" "}
-                                        <b>graduate</b>, or <b>alum</b>, you're welcome to attend
-                                        (unless stated otherwise).
+                                        <b>graduate</b>, or <b>alum</b>, you&apos;re welcome to
+                                        attend (unless stated otherwise).
                                         <br />
                                         <br />
                                         <b>To become a SESA team member:</b>
