@@ -28,26 +28,29 @@ export default function Benefits() {
     ];
 
     return (
-        <div className="flex min-h-screen flex-col justify-center space-y-10 px-40 py-20">
+        <div className="flex min-h-screen flex-col justify-center space-y-5 px-40 py-20">
             {/* Header Section */}
-            <p className="font-monocode relative inline-block !bg-clip-text text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
-                Benefits
-            </p>
+            <p className="color-gradient relative font-mono text-base">Benefits</p>
+            <div className="w-1/2">
+                <h2 className="mb-4 font-heading text-3xl uppercase text-white">
+                    <span className="block md:inline">CONNECT WITH </span>
+                    <span className="relative block md:inline">
+                        THE NEXT
+                        <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                    </span>{" "}
+                    <span className="relative block md:inline">
+                        GENERATION
+                        <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                    </span>
+                    <span className="block md:inline"> OF SOFTWARE ENGINEERS</span>
+                </h2>
 
-            <h2 className="max-w-4xl font-heading text-3xl uppercase leading-snug text-white">
-                <span className="block md:inline">CONNECT WITH </span>
-                <span className="relative block md:inline">
-                    THE NEXT GENERATION
-                    <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
-                </span>
-                <span className="block md:inline"> OF SOFTWARE ENGINEERS</span>
-            </h2>
-
-            <p className="text-md max-w-2xl text-thistle">
-                Without our sponsors and partners, we would not be able to fund our events and
-                projects that provide SEG students with academic opportunities and workplace
-                experiences.
-            </p>
+                <p className="mb-4 max-w-2xl text-base leading-tight text-thistle">
+                    Without our sponsors and partners, we would not be able to fund our events and
+                    projects that provide SEG students with academic opportunities and workplace
+                    experiences.
+                </p>
+            </div>
 
             {/* Cards */}
             <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3">

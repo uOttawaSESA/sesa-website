@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import styles from "./PastCollaboratorsCarousel.module.css";
+import Marquee from "react-fast-marquee";
+import React from "react";
 
 const gradientBorderClass = `
   border-[1px] border-solid
@@ -13,36 +14,36 @@ const logos = [
     { src: "/sponsors-page/microsoft.png", alt: "Microsoft", width: 120, height: 60 },
     { src: "/sponsors-page/google.png", alt: "Google", width: 160, height: 80 },
     { src: "/sponsors-page/ibm.png", alt: "IBM", width: 80, height: 40 },
-    // Duplicate for infinite scroll
-    { src: "/sponsors-page/kinaxis.png", alt: "Kinaxis", width: 120, height: 60 },
-    { src: "/sponsors-page/microsoft.png", alt: "Microsoft", width: 120, height: 60 },
-    { src: "/sponsors-page/google.png", alt: "Google", width: 100, height: 50 },
-    { src: "/sponsors-page/ibm.png", alt: "IBM", width: 80, height: 40 },
 ];
 
 const PastCollaboratorsCarousel = () => {
     return (
-        <div className="flex flex-col items-center justify-center space-y-6 overflow-hidden py-16 text-center">
-            <p className="font-monocode relative inline-block !bg-clip-text text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
-                Our previous partners
-            </p>
-
-            <div className="font-heading text-2xl uppercase text-white">
-                PAST COLLABORATORS SINCE 2014
+        <div className="flex flex-col items-center justify-center overflow-hidden text-center">
+            {/* Header content with space between */}
+            <div className="flex flex-col items-center space-y-3">
+                <p className="relative inline-block !bg-clip-text font-mono text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
+                    Our previous partners
+                </p>
+                <div className="font-heading text-2xl uppercase text-white">
+                    <span className="relative inline-block">
+                        PAST
+                        <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                    </span>{" "}
+                    COLLABORATORS SINCE 2014
+                </div>
+                <p className="max-w-2xl text-base text-thistle">
+                    We&apos;ve had the privilege of working with over 20+ big and small companies
+                    that have enhanced our events, including:
+                </p>
             </div>
 
-            <p className="text-md max-w-2xl text-thistle">
-                We&apos;ve had the privilege of working with over 20+ big and small companies that
-                have enhanced our events, including:
-            </p>
-
-            {/* Carousel container */}
-            <div className="relative h-36 w-full overflow-hidden">
-                <div className={`${styles.animateScroll} gap-10`}>
-                    {logos.map((logo, index) => (
+            {/* Marquee Carousel */}
+            <div className="relative mt-10 w-full">
+                <Marquee speed={40} gradient={false} pauseOnHover={true}>
+                    {logos.concat(logos).map((logo, index) => (
                         <div
                             key={index}
-                            className={`flex min-w-[200px] items-center justify-center rounded-lg p-6 ${gradientBorderClass} h-28`}
+                            className={`mx-6 flex h-28 min-w-[200px] items-center justify-center rounded-lg p-6 ${gradientBorderClass}`}
                         >
                             <Image
                                 src={logo.src}
@@ -53,7 +54,7 @@ const PastCollaboratorsCarousel = () => {
                             />
                         </div>
                     ))}
-                </div>
+                </Marquee>
             </div>
         </div>
     );

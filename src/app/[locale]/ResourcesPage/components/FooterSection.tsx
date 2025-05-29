@@ -11,7 +11,7 @@ const FooterSection: React.FC = () => {
             {/* CTA Section */}
             <div className="mt-16 flex items-center justify-center gap-6">
                 <div className="flex flex-col items-center text-center">
-                    <h2 className="text-l mb-8 font-heading uppercase">
+                    <h2 className="mb-8 font-heading text-lg uppercase">
                         {t("contributing_heading")}
                     </h2>
                 </div>

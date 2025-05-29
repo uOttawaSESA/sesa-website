@@ -6,7 +6,7 @@ export default function CTA() {
     return (
         <div className="relative z-10 flex w-full flex-col items-center justify-center px-4 py-8 text-center">
             <div className="flex flex-wrap items-center justify-center gap-3">
-                <p className="text-m font-sans text-white">
+                <p className="font-heading text-lg uppercase text-white">
                     Interested in joining our growing network of industry partners?
                 </p>
                 <Link href="/contact">
@@ -16,7 +16,7 @@ export default function CTA() {
                 </Link>
             </div>
 
-            <p className="mt-4 font-sans text-sm text-thistle">
+            <p className="mt-4 font-sans text-sm tracking-widest text-thistle">
                 We&apos;ll get back to you within 48 hours.
             </p>
         </div>

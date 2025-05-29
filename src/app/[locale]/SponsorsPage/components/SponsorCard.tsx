@@ -30,18 +30,23 @@ const SponsorCard = () => {
                     className="mb-4"
                 />
                 <div className="mt-3 font-heading text-2xl uppercase text-white">
-                    &ldquo;PARTNERING WITH SESA HAS BEEN AN{" "}
+                    &ldquo;The folks at SESA were{" "}
                     <span className="relative inline-block">
-                        INCREDIBLE EXPERIENCE.
+                        professional, communicative,
                         <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                     </span>{" "}
-                    THE VISIBILITY AND CONNECTIONS WE&apos;VE GAINED ARE UNMATCHED.&rdquo;
+                    <span className="relative inline-block">
+                        and friendly
+                        <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                    </span>{" "}
+                    leading up to the talk, and provided some great photos and videos afterwards. I
+                    really enjoyed my collaboration with them.
                 </div>
 
                 <div className="mt-4 flex items-center gap-3">
                     <CircleImage size={50} src="/sponsors-page/asad.png" alt="Asad" />
                     <div>
-                        <p className="text-m font-bold text-white">Jack Sparrow</p>
+                        <p className="text-m font-bold text-white">Jessica Wang</p>
                         <p className="text-sm text-thistle">Product Growth at Warp</p>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 import Button from "@/components/Button";
 
-interface HeaderProps {
+interface SponsorsHeaderProps {
     topText: string;
     title: string;
     bottomText: string;
@@ -8,12 +8,12 @@ interface HeaderProps {
     btn2: string;
 }
 
-const Header = ({ topText, title, bottomText, btn1, btn2 }: HeaderProps) => {
+const SponsorsHeader = ({ topText, title, bottomText, btn1, btn2 }: SponsorsHeaderProps) => {
     return (
         <div className="mt-24 flex w-full justify-center px-6">
             {/* Content Container */}
-            <div className="relative z-10 max-w-2xl text-center">
-                <p className="font-monocode relative inline-block !bg-clip-text text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
+            <div className="relative z-10 text-center">
+                <p className="relative inline-block !bg-clip-text font-mono text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
                     {topText}
                 </p>
                 <h1 className="mx-auto mt-4 max-w-[18ch] font-heading text-5xl uppercase leading-tight text-white">
@@ -41,4 +41,4 @@ const Header = ({ topText, title, bottomText, btn1, btn2 }: HeaderProps) => {
     );
 };
 
-export default Header;
+export default SponsorsHeader;

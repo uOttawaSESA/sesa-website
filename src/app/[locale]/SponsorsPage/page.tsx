@@ -1,5 +1,5 @@
 "use client";
-import Header from "../SponsorsPage/components/Header";
+import SponsorsHeader from "./components/SponsorsHeader";
 import Benefits from "./components/Benefits";
 import CTA from "./components/CTA";
 import PastCollaboratorsCarousel from "./components/PastCollaboratorsCarousel";
@@ -9,7 +9,7 @@ import SponsorsGrid from "./components/SponsorsGrid";
 const SponsorsPage = () => {
     return (
         <>
-            <Header
+            <SponsorsHeader
                 topText="Sponsor & partners"
                 title="HUGE THANKS TO OUR GENEROUS SPONSORS AND PARTNERS"
                 bottomText="Our incredible partnerships make SESA possible at uOttawa. Thank you for believing in our mission!"
