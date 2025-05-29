@@ -80,7 +80,7 @@ const EventFilters: React.FC<{
                 {isDropdownOpen && (
                     <div className="absolute right-0 z-20 mt-2 min-w-[18rem]">
                         <div
-                            className={`${gradientBorderClass} bg-[rgba(27,27,27,0.3)] backdrop-blur-md backdrop-saturate-150`}
+                            className={`${gradientBorderClass} animate-dropdown bg-[rgba(27,27,27,0.3)] backdrop-blur-md backdrop-saturate-150`}
                         >
                             {filters.map(filter => (
                                 <button

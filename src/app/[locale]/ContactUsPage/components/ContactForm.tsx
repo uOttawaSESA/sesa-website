@@ -240,7 +240,7 @@ const ContactForm: React.FC = () => {
                 />
             </div>
 
-            <div className="flex justify-end">
+            <div className="flex justify-center">
                 <Button
                     type="submit"
                     className="mt-4 flex items-center gap-3 font-heading text-xl uppercase"

@@ -23,7 +23,11 @@ const ThankYouPage = () => {
                 sponsors who make SESA possible.
             </p>
             <div className="mb-12 flex flex-col justify-center gap-4 text-white sm:flex-row">
-                <Button href="/#sponsors" className="font-heading text-lg uppercase" variant="fill">
+                <Button
+                    href="/SponsorsPage"
+                    className="font-heading text-lg uppercase"
+                    variant="fill"
+                >
                     Browse Sponsors <span className="text-white">{`>`}</span>
                 </Button>
                 <Button href="/" className="font-heading text-lg uppercase" variant="outline">

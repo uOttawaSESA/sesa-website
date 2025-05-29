@@ -157,7 +157,7 @@ export default function Footer() {
                         alt="SESA Logo Text"
                     />
                 </div>
-                <div className="mt-8 flex items-center">
+                <div className="mt-8 flex items-center text-white">
                     <Button href="#" variant="ghost-plain" className="h-min font-heading uppercase">
                         {t("back_to_top")}
                     </Button>

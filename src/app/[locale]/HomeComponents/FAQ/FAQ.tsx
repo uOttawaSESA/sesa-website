@@ -5,8 +5,14 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion";
+import Link from "next/link";
+import { useParams } from "next/navigation";
 
 const FAQ = () => {
+    // Get the current locale from the dynamic route params
+    const params = useParams();
+    const locale = Array.isArray(params?.locale) ? params.locale[0] : params?.locale || "en";
+
     return (
         <>
             <section className="text-white md:w-full">
@@ -96,9 +102,11 @@ const FAQ = () => {
 
                 <div className="mt-14 flex flex-row items-center justify-center gap-[25px] text-center font-heading uppercase">
                     <h2 className="text-xl">Did we miss something?</h2>
-                    <Button>
-                        Message Us <span className="text-gray-50 opacity-65">{` >`}</span>
-                    </Button>
+                    <Link href={`/${locale}/ContactUsPage`}>
+                        <Button>
+                            MESSAGE US <span className="text-gray-50 opacity-65">{` >`}</span>
+                        </Button>
+                    </Link>
                 </div>
                 <div className="mt-5 text-center">
                     <p className="text-thistle">We&apos;ll get back to you within 48 hours.</p>
