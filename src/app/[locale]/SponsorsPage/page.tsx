@@ -5,6 +5,7 @@ import CTA from "./components/CTA";
 import PastCollaboratorsCarousel from "./components/PastCollaboratorsCarousel";
 import SponsorCard from "./components/SponsorCard";
 import SponsorsGrid from "./components/SponsorsGrid";
+import SponsorCard2 from "./components/SponsorCard2";
 
 const SponsorsPage = () => {
     return (
@@ -21,6 +22,7 @@ const SponsorsPage = () => {
             <SponsorCard />
             <PastCollaboratorsCarousel />
             <Benefits />
+            <SponsorCard2 />
         </>
     );
 };

@@ -1,5 +1,6 @@
 "use client";
 
+import IconButton from "@/components/IconButton";
 import Image from "next/image";
 
 export default function Benefits() {
@@ -28,28 +29,50 @@ export default function Benefits() {
     ];
 
     return (
-        <div className="flex min-h-screen flex-col justify-center space-y-5 px-40 py-20">
-            {/* Header Section */}
-            <p className="color-gradient relative font-mono text-base">Benefits</p>
-            <div className="w-1/2">
-                <h2 className="mb-4 font-heading text-3xl uppercase text-white">
-                    <span className="block md:inline">CONNECT WITH </span>
-                    <span className="relative block md:inline">
-                        THE NEXT
-                        <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
-                    </span>{" "}
-                    <span className="relative block md:inline">
-                        GENERATION
-                        <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
-                    </span>
-                    <span className="block md:inline"> OF SOFTWARE ENGINEERS</span>
-                </h2>
+        <div className="relative flex min-h-screen flex-col justify-center space-y-5 px-40 py-20">
+            {/* Header + Arrows Container */}
+            <div className="flex items-start justify-between">
+                <div className="w-1/2">
+                    <p className="color-gradient relative font-mono text-base">Benefits</p>
+                    <h2 className="mb-4 font-heading text-3xl uppercase text-white">
+                        <span className="block md:inline">CONNECT WITH </span>
+                        <span className="relative block md:inline">
+                            THE NEXT
+                            <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                        </span>{" "}
+                        <span className="relative block md:inline">
+                            GENERATION
+                            <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                        </span>
+                        <span className="block md:inline"> OF SOFTWARE ENGINEERS</span>
+                    </h2>
 
-                <p className="mb-4 max-w-2xl text-base leading-tight text-thistle">
-                    Without our sponsors and partners, we would not be able to fund our events and
-                    projects that provide SEG students with academic opportunities and workplace
-                    experiences.
-                </p>
+                    <p className="mb-4 max-w-2xl text-base leading-tight text-thistle">
+                        Without our sponsors and partners, we would not be able to fund our events
+                        and projects that provide SEG students with academic opportunities and
+                        workplace experiences.
+                    </p>
+                </div>
+
+                {/* Arrows in top right */}
+                <div className="flex gap-2 pt-6">
+                    <IconButton variant="outline">
+                        <Image
+                            src="/resources-page/arrow_backword.svg"
+                            width={25}
+                            height={25}
+                            alt="Left"
+                        />
+                    </IconButton>
+                    <IconButton variant="outline">
+                        <Image
+                            src="/resources-page/arrow_forward.svg"
+                            width={25}
+                            height={25}
+                            alt="Right"
+                        />
+                    </IconButton>
+                </div>
             </div>
 
             {/* Cards */}
@@ -67,7 +90,6 @@ export default function Benefits() {
                             className="h-48 w-full object-cover"
                         />
                         <div className="p-4">
-                            {/* Icon */}
                             <Image
                                 src={card.icon}
                                 alt={`${card.title} icon`}
@@ -82,26 +104,6 @@ export default function Benefits() {
                         </div>
                     </div>
                 ))}
-            </div>
-
-            {/* Nav Arrows (optional placeholders) */}
-            <div className="mt-10 flex gap-4">
-                <button className="rounded border border-white p-2 transition hover:bg-white">
-                    <Image
-                        src="/resources-page/arrow_backword.svg"
-                        alt="Previous"
-                        width={24}
-                        height={24}
-                    />
-                </button>
-                <button className="rounded border border-white p-2 transition hover:bg-white">
-                    <Image
-                        src="/resources-page/arrow_forward.svg"
-                        alt="Next"
-                        width={24}
-                        height={24}
-                    />
-                </button>
             </div>
         </div>
     );
