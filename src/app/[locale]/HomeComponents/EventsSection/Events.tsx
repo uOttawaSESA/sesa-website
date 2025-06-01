@@ -1,3 +1,4 @@
+"use client";
 import Button from "@/components/Button";
 import EventsCarousel from "./EventsCarousel";
 import IconButton from "@/components/IconButton";

@@ -9,6 +9,11 @@ import Header from "./components/Header";
 import ResourceList from "./components/ResourceList";
 import FooterSection from "./components/FooterSection";
 
+// TODO: Remove the "use client" directive from this file
+// // Precompile i18n
+// import localeParams from "../../data/locales";
+// export const generateStaticParams = localeParams;
+
 const ResourcesPage: FC = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [rowsToShow, setRowsToShow] = useState(2);

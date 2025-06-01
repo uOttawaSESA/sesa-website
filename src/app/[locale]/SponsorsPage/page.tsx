@@ -1,10 +1,13 @@
-"use client";
 import Header from "../SponsorsPage/components/Header";
 import Benefits from "./components/Benefits";
 import CTA from "./components/CTA";
 import PastCollaboratorsCarousel from "./components/PastCollaboratorsCarousel";
 import SponsorCard from "./components/SponsorCard";
 import SponsorsGrid from "./components/SponsorsGrid";
+
+// Precompile i18n
+import localeParams from "../../data/locales";
+export const generateStaticParams = localeParams;
 
 const SponsorsPage = () => {
     return (

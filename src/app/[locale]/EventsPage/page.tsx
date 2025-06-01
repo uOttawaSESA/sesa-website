@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState } from "react";
 import Header from "./components/Header";
 import EventFilters from "./components/EventFilters";
@@ -9,6 +8,11 @@ import { events } from "./utils/eventData";
 import TeamUpSection from "./components/TeamUpSection";
 import ConnectSESA from "./components/ConnectSESA";
 import InfiniteCarousel from "./components/InfiniteCarousel";
+
+// TODO: Remove the "use client" directive from this file
+// // Precompile i18n
+// import localeParams from "../../data/locales";
+// export const generateStaticParams = localeParams;
 
 const parseEventDate = (date: Date): Date => {
     return date;

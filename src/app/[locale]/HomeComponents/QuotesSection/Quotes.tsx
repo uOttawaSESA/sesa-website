@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useRef, useState } from "react";
 import { QuoteCard } from "./QuoteCard";
 import { quotesData } from "./QuotesData";

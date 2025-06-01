@@ -1,3 +1,4 @@
+"use client";
 import { useEffect, useRef, useState } from "react";
 import { GoalCard } from "./GoalCard";
 import { goalsData } from "./GoalsData";

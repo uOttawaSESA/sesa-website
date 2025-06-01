@@ -1,5 +1,3 @@
-"use client";
-
 import Hero from "./HomeComponents/Hero";
 import Events from "./HomeComponents/EventsSection/Events";
 import Goals from "./HomeComponents/GoalsSection/Goals";
@@ -9,6 +7,10 @@ import Sponsors from "./HomeComponents/SponsorSection/Sponsors";
 import FAQ from "./HomeComponents/FAQ/FAQ";
 import Connect from "./HomeComponents/ConnectSection/Connect";
 import Team from "./HomeComponents/TeamSection/Team";
+
+// Precompile i18n
+import localeParams from "../data/locales";
+export const generateStaticParams = localeParams;
 
 const Home = () => {
     return (
