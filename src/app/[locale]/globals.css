@@ -67,6 +67,11 @@ body {
     background-position: 100% 0; /* Move gradient to the right */
 }
 
+.highlight-gradient {
+    @apply absolute right-0 top-0 h-full w-0 animate-highlight;
+    background: linear-gradient(55.37deg, rgba(136, 36, 220, 0.25), rgba(177, 33, 97, 0.25));
+}
+
 .clip-corner {
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
 }

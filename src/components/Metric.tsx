@@ -10,7 +10,7 @@ export interface MetricProps {
 }
 
 const Metric = ({ figure, caption, border, className }: MetricProps) => {
-    const baseStyle = "py-8 px-12 text-center w-min h-min";
+    const baseStyle = "py-5 px-10 text-center w-min h-min";
     return (
         <div className={`${baseStyle} ${className || ""} ${border && "outline-gradient"}`}>
             <span className="font-heading text-3xl">{figure}</span>
