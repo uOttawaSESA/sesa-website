@@ -8,6 +8,10 @@ import { membersData } from "@/app/data/Members";
 import WhatWeDoCard from "./WhatWeDoCard";
 import { useTranslations } from "next-intl";
 
+// Precompile i18n
+import localeParams from "../../data/locales";
+export const generateStaticParams = localeParams;
+
 export default function AboutPage() {
     const images = [
         "/imgs/team/ange.png",
