@@ -1,13 +1,11 @@
 import Image from "next/image";
 import Button from "@/components/Button";
 import { useTranslations } from "next-intl";
-import { useParams } from "next/navigation";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 export default function Hero() {
     const t = useTranslations("homepage");
-    const params = useParams();
-    const locale = Array.isArray(params?.locale) ? params.locale[0] : params?.locale || "en";
+
     return (
         <section className="relative flex h-[80vh] w-full items-center justify-between text-white md:pe-0 md:ps-32 2xl:pe-0 2xl:ps-96">
             {/* Grid Gradient Back */}
@@ -30,7 +28,7 @@ export default function Hero() {
                     {t("purpose")}
                 </p>
                 <div className="mt-6 flex space-x-4 font-heading">
-                    <Link href={`/${locale}/AboutPage`}>
+                    <Link href="/AboutPage">
                         <Button className="font-heading text-lg uppercase">
                             {t("learn_more")}
                         </Button>
