@@ -76,11 +76,11 @@ export default function Benefits() {
             </div>
 
             {/* Cards */}
-            <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3">
+            <div className="mt-10 grid h-[450px] grid-cols-1 gap-8 md:grid-cols-3">
                 {cards.map((card, index) => (
                     <div
                         key={index}
-                        className="overflow-hidden border-[1px] border-solid text-left text-white [border-image:linear-gradient(55deg,rgba(136,36,220,0.3)_41.93%,rgba(177,33,157,0.3)_81.89%)_1]"
+                        className="overflow-hidden border-[1px] border-solid text-left text-white backdrop-blur-super [border-image:linear-gradient(55deg,rgba(136,36,220,0.3)_41.93%,rgba(177,33,157,0.3)_81.89%)_1]"
                     >
                         <Image
                             src={card.image}
@@ -90,17 +90,21 @@ export default function Benefits() {
                             className="h-48 w-full object-cover"
                         />
                         <div className="p-4">
-                            <Image
-                                src={card.icon}
-                                alt={`${card.title} icon`}
-                                width={24}
-                                height={24}
-                                className="mb-3"
-                            />
-                            <div className="text-3lg mb-2 font-heading uppercase leading-snug text-white">
+                            <div className="my-3 inline-block border-[1px] border-solid [border-image:linear-gradient(55deg,rgba(136,36,220,0.3)_41.93%,rgba(177,33,157,0.3)_81.89%)_1]">
+                                <Image
+                                    src={card.icon}
+                                    alt={`${card.title} icon`}
+                                    width={24}
+                                    height={24}
+                                    className="m-3"
+                                />
+                            </div>
+                            <div className="mb-2 font-heading text-lg uppercase leading-snug text-white">
                                 {card.title}
                             </div>
-                            <p className="text-sm text-thistle">{card.description}</p>
+                            <p className="font-sans text-lg leading-snug text-thistle">
+                                {card.description}
+                            </p>
                         </div>
                     </div>
                 ))}
