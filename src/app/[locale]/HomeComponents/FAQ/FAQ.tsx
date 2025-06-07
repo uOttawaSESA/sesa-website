@@ -1,3 +1,4 @@
+"use client";
 import Button from "@/components/Button";
 import {
     Accordion,
@@ -21,7 +22,7 @@ const FAQ = () => {
                     <h1 className="font-heading text-4xl uppercase leading-tight">
                         Got Questions?{" "}
                         <span className="relative inline-block">
-                            We{"'"}ve got answers!
+                            We&apos;ve got answers!
                             <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                         </span>
                     </h1>
@@ -47,7 +48,53 @@ const FAQ = () => {
                                         WHAT IS SESA?
                                     </AccordionTrigger>
                                     <AccordionContent className="font-sans text-lg text-thistle">
-                                        Yes. It adheres to the WAI-ARIA design pattern.
+                                        <b>SESA</b> is the University of Ottawa{" "}
+                                        <b>Software Engineering Students Association</b>! We’re an
+                                        informally and independently run student organization with
+                                        the mission of <b>enriching SEG student life</b>,{" "}
+                                        <b>promoting software engineering</b> as a field, and{" "}
+                                        <b>supporting students academically and professionally</b>{" "}
+                                        as they begin their careers.
+                                        <br />
+                                        <br />
+                                        Our initiatives are designed to help students succeed both
+                                        in and out of the classroom. These include:
+                                        <ul className="mt-4 space-y-2 pl-4">
+                                            <li className="flex items-start gap-2">
+                                                <span className="mt-1 text-purple-400">•</span>
+                                                <span>
+                                                    <b>Professional development workshops</b> and{" "}
+                                                    <b>networking events</b> for students
+                                                </span>
+                                            </li>
+                                            <li className="flex items-start gap-2">
+                                                <span className="mt-1 text-purple-400">•</span>
+                                                <span>
+                                                    <b>Academic support</b> through study resources
+                                                </span>
+                                            </li>
+                                            <li className="flex items-start gap-2">
+                                                <span className="mt-1 text-purple-400">•</span>
+                                                <span>
+                                                    <b>Social and community-building events</b> to
+                                                    bring students together
+                                                </span>
+                                            </li>
+                                            <li className="flex items-start gap-2">
+                                                <span className="mt-1 text-purple-400">•</span>
+                                                <span>
+                                                    <b>Student outreach</b> to inspire and engage
+                                                    future engineers
+                                                </span>
+                                            </li>
+                                            <li className="flex items-start gap-2">
+                                                <span className="mt-1 text-purple-400">•</span>
+                                                <span>
+                                                    <b>Advocacy</b> for the SEG student voice within
+                                                    uOttawa
+                                                </span>
+                                            </li>
+                                        </ul>
                                     </AccordionContent>
                                 </AccordionItem>
                                 <AccordionItem value="item-2" className="border-purple-600 px-4">
@@ -55,8 +102,35 @@ const FAQ = () => {
                                         WHO CAN JOIN?
                                     </AccordionTrigger>
                                     <AccordionContent className="font-sans text-lg text-thistle">
-                                        Yes. It comes with default styles that matches the other
-                                        components&apos; aesthetic.
+                                        <b>SESA events are open to everyone</b> — not just software
+                                        engineering students!
+                                        <br />
+                                        <br />
+                                        Whether you&apos;re a <b>high school student</b>,{" "}
+                                        <b>community member</b>, <b>undergraduate</b>,{" "}
+                                        <b>graduate</b>, or <b>alum</b>, you&apos;re welcome to
+                                        attend (unless stated otherwise).
+                                        <br />
+                                        <br />
+                                        <b>To become a SESA team member:</b>
+                                        <ul className="mt-2 space-y-2 pl-4">
+                                            <li className="flex items-start gap-2">
+                                                <span className="mt-1 text-purple-400">•</span>
+                                                <span>
+                                                    <b>You must be an enrolled uOttawa student</b>{" "}
+                                                    (undergraduate or graduate, full-time or
+                                                    part-time).
+                                                </span>
+                                            </li>
+                                            <li className="flex items-start gap-2">
+                                                <span className="mt-1 text-purple-400">•</span>
+                                                <span>
+                                                    You don’t have to be in the{" "}
+                                                    <b>software engineering program</b> — just
+                                                    passionate about the community.
+                                                </span>
+                                            </li>
+                                        </ul>
                                     </AccordionContent>
                                 </AccordionItem>
                                 <AccordionItem value="item-3" className="border-purple-600 px-4">
@@ -64,8 +138,13 @@ const FAQ = () => {
                                         WHAT MAKES SESA SPECIAL?
                                     </AccordionTrigger>
                                     <AccordionContent className="font-sans text-lg text-thistle">
-                                        Yes. It&apos;s animated by default, but you can disable it
-                                        if you prefer.
+                                        <b>SESA is run by students, for students</b>, with a focus
+                                        on <b>community</b>, <b>collaboration</b>, and{" "}
+                                        <b>creating opportunities</b>.
+                                        <br />
+                                        <br />
+                                        We’re committed to building an <b>inclusive space</b> where
+                                        anyone can get involved, learn, and grow.
                                     </AccordionContent>
                                 </AccordionItem>
                                 <AccordionItem value="item-4" className="border-purple-600 px-4">

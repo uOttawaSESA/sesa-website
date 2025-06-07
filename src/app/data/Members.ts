@@ -28,7 +28,7 @@ export const membersData: Member[] = [
         email: "jackmackenzie60@gmail.com",
     },
     {
-        name: "Rolf",
+        name: "Rolf Addoumie",
         team: "Co-directors",
         role: "Co-Director",
         imgPath: "/imgs/team/rolf.png",

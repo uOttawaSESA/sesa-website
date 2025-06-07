@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Button from "@/components/Button";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export default function Hero() {
     const t = useTranslations("homepage");
@@ -27,8 +28,17 @@ export default function Hero() {
                     {t("purpose")}
                 </p>
                 <div className="mt-6 flex space-x-4 font-heading">
-                    <Button className="font-heading text-lg uppercase">{t("learn_more")}</Button>
-                    <Button className="font-heading text-lg uppercase" variant="outline">
+                    <Link href="/AboutPage">
+                        <Button className="font-heading text-lg uppercase">
+                            {t("learn_more")}
+                        </Button>
+                    </Link>
+                    <Button
+                        href="https://linktr.ee/uottawa.sesa"
+                        external
+                        className="font-heading text-lg uppercase"
+                        variant="outline"
+                    >
                         {t("get_involved")}
                     </Button>
                 </div>

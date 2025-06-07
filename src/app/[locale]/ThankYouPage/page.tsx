@@ -1,5 +1,9 @@
 import Button from "@/components/Button";
 
+// Precompile i18n
+import localeParams from "../../data/locales";
+export const generateStaticParams = localeParams;
+
 const ThankYouPage = () => {
     return (
         <div className="flex min-h-[60vh] flex-col items-center justify-center px-4 py-24 text-center">

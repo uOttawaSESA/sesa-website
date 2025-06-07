@@ -1,3 +1,4 @@
+"use client";
 import Button from "@/components/Button";
 import CircleImage from "@/components/CircleImage";
 import Marquee from "react-fast-marquee";
