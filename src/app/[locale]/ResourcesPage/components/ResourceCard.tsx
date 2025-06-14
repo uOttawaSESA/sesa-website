@@ -39,7 +39,7 @@ export const ResourceCard = ({
 
     return (
         <div
-            className="outline-gradient relative h-[12rem] w-[23rem] p-6 font-heading transition-all"
+            className="outline-gradient relative h-[12rem] p-6 font-heading transition-all md:w-[23rem]"
             onMouseEnter={() => setShowOpen(true)}
             onMouseLeave={() => setShowOpen(false)}
         >

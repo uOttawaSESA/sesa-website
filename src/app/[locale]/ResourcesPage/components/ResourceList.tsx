@@ -23,18 +23,16 @@ const ResourceList: React.FC<ResourceListProps> = ({ currentResources, isGridMod
     };
 
     return (
-        <>
+        <div className="md:mt-12">
             <div
                 className={
-                    isGridMode ? "mt-12 grid grid-cols-3 gap-8" : "mt-12 flex flex-col gap-8"
+                    isGridMode
+                        ? "grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3"
+                        : "flex flex-col gap-6"
                 }
             >
                 {currentResources.map((resource, index) => (
-                    <ResourceCard
-                        key={index}
-                        {...resource}
-                        onOpen={() => openModal(resource)} // Pass trigger
-                    />
+                    <ResourceCard key={index} {...resource} onOpen={() => openModal(resource)} />
                 ))}
             </div>
 
@@ -45,7 +43,7 @@ const ResourceList: React.FC<ResourceListProps> = ({ currentResources, isGridMod
                     onClose={closeModal}
                 />
             )}
-        </>
+        </div>
     );
 };
 
