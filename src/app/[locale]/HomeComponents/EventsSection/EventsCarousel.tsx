@@ -50,7 +50,7 @@ const EventsCarousel = ({
     };
 
     return (
-        <div className="mt-12 flex flex-col overflow-hidden">
+        <div className="flex flex-col overflow-hidden">
             {/* Scrollable Event Cards */}
             <div className="relative w-full">
                 <div

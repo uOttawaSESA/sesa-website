@@ -48,7 +48,7 @@ const Goals = () => {
     };
     return (
         <>
-            <section className="relative items-center justify-between text-white md:my-24 md:w-full">
+            <section className="relative items-center justify-between text-white md:w-full">
                 {/* Carousel */}
                 <div
                     ref={items}
