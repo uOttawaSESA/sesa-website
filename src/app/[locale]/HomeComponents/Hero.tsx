@@ -27,7 +27,7 @@ export default function Hero() {
                 <p className="text-md relative flex max-w-72 items-center text-left font-sans leading-tight text-thistle md:max-w-[40rem] md:text-xl">
                     {t("purpose")}
                 </p>
-                <div className="mt-6 flex space-x-4 font-heading">
+                <div className="mt-4 flex gap-2 font-heading md:mt-6">
                     <Link href="/AboutPage">
                         <Button className="text-md font-heading uppercase md:text-lg">
                             {t("learn_more")}
