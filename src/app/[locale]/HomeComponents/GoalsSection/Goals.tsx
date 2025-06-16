@@ -48,7 +48,7 @@ const Goals = () => {
     };
     return (
         <>
-            <section className="relative items-center justify-between p-0 text-white md:my-24 md:w-full">
+            <section className="relative items-center justify-between text-white md:my-24 md:w-full">
                 {/* Carousel */}
                 <div
                     ref={items}
@@ -68,7 +68,7 @@ const Goals = () => {
                 </div>
 
                 {/* Navigation Buttons */}
-                <div className="absolute bottom-40 flex items-center gap-2 p-4 md:right-40">
+                <div className="absolute bottom-4 right-4 flex items-center gap-2 md:right-40">
                     <IconButton
                         variant="outline"
                         onClick={() => scrollItems("left")}
