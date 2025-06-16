@@ -23,14 +23,14 @@ export const GoalCard: React.FC<{ goal: Goal }> = ({ goal }) => {
                 <Image
                     src={mainImg}
                     alt="Goal Main Image"
-                    className="w-full object-contain md:h-[500px] 2xl:h-[600px] 2xl:max-w-3xl"
+                    className="h-[300px] object-cover md:h-[500px] 2xl:h-[600px] 2xl:max-w-3xl"
                     width={700}
                     height={700}
                 />
             </div>
 
             {/* Content */}
-            <div className="flex max-w-2xl flex-col gap-4">
+            <div className="flex w-full flex-col gap-4">
                 <p className="font-monocode relative inline-block !bg-clip-text text-left text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
                     {goalType}
                 </p>
@@ -42,7 +42,7 @@ export const GoalCard: React.FC<{ goal: Goal }> = ({ goal }) => {
                     </span>
                 </h1>
 
-                <p className="relative flex w-[20rem] items-center text-left font-sans text-lg text-thistle md:w-[35rem] md:text-xl 2xl:w-[40rem]">
+                <p className="relative flex w-full items-center text-left font-sans text-base text-thistle md:w-[35rem] md:text-xl 2xl:w-[40rem]">
                     {description}
                 </p>
 
