@@ -34,9 +34,12 @@ export default function Events() {
                         {t("events_subheading")}
                     </p>
 
-                    <div className="mt-6 flex w-[90%] flex-row items-center justify-between">
+                    <div className="mt-4 flex w-[90%] flex-row items-center justify-between md:mt-6">
                         <div className="flex font-heading">
-                            <Button className="font-heading text-lg uppercase" href="/EventsPage">
+                            <Button
+                                className="text-md font-heading uppercase md:text-lg"
+                                href="/EventsPage"
+                            >
                                 {t("view_all_events")}
                             </Button>
                         </div>
