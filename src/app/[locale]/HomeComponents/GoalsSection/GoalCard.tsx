@@ -16,7 +16,7 @@ export const GoalCard: React.FC<{ goal: Goal }> = ({ goal }) => {
         mainImg,
     } = goal;
     return (
-        <div className="my-36 flex h-[45rem] items-center justify-start gap-12 align-middle md:w-screen">
+        <div className="flex flex-col items-center justify-start gap-12 align-middle md:h-[45rem] md:w-screen md:flex-row">
             {/* Left Image */}
             <div className="grid-overlay-left md:h-[43.93rem] md:w-[48vw] 2xl:w-[32vw]"></div>
             <div className="relative z-10 lg:block">
