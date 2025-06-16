@@ -7,7 +7,7 @@ export default function Hero() {
     const t = useTranslations("homepage");
 
     return (
-        <section className="relative flex h-[80vh] w-full items-center justify-between text-white md:pe-0 md:ps-32 2xl:pe-0 2xl:ps-96">
+        <section className="relative flex h-[80vh] w-full items-center justify-between p-4 text-white md:pe-0 md:ps-32 2xl:pe-0 2xl:ps-96">
             {/* Grid Gradient Back */}
             <div className="grid-overlay-right md:h-[43.93rem] md:w-[53vw]"></div>
 
@@ -16,7 +16,7 @@ export default function Hero() {
                 <p className="font-monocode relative inline-block !bg-clip-text text-left text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
                     {t("we_are_sesa")}
                 </p>
-                <h1 className="mt-4 max-w-[18ch] font-heading text-5xl uppercase leading-tight">
+                <h1 className="my-4 max-w-[18ch] font-heading text-3xl uppercase leading-tight md:text-5xl">
                     <span className="relative inline-block">
                         {t("bridging_the_gap_hl")}
                         <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
@@ -24,7 +24,7 @@ export default function Hero() {
                     <br />
                     {t("bridging_the_gap")}
                 </h1>
-                <p className="relative flex w-[40rem] items-center text-left font-sans text-xl text-thistle">
+                <p className="text-md relative flex max-w-72 items-center text-left font-sans leading-tight text-thistle md:max-w-[40rem] md:text-xl">
                     {t("purpose")}
                 </p>
                 <div className="mt-6 flex space-x-4 font-heading">
