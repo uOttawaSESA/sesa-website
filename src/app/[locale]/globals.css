@@ -344,3 +344,11 @@ select::placeholder {
     animation: dropdown-fade-in 0.22s cubic-bezier(0.4, 0, 0.2, 1);
     transform-origin: top;
 }
+
+.truncate-multiline {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit to 3 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis; /* This alone is for single line, but required with -webkit-box */
+}
