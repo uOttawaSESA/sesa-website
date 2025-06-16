@@ -8,8 +8,8 @@ import Image from "next/image";
 const Resources = () => {
     return (
         <>
-            <section className="p-4 text-white md:w-full">
-                <div className="mb-8 flex flex-col gap-2 md:mb-20">
+            <section className="w-full p-4 text-white">
+                <div className="mb-8 flex flex-col gap-2 text-center md:mb-20 md:text-left">
                     <p className="font-monocode color-gradient">
                         Resources by students for students
                     </p>
@@ -20,7 +20,7 @@ const Resources = () => {
                             <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                         </span>
                     </h1>
-                    <p className="font-sans text-xl text-thistle">
+                    <p className="text-md font-sans text-thistle md:text-xl">
                         Our academic team actively organize free resources to support software
                         engineering students in their studies.
                     </p>
@@ -58,31 +58,33 @@ const Resources = () => {
                         </div>
                     </div>
                 </Marquee>
-                <div className="mt-14 flex justify-center">
-                    <div className="flex space-x-4 font-heading">
-                        <Button className="font-heading text-lg uppercase" href="/ResourcesPage">
-                            Explore all resources{" "}
-                            <span className="text-gray opacity-50">{">"}</span>
-                        </Button>
-                        <Button
-                            className="font-heading text-lg uppercase"
-                            variant="outline"
-                            href="https://discord.com/invite/atYdx5HHCs"
-                            external
-                        >
-                            Join our discord
-                        </Button>
-                    </div>
+
+                <div className="mt-4 flex w-full justify-center gap-4 font-heading md:mt-14">
+                    <Button
+                        className="text-md block text-center font-heading uppercase md:text-lg"
+                        href="/ResourcesPage"
+                    >
+                        Explore all resources&nbsp;
+                        <span className="text-gray opacity-50">{">"}</span>
+                    </Button>
+                    <Button
+                        className="text-md text-center font-heading uppercase md:text-lg"
+                        variant="outline"
+                        href="https://discord.com/invite/atYdx5HHCs"
+                        external
+                    >
+                        Join our discord
+                    </Button>
                 </div>
-                <div className="mt-8 flex flex-row items-center justify-center font-mono text-thistle">
+                <div className="mt-4 flex w-full items-center justify-center text-center font-mono text-sm text-thistle md:mt-8 md:text-base">
                     <Image
                         src="/resources-page/thumbsup.svg"
                         alt="thumbsUp"
                         width={25}
                         height={25}
-                        className="me-2"
+                        className="me-2 size-5 md:size-8"
                     ></Image>
-                    <p className="text-base">95% average helpfulness, 1000+ students helped</p>
+                    <p className="">95% average helpfulness, 1000+ students helped</p>
                 </div>
             </section>
         </>
