@@ -42,7 +42,7 @@ export default function Events() {
                         </div>
 
                         {/* Navigation Buttons */}
-                        <div className="flex items-center gap-2">
+                        <div className="hidden items-center gap-2 md:flex">
                             <IconButton
                                 variant="outline"
                                 onClick={() => scrollItems && scrollItems("left")}
