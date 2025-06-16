@@ -24,19 +24,19 @@ export default function Hero() {
                     <br />
                     {t("bridging_the_gap")}
                 </h1>
-                <p className="text-md relative flex max-w-72 items-center text-left font-sans leading-tight text-thistle md:max-w-[40rem] md:text-xl">
+                <p className="relative flex max-w-72 items-center text-left font-sans text-lg leading-tight text-thistle md:max-w-[40rem] md:text-xl">
                     {t("purpose")}
                 </p>
                 <div className="mt-4 flex gap-2 font-heading md:mt-6">
                     <Link href="/AboutPage">
-                        <Button className="text-md font-heading uppercase md:text-lg">
+                        <Button className="font-heading text-lg uppercase md:text-lg">
                             {t("learn_more")}
                         </Button>
                     </Link>
                     <Button
                         href="https://linktr.ee/uottawa.sesa"
                         external
-                        className="text-md font-heading uppercase md:text-lg"
+                        className="font-heading text-lg uppercase md:text-lg"
                         variant="outline"
                     >
                         {t("get_involved")}

@@ -20,7 +20,7 @@ const Resources = () => {
                             <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                         </span>
                     </h1>
-                    <p className="text-md font-sans text-thistle md:text-xl">
+                    <p className="font-sans text-lg text-thistle md:text-xl">
                         Our academic team actively organize free resources to support software
                         engineering students in their studies.
                     </p>
@@ -61,14 +61,14 @@ const Resources = () => {
 
                 <div className="mt-4 flex w-full justify-center gap-4 font-heading md:mt-14">
                     <Button
-                        className="text-md block text-center font-heading uppercase md:text-lg"
+                        className="block text-center font-heading text-lg uppercase md:text-lg"
                         href="/ResourcesPage"
                     >
                         Explore all resources&nbsp;
                         <span className="text-gray opacity-50">{">"}</span>
                     </Button>
                     <Button
-                        className="text-md text-center font-heading uppercase md:text-lg"
+                        className="text-center font-heading text-lg uppercase md:text-lg"
                         variant="outline"
                         href="https://discord.com/invite/atYdx5HHCs"
                         external

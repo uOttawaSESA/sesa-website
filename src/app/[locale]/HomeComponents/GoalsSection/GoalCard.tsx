@@ -42,7 +42,7 @@ export const GoalCard: React.FC<{ goal: Goal }> = ({ goal }) => {
                     </span>
                 </h1>
 
-                <p className="text-md relative flex w-[20rem] items-center text-left font-sans text-thistle md:w-[35rem] md:text-xl 2xl:w-[40rem]">
+                <p className="relative flex w-[20rem] items-center text-left font-sans text-lg text-thistle md:w-[35rem] md:text-xl 2xl:w-[40rem]">
                     {description}
                 </p>
 
