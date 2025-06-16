@@ -25,7 +25,7 @@ export type ButtonProps = AnchorProps | NativeButtonProps;
 const Button = forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>((props, ref) => {
     const { variant = "fill", className, disabled, children, ...rest } = props;
 
-    const baseStyle = "px-6 py-3 transition-all ease-in-out";
+    const baseStyle = "p-2 md:px-6 md:py-3 transition-all ease-in-out";
     const disabledClass = "opacity-50 cursor-not-allowed pointer-events-none";
 
     let variantClass;
