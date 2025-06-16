@@ -7,7 +7,7 @@ export default function Hero() {
     const t = useTranslations("homepage");
 
     return (
-        <section className="relative flex h-[80vh] w-full items-center justify-between p-4 text-white md:pe-0 md:ps-32 2xl:pe-0 2xl:ps-96">
+        <section className="relative my-4 flex h-max w-full items-center justify-between p-4 text-white md:my-40 md:pe-0 md:ps-32 2xl:pe-0 2xl:ps-96">
             {/* Grid Gradient Back */}
             <div className="grid-overlay-right md:h-[43.93rem] md:w-[53vw]"></div>
 
@@ -29,14 +29,14 @@ export default function Hero() {
                 </p>
                 <div className="mt-6 flex space-x-4 font-heading">
                     <Link href="/AboutPage">
-                        <Button className="font-heading text-lg uppercase">
+                        <Button className="text-md font-heading uppercase md:text-lg">
                             {t("learn_more")}
                         </Button>
                     </Link>
                     <Button
                         href="https://linktr.ee/uottawa.sesa"
                         external
-                        className="font-heading text-lg uppercase"
+                        className="text-md font-heading uppercase md:text-lg"
                         variant="outline"
                     >
                         {t("get_involved")}
