@@ -49,7 +49,7 @@ export default function Hero() {
                 <Image
                     src="/imgs/Home/heroImage.webp"
                     alt="SESA Group Photo"
-                    className="h-[500px] w-[auto] object-cover"
+                    className="h-[500px] w-auto object-cover"
                     width={703}
                     height={700}
                 />
