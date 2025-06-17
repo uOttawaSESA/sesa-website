@@ -44,10 +44,10 @@ const FAQ = () => {
                                 className="outline-gradient w-full overflow-hidden rounded-br-2xl border"
                             >
                                 <AccordionItem value="item-1" className="border-purple-600 px-4">
-                                    <AccordionTrigger className="py-4 font-heading text-lg text-white">
+                                    <AccordionTrigger className="py-4 font-heading text-base text-white md:text-lg">
                                         WHAT IS SESA?
                                     </AccordionTrigger>
-                                    <AccordionContent className="font-sans text-lg text-thistle">
+                                    <AccordionContent className="font-sans text-base text-thistle md:text-lg">
                                         <b>SESA</b> is the University of Ottawa{" "}
                                         <b>Software Engineering Students Association</b>! We’re an
                                         informally and independently run student organization with
@@ -98,10 +98,10 @@ const FAQ = () => {
                                     </AccordionContent>
                                 </AccordionItem>
                                 <AccordionItem value="item-2" className="border-purple-600 px-4">
-                                    <AccordionTrigger className="py-4 font-heading text-lg text-white">
+                                    <AccordionTrigger className="py-4 font-heading text-base text-white md:text-lg">
                                         WHO CAN JOIN?
                                     </AccordionTrigger>
-                                    <AccordionContent className="font-sans text-lg text-thistle">
+                                    <AccordionContent className="font-sans text-base text-thistle md:text-lg">
                                         <b>SESA events are open to everyone</b> — not just software
                                         engineering students!
                                         <br />
@@ -134,10 +134,10 @@ const FAQ = () => {
                                     </AccordionContent>
                                 </AccordionItem>
                                 <AccordionItem value="item-3" className="border-purple-600 px-4">
-                                    <AccordionTrigger className="py-4 font-heading text-lg text-white">
+                                    <AccordionTrigger className="py-4 font-heading text-base text-white md:text-lg">
                                         WHAT MAKES SESA SPECIAL?
                                     </AccordionTrigger>
-                                    <AccordionContent className="font-sans text-lg text-thistle">
+                                    <AccordionContent className="font-sans text-base text-thistle md:text-lg">
                                         <b>SESA is run by students, for students</b>, with a focus
                                         on <b>community</b>, <b>collaboration</b>, and{" "}
                                         <b>creating opportunities</b>.
@@ -148,10 +148,10 @@ const FAQ = () => {
                                     </AccordionContent>
                                 </AccordionItem>
                                 <AccordionItem value="item-4" className="border-purple-600 px-4">
-                                    <AccordionTrigger className="py-4 font-heading text-lg text-white">
+                                    <AccordionTrigger className="py-4 font-heading text-base text-white md:text-lg">
                                         WHAT EVENTS DOES SESA HOST?
                                     </AccordionTrigger>
-                                    <AccordionContent className="font-sans text-lg text-thistle">
+                                    <AccordionContent className="font-sans text-base text-thistle md:text-lg">
                                         <span>{`SESA hosts tech-related events each year at the University of Ottawa, including `}</span>
                                         <b>
                                             technical workshops, career fairs, meet and greets, mock
