@@ -34,7 +34,7 @@ const Resources = () => {
                             {resources
                                 .slice(0, Math.ceil(resources.length / 2))
                                 .map((resource, index) => (
-                                    <div key={index} className="mx-2">
+                                    <div key={index}>
                                         <ResourceCard
                                             title={resource.title}
                                             category={resource.category}
@@ -51,7 +51,7 @@ const Resources = () => {
                             {resources
                                 .slice(Math.ceil(resources.length / 2))
                                 .map((resource, index) => (
-                                    <div key={index} className="mx-2">
+                                    <div key={index}>
                                         <ResourceCard {...resource} />
                                     </div>
                                 ))}
