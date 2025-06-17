@@ -19,14 +19,14 @@ const FAQ = () => {
             <section className="text-white md:w-full">
                 <div className="mb-14 flex flex-col items-center justify-center gap-2">
                     <p className="font-monocode color-gradient">Frequently asked questions</p>
-                    <h1 className="font-heading text-4xl uppercase leading-tight">
+                    <h1 className="text-center font-heading text-3xl uppercase leading-tight md:text-5xl">
                         Got Questions?&nbsp;
                         <span className="relative inline-block">
                             We&apos;ve got answers!
                             <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                         </span>
                     </h1>
-                    <p className="px-96 text-center font-sans text-xl text-thistle">
+                    <p className="text-center font-sans text-base text-thistle md:px-96 md:text-xl">
                         We have A’s to your Q’s below. If you still have questions, contact us and
                         we’ll get back to you as soon as possible.
                     </p>
