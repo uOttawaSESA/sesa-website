@@ -30,7 +30,7 @@ const Resources = () => {
                     <div className="flex flex-col gap-4">
                         {/* Two rows with gap */}
                         {/* First Row */}
-                        <div className="flex gap-4">
+                        <div className="me-4 flex gap-4">
                             {resources
                                 .slice(0, Math.ceil(resources.length / 2))
                                 .map((resource, index) => (
@@ -47,7 +47,7 @@ const Resources = () => {
                                 ))}
                         </div>
                         {/* Second Row */}
-                        <div className="flex gap-4">
+                        <div className="me-4 flex gap-4">
                             {resources
                                 .slice(Math.ceil(resources.length / 2))
                                 .map((resource, index) => (
