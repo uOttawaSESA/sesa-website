@@ -29,7 +29,7 @@ export const QuoteCard: React.FC<{ quote: Quote }> = ({ quote }) => {
                     </span>
                     {quote_part2 && ` ${quote_part2}`}”
                 </h1>
-                <div className="my-3 flex items-center gap-4">
+                <div className="flex items-center gap-4">
                     <Image
                         src={memberImg}
                         alt={memberImg}
@@ -38,7 +38,7 @@ export const QuoteCard: React.FC<{ quote: Quote }> = ({ quote }) => {
                         height={50}
                     />
                     <div>
-                        <p className="z-20 mt-4 font-heading text-xl uppercase">{memberName}</p>
+                        <p className="z-20 font-heading text-xl uppercase">{memberName}</p>
                         <p className="text-sm opacity-70">{memberRole}</p>
                     </div>
                 </div>
