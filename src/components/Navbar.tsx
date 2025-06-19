@@ -93,7 +93,7 @@ export default function Navbar() {
                 ))}
             </>
         ),
-        [pathname, t, isMobileMenuOpen],
+        [pathname, t],
     );
 
     return (
