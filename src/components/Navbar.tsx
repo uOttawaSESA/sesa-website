@@ -167,14 +167,6 @@ export default function Navbar() {
             <div
                 className={`fixed inset-0 z-40 bg-black transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"} lg:hidden`}
             >
-                <div className="flex justify-end p-6">
-                    <button
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="text-3xl text-white"
-                    >
-                        &times;
-                    </button>
-                </div>
                 <nav className="flex flex-col items-center gap-8 py-10">
                     <NavItems />
                 </nav>
