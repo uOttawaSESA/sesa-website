@@ -139,7 +139,7 @@ export default function Navbar() {
                     </Link>
                     {/* Hamburger menu for mobile */}
                     <IconButton
-                        className="text-white lg:hidden"
+                        className="touch-manipulation text-white lg:hidden"
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     >
                         <Image src="/icons/hamburger.svg" alt="Menu" width={24} height={24} />
