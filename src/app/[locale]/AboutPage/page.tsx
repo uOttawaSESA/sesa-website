@@ -291,7 +291,7 @@ export default function AboutPage() {
                     <b>{t("our_previous_partners_p_bold")}</b>, {t("our_previous_partners_p")}{" "}
                 </p>
                 <div className="flex items-center justify-center text-center">
-                    <div className="grid-cols grid gap-2 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+                    <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
                         {/* This just fills the grid with 8 Warp logos for the time being */}
                         {Array(8)
                             .fill(0)
