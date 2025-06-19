@@ -43,6 +43,41 @@ export default function Navbar() {
     const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+    const NavItems = () => (
+        <>
+            <NavLinkItem
+                href="/"
+                label={t("home")}
+                isActive={isActivePage("")}
+                onClick={() => setIsMobileMenuOpen(false)}
+            />
+            <NavLinkItem
+                href="/AboutPage"
+                label={t("about")}
+                isActive={isActivePage("about")}
+                onClick={() => setIsMobileMenuOpen(false)}
+            />
+            <NavLinkItem
+                href="/EventsPage"
+                label={t("events")}
+                isActive={isActivePage("EventsPage")}
+                onClick={() => setIsMobileMenuOpen(false)}
+            />
+            <NavLinkItem
+                href="/ResourcesPage"
+                label={t("resources")}
+                isActive={isActivePage("ResourcesPage")}
+                onClick={() => setIsMobileMenuOpen(false)}
+            />
+            <NavLinkItem
+                href="/ContactUsPage"
+                label={t("contact")}
+                isActive={isActivePage("ContactUsPage")}
+                onClick={() => setIsMobileMenuOpen(false)}
+            />
+        </>
+    );
+
     const languageItems = [
         {
             label: "EN",
@@ -85,27 +120,7 @@ export default function Navbar() {
                 </div>
 
                 <nav className="hidden items-center justify-center gap-6 sm:gap-8 md:gap-10 lg:flex lg:gap-12 xl:gap-16">
-                    <NavLinkItem href="/" label={t("home")} isActive={isActivePage("")} />
-                    <NavLinkItem
-                        href="/AboutPage"
-                        label={t("about")}
-                        isActive={isActivePage("about")}
-                    />
-                    <NavLinkItem
-                        href="/EventsPage"
-                        label={t("events")}
-                        isActive={isActivePage("EventsPage")}
-                    />
-                    <NavLinkItem
-                        href="/ResourcesPage"
-                        label={t("resources")}
-                        isActive={isActivePage("ResourcesPage")}
-                    />
-                    <NavLinkItem
-                        href="/ContactUsPage"
-                        label={t("contact")}
-                        isActive={isActivePage("ContactUsPage")}
-                    />
+                    <NavItems />
                 </nav>
 
                 <div className="flex items-center gap-4">
@@ -160,36 +175,7 @@ export default function Navbar() {
                     </button>
                 </div>
                 <nav className="flex flex-col items-center gap-8 py-10">
-                    <NavLinkItem
-                        href="/"
-                        label={t("home")}
-                        isActive={isActivePage("")}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                    />
-                    <NavLinkItem
-                        href="/AboutPage"
-                        label={t("about")}
-                        isActive={isActivePage("about")}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                    />
-                    <NavLinkItem
-                        href="/EventsPage"
-                        label={t("events")}
-                        isActive={isActivePage("EventsPage")}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                    />
-                    <NavLinkItem
-                        href="/ResourcesPage"
-                        label={t("resources")}
-                        isActive={isActivePage("ResourcesPage")}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                    />
-                    <NavLinkItem
-                        href="/ContactUsPage"
-                        label={t("contact")}
-                        isActive={isActivePage("ContactUsPage")}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                    />
+                    <NavItems />
                 </nav>
             </div>
 
