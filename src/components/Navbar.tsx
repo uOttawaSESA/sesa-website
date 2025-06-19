@@ -156,7 +156,7 @@ export default function Navbar() {
                     <IconButton
                         className="touch-manipulation text-white lg:hidden"
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    >
+                        aria-label="Toggle mobile menu"
                         <Image src="/icons/hamburger.svg" alt="Menu" width={24} height={24} />
                     </IconButton>
                 </div>
