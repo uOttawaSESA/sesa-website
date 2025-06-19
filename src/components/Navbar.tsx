@@ -5,7 +5,7 @@ import Button from "./Button";
 import IconButton from "./IconButton";
 import { Link } from "@/i18n/navigation";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Dropdown from "./Dropdown";
 import { useTranslations } from "next-intl";
 
@@ -35,48 +35,26 @@ function NavLinkItem({ href, label, isActive, onClick }: NavLinkItemProps) {
     );
 }
 
+interface NavItem {
+    href: string;
+    i18nKey: string;
+    pageName: string;
+}
+
+const navItemsData = [
+    { href: "/", i18nKey: "home", pageName: "" },
+    { href: "/AboutPage", i18nKey: "about", pageName: "AboutPage" },
+    { href: "/EventsPage", i18nKey: "events", pageName: "EventsPage" },
+    { href: "/ResourcesPage", i18nKey: "resources", pageName: "ResourcesPage" },
+    { href: "/ContactUsPage", i18nKey: "contact", pageName: "ContactUsPage" },
+] as const satisfies NavItem[];
+
 export default function Navbar() {
     const t = useTranslations("navigation");
-
     const pathname = usePathname();
     const [selectedLang, setSelectedLang] = useState("EN");
     const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-    const NavItems = () => (
-        <>
-            <NavLinkItem
-                href="/"
-                label={t("home")}
-                isActive={isActivePage("")}
-                onClick={() => setIsMobileMenuOpen(false)}
-            />
-            <NavLinkItem
-                href="/AboutPage"
-                label={t("about")}
-                isActive={isActivePage("AboutPage")}
-                onClick={() => setIsMobileMenuOpen(false)}
-            />
-            <NavLinkItem
-                href="/EventsPage"
-                label={t("events")}
-                isActive={isActivePage("EventsPage")}
-                onClick={() => setIsMobileMenuOpen(false)}
-            />
-            <NavLinkItem
-                href="/ResourcesPage"
-                label={t("resources")}
-                isActive={isActivePage("ResourcesPage")}
-                onClick={() => setIsMobileMenuOpen(false)}
-            />
-            <NavLinkItem
-                href="/ContactUsPage"
-                label={t("contact")}
-                isActive={isActivePage("ContactUsPage")}
-                onClick={() => setIsMobileMenuOpen(false)}
-            />
-        </>
-    );
 
     const languageItems = [
         {
@@ -101,6 +79,23 @@ export default function Navbar() {
         return withoutLocale === path;
     };
 
+    const navItems = useMemo(
+        () => (
+            <>
+                {navItemsData.map(item => (
+                    <NavLinkItem
+                        key={item.i18nKey}
+                        href={item.href}
+                        label={t(item.i18nKey)}
+                        isActive={isActivePage(item.pageName)}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                    />
+                ))}
+            </>
+        ),
+        [pathname, t, isMobileMenuOpen],
+    );
+
     return (
         <>
             <header className="fixed left-0 right-0 top-0 z-50 flex items-center justify-between bg-transparent px-8 py-6 backdrop-blur-sm md:px-12 lg:px-20 xl:px-32 2xl:px-64">
@@ -120,7 +115,7 @@ export default function Navbar() {
                 </div>
 
                 <nav className="hidden items-center justify-center gap-6 sm:gap-8 md:gap-10 lg:flex lg:gap-12 xl:gap-16">
-                    <NavItems />
+                    {navItems}
                 </nav>
 
                 <div className="flex items-center gap-4">
@@ -167,9 +162,7 @@ export default function Navbar() {
             <div
                 className={`fixed inset-0 z-40 bg-black transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"} lg:hidden`}
             >
-                <nav className="flex flex-col items-center gap-8 py-10">
-                    <NavItems />
-                </nav>
+                <nav className="flex flex-col items-center gap-8 py-10">{navItems}</nav>
             </div>
 
             <div className="h-24" />
