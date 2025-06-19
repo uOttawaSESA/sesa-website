@@ -9,6 +9,32 @@ import { useState } from "react";
 import Dropdown from "./Dropdown";
 import { useTranslations } from "next-intl";
 
+interface NavLinkItemProps {
+    href: string;
+    label: string;
+    isActive: boolean;
+    onClick?: () => void;
+}
+
+function NavLinkItem({ href, label, isActive, onClick }: NavLinkItemProps) {
+    const navLinkClass = "font-heading text-lg uppercase transition-all hover:opacity-80";
+    const activeNavLinkClass = `
+      bg-gradient-to-r from-[#8824DC] to-[#B1219D] bg-clip-text text-transparent 
+      relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full 
+      after:bg-gradient-to-r after:from-[#8824DC] after:to-[#B1219D]
+    `;
+
+    return (
+        <Link
+            href={href}
+            className={`${navLinkClass} ${isActive ? activeNavLinkClass : "text-white"}`}
+            onClick={onClick}
+        >
+            {label}
+        </Link>
+    );
+}
+
 export default function Navbar() {
     const t = useTranslations("navigation");
 
@@ -40,13 +66,6 @@ export default function Navbar() {
         return withoutLocale === path;
     };
 
-    const navLinkClass = "font-heading text-lg uppercase transition-all hover:opacity-80";
-    const activeNavLinkClass = `
-      bg-gradient-to-r from-[#8824DC] to-[#B1219D] bg-clip-text text-transparent 
-      relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full 
-      after:bg-gradient-to-r after:from-[#8824DC] after:to-[#B1219D]
-    `;
-
     return (
         <>
             <header className="fixed left-0 right-0 top-0 z-50 flex items-center justify-between bg-transparent px-8 py-6 backdrop-blur-sm md:px-12 lg:px-20 xl:px-32 2xl:px-64">
@@ -66,36 +85,27 @@ export default function Navbar() {
                 </div>
 
                 <nav className="hidden items-center justify-center gap-6 sm:gap-8 md:gap-10 lg:flex lg:gap-12 xl:gap-16">
-                    <Link
-                        href="/"
-                        className={`${navLinkClass} ${isActivePage("") ? activeNavLinkClass : "text-white"}`}
-                    >
-                        {t("home")}
-                    </Link>
-                    <Link
+                    <NavLinkItem href="/" label={t("home")} isActive={isActivePage("")} />
+                    <NavLinkItem
                         href="/AboutPage"
-                        className={`${navLinkClass} ${isActivePage("about") ? activeNavLinkClass : "text-white"}`}
-                    >
-                        {t("about")}
-                    </Link>
-                    <Link
+                        label={t("about")}
+                        isActive={isActivePage("about")}
+                    />
+                    <NavLinkItem
                         href="/EventsPage"
-                        className={`${navLinkClass} ${isActivePage("EventsPage") ? activeNavLinkClass : "text-white"}`}
-                    >
-                        {t("events")}
-                    </Link>
-                    <Link
+                        label={t("events")}
+                        isActive={isActivePage("EventsPage")}
+                    />
+                    <NavLinkItem
                         href="/ResourcesPage"
-                        className={`${navLinkClass} ${isActivePage("ResourcesPage") ? activeNavLinkClass : "text-white"}`}
-                    >
-                        {t("resources")}
-                    </Link>
-                    <Link
+                        label={t("resources")}
+                        isActive={isActivePage("ResourcesPage")}
+                    />
+                    <NavLinkItem
                         href="/ContactUsPage"
-                        className={`${navLinkClass} ${isActivePage("ContactUsPage") ? activeNavLinkClass : "text-white"}`}
-                    >
-                        {t("contact")}
-                    </Link>
+                        label={t("contact")}
+                        isActive={isActivePage("ContactUsPage")}
+                    />
                 </nav>
 
                 <div className="flex items-center gap-4">
@@ -150,41 +160,36 @@ export default function Navbar() {
                     </button>
                 </div>
                 <nav className="flex flex-col items-center gap-8 py-10">
-                    <Link
+                    <NavLinkItem
                         href="/"
-                        className={`${navLinkClass} ${isActivePage("") ? activeNavLinkClass : "text-white"}`}
+                        label={t("home")}
+                        isActive={isActivePage("")}
                         onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                        {t("home")}
-                    </Link>
-                    <Link
+                    />
+                    <NavLinkItem
                         href="/AboutPage"
-                        className={`${navLinkClass} ${isActivePage("about") ? activeNavLinkClass : "text-white"}`}
+                        label={t("about")}
+                        isActive={isActivePage("about")}
                         onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                        {t("about")}
-                    </Link>
-                    <Link
+                    />
+                    <NavLinkItem
                         href="/EventsPage"
-                        className={`${navLinkClass} ${isActivePage("EventsPage") ? activeNavLinkClass : "text-white"}`}
+                        label={t("events")}
+                        isActive={isActivePage("EventsPage")}
                         onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                        {t("events")}
-                    </Link>
-                    <Link
+                    />
+                    <NavLinkItem
                         href="/ResourcesPage"
-                        className={`${navLinkClass} ${isActivePage("ResourcesPage") ? activeNavLinkClass : "text-white"}`}
+                        label={t("resources")}
+                        isActive={isActivePage("ResourcesPage")}
                         onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                        {t("resources")}
-                    </Link>
-                    <Link
+                    />
+                    <NavLinkItem
                         href="/ContactUsPage"
-                        className={`${navLinkClass} ${isActivePage("ContactUsPage") ? activeNavLinkClass : "text-white"}`}
+                        label={t("contact")}
+                        isActive={isActivePage("ContactUsPage")}
                         onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                        {t("contact")}
-                    </Link>
+                    />
                 </nav>
             </div>
 
