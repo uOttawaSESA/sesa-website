@@ -54,7 +54,7 @@ export default function Navbar() {
             <NavLinkItem
                 href="/AboutPage"
                 label={t("about")}
-                isActive={isActivePage("about")}
+                isActive={isActivePage("AboutPage")}
                 onClick={() => setIsMobileMenuOpen(false)}
             />
             <NavLinkItem
