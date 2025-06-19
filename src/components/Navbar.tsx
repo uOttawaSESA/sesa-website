@@ -162,7 +162,7 @@ export default function Navbar() {
             <div
                 className={`fixed inset-0 z-40 bg-black transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"} lg:hidden`}
             >
-                <nav className="flex flex-col items-center gap-8 py-10">{navItems}</nav>
+                <nav className="mt-16 flex flex-col items-center gap-8 py-10">{navItems}</nav>
             </div>
 
             <div className="h-24" />
