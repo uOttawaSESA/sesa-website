@@ -28,11 +28,11 @@ export default function Footer() {
             {/* Navigation links and socials */}
             <div className="mx-8 mb-4 mt-8 flex flex-col gap-4 xl:mx-32 2xl:mx-64">
                 <div className="grid grid-cols-1 gap-4 text-center sm:grid-cols-2 sm:text-left lg:grid-cols-4">
-                    <div className="flex flex-col gap-4">
+                    <div className="flex flex-col items-center gap-4 sm:items-start">
                         <h3 className="color-gradient font-heading uppercase">SESA/AÉGL</h3>
                         <p className="max-w-64 text-lg/5 text-gray-400">{t("blurb")}</p>
                         <p className="text-lg/5 text-gray-400">
-                            &copy; 2014&ndash;{new Date().getFullYear()}{" "}
+                            &copy; 2014&ndash;{new Date().getFullYear()}
                         </p>
                     </div>
                     <div className="flex flex-col gap-4">
