@@ -31,13 +31,6 @@ body {
 /* Firefox */
 * {
     scrollbar-color: #9a1ebf #381e4b; /* thumb, track */
-    /* scrollbar-width: thin; */
-}
-
-/* WebKit (Chrome, Safari, Edge) */
-::-webkit-scrollbar {
-    /* width: 10px;
-  height: 10px; */
 }
 
 ::-webkit-scrollbar-track {
