@@ -85,7 +85,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
         switch (resource.format.toLowerCase()) {
             case "pdf":
                 return (
-                    <div className="aspect-video w-full">
+                    <div className="aspect-video max-h-[80vh] w-full">
                         <iframe
                             src={resource.source}
                             title={resource.title}

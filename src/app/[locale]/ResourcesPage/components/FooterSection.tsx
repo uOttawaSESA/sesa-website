@@ -9,21 +9,15 @@ const FooterSection: React.FC = () => {
     return (
         <>
             {/* CTA Section */}
-            <div className="mt-16 flex items-center justify-center gap-6">
-                <div className="flex flex-col items-center text-center">
-                    <h2 className="mb-8 font-heading text-lg uppercase">
-                        {t("contributing_heading")}
-                    </h2>
-                </div>
-                <div className="flex -translate-y-4 transform items-center justify-center">
-                    <Button href="#" className="font-heading text-xl uppercase">
-                        {t("btn_join_discord")}
-                    </Button>
-                </div>
+            <div className="mt-16 flex flex-col items-center justify-center gap-4 px-4 text-center sm:flex-row sm:gap-6">
+                <h2 className="font-heading text-lg uppercase">{t("contributing_heading")}</h2>
+                <Button href="#" className="font-heading text-xl uppercase">
+                    {t("btn_join_discord")}
+                </Button>
             </div>
 
             {/* Ange quote section */}
-            <div className="my-36 flex h-[45rem] items-center justify-start gap-12 align-middle">
+            <div className="my-20 flex flex-col-reverse items-center justify-start gap-12 px-3 align-middle md:my-36 md:h-[45rem] md:flex-row">
                 {/* Grid Gradient Back */}
                 <div className="grid-overlay-left md:h-[43.93rem] md:w-[53vw]"></div>
 
@@ -31,7 +25,7 @@ const FooterSection: React.FC = () => {
                     <Image
                         src="/resources-page/ange-quote.png"
                         alt="SESA Group Photo"
-                        className="h-[500px] w-auto object-contain"
+                        className="w-auto object-contain md:h-[500px]"
                         width={703}
                         height={700}
                     />
@@ -44,7 +38,6 @@ const FooterSection: React.FC = () => {
                             {t("education_quote_1_hl")}
                             <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                         </span>
-                        {". "}
                         {t("education_quote_2")}.”
                     </div>
                     <div className="my-3 flex items-center gap-4">
