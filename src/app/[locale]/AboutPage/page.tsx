@@ -155,7 +155,7 @@ export default function AboutPage() {
                     </Button>
                 </div>
                 {/* Cards for "What do we do" */}
-                <div className="left-0 mb-8 flex w-full gap-8 overflow-x-scroll lg:justify-center">
+                <div className="mb-8 flex w-full gap-8 overflow-x-scroll lg:justify-center">
                     <WhatWeDoCard
                         imageHref="/imgs/about/social-events.png"
                         icon={
