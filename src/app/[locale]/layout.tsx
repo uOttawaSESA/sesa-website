@@ -49,7 +49,7 @@ export default async function RootLayout({
                 className={`${geistSans.variable} ${geistMono.variable} ${raleway.variable} bg-[#1b1b1b] bg-gradient-to-b from-[#1b1b1b] to-[#381e4b] font-sans antialiased`}
             >
                 <NextIntlClientProvider messages={messages}>
-                    <div className="overflow-x-auto overflow-x-hidden">
+                    <div className="overflow-x-hidden">
                         <Navbar />
                         <main>{children}</main>
                         <Footer />

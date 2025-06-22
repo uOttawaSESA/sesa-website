@@ -14,7 +14,7 @@ export const generateStaticParams = localeParams;
 
 const Home = () => {
     return (
-        <div className="max-w-screen h-full bg-gray-300 font-mono text-white">
+        <div className="h-full bg-gray-300 font-mono text-white">
             <Hero />
             <Events />
             <Goals />
