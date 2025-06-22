@@ -40,7 +40,6 @@ const ResourcesPage: FC = () => {
     }, []);
 
     const itemsPerRow = isGridMode ? (isMobile ? 1 : 3) : 1;
-    const pageSize = isMobile ? 6 : itemsPerRow * rowsToShow;
 
     // Filter resources based on search term and filter options
     const filteredResources = resources.filter(resource => {
