@@ -9,7 +9,7 @@ const FooterSection: React.FC = () => {
     return (
         <>
             {/* CTA Section */}
-            <div className="mt-16 flex flex-col items-center justify-center gap-4 px-4 text-center sm:flex-row sm:gap-6">
+            <div className="mt-10 flex flex-col items-center justify-center gap-4 px-4 text-center sm:flex-row sm:gap-6">
                 <h2 className="font-heading text-lg uppercase">{t("contributing_heading")}</h2>
                 <Button href="#" className="font-heading text-xl uppercase">
                     {t("btn_join_discord")}
@@ -54,7 +54,7 @@ const FooterSection: React.FC = () => {
                         </div>
                     </div>
                     {/* Call To Action Button */}
-                    <div className="mt-6">
+                    <div className="mt-10 md:mt-6">
                         <Button
                             href="/pages/TeamPage"
                             className="relative z-10 font-heading text-lg uppercase"
