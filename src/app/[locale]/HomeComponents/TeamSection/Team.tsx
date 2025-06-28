@@ -49,7 +49,7 @@ const Team = () => {
 
                 <div className="relative bg-transparent">
                     <Marquee pauseOnHover speed={40}>
-                        <div className="flex flex-row py-5">
+                        <div className="flex flex-row">
                             {membersData.map((member, index) => (
                                 <div key={index} className="relative">
                                     <CircleImage
