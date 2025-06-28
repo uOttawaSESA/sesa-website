@@ -17,7 +17,7 @@ export default function Events() {
 
     return (
         <>
-            <section className="relative w-full items-center justify-between text-white md:ps-32 2xl:ps-96">
+            <section className="relative w-full items-center justify-between space-y-8 text-white">
                 {/* Content Container */}
                 <div className="relative z-10 max-w-2xl">
                     <p className="font-monocode relative inline-block !bg-clip-text text-left text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
@@ -73,14 +73,14 @@ export default function Events() {
                         </div>
                     </div>
                 </div>
-            </section>
 
-            {/* Carousel */}
-            <EventsCarousel
-                setScrollFunction={setScrollItems}
-                setIsAtStart={setIsAtStart}
-                setIsAtEnd={setIsAtEnd}
-            />
+                {/* Carousel */}
+                <EventsCarousel
+                    setScrollFunction={setScrollItems}
+                    setIsAtStart={setIsAtStart}
+                    setIsAtEnd={setIsAtEnd}
+                />
+            </section>
         </>
     );
 }
