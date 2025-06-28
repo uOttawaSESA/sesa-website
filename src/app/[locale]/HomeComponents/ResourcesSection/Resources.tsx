@@ -8,8 +8,8 @@ import Image from "next/image";
 const Resources = () => {
     return (
         <>
-            <section className="w-full text-white">
-                <div className="mb-8 flex flex-col gap-2 text-center md:mb-20 md:text-left">
+            <section className="flex w-full flex-col gap-4 text-white">
+                <div className="flex flex-col gap-2 text-center md:text-left">
                     <p className="font-monocode color-gradient">
                         Resources by students for students
                     </p>
@@ -59,7 +59,7 @@ const Resources = () => {
                     </div>
                 </Marquee>
 
-                <div className="mt-4 flex w-full justify-center gap-4 font-heading md:mt-14">
+                <div className="flex w-full justify-center gap-4 font-heading">
                     <Button
                         className="text-center font-heading text-base uppercase md:text-lg"
                         href="/ResourcesPage"
@@ -76,7 +76,7 @@ const Resources = () => {
                         Join our discord
                     </Button>
                 </div>
-                <div className="mt-4 flex w-full items-center justify-center text-center font-mono text-sm text-thistle md:mt-8 md:text-base">
+                <div className="flex w-full items-center justify-center text-center font-mono text-sm text-thistle md:text-base">
                     <Image
                         src="/resources-page/thumbsup.svg"
                         alt="thumbsUp"
