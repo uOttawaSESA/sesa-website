@@ -48,7 +48,7 @@ const Goals = () => {
     };
     return (
         <>
-            <section className="text-white md:w-full">
+            <section className="flex flex-col gap-6 text-white md:w-full">
                 {/* Carousel */}
                 <div
                     ref={items}
