@@ -24,18 +24,18 @@ export default function Footer() {
     const locale = useLocale();
 
     return (
-        <footer className="flex flex-col gap-2 bg-transparent px-8 backdrop-blur-[50px]">
+        <footer className="flex flex-col gap-2 bg-transparent px-8 backdrop-blur-[50px] md:px-32">
             {/* Navigation links and socials */}
-            <div className="flex flex-col gap-4">
-                <div className="flex flex-col items-center gap-2 text-center sm:items-start">
+            <div className="flex flex-col gap-4 md:flex-row md:justify-between md:gap-20">
+                <div className="flex flex-col items-start gap-2 text-left text-sm/5 md:text-base/5">
                     <h3 className="color-gradient font-heading uppercase">SESA/AÉGL</h3>
-                    <p className="text-sm/5 text-gray-400">{t("blurb")}</p>
-                    <p className="text-sm/5 text-gray-400">
+                    <p className="text-gray-400 md:w-48">{t("blurb")}</p>
+                    <p className="text-gray-400">
                         &copy;&nbsp;2014&ndash;{new Date().getFullYear()}
                     </p>
                 </div>
 
-                <div className="flex justify-between gap-4 text-left text-sm md:text-base">
+                <div className="flex flex-grow justify-between gap-4 text-left text-sm md:text-base">
                     <div className="flex flex-col gap-2">
                         <h3 className="color-gradient font-heading uppercase">{t("sitemap")}</h3>
                         <ul className="flex flex-col gap-2 leading-none text-gray-400">
@@ -84,62 +84,62 @@ export default function Footer() {
                             <br />
                             <a href="mailto:uottawa.sesa@gmail.com">uottawa.sesa@gmail.com</a>
                         </p>
-                    </div>
-                </div>
 
-                <div className="flex justify-center gap-2 sm:justify-start">
-                    <Button
-                        className="!p-3"
-                        variant="outline"
-                        href="https://www.instagram.com/uottawasesa/"
-                        target="_blank"
-                    >
-                        <Image
-                            src="/icons/instagram-plain.svg"
-                            width={25}
-                            height={25}
-                            alt="Instagram Logo"
-                        />
-                    </Button>
-                    <Button
-                        className="!p-3"
-                        variant="outline"
-                        href="https://discord.com/invite/atYdx5HHCs"
-                        target="_blank"
-                    >
-                        <Image
-                            src="/icons/discord-plain.svg"
-                            width={25}
-                            height={25}
-                            alt="Discord Logo"
-                        />
-                    </Button>
-                    <Button
-                        className="!p-3"
-                        variant="outline"
-                        href="https://www.linkedin.com/company/software-engineering-students-association/"
-                        target="_blank"
-                    >
-                        <Image
-                            src="/icons/linkedin-plain.svg"
-                            width={25}
-                            height={25}
-                            alt="LinkedIn Logo"
-                        />
-                    </Button>
-                    <Button
-                        className="!p-3"
-                        variant="outline"
-                        href="https://www.youtube.com/@uottawasesa52"
-                        target="_blank"
-                    >
-                        <Image
-                            src="/icons/youtube-plain.svg"
-                            width={25}
-                            height={25}
-                            alt="YouTube Logo"
-                        />
-                    </Button>
+                        <div className="flex items-start justify-center gap-2">
+                            <Button
+                                className="!p-3"
+                                variant="outline"
+                                href="https://www.instagram.com/uottawasesa/"
+                                target="_blank"
+                            >
+                                <Image
+                                    src="/icons/instagram-plain.svg"
+                                    width={25}
+                                    height={25}
+                                    alt="Instagram Logo"
+                                />
+                            </Button>
+                            <Button
+                                className="!p-3"
+                                variant="outline"
+                                href="https://discord.com/invite/atYdx5HHCs"
+                                target="_blank"
+                            >
+                                <Image
+                                    src="/icons/discord-plain.svg"
+                                    width={25}
+                                    height={25}
+                                    alt="Discord Logo"
+                                />
+                            </Button>
+                            <Button
+                                className="!p-3"
+                                variant="outline"
+                                href="https://www.linkedin.com/company/software-engineering-students-association/"
+                                target="_blank"
+                            >
+                                <Image
+                                    src="/icons/linkedin-plain.svg"
+                                    width={25}
+                                    height={25}
+                                    alt="LinkedIn Logo"
+                                />
+                            </Button>
+                            <Button
+                                className="!p-3"
+                                variant="outline"
+                                href="https://www.youtube.com/@uottawasesa52"
+                                target="_blank"
+                            >
+                                <Image
+                                    src="/icons/youtube-plain.svg"
+                                    width={25}
+                                    height={25}
+                                    alt="YouTube Logo"
+                                />
+                            </Button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <hr className="fill-gradient mt-6 p-[0.25px]" />
