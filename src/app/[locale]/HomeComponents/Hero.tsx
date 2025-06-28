@@ -7,9 +7,9 @@ export default function Hero() {
     const t = useTranslations("homepage");
 
     return (
-        <section className="relative flex h-max w-full items-center justify-between text-white md:my-40 md:pe-0 md:ps-32 2xl:pe-0 2xl:ps-96">
+        <section className="relative flex h-max w-full items-center justify-between text-white">
             {/* Grid Gradient Back */}
-            <div className="grid-overlay-right md:h-[43.93rem] md:w-[53vw]"></div>
+            <div className="grid-overlay-right md:-m-32 md:h-[43.93rem] md:w-[53vw]"></div>
 
             {/* Content Container */}
             <div className="relative z-10 max-w-2xl">
@@ -45,7 +45,7 @@ export default function Hero() {
             </div>
 
             {/* Right Side Image */}
-            <div className="relative z-10 hidden lg:block">
+            <div className="relative z-10 hidden md:-m-32 lg:block">
                 <Image
                     src="/imgs/Home/heroImage.webp"
                     alt="SESA Group Photo"
