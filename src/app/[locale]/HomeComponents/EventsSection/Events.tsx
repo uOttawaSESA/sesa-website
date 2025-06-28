@@ -23,7 +23,7 @@ export default function Events() {
                     <p className="font-monocode relative inline-block !bg-clip-text text-left text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
                         {t("events")}
                     </p>
-                    <h1 className="d:text-5xl mt-4 font-heading text-3xl uppercase leading-tight">
+                    <h1 className="d:text-5xl mt-4 font-heading text-2xl uppercase leading-tight">
                         <span className="relative inline-block">
                             {t("events_heading_hl")}
                             <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>

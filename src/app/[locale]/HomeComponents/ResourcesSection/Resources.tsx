@@ -13,7 +13,7 @@ const Resources = () => {
                     <p className="font-monocode color-gradient">
                         Resources by students for students
                     </p>
-                    <h1 className="font-heading text-3xl uppercase leading-tight md:text-5xl">
+                    <h1 className="font-heading text-2xl uppercase leading-tight md:text-5xl">
                         Resources at your&nbsp;
                         <span className="relative inline-block">
                             Fingertips
@@ -61,14 +61,14 @@ const Resources = () => {
 
                 <div className="mt-4 flex w-full justify-center gap-4 font-heading md:mt-14">
                     <Button
-                        className="block text-center font-heading text-lg uppercase md:text-lg"
+                        className="text-center font-heading text-base uppercase md:text-lg"
                         href="/ResourcesPage"
                     >
                         Explore all resources&nbsp;
-                        <span className="text-gray opacity-50">{">"}</span>
+                        <span className="text-gray opacity-50">&gt;</span>
                     </Button>
                     <Button
-                        className="text-center font-heading text-lg uppercase md:text-lg"
+                        className="text-center font-heading text-base uppercase md:text-lg"
                         variant="outline"
                         href="https://discord.com/invite/atYdx5HHCs"
                         external

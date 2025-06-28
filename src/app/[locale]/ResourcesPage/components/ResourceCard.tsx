@@ -57,7 +57,7 @@ export const ResourceCard = ({
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl uppercase leading-tight">{title}</h3>
+                <h3 className="text-base uppercase leading-tight md:text-xl">{title}</h3>
 
                 {/* Bottom Section */}
                 <div className="absolute bottom-0 flex flex-row items-center">
