@@ -16,8 +16,8 @@ const FAQ = () => {
 
     return (
         <>
-            <section className="text-white md:w-full">
-                <div className="mb-14 flex flex-col items-center justify-center gap-2">
+            <section className="flex flex-col gap-8 text-white">
+                <div className="flex flex-col items-center justify-center gap-2">
                     <p className="font-monocode color-gradient">Frequently asked questions</p>
                     <h1 className="text-center font-heading text-3xl uppercase leading-tight md:text-5xl">
                         Got Questions?&nbsp;
@@ -35,7 +35,7 @@ const FAQ = () => {
                 {/* Accordian */}
                 <div className="flex justify-center">
                     {/* Wrapper with the outer clip-corner (transparent) */}
-                    <div className="clip-corner relative w-10/12 overflow-hidden rounded-br-2xl border border-purple-600">
+                    <div className="clip-corner relative w-full overflow-hidden rounded-br-2xl border border-purple-600">
                         {/* Inner content with the inner clip-corner (transparent) */}
                         <div className="clip-corner-inner">
                             <Accordion
@@ -179,17 +179,17 @@ const FAQ = () => {
                     </div>
                 </div>
 
-                <div className="mt-14 flex flex-row items-center justify-center gap-[25px] text-center font-heading uppercase">
-                    <h2 className="text-xl">Did we miss something?</h2>
+                <div className="flex items-center justify-center gap-4 text-center font-heading uppercase">
+                    <h2 className="w-max text-base md:text-xl">Did we miss something?</h2>
                     <Link href={`/${locale}/ContactUsPage`}>
                         <Button>
-                            MESSAGE US <span className="text-gray-50 opacity-65">{` >`}</span>
+                            MESSAGE US <span className="text-gray-50/65">{` >`}</span>
                         </Button>
                     </Link>
                 </div>
-                <div className="mt-5 text-center">
-                    <p className="text-thistle">We&apos;ll get back to you within 48 hours.</p>
-                </div>
+                <p className="text-center text-sm text-thistle md:text-xl">
+                    We&apos;ll get back to you within 48 hours.
+                </p>
             </section>
         </>
     );
