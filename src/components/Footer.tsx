@@ -24,20 +24,21 @@ export default function Footer() {
     const locale = useLocale();
 
     return (
-        <footer className="mx-0 mb-16 flex flex-col gap-2 bg-transparent px-0 pt-8 backdrop-blur-[50px]">
+        <footer className="flex flex-col gap-2 bg-transparent px-8 backdrop-blur-[50px]">
             {/* Navigation links and socials */}
-            <div className="mx-8 mb-4 mt-8 flex flex-col gap-4 xl:mx-32 2xl:mx-64">
-                <div className="grid grid-cols-1 gap-4 text-center sm:grid-cols-2 sm:text-left lg:grid-cols-4">
-                    <div className="flex flex-col items-center gap-4 sm:items-start">
-                        <h3 className="color-gradient font-heading uppercase">SESA/AÉGL</h3>
-                        <p className="max-w-64 text-lg/5 text-gray-400">{t("blurb")}</p>
-                        <p className="text-lg/5 text-gray-400">
-                            &copy; 2014&ndash;{new Date().getFullYear()}
-                        </p>
-                    </div>
-                    <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4">
+                <div className="flex flex-col items-center gap-4 text-center sm:items-start">
+                    <h3 className="color-gradient font-heading uppercase">SESA/AÉGL</h3>
+                    <p className="text-lg/5 text-gray-400">{t("blurb")}</p>
+                    <p className="text-lg/5 text-gray-400">
+                        &copy;&nbsp;2014&ndash;{new Date().getFullYear()}
+                    </p>
+                </div>
+
+                <div className="flex justify-between gap-4 text-left text-sm md:text-base">
+                    <div className="flex flex-col gap-2">
                         <h3 className="color-gradient font-heading uppercase">{t("sitemap")}</h3>
-                        <ul className="flex flex-col gap-2 text-lg leading-none text-gray-400">
+                        <ul className="flex flex-col gap-2 leading-none text-gray-400">
                             <li>
                                 <a href={`/${locale}`}>{tNav("home")}</a>
                             </li>
@@ -58,9 +59,9 @@ export default function Footer() {
                             </li>
                         </ul>
                     </div>
-                    <div className="flex flex-col gap-4">
+                    <div className="flex flex-col gap-2">
                         <h3 className="color-gradient font-heading uppercase">{t("policies")}</h3>
-                        <ul className="flex flex-col gap-2 text-lg leading-none text-gray-400">
+                        <ul className="flex flex-col gap-2 leading-none text-gray-400">
                             <li>
                                 <a href="#">{t("privacy")}</a>
                             </li>
@@ -72,99 +73,100 @@ export default function Footer() {
                             </li>
                         </ul>
                     </div>
-                    <div className="flex flex-col gap-4">
+                    <div className="flex flex-col gap-2">
                         <h3 className="color-gradient font-heading uppercase">{t("contact")}</h3>
-                        <p className="text-lg/5 text-gray-400">
-                            800 King Edward Ave,
+                        <p className="break-words text-gray-400">
+                            <span>800 King Edward Ave,</span>
                             <br />
-                            Ottawa, ON, K1N 1A2,
+                            <span>Ottawa, ON, K1N 1A2,</span>
                             <br />
-                            STE 0109
+                            <span>STE 0109</span>
                             <br />
                             <a href="mailto:uottawa.sesa@gmail.com">uottawa.sesa@gmail.com</a>
                         </p>
-                        <div className="flex justify-center gap-2 sm:justify-start">
-                            <Button
-                                className="!p-3"
-                                variant="outline"
-                                href="https://www.instagram.com/uottawasesa/"
-                                target="_blank"
-                            >
-                                <Image
-                                    src="/icons/instagram-plain.svg"
-                                    width={25}
-                                    height={25}
-                                    alt="Instagram Logo"
-                                />
-                            </Button>
-                            <Button
-                                className="!p-3"
-                                variant="outline"
-                                href="https://discord.com/invite/atYdx5HHCs"
-                                target="_blank"
-                            >
-                                <Image
-                                    src="/icons/discord-plain.svg"
-                                    width={25}
-                                    height={25}
-                                    alt="Discord Logo"
-                                />
-                            </Button>
-                            <Button
-                                className="!p-3"
-                                variant="outline"
-                                href="https://www.linkedin.com/company/software-engineering-students-association/"
-                                target="_blank"
-                            >
-                                <Image
-                                    src="/icons/linkedin-plain.svg"
-                                    width={25}
-                                    height={25}
-                                    alt="LinkedIn Logo"
-                                />
-                            </Button>
-                            <Button
-                                className="!p-3"
-                                variant="outline"
-                                href="https://www.youtube.com/@uottawasesa52"
-                                target="_blank"
-                            >
-                                <Image
-                                    src="/icons/youtube-plain.svg"
-                                    width={25}
-                                    height={25}
-                                    alt="YouTube Logo"
-                                />
-                            </Button>
-                        </div>
                     </div>
                 </div>
-                <hr className="fill-gradient mt-6 p-[0.25px]" />
+
+                <div className="flex justify-center gap-2 sm:justify-start">
+                    <Button
+                        className="!p-3"
+                        variant="outline"
+                        href="https://www.instagram.com/uottawasesa/"
+                        target="_blank"
+                    >
+                        <Image
+                            src="/icons/instagram-plain.svg"
+                            width={25}
+                            height={25}
+                            alt="Instagram Logo"
+                        />
+                    </Button>
+                    <Button
+                        className="!p-3"
+                        variant="outline"
+                        href="https://discord.com/invite/atYdx5HHCs"
+                        target="_blank"
+                    >
+                        <Image
+                            src="/icons/discord-plain.svg"
+                            width={25}
+                            height={25}
+                            alt="Discord Logo"
+                        />
+                    </Button>
+                    <Button
+                        className="!p-3"
+                        variant="outline"
+                        href="https://www.linkedin.com/company/software-engineering-students-association/"
+                        target="_blank"
+                    >
+                        <Image
+                            src="/icons/linkedin-plain.svg"
+                            width={25}
+                            height={25}
+                            alt="LinkedIn Logo"
+                        />
+                    </Button>
+                    <Button
+                        className="!p-3"
+                        variant="outline"
+                        href="https://www.youtube.com/@uottawasesa52"
+                        target="_blank"
+                    >
+                        <Image
+                            src="/icons/youtube-plain.svg"
+                            width={25}
+                            height={25}
+                            alt="YouTube Logo"
+                        />
+                    </Button>
+                </div>
             </div>
-            <div className="mx-8 flex items-center justify-between xl:mx-32 2xl:mx-64">
+            <hr className="fill-gradient mt-6 p-[0.25px]" />
+            <div className="flex items-center justify-between">
                 {/* SESA logo + text */}
-                <div className="flex justify-center gap-4 sm:justify-start">
+                <div className="flex items-center justify-center gap-2">
                     <Image
-                        className="my-0"
+                        className="size-8"
                         width="45"
                         height="45"
                         src="/sesa-logo.svg"
                         alt="SESA Logo"
                     />
                     <Image
-                        className="my-0"
+                        className="size-16"
                         width="100"
                         height="20"
                         src="/logo-text.svg"
                         alt="SESA Logo Text"
                     />
                 </div>
-                <div className="mt-8 flex items-center text-white">
-                    <Button href="#" variant="ghost-plain" className="h-min font-heading uppercase">
+                <div className="flex items-center gap-2 text-sm text-white md:text-base">
+                    <Button href="#" variant="ghost-plain" className="w-max font-heading uppercase">
                         {t("back_to_top")}
                     </Button>
                     {/* TODO: Make this a real dropdown */}
-                    <Button href="#" variant="outline" className="h-min font-heading uppercase">
+                    <Button href="#" variant="outline" className="w-max font-heading uppercase">
                         English
                     </Button>
                 </div>
