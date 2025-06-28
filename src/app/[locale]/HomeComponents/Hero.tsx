@@ -9,7 +9,7 @@ export default function Hero() {
     return (
         <section className="relative flex h-max w-full items-center justify-between text-white">
             {/* Grid Gradient Back */}
-            <div className="grid-overlay-right md:-m-32 md:h-[43.93rem] md:w-[53vw]"></div>
+            <div className="grid-overlay-right md:-me-32 md:h-[43.93rem] md:w-[53vw]"></div>
 
             {/* Content Container */}
             <div className="relative z-10 max-w-2xl">
@@ -45,7 +45,7 @@ export default function Hero() {
             </div>
 
             {/* Right Side Image */}
-            <div className="relative z-10 hidden md:-m-32 lg:block">
+            <div className="relative z-10 hidden md:-me-32 lg:block">
                 <Image
                     src="/imgs/Home/heroImage.webp"
                     alt="SESA Group Photo"
