@@ -5,18 +5,16 @@ const Connect = () => {
     return (
         <>
             <section>
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-4 md:flex-row md:items-center md:gap-16">
                     {/* Left Image */}
-                    <div className="grid-overlay-left md:h-[43.93rem] md:w-[48vw] 2xl:w-[32vw]"></div>
-                    <div className="relative z-10 lg:block">
-                        <Image
-                            src="/imgs/Home/connectImage.webp"
-                            alt="Goal Main Image"
-                            className="w-full object-contain md:h-[500px] 2xl:h-[600px] 2xl:max-w-3xl"
-                            width={700}
-                            height={700}
-                        />
-                    </div>
+                    <div className="grid-overlay-left md:h-[38rem] md:w-[48vw] 2xl:w-[32vw]"></div>
+                    <Image
+                        src="/imgs/Home/connectImage.png"
+                        alt="Goal Main Image"
+                        className="z-10 w-full object-contain md:-ms-32 md:h-[500px] md:w-[600px] 2xl:h-[600px] 2xl:max-w-3xl"
+                        width={700}
+                        height={700}
+                    />
 
                     <div className="flex max-w-2xl flex-col gap-2">
                         <p className="font-monocode relative inline-block !bg-clip-text text-left text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
@@ -35,57 +33,57 @@ const Connect = () => {
                             Join our online communities to stay up to date with our latest events,
                             announcements, and resources,
                         </p>
-                    </div>
 
-                    <div className="flex justify-center gap-2">
-                        <IconButton
-                            variant="outline"
-                            href="https://www.instagram.com/uottawasesa/"
-                            target="_blank"
-                        >
-                            <Image
-                                src="/icons/instagram-plain.svg"
-                                width={25}
-                                height={25}
-                                alt="Instagram Logo"
-                            />
-                        </IconButton>
-                        <IconButton
-                            variant="outline"
-                            href="https://discord.com/invite/atYdx5HHCs"
-                            target="_blank"
-                        >
-                            <Image
-                                src="/icons/discord-plain.svg"
-                                width={25}
-                                height={25}
-                                alt="Discord Logo"
-                            />
-                        </IconButton>
-                        <IconButton
-                            variant="outline"
-                            href="https://www.linkedin.com/company/software-engineering-students-association/"
-                            target="_blank"
-                        >
-                            <Image
-                                src="/icons/linkedin-plain.svg"
-                                width={25}
-                                height={25}
-                                alt="LinkedIn Logo"
-                            />
-                        </IconButton>
-                        <IconButton
-                            variant="outline"
-                            href="https://www.youtube.com/@uottawasesa52"
-                            target="_blank"
-                        >
-                            <Image
-                                src="/icons/youtube-plain.svg"
-                                width={25}
-                                height={25}
-                                alt="YouTube Logo"
-                            />
-                        </IconButton>
+                        <div className="flex justify-center gap-2">
+                            <IconButton
+                                variant="outline"
+                                href="https://www.instagram.com/uottawasesa/"
+                                target="_blank"
+                            >
+                                <Image
+                                    src="/icons/instagram-plain.svg"
+                                    width={25}
+                                    height={25}
+                                    alt="Instagram Logo"
+                                />
+                            </IconButton>
+                            <IconButton
+                                variant="outline"
+                                href="https://discord.com/invite/atYdx5HHCs"
+                                target="_blank"
+                            >
+                                <Image
+                                    src="/icons/discord-plain.svg"
+                                    width={25}
+                                    height={25}
+                                    alt="Discord Logo"
+                                />
+                            </IconButton>
+                            <IconButton
+                                variant="outline"
+                                href="https://www.linkedin.com/company/software-engineering-students-association/"
+                                target="_blank"
+                            >
+                                <Image
+                                    src="/icons/linkedin-plain.svg"
+                                    width={25}
+                                    height={25}
+                                    alt="LinkedIn Logo"
+                                />
+                            </IconButton>
+                            <IconButton
+                                variant="outline"
+                                href="https://www.youtube.com/@uottawasesa52"
+                                target="_blank"
+                            >
+                                <Image
+                                    src="/icons/youtube-plain.svg"
+                                    width={25}
+                                    height={25}
+                                    alt="YouTube Logo"
+                                />
+                            </IconButton>
+                        </div>
                     </div>
                 </div>
             </section>
