@@ -1,15 +1,15 @@
-// import { resources } from "../../ResourcesPage/utils/resourcesData";
 import { resources } from "@/app/data/Resources";
 import ResourceCard from "../../ResourcesPage/components/ResourceCard";
 import Marquee from "react-fast-marquee";
 import Button from "@/components/Button";
 import Image from "next/image";
+import ComingSoonMessage from "@/components/ComingSoonMessage";
 
 const Resources = () => {
     return (
         <>
             <section className="text-white md:w-full">
-                <div className="mb-20 flex flex-col items-center justify-center gap-2">
+                <div className="mb-12 flex flex-col items-center justify-center gap-2">
                     <p className="font-monocode color-gradient">
                         Resources by students for students
                     </p>
@@ -26,38 +26,41 @@ const Resources = () => {
                     </p>
                 </div>
                 {/* Carousel */}
-                <Marquee pauseOnHover>
-                    <div className="flex flex-col gap-4">
-                        {/* Two rows with gap */}
-                        {/* First Row */}
-                        <div className="flex gap-4">
-                            {resources
-                                .slice(0, Math.ceil(resources.length / 2))
-                                .map((resource, index) => (
-                                    <div key={index} className="mx-2">
-                                        <ResourceCard
-                                            title={resource.title}
-                                            category={resource.category}
-                                            course={resource.course}
-                                            rating={resource.rating}
-                                            tier={resource.tier}
-                                            format={resource.format}
-                                        />
-                                    </div>
-                                ))}
+                {resources.length > 0 ? (
+                    <Marquee pauseOnHover>
+                        <div className="flex flex-col gap-4">
+                            {/* First Row */}
+                            <div className="flex gap-4">
+                                {resources
+                                    .slice(0, Math.ceil(resources.length / 2))
+                                    .map((resource, index) => (
+                                        <div key={index} className="mx-2">
+                                            <ResourceCard {...resource} />
+                                        </div>
+                                    ))}
+                            </div>
+                            {/* Second Row */}
+                            <div className="flex gap-4">
+                                {resources
+                                    .slice(Math.ceil(resources.length / 2))
+                                    .map((resource, index) => (
+                                        <div key={index} className="mx-2">
+                                            <ResourceCard {...resource} />
+                                        </div>
+                                    ))}
+                            </div>
                         </div>
-                        {/* Second Row */}
-                        <div className="flex gap-4">
-                            {resources
-                                .slice(Math.ceil(resources.length / 2))
-                                .map((resource, index) => (
-                                    <div key={index} className="mx-2">
-                                        <ResourceCard {...resource} />
-                                    </div>
-                                ))}
-                        </div>
+                    </Marquee>
+                ) : (
+                    <div className="flex justify-center">
+                        <ComingSoonMessage
+                            title="Coming Fall 2025: Your academic toolbox."
+                            subtitle="All the resources you need, in one place—launching soon."
+                            homeButton={false}
+                        />
                     </div>
-                </Marquee>
+                )}
+
                 <div className="mt-14 flex justify-center">
                     <div className="flex space-x-4 font-heading">
                         <Button className="font-heading text-lg uppercase" href="/ResourcesPage">
