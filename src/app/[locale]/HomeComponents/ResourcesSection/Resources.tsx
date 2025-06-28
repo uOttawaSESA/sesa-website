@@ -8,7 +8,7 @@ import Image from "next/image";
 const Resources = () => {
     return (
         <>
-            <section className="w-full p-4 text-white">
+            <section className="w-full text-white">
                 <div className="mb-8 flex flex-col gap-2 text-center md:mb-20 md:text-left">
                     <p className="font-monocode color-gradient">
                         Resources by students for students

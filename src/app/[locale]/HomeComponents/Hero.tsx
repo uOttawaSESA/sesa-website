@@ -7,7 +7,7 @@ export default function Hero() {
     const t = useTranslations("homepage");
 
     return (
-        <section className="relative flex h-max w-full items-center justify-between p-4 text-white md:my-40 md:pe-0 md:ps-32 2xl:pe-0 2xl:ps-96">
+        <section className="relative flex h-max w-full items-center justify-between text-white md:my-40 md:pe-0 md:ps-32 2xl:pe-0 2xl:ps-96">
             {/* Grid Gradient Back */}
             <div className="grid-overlay-right md:h-[43.93rem] md:w-[53vw]"></div>
 

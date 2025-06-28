@@ -14,7 +14,7 @@ export const generateStaticParams = localeParams;
 
 const Home = () => {
     return (
-        <div className="flex h-full flex-col gap-4 bg-gray-300 font-mono text-white">
+        <div className="flex h-full flex-col gap-4 bg-gray-300 p-8 font-mono text-white">
             <Hero />
             <Events />
             <Goals />

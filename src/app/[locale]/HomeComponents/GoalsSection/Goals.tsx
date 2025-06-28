@@ -68,7 +68,7 @@ const Goals = () => {
                 </div>
 
                 {/* Navigation Buttons */}
-                <div className="flex items-center justify-center gap-2 p-4 md:right-40">
+                <div className="flex items-center justify-center gap-2 md:right-40">
                     <IconButton
                         variant="outline"
                         onClick={() => scrollItems("left")}

@@ -55,7 +55,7 @@ const EventsCarousel = ({
             <div className="relative w-full">
                 <div
                     ref={items}
-                    className="flex items-stretch gap-4 overflow-hidden scroll-smooth p-4 md:px-32 2xl:px-72"
+                    className="flex items-stretch gap-4 overflow-hidden scroll-smooth md:px-32 2xl:px-72"
                     style={{
                         maskImage:
                             "linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 10%, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%)",
