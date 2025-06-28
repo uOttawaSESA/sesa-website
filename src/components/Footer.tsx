@@ -27,10 +27,10 @@ export default function Footer() {
         <footer className="flex flex-col gap-2 bg-transparent px-8 backdrop-blur-[50px]">
             {/* Navigation links and socials */}
             <div className="flex flex-col gap-4">
-                <div className="flex flex-col items-center gap-4 text-center sm:items-start">
+                <div className="flex flex-col items-center gap-2 text-center sm:items-start">
                     <h3 className="color-gradient font-heading uppercase">SESA/AÉGL</h3>
-                    <p className="text-lg/5 text-gray-400">{t("blurb")}</p>
-                    <p className="text-lg/5 text-gray-400">
+                    <p className="text-sm/5 text-gray-400">{t("blurb")}</p>
+                    <p className="text-sm/5 text-gray-400">
                         &copy;&nbsp;2014&ndash;{new Date().getFullYear()}
                     </p>
                 </div>
