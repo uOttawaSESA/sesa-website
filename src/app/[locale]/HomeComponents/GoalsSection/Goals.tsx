@@ -47,55 +47,53 @@ const Goals = () => {
         });
     };
     return (
-        <>
-            <section className="flex flex-col gap-6 text-white md:w-full">
-                {/* Carousel */}
-                <div
-                    ref={items}
-                    className="flex w-full overflow-x-hidden scroll-smooth"
-                    style={{
-                        maskImage:
-                            "linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%)",
-                        WebkitMaskImage:
-                            "linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%)",
-                    }}
-                >
-                    {goalsData.map((goal, index) => (
-                        <div key={index} className="flex-shrink-0">
-                            <GoalCard goal={goal} />
-                        </div>
-                    ))}
-                </div>
+        <section className="flex flex-col gap-6 text-white md:-ms-32 md:w-full">
+            {/* Carousel */}
+            <div
+                ref={items}
+                className="flex w-full overflow-x-hidden scroll-smooth"
+                style={{
+                    maskImage:
+                        "linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%)",
+                    WebkitMaskImage:
+                        "linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%)",
+                }}
+            >
+                {goalsData.map((goal, index) => (
+                    <div key={index} className="flex-shrink-0">
+                        <GoalCard goal={goal} />
+                    </div>
+                ))}
+            </div>
 
-                {/* Navigation Buttons */}
-                <div className="flex items-center justify-center gap-2 md:right-40">
-                    <IconButton
-                        variant="outline"
-                        onClick={() => scrollItems("left")}
-                        disabled={isAtStart}
-                    >
-                        <Image
-                            src="/resources-page/arrow_backword.svg"
-                            width={25}
-                            height={25}
-                            alt="Left"
-                        />
-                    </IconButton>
-                    <IconButton
-                        variant="outline"
-                        onClick={() => scrollItems("right")}
-                        disabled={isAtEnd}
-                    >
-                        <Image
-                            src="/resources-page/arrow_forward.svg"
-                            width={25}
-                            height={25}
-                            alt="Right"
-                        />
-                    </IconButton>
-                </div>
-            </section>
-        </>
+            {/* Navigation Buttons */}
+            <div className="flex items-center justify-center gap-2 md:right-40">
+                <IconButton
+                    variant="outline"
+                    onClick={() => scrollItems("left")}
+                    disabled={isAtStart}
+                >
+                    <Image
+                        src="/resources-page/arrow_backword.svg"
+                        width={25}
+                        height={25}
+                        alt="Left"
+                    />
+                </IconButton>
+                <IconButton
+                    variant="outline"
+                    onClick={() => scrollItems("right")}
+                    disabled={isAtEnd}
+                >
+                    <Image
+                        src="/resources-page/arrow_forward.svg"
+                        width={25}
+                        height={25}
+                        alt="Right"
+                    />
+                </IconButton>
+            </div>
+        </section>
     );
 };
 
