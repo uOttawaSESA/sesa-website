@@ -8,6 +8,7 @@ import { events } from "./utils/eventData";
 import TeamUpSection from "./components/TeamUpSection";
 import ConnectSESA from "./components/ConnectSESA";
 import InfiniteCarousel from "./components/InfiniteCarousel";
+import Image from "next/image";
 
 // TODO: Remove the "use client" directive from this file
 // // Precompile i18n
@@ -80,8 +81,15 @@ const EventsPage = () => {
 
                 {filteredEvents.length === 0 ? (
                     <div className="flex h-[calc(100vh-200px)] items-center justify-center">
-                        <div className="flex h-[85%] w-[100%] max-w-7xl items-center justify-center rounded-none border-4 border-blueviolet-100 p-20 text-center font-heading text-2xl text-white">
-                            No events found
+                        <div className="flex h-[85%] w-[100%] max-w-7xl flex-col items-center justify-center gap-9 rounded-none border-2 border-blueviolet-100/70 p-20 text-center font-heading text-2xl text-white">
+                            <Image
+                                src="/icons/calendar-empty.svg"
+                                alt="Coming Soon Icon"
+                                width={64}
+                                height={64}
+                                className="opacity-80"
+                            />
+                            <p>No events right now — check back soon!</p>
                         </div>
                     </div>
                 ) : (

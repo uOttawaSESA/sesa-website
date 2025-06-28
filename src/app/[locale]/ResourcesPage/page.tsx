@@ -9,6 +9,8 @@ import Header from "./components/Header";
 import ResourceList from "./components/ResourceList";
 import FooterSection from "./components/FooterSection";
 
+import ComingSoonMessage from "../../../components/ComingSoonMessage";
+
 // TODO: Remove the "use client" directive from this file
 // // Precompile i18n
 // import localeParams from "../../data/locales";
@@ -95,12 +97,13 @@ const ResourcesPage: FC = () => {
     );
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-gray-100 via-blueviolet-200 to-[#361D49] text-white">
+        // <div className="min-h-screen bg-gradient-to-b from-gray-100 via-blueviolet-200 to-[#361D49] text-white">
+        <div className="min-h-[83vh] text-white">
             {/* Main Content Container */}
             <div className="container relative z-10 mx-auto w-full px-4 py-8 md:max-w-7xl">
                 <Header />
                 {/* Pass state and handlers to SearchFilterBar */}
-                <SearchFilterBar
+                {/* <SearchFilterBar
                     isGridMode={isGridMode}
                     setIsGridMode={setIsGridMode}
                     rowsToShow={rowsToShow}
@@ -112,21 +115,26 @@ const ResourcesPage: FC = () => {
                     sortOption={sortOption}
                     setSortOption={setSortOption}
                     isMobile={isMobile}
-                />
+                /> */}
 
                 {/* Resources Grid or Row */}
-                <ResourceList currentResources={currentResources} isGridMode={isGridMode} />
+                {/* <ResourceList currentResources={currentResources} isGridMode={isGridMode} /> */}
 
                 {/* Pagination */}
-                <Pagination
+                {/* <Pagination
                     currentPage={currentPage}
                     totalPages={totalPages}
                     onPageChange={setCurrentPage}
-                />
+                /> */}
             </div>
 
             {/* Footer Section (CTA and Ange quote) */}
-            <FooterSection />
+            {/* <FooterSection /> */}
+
+            <ComingSoonMessage
+                title="Coming Fall 2025: Your academic toolbox."
+                subtitle="All the resources you need, in one place—launching soon."
+            />
         </div>
     );
 };
