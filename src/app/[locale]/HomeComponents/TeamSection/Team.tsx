@@ -17,9 +17,9 @@ const Team = () => {
                         <Image src="/logo-filled.svg" width={50} height={50} alt="sesa" />
                         <Image src="/logo-text.svg" width={111} height={50} alt="sesa" />
                     </div>
-                    <h1 className="text-center font-heading text-3xl uppercase leading-tight md:text-5xl">
+                    <h1 className="text-center font-heading text-2xl uppercase leading-tight md:text-5xl">
                         The&nbsp;
-                        <span className="relative inline-block w-max">
+                        <span className="relative inline-block">
                             Univeristy of Ottawa&apos;s
                             <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                         </span>
