@@ -10,10 +10,10 @@ const gradientBorderClass = `
 `;
 
 const logos = [
-    { src: "/sponsors-page/kinaxis.png", alt: "Kinaxis", width: 120, height: 60 },
-    { src: "/sponsors-page/microsoft.png", alt: "Microsoft", width: 120, height: 60 },
-    { src: "/sponsors-page/google.png", alt: "Google", width: 160, height: 80 },
-    { src: "/sponsors-page/ibm.png", alt: "IBM", width: 80, height: 40 },
+    { src: "/sponsors-page/kinaxis.webp", alt: "Kinaxis", width: 120, height: 60 },
+    { src: "/sponsors-page/microsoft.webp", alt: "Microsoft", width: 120, height: 60 },
+    { src: "/sponsors-page/google.webp", alt: "Google", width: 160, height: 80 },
+    { src: "/sponsors-page/ibm.webp", alt: "IBM", width: 80, height: 40 },
 ];
 
 const PastCollaboratorsCarousel = () => {
