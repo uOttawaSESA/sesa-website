@@ -8,7 +8,7 @@ const TeamUpSection: React.FC = () => {
     const t = useTranslations("events");
 
     return (
-        <div className="mx-4 my-36 flex h-[45rem] flex-col items-center justify-start gap-12 align-middle sm:mx-0 sm:flex-row">
+        <div className="mx-4 my-36 flex h-[45rem] flex-col items-center justify-start gap-12 sm:mx-0 sm:flex-row">
             <div className="grid-overlay-left md:h-[43.93rem] md:w-[53vw]"></div>
 
             <div className="relative z-10 lg:block">
