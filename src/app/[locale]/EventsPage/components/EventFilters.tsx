@@ -44,7 +44,7 @@ const EventFilters: React.FC<{
     return (
         <div className="-mb-6 mt-8 flex items-center justify-between">
             {/* Left Side: Time Filters */}
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-4">
                 {timeFilters.map(filter => (
                     <Button
                         key={filter}

@@ -5,7 +5,7 @@ const Header = () => {
     const t = useTranslations("events");
 
     return (
-        <div className="w-full pt-8">
+        <div className="mx-4 pt-8">
             <div className="mx-auto max-w-7xl text-center">
                 <div className="color-gradient font-mono">{t("our_events")}</div>
                 <h1 className="mt-4 text-[48px] uppercase">
@@ -21,8 +21,7 @@ const Header = () => {
                 </p>
 
                 <Button
-                    className="mx-auto mt-4 flex items-center gap-3 font-heading text-xl uppercase"
-                    style={{ width: "fit-content" }}
+                    className="mx-8 font-heading text-xl uppercase"
                     onClick={() => {
                         // Add functionality here
                         console.log("Subscribed to calendar!");

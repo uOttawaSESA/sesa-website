@@ -71,7 +71,7 @@ const EventsPage = () => {
 
     return (
         <div className="min-h-screen bg-gradient-to-b from-gray-100 via-blueviolet-200 to-[#361D49] font-heading text-white">
-            <div className="mx-auto max-w-7xl">
+            <div className="mx-auto flex max-w-7xl flex-col justify-center">
                 <Header />
                 <EventFilters
                     onFilterChange={handleFilterChange}
