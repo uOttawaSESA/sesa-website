@@ -13,7 +13,7 @@ export default function Benefits() {
                 "Connect and recruit highly skilled job-ready students pursuing the field of software engineering at uOttawa.",
         },
         {
-            image: "/sponsors-page/benefits-2.jpg",
+            image: "/sponsors-page/benefits-2.webp",
             icon: "/sponsors-page/impact.webp",
             title: "MAKE A REAL-WORLD IMPACT",
             description:

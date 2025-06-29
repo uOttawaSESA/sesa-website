@@ -66,7 +66,7 @@ export const membersData: Member[] = [
         name: "Sophia Hopkins",
         team: "Communications",
         role: "Communications Coordinator",
-        imgPath: "/imgs/team/sophia.JPG",
+        imgPath: "/imgs/team/sophia.webp",
         linkedin: "https://www.linkedin.com/in/sophia-hopkins-635001336/",
         github: "https://github.com/sophiahopk012",
         email: "sophiagchopkins@gmail.com",
