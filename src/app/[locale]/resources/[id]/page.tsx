@@ -41,7 +41,7 @@ console.log("Hello, World!");
   - subitem 1
 - item 2
 
-![Exploding head emoji](https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/exploding-head.png)
+![Exploding head emoji](https://s3.amazonaws.com/pix.iemoji.com/images/emoji/apple/ios-12/256/exploding-head.webp)
 
 > This is my blockquote.
 > There are many like it, but this one is mine.

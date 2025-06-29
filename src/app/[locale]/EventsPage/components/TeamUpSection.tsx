@@ -13,7 +13,7 @@ const TeamUpSection: React.FC = () => {
 
             <div className="relative z-10 lg:block">
                 <Image
-                    src="/imgs/Events/team-up.png"
+                    src="/imgs/Events/team-up.webp"
                     alt="SESA Group Photo"
                     className="h-[500px] w-auto"
                     width={700}
@@ -50,31 +50,31 @@ const TeamUpSection: React.FC = () => {
                 <div className="mt-6 flex">
                     <CircleImage
                         size={55}
-                        src="/imgs/team/peter.png"
+                        src="/imgs/team/peter.webp"
                         alt="Peter Bou-Farah"
                         className="ml-[-0.75rem]"
                     />
                     <CircleImage
                         size={55}
-                        src="/imgs/team/ayushi.png"
+                        src="/imgs/team/ayushi.webp"
                         alt="Ayushi Dosieah"
                         className="ml-[-0.75rem]"
                     />
                     <CircleImage
                         size={55}
-                        src="/imgs/team/darren.png"
+                        src="/imgs/team/darren.webp"
                         alt="Darren Rakos"
                         className="ml-[-0.75rem]"
                     />
                     <CircleImage
                         size={55}
-                        src="/imgs/team/thomas.png"
+                        src="/imgs/team/thomas.webp"
                         alt="Thomas Boyle"
                         className="ml-[-0.75rem]"
                     />
                     <CircleImage
                         size={55}
-                        src="/imgs/team/ichrak.png"
+                        src="/imgs/team/ichrak.webp"
                         alt="Ichrak El Hatimi"
                         className="ml-[-0.75rem]"
                     />
