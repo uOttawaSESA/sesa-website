@@ -143,18 +143,18 @@ export default function Footer() {
                 </div>
             </div>
             <hr className="fill-gradient mt-6 p-[0.25px]" />
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between py-4">
                 {/* SESA logo + text */}
                 <div className="flex items-center justify-center gap-2">
                     <Image
-                        className="size-8"
+                        className="size-10 md:size-12"
                         width="45"
                         height="45"
                         src="/sesa-logo.svg"
                         alt="SESA Logo"
                     />
                     <Image
-                        className="size-16"
+                        className="size-20 md:size-24"
                         width="100"
                         height="20"
                         src="/logo-text.svg"
