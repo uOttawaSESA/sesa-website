@@ -12,7 +12,7 @@ import { QuoteCard } from "./QuoteCard";
 const Quotes = () => {
     return (
         <section className="relative text-white">
-            <div className="grid-overlay-right absolute md:h-[40rem] md:w-[48vw] 2xl:w-[32vw]"></div>
+            <div className="grid-overlay-right absolute -top-24 md:h-[43.93rem] md:w-[48vw] 2xl:w-[32vw]"></div>
             <div className="flex flex-col justify-end gap-8 md:flex-row">
                 <Carousel className="w-full ps-8 md:ps-32">
                     <CarouselContent>
