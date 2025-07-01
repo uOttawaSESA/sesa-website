@@ -16,7 +16,7 @@ const FAQ = () => {
 
     return (
         <>
-            <section className="flex flex-col gap-8 px-8 text-white md:px-32">
+            <section className="flex flex-col gap-8 px-8 text-white md:px-20 xl:px-32">
                 <div className="flex flex-col items-center justify-center gap-2">
                     <p className="font-monocode color-gradient">Frequently asked questions</p>
                     <h1 className="text-center font-heading text-2xl uppercase leading-tight md:text-5xl">
