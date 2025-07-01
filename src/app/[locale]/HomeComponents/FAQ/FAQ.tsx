@@ -26,7 +26,7 @@ const FAQ = () => {
                             <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                         </span>
                     </h1>
-                    <p className="text-center font-sans text-base text-thistle md:px-80 md:text-xl">
+                    <p className="max-w-sm text-center font-sans text-base text-thistle md:max-w-lg md:text-lg xl:max-w-xl xl:text-xl">
                         We have A’s to your Q’s below. If you still have questions, contact us and
                         we’ll get back to you as soon as possible.
                     </p>
