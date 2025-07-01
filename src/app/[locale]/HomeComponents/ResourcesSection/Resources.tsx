@@ -59,32 +59,34 @@ const Resources = () => {
                     </div>
                 </Marquee>
 
-                <div className="flex w-full justify-center gap-4 font-heading">
-                    <Button
-                        className="text-center font-heading text-base uppercase md:text-lg"
-                        href="/ResourcesPage"
-                    >
-                        Explore all resources&nbsp;
-                        <span className="text-gray opacity-50">&gt;</span>
-                    </Button>
-                    <Button
-                        className="text-center font-heading text-base uppercase md:text-lg"
-                        variant="outline"
-                        href="https://discord.com/invite/atYdx5HHCs"
-                        external
-                    >
-                        Join our discord
-                    </Button>
-                </div>
-                <div className="flex w-full items-center justify-center text-center font-mono text-sm text-thistle md:text-base">
-                    <Image
-                        src="/resources-page/thumbsup.svg"
-                        alt="thumbsUp"
-                        width={25}
-                        height={25}
-                        className="me-2 size-5 md:size-8"
-                    ></Image>
-                    <p className="">95% average helpfulness, 1000+ students helped</p>
+                <div className="space-y-4 px-8 md:px-32">
+                    <div className="flex w-full justify-center gap-4 font-heading">
+                        <Button
+                            className="text-center font-heading text-base uppercase md:text-lg"
+                            href="/ResourcesPage"
+                        >
+                            Explore all resources&nbsp;
+                            <span className="text-gray opacity-50">&gt;</span>
+                        </Button>
+                        <Button
+                            className="text-center font-heading text-base uppercase md:text-lg"
+                            variant="outline"
+                            href="https://discord.com/invite/atYdx5HHCs"
+                            external
+                        >
+                            Join our discord
+                        </Button>
+                    </div>
+                    <div className="flex w-full items-center justify-center text-center font-mono text-sm text-thistle md:text-base">
+                        <Image
+                            src="/resources-page/thumbsup.svg"
+                            alt="thumbsUp"
+                            width={25}
+                            height={25}
+                            className="me-2 size-5 md:size-8"
+                        ></Image>
+                        <p className="">95% average helpfulness, 1000+ students helped</p>
+                    </div>
                 </div>
             </section>
         </>
