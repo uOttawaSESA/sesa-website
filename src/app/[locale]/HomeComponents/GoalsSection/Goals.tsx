@@ -47,7 +47,7 @@ const Goals = () => {
         });
     };
     return (
-        <section className="flex flex-col gap-6 text-white md:-ms-32 md:w-full">
+        <section className="flex flex-col gap-6 px-8 text-white md:w-full md:ps-0">
             {/* Carousel */}
             <div
                 ref={items}

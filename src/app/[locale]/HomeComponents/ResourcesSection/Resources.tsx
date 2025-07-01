@@ -9,7 +9,7 @@ const Resources = () => {
     return (
         <>
             <section className="flex w-full flex-col gap-4 text-white">
-                <div className="flex flex-col gap-2 text-center md:text-left">
+                <div className="flex flex-col gap-2 px-8 text-center md:px-32 md:text-left">
                     <p className="font-monocode color-gradient">
                         Resources by students for students
                     </p>

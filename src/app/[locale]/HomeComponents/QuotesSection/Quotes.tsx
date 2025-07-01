@@ -48,7 +48,7 @@ const Quotes = () => {
     };
     return (
         <>
-            <section className="relative items-center justify-between text-white md:w-full">
+            <section className="relative text-white md:w-full">
                 {/* Right Image */}
                 <div className="grid-overlay-right absolute top-[10rem] md:h-[43.93rem] md:w-[48vw] 2xl:w-[32vw]"></div>
                 <div className="absolute right-0 top-[16.3rem] z-50 lg:block">

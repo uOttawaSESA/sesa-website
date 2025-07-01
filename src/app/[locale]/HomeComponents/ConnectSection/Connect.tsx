@@ -5,13 +5,13 @@ const Connect = () => {
     return (
         <>
             <section>
-                <div className="flex flex-col gap-4 md:flex-row md:items-center md:gap-16">
+                <div className="flex flex-col gap-4 px-8 md:flex-row md:items-center md:gap-16 md:ps-0">
                     {/* Left Image */}
                     <div className="grid-overlay-left md:h-[38rem] md:w-[48vw] 2xl:w-[32vw]"></div>
                     <Image
                         src="/imgs/Home/connectImage.png"
                         alt="Goal Main Image"
-                        className="z-10 w-full object-contain md:-ms-32 md:h-[500px] md:w-[600px] 2xl:h-[600px] 2xl:max-w-3xl"
+                        className="z-10 w-full object-contain md:h-[500px] md:w-[600px] 2xl:h-[600px] 2xl:max-w-3xl"
                         width={700}
                         height={700}
                     />

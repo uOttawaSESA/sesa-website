@@ -11,8 +11,8 @@ const Team = () => {
 
     return (
         <>
-            <section className="flex flex-col gap-4">
-                <div className="flex flex-col items-center justify-center gap-2">
+            <section className="mb-12 flex flex-col gap-4 md:mb-24">
+                <div className="flex flex-col items-center justify-center gap-2 px-8 md:px-32">
                     <div className="flex flex-row gap-3">
                         <Image src="/logo-filled.svg" width={50} height={50} alt="sesa" />
                         <Image src="/logo-text.svg" width={111} height={50} alt="sesa" />
