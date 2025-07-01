@@ -5,7 +5,7 @@ const Connect = () => {
     return (
         <>
             <section>
-                <div className="flex flex-col gap-4 px-8 md:flex-row md:items-center md:gap-16 md:ps-0">
+                <div className="flex flex-col gap-4 px-8 md:flex-row md:items-center md:gap-12 md:ps-0">
                     {/* Left Image */}
                     <div className="grid-overlay-left md:h-[38rem] md:w-[48vw] 2xl:w-[32vw]"></div>
                     <Image
@@ -16,7 +16,7 @@ const Connect = () => {
                         height={700}
                     />
 
-                    <div className="flex max-w-2xl flex-col gap-2">
+                    <div className="flex flex-col gap-2">
                         <p className="font-monocode relative inline-block !bg-clip-text text-left text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
                             Connect with us
                         </p>
@@ -34,7 +34,7 @@ const Connect = () => {
                             announcements, and resources,
                         </p>
 
-                        <div className="flex justify-center gap-2">
+                        <div className="mt-4 flex justify-start gap-2">
                             <IconButton
                                 variant="outline"
                                 href="https://www.instagram.com/uottawasesa/"
