@@ -10,7 +10,7 @@ export const QuoteCard: React.FC<{ quote: Quote }> = ({ quote }) => {
                 <p className="font-monocode relative inline-block !bg-clip-text text-left text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
                     {quote.heading}
                 </p>
-                <h1 className="my-2 font-heading text-4xl uppercase leading-tight">
+                <h1 className="my-2 font-heading text-3xl uppercase leading-tight md:text-5xl">
                     <q>
                         {quote.quote_part1}&nbsp;
                         <span className="relative inline-block">
