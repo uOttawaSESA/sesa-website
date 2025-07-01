@@ -12,9 +12,9 @@ import { QuoteCard } from "./QuoteCard";
 const Quotes = () => {
     return (
         <section className="relative text-white">
-            <div className="grid-overlay-right absolute -top-24 md:h-[43.93rem] md:w-[48vw] 2xl:w-[32vw]"></div>
-            <div className="flex flex-col justify-end gap-8 md:flex-row">
-                <Carousel className="w-full ps-8 md:ps-32">
+            <div className="grid-overlay-right absolute -top-24 xl:h-[43.93rem] xl:w-[48vw] 2xl:w-[32vw]"></div>
+            <div className="flex gap-8 xl:flex-row">
+                <Carousel className="flex w-full flex-col items-center ps-8 xl:items-start xl:ps-32">
                     <CarouselContent>
                         {quotesData.map((quote, index) => (
                             <QuoteCard key={`quote:${index}`} quote={quote} />
@@ -29,7 +29,7 @@ const Quotes = () => {
                 <Image
                     src="/imgs/Home/goals/academic.png"
                     alt="Quote Main Image"
-                    className="z-10 hidden object-cover md:block md:h-[500px] 2xl:h-[600px] 2xl:max-w-3xl"
+                    className="z-10 hidden object-cover xl:block xl:h-[500px] 2xl:h-[600px] 2xl:max-w-3xl"
                     width={700}
                     height={700}
                 />
