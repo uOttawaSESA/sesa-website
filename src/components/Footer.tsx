@@ -24,9 +24,9 @@ export default function Footer() {
     const locale = useLocale();
 
     return (
-        <footer className="flex flex-col gap-2 bg-transparent px-8 backdrop-blur-[50px] md:px-32">
+        <footer className="flex flex-col gap-2 bg-transparent px-8 backdrop-blur-[50px] md:px-20 xl:px-32">
             {/* Navigation links and socials */}
-            <div className="flex flex-col gap-4 md:flex-row md:justify-between md:gap-20">
+            <div className="flex flex-col gap-4 md:flex-row md:justify-between md:gap-12 xl:gap-20">
                 <div className="flex flex-col items-start gap-2 text-left text-sm/5 md:text-base/5">
                     <h3 className="color-gradient font-heading uppercase">SESA/AÉGL</h3>
                     <p className="text-gray-400 md:w-48">{t("blurb")}</p>
