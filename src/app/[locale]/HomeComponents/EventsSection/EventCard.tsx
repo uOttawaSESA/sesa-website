@@ -18,11 +18,11 @@ const EventCard: React.FC<Event> = ({
     const timeRange = `${format(startTime, "ha")} – ${format(endTime, "ha")}`; // "6PM – 8PM"
 
     return (
-        <div className="flex h-[620px] w-[280px] flex-col overflow-hidden border-2 border-solid border-blueviolet-700 bg-gray-200 opacity-90 md:w-[350px]">
+        <div className="flex h-[620px] w-full flex-col overflow-hidden border-2 border-solid border-blueviolet-700 bg-gray-200 opacity-90">
             {/* Event Image */}
             <a href="#">
                 <Image
-                    className="border-b-2 border-solid border-blueviolet-700 object-cover"
+                    className="w-full border-b-2 border-solid border-blueviolet-700 object-cover"
                     src={image}
                     alt={title}
                     width={350}
