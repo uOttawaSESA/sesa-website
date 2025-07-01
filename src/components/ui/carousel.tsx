@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import useEmblaCarousel, { type UseEmblaCarouselType } from "embla-carousel-react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -186,7 +186,7 @@ const CarouselPrevious = React.forwardRef<HTMLButtonElement, React.ComponentProp
                 variant={variant}
                 size={size}
                 className={cn(
-                    "absolute h-8 w-8 rounded-full",
+                    "outline-gradient absolute size-12 rounded-none bg-transparent hover:bg-transparent",
                     orientation === "horizontal"
                         ? "-left-12 top-1/2 -translate-y-1/2"
                         : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -196,7 +196,7 @@ const CarouselPrevious = React.forwardRef<HTMLButtonElement, React.ComponentProp
                 onClick={scrollPrev}
                 {...props}
             >
-                <ArrowLeft className="h-4 w-4" />
+                <Image src="/resources-page/arrow_backword.svg" width={25} height={25} alt="Left" />
                 <span className="sr-only">Previous slide</span>
             </Button>
         );
@@ -214,7 +214,7 @@ const CarouselNext = React.forwardRef<HTMLButtonElement, React.ComponentProps<ty
                 variant={variant}
                 size={size}
                 className={cn(
-                    "absolute h-8 w-8 rounded-full",
+                    "outline-gradient absolute size-12 rounded-none bg-transparent hover:bg-transparent",
                     orientation === "horizontal"
                         ? "-right-12 top-1/2 -translate-y-1/2"
                         : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
@@ -224,7 +224,7 @@ const CarouselNext = React.forwardRef<HTMLButtonElement, React.ComponentProps<ty
                 onClick={scrollNext}
                 {...props}
             >
-                <ArrowRight className="h-4 w-4" />
+                <Image src="/resources-page/arrow_forward.svg" width={25} height={25} alt="Right" />
                 <span className="sr-only">Next slide</span>
             </Button>
         );
