@@ -35,7 +35,7 @@ const EventCard: React.FC<Event> = ({
                 {/* Date & Location Row */}
                 <div className="flex items-center gap-3 text-sm">
                     {/* Date Box */}
-                    <div className="outline-gradient flex flex-col items-center justify-center p-2">
+                    <div className="outline-gradient flex aspect-square h-full flex-col items-center justify-center p-2">
                         <span className="text-xs">{month}</span>
                         <span className="text-lg">{day}</span>
                     </div>
