@@ -46,10 +46,11 @@ export default function Events() {
             <Carousel className="w-full pe-8" opts={{ align: "start" }}>
                 <CarouselContent>
                     {events.map((event, index) => (
-                        <CarouselItem className="md:basis-1/4" key={`event:${index}`}>
-                            <div className="pe-8 md:pe-0">
-                                <EventCard {...event} />
-                            </div>
+                        <CarouselItem
+                            className="sm:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+                            key={`event:${index}`}
+                        >
+                            <EventCard {...event} />
                         </CarouselItem>
                     ))}
                 </CarouselContent>
