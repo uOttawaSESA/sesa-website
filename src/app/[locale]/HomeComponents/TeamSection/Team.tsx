@@ -31,20 +31,21 @@ const Team = () => {
                     </p>
                 </div>
 
-                <div className="flex justify-center">
-                    <div className="flex gap-4 font-heading">
-                        <Button className="w-max font-heading text-lg uppercase" href="#">
-                            Become a sponsor <span className="text-gray opacity-50">{">"}</span>
-                        </Button>
+                <div className="flex justify-center gap-4 px-8 text-center font-heading">
+                    <Button
+                        className="w-full font-heading text-base uppercase sm:w-max md:text-lg xl:text-xl"
+                        href="#"
+                    >
+                        Become a sponsor <span className="text-gray opacity-50">{">"}</span>
+                    </Button>
 
-                        <Button
-                            className="w-max font-heading text-lg uppercase"
-                            variant="outline"
-                            href="/ContactUsPage"
-                        >
-                            Get in touch
-                        </Button>
-                    </div>
+                    <Button
+                        className="w-full font-heading text-base uppercase sm:w-max md:text-lg xl:text-xl"
+                        variant="outline"
+                        href="/ContactUsPage"
+                    >
+                        Get in touch
+                    </Button>
                 </div>
 
                 <div className="relative bg-transparent">
