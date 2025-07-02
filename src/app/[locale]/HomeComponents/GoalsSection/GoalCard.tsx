@@ -16,24 +16,24 @@ export const GoalCard: React.FC<{ goal: Goal }> = ({ goal }) => {
         mainImg,
     } = goal;
     return (
-        <div className="flex w-full flex-col items-start justify-start gap-4 md:h-[45rem] md:flex-row md:items-center md:gap-12">
+        <div className="flex w-full flex-col items-start justify-start gap-4 xl:h-[45rem] xl:flex-row xl:items-center xl:gap-12">
             {/* Left Image */}
             <div className="z-10">
                 <Image
                     src={mainImg}
                     alt="Goal Main Image"
-                    className="h-[300px] object-cover md:h-[500px] md:w-[1200px] 2xl:h-[600px] 2xl:max-w-3xl"
+                    className="h-[300px] object-cover md:h-[400px] xl:h-[500px] 2xl:h-[600px] 2xl:max-w-3xl"
                     width={700}
                     height={700}
                 />
             </div>
 
             {/* Content */}
-            <div className="flex w-full flex-col gap-4">
+            <div className="flex w-full max-w-lg flex-col gap-4 md:max-w-xl xl:max-w-sm">
                 <p className="font-monocode relative inline-block !bg-clip-text text-left text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
                     {goalType}
                 </p>
-                <h1 className="font-heading text-2xl uppercase leading-tight md:w-96 md:text-5xl">
+                <h1 className="font-heading text-2xl uppercase leading-tight md:text-3xl xl:text-5xl">
                     {title}&nbsp;
                     <span className="relative inline-block">
                         {highlightTitle}
@@ -41,7 +41,7 @@ export const GoalCard: React.FC<{ goal: Goal }> = ({ goal }) => {
                     </span>
                 </h1>
 
-                <p className="w-full text-left font-sans text-base text-thistle md:w-[32rem] md:text-xl 2xl:w-[40rem]">
+                <p className="w-full text-left font-sans text-base text-thistle md:text-xl">
                     {description}
                 </p>
 

@@ -12,8 +12,8 @@ import {
 const Goals = () => {
     return (
         <section className="relative">
-            <div className="grid-overlay-left md:h-[43.93rem] md:w-[48vw] 2xl:w-[32vw]"></div>
-            <Carousel className="w-full px-8 md:pe-0 md:ps-0">
+            <div className="grid-overlay-left xl:h-[43.93rem] xl:w-[48vw] 2xl:w-[32vw]"></div>
+            <Carousel className="w-full px-8 md:px-20 xl:pe-0 xl:ps-0">
                 <CarouselContent>
                     {goalsData.map((goal, index) => (
                         <CarouselItem key={`goal:${index}`}>
