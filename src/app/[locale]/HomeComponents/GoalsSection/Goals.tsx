@@ -1,4 +1,3 @@
-"use client";
 import { GoalCard } from "./GoalCard";
 import { goalsData } from "./GoalsData";
 import {

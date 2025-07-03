@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Button from "./Button";
+import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
 import { useLocale } from "next-intl";
 
@@ -162,11 +162,11 @@ export default function Footer() {
                     />
                 </div>
                 <div className="flex items-center gap-2 text-sm text-white md:text-base">
-                    <Button href="#" variant="ghost-plain" className="w-max font-heading uppercase">
-                        {t("back_to_top")}
+                    <Button variant="ghost-plain" className="h-min font-heading uppercase" asChild>
+                        <a href="#">{t("back_to_top")}</a>
                     </Button>
                     {/* TODO: Make this a real dropdown */}
-                    <Button href="#" variant="outline" className="w-max font-heading uppercase">
+                    <Button variant="outline" className="h-min font-heading uppercase">
                         English
                     </Button>
                 </div>

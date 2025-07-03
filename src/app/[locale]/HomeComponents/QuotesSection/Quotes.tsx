@@ -1,4 +1,3 @@
-"use client";
 import { quotesData } from "./QuotesData";
 import Image from "next/image";
 import {

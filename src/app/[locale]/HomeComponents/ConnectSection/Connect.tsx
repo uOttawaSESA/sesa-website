@@ -1,4 +1,4 @@
-import IconButton from "@/components/IconButton";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
 const Connect = () => {
@@ -36,62 +36,49 @@ const Connect = () => {
                         </p>
 
                         <div className="mt-4 flex justify-start gap-2">
-                            <IconButton
-                                className="flex items-center justify-center"
-                                variant="outline"
-                                href="https://www.instagram.com/uottawasesa/"
-                                target="_blank"
-                            >
-                                <Image
-                                    className="size-4 md:size-6 xl:size-8"
-                                    src="/icons/instagram-plain.svg"
-                                    width={25}
-                                    height={25}
-                                    alt="Instagram Logo"
-                                />
-                            </IconButton>
-                            <IconButton
-                                className="flex items-center justify-center"
-                                variant="outline"
-                                href="https://discord.com/invite/atYdx5HHCs"
-                                target="_blank"
-                            >
-                                <Image
-                                    className="size-4 md:size-6 xl:size-8"
-                                    src="/icons/discord-plain.svg"
-                                    width={25}
-                                    height={25}
-                                    alt="Discord Logo"
-                                />
-                            </IconButton>
-                            <IconButton
-                                className="flex items-center justify-center"
-                                variant="outline"
-                                href="https://www.linkedin.com/company/software-engineering-students-association/"
-                                target="_blank"
-                            >
-                                <Image
-                                    className="size-4 md:size-6 xl:size-8"
-                                    src="/icons/linkedin-plain.svg"
-                                    width={25}
-                                    height={25}
-                                    alt="LinkedIn Logo"
-                                />
-                            </IconButton>
-                            <IconButton
-                                className="flex items-center justify-center"
-                                variant="outline"
-                                href="https://www.youtube.com/@uottawasesa52"
-                                target="_blank"
-                            >
-                                <Image
-                                    className="size-4 md:size-6 xl:size-8"
-                                    src="/icons/youtube-plain.svg"
-                                    width={25}
-                                    height={25}
-                                    alt="YouTube Logo"
-                                />
-                            </IconButton>
+                            <Button size="icon" variant="outline" asChild>
+                                <a href="https://www.instagram.com/uottawasesa/" target="_blank">
+                                    <Image
+                                        src="/icons/instagram-plain.svg"
+                                        width={25}
+                                        height={25}
+                                        alt="Instagram Logo"
+                                    />
+                                </a>
+                            </Button>
+                            <Button size="icon" variant="outline" asChild>
+                                <a href="https://discord.com/invite/atYdx5HHCs" target="_blank">
+                                    <Image
+                                        src="/icons/discord-plain.svg"
+                                        width={25}
+                                        height={25}
+                                        alt="Discord Logo"
+                                    />
+                                </a>
+                            </Button>
+                            <Button size="icon" variant="outline">
+                                <a
+                                    href="https://www.linkedin.com/company/software-engineering-students-association/"
+                                    target="_blank"
+                                >
+                                    <Image
+                                        src="/icons/linkedin-plain.svg"
+                                        width={25}
+                                        height={25}
+                                        alt="LinkedIn Logo"
+                                    />
+                                </a>
+                            </Button>
+                            <Button size="icon" variant="outline">
+                                <a href="https://www.youtube.com/@uottawasesa52" target="_blank">
+                                    <Image
+                                        src="/icons/youtube-plain.svg"
+                                        width={25}
+                                        height={25}
+                                        alt="YouTube Logo"
+                                    />
+                                </a>
+                            </Button>
                         </div>
                     </div>
                 </div>

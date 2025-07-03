@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Button from "@/components/Button";
+import { Button } from "@/components/ui/button";
 import CircleImage from "@/components/CircleImage";
-import IconButton from "@/components/IconButton";
+import { Link } from "@/i18n/navigation";
 
 const SponsorCard = () => {
     return (
@@ -51,32 +51,29 @@ const SponsorCard = () => {
                     </div>
                 </div>
                 <div className="mt-6">
-                    <Button
-                        href="/pages/ContactUsPage"
-                        className="text-m font-heading uppercase text-white"
-                    >
-                        Work With Us
+                    <Button className="text-m font-heading uppercase text-white" asChild>
+                        <Link href="/pages/ContactUsPage">Work With Us</Link>
                     </Button>
                 </div>
             </div>
             {/* Navigation Buttons */}
             <div className="flex items-center gap-2">
-                <IconButton variant="outline">
+                <Button size="icon" variant="outline">
                     <Image
                         src="/resources-page/arrow_backword.svg"
                         width={25}
                         height={25}
                         alt="Left"
                     />
-                </IconButton>
-                <IconButton variant="outline">
+                </Button>
+                <Button size="icon" variant="outline">
                     <Image
                         src="/resources-page/arrow_forward.svg"
                         width={25}
                         height={25}
                         alt="Right"
                     />
-                </IconButton>
+                </Button>
             </div>
         </div>
     );

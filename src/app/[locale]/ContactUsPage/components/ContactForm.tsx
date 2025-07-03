@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import Button from "@/components/Button";
+import { Button } from "@/components/ui/button";
 import Dropdown from "@/components/Dropdown";
 import { useTranslations, useLocale } from "next-intl";
 import ReCAPTCHA from "react-google-recaptcha";

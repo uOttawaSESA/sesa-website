@@ -3,7 +3,7 @@
 // import { resources as otherResources } from "@/app/[locale]/ResourcesPage/utils/resourcesData";
 import { resources as otherResources } from "@/app/data/Resources";
 import ResourceCard from "@/app/[locale]/ResourcesPage/components/ResourceCard";
-import IconButton from "@/components/IconButton";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useRef } from "react";
 
@@ -25,22 +25,22 @@ const OtherResources = () => {
             <div className="mx-64 flex items-center justify-between">
                 <h2 className="font-heading text-2xl uppercase">More Resources</h2>
                 <div className="flex gap-2">
-                    <IconButton variant="outline" onClick={() => scrollItems("left")}>
+                    <Button size="icon" variant="outline" onClick={() => scrollItems("left")}>
                         <Image
                             src="/resources-page/arrow_backword.svg"
                             width={25}
                             height={25}
                             alt="<"
                         />
-                    </IconButton>
-                    <IconButton variant="outline" onClick={() => scrollItems("right")}>
+                    </Button>
+                    <Button size="icon" variant="outline" onClick={() => scrollItems("right")}>
                         <Image
                             src="/resources-page/arrow_forward.svg"
                             width={25}
                             height={25}
                             alt=">"
                         />
-                    </IconButton>
+                    </Button>
                 </div>
             </div>
             <div className="other-resources-container relative">

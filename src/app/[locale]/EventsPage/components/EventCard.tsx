@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Button from "@/components/Button";
+import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Event } from "../utils/types";
 import { format } from "date-fns";
@@ -137,7 +137,6 @@ export const EventCard = ({
                             className="flex items-center gap-2 font-heading uppercase"
                             onClick={handleDetails}
                             disabled={isPastEvent} // Disable for past events
-                            variant="fill" // Always use the filled variant
                         >
                             {t("btn_details")}
                         </Button>
@@ -147,7 +146,6 @@ export const EventCard = ({
                             <Button
                                 className="flex items-center gap-2 font-heading uppercase"
                                 onClick={handleRegister}
-                                variant="fill" // Always use the filled variant
                             >
                                 {t("btn_register")}
                             </Button>

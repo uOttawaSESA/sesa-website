@@ -1,6 +1,7 @@
 "use client";
-import Button from "@/components/Button";
+import { Button } from "@/components/ui/button";
 import CircleImage from "@/components/CircleImage";
+import { Link } from "@/i18n/navigation";
 import Marquee from "react-fast-marquee";
 import { membersData } from "@/app/data/Members";
 import { useState } from "react";
@@ -34,17 +35,19 @@ const Team = () => {
                 <div className="flex justify-center gap-4 px-8 text-center font-heading">
                     <Button
                         className="w-full font-heading text-sm uppercase sm:w-max md:text-lg xl:text-xl"
-                        href="#"
+                        asChild
                     >
-                        Become a sponsor <span className="text-gray opacity-50">{">"}</span>
+                        <a href="#">
+                            Become a sponsor <span className="text-gray opacity-50">{">"}</span>
+                        </a>
                     </Button>
 
                     <Button
                         className="w-full font-heading text-sm uppercase sm:w-max md:text-lg xl:text-xl"
                         variant="outline"
-                        href="/ContactUsPage"
+                        asChild
                     >
-                        Get in touch
+                        <Link href="/ContactUsPage">Get in touch</Link>
                     </Button>
                 </div>
 

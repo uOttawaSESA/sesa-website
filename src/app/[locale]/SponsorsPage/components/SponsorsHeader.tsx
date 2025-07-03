@@ -1,4 +1,4 @@
-import Button from "@/components/Button";
+import { Button } from "@/components/ui/button";
 
 interface SponsorsHeaderProps {
     topText: string;
@@ -31,10 +31,8 @@ const SponsorsHeader = ({ topText, title, bottomText, btn1, btn2 }: SponsorsHead
                     {bottomText}
                 </p>
                 <div className="mt-6 flex justify-center space-x-4 font-heading text-white">
-                    <Button className="font-heading text-lg uppercase">{btn1}</Button>
-                    <Button className="font-heading text-lg uppercase" variant="outline">
-                        {btn2}
-                    </Button>
+                    <Button>{btn1}</Button>
+                    <Button variant="outline">{btn2}</Button>
                 </div>
             </div>
         </div>

@@ -1,8 +1,9 @@
 import { resources } from "@/app/data/Resources";
 import ResourceCard from "../../ResourcesPage/components/ResourceCard";
 import Marquee from "react-fast-marquee";
-import Button from "@/components/Button";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { Link } from "@/i18n/navigation";
 
 const Resources = () => {
     return (
@@ -60,20 +61,16 @@ const Resources = () => {
 
                 <div className="space-y-4 px-8 md:px-32">
                     <div className="flex w-full justify-center gap-4 font-heading">
-                        <Button
-                            className="text-center font-heading text-sm uppercase md:text-lg"
-                            href="/ResourcesPage"
-                        >
-                            Explore all resources&nbsp;
-                            <span className="text-gray opacity-50">&gt;</span>
+                        <Button className="text-sm md:text-lg" asChild>
+                            <Link href="/ResourcesPage">
+                                Explore all resources{" "}
+                                <span className="text-gray opacity-50">{">"}</span>
+                            </Link>
                         </Button>
-                        <Button
-                            className="hidden text-center font-heading text-sm uppercase md:text-lg lg:block"
-                            variant="outline"
-                            href="https://discord.com/invite/atYdx5HHCs"
-                            external
-                        >
-                            Join our discord
+                        <Button className="text-sm md:text-lg" variant="outline" asChild>
+                            <a href="https://discord.com/invite/atYdx5HHCs" target="_blank">
+                                Join our discord
+                            </a>
                         </Button>
                     </div>
                     <div className="hidden w-full items-center justify-center text-center font-mono text-sm text-thistle md:text-base lg:flex">

@@ -1,7 +1,8 @@
 import React from "react";
-import Button from "@/components/Button";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 const FooterSection: React.FC = () => {
     const t = useTranslations("resources");
@@ -11,8 +12,10 @@ const FooterSection: React.FC = () => {
             {/* CTA Section */}
             <div className="mt-10 flex flex-col items-center justify-center gap-4 px-4 text-center sm:flex-row sm:gap-6">
                 <h2 className="font-heading text-lg uppercase">{t("contributing_heading")}</h2>
-                <Button href="#" className="font-heading text-xl uppercase">
-                    {t("btn_join_discord")}
+                <Button asChild>
+                    <a href="https://discord.com/invite/atYdx5HHCs" target="_blank">
+                        {t("btn_join_discord")}
+                    </a>
                 </Button>
             </div>
 
@@ -55,11 +58,8 @@ const FooterSection: React.FC = () => {
                     </div>
                     {/* Call To Action Button */}
                     <div className="mt-10 md:mt-6">
-                        <Button
-                            href="/pages/TeamPage"
-                            className="relative z-10 font-heading text-lg uppercase"
-                        >
-                            {t("btn_join_team")}
+                        <Button className="relative z-10 font-heading text-lg uppercase" asChild>
+                            <Link href="/pages/TeamPage">{t("btn_join_team")}</Link>
                         </Button>
                         <div className="mt-6 flex items-center gap-2">
                             <Image

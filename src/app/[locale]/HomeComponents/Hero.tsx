@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Button from "@/components/Button";
+import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
@@ -25,18 +25,15 @@ export default function Hero() {
                     {t("purpose")}
                 </p>
                 <div className="mt-4 flex gap-2 font-heading md:mt-6">
-                    <Link href="/AboutPage">
-                        <Button className="font-heading text-sm uppercase md:text-lg">
-                            {t("learn_more")}
-                        </Button>
-                    </Link>
+                    <Button className="font-heading text-sm uppercase md:text-lg" asChild>
+                        <Link href="/AboutPage">{t("learn_more")}</Link>
+                    </Button>
                     <Button
-                        href="https://linktr.ee/uottawa.sesa"
-                        external
                         className="font-heading text-sm uppercase md:text-lg"
                         variant="outline"
+                        asChild
                     >
-                        {t("get_involved")}
+                        <Link href="https://linktr.ee/uottawa.sesa">{t("get_involved")}</Link>
                     </Button>
                 </div>
             </div>

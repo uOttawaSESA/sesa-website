@@ -1,6 +1,8 @@
-import Button from "@/components/Button";
 import { TeamBadgeStack } from "@/components/TeamBadgeStack";
+import { Button } from "@/components/ui/button";
+import CircleImage from "@/components/CircleImage";
 import Metric from "@/components/Metric";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import TeamMembers from "./TeamMembers";
 import { useMemo } from "react";
@@ -62,16 +64,13 @@ export default function AboutPage() {
                     </h1>
                     <p className="max-w-[28rem] text-thistle">{t("inspiring_blurb")}</p>
                     <div className="my-2 flex gap-2 font-heading uppercase">
-                        <Button href="#introducing-our-team" className="font-heading uppercase">
-                            {t("meet_the_team")}
+                        <Button className="font-heading uppercase" asChild>
+                            <a href="#introducing-our-team">{t("meet_the_team")}</a>
                         </Button>
-                        <Button
-                            href="https://linktr.ee/uottawa.sesa"
-                            external
-                            className="font-heading uppercase"
-                            variant="outline"
-                        >
-                            {t("join_our_family")}
+                        <Button className="font-heading uppercase" variant="outline" asChild>
+                            <a href="https://linktr.ee/uottawa.sesa" target="_blank">
+                                {t("join_our_family")}
+                            </a>
                         </Button>
                     </div>
                     <div className="ml-3 flex flex-nowrap items-center">
@@ -104,8 +103,8 @@ export default function AboutPage() {
                     <p className="my-2 text-thistle">
                         <b>{t("who_are_we_p2_bold")}</b> {t("who_are_we_p2")}
                     </p>
-                    <Button href="#introducing-our-team" className="w-fit font-heading uppercase">
-                        {t("meet_the_team")}
+                    <Button className="w-fit font-heading uppercase" asChild>
+                        <a href="#introducing-our-team">{t("meet_the_team")}</a>
                     </Button>
                 </div>
                 {/* Figures */}
@@ -147,8 +146,8 @@ export default function AboutPage() {
                             <b>{t("what_do_we_do_p_bold")}</b> {t("what_do_we_do_p")}
                         </p>
                     </div>
-                    <Button href="/SponsorsPage" className="w-fit font-heading uppercase">
-                        {t("become_a_sponsor")} &gt;
+                    <Button className="w-fit font-heading uppercase" asChild>
+                        <Link href="/SponsorsPage">{t("become_a_sponsor")} &gt;</Link>
                     </Button>
                 </div>
                 {/* Cards for "What do we do" */}
@@ -218,26 +217,26 @@ export default function AboutPage() {
                 </div>
                 {/* TODO: Add the `sticky` class once a way to make it not super ugly is found */}
                 <div className="top-[5.6rem] z-10 mt-4 grid grid-flow-col grid-rows-4 text-center font-heading uppercase backdrop-blur-sm md:grid-rows-2">
-                    <Button variant="outline" href="#co-directors">
-                        {tOurTeam("codirectors")}
+                    <Button className="!inline" variant="outline" asChild>
+                        <Link href="#co-directors">{tOurTeam("codirectors")}</Link>
                     </Button>
-                    <Button variant="outline" href="#partnerships">
-                        {tOurTeam("partnerships")}
+                    <Button className="!inline" variant="outline" asChild>
+                        <Link href="#partnerships">{tOurTeam("partnerships")}</Link>
                     </Button>
-                    <Button variant="outline" href="#events">
-                        {tOurTeam("events")}
+                    <Button className="!inline" variant="outline" asChild>
+                        <Link href="#events">{tOurTeam("events")}</Link>
                     </Button>
-                    <Button variant="outline" href="#communications">
-                        {tOurTeam("communications")}
+                    <Button className="!inline" variant="outline" asChild>
+                        <Link href="#communications">{tOurTeam("communications")}</Link>
                     </Button>
-                    <Button variant="outline" href="#development">
-                        {tOurTeam("development")}
+                    <Button className="!inline" variant="outline" asChild>
+                        <Link href="#development">{tOurTeam("development")}</Link>
                     </Button>
-                    <Button variant="outline" href="#academic">
-                        {tOurTeam("academic")}
+                    <Button className="!inline" variant="outline" asChild>
+                        <Link href="#academic">{tOurTeam("academic")}</Link>
                     </Button>
-                    <Button variant="outline" href="#advisors">
-                        {tOurTeam("advisors")}
+                    <Button className="!inline" variant="outline" asChild>
+                        <Link href="#advisors">{tOurTeam("advisors")}</Link>
                     </Button>
                 </div>
                 <br />
@@ -327,16 +326,10 @@ export default function AboutPage() {
                         <b>{t("our_family_p_bold")}</b>. {t("our_family_p")}
                     </p>
                     <div className="mt-6 flex flex-col space-y-2 font-heading">
-                        <Button
-                            href="/ContactUsPage"
-                            className="w-fit font-heading text-lg uppercase"
-                            disabled
-                        >
-                            {t("apply_now")}
+                        <Button className="my-4 w-fit font-heading uppercase" disabled asChild>
+                            <Link href="/ContactUsPage">{t("apply_now")}</Link>
                         </Button>
-                        <p className="max-w-[28rem] font-mono text-sm text-thistle">
-                            {t("no_more_apps")}
-                        </p>
+                        <p className="max-w-[28rem] font-mono text-gray-400">{t("no_more_apps")}</p>
                     </div>
                 </div>
 

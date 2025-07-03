@@ -1,8 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import Button from "@/components/Button";
+import { Button } from "@/components/ui/button";
 import CircleImage from "@/components/CircleImage"; // Import the CircleImage component
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 const TeamUpSection: React.FC = () => {
     const t = useTranslations("events");
@@ -31,19 +32,16 @@ const TeamUpSection: React.FC = () => {
                 </p>
 
                 <div className="mt-6 flex flex-wrap gap-4">
-                    <Button
-                        href="/pages/ContactUsPage"
-                        className="relative z-10 font-heading text-xl uppercase"
-                    >
-                        {t("btn_talk")}
+                    <Button className="relative z-10 font-heading text-xl uppercase" asChild>
+                        <Link href="/pages/ContactUsPage">{t("btn_talk")}</Link>
                     </Button>
 
                     <Button
                         variant="outline"
-                        href="/pages/TeamPage"
                         className="relative z-10 font-heading text-xl uppercase"
+                        asChild
                     >
-                        {t("btn_meet_team")}
+                        <Link href="/pages/TeamPage">{t("btn_meet_team")}</Link>
                     </Button>
                 </div>
 

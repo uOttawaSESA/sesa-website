@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Button from "@/components/Button";
+import { Button } from "@/components/ui/button";
 import { TeamBadgeStack } from "@/components/TeamBadgeStack";
+import { Link } from "@/i18n/navigation";
 
 const SponsorCard2 = () => {
     const teamImgs = [
@@ -39,18 +40,11 @@ const SponsorCard2 = () => {
                     </p>
 
                     <div className="mb-6 flex items-center gap-4">
-                        <Button
-                            href="/pages/ContactUsPage"
-                            className="font-heading uppercase text-white"
-                        >
-                            Become a Sponsor
+                        <Button className="font-heading uppercase text-white" asChild>
+                            <Link href="/pages/ContactUsPage">Become a Sponsor</Link>
                         </Button>
-                        <Button
-                            href="/pages/AboutPage"
-                            variant="outline"
-                            className="font-heading text-white"
-                        >
-                            Meet the Team
+                        <Button variant="outline" className="font-heading text-white">
+                            <Link href="/pages/AboutPage">Meet the Team</Link>
                         </Button>
                     </div>
 

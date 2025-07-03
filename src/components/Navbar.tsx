@@ -1,8 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Button from "./Button";
-import IconButton from "./IconButton";
+import { Button } from "./ui/button";
 import { Link } from "@/i18n/navigation";
 import { usePathname } from "next/navigation";
 import { useState, useMemo } from "react";
@@ -148,13 +147,14 @@ export default function Navbar() {
                         </Button>
                     </Link>
                     {/* Hamburger menu for mobile */}
-                    <IconButton
+                    <Button
+                        size="icon"
                         className="touch-manipulation text-white lg:hidden"
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         aria-label="Toggle mobile menu"
                     >
                         <Image src="/icons/hamburger.svg" alt="Menu" width={24} height={24} />
-                    </IconButton>
+                    </Button>
                 </div>
             </header>
 

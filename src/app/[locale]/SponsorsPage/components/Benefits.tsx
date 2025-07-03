@@ -1,6 +1,6 @@
 "use client";
 
-import IconButton from "@/components/IconButton";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
 export default function Benefits() {
@@ -56,22 +56,22 @@ export default function Benefits() {
 
                 {/* Arrows in top right */}
                 <div className="flex gap-2 pt-6">
-                    <IconButton variant="outline">
+                    <Button size="icon" variant="outline">
                         <Image
                             src="/resources-page/arrow_backword.svg"
                             width={25}
                             height={25}
                             alt="Left"
                         />
-                    </IconButton>
-                    <IconButton variant="outline">
+                    </Button>
+                    <Button size="icon" variant="outline">
                         <Image
                             src="/resources-page/arrow_forward.svg"
                             width={25}
                             height={25}
                             alt="Right"
                         />
-                    </IconButton>
+                    </Button>
                 </div>
             </div>
 

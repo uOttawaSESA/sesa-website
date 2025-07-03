@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import Button from "@/components/Button";
+import { Button } from "@/components/ui/button";
 import GridGlobe from "./GridGlobe";
 import { useTranslations } from "next-intl";
 

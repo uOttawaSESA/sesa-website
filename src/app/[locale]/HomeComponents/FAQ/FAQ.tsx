@@ -1,5 +1,5 @@
 "use client";
-import Button from "@/components/Button";
+import { Button } from "@/components/ui/button";
 import {
     Accordion,
     AccordionContent,
@@ -181,11 +181,11 @@ const FAQ = () => {
 
                 <div className="flex items-center justify-center gap-4 text-center font-heading uppercase">
                     <h2 className="w-max text-base md:text-xl">Did we miss something?</h2>
-                    <Link href={`/${locale}/ContactUsPage`}>
-                        <Button className="text-sm md:text-lg">
+                    <Button asChild>
+                        <Link href={`/${locale}/ContactUsPage`}>
                             MESSAGE US <span className="text-gray-50/65">{` >`}</span>
-                        </Button>
-                    </Link>
+                        </Link>
+                    </Button>
                 </div>
                 <p className="text-center text-sm text-thistle md:text-xl">
                     We&apos;ll get back to you within 48 hours.

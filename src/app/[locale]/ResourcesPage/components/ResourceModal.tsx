@@ -1,8 +1,7 @@
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { X } from "lucide-react";
 import { Resource } from "@/app/types/Resource";
-import Button from "@/components/Button";
-import IconButton from "@/components/IconButton";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
 interface ResourceModalProps {
@@ -194,9 +193,14 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                         </h2>
                     </div>
 
-                    <IconButton variant="outline" className="mb-10 text-white" onClick={onClose}>
+                    <Button
+                        size="icon"
+                        variant="outline"
+                        className="mb-10 text-white"
+                        onClick={onClose}
+                    >
                         <X size={20} />
-                    </IconButton>
+                    </Button>
                 </div>
 
                 {/* Format-specific Viewer (excluding list) */}
@@ -277,21 +281,20 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
 
                     {resource.format.toLowerCase() !== "list" && (
                         <Button
-                            href={resource.source}
-                            target="_blank"
-                            rel="noopener noreferrer"
                             className="flex flex-row items-center justify-center font-heading uppercase text-white"
-                            external
+                            asChild
                         >
-                            Open in New Tab
-                            <span className="ps-3">
-                                <Image
-                                    src="/resources-page/new-tab.svg"
-                                    width="15"
-                                    height="15"
-                                    alt="Open in a new tab"
-                                ></Image>
-                            </span>
+                            <a href={resource.source} target="_blank" rel="noopener noreferrer">
+                                Open in New Tab
+                                <span className="ps-3">
+                                    <Image
+                                        src="/resources-page/new-tab.svg"
+                                        width="15"
+                                        height="15"
+                                        alt="Open in a new tab"
+                                    ></Image>
+                                </span>
+                            </a>
                         </Button>
                     )}
                 </div>

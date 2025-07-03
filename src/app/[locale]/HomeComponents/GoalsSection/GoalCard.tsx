@@ -1,8 +1,9 @@
-// import Button from "@/components/Button";
+// import {Button} from "@/components/ui/button";
 import Goal from "./types/Goal";
 import Image from "next/image";
 import { TeamBadgeStack } from "@/components/TeamBadgeStack";
-import Button from "@/components/Button";
+import { Button } from "@/components/ui/button";
+import { Link } from "@/i18n/navigation";
 
 export const GoalCard: React.FC<{ goal: Goal }> = ({ goal }) => {
     const {
@@ -46,12 +47,11 @@ export const GoalCard: React.FC<{ goal: Goal }> = ({ goal }) => {
                     {description}
                 </p>
 
-                <Button
-                    href={buttonLink}
-                    className="w-max text-center font-heading text-sm uppercase md:text-lg"
-                >
-                    {buttonText}
-                </Button>
+                <div className="mt-6 flex">
+                    <Button className="w-max text-sm md:text-lg" asChild>
+                        <Link href={buttonLink}>{buttonText}</Link>
+                    </Button>
+                </div>
                 <TeamBadgeStack imgs={memberImgLinks} />
             </div>
         </div>
