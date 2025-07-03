@@ -1,7 +1,14 @@
 import Image from "next/image";
-import { useState, useRef, useEffect } from "react";
-import Dropdown from "@/components/Dropdown";
-import RowSelector from "../components/RowSelector";
+import { useState } from "react";
+import {
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectLabel,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select";
 import { useTranslations } from "next-intl";
 
 const gradientBorderClass = `
@@ -45,45 +52,15 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
     setSearchTerm,
     filterOptions,
     setFilterOptions,
-    sortOption,
     setSortOption,
     isMobile,
 }) => {
     const t = useTranslations("resources");
 
     const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false);
-    const [isSortOpen, setIsSortOpen] = useState<boolean>(false);
-    const [isViewOpen, setIsViewOpen] = useState<boolean>(false);
-    const [isRowSelectorOpen, setIsRowSelectorOpen] = useState<boolean>(false);
 
     // Track which filter dropdown is open
     const [openFilterDropdown, setOpenFilterDropdown] = useState<string | null>(null);
-
-    const filterRef = useRef<HTMLDivElement>(null);
-    const sortRef = useRef<HTMLDivElement>(null);
-    const viewRef = useRef<HTMLDivElement>(null);
-    const rowSelectorRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
-            if (filterRef.current && !filterRef.current.contains(event.target as Node)) {
-                setIsFilterOpen(false);
-                setOpenFilterDropdown(null);
-            }
-            if (sortRef.current && !sortRef.current.contains(event.target as Node)) {
-                setIsSortOpen(false);
-            }
-            if (viewRef.current && !viewRef.current.contains(event.target as Node)) {
-                setIsViewOpen(false);
-            }
-            if (rowSelectorRef.current && !rowSelectorRef.current.contains(event.target as Node)) {
-                setIsRowSelectorOpen(false);
-            }
-        };
-
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => document.removeEventListener("mousedown", handleClickOutside);
-    }, []);
 
     // Dropdown options for each filter
     const filterDropdownOptions: Record<string, { label: string; value: string }[]> = {
@@ -118,6 +95,10 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
         ],
     };
 
+    const changeView = (value: "grid" | "row") => {
+        setIsGridMode(value === "grid");
+    };
+
     // Handler for filter dropdown selection
     const handleDropdownFilterChange = (key: string, value: string) => {
         setFilterOptions({ ...filterOptions, [key]: value });
@@ -126,36 +107,11 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
 
     const handleSortChange = (value: string) => {
         setSortOption(value);
-        setIsSortOpen(false);
     };
 
     const toggleFilterDropdown = () => {
         setIsFilterOpen(!isFilterOpen);
         setOpenFilterDropdown(null);
-        if (isSortOpen) setIsSortOpen(false);
-        if (isViewOpen) setIsViewOpen(false);
-        if (isRowSelectorOpen) setIsRowSelectorOpen(false);
-    };
-
-    const toggleSortDropdown = () => {
-        setIsSortOpen(!isSortOpen);
-        if (isFilterOpen) setIsFilterOpen(false);
-        if (isViewOpen) setIsViewOpen(false);
-        if (isRowSelectorOpen) setIsRowSelectorOpen(false);
-    };
-
-    const toggleViewDropdown = () => {
-        setIsViewOpen(!isViewOpen);
-        if (isFilterOpen) setIsFilterOpen(false);
-        if (isSortOpen) setIsSortOpen(false);
-        if (isRowSelectorOpen) setIsRowSelectorOpen(false);
-    };
-
-    const toggleRowSelector = () => {
-        setIsRowSelectorOpen(!isRowSelectorOpen);
-        if (isFilterOpen) setIsFilterOpen(false);
-        if (isSortOpen) setIsSortOpen(false);
-        if (isViewOpen) setIsViewOpen(false);
     };
 
     return (
@@ -180,65 +136,44 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
 
                 <div className="ml-4 flex gap-6">
                     {/* View Dropdown */}
-                    <div className="relative" ref={viewRef}>
-                        <button
-                            className="flex items-center gap-2 uppercase text-thistle"
-                            onClick={toggleViewDropdown}
-                        >
-                            View
-                            <Image
-                                src="/contact-page/arrows.svg"
-                                alt="View Arrow"
-                                width={16}
-                                height={16}
-                                className={`transition-transform duration-200 ${
-                                    isViewOpen ? "rotate-180" : ""
-                                }`}
-                            />
-                        </button>
-
-                        {isViewOpen && (
-                            <div className="absolute right-0 z-50 mt-2 min-w-[5rem]">
-                                <div
-                                    className={`${gradientBorderClass} animate-dropdown bg-[rgba(27,27,27,0.3)] backdrop-blur-md backdrop-saturate-150`}
-                                >
-                                    <button
-                                        onClick={() => {
-                                            setIsGridMode(true);
-                                            setIsViewOpen(false);
-                                        }}
-                                        className="w-full px-6 py-3 text-left font-heading text-base uppercase text-white transition-colors duration-200 hover:bg-[rgba(27,27,27,0.4)]"
-                                    >
-                                        Grid
-                                    </button>
-                                    <button
-                                        onClick={() => {
-                                            setIsGridMode(false);
-                                            setIsViewOpen(false);
-                                        }}
-                                        className="w-full px-6 py-3 text-left font-heading text-base uppercase text-white transition-colors duration-200 hover:bg-[rgba(27,27,27,0.4)]"
-                                    >
-                                        Row
-                                    </button>
-                                </div>
-                            </div>
-                        )}
-                    </div>
+                    <Select value={isGridMode ? "grid" : "row"} onValueChange={changeView}>
+                        <SelectTrigger className="!border-none !px-0 !py-0">
+                            <SelectValue placeholder="View" />
+                        </SelectTrigger>
+                        <SelectContent>
+                            <SelectGroup>
+                                <SelectLabel>View</SelectLabel>
+                                <SelectItem value="grid">Grid</SelectItem>
+                                <SelectItem value="row">Row</SelectItem>
+                            </SelectGroup>
+                        </SelectContent>
+                    </Select>
 
                     {/* Row Selector */}
                     {isGridMode && !isMobile && (
-                        <div ref={rowSelectorRef}>
-                            <RowSelector
-                                rowsToShow={rowsToShow}
-                                setRowsToShow={setRowsToShow}
-                                isOpen={isRowSelectorOpen}
-                                toggleDropdown={toggleRowSelector}
-                            />
-                        </div>
+                        <Select
+                            value={rowsToShow?.toString()}
+                            onValueChange={value => setRowsToShow(parseInt(value))}
+                        >
+                            <SelectTrigger className="!border-none !px-0 !py-0">
+                                <SelectValue placeholder="Rows" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectGroup>
+                                    <SelectLabel>Rows</SelectLabel>
+                                    {[1, 2, 3, 4, 5].map(rows => (
+                                        <SelectItem
+                                            key={rows}
+                                            value={rows.toString()}
+                                        >{`${rows} ${rows === 1 ? "Row" : "Rows"}`}</SelectItem>
+                                    ))}
+                                </SelectGroup>
+                            </SelectContent>
+                        </Select>
                     )}
 
                     {/* Filter Button */}
-                    <div className="relative" ref={filterRef}>
+                    <div className="relative">
                         <button
                             className="flex items-center gap-2 uppercase text-thistle"
                             onClick={toggleFilterDropdown}
@@ -329,59 +264,22 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                         )}
                     </div>
 
-                    {/* Sort Button */}
-                    <div className="relative" ref={sortRef}>
-                        <button
-                            className="flex items-center gap-2 uppercase text-thistle"
-                            onClick={toggleSortDropdown}
-                        >
-                            {sortOption === "relevance"
-                                ? "Relevance"
-                                : sortOption === "rating"
-                                  ? "Most Highly Rated"
-                                  : sortOption === "alphabetical"
-                                    ? "Alphabetical Order"
-                                    : sortOption === "recent"
-                                      ? "Most Recently Added"
-                                      : "Sort"}
-                            <Image
-                                src="/contact-page/arrows.svg"
-                                alt="Sort Arrow"
-                                width={16}
-                                height={16}
-                                className={`transition-transform duration-200 ${
-                                    isSortOpen ? "rotate-180" : ""
-                                }`}
-                            />
-                        </button>
-
-                        <Dropdown
-                            items={[
-                                {
-                                    label: "Relevance",
-                                    value: "relevance",
-                                    onClick: () => handleSortChange("relevance"),
-                                },
-                                {
-                                    label: "Most Highly Rated",
-                                    value: "rating",
-                                    onClick: () => handleSortChange("rating"),
-                                },
-                                {
-                                    label: "Alphabetical Order",
-                                    value: "alphabetical",
-                                    onClick: () => handleSortChange("alphabetical"),
-                                },
-                                {
-                                    label: "Most Recently Added",
-                                    value: "recent",
-                                    onClick: () => handleSortChange("recent"),
-                                },
-                            ]}
-                            isOpen={isSortOpen}
-                            onItemClick={onClick => onClick()}
-                            buttonClassName="w-full px-6 py-3 text-left font-heading text-base uppercase text-white"
-                        />
+                    {/* Sort Select */}
+                    <div className="relative">
+                        <Select onValueChange={handleSortChange}>
+                            <SelectTrigger className="!border-none !px-0 !py-0">
+                                <SelectValue placeholder="Sort" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectGroup>
+                                    <SelectLabel>Sort</SelectLabel>
+                                    <SelectItem value="alphabetical">Alphabetical</SelectItem>
+                                    <SelectItem value="rating">Ratings</SelectItem>
+                                    <SelectItem value="recent">Recent</SelectItem>
+                                    <SelectItem value="relevance">Relevance</SelectItem>
+                                </SelectGroup>
+                            </SelectContent>
+                        </Select>
                     </div>
                 </div>
             </div>

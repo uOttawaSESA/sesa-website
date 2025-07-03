@@ -1,40 +1,34 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import {
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectLabel,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select";
 
-const gradientBorderClass = `
-    border-[1px]
-    border-solid
-    [border-image:linear-gradient(55deg,rgba(136,36,220,0.7)_41.93%,rgba(177,33,157,0.7)_81.89%)_1]
-`;
+const filters = [
+    "All",
+    "Workshop",
+    "Networking Event",
+    "Social Event",
+    "Academic Support",
+] as const;
+const timeFilters = ["All", "Past", "Today", "Upcoming"] as const;
 
-type EventType = "All" | "Workshop" | "Networking Event" | "Social Event" | "Academic Support";
-type TimeFilter = "All" | "Past" | "Today" | "Upcoming";
+type EventType = (typeof filters)[number];
+type TimeFilter = (typeof timeFilters)[number];
 
 const EventFilters: React.FC<{
     onFilterChange: (filter: EventType) => void;
     onTimeFilterChange: (filter: TimeFilter) => void;
 }> = ({ onFilterChange, onTimeFilterChange }) => {
-    const [activeFilter, setActiveFilter] = useState<EventType>("All");
     const [activeTimeFilter, setActiveTimeFilter] = useState<TimeFilter>("All");
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-    const filters: EventType[] = [
-        "All",
-        "Workshop",
-        "Networking Event",
-        "Social Event",
-        "Academic Support",
-    ];
-    const timeFilters: TimeFilter[] = ["All", "Past", "Today", "Upcoming"];
-
-    const handleFilterClick = (filter: EventType) => {
-        setActiveFilter(filter);
-        onFilterChange(filter);
-        setIsDropdownOpen(false); // Close the dropdown after selecting a filter
-    };
 
     const handleTimeFilterClick = (filter: TimeFilter) => {
         setActiveTimeFilter(filter);
@@ -60,44 +54,21 @@ const EventFilters: React.FC<{
             </div>
 
             {/* Right Side: Event Type Dropdown */}
-            <div className="relative">
-                <button
-                    className="flex items-center gap-2 uppercase text-thistle"
-                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                >
-                    {activeFilter}
-                    <Image
-                        src="/contact-page/arrows.svg"
-                        alt="Filter Arrow"
-                        width={16}
-                        height={16}
-                        className={`transition-transform duration-200 ${
-                            isDropdownOpen ? "rotate-180" : ""
-                        }`}
-                    />
-                </button>
-
-                {isDropdownOpen && (
-                    <div className="absolute right-0 z-20 mt-2 min-w-[18rem]">
-                        <div
-                            className={`${gradientBorderClass} animate-dropdown bg-[rgba(27,27,27,0.3)] backdrop-blur-md backdrop-saturate-150`}
-                        >
-                            {filters.map(filter => (
-                                <button
-                                    key={filter}
-                                    onClick={() => {
-                                        handleFilterClick(filter);
-                                        setIsDropdownOpen(false);
-                                    }}
-                                    className="w-full px-6 py-3 text-left font-heading text-base uppercase text-white transition-colors duration-200 hover:bg-[rgba(27,27,27,0.4)]"
-                                >
-                                    {filter}
-                                </button>
-                            ))}
-                        </div>
-                    </div>
-                )}
-            </div>
+            <Select onValueChange={onFilterChange}>
+                <SelectTrigger className="!border-none !px-0 !py-0 uppercase">
+                    <SelectValue placeholder="Event Type" />
+                </SelectTrigger>
+                <SelectContent>
+                    <SelectGroup>
+                        <SelectLabel>Event Type</SelectLabel>
+                        {filters.map(filter => (
+                            <SelectItem key={filter} value={filter}>
+                                {filter}
+                            </SelectItem>
+                        ))}
+                    </SelectGroup>
+                </SelectContent>
+            </Select>
         </div>
     );
 };

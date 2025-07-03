@@ -1,9 +1,15 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import Dropdown from "@/components/Dropdown";
+import {
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select";
 import { useTranslations, useLocale } from "next-intl";
 import ReCAPTCHA from "react-google-recaptcha";
 
@@ -36,11 +42,10 @@ const ContactForm: React.FC = () => {
         firstName: "",
         lastName: "",
         email: "",
-        topic: "",
+        topic: undefined as string | undefined,
         message: "",
     });
 
-    const [isTopicOpen, setIsTopicOpen] = useState(false);
     const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
     const [submitting, setSubmitting] = useState(false);
 
@@ -48,28 +53,16 @@ const ContactForm: React.FC = () => {
         {
             label: "General Inquiry",
             value: "General Inquiry",
-            onClick: () => {
-                setFormData(prev => ({ ...prev, topic: "General Inquiry" }));
-                setIsTopicOpen(false);
-            },
         },
         {
             label: "Partnership",
             value: "Partnership",
-            onClick: () => {
-                setFormData(prev => ({ ...prev, topic: "Partnership" }));
-                setIsTopicOpen(false);
-            },
         },
         {
             label: "Support",
             value: "Support",
-            onClick: () => {
-                setFormData(prev => ({ ...prev, topic: "Support" }));
-                setIsTopicOpen(false);
-            },
         },
-    ];
+    ] as const;
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -176,34 +169,20 @@ const ContactForm: React.FC = () => {
                 <h2 className="font-vcr-osd-mono mb-4 text-sm uppercase text-white md:text-sm lg:text-base xl:text-base">
                     {t("form_subject_label")}
                 </h2>
-                <div className={gradientBorderClass}>
-                    <div className="relative">
-                        <button
-                            type="button"
-                            onClick={() => setIsTopicOpen(!isTopicOpen)}
-                            className={`${inputClass} flex items-center justify-between`}
-                        >
-                            {formData.topic
-                                ? topicItems.find(item => item.value === formData.topic)?.label
-                                : t("form_subject")}
-                            <Image
-                                src="/contact-page/arrows.svg"
-                                alt="Select Arrow"
-                                width={16}
-                                height={16}
-                                className={`transition-transform duration-200 ${
-                                    isTopicOpen ? "rotate-180" : ""
-                                }`}
-                            />
-                        </button>
-                        <Dropdown
-                            items={topicItems}
-                            isOpen={isTopicOpen}
-                            onItemClick={(onClick: () => void) => onClick()}
-                            buttonClassName="w-full px-6 py-3 text-left font-sans text-base text-thistle"
-                        />
-                    </div>
-                </div>
+                <Select value={formData.topic}>
+                    <SelectTrigger className="min-h-[3.5rem] w-full font-sans">
+                        <SelectValue placeholder={t("form_subject")} />
+                    </SelectTrigger>
+                    <SelectContent>
+                        <SelectGroup>
+                            {topicItems.map(({ label, value }) => (
+                                <SelectItem key={value} value={value}>
+                                    {label}
+                                </SelectItem>
+                            ))}
+                        </SelectGroup>
+                    </SelectContent>
+                </Select>
             </div>
 
             <div className="mb-8">
