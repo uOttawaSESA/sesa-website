@@ -86,57 +86,48 @@ export default function Footer() {
                         </p>
 
                         <div className="flex items-start justify-center gap-2">
-                            <Button
-                                className="!p-3"
-                                variant="outline"
-                                href="https://www.instagram.com/uottawasesa/"
-                                target="_blank"
-                            >
-                                <Image
-                                    src="/icons/instagram-plain.svg"
-                                    width={25}
-                                    height={25}
-                                    alt="Instagram Logo"
-                                />
+                            <Button size="icon" variant="outline" asChild>
+                                <a href="https://www.instagram.com/uottawasesa/" target="_blank">
+                                    <Image
+                                        src="/icons/instagram-plain.svg"
+                                        width={25}
+                                        height={25}
+                                        alt="Instagram Logo"
+                                    />
+                                </a>
                             </Button>
-                            <Button
-                                className="!p-3"
-                                variant="outline"
-                                href="https://discord.com/invite/atYdx5HHCs"
-                                target="_blank"
-                            >
-                                <Image
-                                    src="/icons/discord-plain.svg"
-                                    width={25}
-                                    height={25}
-                                    alt="Discord Logo"
-                                />
+                            <Button size="icon" variant="outline" asChild>
+                                <a href="https://discord.com/invite/atYdx5HHCs" target="_blank">
+                                    <Image
+                                        src="/icons/discord-plain.svg"
+                                        width={25}
+                                        height={25}
+                                        alt="Discord Logo"
+                                    />
+                                </a>
                             </Button>
-                            <Button
-                                className="!p-3"
-                                variant="outline"
-                                href="https://www.linkedin.com/company/software-engineering-students-association/"
-                                target="_blank"
-                            >
-                                <Image
-                                    src="/icons/linkedin-plain.svg"
-                                    width={25}
-                                    height={25}
-                                    alt="LinkedIn Logo"
-                                />
+                            <Button size="icon" variant="outline" asChild>
+                                <a
+                                    href="https://www.linkedin.com/company/software-engineering-students-association/"
+                                    target="_blank"
+                                >
+                                    <Image
+                                        src="/icons/linkedin-plain.svg"
+                                        width={25}
+                                        height={25}
+                                        alt="LinkedIn Logo"
+                                    />
+                                </a>
                             </Button>
-                            <Button
-                                className="!p-3"
-                                variant="outline"
-                                href="https://www.youtube.com/@uottawasesa52"
-                                target="_blank"
-                            >
-                                <Image
-                                    src="/icons/youtube-plain.svg"
-                                    width={25}
-                                    height={25}
-                                    alt="YouTube Logo"
-                                />
+                            <Button size="icon" variant="outline" asChild>
+                                <a href="https://www.youtube.com/@uottawasesa52" target="_blank">
+                                    <Image
+                                        src="/icons/youtube-plain.svg"
+                                        width={25}
+                                        height={25}
+                                        alt="YouTube Logo"
+                                    />
+                                </a>
                             </Button>
                         </div>
                     </div>
