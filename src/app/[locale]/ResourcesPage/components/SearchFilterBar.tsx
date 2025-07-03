@@ -52,6 +52,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
     setSearchTerm,
     filterOptions,
     setFilterOptions,
+    sortOption,
     setSortOption,
     isMobile,
 }) => {
@@ -266,7 +267,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
 
                     {/* Sort Select */}
                     <div className="relative">
-                        <Select onValueChange={handleSortChange}>
+                        <Select value={sortOption} onValueChange={handleSortChange}>
                             <SelectTrigger className="!border-none !px-0 !py-0">
                                 <SelectValue placeholder="Sort" />
                             </SelectTrigger>

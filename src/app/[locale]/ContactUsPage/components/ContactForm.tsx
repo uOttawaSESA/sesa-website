@@ -169,7 +169,10 @@ const ContactForm: React.FC = () => {
                 <h2 className="font-vcr-osd-mono mb-4 text-sm uppercase text-white md:text-sm lg:text-base xl:text-base">
                     {t("form_subject_label")}
                 </h2>
-                <Select value={formData.topic}>
+                <Select
+                    value={formData.topic}
+                    onValueChange={topic => setFormData(prev => ({ ...prev, topic }))}
+                >
                     <SelectTrigger className="min-h-[3.5rem] w-full font-sans">
                         <SelectValue placeholder={t("form_subject")} />
                     </SelectTrigger>
