@@ -23,44 +23,53 @@ const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange
     };
 
     return (
-        <div className="mt-8 flex items-center justify-center gap-4">
-            {/* Previous Button with SVG */}
+        <div className="mt-4 flex flex-wrap items-center justify-center gap-2 sm:gap-4 md:mt-8">
+            {/* Previous Button */}
             <Button
                 variant="outline"
                 onClick={handlePrev}
                 disabled={currentPage === 1}
-                className={`flex items-center justify-center ${currentPage === 1 ? "cursor-not-allowed opacity-50" : ""}`}
+                className={`flex items-center justify-center p-2 ${currentPage === 1 ? "cursor-not-allowed opacity-50" : ""}`}
             >
                 <Image
                     src="/resources-page/arrow_backword.svg"
                     alt="Previous"
-                    width={28}
-                    height={28}
+                    width={20}
+                    height={20}
+                    className="sm:h-[28px] sm:w-[28px]"
                 />
             </Button>
 
             {/* Page Numbers */}
-            <div className="flex gap-2">
+            <div className="flex flex-wrap justify-center gap-2">
                 {Array.from({ length: totalPages }, (_, index) => (
                     <Button
                         key={index}
                         variant="outline"
                         onClick={() => onPageChange(index + 1)}
-                        className={`flex h-[50px] w-[50px] items-center justify-center ${currentPage === index + 1 ? "bg-blueviolet-100" : ""}`}
+                        className={`flex h-[36px] w-[36px] items-center justify-center text-sm sm:h-[50px] sm:w-[50px] sm:text-lg ${
+                            currentPage === index + 1 ? "bg-blueviolet-100" : ""
+                        }`}
                     >
-                        <span className="text-lg">{index + 1}</span>
+                        {index + 1}
                     </Button>
                 ))}
             </div>
 
-            {/* Next Button with SVG */}
+            {/* Next Button */}
             <Button
                 variant="outline"
                 onClick={handleNext}
                 disabled={currentPage === totalPages}
-                className={`flex items-center justify-center ${currentPage === totalPages ? "cursor-not-allowed opacity-50" : ""}`}
+                className={`flex items-center justify-center p-2 ${currentPage === totalPages ? "cursor-not-allowed opacity-50" : ""}`}
             >
-                <Image src="/resources-page/arrow_forward.svg" alt="Next" width={28} height={28} />
+                <Image
+                    src="/resources-page/arrow_forward.svg"
+                    alt="Next"
+                    width={20}
+                    height={20}
+                    className="sm:h-[28px] sm:w-[28px]"
+                />
             </Button>
         </div>
     );

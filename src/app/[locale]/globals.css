@@ -27,6 +27,21 @@ body {
     src: url(/fonts/monocode-regular.ttf);
 }
 
+/*** Scrollbar styling ***/
+/* Firefox */
+* {
+    scrollbar-color: #9a1ebf #381e4b; /* thumb, track */
+}
+
+::-webkit-scrollbar-track {
+    background: #381e4b;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(55deg, #8824dc 41.93%, #b1219d 81.89%);
+    border-radius: 10px;
+}
+
 .sponsor {
     @apply outline-gradient mx-4 flex h-40 w-64 items-center justify-center;
 }

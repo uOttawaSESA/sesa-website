@@ -1,5 +1,5 @@
 "use client";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import SearchFilterBar from "./components/SearchFilterBar";
 import Pagination from "@/components/Pagination";
 // import { resources, Resource } from "./utils/resourcesData";
@@ -27,8 +27,19 @@ const ResourcesPage: FC = () => {
         tier: "",
     });
     const [sortOption, setSortOption] = useState<string>("relevance");
+    const [isMobile, setIsMobile] = useState(false);
 
-    const itemsPerRow = 3;
+    // Detect mobile
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        handleResize(); // Run on mount
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    const itemsPerRow = isGridMode ? (isMobile ? 1 : 3) : 1;
 
     // Filter resources based on search term and filter options
     const filteredResources = resources.filter(resource => {
@@ -86,7 +97,7 @@ const ResourcesPage: FC = () => {
     return (
         <div className="min-h-screen bg-gradient-to-b from-gray-100 via-blueviolet-200 to-[#361D49] text-white">
             {/* Main Content Container */}
-            <div className="container relative z-10 mx-auto max-w-7xl px-4 py-8">
+            <div className="container relative z-10 mx-auto w-full px-4 py-8 md:max-w-7xl">
                 <Header />
                 {/* Pass state and handlers to SearchFilterBar */}
                 <SearchFilterBar
@@ -100,6 +111,7 @@ const ResourcesPage: FC = () => {
                     setFilterOptions={setFilterOptions}
                     sortOption={sortOption}
                     setSortOption={setSortOption}
+                    isMobile={isMobile}
                 />
 
                 {/* Resources Grid or Row */}

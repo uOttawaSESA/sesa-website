@@ -33,6 +33,7 @@ interface SearchFilterBarProps {
     }) => void;
     sortOption: string;
     setSortOption: (option: string) => void;
+    isMobile: boolean;
 }
 
 export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
@@ -46,6 +47,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
     setFilterOptions,
     sortOption,
     setSortOption,
+    isMobile,
 }) => {
     const t = useTranslations("resources");
 
@@ -224,7 +226,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                     </div>
 
                     {/* Row Selector */}
-                    {isGridMode && (
+                    {isGridMode && !isMobile && (
                         <div ref={rowSelectorRef}>
                             <RowSelector
                                 rowsToShow={rowsToShow}

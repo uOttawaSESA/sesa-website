@@ -87,7 +87,7 @@ export default function AboutPage() {
                         className="outline-gradient h-[600px] w-[1000px] object-cover"
                         src="/imgs/about/team-1.png"
                         width={1000}
-                        height={500}
+                        height={600}
                         alt="Team picture"
                     />
                 </div>
@@ -112,26 +112,28 @@ export default function AboutPage() {
                     </Button>
                 </div>
                 {/* Figures */}
-                <div className="mx-16 flex items-center justify-between">
-                    <Metric
-                        className="!w-64"
-                        figure="3500+"
-                        caption={t("figure_eecs_students")}
-                        border
-                    />
-                    <Metric
-                        className="!w-64"
-                        figure="21"
-                        caption={t("figure_previous_partners")}
-                        border
-                    />
-                    <Metric
-                        className="!w-64"
-                        figure="2300+"
-                        caption={t("figure_event_attendees")}
-                        border
-                    />
-                    <Metric className="!w-64" figure="34" caption={t("figure_events")} border />
+                <div className="flex justify-center">
+                    <div className="grid w-fit grid-cols-1 place-items-center gap-0 md:grid-cols-2 lg:grid-cols-4">
+                        <Metric
+                            className="!w-64"
+                            figure="3500+"
+                            caption={t("figure_eecs_students")}
+                            border
+                        />
+                        <Metric
+                            className="!w-64"
+                            figure="21"
+                            caption={t("figure_previous_partners")}
+                            border
+                        />
+                        <Metric
+                            className="!w-64"
+                            figure="2300+"
+                            caption={t("figure_event_attendees")}
+                            border
+                        />
+                        <Metric className="!w-64" figure="34" caption={t("figure_events")} border />
+                    </div>
                 </div>
                 {/* "What do we do" */}
                 <div className="my-8 flex flex-col gap-2">
@@ -153,7 +155,7 @@ export default function AboutPage() {
                     </Button>
                 </div>
                 {/* Cards for "What do we do" */}
-                <div className="mb-8 flex justify-center gap-8">
+                <div className="mb-8 flex w-full gap-8 overflow-x-scroll lg:justify-center">
                     <WhatWeDoCard
                         imageHref="/imgs/about/social-events.png"
                         icon={
@@ -218,7 +220,7 @@ export default function AboutPage() {
                     </p>
                 </div>
                 {/* TODO: Add the `sticky` class once a way to make it not super ugly is found */}
-                <div className="top-[5.6rem] z-10 mt-4 flex items-center justify-center font-heading uppercase backdrop-blur-sm">
+                <div className="top-[5.6rem] z-10 mt-4 grid grid-flow-col grid-rows-4 text-center font-heading uppercase backdrop-blur-sm md:grid-rows-2 lg:grid-rows-1">
                     <Button variant="outline" href="#co-directors">
                         {tOurTeam("codirectors")}
                     </Button>
@@ -289,7 +291,7 @@ export default function AboutPage() {
                     <b>{t("our_previous_partners_p_bold")}</b>, {t("our_previous_partners_p")}{" "}
                 </p>
                 <div className="flex items-center justify-center text-center">
-                    <div className="grid grid-cols-4 gap-8">
+                    <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
                         {/* This just fills the grid with 8 Warp logos for the time being */}
                         {Array(8)
                             .fill(0)
@@ -311,7 +313,7 @@ export default function AboutPage() {
                 </div>
             </div>
             {/* Be a part of our family */}
-            <div className="mb-24 mt-32 flex items-center justify-center gap-8">
+            <div className="mb-24 mt-16 flex flex-col items-center justify-center gap-8 px-4 lg:flex-row">
                 <div className="flex flex-col gap-2">
                     <p className="color-gradient font-mono">{t("our_family")}</p>
                     <h1 className="max-w-[28rem] font-heading text-3xl uppercase">
