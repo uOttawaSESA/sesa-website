@@ -7,21 +7,23 @@ import IconButton from "@/components/IconButton";
 
 const SponsorCard = () => {
     return (
-        <div className="my-36 flex h-[45rem] items-center justify-start gap-12 align-middle">
-            <div className="grid-overlay-left md:h-[43.93rem] md:w-[53vw]"></div>
+        <div className="my-20 flex flex-col items-center justify-start gap-12 px-4 md:my-36 md:h-[45rem] md:flex-row md:items-center md:px-0">
+            {/* Background Overlay (desktop only) */}
+            <div className="grid-overlay-left hidden md:block md:h-[43.93rem] md:w-[53vw]"></div>
 
-            <div className="relative z-10 lg:block">
+            {/* Sponsor Image */}
+            <div className="relative z-10">
                 <Image
                     src="/sponsors-page/sponsor-card-img.png"
                     alt="SESA Group Photo"
-                    className="h-[500px] w-auto"
+                    className="h-[300px] w-auto md:h-[500px]"
                     width={700}
                     height={700}
                 />
             </div>
 
+            {/* Text Content */}
             <div className="z-10 max-w-lg text-left text-white">
-                {/* Warp logo */}
                 <Image
                     src="/sponsors/warp.png"
                     alt="Warp logo"
@@ -29,7 +31,7 @@ const SponsorCard = () => {
                     height={20}
                     className="mb-4"
                 />
-                <div className="mt-3 font-heading text-2xl uppercase text-white">
+                <div className="mt-3 font-heading text-base uppercase text-white md:text-2xl">
                     &ldquo;The folks at SESA were{" "}
                     <span className="relative inline-block">
                         professional, communicative,
@@ -46,21 +48,23 @@ const SponsorCard = () => {
                 <div className="mt-4 flex items-center gap-3">
                     <CircleImage size={50} src="/sponsors-page/asad.png" alt="Asad" />
                     <div>
-                        <p className="text-m font-bold text-white">Jessica Wang</p>
-                        <p className="text-sm text-thistle">Product Growth at Warp</p>
+                        <p className="text-sm font-bold text-white md:text-base">Jessica Wang</p>
+                        <p className="text-xs text-thistle md:text-sm">Product Growth at Warp</p>
                     </div>
                 </div>
+
                 <div className="mt-6">
                     <Button
                         href="/pages/ContactUsPage"
-                        className="text-m font-heading uppercase text-white"
+                        className="font-heading text-sm uppercase text-white md:text-base"
                     >
                         Work With Us
                     </Button>
                 </div>
             </div>
+
             {/* Navigation Buttons */}
-            <div className="flex items-center gap-2">
+            <div className="mt-6 flex items-center gap-2 md:ml-4 md:mt-0">
                 <IconButton variant="outline">
                     <Image
                         src="/resources-page/arrow_backword.svg"

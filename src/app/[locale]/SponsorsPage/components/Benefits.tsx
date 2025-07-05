@@ -29,33 +29,31 @@ export default function Benefits() {
     ];
 
     return (
-        <div className="relative flex min-h-screen flex-col justify-center space-y-5 px-40 py-20">
+        <div className="relative flex min-h-screen flex-col justify-center space-y-5 px-6 py-10 md:px-40 md:py-20">
             {/* Header + Arrows Container */}
-            <div className="flex items-start justify-between">
-                <div className="w-1/2">
-                    <p className="color-gradient relative font-mono text-base">Benefits</p>
-                    <h2 className="mb-4 font-heading text-3xl uppercase text-white">
-                        <span className="block md:inline">CONNECT WITH </span>
-                        <span className="relative block md:inline">
-                            THE NEXT
+            <div className="flex flex-col space-y-6 md:flex-row md:items-start md:justify-between md:space-y-0">
+                <div className="md:w-1/2">
+                    <p className="color-gradient relative font-mono text-sm md:text-base">
+                        Benefits
+                    </p>
+                    <h2 className="mb-4 font-heading text-2xl uppercase text-white md:text-3xl">
+                        <span className="block md:inline">CONNECT WITH</span>{" "}
+                        <span className="relative inline-block">
+                            THE NEXT GENERATION
                             <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                         </span>{" "}
-                        <span className="relative block md:inline">
-                            GENERATION
-                            <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
-                        </span>
-                        <span className="block md:inline"> OF SOFTWARE ENGINEERS</span>
+                        <span className="block md:inline">OF SOFTWARE ENGINEERS</span>
                     </h2>
 
-                    <p className="mb-4 max-w-2xl text-base leading-tight text-thistle">
+                    <p className="mb-4 max-w-full text-sm leading-tight text-thistle md:max-w-2xl md:text-base">
                         Without our sponsors and partners, we would not be able to fund our events
                         and projects that provide SEG students with academic opportunities and
                         workplace experiences.
                     </p>
                 </div>
 
-                {/* Arrows in top right */}
-                <div className="flex gap-2 pt-6">
+                {/* Arrows */}
+                <div className="flex gap-2 self-start pt-2 md:self-auto md:pt-6">
                     <IconButton variant="outline">
                         <Image
                             src="/resources-page/arrow_backword.svg"
@@ -76,7 +74,7 @@ export default function Benefits() {
             </div>
 
             {/* Cards */}
-            <div className="mt-10 grid h-[450px] grid-cols-1 gap-8 md:grid-cols-3">
+            <div className="mt-10 grid grid-cols-1 gap-6 md:h-[450px] md:grid-cols-3">
                 {cards.map((card, index) => (
                     <div
                         key={index}
@@ -87,7 +85,7 @@ export default function Benefits() {
                             alt={card.title}
                             width={500}
                             height={300}
-                            className="h-48 w-full object-cover"
+                            className="h-40 w-full object-cover md:h-48"
                         />
                         <div className="p-4">
                             <div className="my-3 inline-block border-[1px] border-solid [border-image:linear-gradient(55deg,rgba(136,36,220,0.3)_41.93%,rgba(177,33,157,0.3)_81.89%)_1]">
@@ -99,10 +97,10 @@ export default function Benefits() {
                                     className="m-3"
                                 />
                             </div>
-                            <div className="mb-2 font-heading text-lg uppercase leading-snug text-white">
+                            <div className="mb-2 font-heading text-base uppercase leading-snug text-white md:text-lg">
                                 {card.title}
                             </div>
-                            <p className="font-sans text-lg leading-snug text-thistle">
+                            <p className="font-sans text-sm leading-snug text-thistle md:text-lg">
                                 {card.description}
                             </p>
                         </div>

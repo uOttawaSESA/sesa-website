@@ -10,13 +10,14 @@ interface SponsorsHeaderProps {
 
 const SponsorsHeader = ({ topText, title, bottomText, btn1, btn2 }: SponsorsHeaderProps) => {
     return (
-        <div className="mt-24 flex w-full justify-center px-6">
+        <div className="mt-16 flex w-full justify-center px-4 md:mt-24 md:px-6">
             {/* Content Container */}
             <div className="relative z-10 text-center">
-                <p className="relative inline-block !bg-clip-text font-mono text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
+                <p className="relative inline-block !bg-clip-text font-mono text-sm text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)] md:text-base">
                     {topText}
                 </p>
-                <h1 className="mx-auto mt-4 max-w-[18ch] font-heading text-5xl uppercase leading-tight text-white">
+
+                <h1 className="mx-auto mt-4 max-w-[18ch] font-heading text-3xl uppercase leading-snug text-white md:text-5xl md:leading-tight">
                     <span className="relative inline-block">
                         <span className="relative inline-block">
                             huge thanks
@@ -24,15 +25,20 @@ const SponsorsHeader = ({ topText, title, bottomText, btn1, btn2 }: SponsorsHead
                         </span>
                         <span> {title.replace(/huge thanks/i, "")}</span>
                     </span>
-                    <br />
                 </h1>
 
-                <p className="relative mx-auto mt-4 w-full max-w-[40rem] font-sans text-xl text-thistle">
+                <p className="relative mx-auto mt-4 w-full max-w-[40rem] font-sans text-sm text-thistle md:text-xl">
                     {bottomText}
                 </p>
-                <div className="mt-6 flex justify-center space-x-4 font-heading text-white">
-                    <Button className="font-heading text-lg uppercase">{btn1}</Button>
-                    <Button className="font-heading text-lg uppercase" variant="outline">
+
+                <div className="mt-6 flex flex-col items-center gap-3 font-heading text-white md:flex-row md:justify-center md:gap-4">
+                    <Button className="w-fit min-w-[12rem] text-sm uppercase md:text-lg">
+                        {btn1}
+                    </Button>
+                    <Button
+                        className="w-fit min-w-[12rem] text-sm uppercase md:text-lg"
+                        variant="outline"
+                    >
                         {btn2}
                     </Button>
                 </div>
