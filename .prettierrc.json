@@ -4,5 +4,7 @@
     "tabWidth": 4,
     "printWidth": 100,
     "endOfLine": "auto",
-    "plugins": ["prettier-plugin-tailwindcss"]
+    "plugins": ["prettier-plugin-tailwindcss"],
+    "tailwindAttributes": ["class", "className"],
+    "tailwindFunctions": ["cn", "cva"]
 }

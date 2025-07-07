@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-    "inline-flex place-items-center text-center transition-all ease-in-out text-lg uppercase font-heading",
+    "inline-flex place-items-center text-center font-heading text-lg uppercase transition-all ease-in-out",
     {
         variants: {
             variant: {
@@ -17,7 +17,7 @@ const buttonVariants = cva(
             },
             size: {
                 default: "px-6 py-3",
-                icon: "!p-3 aspect-square",
+                icon: "aspect-square !p-3",
             },
         },
         defaultVariants: {
