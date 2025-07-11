@@ -69,7 +69,7 @@ const Resources = () => {
                             <span className="text-gray opacity-50">&gt;</span>
                         </Button>
                         <Button
-                            className="text-center font-heading text-base uppercase md:text-lg"
+                            className="hidden text-center font-heading text-base uppercase md:text-lg lg:block"
                             variant="outline"
                             href="https://discord.com/invite/atYdx5HHCs"
                             external
@@ -77,7 +77,7 @@ const Resources = () => {
                             Join our discord
                         </Button>
                     </div>
-                    <div className="flex w-full items-center justify-center text-center font-mono text-sm text-thistle md:text-base">
+                    <div className="hidden w-full items-center justify-center text-center font-mono text-sm text-thistle md:text-base lg:flex">
                         <Image
                             src="/resources-page/thumbsup.svg"
                             alt="thumbsUp"
@@ -85,7 +85,7 @@ const Resources = () => {
                             height={25}
                             className="me-2 size-5 md:size-8"
                         ></Image>
-                        <p className="">95% average helpfulness, 1000+ students helped</p>
+                        <p>95% average helpfulness, 1000+ students helped</p>
                     </div>
                 </div>
             </section>
