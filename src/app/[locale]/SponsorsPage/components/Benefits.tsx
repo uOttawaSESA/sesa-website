@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import IconButton from "@/components/IconButton";
 import Image from "next/image";
 
@@ -26,12 +27,29 @@ export default function Benefits() {
             description:
                 "Increase your brand visibility, survey your target audience, or offer exclusive discounts to students attending uOttawa.",
         },
+        {
+            image: "/sponsors-page/benefits-4.png",
+            icon: "/sponsors-page/brand.png",
+            title: "ACCESS EXCLUSIVE EVENTS",
+            description:
+                "Participate in workshops, mentorship programs, and networking events tailored for sponsors and students alike.",
+        },
     ];
 
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const handlePrev = () => {
+        setCurrentIndex(prev => (prev === 0 ? cards.length - 1 : prev - 1));
+    };
+
+    const handleNext = () => {
+        setCurrentIndex(prev => (prev === cards.length - 1 ? 0 : prev + 1));
+    };
+
     return (
-        <div className="relative flex min-h-screen flex-col justify-center space-y-5 px-6 py-10 md:px-40 md:py-20">
-            {/* Header + Arrows Container */}
-            <div className="flex flex-col space-y-6 md:flex-row md:items-start md:justify-between md:space-y-0">
+        <div className="relative flex min-h-screen flex-col justify-center space-y-5 py-10 md:py-20">
+            {/* Header + Arrows */}
+            <div className="flex flex-col space-y-6 px-6 md:flex-row md:items-start md:justify-between md:space-y-0 md:px-40">
                 <div className="md:w-1/2">
                     <p className="color-gradient relative font-mono text-sm md:text-base">
                         Benefits
@@ -53,8 +71,8 @@ export default function Benefits() {
                 </div>
 
                 {/* Arrows */}
-                <div className="flex gap-2 self-start pt-2 md:self-auto md:pt-6">
-                    <IconButton variant="outline">
+                <div className="flex translate-y-3 gap-2 self-start md:translate-y-4">
+                    <IconButton variant="outline" onClick={handlePrev}>
                         <Image
                             src="/resources-page/arrow_backword.svg"
                             width={25}
@@ -62,7 +80,7 @@ export default function Benefits() {
                             alt="Left"
                         />
                     </IconButton>
-                    <IconButton variant="outline">
+                    <IconButton variant="outline" onClick={handleNext}>
                         <Image
                             src="/resources-page/arrow_forward.svg"
                             width={25}
@@ -73,39 +91,51 @@ export default function Benefits() {
                 </div>
             </div>
 
-            {/* Cards */}
-            <div className="mt-10 grid grid-cols-1 gap-6 md:h-[450px] md:grid-cols-3">
-                {cards.map((card, index) => (
-                    <div
-                        key={index}
-                        className="overflow-hidden border-[1px] border-solid text-left text-white backdrop-blur-super [border-image:linear-gradient(55deg,rgba(136,36,220,0.3)_41.93%,rgba(177,33,157,0.3)_81.89%)_1]"
-                    >
-                        <Image
-                            src={card.image}
-                            alt={card.title}
-                            width={500}
-                            height={300}
-                            className="h-40 w-full object-cover md:h-48"
-                        />
-                        <div className="p-4">
-                            <div className="my-3 inline-block border-[1px] border-solid [border-image:linear-gradient(55deg,rgba(136,36,220,0.3)_41.93%,rgba(177,33,157,0.3)_81.89%)_1]">
+            {/* Carousel - Shared Across Mobile & Desktop */}
+            <div className="relative mt-10 overflow-visible">
+                <div
+                    className="flex gap-6 pl-6 pr-6 transition-transform duration-500 ease-in-out md:gap-8 md:pl-40 md:pr-40"
+                    style={{
+                        transform: `translateX(-${currentIndex * (window.innerWidth < 768 ? 60 : 28)}vw)`,
+                    }}
+                >
+                    {cards.map((card, index) => (
+                        <div
+                            key={index}
+                            className="flex-shrink-0"
+                            style={{
+                                width: window.innerWidth < 768 ? "60vw" : "28vw",
+                            }}
+                        >
+                            <div className="overflow-hidden border-[1px] border-solid text-left text-white backdrop-blur-super [border-image:linear-gradient(55deg,rgba(136,36,220,0.3)_41.93%,rgba(177,33,157,0.3)_81.89%)_1]">
                                 <Image
-                                    src={card.icon}
-                                    alt={`${card.title} icon`}
-                                    width={24}
-                                    height={24}
-                                    className="m-3"
+                                    src={card.image}
+                                    alt={card.title}
+                                    width={500}
+                                    height={300}
+                                    className="h-40 w-full object-cover md:h-48"
                                 />
+                                <div className="p-4">
+                                    <div className="my-3 inline-block border-[1px] border-solid [border-image:linear-gradient(55deg,rgba(136,36,220,0.3)_41.93%,rgba(177,33,157,0.3)_81.89%)_1]">
+                                        <Image
+                                            src={card.icon}
+                                            alt={`${card.title} icon`}
+                                            width={24}
+                                            height={24}
+                                            className="m-3"
+                                        />
+                                    </div>
+                                    <div className="mb-2 font-heading text-base uppercase leading-snug text-white md:text-lg">
+                                        {card.title}
+                                    </div>
+                                    <p className="font-sans text-sm leading-snug text-thistle md:text-lg">
+                                        {card.description}
+                                    </p>
+                                </div>
                             </div>
-                            <div className="mb-2 font-heading text-base uppercase leading-snug text-white md:text-lg">
-                                {card.title}
-                            </div>
-                            <p className="font-sans text-sm leading-snug text-thistle md:text-lg">
-                                {card.description}
-                            </p>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </div>
     );

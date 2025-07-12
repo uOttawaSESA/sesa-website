@@ -5,7 +5,7 @@ const sponsors = [
         src: "/sponsors/ciena.png",
         alt: "Ciena",
         size: "col-span-2 sm:col-span-4 md:col-span-6",
-        style: { width: "14em", height: "6em" },
+        style: { width: "10em", height: "6em" },
     },
     {
         src: "/sponsors/shopify.png",
@@ -17,7 +17,7 @@ const sponsors = [
         src: "/sponsors/qnx.png",
         alt: "QNX",
         size: "col-span-1 sm:col-span-2 md:col-span-4",
-        style: { width: "10em", height: "5em" },
+        style: { width: "8em", height: "5em" },
     },
     {
         src: "/sponsors/nokia.png",
