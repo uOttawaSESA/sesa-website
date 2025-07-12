@@ -62,7 +62,7 @@ const SponsorCard2 = () => {
                 {/* Right Image */}
                 <div className="relative z-10 flex w-full justify-center md:justify-end">
                     <Image
-                        src="/sponsors-page/sponsor-card-img-2.png"
+                        src="/sponsors-page/sponsor-card-img-2.webp"
                         alt="SESA Team"
                         className="h-[300px] w-auto object-cover md:h-[500px]"
                         width={700}

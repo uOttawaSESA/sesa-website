@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 const sponsors = [
+    { src: "/sponsors/ciena.webp", alt: "Ciena", size: "col-span-6 h-48", width: 160, height: 80 },
     {
         src: "/sponsors/ciena.png",
         alt: "Ciena",
@@ -8,77 +9,42 @@ const sponsors = [
         style: { width: "10em", height: "6em" },
     },
     {
-        src: "/sponsors/shopify.png",
+        src: "/sponsors/shopify.webp",
         alt: "Shopify",
         size: "col-span-2 sm:col-span-4 md:col-span-6",
         style: { width: "13em", height: "6em" },
     },
+    { src: "/sponsors/qnx.webp", alt: "QNX", size: "col-span-4 h-36", width: 100, height: 50 },
+    { src: "/sponsors/nokia.webp", alt: "Nokia", size: "col-span-4 h-36", width: 140, height: 70 },
+    { src: "/sponsors/eef.webp", alt: "EEF", size: "col-span-4 h-36", width: 140, height: 70 },
+    { src: "/sponsors/warp.webp", alt: "Warp", size: "col-span-3 h-26", width: 70, height: 35 },
     {
-        src: "/sponsors/qnx.png",
-        alt: "QNX",
-        size: "col-span-1 sm:col-span-2 md:col-span-4",
-        style: { width: "8em", height: "5em" },
-    },
-    {
-        src: "/sponsors/nokia.png",
-        alt: "Nokia",
-        size: "col-span-1 sm:col-span-2 md:col-span-4",
-        style: { width: "11em", height: "5em" },
-    },
-    {
-        src: "/sponsors/eef.png",
-        alt: "EEF",
-        size: "col-span-1 sm:col-span-2 md:col-span-4",
-        style: { width: "11em", height: "5em" },
-    },
-    {
-        src: "/sponsors/warp.png",
-        alt: "Warp",
-        size: "col-span-1 sm:col-span-1 md:col-span-3",
-        style: { width: "8em", height: "4em" },
-    },
-    {
-        src: "/sponsors/surveymonkey.png",
+        src: "/sponsors/surveymonkey.webp",
         alt: "SurveyMonkey",
         size: "col-span-1 sm:col-span-1 md:col-span-3",
         style: { width: "10em", height: "5em" },
     },
     {
-        src: "/sponsors/bitesite.png",
+        src: "/sponsors/bitesite.webp",
         alt: "BiteSite",
         size: "col-span-1 sm:col-span-1 md:col-span-3",
         style: { width: "9em", height: "4.5em" },
     },
+    { src: "/sponsors/knak.webp", alt: "Knak", size: "col-span-3 h-26", width: 60, height: 30 },
     {
-        src: "/sponsors/knak.png",
-        alt: "Knak",
-        size: "col-span-1 sm:col-span-1 md:col-span-3",
-        style: { width: "7em", height: "4em" },
-    },
-    {
-        src: "/sponsors/redbull.png",
+        src: "/sponsors/redbull.webp",
         alt: "Red Bull",
         size: "col-span-1 sm:col-span-1 md:col-span-3",
         style: { width: "7em", height: "4em" },
     },
     {
-        src: "/sponsors/nationalbank.png",
+        src: "/sponsors/nationalbank.webp",
         alt: "National Bank",
         size: "col-span-1 sm:col-span-1 md:col-span-3",
         style: { width: "10em", height: "5em" },
     },
-    {
-        src: "/sponsors/solace.png",
-        alt: "Solace",
-        size: "col-span-1 sm:col-span-1 md:col-span-3",
-        style: { width: "9em", height: "4.5em" },
-    },
-    {
-        src: "/sponsors/aws.png",
-        alt: "AWS",
-        size: "col-span-1 sm:col-span-1 md:col-span-3",
-        style: { width: "6em", height: "3em" },
-    },
+    { src: "/sponsors/solace.webp", alt: "Solace", size: "col-span-3 h-26", width: 90, height: 45 },
+    { src: "/sponsors/aws.webp", alt: "AWS", size: "col-span-3 h-26", width: 50, height: 25 },
 ];
 
 const gradientBorderClass = `

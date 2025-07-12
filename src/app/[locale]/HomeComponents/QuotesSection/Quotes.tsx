@@ -53,7 +53,7 @@ const Quotes = () => {
                 <div className="grid-overlay-right absolute top-[10rem] md:h-[43.93rem] md:w-[48vw] 2xl:w-[32vw]"></div>
                 <div className="absolute right-0 top-[16.3rem] z-50 lg:block">
                     <Image
-                        src="/imgs/Home/goals/academic.png"
+                        src="/imgs/Home/goals/academic.webp"
                         alt="Quote Main Image"
                         className="w-full object-contain md:h-[500px] 2xl:h-[600px] 2xl:max-w-3xl"
                         width={700}

@@ -29,7 +29,7 @@ const FooterSection: React.FC = () => {
 
                 <div className="relative z-10 lg:block">
                     <Image
-                        src="/resources-page/ange-quote.png"
+                        src="/resources-page/ange-quote.webp"
                         alt="SESA Group Photo"
                         className="h-[500px] w-auto object-contain"
                         width={703}
@@ -49,7 +49,7 @@ const FooterSection: React.FC = () => {
                     </div>
                     <div className="my-3 flex items-center gap-4">
                         <Image
-                            src="/imgs/team/ange.png"
+                            src="/imgs/team/ange.webp"
                             alt="Ange Emmanuel"
                             className="z-10 h-14 w-14 rounded-full object-cover"
                             width={50}

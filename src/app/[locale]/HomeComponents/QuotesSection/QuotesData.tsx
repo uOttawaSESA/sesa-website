@@ -8,7 +8,7 @@ export const quotesData: Quote[] = [
         quote_part2: `of software engineers by connecting them with industry, 
         fostering collaboration, and creating opportunities for growth.`,
         buttonLink: "",
-        memberImg: "/imgs/team/rolf.png",
+        memberImg: "/imgs/team/rolf.webp",
         memberName: "Rolf Addoumie",
         memberRole: "Co-Director",
     },

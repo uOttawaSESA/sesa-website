@@ -14,7 +14,7 @@ const SponsorCard = () => {
             {/* Sponsor Image */}
             <div className="relative z-10">
                 <Image
-                    src="/sponsors-page/sponsor-card-img.png"
+                    src="/sponsors-page/sponsor-card-img.webp"
                     alt="SESA Group Photo"
                     className="h-[300px] w-auto md:h-[500px]"
                     width={700}
@@ -25,7 +25,7 @@ const SponsorCard = () => {
             {/* Text Content */}
             <div className="z-10 max-w-lg text-left text-white">
                 <Image
-                    src="/sponsors/warp.png"
+                    src="/sponsors/warp.webp"
                     alt="Warp logo"
                     width={70}
                     height={20}
@@ -46,7 +46,7 @@ const SponsorCard = () => {
                 </div>
 
                 <div className="mt-4 flex items-center gap-3">
-                    <CircleImage size={50} src="/sponsors-page/asad.png" alt="Asad" />
+                    <CircleImage size={50} src="/sponsors-page/asad.webp" alt="Asad" />
                     <div>
                         <p className="text-sm font-bold text-white md:text-base">Jessica Wang</p>
                         <p className="text-xs text-thistle md:text-sm">Product Growth at Warp</p>

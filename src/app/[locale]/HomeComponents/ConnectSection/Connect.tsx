@@ -10,7 +10,7 @@ const Connect = () => {
                     <div className="grid-overlay-left md:h-[43.93rem] md:w-[48vw] 2xl:w-[32vw]"></div>
                     <div className="relative z-10 lg:block">
                         <Image
-                            src="/imgs/Home/connectImage.png"
+                            src="/imgs/Home/connectImage.webp"
                             alt="Goal Main Image"
                             className="w-full object-contain md:h-[500px] 2xl:h-[600px] 2xl:max-w-3xl"
                             width={700}

@@ -47,7 +47,7 @@ export default function Hero() {
             {/* Right Side Image */}
             <div className="relative z-10 hidden lg:block">
                 <Image
-                    src="/imgs/Home/heroImage.png"
+                    src="/imgs/Home/heroImage.webp"
                     alt="SESA Group Photo"
                     className="h-[500px] w-[auto] object-cover"
                     width={703}

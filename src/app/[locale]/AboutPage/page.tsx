@@ -14,10 +14,10 @@ export const generateStaticParams = localeParams;
 
 export default function AboutPage() {
     const images = [
-        "/imgs/team/ange.png",
-        "/imgs/team/ange.png",
-        "/imgs/team/ange.png",
-        "/imgs/team/ange.png",
+        "/imgs/team/ange.webp",
+        "/imgs/team/ange.webp",
+        "/imgs/team/ange.webp",
+        "/imgs/team/ange.webp",
     ];
 
     const codirectors = useMemo(
@@ -85,7 +85,7 @@ export default function AboutPage() {
                 <div className="mt-6 flex justify-center">
                     <Image
                         className="outline-gradient h-[600px] w-[1000px] object-cover"
-                        src="/imgs/about/team-1.png"
+                        src="/imgs/about/team-1.webp"
                         width={1000}
                         height={600}
                         alt="Team picture"
@@ -157,7 +157,7 @@ export default function AboutPage() {
                 {/* Cards for "What do we do" */}
                 <div className="mb-8 flex w-full gap-8 overflow-x-scroll lg:justify-center">
                     <WhatWeDoCard
-                        imageHref="/imgs/about/social-events.png"
+                        imageHref="/imgs/about/social-events.webp"
                         icon={
                             <Image
                                 src="/icons/rocket-plain.svg"
@@ -172,7 +172,7 @@ export default function AboutPage() {
                         linkHref="/events"
                     />
                     <WhatWeDoCard
-                        imageHref="/imgs/about/academic-support.png"
+                        imageHref="/imgs/about/academic-support.webp"
                         icon={
                             <Image
                                 src="/icons/school-plain.svg"
@@ -187,7 +187,7 @@ export default function AboutPage() {
                         linkHref="/resources"
                     />
                     <WhatWeDoCard
-                        imageHref="/imgs/about/professional-development.png"
+                        imageHref="/imgs/about/professional-development.webp"
                         icon={
                             <Image
                                 src="/icons/briefcase-plain.svg"
@@ -337,7 +337,7 @@ export default function AboutPage() {
                 </div>
                 <Image
                     className="outline-gradient h-[500px] w-[700px] object-cover"
-                    src="/imgs/about/team-1.png"
+                    src="/imgs/about/team-1.webp"
                     width={700}
                     height={500}
                     alt="Team picture"
