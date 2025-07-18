@@ -5,12 +5,12 @@ import { CarouselItem } from "@/components/ui/carousel";
 
 export const QuoteCard: React.FC<{ quote: Quote }> = ({ quote }) => {
     return (
-        <CarouselItem className="flex justify-center">
-            <div className="flex max-w-md flex-col items-center text-center md:max-w-lg xl:max-w-2xl xl:items-start xl:text-left">
+        <CarouselItem className="flex justify-center lg:justify-center">
+            <div className="flex max-w-xs flex-col items-center text-center md:max-w-lg xl:max-w-2xl xl:items-start xl:text-left">
                 <p className="font-monocode relative inline-block !bg-clip-text text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
                     {quote.heading}
                 </p>
-                <h1 className="my-2 pe-8 font-heading text-2xl uppercase leading-tight md:pe-0 md:text-3xl xl:text-4xl">
+                <h1 className="my-2 font-heading text-2xl uppercase leading-tight md:text-3xl xl:text-4xl">
                     <q>
                         {quote.quote_part1}&nbsp;
                         <span className="relative inline-block">

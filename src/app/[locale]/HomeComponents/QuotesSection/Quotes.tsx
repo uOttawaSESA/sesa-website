@@ -13,14 +13,14 @@ const Quotes = () => {
     return (
         <section className="relative text-white">
             <div className="grid-overlay-right absolute -top-24 xl:h-[43.93rem] xl:w-[48vw] 2xl:w-[32vw]"></div>
-            <div className="flex gap-8 xl:flex-row">
-                <Carousel className="flex w-full flex-col items-center ps-8 xl:items-start xl:ps-32">
+            <div className="flex flex-col xl:flex-row xl:gap-8">
+                <Carousel className="flex flex-col xl:items-start xl:ps-32">
                     <CarouselContent>
                         {quotesData.map((quote, index) => (
                             <QuoteCard key={`quote:${index}`} quote={quote} />
                         ))}
                     </CarouselContent>
-                    <div className="mt-8 flex justify-center gap-4 md:justify-start">
+                    <div className="mt-8 flex justify-center gap-4 xl:justify-start">
                         <CarouselPrevious className="relative left-0 top-0 translate-y-0" />
                         <CarouselNext className="relative right-0 top-0 translate-y-0" />
                     </div>
