@@ -7,13 +7,12 @@ export default function Hero() {
     const t = useTranslations("homepage");
 
     return (
-        <section className="relative mt-8 flex h-max w-full items-center justify-between gap-8 ps-8 text-white md:ps-20 xl:ps-32">
+        <section className="xl:items-between mb-8 mt-8 flex h-max w-full flex-col items-start justify-between gap-24 text-white lg:flex-row">
             {/* Grid Gradient Back */}
-            <div className="grid-overlay-right xl:-me-32 xl:h-[43.93rem] xl:w-[53vw]"></div>
 
             {/* Content Container */}
 
-            <div className="relative z-10 max-w-72 sm:max-w-md md:max-w-2xl">
+            <div className="relative z-10 max-w-72 ps-8 sm:max-w-md md:max-w-2xl md:ps-20 xl:ps-32">
                 <p className="font-monocode relative inline-block !bg-clip-text text-left text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
                     {t("we_are_sesa")}
                 </p>
@@ -46,14 +45,15 @@ export default function Hero() {
             </div>
 
             {/* Right Side Image */}
-            <div className="relative z-10 hidden xl:block">
+            <div className="relative w-full">
                 <Image
                     src="/imgs/Home/heroImage.webp"
                     alt="SESA Group Photo"
-                    className="h-[500px] w-auto object-cover"
-                    width={703}
+                    className="relative z-10 h-[250px] w-full object-cover sm:h-[400px] md:h-[600px] lg:h-[500px]"
+                    width={700}
                     height={700}
                 />
+                <div className="grid-overlay-right -top-12 z-0 h-[350px] w-full sm:h-[500px] md:h-[700px] lg:-top-24 lg:h-[43.9rem] lg:w-[53vw]"></div>
             </div>
         </section>
     );
