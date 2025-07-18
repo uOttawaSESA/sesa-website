@@ -20,14 +20,14 @@ export default function Events() {
                 <p className="font-monocode relative inline-block !bg-clip-text text-left text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
                     {t("events")}
                 </p>
-                <h1 className="mt-4 font-heading text-2xl uppercase leading-tight md:text-5xl">
+                <h1 className="my-2 font-heading text-2xl uppercase leading-tight md:text-5xl">
                     <span className="relative inline-block">
                         {t("events_heading_hl")}
                         <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                     </span>{" "}
                     {t("events_heading")}
                 </h1>
-                <p className="relative flex items-center text-left font-sans text-lg text-thistle md:text-xl">
+                <p className="relative flex items-center text-left font-sans text-base text-thistle md:text-lg">
                     {t("events_subheading")}
                 </p>
 
