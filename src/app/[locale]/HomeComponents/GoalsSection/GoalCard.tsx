@@ -16,20 +16,21 @@ export const GoalCard: React.FC<{ goal: Goal }> = ({ goal }) => {
         mainImg,
     } = goal;
     return (
-        <div className="flex w-full flex-col items-start justify-start gap-4 xl:h-[45rem] xl:flex-row xl:items-center xl:gap-12">
+        <div className="flex h-full w-full flex-col items-start justify-between gap-16 lg:flex-row lg:items-center lg:justify-start lg:gap-12 xl:h-[45rem]">
             {/* Left Image */}
-            <div className="z-10">
+            <div className="relative order-2 w-full lg:order-1 lg:w-1/2">
                 <Image
                     src={mainImg}
                     alt="Goal Main Image"
-                    className="h-[300px] object-cover md:h-[400px] xl:h-[500px] 2xl:h-[600px] 2xl:max-w-3xl"
+                    className="relative z-10 mb-12 h-[250px] w-full object-cover sm:h-[400px] md:h-[600px] lg:mt-12 lg:h-[500px]"
                     width={700}
                     height={700}
                 />
+                <div className="grid-overlay-left -top-12 z-0 h-[350px] w-full sm:h-[500px] md:h-[700px] lg:-top-12 lg:h-[43.9rem] lg:w-[53vw]"></div>
             </div>
 
             {/* Content */}
-            <div className="flex w-full max-w-lg flex-col gap-4 md:max-w-xl xl:max-w-sm">
+            <div className="order-1 flex h-full w-full max-w-lg flex-col justify-center gap-4 px-8 md:max-w-xl lg:order-2 lg:max-w-md">
                 <p className="font-monocode relative inline-block !bg-clip-text text-left text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
                     {goalType}
                 </p>
@@ -47,7 +48,7 @@ export const GoalCard: React.FC<{ goal: Goal }> = ({ goal }) => {
 
                 <Button
                     href={buttonLink}
-                    className="w-max text-center font-heading text-lg uppercase md:mt-6"
+                    className="w-max text-center font-heading text-lg uppercase"
                 >
                     {buttonText}
                 </Button>
