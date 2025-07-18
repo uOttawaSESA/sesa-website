@@ -8,10 +8,7 @@ export default function Hero() {
 
     return (
         <section className="xl:items-between mb-8 mt-8 flex h-max w-full flex-col items-start justify-between gap-24 text-white lg:flex-row">
-            {/* Grid Gradient Back */}
-
             {/* Content Container */}
-
             <div className="relative z-10 max-w-72 ps-8 sm:max-w-md md:max-w-2xl md:ps-20 xl:ps-32">
                 <p className="font-monocode relative inline-block !bg-clip-text text-left text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
                     {t("we_are_sesa")}
