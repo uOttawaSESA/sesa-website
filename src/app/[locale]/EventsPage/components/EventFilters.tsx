@@ -42,7 +42,7 @@ const EventFilters: React.FC<{
     };
 
     return (
-        <div className="-mb-6 mt-8 flex items-center justify-between">
+        <div className="mx-4 -mb-6 mt-8 flex items-center justify-between">
             {/* Left Side: Time Filters */}
             <div className="flex flex-wrap gap-4">
                 {timeFilters.map(filter => (
