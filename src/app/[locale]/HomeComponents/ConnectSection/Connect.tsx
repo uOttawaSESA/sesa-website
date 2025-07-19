@@ -5,18 +5,20 @@ const Connect = () => {
     return (
         <>
             <section>
-                <div className="flex flex-col gap-4 px-8 md:px-20 xl:flex-row xl:items-center xl:gap-12 xl:ps-0">
+                <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:gap-0">
                     {/* Left Image */}
-                    <div className="grid-overlay-left xl:h-[38rem] xl:w-[48vw] 2xl:w-[32vw]"></div>
-                    <Image
-                        src="/imgs/Home/connectImage.png"
-                        alt="Goal Main Image"
-                        className="z-10 w-min object-contain xl:h-[500px] xl:w-[600px] 2xl:h-[600px] 2xl:max-w-3xl"
-                        width={700}
-                        height={700}
-                    />
+                    <div className="relative my-4 lg:w-1/2">
+                        <Image
+                            src="/imgs/Home/connectImage.png"
+                            alt="Goal Main Image"
+                            className="relative z-10 mb-12 h-[250px] w-full object-cover sm:h-[400px] md:h-[600px] lg:mt-12 lg:h-[500px]"
+                            width={700}
+                            height={700}
+                        />
+                        <div className="grid-overlay-left -top-12 z-0 h-[350px] w-full sm:h-[500px] md:h-[700px] lg:-top-12 lg:h-[43.9rem] lg:w-[53vw]"></div>
+                    </div>
 
-                    <div className="flex flex-col gap-2">
+                    <div className="flex w-full flex-col gap-2 px-8 md:px-20 lg:max-w-xl lg:px-8">
                         <p className="font-monocode relative inline-block !bg-clip-text text-left text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
                             Connect with us
                         </p>
