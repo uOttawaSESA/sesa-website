@@ -39,7 +39,7 @@ export const membersData: Member[] = [
         name: "Asad Ali",
         team: "Co-directors",
         role: "Co-Director",
-        imgPath: "/imgs/team/asad.jpg",
+        imgPath: "/imgs/team/asad.webp",
         linkedin: "https://www.linkedin.com/in/asadbinali/",
         github: "https://github.com/Twoos123",
         email: "masadbali190@gmail.com",

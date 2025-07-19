@@ -19,7 +19,7 @@ export const quotesData: Quote[] = [
         quote_part2:
             "where software engineering students can grow, connect, and get closer to the future they’re aiming for.",
         buttonLink: "",
-        memberImg: "/imgs/team/asad.jpg",
+        memberImg: "/imgs/team/asad.webp",
         memberName: "Asad Ali",
         memberRole: "Co-Director",
     },
