@@ -1,5 +1,6 @@
 import Button from "@/components/Button";
 import CircleImage from "@/components/CircleImage";
+import { TeamBadgeStack } from "@/components/TeamBadgeStack";
 import Metric from "@/components/Metric";
 import Image from "next/image";
 import TeamMembers from "./TeamMembers";
@@ -13,12 +14,7 @@ import localeParams from "../../data/locales";
 export const generateStaticParams = localeParams;
 
 export default function AboutPage() {
-    const images = [
-        "/imgs/team/ange.webp",
-        "/imgs/team/ange.webp",
-        "/imgs/team/ange.webp",
-        "/imgs/team/ange.webp",
-    ];
+    const memberImages = ["/imgs/team/rolf.webp", "/imgs/team/asad.webp", "/imgs/team/rayen.webp"];
 
     const codirectors = useMemo(
         () => membersData.filter(member => member.team === "Co-directors"),
@@ -69,8 +65,8 @@ export default function AboutPage() {
                             {t("join_our_family")}
                         </Button>
                     </div>
-                    <div className="flex flex-nowrap items-center">
-                        {images.map((src, i) => (
+                    <div className="ml-3 flex flex-nowrap items-center">
+                        {/* {memberImages.map((src, i) => (
                             <CircleImage
                                 src={src}
                                 key={i}
@@ -78,7 +74,8 @@ export default function AboutPage() {
                                 size={56}
                                 className={(i & 1) === 1 ? "-m-5" : undefined}
                             />
-                        ))}
+                        ))} */}
+                        <TeamBadgeStack imgs={memberImages} />
                     </div>
                 </div>
                 {/* Images (TODO) */}
