@@ -164,7 +164,7 @@ export default function Navbar() {
             >
                 <nav className="mt-16 flex flex-col items-center gap-8 py-10">
                     {navItems}
-                    <Link href="/SponsorsPage">
+                    <Link href="/SponsorsPage" onClick={() => setIsMobileMenuOpen(false)}>
                         <Button className="font-heading text-base uppercase text-white">
                             {t("sponsor_us")}
                         </Button>
