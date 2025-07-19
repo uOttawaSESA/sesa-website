@@ -15,6 +15,16 @@ export const generateStaticParams = localeParams;
 
 export default function AboutPage() {
     const memberImages = ["/imgs/team/rolf.webp", "/imgs/team/asad.webp", "/imgs/team/rayen.webp"];
+    const beyonSesaCompanies = [
+        { src: "/imgs/about/beyond-sesa/dropbox.webp", alt: "Dropbox", width: 75, height: 75 },
+        { src: "/imgs/about/beyond-sesa/meta.webp", alt: "Meta", width: 150, height: 75 },
+        { src: "/imgs/about/beyond-sesa/cisco.webp", alt: "Cisco", width: 100, height: 75 },
+        { src: "/imgs/about/beyond-sesa/amazon.webp", alt: "Amazon", width: 100, height: 75 },
+        { src: "/imgs/about/beyond-sesa/google.webp", alt: "Google", width: 100, height: 75 },
+        { src: "/imgs/about/beyond-sesa/apple.webp", alt: "Apple", width: 120, height: 75 },
+        { src: "/imgs/about/beyond-sesa/shopify.webp", alt: "Shopify", width: 140, height: 75 },
+        { src: "/imgs/about/beyond-sesa/ibm.webp", alt: "IBM", width: 100, height: 75 },
+    ];
 
     const codirectors = useMemo(
         () => membersData.filter(member => member.team === "Co-directors"),
@@ -51,7 +61,7 @@ export default function AboutPage() {
                     <h1 className="max-w-96 font-heading text-4xl uppercase">
                         {t("inspiring_heading")}
                     </h1>
-                    <p className="max-w-[28rem] text-gray-400">{t("inspiring_blurb")}</p>
+                    <p className="max-w-[28rem] text-thistle">{t("inspiring_blurb")}</p>
                     <div className="my-2 flex gap-2 font-heading uppercase">
                         <Button href="#introducing-our-team" className="font-heading uppercase">
                             {t("meet_the_team")}
@@ -66,15 +76,6 @@ export default function AboutPage() {
                         </Button>
                     </div>
                     <div className="ml-3 flex flex-nowrap items-center">
-                        {/* {memberImages.map((src, i) => (
-                            <CircleImage
-                                src={src}
-                                key={i}
-                                alt="Profile picture"
-                                size={56}
-                                className={(i & 1) === 1 ? "-m-5" : undefined}
-                            />
-                        ))} */}
                         <TeamBadgeStack imgs={memberImages} />
                     </div>
                 </div>
@@ -98,10 +99,10 @@ export default function AboutPage() {
                             <div className="highlight-gradient" />
                         </span>
                     </h1>
-                    <p className="text-gray-400">
+                    <p className="text-thistle">
                         <b>{t("who_are_we_p1_bold")}</b>, {t("who_are_we_p1")}{" "}
                     </p>
-                    <p className="my-2 text-gray-400">
+                    <p className="my-2 text-thistle">
                         <b>{t("who_are_we_p2_bold")}</b> {t("who_are_we_p2")}
                     </p>
                     <Button href="#introducing-our-team" className="w-fit font-heading uppercase">
@@ -143,7 +144,7 @@ export default function AboutPage() {
                         </span>
                     </h1>
                     <div className="max-w-[28rem]">
-                        <p className="text-gray-400">
+                        <p className="text-thistle">
                             <b>{t("what_do_we_do_p_bold")}</b> {t("what_do_we_do_p")}
                         </p>
                     </div>
@@ -212,7 +213,7 @@ export default function AboutPage() {
                         </span>{" "}
                         {t("introducing_our_team_heading")}
                     </h1>
-                    <p className="max-w-[32rem] text-lg leading-tight text-gray-400">
+                    <p className="max-w-[32rem] text-lg leading-tight text-thistle">
                         {t("introducing_our_team_blurb")}
                     </p>
                 </div>
@@ -284,28 +285,25 @@ export default function AboutPage() {
                         <div className="highlight-gradient" />
                     </span>
                 </h1>
-                <p className="max-w-[32rem] text-lg leading-tight text-gray-400">
+                <p className="max-w-[32rem] text-lg leading-tight text-thistle">
                     <b>{t("our_previous_partners_p_bold")}</b>, {t("our_previous_partners_p")}{" "}
                 </p>
-                <div className="flex items-center justify-center text-center">
+                <div className="mt-10 flex items-center justify-center text-center">
                     <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
-                        {/* This just fills the grid with 8 Warp logos for the time being */}
-                        {Array(8)
-                            .fill(0)
-                            .map((_, i) => (
-                                <div
-                                    className="outline-gradient flex h-36 w-64 items-center justify-center"
-                                    key={i}
-                                >
-                                    <Image
-                                        src="/sponsors/warp.svg"
-                                        width={192}
-                                        height={75}
-                                        alt="Warp Logo"
-                                        className="w-48"
-                                    />
-                                </div>
-                            ))}
+                        {beyonSesaCompanies.map((company, i) => (
+                            <div
+                                className="outline-gradient flex h-36 w-64 items-center justify-center"
+                                key={i}
+                            >
+                                <Image
+                                    src={company.src}
+                                    width={company.width}
+                                    height={company.height}
+                                    alt={company.alt}
+                                    className="max-w-[150px] brightness-0 invert filter"
+                                />
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
@@ -320,7 +318,7 @@ export default function AboutPage() {
                             <div className="highlight-gradient" />
                         </span>
                     </h1>
-                    <p className="max-w-[28rem] text-lg leading-tight text-gray-400">
+                    <p className="max-w-[28rem] text-lg leading-tight text-thistle">
                         <b>{t("our_family_p_bold")}</b>. {t("our_family_p")}
                     </p>
                     <Button
@@ -330,7 +328,7 @@ export default function AboutPage() {
                     >
                         {t("apply_now")}
                     </Button>
-                    <p className="max-w-[28rem] font-mono text-gray-400">{t("no_more_apps")}</p>
+                    <p className="max-w-[28rem] font-mono text-thistle">{t("no_more_apps")}</p>
                 </div>
                 <Image
                     className="outline-gradient h-[500px] w-[700px] object-cover"
