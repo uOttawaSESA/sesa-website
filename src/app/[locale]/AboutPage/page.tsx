@@ -243,7 +243,7 @@ export default function AboutPage() {
                 </div>
                 <br />
                 {/* TODO: Add horizontal scrolling if the members don't all fit onscreen. */}
-                <div className="flex flex-col gap-8">
+                <div className="mt-16 flex flex-col gap-24">
                     <TeamMembers
                         title={tOurTeam("codirectors")}
                         description={tOurTeam("codirectors_desc")}
@@ -277,7 +277,7 @@ export default function AboutPage() {
                 </div>
 
                 {/* Beyond SESA */}
-                <div className="align-center mt-10 flex flex-col items-center gap-3 text-center">
+                <div className="align-center mt-24 flex flex-col items-center gap-3 text-center">
                     <p className="color-gradient font-mono">{t("our_previous_partners")}</p>
                     <h1 className="font-heading text-3xl uppercase">
                         <span className="relative inline-block">
