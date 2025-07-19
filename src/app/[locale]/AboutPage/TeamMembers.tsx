@@ -68,10 +68,10 @@ function memberToIcons(member: Member) {
 
 export default function TeamMembers({ title, description, people }: Props) {
     return (
-        <div id={title.toLowerCase()} className="scroll-mt-[100px]">
-            <h2 className="font-heading text-2xl uppercase">{title}</h2>
+        <div id={title.toLowerCase()} className="mb-20 scroll-mt-[100px]">
+            <h2 className="mb-3 font-heading text-xl uppercase">{title}</h2>
             <p className="mb-4 max-w-md text-lg leading-tight text-thistle">{description} </p>
-            <div className="flex gap-2 overflow-x-auto">
+            <div className="mt-10 flex gap-2 overflow-x-auto">
                 {people.map(person => (
                     <div className="outline-gradient w-64 min-w-64" key={person.name}>
                         <Image
