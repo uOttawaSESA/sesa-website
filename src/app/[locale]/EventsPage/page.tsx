@@ -71,7 +71,7 @@ const EventsPage = () => {
     const totalPages = Math.ceil(filteredEvents.length / eventsPerPage);
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-gray-100 via-blueviolet-200 to-[#361D49] font-heading text-white">
+        <div className="via-blueviolet-200 font-heading min-h-screen bg-gradient-to-b from-gray-100 to-[#361D49] text-white">
             <div className="mx-auto flex max-w-7xl flex-col justify-center">
                 <Header />
                 <EventFilters
@@ -81,7 +81,7 @@ const EventsPage = () => {
 
                 {filteredEvents.length === 0 ? (
                     <div className="flex h-[calc(100vh-200px)] items-center justify-center">
-                        <div className="flex h-[85%] w-[100%] max-w-7xl flex-col items-center justify-center gap-9 rounded-none border-2 border-blueviolet-100/70 p-20 text-center font-heading text-2xl text-white">
+                        <div className="border-blueviolet-100/70 font-heading flex h-[85%] w-[100%] max-w-7xl flex-col items-center justify-center gap-9 rounded-none border-2 p-20 text-center text-2xl text-white">
                             <Image
                                 src="/icons/calendar-empty.svg"
                                 alt="Coming Soon Icon"

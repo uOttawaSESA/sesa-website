@@ -10,12 +10,12 @@ export const QuoteCard: React.FC<{ quote: Quote }> = ({ quote }) => {
                 <p className="font-monocode relative inline-block !bg-clip-text text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
                     {quote.heading}
                 </p>
-                <h1 className="my-2 font-heading text-2xl uppercase leading-tight md:text-3xl xl:text-4xl">
+                <h1 className="font-heading my-2 text-2xl leading-tight uppercase md:text-3xl xl:text-4xl">
                     <q>
                         {quote.quote_part1}&nbsp;
                         <span className="relative inline-block">
                             {quote.highlightQuote}
-                            <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                            <div className="animate-highlight absolute top-0 right-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                         </span>{" "}
                         {quote.quote_part2}
                     </q>
@@ -30,14 +30,14 @@ export const QuoteCard: React.FC<{ quote: Quote }> = ({ quote }) => {
                         height={50}
                     />
                     <div>
-                        <p className="z-20 font-heading text-xl uppercase">{quote.memberName}</p>
+                        <p className="font-heading z-20 text-xl uppercase">{quote.memberName}</p>
                         <p className="text-sm opacity-70">{quote.memberRole}</p>
                     </div>
                 </div>
                 <div className="mt-6 flex">
                     <Link
                         href={quote.buttonLink}
-                        className="fill-gradient relative z-10 px-2 py-2 font-heading text-sm uppercase transition-all ease-in-out md:px-6 md:py-3 md:text-lg"
+                        className="fill-gradient font-heading relative z-10 px-2 py-2 text-sm uppercase transition-all ease-in-out md:px-6 md:py-3 md:text-lg"
                     >
                         See our story
                     </Link>

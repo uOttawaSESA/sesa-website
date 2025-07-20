@@ -36,7 +36,7 @@ const FooterSection: React.FC = () => {
                         “{t("education_quote_1")}{" "}
                         <span className="relative inline-block">
                             {t("education_quote_1_hl")}
-                            <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                            <div className="animate-highlight absolute top-0 right-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                         </span>
                         {t("education_quote_2")}.”
                     </div>
@@ -49,7 +49,7 @@ const FooterSection: React.FC = () => {
                             height={50}
                         />
                         <div>
-                            <p className="z-20 mt-4 font-heading text-xl">ANGE EMMANUEL</p>
+                            <p className="font-heading z-20 mt-4 text-xl">ANGE EMMANUEL</p>
                             <p className="text-sm opacity-70">{t("academic_lead")}</p>
                         </div>
                     </div>
@@ -57,7 +57,7 @@ const FooterSection: React.FC = () => {
                     <div className="mt-10 md:mt-6">
                         <Button
                             href="/pages/TeamPage"
-                            className="relative z-10 font-heading text-lg uppercase"
+                            className="font-heading relative z-10 text-lg uppercase"
                         >
                             {t("btn_join_team")}
                         </Button>
@@ -69,7 +69,7 @@ const FooterSection: React.FC = () => {
                                 height={20}
                                 className="h-5 w-5"
                             />
-                            <div className="font-mono leading-[100%] text-thistle">
+                            <div className="text-thistle font-mono leading-[100%]">
                                 {t("avg_helpfulness", { percentage: "95" })},{" "}
                                 {t("students_helped", { students: "1000+" })}
                             </div>

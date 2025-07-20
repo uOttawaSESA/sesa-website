@@ -19,14 +19,14 @@ const FAQ = () => {
             <section className="flex flex-col gap-8 px-8 text-white md:px-20 xl:px-32">
                 <div className="flex flex-col items-center justify-center gap-2">
                     <p className="font-monocode color-gradient">Frequently asked questions</p>
-                    <h1 className="text-center font-heading text-2xl uppercase leading-tight md:text-5xl">
+                    <h1 className="font-heading text-center text-2xl leading-tight uppercase md:text-5xl">
                         Got Questions?&nbsp;
                         <span className="relative inline-block">
                             We&apos;ve got answers!
-                            <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                            <div className="animate-highlight absolute top-0 right-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                         </span>
                     </h1>
-                    <p className="max-w-sm text-center font-sans text-base text-thistle md:max-w-lg md:text-lg xl:max-w-xl xl:text-xl">
+                    <p className="text-thistle max-w-sm text-center font-sans text-base md:max-w-lg md:text-lg xl:max-w-xl xl:text-xl">
                         We have A’s to your Q’s below. If you still have questions, contact us and
                         we’ll get back to you as soon as possible.
                     </p>
@@ -44,10 +44,10 @@ const FAQ = () => {
                                 className="outline-gradient w-full overflow-hidden rounded-br-2xl border"
                             >
                                 <AccordionItem value="item-1" className="border-purple-600 px-4">
-                                    <AccordionTrigger className="py-4 font-heading text-base text-white md:text-lg">
+                                    <AccordionTrigger className="font-heading py-4 text-base text-white md:text-lg">
                                         WHAT IS SESA?
                                     </AccordionTrigger>
-                                    <AccordionContent className="font-sans text-base text-thistle md:text-lg">
+                                    <AccordionContent className="text-thistle font-sans text-base md:text-lg">
                                         <b>SESA</b> is the University of Ottawa{" "}
                                         <b>Software Engineering Students Association</b>! We’re an
                                         informally and independently run student organization with
@@ -98,10 +98,10 @@ const FAQ = () => {
                                     </AccordionContent>
                                 </AccordionItem>
                                 <AccordionItem value="item-2" className="border-purple-600 px-4">
-                                    <AccordionTrigger className="py-4 font-heading text-base text-white md:text-lg">
+                                    <AccordionTrigger className="font-heading py-4 text-base text-white md:text-lg">
                                         WHO CAN JOIN?
                                     </AccordionTrigger>
-                                    <AccordionContent className="font-sans text-base text-thistle md:text-lg">
+                                    <AccordionContent className="text-thistle font-sans text-base md:text-lg">
                                         <b>SESA events are open to everyone</b> — not just software
                                         engineering students!
                                         <br />
@@ -134,10 +134,10 @@ const FAQ = () => {
                                     </AccordionContent>
                                 </AccordionItem>
                                 <AccordionItem value="item-3" className="border-purple-600 px-4">
-                                    <AccordionTrigger className="py-4 font-heading text-base text-white md:text-lg">
+                                    <AccordionTrigger className="font-heading py-4 text-base text-white md:text-lg">
                                         WHAT MAKES SESA SPECIAL?
                                     </AccordionTrigger>
-                                    <AccordionContent className="font-sans text-base text-thistle md:text-lg">
+                                    <AccordionContent className="text-thistle font-sans text-base md:text-lg">
                                         <b>SESA is run by students, for students</b>, with a focus
                                         on <b>community</b>, <b>collaboration</b>, and{" "}
                                         <b>creating opportunities</b>.
@@ -148,10 +148,10 @@ const FAQ = () => {
                                     </AccordionContent>
                                 </AccordionItem>
                                 <AccordionItem value="item-4" className="border-purple-600 px-4">
-                                    <AccordionTrigger className="py-4 font-heading text-base text-white md:text-lg">
+                                    <AccordionTrigger className="font-heading py-4 text-base text-white md:text-lg">
                                         WHAT EVENTS DOES SESA HOST?
                                     </AccordionTrigger>
-                                    <AccordionContent className="font-sans text-base text-thistle md:text-lg">
+                                    <AccordionContent className="text-thistle font-sans text-base md:text-lg">
                                         <span>{`SESA hosts tech-related events each year at the University of Ottawa, including `}</span>
                                         <b>
                                             technical workshops, career fairs, meet and greets, mock
@@ -179,7 +179,7 @@ const FAQ = () => {
                     </div>
                 </div>
 
-                <div className="flex items-center justify-center gap-4 text-center font-heading uppercase">
+                <div className="font-heading flex items-center justify-center gap-4 text-center uppercase">
                     <h2 className="w-max text-base md:text-xl">Did we miss something?</h2>
                     <Link href={`/${locale}/ContactUsPage`}>
                         <Button className="text-sm md:text-lg">
@@ -187,7 +187,7 @@ const FAQ = () => {
                         </Button>
                     </Link>
                 </div>
-                <p className="text-center text-sm text-thistle md:text-xl">
+                <p className="text-thistle text-center text-sm md:text-xl">
                     We&apos;ll get back to you within 48 hours.
                 </p>
             </section>

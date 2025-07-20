@@ -17,7 +17,7 @@ const ContactUsPage: React.FC = () => {
 
             <div className="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-gray-100 to-transparent" />
 
-            <div className="md:pt-26 relative px-8 pb-16 pt-24 font-heading text-white md:px-12 md:pb-20 lg:px-16 xl:px-24">
+            <div className="font-heading relative px-8 pt-24 pb-16 text-white md:px-12 md:pt-26 md:pb-20 lg:px-16 xl:px-24">
                 <div className="mx-auto flex max-w-7xl flex-col gap-12 md:flex-row md:gap-16">
                     <div className="flex flex-1 justify-center">
                         <ContactDetails />

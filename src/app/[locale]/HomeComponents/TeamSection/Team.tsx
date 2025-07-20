@@ -17,30 +17,30 @@ const Team = () => {
                         <Image src="/logo-filled.svg" width={50} height={50} alt="sesa" />
                         <Image src="/logo-text.svg" width={111} height={50} alt="sesa" />
                     </div>
-                    <h1 className="text-center font-heading text-2xl uppercase leading-tight md:text-3xl xl:text-5xl">
+                    <h1 className="font-heading text-center text-2xl leading-tight uppercase md:text-3xl xl:text-5xl">
                         The&nbsp;
                         <span className="relative inline-block">
                             Univeristy of Ottawa&apos;s
-                            <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                            <div className="animate-highlight absolute top-0 right-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                         </span>{" "}
                         Software Engineering Students Association
                     </h1>
-                    <p className="text-center font-sans text-base text-thistle md:text-lg xl:text-xl">
+                    <p className="text-thistle text-center font-sans text-base md:text-lg xl:text-xl">
                         Our communications team meticulously crafted the web design, while our
                         development team built it with heart.
                     </p>
                 </div>
 
-                <div className="flex justify-center gap-4 px-8 text-center font-heading">
+                <div className="font-heading flex justify-center gap-4 px-8 text-center">
                     <Button
-                        className="w-full font-heading text-sm uppercase sm:w-max md:text-lg xl:text-xl"
+                        className="font-heading w-full text-sm uppercase sm:w-max md:text-lg xl:text-xl"
                         href="#"
                     >
                         Become a sponsor <span className="text-gray opacity-50">{">"}</span>
                     </Button>
 
                     <Button
-                        className="w-full font-heading text-sm uppercase sm:w-max md:text-lg xl:text-xl"
+                        className="font-heading w-full text-sm uppercase sm:w-max md:text-lg xl:text-xl"
                         variant="outline"
                         href="/ContactUsPage"
                     >
@@ -68,11 +68,11 @@ const Team = () => {
 
                     {/* Hover text container - positioned absolutely */}
                     {hovered && (
-                        <div className="absolute left-1/2 top-14 z-10 mt-12 -translate-x-1/2 px-4 py-2 text-center">
-                            <h1 className="mb-2 font-heading text-xl">
+                        <div className="absolute top-14 left-1/2 z-10 mt-12 -translate-x-1/2 px-4 py-2 text-center">
+                            <h1 className="font-heading mb-2 text-xl">
                                 {membersData.find(m => m.name === hovered)?.name}
                             </h1>
-                            <p className="font-sans text-thistle">
+                            <p className="text-thistle font-sans">
                                 {membersData.find(m => m.name === hovered)?.role}
                             </p>
                         </div>

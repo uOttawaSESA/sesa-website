@@ -24,14 +24,14 @@ const PastCollaboratorsCarousel = () => {
                 <p className="relative inline-block !bg-clip-text font-mono text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
                     Our previous partners
                 </p>
-                <div className="font-heading text-2xl uppercase text-white">
+                <div className="font-heading text-2xl text-white uppercase">
                     <span className="relative inline-block">
                         PAST
-                        <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                        <div className="animate-highlight absolute top-0 right-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                     </span>{" "}
                     COLLABORATORS SINCE 2014
                 </div>
-                <p className="max-w-2xl text-base text-thistle">
+                <p className="text-thistle max-w-2xl text-base">
                     We&apos;ve had the privilege of working with over 20+ big and small companies
                     that have enhanced our events, including:
                 </p>

@@ -22,15 +22,15 @@ const Connect = () => {
                         <p className="font-monocode relative inline-block !bg-clip-text text-left text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
                             Connect with us
                         </p>
-                        <h1 className="font-heading text-2xl uppercase leading-tight md:text-3xl xl:text-5xl">
+                        <h1 className="font-heading text-2xl leading-tight uppercase md:text-3xl xl:text-5xl">
                             <span className="relative inline-block">
                                 Connect, enage, and grow
-                                <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                                <div className="animate-highlight absolute top-0 right-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                             </span>{" "}
                             <br />
                             with us!
                         </h1>
-                        <p className="relative text-left font-sans text-base text-thistle md:text-lg xl:text-xl 2xl:w-[40rem]">
+                        <p className="text-thistle relative text-left font-sans text-base md:text-lg xl:text-xl 2xl:w-[40rem]">
                             Join our online communities to stay up to date with our latest events,
                             announcements, and resources,
                         </p>

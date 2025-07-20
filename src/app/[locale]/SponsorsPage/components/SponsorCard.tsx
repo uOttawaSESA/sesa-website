@@ -29,15 +29,15 @@ const SponsorCard = () => {
                     height={20}
                     className="mb-4"
                 />
-                <div className="mt-3 font-heading text-2xl uppercase text-white">
+                <div className="font-heading mt-3 text-2xl text-white uppercase">
                     &ldquo;The folks at SESA were{" "}
                     <span className="relative inline-block">
                         professional, communicative,
-                        <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                        <div className="animate-highlight absolute top-0 right-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                     </span>{" "}
                     <span className="relative inline-block">
                         and friendly
-                        <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                        <div className="animate-highlight absolute top-0 right-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                     </span>{" "}
                     leading up to the talk, and provided some great photos and videos afterwards. I
                     really enjoyed my collaboration with them.
@@ -47,13 +47,13 @@ const SponsorCard = () => {
                     <CircleImage size={50} src="/sponsors-page/asad.webp" alt="Asad" />
                     <div>
                         <p className="text-m font-bold text-white">Jessica Wang</p>
-                        <p className="text-sm text-thistle">Product Growth at Warp</p>
+                        <p className="text-thistle text-sm">Product Growth at Warp</p>
                     </div>
                 </div>
                 <div className="mt-6">
                     <Button
                         href="/pages/ContactUsPage"
-                        className="text-m font-heading uppercase text-white"
+                        className="text-m font-heading text-white uppercase"
                     >
                         Work With Us
                     </Button>

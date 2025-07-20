@@ -12,14 +12,14 @@ const Resources = () => {
                     <p className="font-monocode color-gradient">
                         Resources by students for students
                     </p>
-                    <h1 className="font-heading text-2xl uppercase leading-tight md:text-5xl">
+                    <h1 className="font-heading text-2xl leading-tight uppercase md:text-5xl">
                         Resources at your&nbsp;
                         <span className="relative inline-block">
                             Fingertips
-                            <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                            <div className="animate-highlight absolute top-0 right-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                         </span>
                     </h1>
-                    <p className="font-sans text-base text-thistle md:text-lg">
+                    <p className="text-thistle font-sans text-base md:text-lg">
                         Our academic team actively organize free resources to support software
                         engineering students in their studies.
                     </p>
@@ -59,16 +59,16 @@ const Resources = () => {
                 </Marquee>
 
                 <div className="space-y-4 px-8 md:px-32">
-                    <div className="flex w-full justify-center gap-4 font-heading">
+                    <div className="font-heading flex w-full justify-center gap-4">
                         <Button
-                            className="text-center font-heading text-sm uppercase md:text-lg"
+                            className="font-heading text-center text-sm uppercase md:text-lg"
                             href="/ResourcesPage"
                         >
                             Explore all resources&nbsp;
                             <span className="text-gray opacity-50">&gt;</span>
                         </Button>
                         <Button
-                            className="hidden text-center font-heading text-sm uppercase md:text-lg lg:block"
+                            className="font-heading hidden text-center text-sm uppercase md:text-lg lg:block"
                             variant="outline"
                             href="https://discord.com/invite/atYdx5HHCs"
                             external
@@ -76,7 +76,7 @@ const Resources = () => {
                             Join our discord
                         </Button>
                     </div>
-                    <div className="hidden w-full items-center justify-center text-center font-mono text-sm text-thistle md:text-base lg:flex">
+                    <div className="text-thistle hidden w-full items-center justify-center text-center font-mono text-sm md:text-base lg:flex">
                         <Image
                             src="/resources-page/thumbsup.svg"
                             alt="thumbsUp"

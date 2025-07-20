@@ -22,18 +22,18 @@ const TeamUpSection: React.FC = () => {
             </div>
 
             <div className="z-10 max-w-lg text-left text-white">
-                <span className="bg-gradient-to-r from-blueviolet-100 to-darkmagenta bg-clip-text font-mono text-transparent">
+                <span className="from-blueviolet-100 to-darkmagenta bg-gradient-to-r bg-clip-text font-mono text-transparent">
                     {t("work_with_us")}
                 </span>
-                <div className="mt-3 font-heading text-2xl uppercase">{t("teamup_heading")}</div>
-                <p className="mt-4 max-w-[558px] font-sans text-xl text-thistle">
+                <div className="font-heading mt-3 text-2xl uppercase">{t("teamup_heading")}</div>
+                <p className="text-thistle mt-4 max-w-[558px] font-sans text-xl">
                     {t("teamup_blurb")}
                 </p>
 
                 <div className="mt-6 flex flex-wrap gap-4">
                     <Button
                         href="/pages/ContactUsPage"
-                        className="relative z-10 font-heading text-xl uppercase"
+                        className="font-heading relative z-10 text-xl uppercase"
                     >
                         {t("btn_talk")}
                     </Button>
@@ -41,7 +41,7 @@ const TeamUpSection: React.FC = () => {
                     <Button
                         variant="outline"
                         href="/pages/TeamPage"
-                        className="relative z-10 font-heading text-xl uppercase"
+                        className="font-heading relative z-10 text-xl uppercase"
                     >
                         {t("btn_meet_team")}
                     </Button>

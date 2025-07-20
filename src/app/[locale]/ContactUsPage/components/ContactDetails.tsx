@@ -14,24 +14,24 @@ const ContactDetails = () => {
             </div>
 
             <div className="space-y-4 md:space-y-6">
-                <span className="bg-gradient-to-r from-blueviolet-100 to-darkmagenta bg-clip-text font-mono text-transparent">
+                <span className="from-blueviolet-100 to-darkmagenta bg-gradient-to-r bg-clip-text font-mono text-transparent">
                     {t("contact_us")}
                 </span>
 
-                <h1 className="mt-4 font-heading text-5xl uppercase leading-tight">
+                <h1 className="font-heading mt-4 text-5xl leading-tight uppercase">
                     {t("get_in_touch")}{" "}
                     <span className="relative inline-block">
                         {t("get_in_touch_hl")}
-                        <div className="absolute right-0 top-0 h-full w-0 animate-highlight bg-gradient-to-r from-blueviolet-100/25 to-darkmagenta/25"></div>
+                        <div className="animate-highlight from-blueviolet-100/25 to-darkmagenta/25 absolute top-0 right-0 h-full w-0 bg-gradient-to-r"></div>
                     </span>
                 </h1>
 
-                <p className="mt-4 max-w-[558px] font-sans text-xl text-thistle">
+                <p className="text-thistle mt-4 max-w-[558px] font-sans text-xl">
                     {t("questions_blurb")}
                 </p>
 
                 <Button
-                    className="flex items-center gap-3 font-heading text-lg uppercase transition-opacity hover:opacity-80 md:text-xl"
+                    className="font-heading flex items-center gap-3 text-lg uppercase transition-opacity hover:opacity-80 md:text-xl"
                     style={{ width: "fit-content" }}
                     onClick={() => navigator.clipboard.writeText("uottawa.sesa@gmail.com")}
                 >
@@ -45,7 +45,7 @@ const ContactDetails = () => {
                     />
                 </Button>
 
-                <div className="space-y-1 font-mono text-sm text-thistle md:text-base">
+                <div className="text-thistle space-y-1 font-mono text-sm md:text-base">
                     <p>800 King Edward Ave,</p>
                     <p>Ottawa, ON, K1N 1A2,</p>
                     <p>STE 0109</p>

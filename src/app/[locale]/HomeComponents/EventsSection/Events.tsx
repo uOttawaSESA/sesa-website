@@ -20,19 +20,19 @@ export default function Events() {
                 <p className="font-monocode relative inline-block !bg-clip-text text-left text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
                     {t("events")}
                 </p>
-                <h1 className="my-2 font-heading text-2xl uppercase leading-tight md:text-5xl">
+                <h1 className="font-heading my-2 text-2xl leading-tight uppercase md:text-5xl">
                     <span className="relative inline-block">
                         {t("events_heading_hl")}
-                        <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                        <div className="animate-highlight absolute top-0 right-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                     </span>{" "}
                     {t("events_heading")}
                 </h1>
-                <p className="relative flex items-center text-left font-sans text-base text-thistle md:text-lg">
+                <p className="text-thistle relative flex items-center text-left font-sans text-base md:text-lg">
                     {t("events_subheading")}
                 </p>
 
                 <div className="mt-4 flex w-[90%] flex-row items-center justify-between md:mt-6">
-                    <div className="flex font-heading">
+                    <div className="font-heading flex">
                         <Button
                             className="font-heading text-sm uppercase md:text-lg"
                             href="/EventsPage"
@@ -56,8 +56,8 @@ export default function Events() {
                 </CarouselContent>
 
                 <div className="mt-8 flex justify-center gap-4">
-                    <CarouselPrevious className="relative left-0 top-0 translate-y-0" />
-                    <CarouselNext className="relative right-0 top-0 translate-y-0" />
+                    <CarouselPrevious className="relative top-0 left-0 translate-y-0" />
+                    <CarouselNext className="relative top-0 right-0 translate-y-0" />
                 </div>
             </Carousel>
         </section>

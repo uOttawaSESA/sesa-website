@@ -34,20 +34,20 @@ export default function Benefits() {
             <div className="flex items-start justify-between">
                 <div className="w-1/2">
                     <p className="color-gradient relative font-mono text-base">Benefits</p>
-                    <h2 className="mb-4 font-heading text-3xl uppercase text-white">
+                    <h2 className="font-heading mb-4 text-3xl text-white uppercase">
                         <span className="block md:inline">CONNECT WITH </span>
                         <span className="relative block md:inline">
                             THE NEXT
-                            <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                            <div className="animate-highlight absolute top-0 right-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                         </span>{" "}
                         <span className="relative block md:inline">
                             GENERATION
-                            <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                            <div className="animate-highlight absolute top-0 right-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                         </span>
                         <span className="block md:inline"> OF SOFTWARE ENGINEERS</span>
                     </h2>
 
-                    <p className="mb-4 max-w-2xl text-base leading-tight text-thistle">
+                    <p className="text-thistle mb-4 max-w-2xl text-base leading-tight">
                         Without our sponsors and partners, we would not be able to fund our events
                         and projects that provide SEG students with academic opportunities and
                         workplace experiences.
@@ -80,7 +80,7 @@ export default function Benefits() {
                 {cards.map((card, index) => (
                     <div
                         key={index}
-                        className="overflow-hidden border-[1px] border-solid text-left text-white backdrop-blur-super [border-image:linear-gradient(55deg,rgba(136,36,220,0.3)_41.93%,rgba(177,33,157,0.3)_81.89%)_1]"
+                        className="backdrop-blur-super overflow-hidden border-[1px] border-solid text-left text-white [border-image:linear-gradient(55deg,rgba(136,36,220,0.3)_41.93%,rgba(177,33,157,0.3)_81.89%)_1]"
                     >
                         <Image
                             src={card.image}
@@ -99,10 +99,10 @@ export default function Benefits() {
                                     className="m-3"
                                 />
                             </div>
-                            <div className="mb-2 font-heading text-lg uppercase leading-snug text-white">
+                            <div className="font-heading mb-2 text-lg leading-snug text-white uppercase">
                                 {card.title}
                             </div>
-                            <p className="font-sans text-lg leading-snug text-thistle">
+                            <p className="text-thistle font-sans text-lg leading-snug">
                                 {card.description}
                             </p>
                         </div>
