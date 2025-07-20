@@ -1,268 +1,393 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap") layer(base);
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap")
+layer(base);
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-body {
-    @apply m-0 leading-[normal];
-}
+@plugin 'tailwindcss-animate';
 
-*,
-::before,
-::after {
-    border-width: 0;
-}
+@custom-variant dark (&:is(.dark *));
 
-@font-face {
-    font-family: "VCR OSD Mono";
-    font-display: swap;
-    src: url(/fonts/VCR_OSD_MONO_1.001.ttf);
-}
+@theme {
+    --backdrop-blur-super: 500px;
 
-@font-face {
-    font-family: "Monocode";
-    font-display: swap;
-    src: url(/fonts/monocode-regular.ttf);
-}
+    --color-gray-100: #1b1b1b;
+    --color-gray-200: rgba(0, 0, 0, 0);
+    --color-gray-300: rgba(27, 27, 27, 0.05);
 
-/*** Scrollbar styling ***/
-/* Firefox */
-* {
-    scrollbar-color: #9a1ebf #381e4b; /* thumb, track */
-}
+    --color-thistle: #ab9db6;
+    --color-white: #fff;
 
-::-webkit-scrollbar-track {
-    background: #381e4b;
-}
+    --color-blueviolet-100: #8824dc;
+    --color-blueviolet-200: rgba(136, 36, 220, 0.5);
+    --color-blueviolet-700: #6a0dad;
 
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(55deg, #8824dc 41.93%, #b1219d 81.89%);
-    border-radius: 10px;
-}
+    --color-darkorchid-100: #9e22ba;
+    --color-darkorchid-200: #9f22b8;
+    --color-darkorchid-300: #701bb7;
 
-.sponsor {
-    @apply outline-gradient mx-4 flex h-40 w-64 items-center justify-center;
-}
+    --color-black: #000;
+    --color-darkmagenta: #ac1fa0;
+    --color-background: hsl(var(--background));
+    --color-foreground: hsl(var(--foreground));
 
-.outline-gradient {
-    border: 1px solid;
-    border-image: linear-gradient(55deg, #8824dc 41.93%, #b1219d 81.89%) 1;
-}
+    --color-card: hsl(var(--card));
+    --color-card-foreground: hsl(var(--card-foreground));
 
-.fill-gradient {
-    background: linear-gradient(55deg, #8824dc 41.93%, #b1219d 81.89%);
-}
+    --color-popover: hsl(var(--popover));
+    --color-popover-foreground: hsl(var(--popover-foreground));
 
-.color-gradient {
-    background-color: #8824dc;
-    background-image: linear-gradient(55deg, #8824dc 41.93%, #b1219d 81.89%);
-    background-size: 100%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
-    transition: background-position 0.5s ease;
-}
+    --color-primary: hsl(var(--primary));
+    --color-primary-foreground: hsl(var(--primary-foreground));
 
-.color-gradient-clickable {
-    background-color: #8824dc;
-    background-image: linear-gradient(55deg, #8824dc 20%, #b1219d 75%);
-    background-size: 200% 100%; /* Double the size for animation */
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
-    transition: background-position 0.3s ease;
-}
+    --color-secondary: hsl(var(--secondary));
+    --color-secondary-foreground: hsl(var(--secondary-foreground));
 
-.color-gradient-clickable:hover {
-    background-position: 100% 0; /* Move gradient to the right */
-}
+    --color-muted: hsl(var(--muted));
+    --color-muted-foreground: hsl(var(--muted-foreground));
 
-.highlight-gradient {
-    @apply absolute right-0 top-0 h-full w-0 animate-highlight;
-    background: linear-gradient(55.37deg, rgba(136, 36, 220, 0.25), rgba(177, 33, 97, 0.25));
-}
+    --color-accent: hsl(var(--accent));
+    --color-accent-foreground: hsl(var(--accent-foreground));
 
-.clip-corner {
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
-}
+    --color-destructive: hsl(var(--destructive));
+    --color-destructive-foreground: hsl(var(--destructive-foreground));
 
-.clip-corner-inner {
-    clip-path: polygon(
-        2px 2px,
-        calc(100% - 2px) 2px,
-        calc(100% - 2px) calc(100% - 17px),
-        calc(100% - 17px) calc(100% - 2px),
-        2px calc(100% - 2px)
-    );
-}
+    --color-border: hsl(var(--border));
+    --color-input: hsl(var(--input));
+    --color-ring: hsl(var(--ring));
 
-body {
-    color: var(--foreground);
-    background: var(--background);
-    font-family: Arial, Helvetica, sans-serif;
-}
+    --color-chart-1: hsl(var(--chart-1));
+    --color-chart-2: hsl(var(--chart-2));
+    --color-chart-3: hsl(var(--chart-3));
+    --color-chart-4: hsl(var(--chart-4));
+    --color-chart-5: hsl(var(--chart-5));
 
-input::placeholder,
-textarea::placeholder,
-select::placeholder {
-    font-family: "raleway";
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 16px;
-}
+    --radius-8xs: 5px;
+    --radius-lg: var(--radius);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-sm: calc(var(--radius) - 4px);
 
-.grid-overlay-right {
-    position: absolute;
-    right: 0;
-    background-size: 50px 50px;
-    background-image:
-        linear-gradient(to right, #a122af 3px, transparent 3px),
-        linear-gradient(to bottom, #a122af 3px, transparent 3px);
-    mask-image: linear-gradient(
-        to right,
-        transparent,
-        rgba(0, 0, 0, 0.05) 10%,
-        rgba(0, 0, 0, 0.3) 40%,
-        rgba(0, 0, 0, 0.7) 70%,
-        black 100%
-    );
-}
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 16px;
+    --text-xl: 20px;
+    --text-inherit: inherit;
 
-.grid-overlay-left {
-    position: absolute;
-    left: 0;
-    background-size: 50px 50px;
-    background-image:
-        linear-gradient(to right, #a122af 3px, transparent 3px),
-        linear-gradient(to bottom, #a122af 3px, transparent 3px);
-    mask-image: linear-gradient(
-        to right,
-        black 0%,
-        rgba(0, 0, 0, 0.7) 30%,
-        rgba(0, 0, 0, 0.3) 60%,
-        rgba(0, 0, 0, 0.05) 90%,
-        transparent 100%
-    );
-}
+    --font-heading: VCR OSD Mono, ui-monospace, Courier New, Courier, monospace;
+    --font-sans: var(--font-raleway), Arial, sans-serif;
+    --font-mono: Monocode, Courier New, Courier, monospace;
 
-@keyframes infinite-scroll {
-    0% {
-        transform: translateX(0);
+    --animate-spin-slow: spin 30s linear infinite;
+    --animate-highlight: highlight 0.5s ease-out 1s forwards;
+    --animate-accordion-down: accordion-down 0.2s ease-out;
+    --animate-accordion-up: accordion-up 0.2s ease-out;
+
+    @keyframes highlight {
+        0% {
+            width: 0;
+            left: 100%;
+        }
+        100% {
+            width: 100%;
+            left: 0;
+        }
     }
-
-    100% {
-        transform: translateX(-50%);
+    @keyframes accordion-down {
+        from {
+            height: 0;
+        }
+        to {
+            height: var(--radix-accordion-content-height);
+        }
+    }
+    @keyframes accordion-up {
+        from {
+            height: var(--radix-accordion-content-height);
+        }
+        to {
+            height: 0;
+        }
     }
 }
 
-.animate-infinite-scroll {
-    animation: infinite-scroll 25s linear infinite;
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentcolor);
+    }
 }
 
-.animation-paused {
-    animation-play-state: paused;
-}
+@layer utilities {
+    body {
+        @apply m-0 leading-[normal];
+    }
 
-.other-resources-container::before {
-    content: "";
-    z-index: 99;
-    width: 10%;
-    height: 100%;
-    position: absolute;
-    left: 4rem;
-    top: 0;
-    background: linear-gradient(to left, transparent, #301d3f);
-}
+    *,
+    ::before,
+    ::after {
+        border-width: 0;
+    }
 
-.other-resources-container::after {
-    content: "";
-    width: 10%;
-    height: 100%;
-    position: absolute;
-    right: 4rem;
-    top: 0;
-    background: linear-gradient(to right, transparent, #301d3f);
-}
+    @font-face {
+        font-family: "VCR OSD Mono";
+        font-display: swap;
+        src: url(/fonts/VCR_OSD_MONO_1.001.ttf);
+    }
 
-/*** MARKDOWN STYLING ***/
-/* Headings */
-.markdown h1 {
-    @apply mb-4 mt-8 font-heading text-3xl uppercase;
-}
+    @font-face {
+        font-family: "Monocode";
+        font-display: swap;
+        src: url(/fonts/monocode-regular.ttf);
+    }
 
-.markdown h2 {
-    @apply mb-3 mt-6 font-heading text-2xl uppercase;
-}
+    /*** Scrollbar styling ***/
+    /* Firefox */
+    * {
+        scrollbar-color: #9a1ebf #381e4b; /* thumb, track */
+    }
 
-.markdown h3 {
-    @apply mb-2 mt-4 font-heading text-xl uppercase;
-}
+    ::-webkit-scrollbar-track {
+        background: #381e4b;
+    }
 
-.markdown h4 {
-    @apply mb-2 mt-4 font-heading text-lg uppercase;
-}
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(55deg, #8824dc 41.93%, #b1219d 81.89%);
+        border-radius: 10px;
+    }
 
-.markdown h5 {
-    @apply mb-2 mt-4 font-heading text-base uppercase;
-}
+    .sponsor {
+        @apply outline-gradient mx-4 flex h-40 w-64 items-center justify-center;
+    }
 
-.markdown h6 {
-    @apply mb-2 mt-4 font-heading text-sm uppercase;
-}
+    .outline-gradient {
+        border: 1px solid;
+        border-image: linear-gradient(55deg, #8824dc 41.93%, #b1219d 81.89%) 1;
+    }
 
-/* Paragraphs and links */
-.markdown p {
-    @apply mb-4 leading-relaxed;
-}
+    .fill-gradient {
+        background: linear-gradient(55deg, #8824dc 41.93%, #b1219d 81.89%);
+    }
 
-.markdown a {
-    @apply text-blue-500 hover:underline;
-}
+    .color-gradient {
+        background-color: #8824dc;
+        background-image: linear-gradient(55deg, #8824dc 41.93%, #b1219d 81.89%);
+        background-size: 100%;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -moz-text-fill-color: transparent;
+        transition: background-position 0.5s ease;
+    }
 
-/* Lists */
-.markdown ul {
-    @apply ml-6 list-disc;
-}
+    .color-gradient-clickable {
+        background-color: #8824dc;
+        background-image: linear-gradient(55deg, #8824dc 20%, #b1219d 75%);
+        background-size: 200% 100%; /* Double the size for animation */
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -moz-text-fill-color: transparent;
+        transition: background-position 0.3s ease;
+    }
 
-.markdown ol {
-    @apply ml-6 list-decimal;
-}
+    .color-gradient-clickable:hover {
+        background-position: 100% 0; /* Move gradient to the right */
+    }
 
-.markdown li {
-    @apply mb-1;
-}
+    .highlight-gradient {
+        @apply animate-highlight absolute top-0 right-0 h-full w-0;
+        background: linear-gradient(55.37deg, rgba(136, 36, 220, 0.25), rgba(177, 33, 97, 0.25));
+    }
 
-/* Blockquote */
-.markdown blockquote {
-    @apply my-4 border-l-4 border-gray-400 pl-4 italic;
-}
+    .clip-corner {
+        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
+    }
 
-/* Inline code and code blocks */
-.markdown code {
-    @apply rounded bg-gray-100 px-1 py-0.5 font-mono text-sm;
-}
+    .clip-corner-inner {
+        clip-path: polygon(
+            2px 2px,
+            calc(100% - 2px) 2px,
+            calc(100% - 2px) calc(100% - 17px),
+            calc(100% - 17px) calc(100% - 2px),
+            2px calc(100% - 2px)
+        );
+    }
 
-.markdown pre {
-    @apply my-4 overflow-auto rounded bg-gray-100 p-4;
-}
+    body {
+        color: var(--foreground);
+        background: var(--background);
+        font-family: Arial, Helvetica, sans-serif;
+    }
 
-/* Horizontal rule */
-.markdown hr {
-    @apply my-8 border-t border-gray-200;
-}
+    input::placeholder,
+    textarea::placeholder,
+    select::placeholder {
+        font-family: "raleway";
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 16px;
+    }
 
-/* (Optional) Tables */
-.markdown table {
-    @apply mb-4 w-full border-collapse;
-}
+    .grid-overlay-right {
+        position: absolute;
+        right: 0;
+        background-size: 50px 50px;
+        background-image:
+            linear-gradient(to right, #a122af 3px, transparent 3px),
+            linear-gradient(to bottom, #a122af 3px, transparent 3px);
+        mask-image: linear-gradient(
+            to right,
+            transparent,
+            rgba(0, 0, 0, 0.05) 10%,
+            rgba(0, 0, 0, 0.3) 40%,
+            rgba(0, 0, 0, 0.7) 70%,
+            black 100%
+        );
+    }
 
-.markdown th,
-.markdown td {
-    @apply border border-gray-300 px-4 py-2;
+    .grid-overlay-left {
+        position: absolute;
+        left: 0;
+        background-size: 50px 50px;
+        background-image:
+            linear-gradient(to right, #a122af 3px, transparent 3px),
+            linear-gradient(to bottom, #a122af 3px, transparent 3px);
+        mask-image: linear-gradient(
+            to right,
+            black 0%,
+            rgba(0, 0, 0, 0.7) 30%,
+            rgba(0, 0, 0, 0.3) 60%,
+            rgba(0, 0, 0, 0.05) 90%,
+            transparent 100%
+        );
+    }
+
+    @keyframes infinite-scroll {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    .animate-infinite-scroll {
+        animation: infinite-scroll 25s linear infinite;
+    }
+
+    .animation-paused {
+        animation-play-state: paused;
+    }
+
+    .other-resources-container::before {
+        content: "";
+        z-index: 99;
+        width: 10%;
+        height: 100%;
+        position: absolute;
+        left: 4rem;
+        top: 0;
+        background: linear-gradient(to left, transparent, #301d3f);
+    }
+
+    .other-resources-container::after {
+        content: "";
+        width: 10%;
+        height: 100%;
+        position: absolute;
+        right: 4rem;
+        top: 0;
+        background: linear-gradient(to right, transparent, #301d3f);
+    }
+
+    /*** MARKDOWN STYLING ***/
+    /* Headings */
+    .markdown h1 {
+        @apply font-heading mt-8 mb-4 text-3xl uppercase;
+    }
+
+    .markdown h2 {
+        @apply font-heading mt-6 mb-3 text-2xl uppercase;
+    }
+
+    .markdown h3 {
+        @apply font-heading mt-4 mb-2 text-xl uppercase;
+    }
+
+    .markdown h4 {
+        @apply font-heading mt-4 mb-2 text-lg uppercase;
+    }
+
+    .markdown h5 {
+        @apply font-heading mt-4 mb-2 text-base uppercase;
+    }
+
+    .markdown h6 {
+        @apply font-heading mt-4 mb-2 text-sm uppercase;
+    }
+
+    /* Paragraphs and links */
+    .markdown p {
+        @apply mb-4 leading-relaxed;
+    }
+
+    .markdown a {
+        @apply text-blue-500 hover:underline;
+    }
+
+    /* Lists */
+    .markdown ul {
+        @apply ml-6 list-disc;
+    }
+
+    .markdown ol {
+        @apply ml-6 list-decimal;
+    }
+
+    .markdown li {
+        @apply mb-1;
+    }
+
+    /* Blockquote */
+    .markdown blockquote {
+        @apply my-4 border-l-4 border-gray-400 pl-4 italic;
+    }
+
+    /* Inline code and code blocks */
+    .markdown code {
+        @apply rounded bg-gray-100 px-1 py-0.5 font-mono text-sm;
+    }
+
+    .markdown pre {
+        @apply my-4 overflow-auto rounded bg-gray-100 p-4;
+    }
+
+    /* Horizontal rule */
+    .markdown hr {
+        @apply my-8 border-t border-gray-200;
+    }
+
+    /* (Optional) Tables */
+    .markdown table {
+        @apply mb-4 w-full border-collapse;
+    }
+
+    .markdown th,
+    .markdown td {
+        @apply border border-gray-300 px-4 py-2;
+    }
 }
 
 @layer base {
