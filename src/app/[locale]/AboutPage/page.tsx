@@ -45,18 +45,18 @@ export default function AboutPage() {
 
     return (
         <div className="min-h-screen text-white">
-            <div className="container relative mx-auto max-w-7xl px-4 py-8">
+            <div className="relative container mx-auto max-w-7xl px-4 py-8">
                 {/* Upper area */}
                 <div className="flex flex-col gap-2">
-                    <div className="flex items-center gap-2 font-heading text-lg uppercase">
+                    <div className="font-heading flex items-center gap-2 text-lg uppercase">
                         <p className="fill-gradient px-2 py-0.5">{t("partner")}</p>
                         <p>{t("faculty_of_eng")}</p>
                     </div>
-                    <h1 className="max-w-96 font-heading text-4xl uppercase">
+                    <h1 className="font-heading max-w-96 text-4xl uppercase">
                         {t("inspiring_heading")}
                     </h1>
                     <p className="max-w-[28rem] text-gray-400">{t("inspiring_blurb")}</p>
-                    <div className="my-2 flex gap-2 font-heading uppercase">
+                    <div className="font-heading my-2 flex gap-2 uppercase">
                         <Button href="#introducing-our-team" className="font-heading uppercase">
                             {t("meet_the_team")}
                         </Button>
@@ -107,7 +107,7 @@ export default function AboutPage() {
                     <p className="my-2 text-gray-400">
                         <b>{t("who_are_we_p2_bold")}</b> {t("who_are_we_p2")}
                     </p>
-                    <Button href="#introducing-our-team" className="w-fit font-heading uppercase">
+                    <Button href="#introducing-our-team" className="font-heading w-fit uppercase">
                         {t("meet_the_team")}
                     </Button>
                 </div>
@@ -150,7 +150,7 @@ export default function AboutPage() {
                             <b>{t("what_do_we_do_p_bold")}</b> {t("what_do_we_do_p")}
                         </p>
                     </div>
-                    <Button href="/SponsorsPage" className="w-fit font-heading uppercase">
+                    <Button href="/SponsorsPage" className="font-heading w-fit uppercase">
                         {t("become_a_sponsor")} &gt;
                     </Button>
                 </div>
@@ -220,7 +220,7 @@ export default function AboutPage() {
                     </p>
                 </div>
                 {/* TODO: Add the `sticky` class once a way to make it not super ugly is found */}
-                <div className="top-[5.6rem] z-10 mt-4 grid grid-flow-col grid-rows-4 text-center font-heading uppercase backdrop-blur-sm md:grid-rows-2 lg:grid-rows-1">
+                <div className="font-heading top-[5.6rem] z-10 mt-4 grid grid-flow-col grid-rows-4 text-center uppercase backdrop-blur-xs md:grid-rows-2 lg:grid-rows-1">
                     <Button variant="outline" href="#co-directors">
                         {tOurTeam("codirectors")}
                     </Button>
@@ -313,10 +313,10 @@ export default function AboutPage() {
                 </div>
             </div>
             {/* Be a part of our family */}
-            <div className="mb-24 mt-16 flex flex-col items-center justify-center gap-8 px-4 lg:flex-row">
+            <div className="mt-16 mb-24 flex flex-col items-center justify-center gap-8 px-4 lg:flex-row">
                 <div className="flex flex-col gap-2">
                     <p className="color-gradient font-mono">{t("our_family")}</p>
-                    <h1 className="max-w-[28rem] font-heading text-3xl uppercase">
+                    <h1 className="font-heading max-w-[28rem] text-3xl uppercase">
                         {t("our_family_heading")}{" "}
                         <span className="relative inline-block">
                             {t("our_family_heading_hl")}
@@ -328,7 +328,7 @@ export default function AboutPage() {
                     </p>
                     <Button
                         href="/ContactUsPage"
-                        className="my-4 w-fit font-heading uppercase"
+                        className="font-heading my-4 w-fit uppercase"
                         disabled
                     >
                         {t("apply_now")}

@@ -18,7 +18,7 @@ export const SocialMediaCard = ({
     const t = useTranslations("events");
 
     return (
-        <div className="mt-10 flex h-[400px] w-[300px] flex-shrink-0 flex-col overflow-hidden rounded-lg border border-gray-200 shadow-lg">
+        <div className="mt-10 flex h-[400px] w-[300px] shrink-0 flex-col overflow-hidden rounded-lg border border-gray-200 shadow-lg">
             {/* Top 60% - Image */}
             <div className="h-[60%] w-full">
                 <Image
@@ -34,7 +34,7 @@ export const SocialMediaCard = ({
             <div className="flex h-[40%] flex-col p-4">
                 {/* Title and Logo */}
                 <div className="flex items-center justify-between">
-                    <h3 className="text-left font-heading text-xl">{title}</h3>
+                    <h3 className="font-heading text-left text-xl">{title}</h3>
                     <div className="h-6 w-6">
                         <Image
                             src={logo}
@@ -47,7 +47,7 @@ export const SocialMediaCard = ({
                 </div>
 
                 {/* Description */}
-                <p className="mt-2 flex-grow font-mono text-sm text-thistle">{description}</p>
+                <p className="text-thistle mt-2 flex-grow font-mono text-sm">{description}</p>
 
                 {/* View Post Button */}
                 <div className="py- mt-auto pl-0 text-left">
@@ -55,7 +55,7 @@ export const SocialMediaCard = ({
                     {/* mt-auto pushes the button to the bottom */}
                     <Button
                         variant="ghost"
-                        className="text-l !p-0 font-heading uppercase text-blue-500 hover:underline"
+                        className="text-l font-heading !p-0 text-blue-500 uppercase hover:underline"
                         href={postLink}
                         target="_blank"
                     >

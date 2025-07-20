@@ -35,7 +35,7 @@ export default function Footer() {
                     </p>
                 </div>
 
-                <div className="flex flex-grow justify-between gap-4 text-left text-sm md:text-base">
+                <div className="flex grow justify-between gap-4 text-left text-sm md:text-base">
                     <div className="flex flex-col gap-2">
                         <h3 className="color-gradient font-heading uppercase">{t("sitemap")}</h3>
                         <ul className="flex flex-col gap-2 leading-none text-gray-400">
@@ -162,11 +162,11 @@ export default function Footer() {
                     />
                 </div>
                 <div className="flex items-center gap-2 text-sm text-white md:text-base">
-                    <Button href="#" variant="ghost-plain" className="w-max font-heading uppercase">
+                    <Button href="#" variant="ghost-plain" className="font-heading w-max uppercase">
                         {t("back_to_top")}
                     </Button>
                     {/* TODO: Make this a real dropdown */}
-                    <Button href="#" variant="outline" className="w-max font-heading uppercase">
+                    <Button href="#" variant="outline" className="font-heading w-max uppercase">
                         English
                     </Button>
                 </div>

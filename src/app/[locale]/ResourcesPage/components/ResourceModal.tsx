@@ -32,20 +32,20 @@ const ListLinkCard = ({
     const favicon = `https://www.google.com/s2/favicons?sz=32&domain=${domain}`;
 
     return (
-        <div className="outline-gradient flex items-start justify-between border bg-white/10 p-4 font-heading text-thistle backdrop-blur-super transition hover:border-thistle">
+        <div className="outline-gradient font-heading text-thistle backdrop-blur-super hover:border-thistle flex items-start justify-between border bg-white/10 p-4 transition">
             <div className="flex flex-row gap-5">
                 <Image
                     src={favicon}
                     alt={`${name} favicon`}
                     width={20}
                     height={20}
-                    className="my-auto h-8 w-8 rounded object-contain"
+                    className="my-auto h-8 w-8 rounded-sm object-contain"
                 />
                 <div className="flex flex-col gap-1">
-                    <span className="w-[700px] text-base font-bold uppercase tracking-wider text-white">
+                    <span className="w-[700px] text-base font-bold tracking-wider text-white uppercase">
                         {name}
                     </span>
-                    <span className="font-sans text-base text-thistle">{description}</span>
+                    <span className="text-thistle font-sans text-base">{description}</span>
                 </div>
             </div>
             <a
@@ -121,7 +121,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                 const path = parsed.pathname + parsed.search;
 
                 return (
-                    <div className="outline-gradient font-raleway flex h-16 w-full items-center gap-2.5 border bg-white/10 px-6 text-lg text-thistle backdrop-blur-super">
+                    <div className="outline-gradient font-raleway text-thistle backdrop-blur-super flex h-16 w-full items-center gap-2.5 border bg-white/10 px-6 text-lg">
                         <Image
                             src="/resources-page/link.svg"
                             alt="Website Link"
@@ -179,17 +179,17 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                 <div className="flex items-center justify-between p-4">
                     <div>
                         {/* Category Badges */}
-                        <div className="mb-4 flex gap-2 font-heading text-white">
-                            <span className="cursor-pointer bg-gradient-to-r from-blueviolet-100 to-darkmagenta p-2 text-sm uppercase">
+                        <div className="font-heading mb-4 flex gap-2 text-white">
+                            <span className="from-blueviolet-100 to-darkmagenta cursor-pointer bg-gradient-to-r p-2 text-sm uppercase">
                                 {resource.category}
                             </span>
                             {resource.course && (
-                                <span className="cursor-pointer bg-gradient-to-r from-blueviolet-100 to-darkmagenta p-2 text-sm uppercase">
+                                <span className="from-blueviolet-100 to-darkmagenta cursor-pointer bg-gradient-to-r p-2 text-sm uppercase">
                                     {resource.course}
                                 </span>
                             )}
                         </div>
-                        <h2 className="font-heading text-2xl uppercase text-white">
+                        <h2 className="font-heading text-2xl text-white uppercase">
                             {resource.title}
                         </h2>
                     </div>
@@ -203,8 +203,8 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                 {renderViewer()}
 
                 {/* Footer */}
-                <div className="flex items-center justify-between p-4 text-sm text-thistle">
-                    <div className="flex flex-row flex-wrap items-center gap-4 font-[Monocode] text-sm text-thistle">
+                <div className="text-thistle flex items-center justify-between p-4 text-sm">
+                    <div className="text-thistle flex flex-row flex-wrap items-center gap-4 font-[Monocode] text-sm">
                         {/* Rating */}
                         <div className="flex items-center gap-2">
                             <Image
@@ -218,7 +218,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                         </div>
 
                         {/* Spacer */}
-                        <div className="h-[14px] w-px border-r border-thistle opacity-35" />
+                        <div className="border-thistle h-[14px] w-px border-r opacity-35" />
 
                         {/* Tier */}
                         <div className="flex items-center gap-2">
@@ -232,7 +232,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                             <span>{resource.tier}</span>
                         </div>
 
-                        <div className="h-[14px] w-px border-r border-thistle opacity-35" />
+                        <div className="border-thistle h-[14px] w-px border-r opacity-35" />
 
                         {/* Format */}
                         <div className="flex items-center gap-2">
@@ -246,7 +246,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                             <span>{resource.format}</span>
                         </div>
 
-                        <div className="h-[14px] w-px border-r border-thistle opacity-35" />
+                        <div className="border-thistle h-[14px] w-px border-r opacity-35" />
 
                         {/* Pricing */}
                         <div className="flex items-center gap-2">
@@ -260,7 +260,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                             <span>{resource.pricing}</span>
                         </div>
 
-                        <div className="h-[14px] w-px border-r border-thistle opacity-35" />
+                        <div className="border-thistle h-[14px] w-px border-r opacity-35" />
 
                         {/* Language */}
                         <div className="flex items-center gap-2">
@@ -280,7 +280,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                             href={resource.source}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex flex-row items-center justify-center font-heading uppercase text-white"
+                            className="font-heading flex flex-row items-center justify-center text-white uppercase"
                             external
                         >
                             Open in New Tab

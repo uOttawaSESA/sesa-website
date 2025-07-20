@@ -72,8 +72,8 @@ export const EventCard = ({
             : description;
 
     return (
-        <div className="w-min border border-gray-300 bg-gray-100 from-blueviolet-100 to-darkmagenta p-px font-heading transition-all hover:bg-gradient-to-r md:w-auto">
-            <div className="flex w-min flex-col justify-start bg-gray-100 md:w-auto md:flex-row">
+        <div className="from-blueviolet-100 to-darkmagenta font-heading border border-gray-300 bg-gray-100 p-px transition-all hover:bg-gradient-to-r">
+            <div className="flex h-full bg-gray-100">
                 {/* Left Side: Full-Height Image */}
                 <div>
                     <Image
@@ -89,13 +89,13 @@ export const EventCard = ({
                 <div className="flex flex-col justify-between p-6">
                     {/* Event Type Badge */}
                     <div>
-                        <span className="cursor-pointer bg-gradient-to-r from-blueviolet-100 to-darkmagenta px-3 py-1 text-sm uppercase">
+                        <span className="from-blueviolet-100 to-darkmagenta cursor-pointer bg-gradient-to-r px-3 py-1 text-sm uppercase">
                             {type}
                         </span>
                     </div>
 
                     {/* Event Title */}
-                    <h3 className="mt-4 text-2xl uppercase leading-tight">{title}</h3>
+                    <h3 className="mt-4 text-2xl leading-tight uppercase">{title}</h3>
 
                     {/* Date and Location */}
                     <div className="mt-4 flex items-start gap-4 font-mono text-white">
@@ -118,12 +118,12 @@ export const EventCard = ({
                     </div>
 
                     {/* Event Description */}
-                    <p className="mt-4 w-full font-mono text-base text-thistle">
+                    <p className="text-thistle mt-4 w-full font-mono text-base">
                         {truncatedDescription}
                         {description.length > maxDescriptionLength && (
                             <button
                                 onClick={toggleDescription}
-                                className="ml-2 text-blueviolet-100 hover:underline focus:outline-none"
+                                className="text-blueviolet-100 ml-2 hover:underline focus:outline-hidden"
                             >
                                 {showFullDescription ? "Show Less" : "Show More"}
                             </button>
@@ -134,7 +134,7 @@ export const EventCard = ({
                     <div className="mt-6 flex w-full justify-end gap-4">
                         {/* Details Button */}
                         <Button
-                            className="flex items-center gap-2 font-heading uppercase"
+                            className="font-heading flex items-center gap-2 uppercase"
                             onClick={handleDetails}
                             disabled={isPastEvent} // Disable for past events
                             variant="fill" // Always use the filled variant
@@ -145,7 +145,7 @@ export const EventCard = ({
                         {/* Register Button (only for events that require registration) */}
                         {requiresRegistration && !isRegistered && !isPastEvent && (
                             <Button
-                                className="flex items-center gap-2 font-heading uppercase"
+                                className="font-heading flex items-center gap-2 uppercase"
                                 onClick={handleRegister}
                                 variant="fill" // Always use the filled variant
                             >
@@ -155,7 +155,7 @@ export const EventCard = ({
 
                         {/* Add to Calendar Button */}
                         <Button
-                            className="flex items-center gap-2 font-heading uppercase"
+                            className="font-heading flex items-center gap-2 uppercase"
                             onClick={handleAddToCalendar}
                             disabled={isPastEvent} // Disable for past events
                             variant="outline" // Keep the outline variant

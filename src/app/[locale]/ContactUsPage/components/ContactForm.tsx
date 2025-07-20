@@ -23,7 +23,7 @@ const inputClass = `
   font-sans 
   text-[#AB9DB6]
   placeholder:text-thistle 
-  focus:outline-none
+  focus:outline-hidden
   relative
 `;
 
@@ -126,7 +126,7 @@ const ContactForm: React.FC = () => {
     return (
         <form onSubmit={handleSubmit} className="space-y-6">
             <div className="mb-8">
-                <h2 className="font-vcr-osd-mono mb-4 text-sm uppercase text-white md:text-sm lg:text-base xl:text-base">
+                <h2 className="font-vcr-osd-mono mb-4 text-sm text-white uppercase md:text-sm lg:text-base xl:text-base">
                     {t("form_name_label")}
                 </h2>
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -156,7 +156,7 @@ const ContactForm: React.FC = () => {
             </div>
 
             <div className="mb-8">
-                <h2 className="font-vcr-osd-mono mb-4 text-sm uppercase text-white md:text-sm lg:text-base xl:text-base">
+                <h2 className="font-vcr-osd-mono mb-4 text-sm text-white uppercase md:text-sm lg:text-base xl:text-base">
                     {t("form_email_label")}
                 </h2>
                 <div className={gradientBorderClass}>
@@ -173,7 +173,7 @@ const ContactForm: React.FC = () => {
             </div>
 
             <div className="mb-8">
-                <h2 className="font-vcr-osd-mono mb-4 text-sm uppercase text-white md:text-sm lg:text-base xl:text-base">
+                <h2 className="font-vcr-osd-mono mb-4 text-sm text-white uppercase md:text-sm lg:text-base xl:text-base">
                     {t("form_subject_label")}
                 </h2>
                 <div className={gradientBorderClass}>
@@ -207,7 +207,7 @@ const ContactForm: React.FC = () => {
             </div>
 
             <div className="mb-8">
-                <h2 className="font-vcr-osd-mono mb-4 text-sm uppercase text-white md:text-sm lg:text-base xl:text-base">
+                <h2 className="font-vcr-osd-mono mb-4 text-sm text-white uppercase md:text-sm lg:text-base xl:text-base">
                     {t("form_body_label")}
                 </h2>
                 <div className={gradientBorderClass}>
@@ -244,7 +244,7 @@ const ContactForm: React.FC = () => {
             <div className="flex justify-center">
                 <Button
                     type="submit"
-                    className="mt-4 flex items-center gap-3 font-heading text-xl uppercase"
+                    className="font-heading mt-4 flex items-center gap-3 text-xl uppercase"
                     disabled={submitting}
                 >
                     {submitting ? t("sending") : t("send_message")}

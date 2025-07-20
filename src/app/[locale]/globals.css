@@ -369,11 +369,11 @@ layer(base);
 
     /* Inline code and code blocks */
     .markdown code {
-        @apply rounded bg-gray-100 px-1 py-0.5 font-mono text-sm;
+        @apply rounded-sm bg-gray-100 px-1 py-0.5 font-mono text-sm;
     }
 
     .markdown pre {
-        @apply my-4 overflow-auto rounded bg-gray-100 p-4;
+        @apply my-4 overflow-auto rounded-sm bg-gray-100 p-4;
     }
 
     /* Horizontal rule */

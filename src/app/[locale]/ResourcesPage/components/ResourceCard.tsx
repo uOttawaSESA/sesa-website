@@ -39,29 +39,29 @@ export const ResourceCard = ({
 
     return (
         <div
-            className="outline-gradient relative h-48 w-80 p-6 font-heading transition-all md:w-96"
+            className="outline-gradient font-heading relative h-48 w-80 p-6 transition-all md:w-96"
             onMouseEnter={() => setShowOpen(true)}
             onMouseLeave={() => setShowOpen(false)}
         >
             <div className="relative flex h-full flex-col">
                 {/* Category Badges */}
                 <div className="mb-4 flex gap-2 font-thin">
-                    <span className="cursor-pointer bg-gradient-to-r from-blueviolet-100 to-darkmagenta p-2 text-sm uppercase">
+                    <span className="from-blueviolet-100 to-darkmagenta cursor-pointer bg-gradient-to-r p-2 text-sm uppercase">
                         {category}
                     </span>
                     {course && (
-                        <span className="cursor-pointer bg-gradient-to-r from-blueviolet-100 to-darkmagenta p-2 text-sm uppercase">
+                        <span className="from-blueviolet-100 to-darkmagenta cursor-pointer bg-gradient-to-r p-2 text-sm uppercase">
                             {course}
                         </span>
                     )}
                 </div>
 
                 {/* Title */}
-                <h3 className="text-base uppercase leading-tight md:text-xl">{title}</h3>
+                <h3 className="text-base leading-tight uppercase md:text-xl">{title}</h3>
 
                 {/* Bottom Section */}
                 <div className="absolute bottom-0 flex flex-row items-center">
-                    <div className="flex gap-7 font-[Monocode] text-thistle">
+                    <div className="text-thistle flex gap-7 font-[Monocode]">
                         {/* Thumbs Up SVG (No Tooltip) */}
                         <div className="flex w-10 items-center gap-1">
                             <Image
@@ -85,7 +85,7 @@ export const ResourceCard = ({
                             />
                             <span className="text-sm">{tier}</span>{" "}
                             {/* Replaced "grade" with "tier" */}
-                            <div className="absolute -top-8 left-0 z-10 whitespace-nowrap rounded bg-black px-2 py-1 text-xs text-white opacity-0 transition-opacity group-hover:opacity-100">
+                            <div className="absolute -top-8 left-0 z-10 rounded-sm bg-black px-2 py-1 text-xs whitespace-nowrap text-white opacity-0 transition-opacity group-hover:opacity-100">
                                 {getTierTooltip(tier)} {/* Replaced "grade" with "tier" */}
                             </div>
                         </div>
