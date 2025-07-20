@@ -28,12 +28,12 @@ const Sponsors = () => {
                             connect students with industry professionals.
                         </p>
                         <div className="mt-6 flex justify-center space-x-4 font-heading text-white">
-                            <Button className="font-heading text-base uppercase md:text-lg">
+                            <Button className="font-heading text-sm uppercase md:text-lg">
                                 Become a sponsor
                             </Button>
                             <Link href="/AboutPage">
                                 <Button
-                                    className="font-heading text-base uppercase md:text-lg"
+                                    className="font-heading text-sm uppercase md:text-lg"
                                     variant="outline"
                                 >
                                     Meet the team

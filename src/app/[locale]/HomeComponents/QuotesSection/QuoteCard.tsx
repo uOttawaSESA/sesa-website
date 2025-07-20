@@ -37,7 +37,7 @@ export const QuoteCard: React.FC<{ quote: Quote }> = ({ quote }) => {
                 <div className="mt-6 flex">
                     <Link
                         href={quote.buttonLink}
-                        className="fill-gradient relative z-10 px-6 py-2 font-heading text-lg uppercase transition-all ease-in-out"
+                        className="fill-gradient relative z-10 px-6 py-2 font-heading text-sm uppercase transition-all ease-in-out md:text-lg"
                     >
                         See our story
                     </Link>

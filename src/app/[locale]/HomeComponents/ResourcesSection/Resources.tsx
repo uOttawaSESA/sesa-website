@@ -62,14 +62,14 @@ const Resources = () => {
                 <div className="space-y-4 px-8 md:px-32">
                     <div className="flex w-full justify-center gap-4 font-heading">
                         <Button
-                            className="text-center font-heading text-base uppercase md:text-lg"
+                            className="text-center font-heading text-sm uppercase md:text-lg"
                             href="/ResourcesPage"
                         >
                             Explore all resources&nbsp;
                             <span className="text-gray opacity-50">&gt;</span>
                         </Button>
                         <Button
-                            className="hidden text-center font-heading text-base uppercase md:text-lg lg:block"
+                            className="hidden text-center font-heading text-sm uppercase md:text-lg lg:block"
                             variant="outline"
                             href="https://discord.com/invite/atYdx5HHCs"
                             external

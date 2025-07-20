@@ -182,7 +182,7 @@ const FAQ = () => {
                 <div className="flex items-center justify-center gap-4 text-center font-heading uppercase">
                     <h2 className="w-max text-base md:text-xl">Did we miss something?</h2>
                     <Link href={`/${locale}/ContactUsPage`}>
-                        <Button>
+                        <Button className="text-sm md:text-lg">
                             MESSAGE US <span className="text-gray-50/65">{` >`}</span>
                         </Button>
                     </Link>

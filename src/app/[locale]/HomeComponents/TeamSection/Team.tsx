@@ -33,14 +33,14 @@ const Team = () => {
 
                 <div className="flex justify-center gap-4 px-8 text-center font-heading">
                     <Button
-                        className="w-full font-heading text-base uppercase sm:w-max md:text-lg xl:text-xl"
+                        className="w-full font-heading text-sm uppercase sm:w-max md:text-lg xl:text-xl"
                         href="#"
                     >
                         Become a sponsor <span className="text-gray opacity-50">{">"}</span>
                     </Button>
 
                     <Button
-                        className="w-full font-heading text-base uppercase sm:w-max md:text-lg xl:text-xl"
+                        className="w-full font-heading text-sm uppercase sm:w-max md:text-lg xl:text-xl"
                         variant="outline"
                         href="/ContactUsPage"
                     >

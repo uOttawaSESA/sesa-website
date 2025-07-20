@@ -26,14 +26,14 @@ export default function Hero() {
                 </p>
                 <div className="mt-4 flex gap-2 font-heading md:mt-6">
                     <Link href="/AboutPage">
-                        <Button className="font-heading text-lg uppercase md:text-lg">
+                        <Button className="font-heading text-sm uppercase md:text-lg">
                             {t("learn_more")}
                         </Button>
                     </Link>
                     <Button
                         href="https://linktr.ee/uottawa.sesa"
                         external
-                        className="font-heading text-lg uppercase md:text-lg"
+                        className="font-heading text-sm uppercase md:text-lg"
                         variant="outline"
                     >
                         {t("get_involved")}

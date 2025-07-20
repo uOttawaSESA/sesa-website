@@ -48,7 +48,7 @@ export const GoalCard: React.FC<{ goal: Goal }> = ({ goal }) => {
 
                 <Button
                     href={buttonLink}
-                    className="w-max text-center font-heading text-lg uppercase"
+                    className="w-max text-center font-heading text-sm uppercase md:text-lg"
                 >
                     {buttonText}
                 </Button>
