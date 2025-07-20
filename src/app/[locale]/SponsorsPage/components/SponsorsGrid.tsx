@@ -1,49 +1,49 @@
 import Image from "next/image";
 
 const sponsors = [
-    { src: "/sponsors/ciena.png", alt: "Ciena", size: "col-span-6 h-48", width: 160, height: 80 },
+    { src: "/sponsors/ciena.webp", alt: "Ciena", size: "col-span-6 h-48", width: 160, height: 80 },
     {
-        src: "/sponsors/shopify.png",
+        src: "/sponsors/shopify.webp",
         alt: "Shopify",
         size: "col-span-6 h-48",
         width: 180,
         height: 90,
     },
-    { src: "/sponsors/qnx.png", alt: "QNX", size: "col-span-4 h-36", width: 100, height: 50 },
-    { src: "/sponsors/nokia.png", alt: "Nokia", size: "col-span-4 h-36", width: 140, height: 70 },
-    { src: "/sponsors/eef.png", alt: "EEF", size: "col-span-4 h-36", width: 140, height: 70 },
-    { src: "/sponsors/warp.png", alt: "Warp", size: "col-span-3 h-26", width: 70, height: 35 },
+    { src: "/sponsors/qnx.webp", alt: "QNX", size: "col-span-4 h-36", width: 100, height: 50 },
+    { src: "/sponsors/nokia.webp", alt: "Nokia", size: "col-span-4 h-36", width: 140, height: 70 },
+    { src: "/sponsors/eef.webp", alt: "EEF", size: "col-span-4 h-36", width: 140, height: 70 },
+    { src: "/sponsors/warp.webp", alt: "Warp", size: "col-span-3 h-26", width: 70, height: 35 },
     {
-        src: "/sponsors/surveymonkey.png",
+        src: "/sponsors/surveymonkey.webp",
         alt: "SurveyMonkey",
         size: "col-span-3 h-26",
         width: 120,
         height: 60,
     },
     {
-        src: "/sponsors/bitesite.png",
+        src: "/sponsors/bitesite.webp",
         alt: "BiteSite",
         size: "col-span-3 h-26",
         width: 80,
         height: 40,
     },
-    { src: "/sponsors/knak.png", alt: "Knak", size: "col-span-3 h-26", width: 60, height: 30 },
+    { src: "/sponsors/knak.webp", alt: "Knak", size: "col-span-3 h-26", width: 60, height: 30 },
     {
-        src: "/sponsors/redbull.png",
+        src: "/sponsors/redbull.webp",
         alt: "Red Bull",
         size: "col-span-3 h-26",
         width: 60,
         height: 30,
     },
     {
-        src: "/sponsors/nationalbank.png",
+        src: "/sponsors/nationalbank.webp",
         alt: "National Bank",
         size: "col-span-3 h-26",
         width: 100,
         height: 50,
     },
-    { src: "/sponsors/solace.png", alt: "Solace", size: "col-span-3 h-26", width: 90, height: 45 },
-    { src: "/sponsors/aws.png", alt: "AWS", size: "col-span-3 h-26", width: 50, height: 25 },
+    { src: "/sponsors/solace.webp", alt: "Solace", size: "col-span-3 h-26", width: 90, height: 45 },
+    { src: "/sponsors/aws.webp", alt: "AWS", size: "col-span-3 h-26", width: 50, height: 25 },
 ];
 
 const gradientBorderClass = `

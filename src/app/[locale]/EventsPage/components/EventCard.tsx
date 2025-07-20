@@ -72,21 +72,21 @@ export const EventCard = ({
             : description;
 
     return (
-        <div className="border border-gray-300 bg-gray-100 from-blueviolet-100 to-darkmagenta p-px font-heading transition-all hover:bg-gradient-to-r">
-            <div className="flex h-full bg-gray-100">
+        <div className="w-min border border-gray-300 bg-gray-100 from-blueviolet-100 to-darkmagenta p-px font-heading transition-all hover:bg-gradient-to-r md:w-auto">
+            <div className="flex w-min flex-col justify-start bg-gray-100 md:w-auto md:flex-row">
                 {/* Left Side: Full-Height Image */}
-                <div className="relative h-[350px] w-1/4">
+                <div>
                     <Image
                         src={image}
                         alt={title}
-                        layout="fill"
-                        objectFit="cover"
-                        className="rounded-l-lg"
+                        width={350}
+                        height={350}
+                        className="aspect-square h-full max-w-none"
                     />
                 </div>
 
                 {/* Right Side: Event Details */}
-                <div className="flex w-3/4 flex-col justify-between p-6">
+                <div className="flex flex-col justify-between p-6">
                     {/* Event Type Badge */}
                     <div>
                         <span className="cursor-pointer bg-gradient-to-r from-blueviolet-100 to-darkmagenta px-3 py-1 text-sm uppercase">

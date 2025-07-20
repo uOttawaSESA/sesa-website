@@ -8,16 +8,16 @@ const TeamUpSection: React.FC = () => {
     const t = useTranslations("events");
 
     return (
-        <div className="my-36 flex h-[45rem] items-center justify-start gap-12 align-middle">
+        <div className="mx-4 my-36 flex h-[45rem] flex-col items-center justify-start gap-12 sm:mx-0 sm:flex-row">
             <div className="grid-overlay-left md:h-[43.93rem] md:w-[53vw]"></div>
 
             <div className="relative z-10 lg:block">
                 <Image
-                    src="/imgs/Events/team-up.png"
+                    src="/imgs/Events/team-up.webp"
                     alt="SESA Group Photo"
-                    className="h-[500px] w-auto"
+                    className="aspect-[7/5] max-h-[400px] sm:max-h-[500px]"
                     width={700}
-                    height={700}
+                    height={500}
                 />
             </div>
 
@@ -30,7 +30,7 @@ const TeamUpSection: React.FC = () => {
                     {t("teamup_blurb")}
                 </p>
 
-                <div className="mt-6 flex gap-4">
+                <div className="mt-6 flex flex-wrap gap-4">
                     <Button
                         href="/pages/ContactUsPage"
                         className="relative z-10 font-heading text-xl uppercase"
@@ -50,31 +50,31 @@ const TeamUpSection: React.FC = () => {
                 <div className="mt-6 flex">
                     <CircleImage
                         size={55}
-                        src="/imgs/team/peter.png"
+                        src="/imgs/team/peter.webp"
                         alt="Peter Bou-Farah"
                         className="ml-[-0.75rem]"
                     />
                     <CircleImage
                         size={55}
-                        src="/imgs/team/ayushi.png"
+                        src="/imgs/team/ayushi.webp"
                         alt="Ayushi Dosieah"
                         className="ml-[-0.75rem]"
                     />
                     <CircleImage
                         size={55}
-                        src="/imgs/team/darren.png"
+                        src="/imgs/team/darren.webp"
                         alt="Darren Rakos"
                         className="ml-[-0.75rem]"
                     />
                     <CircleImage
                         size={55}
-                        src="/imgs/team/thomas.png"
+                        src="/imgs/team/thomas.webp"
                         alt="Thomas Boyle"
                         className="ml-[-0.75rem]"
                     />
                     <CircleImage
                         size={55}
-                        src="/imgs/team/ichrak.png"
+                        src="/imgs/team/ichrak.webp"
                         alt="Ichrak El Hatimi"
                         className="ml-[-0.75rem]"
                     />

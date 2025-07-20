@@ -162,7 +162,14 @@ export default function Navbar() {
             <div
                 className={`fixed inset-0 z-40 bg-black transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"} lg:hidden`}
             >
-                <nav className="mt-16 flex flex-col items-center gap-8 py-10">{navItems}</nav>
+                <nav className="mt-16 flex flex-col items-center gap-8 py-10">
+                    {navItems}
+                    <Link href="/SponsorsPage" onClick={() => setIsMobileMenuOpen(false)}>
+                        <Button className="font-heading text-base uppercase text-white">
+                            {t("sponsor_us")}
+                        </Button>
+                    </Link>
+                </nav>
             </div>
 
             <div className="h-24" />

@@ -6,22 +6,22 @@ import Image from "next/image";
 export default function Benefits() {
     const cards = [
         {
-            image: "/sponsors-page/benefits-1.png",
-            icon: "/sponsors-page/network.png",
+            image: "/sponsors-page/benefits-1.webp",
+            icon: "/sponsors-page/network.webp",
             title: "NETWORK WITH TOP TALENT",
             description:
                 "Connect and recruit highly skilled job-ready students pursuing the field of software engineering at uOttawa.",
         },
         {
-            image: "/sponsors-page/benefits-2.jpg",
-            icon: "/sponsors-page/impact.png",
+            image: "/sponsors-page/benefits-2.webp",
+            icon: "/sponsors-page/impact.webp",
             title: "MAKE A REAL-WORLD IMPACT",
             description:
                 "Give back to your community and make a meaningful difference in software engineering education at the University of Ottawa.",
         },
         {
-            image: "/sponsors-page/benefits-3.png",
-            icon: "/sponsors-page/brand.png",
+            image: "/sponsors-page/benefits-3.webp",
+            icon: "/sponsors-page/brand.webp",
             title: "PROMOTE YOUR BRAND",
             description:
                 "Increase your brand visibility, survey your target audience, or offer exclusive discounts to students attending uOttawa.",
