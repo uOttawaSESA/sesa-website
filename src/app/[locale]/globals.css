@@ -128,6 +128,11 @@ layer(base);
     }
 }
 
+@utility outline-gradient {
+    border: 1px solid;
+    border-image: linear-gradient(55deg, #8824dc 41.93%, #b1219d 81.89%) 1;
+}
+
 @layer utilities {
     body {
         @apply m-0 leading-[normal];
@@ -166,15 +171,10 @@ layer(base);
         border-radius: 10px;
     }
 
-    .outline-gradient {
-        border: 1px solid;
-        border-image: linear-gradient(55deg, #8824dc 41.93%, #b1219d 81.89%) 1;
-    }
-
     .sponsor {
         border: 1px solid;
         border-image: linear-gradient(55deg, #8824dc 41.93%, #b1219d 81.89%) 1;
-        @apply mx-4 flex h-40 w-64 items-center justify-center;
+        @apply outline-gradient mx-4 flex h-40 w-64 items-center justify-center;
     }
 
     .fill-gradient {
