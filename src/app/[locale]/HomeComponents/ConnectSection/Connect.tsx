@@ -9,7 +9,7 @@ const Connect = () => {
                     {/* Left Image */}
                     <div className="relative my-4 lg:w-1/2">
                         <Image
-                            src="/imgs/Home/connectImage.png"
+                            src="/imgs/Home/connectImage.webp"
                             alt="Goal Main Image"
                             className="relative z-10 mb-12 h-[250px] w-full object-cover sm:h-[400px] md:h-[600px] lg:mt-12 lg:h-[500px]"
                             width={700}

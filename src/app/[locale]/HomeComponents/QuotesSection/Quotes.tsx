@@ -27,7 +27,7 @@ const Quotes = () => {
                 </Carousel>
 
                 <Image
-                    src="/imgs/Home/goals/academic.png"
+                    src="/imgs/Home/goals/academic.webp"
                     alt="Quote Main Image"
                     className="z-10 hidden object-cover xl:block xl:h-[500px] 2xl:h-[600px] 2xl:max-w-3xl"
                     width={700}
