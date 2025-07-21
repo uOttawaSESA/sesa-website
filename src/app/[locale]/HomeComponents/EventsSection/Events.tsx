@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/carousel";
 import { useTranslations } from "next-intl";
 import EventCard from "./EventCard";
-import { events } from "../../EventsPage/utils/eventData";
+import { events } from "@/app/data/Events";
 
 export default function Events() {
     const t = useTranslations("homepage");

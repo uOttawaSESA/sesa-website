@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import EventFilters from "./components/EventFilters";
 import EventsList from "./components/EventsList";
 import Pagination from "@/components/Pagination";
-import { events } from "./utils/eventData";
+import { events } from "@/app/data/Events";
 import TeamUpSection from "./components/TeamUpSection";
 import ConnectSESA from "./components/ConnectSESA";
 import InfiniteCarousel from "./components/InfiniteCarousel";
