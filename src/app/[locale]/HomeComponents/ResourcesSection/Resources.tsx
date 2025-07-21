@@ -3,7 +3,6 @@ import ResourceCard from "../../ResourcesPage/components/ResourceCard";
 import Marquee from "react-fast-marquee";
 import Button from "@/components/Button";
 import Image from "next/image";
-import ComingSoonMessage from "@/components/ComingSoonMessage";
 
 const Resources = () => {
     return (
