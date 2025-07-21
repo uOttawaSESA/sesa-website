@@ -2,8 +2,7 @@
 
 import EventCard from "./EventCard";
 import { useEffect, useRef } from "react";
-import { events } from "@/app/data/events";
-import Image from "next/image";
+import { events } from "@/app/data/Events";
 
 const CARD_WIDTH = 350;
 
