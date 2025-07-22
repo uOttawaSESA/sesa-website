@@ -55,7 +55,7 @@ export const SocialMediaCard = ({
                     {/* mt-auto pushes the button to the bottom */}
                     <Button
                         variant="ghost"
-                        className="text-l font-heading !p-0 text-blue-500 uppercase hover:underline"
+                        className="text-l font-heading !p-0 uppercase text-blue-500 hover:underline"
                         href={postLink}
                         target="_blank"
                     >

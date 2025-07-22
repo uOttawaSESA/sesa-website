@@ -34,15 +34,15 @@ export default function Benefits() {
             <div className="flex items-start justify-between">
                 <div className="w-1/2">
                     <p className="color-gradient relative font-mono text-base">Benefits</p>
-                    <h2 className="font-heading mb-4 text-3xl text-white uppercase">
+                    <h2 className="font-heading mb-4 text-3xl uppercase text-white">
                         <span className="block md:inline">CONNECT WITH </span>
                         <span className="relative block md:inline">
                             THE NEXT
-                            <div className="animate-highlight absolute top-0 right-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                            <div className="animate-highlight absolute right-0 top-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                         </span>{" "}
                         <span className="relative block md:inline">
                             GENERATION
-                            <div className="animate-highlight absolute top-0 right-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                            <div className="animate-highlight absolute right-0 top-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                         </span>
                         <span className="block md:inline"> OF SOFTWARE ENGINEERS</span>
                     </h2>
@@ -99,7 +99,7 @@ export default function Benefits() {
                                     className="m-3"
                                 />
                             </div>
-                            <div className="font-heading mb-2 text-lg leading-snug text-white uppercase">
+                            <div className="font-heading mb-2 text-lg uppercase leading-snug text-white">
                                 {card.title}
                             </div>
                             <p className="text-thistle font-sans text-lg leading-snug">

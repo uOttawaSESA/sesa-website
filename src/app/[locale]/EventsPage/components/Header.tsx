@@ -11,7 +11,7 @@ const Header = () => {
                 <h1 className="mt-4 text-[48px] uppercase">
                     <span className="relative inline-block">
                         {t("stay_up_to_date_hl")}
-                        <div className="animate-highlight absolute top-0 right-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                        <div className="animate-highlight absolute right-0 top-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                     </span>
                     <span className="ml-7">{t("stay_up_to_date")}</span>
                 </h1>

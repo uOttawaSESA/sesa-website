@@ -57,7 +57,7 @@ export const ResourceCard = ({
                 </div>
 
                 {/* Title */}
-                <h3 className="text-base leading-tight uppercase md:text-xl">{title}</h3>
+                <h3 className="text-base uppercase leading-tight md:text-xl">{title}</h3>
 
                 {/* Bottom Section */}
                 <div className="absolute bottom-0 flex flex-row items-center">
@@ -85,7 +85,7 @@ export const ResourceCard = ({
                             />
                             <span className="text-sm">{tier}</span>{" "}
                             {/* Replaced "grade" with "tier" */}
-                            <div className="absolute -top-8 left-0 z-10 rounded-sm bg-black px-2 py-1 text-xs whitespace-nowrap text-white opacity-0 transition-opacity group-hover:opacity-100">
+                            <div className="absolute -top-8 left-0 z-10 whitespace-nowrap rounded-sm bg-black px-2 py-1 text-xs text-white opacity-0 transition-opacity group-hover:opacity-100">
                                 {getTierTooltip(tier)} {/* Replaced "grade" with "tier" */}
                             </div>
                         </div>

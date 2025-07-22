@@ -72,7 +72,7 @@ export default async function ResourcePage({ params }: { params: Promise<{ id: s
             <div className="relative my-16 flex justify-center">
                 <Button
                     variant="outline"
-                    className="font-heading absolute top-0 left-72 uppercase"
+                    className="font-heading absolute left-72 top-0 uppercase"
                     href="/pages/ResourcesPage"
                 >
                     Go Back

@@ -16,11 +16,11 @@ const SponsorsHeader = ({ topText, title, bottomText, btn1, btn2 }: SponsorsHead
                 <p className="relative inline-block !bg-clip-text font-mono text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
                     {topText}
                 </p>
-                <h1 className="font-heading mx-auto mt-4 max-w-[18ch] text-5xl leading-tight text-white uppercase">
+                <h1 className="font-heading mx-auto mt-4 max-w-[18ch] text-5xl uppercase leading-tight text-white">
                     <span className="relative inline-block">
                         <span className="relative inline-block">
                             huge thanks
-                            <div className="animate-highlight absolute top-0 right-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                            <div className="animate-highlight absolute right-0 top-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                         </span>
                         <span> {title.replace(/huge thanks/i, "")}</span>
                     </span>

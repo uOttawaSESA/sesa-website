@@ -24,15 +24,15 @@ const SponsorCard2 = () => {
                     <p className="font-monocode relative inline-block !bg-clip-text text-left text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
                         Partner with us
                     </p>
-                    <h2 className="font-heading mt-4 text-3xl leading-tight text-white uppercase">
+                    <h2 className="font-heading mt-4 text-3xl uppercase leading-tight text-white">
                         Let’s collaborate to make a{" "}
                         <span className="relative inline-block">
                             lasting difference{" "}
-                            <div className="animate-highlight absolute top-0 right-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                            <div className="animate-highlight absolute right-0 top-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                         </span>{" "}
                         on aspiring software engineers
                     </h2>
-                    <p className="text-thistle mt-2 mb-4 max-w-2xl text-lg leading-tight">
+                    <p className="text-thistle mb-4 mt-2 max-w-2xl text-lg leading-tight">
                         Together, we can drive a meaningful impact on over 3500+ EECS students at
                         uOttawa by bridging the gap between academic education and industry
                         experience.
@@ -41,7 +41,7 @@ const SponsorCard2 = () => {
                     <div className="mb-6 flex items-center gap-4">
                         <Button
                             href="/pages/ContactUsPage"
-                            className="font-heading text-white uppercase"
+                            className="font-heading uppercase text-white"
                         >
                             Become a Sponsor
                         </Button>

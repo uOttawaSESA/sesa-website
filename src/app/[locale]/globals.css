@@ -209,7 +209,7 @@ layer(base);
     }
 
     .highlight-gradient {
-        @apply animate-highlight absolute top-0 right-0 h-full w-0;
+        @apply animate-highlight absolute right-0 top-0 h-full w-0;
         background: linear-gradient(55.37deg, rgba(136, 36, 220, 0.25), rgba(177, 33, 97, 0.25));
     }
 
@@ -317,27 +317,27 @@ layer(base);
     /*** MARKDOWN STYLING ***/
     /* Headings */
     .markdown h1 {
-        @apply font-heading mt-8 mb-4 text-3xl uppercase;
+        @apply font-heading mb-4 mt-8 text-3xl uppercase;
     }
 
     .markdown h2 {
-        @apply font-heading mt-6 mb-3 text-2xl uppercase;
+        @apply font-heading mb-3 mt-6 text-2xl uppercase;
     }
 
     .markdown h3 {
-        @apply font-heading mt-4 mb-2 text-xl uppercase;
+        @apply font-heading mb-2 mt-4 text-xl uppercase;
     }
 
     .markdown h4 {
-        @apply font-heading mt-4 mb-2 text-lg uppercase;
+        @apply font-heading mb-2 mt-4 text-lg uppercase;
     }
 
     .markdown h5 {
-        @apply font-heading mt-4 mb-2 text-base uppercase;
+        @apply font-heading mb-2 mt-4 text-base uppercase;
     }
 
     .markdown h6 {
-        @apply font-heading mt-4 mb-2 text-sm uppercase;
+        @apply font-heading mb-2 mt-4 text-sm uppercase;
     }
 
     /* Paragraphs and links */

@@ -42,14 +42,14 @@ const EventFilters: React.FC<{
     };
 
     return (
-        <div className="mx-4 mt-8 -mb-6 flex items-center justify-between">
+        <div className="mx-4 -mb-6 mt-8 flex items-center justify-between">
             {/* Left Side: Time Filters */}
             <div className="flex flex-wrap gap-4">
                 {timeFilters.map(filter => (
                     <Button
                         key={filter}
                         variant="outline"
-                        className={`font-heading text-white uppercase ${
+                        className={`font-heading uppercase text-white ${
                             activeTimeFilter === filter ? "bg-gray-700" : ""
                         }`}
                         onClick={() => handleTimeFilterClick(filter)}
@@ -89,7 +89,7 @@ const EventFilters: React.FC<{
                                         handleFilterClick(filter);
                                         setIsDropdownOpen(false);
                                     }}
-                                    className="font-heading w-full px-6 py-3 text-left text-base text-white uppercase transition-colors duration-200 hover:bg-[rgba(27,27,27,0.4)]"
+                                    className="font-heading w-full px-6 py-3 text-left text-base uppercase text-white transition-colors duration-200 hover:bg-[rgba(27,27,27,0.4)]"
                                 >
                                     {filter}
                                 </button>

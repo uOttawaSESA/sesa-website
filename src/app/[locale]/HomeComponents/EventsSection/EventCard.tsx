@@ -52,7 +52,7 @@ const EventCard: React.FC<Event> = ({
                 </div>
 
                 {/* Title */}
-                <h5 className="text-lg tracking-tight uppercase">{title}</h5>
+                <h5 className="text-lg uppercase tracking-tight">{title}</h5>
 
                 {/* Description */}
                 <div>
@@ -61,7 +61,7 @@ const EventCard: React.FC<Event> = ({
                     </p>
                 </div>
             </div>
-            <div className="mt-auto mb-4 px-4 text-right">
+            <div className="mb-4 mt-auto px-4 text-right">
                 <a
                     href={instagramLink}
                     target="_blank"

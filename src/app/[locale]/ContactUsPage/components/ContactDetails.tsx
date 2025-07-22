@@ -18,11 +18,11 @@ const ContactDetails = () => {
                     {t("contact_us")}
                 </span>
 
-                <h1 className="font-heading mt-4 text-5xl leading-tight uppercase">
+                <h1 className="font-heading mt-4 text-5xl uppercase leading-tight">
                     {t("get_in_touch")}{" "}
                     <span className="relative inline-block">
                         {t("get_in_touch_hl")}
-                        <div className="animate-highlight from-blueviolet-100/25 to-darkmagenta/25 absolute top-0 right-0 h-full w-0 bg-gradient-to-r"></div>
+                        <div className="animate-highlight from-blueviolet-100/25 to-darkmagenta/25 absolute right-0 top-0 h-full w-0 bg-gradient-to-r"></div>
                     </span>
                 </h1>
 

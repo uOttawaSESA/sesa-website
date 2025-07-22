@@ -12,12 +12,12 @@ const ConnectSESA = () => {
                 <h1 className="mt-4 text-[36px] uppercase">
                     <span className="relative inline-block">
                         {t("stay_updated")}
-                        <div className="animate-highlight absolute top-0 right-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                        <div className="animate-highlight absolute right-0 top-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                     </span>
                     <span className="ml-7">{t("stay_updated_hl")}</span>
                 </h1>
 
-                <p className="text-thistle mx-auto mt-6 mb-6 max-w-[558px] font-mono text-[16px]">
+                <p className="text-thistle mx-auto mb-6 mt-6 max-w-[558px] font-mono text-[16px]">
                     {t("stay_updated_blurb")}
                 </p>
 

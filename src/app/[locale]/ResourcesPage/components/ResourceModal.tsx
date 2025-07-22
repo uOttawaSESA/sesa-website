@@ -42,7 +42,7 @@ const ListLinkCard = ({
                     className="my-auto h-8 w-8 rounded-sm object-contain"
                 />
                 <div className="flex flex-col gap-1">
-                    <span className="w-[700px] text-base font-bold tracking-wider text-white uppercase">
+                    <span className="w-[700px] text-base font-bold uppercase tracking-wider text-white">
                         {name}
                     </span>
                     <span className="text-thistle font-sans text-base">{description}</span>
@@ -189,7 +189,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                                 </span>
                             )}
                         </div>
-                        <h2 className="font-heading text-2xl text-white uppercase">
+                        <h2 className="font-heading text-2xl uppercase text-white">
                             {resource.title}
                         </h2>
                     </div>
@@ -280,7 +280,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                             href={resource.source}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="font-heading flex flex-row items-center justify-center text-white uppercase"
+                            className="font-heading flex flex-row items-center justify-center uppercase text-white"
                             external
                         >
                             Open in New Tab

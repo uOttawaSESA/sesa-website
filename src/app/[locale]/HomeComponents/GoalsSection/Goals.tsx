@@ -21,8 +21,8 @@ const Goals = () => {
                     ))}
                 </CarouselContent>
                 <div className="mt-8 flex justify-center gap-4">
-                    <CarouselPrevious className="relative top-0 left-0 translate-y-0" />
-                    <CarouselNext className="relative top-0 right-0 translate-y-0" />
+                    <CarouselPrevious className="relative left-0 top-0 translate-y-0" />
+                    <CarouselNext className="relative right-0 top-0 translate-y-0" />
                 </div>
             </Carousel>
         </section>
