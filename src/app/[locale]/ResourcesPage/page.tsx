@@ -100,7 +100,7 @@ const ResourcesPage: FC = () => {
         // <div className="min-h-screen bg-gradient-to-b from-gray-100 via-blueviolet-200 to-[#361D49] text-white">
         <div className="min-h-[83vh] text-white">
             {/* Main Content Container */}
-            <div className="container relative z-10 mx-auto w-full px-4 py-8 md:max-w-7xl">
+            <div className="relative z-10 container mx-auto w-full px-4 py-8 md:max-w-7xl">
                 <Header />
 
                 {resources.length === 0 ? (

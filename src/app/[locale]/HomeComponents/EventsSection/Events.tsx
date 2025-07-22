@@ -20,10 +20,10 @@ export default function Events() {
                 <p className="font-monocode relative inline-block !bg-clip-text text-left text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
                     {t("events")}
                 </p>
-                <h1 className="font-heading my-2 text-2xl uppercase leading-tight md:text-5xl">
+                <h1 className="font-heading my-2 text-2xl leading-tight uppercase md:text-5xl">
                     <span className="relative inline-block">
                         {t("events_heading_hl")}
-                        <div className="animate-highlight absolute right-0 top-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                        <div className="animate-highlight absolute top-0 right-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                     </span>{" "}
                     {t("events_heading")}
                 </h1>
@@ -56,8 +56,8 @@ export default function Events() {
                 </CarouselContent>
 
                 <div className="mt-8 flex justify-center gap-4">
-                    <CarouselPrevious className="relative left-0 top-0 translate-y-0" />
-                    <CarouselNext className="relative right-0 top-0 translate-y-0" />
+                    <CarouselPrevious className="relative top-0 left-0 translate-y-0" />
+                    <CarouselNext className="relative top-0 right-0 translate-y-0" />
                 </div>
             </Carousel>
         </section>

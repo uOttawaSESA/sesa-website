@@ -19,11 +19,11 @@ const FAQ = () => {
             <section className="flex flex-col gap-8 px-8 text-white md:px-20 xl:px-32">
                 <div className="flex flex-col items-center justify-center gap-2">
                     <p className="font-monocode color-gradient">Frequently asked questions</p>
-                    <h1 className="font-heading text-center text-2xl uppercase leading-tight md:text-5xl">
+                    <h1 className="font-heading text-center text-2xl leading-tight uppercase md:text-5xl">
                         Got Questions?&nbsp;
                         <span className="relative inline-block">
                             We&apos;ve got answers!
-                            <div className="animate-highlight absolute right-0 top-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                            <div className="animate-highlight absolute top-0 right-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                         </span>
                     </h1>
                     <p className="text-thistle max-w-sm text-center font-sans text-base md:max-w-lg md:text-lg xl:max-w-xl xl:text-xl">

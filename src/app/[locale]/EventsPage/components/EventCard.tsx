@@ -95,7 +95,7 @@ export const EventCard = ({
                     </div>
 
                     {/* Event Title */}
-                    <h3 className="mt-4 text-2xl uppercase leading-tight">{title}</h3>
+                    <h3 className="mt-4 text-2xl leading-tight uppercase">{title}</h3>
 
                     {/* Date and Location */}
                     <div className="mt-4 flex items-start gap-4 font-mono text-white">
@@ -123,7 +123,7 @@ export const EventCard = ({
                         {description.length > maxDescriptionLength && (
                             <button
                                 onClick={toggleDescription}
-                                className="text-blueviolet-100 focus:outline-hidden ml-2 hover:underline"
+                                className="text-blueviolet-100 ml-2 hover:underline focus:outline-hidden"
                             >
                                 {showFullDescription ? "Show Less" : "Show More"}
                             </button>

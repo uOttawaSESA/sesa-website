@@ -48,7 +48,7 @@ const RowSelector: React.FC<RowSelectorProps> = ({
                                     setRowsToShow(rows);
                                     toggleDropdown();
                                 }}
-                                className="font-heading w-full px-6 py-3 text-left text-base uppercase text-white transition-colors duration-200 hover:bg-[rgba(27,27,27,0.4)]"
+                                className="font-heading w-full px-6 py-3 text-left text-base text-white uppercase transition-colors duration-200 hover:bg-[rgba(27,27,27,0.4)]"
                             >
                                 {rows} Rows
                             </button>

@@ -7,16 +7,16 @@ export default function Hero() {
     const t = useTranslations("homepage");
 
     return (
-        <section className="xl:items-between mb-8 mt-8 flex h-max w-full flex-col items-start justify-between gap-24 text-white lg:flex-row">
+        <section className="xl:items-between mt-8 mb-8 flex h-max w-full flex-col items-start justify-between gap-24 text-white lg:flex-row">
             {/* Content Container */}
             <div className="relative z-10 max-w-80 ps-8 sm:max-w-md md:max-w-2xl md:ps-20 xl:ps-32">
                 <p className="font-monocode relative inline-block !bg-clip-text text-left text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
                     {t("we_are_sesa")}
                 </p>
-                <h1 className="font-heading my-2 text-2xl uppercase leading-tight md:text-5xl">
+                <h1 className="font-heading my-2 text-2xl leading-tight uppercase md:text-5xl">
                     <span className="relative inline-block">
                         {t("bridging_the_gap_hl")}
-                        <div className="animate-highlight absolute right-0 top-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                        <div className="animate-highlight absolute top-0 right-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                     </span>
                     <br />
                     {t("bridging_the_gap")}

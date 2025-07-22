@@ -17,11 +17,11 @@ const Team = () => {
                         <Image src="/logo-filled.svg" width={50} height={50} alt="sesa" />
                         <Image src="/logo-text.svg" width={111} height={50} alt="sesa" />
                     </div>
-                    <h1 className="font-heading text-center text-2xl uppercase leading-tight md:text-3xl xl:text-5xl">
+                    <h1 className="font-heading text-center text-2xl leading-tight uppercase md:text-3xl xl:text-5xl">
                         The&nbsp;
                         <span className="relative inline-block">
                             Univeristy of Ottawa&apos;s
-                            <div className="animate-highlight absolute right-0 top-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                            <div className="animate-highlight absolute top-0 right-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                         </span>{" "}
                         Software Engineering Students Association
                     </h1>
@@ -68,7 +68,7 @@ const Team = () => {
 
                     {/* Hover text container - positioned absolutely */}
                     {hovered && (
-                        <div className="absolute left-1/2 top-14 z-10 mt-12 -translate-x-1/2 px-4 py-2 text-center">
+                        <div className="absolute top-14 left-1/2 z-10 mt-12 -translate-x-1/2 px-4 py-2 text-center">
                             <h1 className="font-heading mb-2 text-xl">
                                 {membersData.find(m => m.name === hovered)?.name}
                             </h1>

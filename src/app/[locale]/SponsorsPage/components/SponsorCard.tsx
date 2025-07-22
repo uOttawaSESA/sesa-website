@@ -29,15 +29,15 @@ const SponsorCard = () => {
                     height={20}
                     className="mb-4"
                 />
-                <div className="font-heading mt-3 text-2xl uppercase text-white">
+                <div className="font-heading mt-3 text-2xl text-white uppercase">
                     &ldquo;The folks at SESA were{" "}
                     <span className="relative inline-block">
                         professional, communicative,
-                        <div className="animate-highlight absolute right-0 top-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                        <div className="animate-highlight absolute top-0 right-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                     </span>{" "}
                     <span className="relative inline-block">
                         and friendly
-                        <div className="animate-highlight absolute right-0 top-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                        <div className="animate-highlight absolute top-0 right-0 h-full w-0 [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                     </span>{" "}
                     leading up to the talk, and provided some great photos and videos afterwards. I
                     really enjoyed my collaboration with them.
@@ -53,7 +53,7 @@ const SponsorCard = () => {
                 <div className="mt-6">
                     <Button
                         href="/pages/ContactUsPage"
-                        className="text-m font-heading uppercase text-white"
+                        className="text-m font-heading text-white uppercase"
                     >
                         Work With Us
                     </Button>

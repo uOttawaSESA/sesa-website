@@ -174,7 +174,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                         value={searchTerm}
                         onChange={e => setSearchTerm(e.target.value)}
                         placeholder={t("search_placeholder")}
-                        className="placeholder-thistle focus:outline-hidden w-full bg-transparent font-sans text-base"
+                        className="placeholder-thistle w-full bg-transparent font-sans text-base focus:outline-hidden"
                     />
                 </div>
 
@@ -207,7 +207,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                             setIsGridMode(true);
                                             setIsViewOpen(false);
                                         }}
-                                        className="font-heading w-full px-6 py-3 text-left text-base uppercase text-white transition-colors duration-200 hover:bg-[rgba(27,27,27,0.4)]"
+                                        className="font-heading w-full px-6 py-3 text-left text-base text-white uppercase transition-colors duration-200 hover:bg-[rgba(27,27,27,0.4)]"
                                     >
                                         Grid
                                     </button>
@@ -216,7 +216,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                             setIsGridMode(false);
                                             setIsViewOpen(false);
                                         }}
-                                        className="font-heading w-full px-6 py-3 text-left text-base uppercase text-white transition-colors duration-200 hover:bg-[rgba(27,27,27,0.4)]"
+                                        className="font-heading w-full px-6 py-3 text-left text-base text-white uppercase transition-colors duration-200 hover:bg-[rgba(27,27,27,0.4)]"
                                     >
                                         Row
                                     </button>
@@ -266,13 +266,13 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                         <div className="mb-4 last:mb-0" key={key}>
                                             <label
                                                 htmlFor={key}
-                                                className="font-heading mb-2 block text-base uppercase text-white"
+                                                className="font-heading mb-2 block text-base text-white uppercase"
                                             >
                                                 {key.charAt(0).toUpperCase() + key.slice(1)}
                                             </label>
                                             <button
                                                 type="button"
-                                                className="border-thistle font-heading w-full rounded-sm border bg-transparent px-6 py-3 text-left text-base uppercase text-white transition-colors duration-200 hover:bg-[rgba(27,27,27,0.2)]"
+                                                className="border-thistle font-heading w-full rounded-sm border bg-transparent px-6 py-3 text-left text-base text-white uppercase transition-colors duration-200 hover:bg-[rgba(27,27,27,0.2)]"
                                                 onClick={() =>
                                                     setOpenFilterDropdown(
                                                         openFilterDropdown === key ? null : key,
@@ -298,7 +298,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                             </button>
                                             {openFilterDropdown === key && (
                                                 <div className="relative z-50">
-                                                    <div className="absolute left-0 right-0 mt-2 min-w-full">
+                                                    <div className="absolute right-0 left-0 mt-2 min-w-full">
                                                         <div
                                                             className={`${gradientBorderClass} animate-dropdown bg-[rgba(27,27,27,1)] backdrop-blur-md backdrop-saturate-150`}
                                                         >
@@ -306,7 +306,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                                                 option => (
                                                                     <button
                                                                         key={option.value}
-                                                                        className="font-heading w-full px-6 py-3 text-left text-base uppercase text-white transition-colors duration-200 hover:bg-[rgba(27,27,27,0.4)]"
+                                                                        className="font-heading w-full px-6 py-3 text-left text-base text-white uppercase transition-colors duration-200 hover:bg-[rgba(27,27,27,0.4)]"
                                                                         onClick={() => {
                                                                             handleDropdownFilterChange(
                                                                                 key,

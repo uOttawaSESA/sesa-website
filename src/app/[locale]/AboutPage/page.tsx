@@ -45,7 +45,7 @@ export default function AboutPage() {
 
     return (
         <div className="min-h-screen text-white">
-            <div className="container relative mx-auto max-w-7xl px-4 py-8">
+            <div className="relative container mx-auto max-w-7xl px-4 py-8">
                 {/* Upper area */}
                 <div className="flex flex-col gap-2">
                     <div className="font-heading flex items-center gap-2 text-lg uppercase">
@@ -220,7 +220,7 @@ export default function AboutPage() {
                     </p>
                 </div>
                 {/* TODO: Add the `sticky` class once a way to make it not super ugly is found */}
-                <div className="font-heading backdrop-blur-xs top-[5.6rem] z-10 mt-4 grid grid-flow-col grid-rows-4 text-center uppercase md:grid-rows-2 lg:grid-rows-1">
+                <div className="font-heading top-[5.6rem] z-10 mt-4 grid grid-flow-col grid-rows-4 text-center uppercase backdrop-blur-xs md:grid-rows-2 lg:grid-rows-1">
                     <Button variant="outline" href="#co-directors">
                         {tOurTeam("codirectors")}
                     </Button>
@@ -313,7 +313,7 @@ export default function AboutPage() {
                 </div>
             </div>
             {/* Be a part of our family */}
-            <div className="mb-24 mt-16 flex flex-col items-center justify-center gap-8 px-4 lg:flex-row">
+            <div className="mt-16 mb-24 flex flex-col items-center justify-center gap-8 px-4 lg:flex-row">
                 <div className="flex flex-col gap-2">
                     <p className="color-gradient font-mono">{t("our_family")}</p>
                     <h1 className="font-heading max-w-[28rem] text-3xl uppercase">
