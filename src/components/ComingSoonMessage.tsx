@@ -12,7 +12,7 @@ interface ComingSoonMessageProps {
 const ComingSoonMessage: React.FC<ComingSoonMessageProps> = ({ title, subtitle, homeButton }) => {
     return (
         <div
-            className={`mx-2 flex max-w-4xl flex-col items-center justify-center gap-6 rounded-2xl border border-white/10 p-10 text-center text-white backdrop-blur-super md:mx-auto ${
+            className={`backdrop-blur-super mx-2 flex max-w-4xl flex-col items-center justify-center gap-6 rounded-2xl border border-white/10 p-10 text-center text-white md:mx-auto ${
                 homeButton ? "h-[30rem] md:h-[24rem]" : "h-[24rem] md:h-[18rem]"
             }`}
         >
