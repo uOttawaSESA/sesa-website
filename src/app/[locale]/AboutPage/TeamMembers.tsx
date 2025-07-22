@@ -13,7 +13,12 @@ function memberToIcons(member: Member) {
 
     if (member.linkedin)
         icons.push(
-            <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+            <a
+                key={`linkedin:${member.name}`}
+                href={member.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+            >
                 <Image
                     src="/icons/linkedin-plain.svg"
                     alt="Linkedin"
@@ -26,7 +31,12 @@ function memberToIcons(member: Member) {
 
     if (member.github)
         icons.push(
-            <a href={member.github} target="_blank" rel="noopener noreferrer">
+            <a
+                key={`github:${member.name}`}
+                href={member.github}
+                target="_blank"
+                rel="noopener noreferrer"
+            >
                 <Image
                     src="/icons/github-plain.svg"
                     alt="GitHub"
@@ -39,7 +49,7 @@ function memberToIcons(member: Member) {
 
     if (member.email)
         icons.push(
-            <a href={`mailto:${member.email}`}>
+            <a key={`email:${member.name}`} href={`mailto:${member.email}`}>
                 <Image
                     src="/icons/mail-plain.svg"
                     alt="Email"
@@ -52,7 +62,12 @@ function memberToIcons(member: Member) {
 
     if (member.portfolio)
         icons.push(
-            <a href={member.portfolio} target="_blank" rel="noopener noreferrer">
+            <a
+                key={`portfolio:${member.name}`}
+                href={member.portfolio}
+                target="_blank"
+                rel="noopener noreferrer"
+            >
                 <Image
                     src="/icons/globe-plain.svg"
                     alt="Portfolio"
@@ -73,7 +88,10 @@ export default function TeamMembers({ title, description, people }: Props) {
             <p className="mb-4 max-w-md text-lg leading-tight text-gray-400">{description} </p>
             <div className="flex gap-2 overflow-x-auto">
                 {people.map(person => (
-                    <div className="outline-gradient w-64 min-w-64" key={person.name}>
+                    <div
+                        className="outline-gradient w-64 min-w-64"
+                        key={`member:${title}:${person.name}`}
+                    >
                         <Image
                             src={person.imgPath}
                             alt={`Picture of ${person.name}`}

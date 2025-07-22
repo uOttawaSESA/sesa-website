@@ -73,7 +73,7 @@ export default function AboutPage() {
                         {images.map((src, i) => (
                             <CircleImage
                                 src={src}
-                                key={i}
+                                key={`profile:${i}`}
                                 alt="Profile picture"
                                 size={56}
                                 className={(i & 1) === 1 ? "-m-5" : undefined}
@@ -298,7 +298,7 @@ export default function AboutPage() {
                             .map((_, i) => (
                                 <div
                                     className="outline-gradient flex h-36 w-64 items-center justify-center"
-                                    key={i}
+                                    key={`partners:${i}`}
                                 >
                                     <Image
                                         src="/sponsors/warp.svg"
