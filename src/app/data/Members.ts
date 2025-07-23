@@ -133,7 +133,7 @@ export const membersData: Member[] = [
         name: "Rayen Ben Tamarzizt",
         team: "Partnership",
         role: "Partnership Lead",
-        imgPath: "/imgs/team/rayen.jpg",
+        imgPath: "/imgs/team/rayen.webp",
         linkedin: "https://www.linkedin.com/in/rayen-ben-tamarzizt-9001152b3/",
         github: "https://github.com/Rayen-BT",
         email: "rayenbentamarzizt@gmail.com",

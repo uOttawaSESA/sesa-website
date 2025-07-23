@@ -1,5 +1,4 @@
 import Button from "@/components/Button";
-import CircleImage from "@/components/CircleImage";
 import { TeamBadgeStack } from "@/components/TeamBadgeStack";
 import Metric from "@/components/Metric";
 import Image from "next/image";
