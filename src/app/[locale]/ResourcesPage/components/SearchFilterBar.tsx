@@ -17,6 +17,14 @@ const gradientBorderClass = `
     [border-image:linear-gradient(55deg,rgba(136,36,220,0.7)_41.93%,rgba(177,33,157,0.7)_81.89%)_1]
 `;
 
+interface FilterOptions {
+    course: string;
+    type: string;
+    format: string;
+    language: string;
+    tier: string;
+}
+
 interface SearchFilterBarProps {
     isGridMode: boolean;
     setIsGridMode: (mode: boolean) => void;
@@ -24,20 +32,8 @@ interface SearchFilterBarProps {
     setRowsToShow: (rows: number) => void;
     searchTerm: string;
     setSearchTerm: (term: string) => void;
-    filterOptions: {
-        course: string;
-        type: string;
-        format: string;
-        language: string;
-        tier: string;
-    };
-    setFilterOptions: (options: {
-        course: string;
-        type: string;
-        format: string;
-        language: string;
-        tier: string;
-    }) => void;
+    filterOptions: FilterOptions;
+    setFilterOptions: (options: FilterOptions) => void;
     sortOption: string;
     setSortOption: (option: string) => void;
     isMobile: boolean;
@@ -60,35 +56,32 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
 
     const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false);
 
-    // Track which filter dropdown is open
-    const [openFilterDropdown, setOpenFilterDropdown] = useState<string | null>(null);
-
     // Dropdown options for each filter
-    const filterDropdownOptions: Record<string, { label: string; value: string }[]> = {
+    const filterDropdownOptions: Record<keyof FilterOptions, { label: string; value: string }[]> = {
         course: [
-            { label: "Select Course", value: "" },
+            { label: "Select Course", value: "$none" },
             { label: "ITI1100", value: "ITI1100" },
             { label: "CS101", value: "CS101" },
         ],
         type: [
-            { label: "Select Type", value: "" },
+            { label: "Select Type", value: "$none" },
             { label: "Academic", value: "academic" },
             { label: "Career", value: "career" },
             { label: "Technical", value: "technical" },
         ],
         format: [
-            { label: "Select Format", value: "" },
+            { label: "Select Format", value: "$none" },
             { label: "Video", value: "video" },
             { label: "PDF", value: "pdf" },
             { label: "Website", value: "website" },
         ],
         language: [
-            { label: "Select Language", value: "" },
+            { label: "Select Language", value: "$none" },
             { label: "English", value: "english" },
             { label: "French", value: "french" },
         ],
         tier: [
-            { label: "Select Tier", value: "" },
+            { label: "Select Tier", value: "$none" },
             { label: "Tier S", value: "S" },
             { label: "Tier A", value: "A" },
             { label: "Tier B", value: "B" },
@@ -100,19 +93,20 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
         setIsGridMode(value === "grid");
     };
 
-    // Handler for filter dropdown selection
-    const handleDropdownFilterChange = (key: string, value: string) => {
-        setFilterOptions({ ...filterOptions, [key]: value });
-        setOpenFilterDropdown(null);
-    };
-
     const handleSortChange = (value: string) => {
         setSortOption(value);
     };
 
     const toggleFilterDropdown = () => {
-        setIsFilterOpen(!isFilterOpen);
-        setOpenFilterDropdown(null);
+        setIsFilterOpen(prev => !prev);
+    };
+
+    const handleFilterChange = (key: keyof FilterOptions, value: string) => {
+        setFilterOptions({
+            ...filterOptions,
+            // Done because shadcn/ui Selects don't support empty keys
+            [key]: value === "$none" ? "" : value,
+        });
     };
 
     return (
@@ -198,68 +192,50 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                 <div
                                     className={`${gradientBorderClass} animate-dropdown bg-[rgba(27,27,27,0.3)] p-4 backdrop-blur-md backdrop-saturate-150`}
                                 >
-                                    {Object.entries(filterOptions).map(([key, value]) => (
-                                        <div className="mb-4 last:mb-0" key={key}>
-                                            <label
-                                                htmlFor={key}
-                                                className="mb-2 block font-heading text-base uppercase text-white"
-                                            >
-                                                {key.charAt(0).toUpperCase() + key.slice(1)}
-                                            </label>
-                                            <button
-                                                type="button"
-                                                className="w-full rounded border border-thistle bg-transparent px-6 py-3 text-left font-heading text-base uppercase text-white transition-colors duration-200 hover:bg-[rgba(27,27,27,0.2)]"
-                                                onClick={() =>
-                                                    setOpenFilterDropdown(
-                                                        openFilterDropdown === key ? null : key,
-                                                    )
-                                                }
-                                            >
-                                                {filterDropdownOptions[key].find(
-                                                    opt => opt.value === value,
-                                                )?.label || filterDropdownOptions[key][0].label}
-                                                <span className="float-right">
-                                                    <Image
-                                                        src="/contact-page/arrows.svg"
-                                                        alt="Dropdown Arrow"
-                                                        width={16}
-                                                        height={16}
-                                                        className={`inline transition-transform duration-200 ${
-                                                            openFilterDropdown === key
-                                                                ? "rotate-180"
-                                                                : ""
-                                                        }`}
-                                                    />
-                                                </span>
-                                            </button>
-                                            {openFilterDropdown === key && (
-                                                <div className="relative z-50">
-                                                    <div className="absolute left-0 right-0 mt-2 min-w-full">
-                                                        <div
-                                                            className={`${gradientBorderClass} animate-dropdown bg-[rgba(27,27,27,1)] backdrop-blur-md backdrop-saturate-150`}
-                                                        >
+                                    {(Object.keys(filterOptions) as Array<keyof FilterOptions>).map(
+                                        key => (
+                                            <div className="mb-4 last:mb-0" key={key}>
+                                                <label
+                                                    htmlFor={key}
+                                                    className="mb-2 block font-heading text-base uppercase text-white"
+                                                >
+                                                    {key}
+                                                </label>
+                                                <Select
+                                                    value={filterOptions[key]}
+                                                    onValueChange={value =>
+                                                        handleFilterChange(key, value)
+                                                    }
+                                                >
+                                                    <SelectTrigger className="w-full">
+                                                        <SelectValue
+                                                            placeholder={
+                                                                filterDropdownOptions[key][0].label
+                                                            }
+                                                        />
+                                                    </SelectTrigger>
+                                                    <SelectContent>
+                                                        <SelectGroup>
+                                                            <SelectLabel className="text-thistle">
+                                                                {key.charAt(0).toUpperCase() +
+                                                                    key.slice(1)}
+                                                            </SelectLabel>
                                                             {filterDropdownOptions[key].map(
                                                                 option => (
-                                                                    <button
+                                                                    <SelectItem
                                                                         key={option.value}
-                                                                        className="w-full px-6 py-3 text-left font-heading text-base uppercase text-white transition-colors duration-200 hover:bg-[rgba(27,27,27,0.4)]"
-                                                                        onClick={() => {
-                                                                            handleDropdownFilterChange(
-                                                                                key,
-                                                                                option.value,
-                                                                            );
-                                                                        }}
+                                                                        value={option.value}
                                                                     >
                                                                         {option.label}
-                                                                    </button>
+                                                                    </SelectItem>
                                                                 ),
                                                             )}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            )}
-                                        </div>
-                                    ))}
+                                                        </SelectGroup>
+                                                    </SelectContent>
+                                                </Select>
+                                            </div>
+                                        ),
+                                    )}
                                 </div>
                             </div>
                         )}
