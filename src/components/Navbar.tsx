@@ -57,7 +57,6 @@ const navItemsData = [
 export default function Navbar() {
     const t = useTranslations("navigation");
     const pathname = usePathname();
-    console.log(pathname);
     const router = useRouter();
 
     // _Technically_ this isn't necessary since the page refreshes anyway,
