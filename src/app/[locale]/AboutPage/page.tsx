@@ -1,6 +1,5 @@
 import { TeamBadgeStack } from "@/components/TeamBadgeStack";
 import { Button } from "@/components/ui/button";
-import CircleImage from "@/components/CircleImage";
 import Metric from "@/components/Metric";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";

@@ -76,13 +76,13 @@ export default function Navbar() {
         },
     ] as const;
 
-    const isActivePage = (path: string) => {
-        const withoutLocale = pathname.split("/").slice(2).join("/");
-        return withoutLocale === path;
-    };
+    const navItems = useMemo(() => {
+        const isActivePage = (path: string) => {
+            const withoutLocale = pathname.split("/").slice(2).join("/");
+            return withoutLocale === path;
+        };
 
-    const navItems = useMemo(
-        () => (
+        return (
             <>
                 {navItemsData.map(item => (
                     <NavLinkItem
@@ -94,9 +94,8 @@ export default function Navbar() {
                     />
                 ))}
             </>
-        ),
-        [pathname, t],
-    );
+        );
+    }, [pathname, t]);
 
     const changeLocale = (newLocale: string) => {
         if (locale !== newLocale) {
