@@ -53,7 +53,11 @@ const ConnectSESA = () => {
                         </a>
                     </Button>
                     <Button size="icon" variant="outline" asChild>
-                        <a href="https://www.linkedin.com/company/software-engineering-students-association/" target="_blank" rel="noopener noreferrer">
+                        <a
+                            href="https://www.linkedin.com/company/software-engineering-students-association/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <Image
                                 src="/icons/linkedin-plain.svg"
                                 width={25}
@@ -63,7 +67,11 @@ const ConnectSESA = () => {
                         </a>
                     </Button>
                     <Button size="icon" variant="outline" asChild>
-                        <a href="https://www.youtube.com/@uottawasesa52" target="_blank" rel="noopener noreferrer">
+                        <a
+                            href="https://www.youtube.com/@uottawasesa52"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <Image
                                 src="/icons/youtube-plain.svg"
                                 width={25}
