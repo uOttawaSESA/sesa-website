@@ -325,7 +325,11 @@ export default function AboutPage() {
                         <b>{t("our_family_p_bold")}</b>. {t("our_family_p")}
                     </p>
                     <div className="mt-6 flex flex-col space-y-2 font-heading">
-                        <Button className="my-4 w-fit font-heading uppercase" disabled asChild>
+                        <Button
+                            className="pointer-events-none my-4 w-fit cursor-not-allowed font-heading uppercase opacity-50"
+                            disabled
+                            asChild
+                        >
                             <Link href="/ContactUsPage">{t("apply_now")}</Link>
                         </Button>
                         <p className="max-w-[28rem] font-mono text-gray-400">{t("no_more_apps")}</p>
