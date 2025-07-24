@@ -57,6 +57,7 @@ const navItemsData = [
 export default function Navbar() {
     const t = useTranslations("navigation");
     const pathname = usePathname();
+    console.log(pathname);
     const router = useRouter();
 
     // _Technically_ this isn't necessary since the page refreshes anyway,
@@ -77,10 +78,7 @@ export default function Navbar() {
     ] as const;
 
     const navItems = useMemo(() => {
-        const isActivePage = (path: string) => {
-            const withoutLocale = pathname.split("/").slice(2).join("/");
-            return withoutLocale === path;
-        };
+        const firstPathname = pathname.split("/")[1];
 
         return (
             <>
@@ -89,7 +87,7 @@ export default function Navbar() {
                         key={item.i18nKey}
                         href={item.href}
                         label={t(item.i18nKey)}
-                        isActive={isActivePage(item.pageName)}
+                        isActive={item.pageName === firstPathname}
                         onClick={() => setIsMobileMenuOpen(false)}
                     />
                 ))}
