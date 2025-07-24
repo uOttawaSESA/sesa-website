@@ -90,6 +90,14 @@ export const membersData: Member[] = [
         github: "https://github.com/MysteryBlokHed/",
     },
     {
+        name: "Kylan Thurairajah",
+        team: "Development",
+        role: "Developer",
+        imgPath: "/imgs/team/kylan.webp",
+        linkedin: "https://www.linkedin.com/in/kylan-thurairajah/",
+        github: "https://github.com/Kylan-Thurairajah",
+    },
+    {
         name: "Sanika Sisodia",
         team: "Communications",
         role: "Communications Coordinator",
