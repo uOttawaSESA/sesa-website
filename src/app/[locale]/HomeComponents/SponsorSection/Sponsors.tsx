@@ -1,4 +1,4 @@
-import Button from "@/components/Button";
+import { Button } from "@/components/ui/button";
 import SponsorsGrid from "../../SponsorsPage/components/SponsorsGrid";
 import { Link } from "@/i18n/navigation";
 
@@ -28,17 +28,16 @@ const Sponsors = () => {
                             connect students with industry professionals.
                         </p>
                         <div className="mt-6 flex justify-center space-x-4 font-heading text-white">
-                            <Button className="font-heading text-sm uppercase md:text-lg">
-                                Become a sponsor
+                            <Button className="font-heading text-sm uppercase md:text-lg" asChild>
+                                <Link href="/SponsorsPage">Become a sponsor</Link>
                             </Button>
-                            <Link href="/AboutPage">
-                                <Button
-                                    className="font-heading text-sm uppercase md:text-lg"
-                                    variant="outline"
-                                >
-                                    Meet the team
-                                </Button>
-                            </Link>
+                            <Button
+                                className="font-heading text-sm uppercase md:text-lg"
+                                variant="outline"
+                                asChild
+                            >
+                                <Link href="/AboutPage">Meet the team</Link>
+                            </Button>
                         </div>
                     </div>
                 </div>

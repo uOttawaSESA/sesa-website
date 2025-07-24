@@ -1,7 +1,6 @@
-"use client";
-
 import Image from "next/image";
-import Button from "@/components/Button";
+import { Button } from "@/components/ui/button";
+import { Link } from "@/i18n/navigation";
 
 interface ComingSoonMessageProps {
     title: string;
@@ -28,8 +27,8 @@ const ComingSoonMessage: React.FC<ComingSoonMessageProps> = ({ title, subtitle, 
             <h2 className="font-heading text-3xl">{title}</h2>
             <p className="text-md text-thistle/80">{subtitle}</p>
             {homeButton && (
-                <Button href="/" variant="fill">
-                    Back to Home
+                <Button asChild>
+                    <Link href="/">Back to Home</Link>
                 </Button>
             )}
         </div>

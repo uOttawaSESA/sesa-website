@@ -1,5 +1,3 @@
-"use client";
-import Button from "@/components/Button";
 import {
     Carousel,
     CarouselContent,
@@ -7,6 +5,8 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel";
+import { Button } from "@/components/ui/button";
+import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import EventCard from "./EventCard";
 import { events } from "@/app/data/Events";
@@ -33,11 +33,8 @@ export default function Events() {
 
                 <div className="mt-4 flex w-[90%] flex-row items-center justify-between md:mt-6">
                     <div className="flex font-heading">
-                        <Button
-                            className="font-heading text-sm uppercase md:text-lg"
-                            href="/EventsPage"
-                        >
-                            {t("view_all_events")}
+                        <Button className="font-heading text-sm uppercase md:text-lg">
+                            <Link href="/EventsPage">{t("view_all_events")}</Link>
                         </Button>
                     </div>
                 </div>
