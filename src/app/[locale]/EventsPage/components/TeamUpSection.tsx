@@ -8,16 +8,16 @@ const TeamUpSection: React.FC = () => {
     const t = useTranslations("events");
 
     return (
-        <div className="my-36 flex h-[45rem] items-center justify-start gap-12 align-middle">
+        <div className="mx-4 my-36 flex h-[45rem] flex-col items-center justify-start gap-12 sm:mx-0 sm:flex-row">
             <div className="grid-overlay-left md:h-[43.93rem] md:w-[53vw]"></div>
 
             <div className="relative z-10 lg:block">
                 <Image
                     src="/imgs/Events/team-up.webp"
                     alt="SESA Group Photo"
-                    className="h-[500px] w-auto"
+                    className="aspect-[7/5] max-h-[400px] sm:max-h-[500px]"
                     width={700}
-                    height={700}
+                    height={500}
                 />
             </div>
 
@@ -30,7 +30,7 @@ const TeamUpSection: React.FC = () => {
                     {t("teamup_blurb")}
                 </p>
 
-                <div className="mt-6 flex gap-4">
+                <div className="mt-6 flex flex-wrap gap-4">
                     <Button
                         href="/pages/ContactUsPage"
                         className="relative z-10 font-heading text-xl uppercase"

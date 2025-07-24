@@ -16,17 +16,17 @@ const FAQ = () => {
 
     return (
         <>
-            <section className="text-white md:w-full">
-                <div className="mb-14 flex flex-col items-center justify-center gap-2">
+            <section className="flex flex-col gap-8 px-8 text-white md:px-20 xl:px-32">
+                <div className="flex flex-col items-center justify-center gap-2">
                     <p className="font-monocode color-gradient">Frequently asked questions</p>
-                    <h1 className="font-heading text-4xl uppercase leading-tight">
-                        Got Questions?{" "}
+                    <h1 className="text-center font-heading text-2xl uppercase leading-tight md:text-5xl">
+                        Got Questions?&nbsp;
                         <span className="relative inline-block">
                             We&apos;ve got answers!
                             <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                         </span>
                     </h1>
-                    <p className="px-96 text-center font-sans text-xl text-thistle">
+                    <p className="max-w-sm text-center font-sans text-base text-thistle md:max-w-lg md:text-lg xl:max-w-xl xl:text-xl">
                         We have A’s to your Q’s below. If you still have questions, contact us and
                         we’ll get back to you as soon as possible.
                     </p>
@@ -35,7 +35,7 @@ const FAQ = () => {
                 {/* Accordian */}
                 <div className="flex justify-center">
                     {/* Wrapper with the outer clip-corner (transparent) */}
-                    <div className="clip-corner relative w-10/12 overflow-hidden rounded-br-2xl border border-purple-600">
+                    <div className="clip-corner relative w-full overflow-hidden rounded-br-2xl border border-purple-600">
                         {/* Inner content with the inner clip-corner (transparent) */}
                         <div className="clip-corner-inner">
                             <Accordion
@@ -44,10 +44,10 @@ const FAQ = () => {
                                 className="outline-gradient w-full overflow-hidden rounded-br-2xl border"
                             >
                                 <AccordionItem value="item-1" className="border-purple-600 px-4">
-                                    <AccordionTrigger className="py-4 font-heading text-lg text-white">
+                                    <AccordionTrigger className="py-4 font-heading text-base text-white md:text-lg">
                                         WHAT IS SESA?
                                     </AccordionTrigger>
-                                    <AccordionContent className="font-sans text-lg text-thistle">
+                                    <AccordionContent className="font-sans text-base text-thistle md:text-lg">
                                         <b>SESA</b> is the University of Ottawa{" "}
                                         <b>Software Engineering Students Association</b>! We’re an
                                         informally and independently run student organization with
@@ -98,10 +98,10 @@ const FAQ = () => {
                                     </AccordionContent>
                                 </AccordionItem>
                                 <AccordionItem value="item-2" className="border-purple-600 px-4">
-                                    <AccordionTrigger className="py-4 font-heading text-lg text-white">
+                                    <AccordionTrigger className="py-4 font-heading text-base text-white md:text-lg">
                                         WHO CAN JOIN?
                                     </AccordionTrigger>
-                                    <AccordionContent className="font-sans text-lg text-thistle">
+                                    <AccordionContent className="font-sans text-base text-thistle md:text-lg">
                                         <b>SESA events are open to everyone</b> — not just software
                                         engineering students!
                                         <br />
@@ -134,10 +134,10 @@ const FAQ = () => {
                                     </AccordionContent>
                                 </AccordionItem>
                                 <AccordionItem value="item-3" className="border-purple-600 px-4">
-                                    <AccordionTrigger className="py-4 font-heading text-lg text-white">
+                                    <AccordionTrigger className="py-4 font-heading text-base text-white md:text-lg">
                                         WHAT MAKES SESA SPECIAL?
                                     </AccordionTrigger>
-                                    <AccordionContent className="font-sans text-lg text-thistle">
+                                    <AccordionContent className="font-sans text-base text-thistle md:text-lg">
                                         <b>SESA is run by students, for students</b>, with a focus
                                         on <b>community</b>, <b>collaboration</b>, and{" "}
                                         <b>creating opportunities</b>.
@@ -148,10 +148,10 @@ const FAQ = () => {
                                     </AccordionContent>
                                 </AccordionItem>
                                 <AccordionItem value="item-4" className="border-purple-600 px-4">
-                                    <AccordionTrigger className="py-4 font-heading text-lg text-white">
+                                    <AccordionTrigger className="py-4 font-heading text-base text-white md:text-lg">
                                         WHAT EVENTS DOES SESA HOST?
                                     </AccordionTrigger>
-                                    <AccordionContent className="font-sans text-lg text-thistle">
+                                    <AccordionContent className="font-sans text-base text-thistle md:text-lg">
                                         <span>{`SESA hosts tech-related events each year at the University of Ottawa, including `}</span>
                                         <b>
                                             technical workshops, career fairs, meet and greets, mock
@@ -179,17 +179,17 @@ const FAQ = () => {
                     </div>
                 </div>
 
-                <div className="mt-14 flex flex-row items-center justify-center gap-[25px] text-center font-heading uppercase">
-                    <h2 className="text-xl">Did we miss something?</h2>
+                <div className="flex items-center justify-center gap-4 text-center font-heading uppercase">
+                    <h2 className="w-max text-base md:text-xl">Did we miss something?</h2>
                     <Link href={`/${locale}/ContactUsPage`}>
-                        <Button>
-                            MESSAGE US <span className="text-gray-50 opacity-65">{` >`}</span>
+                        <Button className="text-sm md:text-lg">
+                            MESSAGE US <span className="text-gray-50/65">{` >`}</span>
                         </Button>
                     </Link>
                 </div>
-                <div className="mt-5 text-center">
-                    <p className="text-thistle">We&apos;ll get back to you within 48 hours.</p>
-                </div>
+                <p className="text-center text-sm text-thistle md:text-xl">
+                    We&apos;ll get back to you within 48 hours.
+                </p>
             </section>
         </>
     );

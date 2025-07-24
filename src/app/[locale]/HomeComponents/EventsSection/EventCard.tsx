@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { format } from "date-fns";
 import { Event } from "@/app/[locale]/EventsPage/utils/types";
-import { useRef, useState, useEffect } from "react";
 
 const EventCard: React.FC<Event> = ({
     title,
@@ -18,47 +17,32 @@ const EventCard: React.FC<Event> = ({
     const month = format(date, "MMM"); // e.g., "Mar"
     const timeRange = `${format(startTime, "ha")} – ${format(endTime, "ha")}`; // "6PM – 8PM"
 
-    // Track title height to dynamically switch line-clamp of the description
-    const titleRef = useRef<HTMLHeadingElement>(null);
-    const [titleHeight, setTitleHeight] = useState(0);
-
-    // Effect to measure the title height
-    useEffect(() => {
-        if (titleRef.current) {
-            setTitleHeight(titleRef.current.clientHeight);
-            console.log("Title Height:", titleRef.current.clientHeight);
-        }
-    }, [title]);
-
-    // Determine line-clamp for description based on title height
-    const descriptionLineClamp = titleHeight >= 56 ? "line-clamp-4" : "line-clamp-6"; // Adjust the height threshold as needed
-
     return (
-        <div className="relative h-[667px] w-[361px] max-w-sm overflow-hidden border-[1.5px] border-solid border-blueviolet-700 bg-gray-200 opacity-90">
+        <div className="flex h-full w-full flex-col overflow-hidden border-2 border-solid border-blueviolet-700 bg-gray-200 opacity-90">
             {/* Event Image */}
             <a href="#">
                 <Image
-                    className="border-b-[1.5px] border-solid border-blueviolet-700 object-cover"
+                    className="w-full border-b-2 border-solid border-blueviolet-700 object-cover"
                     src={image}
                     alt={title}
-                    width={361}
-                    height={361}
+                    width={350}
+                    height={350}
                 />
             </a>
 
             {/* Event Content */}
-            <div className="p-5 font-heading">
+            <div className="flex flex-col gap-2 p-4 font-heading">
                 {/* Date & Location Row */}
-                <div className="mb-3 flex items-center gap-3 text-sm">
+                <div className="flex items-center gap-3 text-sm">
                     {/* Date Box */}
-                    <div className="outline-gradient flex h-14 w-14 flex-col items-center justify-center">
+                    <div className="outline-gradient flex aspect-square h-full flex-col items-center justify-center p-2">
                         <span className="text-xs">{month}</span>
                         <span className="text-lg">{day}</span>
                     </div>
 
                     {/* Date & Time */}
                     <div className="flex flex-col">
-                        <span className="text-base font-medium text-gray-900 dark:text-white">
+                        <span className="text-base font-medium text-thistle">
                             {formattedDate}, {timeRange}
                         </span>
                         <span className="text-left font-mono text-base text-thistle">
@@ -68,28 +52,23 @@ const EventCard: React.FC<Event> = ({
                 </div>
 
                 {/* Title */}
-                <h5 className="mb-2 text-lg uppercase tracking-tight" ref={titleRef}>
-                    {title}
-                </h5>
+                <h5 className="text-lg uppercase tracking-tight">{title}</h5>
 
                 {/* Description */}
-                <div className="h-28">
-                    <p
-                        className={`mb-3 ${descriptionLineClamp} overflow-hidden text-ellipsis font-sans text-base text-gray-400`}
-                    >
+                <div>
+                    <p className={`truncate-multiline font-sans text-base text-gray-400`}>
                         {description}
                     </p>
                 </div>
-
-                <div className="absolute bottom-5 right-5">
-                    <a
-                        href={instagramLink}
-                        target="_blank"
-                        className="color-gradient-clickable text-lg text-transparent"
-                    >
-                        Details
-                    </a>
-                </div>
+            </div>
+            <div className="mb-4 mt-auto px-4 text-right">
+                <a
+                    href={instagramLink}
+                    target="_blank"
+                    className="color-gradient-clickable text-lg text-transparent"
+                >
+                    Details
+                </a>
             </div>
         </div>
     );

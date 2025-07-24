@@ -293,7 +293,7 @@ export default function AboutPage() {
                             {beyonSesaCompanies.map((company, i) => (
                                 <div
                                     className="outline-gradient flex h-36 w-64 items-center justify-center"
-                                    key={i}
+                                    key={`partners:${i}`}
                                 >
                                     <Image
                                         src={company.src}

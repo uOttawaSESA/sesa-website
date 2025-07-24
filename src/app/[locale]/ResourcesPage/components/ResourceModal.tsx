@@ -189,7 +189,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                                 </span>
                             )}
                         </div>
-                        <h2 className="font-heading text-3xl uppercase text-white">
+                        <h2 className="font-heading text-2xl uppercase text-white">
                             {resource.title}
                         </h2>
                     </div>
