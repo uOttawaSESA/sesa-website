@@ -104,7 +104,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
     const handleFilterChange = (key: keyof FilterOptions, value: string) => {
         setFilterOptions({
             ...filterOptions,
-            // Done because shadcn/ui Selects don't support empty keys
+            // Done because shadcn/ui Selects don't support empty string values
             [key]: value === "$none" ? "" : value,
         });
     };
