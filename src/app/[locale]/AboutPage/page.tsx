@@ -89,7 +89,7 @@ export default function AboutPage() {
                     />
                 </div>
                 {/* "Who are we" */}
-                <div className="my-8 flex max-w-[28rem] flex-col gap-2 md:ml-[50%]">
+                <div className="my-8 flex max-w-[28rem] flex-col gap-2 md:ml-[50%] md:mt-28">
                     <p className="color-gradient font-mono">{t("who_are_we")}</p>
                     <h1 className="font-heading text-3xl uppercase">
                         {t("who_are_we_heading")}{" "}
@@ -109,7 +109,7 @@ export default function AboutPage() {
                     </Button>
                 </div>
                 {/* Figures */}
-                <div className="flex justify-center">
+                <div className="flex justify-center md:mb-28">
                     <div className="grid w-fit grid-cols-1 place-items-center gap-0 md:grid-cols-2 md:grid-cols-4">
                         <Metric
                             className="!w-64"
@@ -202,7 +202,7 @@ export default function AboutPage() {
                 {/* Introducing our team */}
                 <div
                     id="introducing-our-team"
-                    className="align-center flex scroll-mt-28 flex-col items-center gap-2 text-center"
+                    className="align-center flex scroll-mt-28 flex-col items-center gap-2 text-center md:mt-28"
                 >
                     <p className="color-gradient font-mono">{t("introducing_our_team")}</p>
                     <h1 className="font-heading text-3xl uppercase">
@@ -217,7 +217,7 @@ export default function AboutPage() {
                     </p>
                 </div>
                 {/* TODO: Add the `sticky` class once a way to make it not super ugly is found */}
-                <div className="top-[5.6rem] z-10 mt-4 grid grid-flow-col grid-rows-4 text-center font-heading uppercase backdrop-blur-sm md:grid-rows-1 md:grid-rows-2">
+                <div className="top-[5.6rem] z-10 mt-4 grid grid-flow-col grid-rows-4 text-center font-heading uppercase backdrop-blur-sm md:grid-rows-2">
                     <Button variant="outline" href="#co-directors">
                         {tOurTeam("codirectors")}
                     </Button>
