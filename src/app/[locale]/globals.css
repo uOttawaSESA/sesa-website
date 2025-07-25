@@ -83,8 +83,8 @@ body {
 }
 
 .highlight-gradient {
-    @apply absolute right-0 top-0 h-full w-0 animate-highlight;
-    background: linear-gradient(55.37deg, rgba(136, 36, 220, 0.25), rgba(177, 33, 97, 0.25));
+    @apply absolute right-0 top-0 z-[-1] h-full w-0 animate-highlight;
+    background: linear-gradient(55.37deg, rgba(136, 36, 220, 0.5), rgba(177, 33, 97, 0.5));
 }
 
 .clip-corner {
