@@ -20,7 +20,7 @@ const Team = () => {
                     </div>
                     <h1 className="text-center font-heading text-2xl uppercase leading-tight md:text-3xl xl:text-5xl">
                         The&nbsp;
-                        <span className="highlight-text">Univeristy of Ottawa&apos;s</span> Software
+                        <span className="highlight-text">University of Ottawa&apos;s</span> Software
                         Engineering Students Association
                     </h1>
                     <p className="text-center font-sans text-base text-thistle md:text-lg xl:text-xl">

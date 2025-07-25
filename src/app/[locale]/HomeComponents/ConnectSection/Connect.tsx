@@ -23,7 +23,7 @@ const Connect = () => {
                             Connect with us
                         </p>
                         <h1 className="font-heading text-2xl uppercase leading-tight md:text-3xl xl:text-5xl">
-                            <span className="highlight-text">Connect, enage, and grow</span> <br />
+                            <span className="highlight-text">Connect, engage, and grow</span> <br />
                             with us!
                         </h1>
                         <p className="relative text-left font-sans text-base text-thistle md:text-lg xl:text-xl 2xl:w-[40rem]">
