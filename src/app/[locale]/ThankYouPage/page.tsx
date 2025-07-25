@@ -17,11 +17,7 @@ const ThankYouPage = () => {
                 </span>
             </div>
             <h1 className="mb-4 font-heading text-4xl uppercase text-white">
-                <span className="relative inline-block">
-                    Thank you
-                    <div className="highlight-gradient"></div>
-                </span>{" "}
-                for reaching out!
+                <span className="highlight-text">Thank you</span> for reaching out!
             </h1>
             <p className="font-raleway mb-8 max-w-xl text-lg text-thistle">
                 We’ll get back to you within 48 hours. In the meantime, check out our amazing

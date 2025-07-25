@@ -91,10 +91,7 @@ export default function AboutPage() {
                     <p className="color-gradient font-mono">{t("who_are_we")}</p>
                     <h1 className="font-heading text-3xl uppercase">
                         {t("who_are_we_heading")}{" "}
-                        <span className="relative inline-block">
-                            {t("who_are_we_heading_hl")}
-                            <div className="highlight-gradient" />
-                        </span>
+                        <span className="highlight-text">{t("who_are_we_heading_hl")}</span>
                     </h1>
                     <p className="text-thistle">
                         <b>{t("who_are_we_p1_bold")}</b>, {t("who_are_we_p1")}{" "}
@@ -135,10 +132,7 @@ export default function AboutPage() {
                     <p className="color-gradient font-mono">{t("what_do_we_do")}</p>
                     <h1 className="font-heading text-3xl uppercase">
                         {t("what_do_we_do_heading")}{" "}
-                        <span className="relative inline-block">
-                            {t("what_do_we_do_heading_hl")}
-                            <div className="highlight-gradient" />
-                        </span>
+                        <span className="highlight-text">{t("what_do_we_do_heading_hl")}</span>
                     </h1>
                     <div className="max-w-[28rem]">
                         <p className="text-thistle">
@@ -204,9 +198,8 @@ export default function AboutPage() {
                 >
                     <p className="color-gradient font-mono">{t("introducing_our_team")}</p>
                     <h1 className="font-heading text-3xl uppercase">
-                        <span className="relative inline-block">
+                        <span className="highlight-text">
                             {t("introducing_our_team_heading_hl")}
-                            <div className="highlight-gradient" />
                         </span>{" "}
                         {t("introducing_our_team_heading")}
                     </h1>
@@ -277,9 +270,8 @@ export default function AboutPage() {
                 <div className="align-center mt-24 flex flex-col items-center gap-3 text-center">
                     <p className="color-gradient font-mono">{t("our_previous_partners")}</p>
                     <h1 className="font-heading text-3xl uppercase">
-                        <span className="relative inline-block">
+                        <span className="highlight-text">
                             {t("our_previous_partners_heading_hl")}
-                            <div className="highlight-gradient" />
                         </span>
                     </h1>
                     <p className="max-w-[32rem] text-lg leading-snug text-thistle">
@@ -316,10 +308,7 @@ export default function AboutPage() {
                     <p className="color-gradient font-mono">{t("our_family")}</p>
                     <h1 className="mt-4 max-w-[28rem] font-heading text-3xl uppercase leading-tight">
                         {t("our_family_heading")}{" "}
-                        <span className="relative inline-block">
-                            {t("our_family_heading_hl")}
-                            <div className="highlight-gradient" />
-                        </span>
+                        <span className="highlight-text">{t("our_family_heading_hl")}</span>
                     </h1>
                     <p className="mt-4 max-w-[28rem] font-sans text-base text-thistle md:text-lg md:leading-tight">
                         <b>{t("our_family_p_bold")}</b>. {t("our_family_p")}

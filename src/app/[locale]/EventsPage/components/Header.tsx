@@ -9,10 +9,7 @@ const Header = () => {
             <div className="mx-auto max-w-7xl md:text-center">
                 <div className="color-gradient font-mono">{t("our_events")}</div>
                 <h1 className="mt-4 text-[48px] uppercase">
-                    <span className="relative inline-block">
-                        {t("stay_up_to_date_hl")}
-                        <div className="highlight-gradient"></div>
-                    </span>
+                    <span className="highlight-text">{t("stay_up_to_date_hl")}</span>
                     <span className="ml-7">{t("stay_up_to_date")}</span>
                 </h1>
 

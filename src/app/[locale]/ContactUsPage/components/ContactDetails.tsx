@@ -20,10 +20,7 @@ const ContactDetails = () => {
 
                 <h1 className="mt-4 font-heading text-5xl uppercase leading-tight">
                     {t("get_in_touch")}{" "}
-                    <span className="relative inline-block">
-                        {t("get_in_touch_hl")}
-                        <div className="highlight-gradient"></div>
-                    </span>
+                    <span className="highlight-text">{t("get_in_touch_hl")}</span>
                 </h1>
 
                 <p className="mt-4 max-w-[558px] font-sans text-xl text-thistle">

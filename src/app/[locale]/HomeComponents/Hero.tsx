@@ -14,10 +14,7 @@ export default function Hero() {
                     {t("we_are_sesa")}
                 </p>
                 <h1 className="my-2 font-heading text-2xl uppercase leading-tight md:text-5xl">
-                    <span className="relative inline-block">
-                        {t("bridging_the_gap_hl")}
-                        <div className="highlight-gradient"></div>
-                    </span>
+                    <span className="highlight-text">{t("bridging_the_gap_hl")}</span>
                     <br />
                     {t("bridging_the_gap")}
                 </h1>

@@ -37,10 +37,7 @@ const FooterSection: React.FC = () => {
                 <div className="z-10 max-w-lg text-left text-white">
                     <div className="font-heading text-2xl uppercase">
                         “{t("education_quote_1")}{" "}
-                        <span className="relative inline-block">
-                            {t("education_quote_1_hl")}
-                            <div className="highlight-gradient"></div>
-                        </span>
+                        <span className="highlight-text">{t("education_quote_1_hl")}</span>
                         {t("education_quote_2")}.”
                     </div>
                     <div className="my-3 flex items-center gap-4">

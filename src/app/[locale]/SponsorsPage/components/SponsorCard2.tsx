@@ -27,10 +27,8 @@ const SponsorCard2 = () => {
                     </p>
                     <h2 className="mt-4 font-heading text-3xl uppercase leading-tight text-white">
                         Let’s collaborate to make a{" "}
-                        <span className="relative inline-block">
-                            lasting difference <div className="highlight-gradient"></div>
-                        </span>{" "}
-                        on aspiring software engineers
+                        <span className="highlight-text">lasting difference </span> on aspiring
+                        software engineers
                     </h2>
                     <p className="mb-4 mt-2 max-w-2xl text-lg leading-tight text-thistle">
                         Together, we can drive a meaningful impact on over 3500+ EECS students at

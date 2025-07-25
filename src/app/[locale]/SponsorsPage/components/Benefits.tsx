@@ -36,14 +36,8 @@ export default function Benefits() {
                     <p className="color-gradient relative font-mono text-base">Benefits</p>
                     <h2 className="mb-4 font-heading text-3xl uppercase text-white">
                         <span className="block md:inline">CONNECT WITH </span>
-                        <span className="relative block md:inline">
-                            THE NEXT
-                            <div className="highlight-gradient"></div>
-                        </span>{" "}
-                        <span className="relative block md:inline">
-                            GENERATION
-                            <div className="highlight-gradient"></div>
-                        </span>
+                        <span className="highlight-text md:inline">THE NEXT</span>{" "}
+                        <span className="highlight-text md:inline">GENERATION</span>
                         <span className="block md:inline"> OF SOFTWARE ENGINEERS</span>
                     </h2>
 

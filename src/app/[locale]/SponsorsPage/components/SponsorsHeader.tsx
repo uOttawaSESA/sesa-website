@@ -18,10 +18,7 @@ const SponsorsHeader = ({ topText, title, bottomText, btn1, btn2 }: SponsorsHead
                 </p>
                 <h1 className="mx-auto mt-4 max-w-[18ch] font-heading text-5xl uppercase leading-tight text-white">
                     <span className="relative inline-block">
-                        <span className="relative inline-block">
-                            huge thanks
-                            <div className="highlight-gradient"></div>
-                        </span>
+                        <span className="highlight-text">huge thanks</span>
                         <span> {title.replace(/huge thanks/i, "")}</span>
                     </span>
                     <br />

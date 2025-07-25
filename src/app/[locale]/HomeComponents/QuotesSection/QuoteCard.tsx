@@ -13,10 +13,7 @@ export const QuoteCard: React.FC<{ quote: Quote }> = ({ quote }) => {
                 <h1 className="my-2 font-heading text-2xl uppercase leading-tight md:text-3xl xl:text-4xl">
                     <q>
                         {quote.quote_part1}&nbsp;
-                        <span className="relative inline-block">
-                            {quote.highlightQuote}
-                            <div className="highlight-gradient"></div>
-                        </span>{" "}
+                        <span className="highlight-text">{quote.highlightQuote}</span>{" "}
                         {quote.quote_part2}
                     </q>
                 </h1>

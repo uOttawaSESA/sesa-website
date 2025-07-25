@@ -31,16 +31,10 @@ const SponsorCard = () => {
                 />
                 <div className="mt-3 font-heading text-2xl uppercase text-white">
                     &ldquo;The folks at SESA were{" "}
-                    <span className="relative inline-block">
-                        professional, communicative,
-                        <div className="highlight-gradient"></div>
-                    </span>{" "}
-                    <span className="relative inline-block">
-                        and friendly
-                        <div className="highlight-gradient"></div>
-                    </span>{" "}
-                    leading up to the talk, and provided some great photos and videos afterwards. I
-                    really enjoyed my collaboration with them.
+                    <span className="highlight-text">professional, communicative,</span>{" "}
+                    <span className="highlight-text">and friendly</span> leading up to the talk, and
+                    provided some great photos and videos afterwards. I really enjoyed my
+                    collaboration with them.
                 </div>
 
                 <div className="mt-4 flex items-center gap-3">
