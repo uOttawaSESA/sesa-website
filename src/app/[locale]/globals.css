@@ -83,7 +83,7 @@ body {
 }
 
 .highlight-text {
-    @apply relative inline-block;
+    @apply relative z-0 inline-block;
 }
 
 .highlight-text::before {
