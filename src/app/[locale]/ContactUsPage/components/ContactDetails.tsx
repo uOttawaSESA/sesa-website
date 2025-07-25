@@ -22,7 +22,7 @@ const ContactDetails = () => {
                     {t("get_in_touch")}{" "}
                     <span className="relative inline-block">
                         {t("get_in_touch_hl")}
-                        <div className="absolute right-0 top-0 h-full w-0 animate-highlight bg-gradient-to-r from-blueviolet-100/25 to-darkmagenta/25"></div>
+                        <div className="highlight-gradient"></div>
                     </span>
                 </h1>
 

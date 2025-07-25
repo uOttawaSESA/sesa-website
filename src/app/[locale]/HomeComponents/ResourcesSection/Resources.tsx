@@ -17,7 +17,7 @@ const Resources = () => {
                         Resources at your&nbsp;
                         <span className="relative inline-block">
                             Fingertips
-                            <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                            <div className="highlight-gradient"></div>
                         </span>
                     </h1>
                     <p className="font-sans text-base text-thistle md:text-lg">
