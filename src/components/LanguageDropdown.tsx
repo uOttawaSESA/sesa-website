@@ -11,6 +11,12 @@ import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { useState } from "react";
 
+/**
+ * Provides a select component that can be used to select the page locale.
+ * Changing the locale here automatically reloads the current page with the new locale activated.
+ *
+ * Used in the header and footer.
+ */
 export const LanguageDropdown = () => {
     const pathname = usePathname();
     const router = useRouter();
