@@ -4,15 +4,15 @@ import { JSDOM } from "jsdom";
 import nodemailer from "nodemailer";
 import * as z from "zod";
 
-const purify = (text: string) =>
-    DOMPurify(new JSDOM("<!DOCTYPE html>").window).sanitize(text, { ALLOWED_TAGS: [] });
+const purify = DOMPurify(new JSDOM("<!DOCTYPE html>").window);
+const transformPurify = (text: string) => purify.sanitize(text, { ALLOWED_TAGS: [] });
 
 const EmailRequest = z.object({
-    firstName: z.string().transform(purify),
-    lastName: z.string().transform(purify),
-    email: z.email().transform(purify),
-    topic: z.string().transform(purify),
-    message: z.string().transform(purify),
+    firstName: z.string().transform(transformPurify),
+    lastName: z.string().transform(transformPurify),
+    email: z.email().transform(transformPurify),
+    topic: z.string().transform(transformPurify),
+    message: z.string().transform(transformPurify),
     recaptchaToken: z.string().transform(token => encodeURIComponent(token)),
 });
 
@@ -28,6 +28,7 @@ export async function POST(req: NextRequest) {
 
     // 1. Verify reCAPTCHA
     const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
+
     const recaptchaRes = await fetch(
         `https://www.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${recaptchaToken}`,
         { method: "POST" },
