@@ -1,14 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
+import DOMPurify from "dompurify";
+import { JSDOM } from "jsdom";
 import nodemailer from "nodemailer";
 import * as z from "zod";
 
+const purify = (text: string) =>
+    DOMPurify(new JSDOM("<!DOCTYPE html>").window).sanitize(text, { ALLOWED_TAGS: [] });
+
 const EmailRequest = z.object({
-    firstName: z.string(),
-    lastName: z.string(),
-    email: z.string(),
-    topic: z.string(),
-    message: z.string(),
-    recaptchaToken: z.string(),
+    firstName: z.string().transform(purify),
+    lastName: z.string().transform(purify),
+    email: z.string().transform(purify),
+    topic: z.string().transform(purify),
+    message: z.string().transform(purify),
+    recaptchaToken: z.string().transform(token => encodeURIComponent(token)),
 });
 
 export async function POST(req: NextRequest) {
