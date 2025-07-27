@@ -87,7 +87,11 @@ export default function Footer() {
 
                         <div className="flex items-start justify-center gap-2">
                             <Button size="icon" variant="outline" asChild>
-                                <a href="https://www.instagram.com/uottawasesa/" target="_blank">
+                                <a
+                                    href="https://www.instagram.com/uottawasesa/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
                                     <Image
                                         src="/icons/instagram-plain.svg"
                                         width={25}
@@ -97,7 +101,11 @@ export default function Footer() {
                                 </a>
                             </Button>
                             <Button size="icon" variant="outline" asChild>
-                                <a href="https://discord.com/invite/atYdx5HHCs" target="_blank">
+                                <a
+                                    href="https://discord.com/invite/atYdx5HHCs"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
                                     <Image
                                         src="/icons/discord-plain.svg"
                                         width={25}
@@ -110,6 +118,7 @@ export default function Footer() {
                                 <a
                                     href="https://www.linkedin.com/company/software-engineering-students-association/"
                                     target="_blank"
+                                    rel="noopener noreferrer"
                                 >
                                     <Image
                                         src="/icons/linkedin-plain.svg"
@@ -120,7 +129,11 @@ export default function Footer() {
                                 </a>
                             </Button>
                             <Button size="icon" variant="outline" asChild>
-                                <a href="https://www.youtube.com/@uottawasesa52" target="_blank">
+                                <a
+                                    href="https://www.youtube.com/@uottawasesa52"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
                                     <Image
                                         src="/icons/youtube-plain.svg"
                                         width={25}
