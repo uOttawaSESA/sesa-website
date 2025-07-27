@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { LanguageDropdown } from "@/components/LanguageDropdown";
+import { LanguageSelect } from "@/components/LanguageSelect";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
@@ -169,7 +169,7 @@ export default function Footer() {
                     <Button variant="ghost-plain" className="h-min font-heading uppercase" asChild>
                         <a href="#">{t("back_to_top")}</a>
                     </Button>
-                    <LanguageDropdown />
+                    <LanguageSelect />
                 </div>
             </div>
         </footer>

@@ -17,7 +17,7 @@ import { useState } from "react";
  *
  * Used in the header and footer.
  */
-export const LanguageDropdown = () => {
+export const LanguageSelect = () => {
     const pathname = usePathname();
     const router = useRouter();
 

@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { LanguageDropdown } from "@/components/LanguageDropdown";
+import { LanguageSelect } from "@/components/LanguageSelect";
 import { Link, usePathname } from "@/i18n/navigation";
 import { useState, useMemo } from "react";
 import { useTranslations } from "next-intl";
@@ -93,7 +93,7 @@ export default function Navbar() {
                 </nav>
 
                 <div className="flex items-center gap-4">
-                    <LanguageDropdown />
+                    <LanguageSelect />
 
                     <Link href="/SponsorsPage" className="hidden lg:block">
                         <Button className="font-heading text-base uppercase text-white">
