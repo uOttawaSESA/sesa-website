@@ -1,8 +1,25 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import * as z from "zod";
+
+const EmailRequest = z.object({
+    firstName: z.string(),
+    lastName: z.string(),
+    email: z.string(),
+    topic: z.string(),
+    message: z.string(),
+    recaptchaToken: z.string(),
+});
 
 export async function POST(req: NextRequest) {
-    const { firstName, lastName, email, topic, message, recaptchaToken } = await req.json();
+    const requestBody = EmailRequest.safeParse(await req.json());
+    if (!requestBody.success)
+        return NextResponse.json(
+            { error: "Invalid request", details: requestBody.error.issues },
+            { status: 422 },
+        );
+
+    const { firstName, lastName, email, topic, message, recaptchaToken } = requestBody.data;
 
     // 1. Verify reCAPTCHA
     const recaptchaSecret = process.env.RECAPTCHA_SECRET_KEY;
