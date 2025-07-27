@@ -24,7 +24,7 @@ export const LanguageSelect = () => {
     // _Technically_ this isn't necessary since the page refreshes anyway,
     // but imo it looks better to a user if the select immediately updates
     // instead of having a moment of confusion until the page reloads.
-    const [locale, setLocale] = useState(() => useLocale());
+    const [locale, setLocale] = useState(useLocale());
 
     const languageItems = [
         {
