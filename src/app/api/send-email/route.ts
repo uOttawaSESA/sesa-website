@@ -10,7 +10,7 @@ const purify = (text: string) =>
 const EmailRequest = z.object({
     firstName: z.string().transform(purify),
     lastName: z.string().transform(purify),
-    email: z.string().transform(purify),
+    email: z.email().transform(purify),
     topic: z.string().transform(purify),
     message: z.string().transform(purify),
     recaptchaToken: z.string().transform(token => encodeURIComponent(token)),
