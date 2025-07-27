@@ -6,7 +6,29 @@ const ConnectSESA = () => {
     const t = useTranslations("events");
 
     return (
-        <div className="w-full">
+        <div className="relative w-full">
+            {/* Decorations */}
+            <Image
+                src="/decoration/star.svg"
+                className="bottom absolute left-[14rem] top-[-3rem] rotate-[-120deg] transform"
+                width={82}
+                height={82}
+                alt=""
+            />
+            <Image
+                src="/decoration/star.svg"
+                className="bottom absolute right-[14rem] top-[-5rem]"
+                width={121}
+                height={121}
+                alt=""
+            />
+            <Image
+                src="/decoration/star-faded.svg"
+                className="absolute left-[18rem]"
+                width={50}
+                height={50}
+                alt=""
+            />
             <div className="mx-auto max-w-7xl text-center">
                 <div className="color-gradient font-mono">{t("connect_with_sesa")}</div>
                 <h1 className="mt-4 text-[36px] uppercase">

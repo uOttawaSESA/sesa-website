@@ -72,46 +72,83 @@ const EventsPage = () => {
 
     return (
         <div className="min-h-screen bg-gradient-to-b from-gray-100 via-blueviolet-200 to-[#361D49] font-heading text-white">
-            <div className="mx-auto flex max-w-7xl flex-col justify-center">
-                <Header />
-                <EventFilters
-                    onFilterChange={handleFilterChange}
-                    onTimeFilterChange={handleTimeFilterChange}
+            {/* Decorations */}
+            <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
+                <Image
+                    src="/decoration/waves.svg"
+                    className="fade-from-top absolute left-1/2 top-[16rem] -translate-x-1/2 transform"
+                    width={1200}
+                    height={280}
+                    alt=""
                 />
 
-                {filteredEvents.length === 0 ? (
-                    <div className="flex h-[calc(100vh-200px)] items-center justify-center">
-                        <div className="flex h-[85%] w-[100%] max-w-7xl flex-col items-center justify-center gap-9 rounded-none border-2 border-blueviolet-100/70 p-20 text-center font-heading text-2xl text-white">
-                            <Image
-                                src="/icons/calendar-empty.svg"
-                                alt="Coming Soon Icon"
-                                width={64}
-                                height={64}
-                                className="opacity-80"
-                            />
-                            <p>No events right now — check back soon!</p>
-                        </div>
-                    </div>
-                ) : (
-                    <>
-                        <EventsList events={currentEvents} />
-
-                        {filteredEvents.length > eventsPerPage && (
-                            <Pagination
-                                currentPage={currentPage}
-                                totalPages={totalPages}
-                                onPageChange={setCurrentPage}
-                            />
-                        )}
-                    </>
-                )}
+                <Image
+                    src="/decoration/star-faded.svg"
+                    className="absolute left-[16rem] top-[16rem]"
+                    width={55}
+                    height={55}
+                    alt=""
+                />
+                <Image
+                    src="/decoration/star.svg"
+                    className="absolute right-[11rem] top-[22rem]"
+                    width={125}
+                    height={128}
+                    alt=""
+                />
             </div>
 
-            <TeamUpSection />
-            <ConnectSESA />
+            <div className="relative z-10">
+                <div className="mx-auto flex max-w-7xl flex-col justify-center">
+                    <Header />
+                    <EventFilters
+                        onFilterChange={handleFilterChange}
+                        onTimeFilterChange={handleTimeFilterChange}
+                    />
 
-            <div className="mb-32">
-                <InfiniteCarousel />
+                    {filteredEvents.length === 0 ? (
+                        <div className="flex h-[calc(100vh-200px)] items-center justify-center">
+                            <div className="flex h-[85%] w-[100%] max-w-7xl flex-col items-center justify-center gap-9 rounded-none border-2 border-blueviolet-100/70 p-20 text-center font-heading text-2xl text-white backdrop-blur-lg">
+                                <Image
+                                    src="/icons/calendar-empty.svg"
+                                    alt="Coming Soon Icon"
+                                    width={64}
+                                    height={64}
+                                    className="opacity-80"
+                                />
+                                <p>No events right now — check back soon!</p>
+                            </div>
+                        </div>
+                    ) : (
+                        <>
+                            <EventsList events={currentEvents} />
+
+                            {filteredEvents.length > eventsPerPage && (
+                                <Pagination
+                                    currentPage={currentPage}
+                                    totalPages={totalPages}
+                                    onPageChange={setCurrentPage}
+                                />
+                            )}
+                        </>
+                    )}
+                </div>
+
+                <TeamUpSection />
+                <ConnectSESA />
+
+                <div className="relative mb-52">
+                    {/* Bottom Star Decoration */}
+                    <Image
+                        src="/decoration/star.svg"
+                        className="absolute bottom-[-7rem] left-[10rem] rotate-[-120deg] transform"
+                        width={100}
+                        height={100}
+                        alt=""
+                    />
+
+                    <InfiniteCarousel />
+                </div>
             </div>
         </div>
     );

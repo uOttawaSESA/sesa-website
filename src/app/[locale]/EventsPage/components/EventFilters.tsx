@@ -43,8 +43,8 @@ const EventFilters: React.FC<{
                     <Button
                         key={filter}
                         variant="outline"
-                        className={`font-heading uppercase text-white ${
-                            activeTimeFilter === filter ? "bg-gray-700" : ""
+                        className={`font-heading uppercase text-white backdrop-blur-lg ${
+                            activeTimeFilter === filter ? "fill-gradient" : ""
                         }`}
                         onClick={() => handleTimeFilterClick(filter)}
                     >
