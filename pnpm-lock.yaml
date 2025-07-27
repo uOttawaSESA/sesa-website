@@ -135,6 +135,9 @@ importers:
       typescript:
         specifier: ^5
         version: 5.8.3
+      zod:
+        specifier: ^4.0.10
+        version: 4.0.10
 
 packages:
 
@@ -3071,6 +3074,9 @@ packages:
 
   zod@3.24.3:
     resolution: {integrity: sha512-HhY1oqzWCQWuUqvBFnsyrtZRhyPeR7SUGv+C4+MsisMuVfSPx8HpwWqH8tRahSlt6M3PiFAcoeFhZAqIXTxoSg==}
+
+  zod@4.0.10:
+    resolution: {integrity: sha512-3vB+UU3/VmLL2lvwcY/4RV2i9z/YU0DTV/tDuYjrwmx5WeJ7hwy+rGEEx8glHp6Yxw7ibRbKSaIFBgReRPe5KA==}
 
 snapshots:
 
@@ -6228,3 +6234,5 @@ snapshots:
       zod: 3.24.3
 
   zod@3.24.3: {}
+
+  zod@4.0.10: {}
