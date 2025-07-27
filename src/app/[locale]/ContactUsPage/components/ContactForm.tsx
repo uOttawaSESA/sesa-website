@@ -112,6 +112,7 @@ const ContactForm: React.FC = () => {
                         onChange={handleInputChange}
                         placeholder={t("form_firstname")}
                         required
+                        autoComplete="given-name"
                     />
                     <Input
                         type="text"
@@ -120,6 +121,7 @@ const ContactForm: React.FC = () => {
                         onChange={handleInputChange}
                         placeholder={t("form_lastname")}
                         required
+                        autoComplete="family-name"
                     />
                 </div>
             </div>
@@ -135,6 +137,7 @@ const ContactForm: React.FC = () => {
                     onChange={handleInputChange}
                     placeholder={t("form_email")}
                     required
+                    autoComplete="email"
                 />
             </div>
 
