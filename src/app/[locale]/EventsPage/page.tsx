@@ -71,9 +71,15 @@ const EventsPage = () => {
     const totalPages = Math.ceil(filteredEvents.length / eventsPerPage);
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-gray-100 via-blueviolet-200 to-[#361D49] font-heading text-white">
+        <div className="min-h-screen font-heading text-white">
             {/* Decorations */}
             <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
+                {/* Warm gradient */}
+                <div className="fade-from-top-left-bg absolute h-[70rem] w-[60vw] bg-[#B1219D] bg-opacity-15 blur-sm" />
+
+                {/* Light gradient */}
+                <div className="fade-from-left-bg absolute top-[75rem] h-[70rem] w-[30vw] bg-blueviolet-100 bg-opacity-25 blur-sm" />
+
                 <Image
                     src="/decoration/waves.svg"
                     className="fade-from-top absolute left-1/2 top-[16rem] -translate-x-1/2 transform"

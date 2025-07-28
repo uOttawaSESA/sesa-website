@@ -382,3 +382,29 @@ select::placeholder {
     );
     mask-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 1));
 }
+
+.fade-from-top-left-bg {
+    mask-image: radial-gradient(circle at top left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 70%);
+    -webkit-mask-image: radial-gradient(
+        circle at top left,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0) 70%
+    );
+}
+
+.fade-from-left-bg {
+    -webkit-mask-image: radial-gradient(
+        ellipse 150% 100% at left center,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 1) 5%,
+        rgba(0, 0, 0, 0.2) 50%,
+        rgba(0, 0, 0, 0) 70%
+    );
+    mask-image: radial-gradient(
+        ellipse 150% 100% at left center,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 1) 5%,
+        rgba(0, 0, 0, 0.2) 50%,
+        rgba(0, 0, 0, 0) 70%
+    );
+}
