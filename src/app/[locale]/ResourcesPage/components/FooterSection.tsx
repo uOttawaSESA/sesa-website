@@ -18,10 +18,10 @@ const FooterSection: React.FC = () => {
                 </div>
                 <div className="flex -translate-y-4 transform items-center justify-center">
                     <Button asChild>
-                    <a href="https://discord.com/invite/atYdx5HHCs" target="_blank">
+                        <a href="https://discord.com/invite/atYdx5HHCs" target="_blank">
                             {t("btn_join_discord")}
                         </a>
-                </Button>
+                    </Button>
                 </div>
             </div>
 
@@ -65,12 +65,15 @@ const FooterSection: React.FC = () => {
                     </div>
                     {/* Call To Action Button */}
                     <div className="mt-6">
-                        <Button
-                            href="/pages/TeamPage"
-                            className="relative z-10 font-heading text-lg uppercase"
-                        >
-                            {t("btn_join_team")}
+                        <Button className="relative z-10 font-heading text-lg uppercase">
+                            <Link
+                                href="/pages/TeamPage"
+                                className="block h-full w-full text-inherit"
+                            >
+                                Meet the Team
+                            </Link>
                         </Button>
+
                         <div className="mt-6 flex items-center gap-2">
                             <Image
                                 src="/resources-page/thumbsup.svg"
