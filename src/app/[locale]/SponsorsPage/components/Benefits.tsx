@@ -72,15 +72,15 @@ export default function Benefits() {
 
                 {/* Arrows */}
                 <div className="flex translate-y-3 gap-2 self-start md:translate-y-4">
-                    <IconButton variant="outline" onClick={handlePrev}>
+                    <Button size="icon" variant="outline" onClick={handlePrev}>
                         <Image
                             src="/resources-page/arrow_backword.svg"
                             width={25}
                             height={25}
                             alt="Left"
                         />
-                    </IconButton>
-                    <IconButton variant="outline" onClick={handleNext}>
+                    </Button>
+                    <Button size="icon" variant="outline" onClick={handleNext}>
                         <Image
                             src="/resources-page/arrow_forward.svg"
                             width={25}

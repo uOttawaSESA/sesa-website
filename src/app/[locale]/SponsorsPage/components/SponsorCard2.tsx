@@ -8,9 +8,9 @@ import { Link } from "@/i18n/navigation";
 const SponsorCard2 = () => {
     const teamImgs = [
         "/imgs/team/taha.jpg",
-        "/imgs/team/rayen.jpg",
-        "/imgs/team/anthony.jpg",
-        "/imgs/team/priya.jpg",
+        "/imgs/team/rayen.webp",
+        "/imgs/team/anthony.webp",
+        "/imgs/team/priya.webp",
     ];
 
     return (
@@ -37,18 +37,24 @@ const SponsorCard2 = () => {
                     </p>
 
                     <div className="mb-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
-                        <Button
-                            href="/pages/ContactUsPage"
-                            className="w-fit min-w-[12rem] whitespace-nowrap font-heading text-sm uppercase text-white md:text-base"
-                        >
-                            Become a Sponsor
+                        <Button className="w-fit min-w-[12rem] whitespace-nowrap font-heading text-sm uppercase text-white md:text-base">
+                            <Link
+                                href="/pages/ContactUsPage"
+                                className="block h-full w-full text-inherit"
+                            >
+                                Become a Sponsor
+                            </Link>
                         </Button>
                         <Button
-                            href="/pages/AboutPage"
                             variant="outline"
                             className="w-fit min-w-[12rem] whitespace-nowrap font-heading text-sm text-white md:text-base"
                         >
-                            Meet the Team
+                            <Link
+                                href="/pages/AboutPage"
+                                className="block h-full w-full text-inherit"
+                            >
+                                Meet the Team
+                            </Link>
                         </Button>
                     </div>
 
