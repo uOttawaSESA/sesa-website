@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./components/Header";
 import EventFilters from "./components/EventFilters";
 import EventsList from "./components/EventsList";
@@ -21,8 +21,25 @@ const parseEventDate = (date: Date): Date => {
 
 const EventsPage = () => {
     const [filteredEvents, setFilteredEvents] = useState(events);
+    const [isMobile, setIsMobile] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
-    const eventsPerPage = 3;
+
+    // Check if device is mobile
+    useEffect(() => {
+        const checkIsMobile = () => {
+            setIsMobile(window.innerWidth < 768); // md breakpoint
+        };
+
+        // Check on mount
+        checkIsMobile();
+
+        // Add event listener for window resize
+        window.addEventListener("resize", checkIsMobile);
+
+        // Cleanup
+        return () => window.removeEventListener("resize", checkIsMobile);
+    }, []);
+    const eventsPerPage = isMobile ? 1 : 3;
 
     const handleFilterChange = (filter: string) => {
         setCurrentPage(1);
@@ -75,7 +92,7 @@ const EventsPage = () => {
             {/* Decorations */}
             <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
                 {/* Warm gradient */}
-                <div className="fade-from-top-left-bg absolute h-[70rem] w-[60vw] bg-[#B1219D] bg-opacity-15 blur-sm" />
+                <div className="fade-from-top-left-bg absolute h-[70rem] w-full bg-[#B1219D] bg-opacity-15 blur-sm md:w-[60vw]" />
 
                 {/* Light gradient */}
                 <div className="fade-from-left-bg absolute top-[75rem] h-[70rem] w-[30vw] bg-blueviolet-100 bg-opacity-25 blur-sm" />
