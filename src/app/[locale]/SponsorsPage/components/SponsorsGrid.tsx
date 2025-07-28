@@ -1,7 +1,6 @@
 import Image from "next/image";
 
 const sponsors = [
-    { src: "/sponsors/ciena.webp", alt: "Ciena", size: "col-span-6 h-48", width: 160, height: 80 },
     {
         src: "/sponsors/ciena.webp",
         alt: "Ciena",

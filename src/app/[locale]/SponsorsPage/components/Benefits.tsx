@@ -29,7 +29,7 @@ export default function Benefits() {
         },
         {
             image: "/sponsors-page/benefits-4.png",
-            icon: "/sponsors-page/brand.png",
+            icon: "/sponsors-page/connect.png",
             title: "ACCESS EXCLUSIVE EVENTS",
             description:
                 "Participate in workshops, mentorship programs, and networking events tailored for sponsors and students alike.",
@@ -91,7 +91,7 @@ export default function Benefits() {
                 </div>
             </div>
 
-            {/* Carousel - Shared Across Mobile & Desktop */}
+            {/* Carousel */}
             <div className="relative mt-10 overflow-visible">
                 <div
                     className="flex gap-6 pl-6 pr-6 transition-transform duration-500 ease-in-out md:gap-8 md:pl-40 md:pr-40"
@@ -107,7 +107,7 @@ export default function Benefits() {
                                 width: window.innerWidth < 768 ? "60vw" : "28vw",
                             }}
                         >
-                            <div className="overflow-hidden border-[1px] border-solid text-left text-white backdrop-blur-super [border-image:linear-gradient(55deg,rgba(136,36,220,0.3)_41.93%,rgba(177,33,157,0.3)_81.89%)_1]">
+                            <div className="flex h-full flex-col overflow-hidden border-[1px] border-solid text-left text-white backdrop-blur-super [border-image:linear-gradient(55deg,rgba(136,36,220,0.3)_41.93%,rgba(177,33,157,0.3)_81.89%)_1]">
                                 <Image
                                     src={card.image}
                                     alt={card.title}
@@ -115,22 +115,24 @@ export default function Benefits() {
                                     height={300}
                                     className="h-40 w-full object-cover md:h-48"
                                 />
-                                <div className="p-4">
-                                    <div className="my-3 inline-block border-[1px] border-solid [border-image:linear-gradient(55deg,rgba(136,36,220,0.3)_41.93%,rgba(177,33,157,0.3)_81.89%)_1]">
-                                        <Image
-                                            src={card.icon}
-                                            alt={`${card.title} icon`}
-                                            width={24}
-                                            height={24}
-                                            className="m-3"
-                                        />
+                                <div className="flex grow flex-col justify-between p-4">
+                                    <div>
+                                        <div className="my-3 inline-block border-[1px] border-solid [border-image:linear-gradient(55deg,rgba(136,36,220,0.3)_41.93%,rgba(177,33,157,0.3)_81.89%)_1]">
+                                            <Image
+                                                src={card.icon}
+                                                alt={`${card.title} icon`}
+                                                width={24}
+                                                height={24}
+                                                className="m-3"
+                                            />
+                                        </div>
+                                        <div className="mb-2 font-heading text-base uppercase leading-snug text-white md:text-lg">
+                                            {card.title}
+                                        </div>
+                                        <p className="font-sans text-sm leading-snug text-thistle md:text-lg">
+                                            {card.description}
+                                        </p>
                                     </div>
-                                    <div className="mb-2 font-heading text-base uppercase leading-snug text-white md:text-lg">
-                                        {card.title}
-                                    </div>
-                                    <p className="font-sans text-sm leading-snug text-thistle md:text-lg">
-                                        {card.description}
-                                    </p>
                                 </div>
                             </div>
                         </div>
