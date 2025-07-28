@@ -10,7 +10,7 @@ const ConnectSESA = () => {
             {/* Decorations */}
             <Image
                 src="/decoration/star.svg"
-                className="bottom absolute left-[14rem] top-[-3rem] rotate-[-120deg] transform"
+                className="bottom absolute left-[14rem] top-[-3rem] rotate-[-110deg] transform"
                 width={82}
                 height={82}
                 alt=""

@@ -99,7 +99,7 @@ const EventsPage = () => {
             </div>
 
             <div className="relative z-10">
-                <div className="mx-auto flex max-w-7xl flex-col justify-center">
+                <div className="relative mx-auto mb-40 flex max-w-7xl flex-col justify-center">
                     <Header />
                     <EventFilters
                         onFilterChange={handleFilterChange}
@@ -107,7 +107,7 @@ const EventsPage = () => {
                     />
 
                     {filteredEvents.length === 0 ? (
-                        <div className="flex h-[calc(100vh-200px)] items-center justify-center">
+                        <div className="z-10 flex h-[calc(100vh-200px)] items-center justify-center">
                             <div className="flex h-[85%] w-[100%] max-w-7xl flex-col items-center justify-center gap-9 rounded-none border-2 border-blueviolet-100/70 p-20 text-center font-heading text-2xl text-white backdrop-blur-lg">
                                 <Image
                                     src="/icons/calendar-empty.svg"
@@ -120,7 +120,7 @@ const EventsPage = () => {
                             </div>
                         </div>
                     ) : (
-                        <>
+                        <div className="z-10">
                             <EventsList events={currentEvents} />
 
                             {filteredEvents.length > eventsPerPage && (
@@ -130,8 +130,29 @@ const EventsPage = () => {
                                     onPageChange={setCurrentPage}
                                 />
                             )}
-                        </>
+                        </div>
                     )}
+                    <Image
+                        src="/decoration/floor-grid.svg"
+                        className="fade-from-bottom absolute -bottom-16 left-1/2 z-0 -translate-x-1/2 transform"
+                        width={1200}
+                        height={430}
+                        alt=""
+                    />
+                    <Image
+                        src="/decoration/star.svg"
+                        className="absolute bottom-[-3rem] right-[10rem]"
+                        width={120}
+                        height={120}
+                        alt=""
+                    />
+                    <Image
+                        src="/decoration/star-faded.svg"
+                        className="absolute bottom-[-5rem] right-[9rem] rotate-[30deg] transform"
+                        width={63}
+                        height={63}
+                        alt=""
+                    />
                 </div>
 
                 <TeamUpSection />
@@ -141,7 +162,7 @@ const EventsPage = () => {
                     {/* Bottom Star Decoration */}
                     <Image
                         src="/decoration/star.svg"
-                        className="absolute bottom-[-7rem] left-[10rem] rotate-[-120deg] transform"
+                        className="absolute bottom-[-7rem] left-[10rem] rotate-[-110deg] transform"
                         width={100}
                         height={100}
                         alt=""
