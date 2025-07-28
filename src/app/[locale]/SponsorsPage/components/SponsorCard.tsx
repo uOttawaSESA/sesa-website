@@ -58,7 +58,7 @@ const SponsorCard = () => {
 
             {/* Navigation Buttons */}
             <div className="mt-6 flex items-center gap-2 md:ml-4 md:mt-0">
-                <Button variant="outline">
+                <Button size="icon" variant="outline">
                     <Image
                         src="/resources-page/arrow_backword.svg"
                         width={25}

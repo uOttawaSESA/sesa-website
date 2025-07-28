@@ -1,49 +1,25 @@
+"use client";
+
 import Image from "next/image";
 
 const sponsors = [
-    {
-        src: "/sponsors/ciena.webp",
-        alt: "Ciena",
-        size: "col-span-2 sm:col-span-4 md:col-span-6",
-        style: { width: "10em", height: "6em" },
-    },
+    { src: "/sponsors/ciena.webp", alt: "Ciena", size: "col-span-2 sm:col-span-4 md:col-span-6" },
     {
         src: "/sponsors/shopify.webp",
         alt: "Shopify",
         size: "col-span-2 sm:col-span-4 md:col-span-6",
-        style: { width: "13em", height: "6em" },
     },
-    { src: "/sponsors/qnx.webp", alt: "QNX", size: "col-span-4 h-36", width: 100, height: 50 },
-    { src: "/sponsors/nokia.webp", alt: "Nokia", size: "col-span-4 h-36", width: 140, height: 70 },
-    { src: "/sponsors/eef.webp", alt: "EEF", size: "col-span-4 h-36", width: 140, height: 70 },
-    { src: "/sponsors/warp.webp", alt: "Warp", size: "col-span-3 h-26", width: 70, height: 35 },
-    {
-        src: "/sponsors/surveymonkey.webp",
-        alt: "SurveyMonkey",
-        size: "col-span-1 sm:col-span-1 md:col-span-3",
-        style: { width: "10em", height: "5em" },
-    },
-    {
-        src: "/sponsors/bitesite.webp",
-        alt: "BiteSite",
-        size: "col-span-1 sm:col-span-1 md:col-span-3",
-        style: { width: "9em", height: "4.5em" },
-    },
-    { src: "/sponsors/knak.webp", alt: "Knak", size: "col-span-3 h-26", width: 60, height: 30 },
-    {
-        src: "/sponsors/redbull.webp",
-        alt: "Red Bull",
-        size: "col-span-1 sm:col-span-1 md:col-span-3",
-        style: { width: "7em", height: "4em" },
-    },
-    {
-        src: "/sponsors/nationalbank.webp",
-        alt: "National Bank",
-        size: "col-span-1 sm:col-span-1 md:col-span-3",
-        style: { width: "10em", height: "5em" },
-    },
-    { src: "/sponsors/solace.webp", alt: "Solace", size: "col-span-3 h-26", width: 90, height: 45 },
-    { src: "/sponsors/aws.webp", alt: "AWS", size: "col-span-3 h-26", width: 50, height: 25 },
+    { src: "/sponsors/qnx.webp", alt: "QNX", size: "col-span-4" },
+    { src: "/sponsors/nokia.webp", alt: "Nokia", size: "col-span-4" },
+    { src: "/sponsors/eef.webp", alt: "EEF", size: "col-span-4" },
+    { src: "/sponsors/warp.webp", alt: "Warp", size: "col-span-3" },
+    { src: "/sponsors/surveymonkey.webp", alt: "SurveyMonkey", size: "col-span-3" },
+    { src: "/sponsors/bitesite.webp", alt: "BiteSite", size: "col-span-3" },
+    { src: "/sponsors/knak.webp", alt: "Knak", size: "col-span-3" },
+    { src: "/sponsors/redbull.webp", alt: "Red Bull", size: "col-span-3" },
+    { src: "/sponsors/nationalbank.webp", alt: "National Bank", size: "col-span-3" },
+    { src: "/sponsors/solace.webp", alt: "Solace", size: "col-span-3" },
+    { src: "/sponsors/aws.webp", alt: "AWS", size: "col-span-3" },
 ];
 
 const gradientBorderClass = `
@@ -63,11 +39,9 @@ const SponsorsGrid = () => {
                         <Image
                             src={sponsor.src}
                             alt={sponsor.alt}
-                            width={1}
-                            height={1}
-                            style={sponsor.style}
-                            className="h-auto w-auto object-contain"
-                            unoptimized
+                            width={96} // 6rem
+                            height={48} // 3rem
+                            className="h-auto w-full max-w-[6rem] object-contain"
                         />
                     </div>
                 ))}

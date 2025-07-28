@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
@@ -37,6 +37,22 @@ export default function Benefits() {
     ];
 
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const updateIsMobile = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        updateIsMobile(); // Initial check
+        window.addEventListener("resize", updateIsMobile);
+
+        return () => {
+            window.removeEventListener("resize", updateIsMobile);
+        };
+    }, []);
+
+    const cardWidthVW = isMobile ? 60 : 28;
 
     const handlePrev = () => {
         setCurrentIndex(prev => (prev === 0 ? cards.length - 1 : prev - 1));
@@ -96,7 +112,7 @@ export default function Benefits() {
                 <div
                     className="flex gap-6 pl-6 pr-6 transition-transform duration-500 ease-in-out md:gap-8 md:pl-40 md:pr-40"
                     style={{
-                        transform: `translateX(-${currentIndex * (window.innerWidth < 768 ? 60 : 28)}vw)`,
+                        transform: `translateX(-${currentIndex * cardWidthVW}vw)`,
                     }}
                 >
                     {cards.map((card, index) => (
@@ -104,7 +120,7 @@ export default function Benefits() {
                             key={index}
                             className="flex-shrink-0"
                             style={{
-                                width: window.innerWidth < 768 ? "60vw" : "28vw",
+                                width: `${cardWidthVW}vw`,
                             }}
                         >
                             <div className="flex h-full flex-col overflow-hidden border-[1px] border-solid text-left text-white backdrop-blur-super [border-image:linear-gradient(55deg,rgba(136,36,220,0.3)_41.93%,rgba(177,33,157,0.3)_81.89%)_1]">
