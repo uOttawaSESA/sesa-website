@@ -18,7 +18,7 @@ export const SocialMediaCard = ({
     const t = useTranslations("events");
 
     return (
-        <div className="mt-10 flex h-[400px] w-[300px] flex-shrink-0 flex-col overflow-hidden rounded-lg border border-gray-200 shadow-lg">
+        <div className="outline-gradient mt-10 flex h-[470px] w-[270px] flex-shrink-0 flex-col overflow-hidden shadow-lg">
             {/* Top 60% - Image */}
             <div className="h-[60%] w-full">
                 <Image
