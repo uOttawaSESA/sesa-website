@@ -1,4 +1,4 @@
-import Button from "@/components/Button";
+import { Button } from "@/components/ui/button";
 
 interface HeaderProps {
     topText: string;
@@ -19,10 +19,7 @@ const Header = ({ topText, title, bottomText, btn1, btn2 }: HeaderProps) => {
 
                 <h1 className="mx-auto mt-4 max-w-[18ch] font-heading text-3xl uppercase leading-snug text-white md:text-5xl md:leading-tight">
                     <span className="relative inline-block">
-                        <span className="relative inline-block">
-                            huge thanks
-                            <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
-                        </span>
+                        <span className="highlight-text">huge thanks</span>
                         <span> {title.replace(/huge thanks/i, "")}</span>
                     </span>
                 </h1>

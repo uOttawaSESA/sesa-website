@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Button from "@/components/Button";
+import { Button } from "@/components/ui/button";
 import { TeamBadgeStack } from "@/components/TeamBadgeStack";
+import { Link } from "@/i18n/navigation";
 
 const SponsorCard2 = () => {
     const teamImgs = [
@@ -26,11 +27,8 @@ const SponsorCard2 = () => {
                     </p>
                     <h2 className="mt-4 font-heading text-2xl uppercase leading-tight text-white md:text-3xl">
                         Let’s collaborate to make a{" "}
-                        <span className="relative inline-block">
-                            lasting difference{" "}
-                            <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
-                        </span>{" "}
-                        on aspiring software engineers
+                        <span className="highlight-text">lasting difference </span> on aspiring
+                        software engineers
                     </h2>
                     <p className="mb-4 mt-2 text-sm leading-tight text-thistle md:text-lg">
                         Together, we can drive a meaningful impact on over 3500+ EECS students at

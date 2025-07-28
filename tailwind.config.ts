@@ -102,11 +102,11 @@ export default {
                 highlight: {
                     "0%": {
                         width: "0",
-                        left: "100%",
+                        right: "100%",
                     },
                     "100%": {
                         width: "100%",
-                        left: "0",
+                        right: "0",
                     },
                 },
                 "accordion-down": {

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import IconButton from "@/components/IconButton";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
 export default function Benefits() {
@@ -87,7 +87,7 @@ export default function Benefits() {
                             height={25}
                             alt="Right"
                         />
-                    </IconButton>
+                    </Button>
                 </div>
             </div>
 

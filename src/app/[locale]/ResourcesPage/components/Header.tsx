@@ -11,10 +11,7 @@ const Header = () => {
             </span>
             <h1 className="mt-4 font-heading text-4xl uppercase">
                 {t("resources_heading")}{" "}
-                <span className="relative inline-block">
-                    {t("resources_heading_hl")}
-                    <div className="absolute right-0 top-0 h-full w-0 animate-highlight bg-gradient-to-r from-blueviolet-100/25 to-darkmagenta/25"></div>
-                </span>
+                <span className="highlight-text">{t("resources_heading_hl")}</span>
             </h1>
             <p className="max-w-10xl mt-4 font-sans text-xl text-thistle">{t("resources_blurb")}</p>
         </div>

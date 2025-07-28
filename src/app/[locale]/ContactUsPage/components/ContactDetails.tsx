@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import Button from "@/components/Button";
+import { Button } from "@/components/ui/button";
 import GridGlobe from "./GridGlobe";
 import { useTranslations } from "next-intl";
 
@@ -20,10 +20,7 @@ const ContactDetails = () => {
 
                 <h1 className="mt-4 font-heading text-5xl uppercase leading-tight">
                     {t("get_in_touch")}{" "}
-                    <span className="relative inline-block">
-                        {t("get_in_touch_hl")}
-                        <div className="absolute right-0 top-0 h-full w-0 animate-highlight bg-gradient-to-r from-blueviolet-100/25 to-darkmagenta/25"></div>
-                    </span>
+                    <span className="highlight-text">{t("get_in_touch_hl")}</span>
                 </h1>
 
                 <p className="mt-4 max-w-[558px] font-sans text-xl text-thistle">

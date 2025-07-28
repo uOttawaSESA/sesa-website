@@ -2,9 +2,10 @@ import { notFound } from "next/navigation";
 import DOMPurify from "dompurify";
 import { JSDOM } from "jsdom";
 import { marked } from "marked";
-import Button from "@/components/Button";
+import { Button } from "@/components/ui/button";
 
 import OtherResources from "./OtherResources";
+import { Link } from "@/i18n/navigation";
 
 export interface Resource {
     /** Tile of the resource. */
@@ -73,9 +74,9 @@ export default async function ResourcePage({ params }: { params: Promise<{ id: s
                 <Button
                     variant="outline"
                     className="absolute left-72 top-0 font-heading uppercase"
-                    href="/pages/ResourcesPage"
+                    asChild
                 >
-                    Go Back
+                    <Link href="/pages/ResourcesPage">Go Back</Link>
                 </Button>
                 <div className="flex min-w-[65ch] flex-col gap-32">
                     {/* Resource */}

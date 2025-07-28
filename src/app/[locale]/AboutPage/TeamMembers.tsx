@@ -13,7 +13,12 @@ function memberToIcons(member: Member) {
 
     if (member.linkedin)
         icons.push(
-            <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+            <a
+                key={`linkedin:${member.name}`}
+                href={member.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+            >
                 <Image
                     src="/icons/linkedin-plain.svg"
                     alt="Linkedin"
@@ -26,7 +31,12 @@ function memberToIcons(member: Member) {
 
     if (member.github)
         icons.push(
-            <a href={member.github} target="_blank" rel="noopener noreferrer">
+            <a
+                key={`github:${member.name}`}
+                href={member.github}
+                target="_blank"
+                rel="noopener noreferrer"
+            >
                 <Image
                     src="/icons/github-plain.svg"
                     alt="GitHub"
@@ -39,7 +49,7 @@ function memberToIcons(member: Member) {
 
     if (member.email)
         icons.push(
-            <a href={`mailto:${member.email}`}>
+            <a key={`email:${member.name}`} href={`mailto:${member.email}`}>
                 <Image
                     src="/icons/mail-plain.svg"
                     alt="Email"
@@ -52,7 +62,12 @@ function memberToIcons(member: Member) {
 
     if (member.portfolio)
         icons.push(
-            <a href={member.portfolio} target="_blank" rel="noopener noreferrer">
+            <a
+                key={`portfolio:${member.name}`}
+                href={member.portfolio}
+                target="_blank"
+                rel="noopener noreferrer"
+            >
                 <Image
                     src="/icons/globe-plain.svg"
                     alt="Portfolio"
@@ -69,11 +84,14 @@ function memberToIcons(member: Member) {
 export default function TeamMembers({ title, description, people }: Props) {
     return (
         <div id={title.toLowerCase()} className="scroll-mt-[100px]">
-            <h2 className="font-heading text-2xl uppercase">{title}</h2>
-            <p className="mb-4 max-w-md text-lg leading-tight text-gray-400">{description} </p>
-            <div className="flex gap-2 overflow-x-auto">
+            <h2 className="mb-3 font-heading text-xl uppercase">{title}</h2>
+            <p className="mb-4 max-w-md text-lg leading-tight text-thistle">{description} </p>
+            <div className="mt-10 flex gap-5 overflow-x-auto">
                 {people.map(person => (
-                    <div className="outline-gradient w-64 min-w-64" key={person.name}>
+                    <div
+                        className="outline-gradient flex h-[413px] w-64 min-w-64 flex-col"
+                        key={`member:${title}:${person.name}`}
+                    >
                         <Image
                             src={person.imgPath}
                             alt={`Picture of ${person.name}`}
@@ -81,10 +99,10 @@ export default function TeamMembers({ title, description, people }: Props) {
                             height={256}
                             className="h-64 w-64 object-cover"
                         />
-                        <div className="flex flex-col gap-2 p-4">
-                            <h3 className="font-heading text-xl uppercase">{person.name}</h3>
-                            <p className="text-gray-400">{person.role}</p>
-                            <div className="flex gap-2">{memberToIcons(person)}</div>
+                        <div className="flex flex-grow flex-col gap-2 p-4">
+                            <h3 className="font-sans text-xl font-bold">{person.name}</h3>
+                            <p className="text-thistle">{person.role}</p>
+                            <div className="mt-auto flex gap-2">{memberToIcons(person)}</div>
                         </div>
                     </div>
                 ))}

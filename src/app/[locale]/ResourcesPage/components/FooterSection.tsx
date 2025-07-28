@@ -1,7 +1,8 @@
 import React from "react";
-import Button from "@/components/Button";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 const FooterSection: React.FC = () => {
     const t = useTranslations("resources");
@@ -16,9 +17,11 @@ const FooterSection: React.FC = () => {
                     </h2>
                 </div>
                 <div className="flex -translate-y-4 transform items-center justify-center">
-                    <Button href="#" className="font-heading text-xl uppercase">
-                        {t("btn_join_discord")}
-                    </Button>
+                    <Button asChild>
+                    <a href="https://discord.com/invite/atYdx5HHCs" target="_blank">
+                            {t("btn_join_discord")}
+                        </a>
+                </Button>
                 </div>
             </div>
 

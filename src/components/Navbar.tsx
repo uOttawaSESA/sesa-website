@@ -1,13 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import Button from "./Button";
-import IconButton from "./IconButton";
-import { Link } from "@/i18n/navigation";
-import { usePathname } from "next/navigation";
+import { Button } from "./ui/button";
+import { Link, useRouter, usePathname } from "@/i18n/navigation";
 import { useState, useMemo } from "react";
-import Dropdown from "./Dropdown";
-import { useTranslations } from "next-intl";
+import {
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select";
+import { useLocale, useTranslations } from "next-intl";
 
 interface NavLinkItemProps {
     href: string;
@@ -52,49 +57,49 @@ const navItemsData = [
 export default function Navbar() {
     const t = useTranslations("navigation");
     const pathname = usePathname();
-    const [selectedLang, setSelectedLang] = useState("EN");
-    const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
+    const router = useRouter();
+
+    // _Technically_ this isn't necessary since the page refreshes anyway,
+    // but imo it looks better to a user if the select immediately updates
+    // instead of having a moment of confusion until the page reloads.
+    const [locale, setLocale] = useState(useLocale());
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     const languageItems = [
         {
             label: "EN",
-            value: "EN",
-            onClick: () => setSelectedLang("EN"),
+            value: "en",
         },
         {
             label: "FR",
-            value: "FR",
-            onClick: () => setSelectedLang("FR"),
+            value: "fr",
         },
-    ];
+    ] as const;
 
-    const handleItemClick = (onClick: () => void) => {
-        onClick();
-        setIsLangDropdownOpen(false);
-    };
+    const navItems = useMemo(() => {
+        const firstPathname = pathname.split("/")[1];
 
-    const isActivePage = (path: string) => {
-        const withoutLocale = pathname.split("/").slice(2).join("/");
-        return withoutLocale === path;
-    };
-
-    const navItems = useMemo(
-        () => (
+        return (
             <>
                 {navItemsData.map(item => (
                     <NavLinkItem
                         key={item.i18nKey}
                         href={item.href}
                         label={t(item.i18nKey)}
-                        isActive={isActivePage(item.pageName)}
+                        isActive={item.pageName === firstPathname}
                         onClick={() => setIsMobileMenuOpen(false)}
                     />
                 ))}
             </>
-        ),
-        [pathname, t],
-    );
+        );
+    }, [pathname, t]);
+
+    const changeLocale = (newLocale: string) => {
+        if (locale !== newLocale) {
+            setLocale(newLocale);
+            router.push(pathname, { locale: newLocale });
+        }
+    };
 
     return (
         <>
@@ -119,42 +124,35 @@ export default function Navbar() {
                 </nav>
 
                 <div className="flex items-center gap-4">
-                    <div className="relative">
-                        <button
-                            onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
-                            className={`outline-gradient flex items-center gap-2 bg-transparent px-6 py-3 font-heading text-base uppercase text-white`}
-                        >
-                            {selectedLang}
-                            <Image
-                                src="/navbar/caret-down.svg"
-                                alt="Language selector"
-                                width={12}
-                                height={12}
-                                className={`transition-transform duration-200 ${
-                                    isLangDropdownOpen ? "rotate-180" : ""
-                                }`}
-                            />
-                        </button>
+                    <Select value={locale} onValueChange={changeLocale}>
+                        <SelectTrigger className="font-heading">
+                            <SelectValue placeholder="Language" />
+                        </SelectTrigger>
+                        <SelectContent>
+                            <SelectGroup>
+                                {languageItems.map(({ label, value }) => (
+                                    <SelectItem className="font-heading" key={value} value={value}>
+                                        {label}
+                                    </SelectItem>
+                                ))}
+                            </SelectGroup>
+                        </SelectContent>
+                    </Select>
 
-                        <Dropdown
-                            items={languageItems}
-                            isOpen={isLangDropdownOpen}
-                            onItemClick={handleItemClick}
-                        />
-                    </div>
                     <Link href="/SponsorsPage" className="hidden lg:block">
                         <Button className="font-heading text-base uppercase text-white">
                             {t("sponsor_us")}
                         </Button>
                     </Link>
                     {/* Hamburger menu for mobile */}
-                    <IconButton
+                    <Button
+                        size="icon"
                         className="touch-manipulation text-white lg:hidden"
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         aria-label="Toggle mobile menu"
                     >
                         <Image src="/icons/hamburger.svg" alt="Menu" width={24} height={24} />
-                    </IconButton>
+                    </Button>
                 </div>
             </header>
 
@@ -162,7 +160,14 @@ export default function Navbar() {
             <div
                 className={`fixed inset-0 z-40 bg-black transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"} lg:hidden`}
             >
-                <nav className="mt-16 flex flex-col items-center gap-8 py-10">{navItems}</nav>
+                <nav className="mt-16 flex flex-col items-center gap-8 py-10">
+                    {navItems}
+                    <Link href="/SponsorsPage" onClick={() => setIsMobileMenuOpen(false)}>
+                        <Button className="font-heading text-base uppercase text-white">
+                            {t("sponsor_us")}
+                        </Button>
+                    </Link>
+                </nav>
             </div>
 
             <div className="h-24" />

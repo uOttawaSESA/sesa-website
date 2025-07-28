@@ -39,7 +39,7 @@ export const ResourceCard = ({
 
     return (
         <div
-            className="outline-gradient relative h-[12rem] p-6 font-heading transition-all md:w-[23rem]"
+            className="outline-gradient relative h-48 w-80 p-6 font-heading transition-all md:w-96"
             onMouseEnter={() => setShowOpen(true)}
             onMouseLeave={() => setShowOpen(false)}
         >
@@ -57,7 +57,7 @@ export const ResourceCard = ({
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl uppercase leading-tight">{title}</h3>
+                <h3 className="text-base uppercase leading-tight md:text-xl">{title}</h3>
 
                 {/* Bottom Section */}
                 <div className="absolute bottom-0 flex flex-row items-center">

@@ -15,16 +15,19 @@
     "dependencies": {
         "@headlessui/react": "^2.2.2",
         "@radix-ui/react-accordion": "^1.2.3",
+        "@radix-ui/react-select": "^2.2.5",
+        "@radix-ui/react-slot": "^1.2.3",
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
         "date-fns": "^4.1.0",
         "dompurify": "^3.2.4",
         "dotenv": "^16.4.7",
+        "embla-carousel-react": "^8.6.0",
         "framer-motion": "^12.4.7",
         "husky": "^9.1.7",
         "lucide-react": "^0.482.0",
         "marked": "^15.0.7",
-        "next": "15.3.1",
+        "next": "15.3.3",
         "node-fetch": "^3.3.2",
         "nodemailer": "^6.10.0",
         "prettier": "^3.5.1",
@@ -37,6 +40,7 @@
     },
     "devDependencies": {
         "@eslint/eslintrc": "^3",
+        "@next/eslint-plugin-next": "^15.3.3",
         "@types/jsdom": "latest",
         "@types/node": "^20",
         "@types/nodemailer": "^6.4.17",
@@ -45,6 +49,7 @@
         "@types/react-google-recaptcha": "^2.1.9",
         "eslint": "^9",
         "eslint-config-next": "15.1.7",
+        "eslint-plugin-react-hooks": "^5.2.0",
         "husky": "^9.1.7",
         "jsdom": "latest",
         "lint-staged": "^15.4.3",
@@ -52,7 +57,8 @@
         "postcss": "^8",
         "prettier-plugin-tailwindcss": "^0.6.11",
         "tailwindcss": "^3.4.1",
-        "typescript": "^5"
+        "typescript": "^5",
+        "zod": "^4.0.10"
     },
-    "packageManager": "pnpm@10.10.0+sha512.d615db246fe70f25dcfea6d8d73dee782ce23e2245e3c4f6f888249fb568149318637dca73c2c5c8ef2a4ca0d5657fb9567188bfab47f566d1ee6ce987815c39"
+    "packageManager": "pnpm@10.13.1+sha512.37ebf1a5c7a30d5fabe0c5df44ee8da4c965ca0c5af3dbab28c3a1681b70a256218d05c81c9c0dcf767ef6b8551eb5b960042b9ed4300c59242336377e01cfad"
 }

@@ -1,6 +1,6 @@
 "use client";
 import { FC } from "react";
-import Button from "@/components/Button";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
 interface PaginationProps {

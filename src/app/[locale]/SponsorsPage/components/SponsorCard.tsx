@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Button from "@/components/Button";
+import { Button } from "@/components/ui/button";
 import CircleImage from "@/components/CircleImage";
-import IconButton from "@/components/IconButton";
+import { Link } from "@/i18n/navigation";
 
 const SponsorCard = () => {
     return (
@@ -33,16 +33,10 @@ const SponsorCard = () => {
                 />
                 <div className="mt-3 font-heading text-base uppercase text-white md:text-2xl">
                     &ldquo;The folks at SESA were{" "}
-                    <span className="relative inline-block">
-                        professional, communicative,
-                        <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
-                    </span>{" "}
-                    <span className="relative inline-block">
-                        and friendly
-                        <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
-                    </span>{" "}
-                    leading up to the talk, and provided some great photos and videos afterwards. I
-                    really enjoyed my collaboration with them.
+                    <span className="highlight-text">professional, communicative,</span>{" "}
+                    <span className="highlight-text">and friendly</span> leading up to the talk, and
+                    provided some great photos and videos afterwards. I really enjoyed my
+                    collaboration with them.
                 </div>
 
                 <div className="mt-4 flex items-center gap-3">
@@ -65,22 +59,22 @@ const SponsorCard = () => {
 
             {/* Navigation Buttons */}
             <div className="mt-6 flex items-center gap-2 md:ml-4 md:mt-0">
-                <IconButton variant="outline">
+                <Button variant="outline">
                     <Image
                         src="/resources-page/arrow_backword.svg"
                         width={25}
                         height={25}
                         alt="Left"
                     />
-                </IconButton>
-                <IconButton variant="outline">
+                </Button>
+                <Button size="icon" variant="outline">
                     <Image
                         src="/resources-page/arrow_forward.svg"
                         width={25}
                         height={25}
                         alt="Right"
                     />
-                </IconButton>
+                </Button>
             </div>
         </div>
     );

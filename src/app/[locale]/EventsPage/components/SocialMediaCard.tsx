@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Button from "@/components/Button";
+import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
 
 export const SocialMediaCard = ({
@@ -56,10 +56,11 @@ export const SocialMediaCard = ({
                     <Button
                         variant="ghost"
                         className="text-l !p-0 font-heading uppercase text-blue-500 hover:underline"
-                        href={postLink}
-                        target="_blank"
+                        asChild
                     >
-                        {t("btn_view_post")}
+                        <a href={postLink} target="_blank">
+                            {t("btn_view_post")}
+                        </a>
                     </Button>
                 </div>
             </div>

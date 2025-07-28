@@ -1,23 +1,24 @@
 import React from "react";
 import Image from "next/image";
-import Button from "@/components/Button";
+import { Button } from "@/components/ui/button";
 import CircleImage from "@/components/CircleImage"; // Import the CircleImage component
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 const TeamUpSection: React.FC = () => {
     const t = useTranslations("events");
 
     return (
-        <div className="my-36 flex h-[45rem] items-center justify-start gap-12 align-middle">
+        <div className="mx-4 my-36 flex h-[45rem] flex-col items-center justify-start gap-12 sm:mx-0 sm:flex-row">
             <div className="grid-overlay-left md:h-[43.93rem] md:w-[53vw]"></div>
 
             <div className="relative z-10 lg:block">
                 <Image
                     src="/imgs/Events/team-up.webp"
                     alt="SESA Group Photo"
-                    className="h-[500px] w-auto"
+                    className="aspect-[7/5] max-h-[400px] sm:max-h-[500px]"
                     width={700}
-                    height={700}
+                    height={500}
                 />
             </div>
 
@@ -30,20 +31,17 @@ const TeamUpSection: React.FC = () => {
                     {t("teamup_blurb")}
                 </p>
 
-                <div className="mt-6 flex gap-4">
-                    <Button
-                        href="/pages/ContactUsPage"
-                        className="relative z-10 font-heading text-xl uppercase"
-                    >
-                        {t("btn_talk")}
+                <div className="mt-6 flex flex-wrap gap-4">
+                    <Button className="relative z-10 font-heading text-xl uppercase" asChild>
+                        <Link href="/pages/ContactUsPage">{t("btn_talk")}</Link>
                     </Button>
 
                     <Button
                         variant="outline"
-                        href="/pages/TeamPage"
                         className="relative z-10 font-heading text-xl uppercase"
+                        asChild
                     >
-                        {t("btn_meet_team")}
+                        <Link href="/pages/TeamPage">{t("btn_meet_team")}</Link>
                     </Button>
                 </div>
 

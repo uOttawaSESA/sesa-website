@@ -82,9 +82,14 @@ body {
     background-position: 100% 0; /* Move gradient to the right */
 }
 
-.highlight-gradient {
-    @apply absolute right-0 top-0 h-full w-0 animate-highlight;
-    background: linear-gradient(55.37deg, rgba(136, 36, 220, 0.25), rgba(177, 33, 97, 0.25));
+.highlight-text {
+    @apply relative z-0 inline-block;
+}
+
+.highlight-text::before {
+    content: "";
+    @apply absolute right-0 top-0 z-[-1] h-full w-0 animate-highlight;
+    background: linear-gradient(55.37deg, rgba(136, 36, 220, 0.5), rgba(177, 33, 97, 0.5));
 }
 
 .clip-corner {
@@ -343,4 +348,12 @@ select::placeholder {
 .animate-dropdown {
     animation: dropdown-fade-in 0.22s cubic-bezier(0.4, 0, 0.2, 1);
     transform-origin: top;
+}
+
+.truncate-multiline {
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit to 3 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis; /* This alone is for single line, but required with -webkit-box */
 }
