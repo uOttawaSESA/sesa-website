@@ -28,17 +28,17 @@ export default function Footer() {
             {/* Navigation links and socials */}
             <div className="flex flex-col gap-4 md:flex-row md:justify-between md:gap-12 xl:gap-20">
                 <div className="flex flex-col items-start gap-2 text-left text-sm/5 md:text-base/5">
-                    <h3 className="color-gradient font-heading uppercase">SESA/AÉGL</h3>
-                    <p className="text-gray-400 md:w-48">{t("blurb")}</p>
-                    <p className="text-gray-400">
+                    <h3 className="font-heading uppercase text-white">SESA/AÉGL</h3>
+                    <p className="text-thistle md:w-48">{t("blurb")}</p>
+                    <p className="text-thistle">
                         &copy;&nbsp;2014&ndash;{new Date().getFullYear()}
                     </p>
                 </div>
 
                 <div className="flex flex-grow justify-between gap-4 text-left text-sm md:text-base">
-                    <div className="flex flex-col gap-2">
-                        <h3 className="color-gradient font-heading uppercase">{t("sitemap")}</h3>
-                        <ul className="flex flex-col gap-2 leading-none text-gray-400">
+                    <div className="flex flex-col gap-4">
+                        <h3 className="font-heading uppercase text-white">{t("sitemap")}</h3>
+                        <ul className="flex flex-col gap-3 leading-none text-thistle">
                             <li>
                                 <Link href="/">{tNav("home")}</Link>
                             </li>
@@ -59,9 +59,9 @@ export default function Footer() {
                             </li>
                         </ul>
                     </div>
-                    <div className="flex flex-col gap-2">
-                        <h3 className="color-gradient font-heading uppercase">{t("policies")}</h3>
-                        <ul className="flex flex-col gap-2 leading-none text-gray-400">
+                    <div className="flex flex-col gap-4">
+                        <h3 className="font-heading uppercase text-white">{t("policies")}</h3>
+                        <ul className="flex flex-col gap-3 leading-none text-thistle">
                             <li>
                                 <a href="#">{t("privacy")}</a>
                             </li>
@@ -73,9 +73,9 @@ export default function Footer() {
                             </li>
                         </ul>
                     </div>
-                    <div className="flex flex-col gap-2">
-                        <h3 className="color-gradient font-heading uppercase">{t("contact")}</h3>
-                        <p className="break-words text-gray-400">
+                    <div className="flex flex-col gap-4">
+                        <h3 className="font-heading uppercase text-white">{t("contact")}</h3>
+                        <p className="break-words text-thistle">
                             <span>800 King Edward Ave,</span>
                             <br />
                             <span>Ottawa, ON, K1N 1A2,</span>
