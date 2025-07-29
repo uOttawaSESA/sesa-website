@@ -99,7 +99,7 @@ const EventsPage = () => {
 
                 <Image
                     src="/decoration/waves.svg"
-                    className="fade-from-top absolute left-1/2 top-[26rem] -translate-x-1/2 transform md:top-[16rem]"
+                    className="fade-from-top-bg absolute left-1/2 top-[26rem] -translate-x-1/2 transform md:top-[16rem]"
                     width={1200}
                     height={280}
                     alt=""
@@ -158,7 +158,7 @@ const EventsPage = () => {
                     <div className="pointer-events-none select-none">
                         <Image
                             src="/decoration/floor-grid.svg"
-                            className="fade-from-bottom absolute -bottom-5 left-1/2 z-0 -translate-x-1/2 transform md:-bottom-16"
+                            className="fade-from-bottom-bg absolute -bottom-5 left-1/2 z-0 -translate-x-1/2 transform md:-bottom-16"
                             width={1200}
                             height={430}
                             alt=""

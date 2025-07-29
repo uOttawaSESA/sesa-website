@@ -358,7 +358,7 @@ select::placeholder {
     text-overflow: ellipsis; /* This alone is for single line, but required with -webkit-box */
 }
 
-.fade-from-top {
+.fade-from-top-bg {
     -webkit-mask-image: linear-gradient(
         to bottom,
         rgba(0, 0, 0, 0),
@@ -373,7 +373,7 @@ select::placeholder {
     );
 }
 
-.fade-from-bottom {
+.fade-from-bottom-bg {
     -webkit-mask-image: linear-gradient(
         to top,
         rgba(0, 0, 0, 0),
