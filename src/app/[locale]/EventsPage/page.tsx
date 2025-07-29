@@ -155,33 +155,35 @@ const EventsPage = () => {
                             )}
                         </div>
                     )}
-                    <Image
-                        src="/decoration/floor-grid.svg"
-                        className="fade-from-bottom absolute -bottom-5 left-1/2 z-0 -translate-x-1/2 transform md:-bottom-16"
-                        width={1200}
-                        height={430}
-                        alt=""
-                    />
-                    <Image
-                        src="/decoration/star.svg"
-                        className="absolute bottom-[-9rem] right-[14rem] md:bottom-[-3rem] md:right-[10rem]"
-                        width={120}
-                        height={120}
-                        alt=""
-                    />
-                    <Image
-                        src="/decoration/star-faded.svg"
-                        className="absolute bottom-[-5rem] right-[9rem] rotate-[30deg] transform"
-                        width={63}
-                        height={63}
-                        alt=""
-                    />
+                    <div className="pointer-events-none select-none">
+                        <Image
+                            src="/decoration/floor-grid.svg"
+                            className="fade-from-bottom absolute -bottom-5 left-1/2 z-0 -translate-x-1/2 transform md:-bottom-16"
+                            width={1200}
+                            height={430}
+                            alt=""
+                        />
+                        <Image
+                            src="/decoration/star.svg"
+                            className="absolute bottom-[-9rem] right-[14rem] md:bottom-[-3rem] md:right-[10rem]"
+                            width={120}
+                            height={120}
+                            alt=""
+                        />
+                        <Image
+                            src="/decoration/star-faded.svg"
+                            className="absolute bottom-[-5rem] right-[9rem] rotate-[30deg] transform"
+                            width={63}
+                            height={63}
+                            alt=""
+                        />
+                    </div>
                 </div>
 
                 <TeamUpSection />
                 <ConnectSESA />
 
-                <div className="relative mb-52">
+                <div className="pointer-events-none relative mb-52 select-none">
                     {/* Bottom Star Decoration */}
                     <Image
                         src="/decoration/star.svg"

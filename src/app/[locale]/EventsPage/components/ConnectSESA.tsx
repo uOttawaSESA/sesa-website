@@ -6,7 +6,7 @@ const ConnectSESA = () => {
     const t = useTranslations("events");
 
     return (
-        <div className="relative w-full">
+        <div className="pointer-events-none relative w-full select-none">
             {/* Decorations */}
             <Image
                 src="/decoration/star.svg"
