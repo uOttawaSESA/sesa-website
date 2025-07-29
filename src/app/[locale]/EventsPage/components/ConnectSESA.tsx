@@ -10,21 +10,21 @@ const ConnectSESA = () => {
             {/* Decorations */}
             <Image
                 src="/decoration/star.svg"
-                className="bottom absolute left-[14rem] top-[-3rem] rotate-[-110deg] transform"
+                className="bottom absolute left-[14rem] top-[-6rem] rotate-[-110deg] transform md:top-[-3rem]"
                 width={82}
                 height={82}
                 alt=""
             />
             <Image
                 src="/decoration/star.svg"
-                className="bottom absolute right-[14rem] top-[-5rem]"
+                className="bottom absolute right-[14rem] top-[-5rem] hidden md:block"
                 width={121}
                 height={121}
                 alt=""
             />
             <Image
                 src="/decoration/star-faded.svg"
-                className="absolute left-[18rem]"
+                className="absolute left-[18rem] top-[-3rem] md:top-0"
                 width={50}
                 height={50}
                 alt=""

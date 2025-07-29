@@ -10,7 +10,7 @@ const buttonVariants = cva(
         variants: {
             variant: {
                 default: "fill-gradient",
-                outline: "outline-gradient",
+                outline: "outline-gradient backdrop-blur-lg",
                 ghost: "color-gradient",
                 "ghost-plain": "",
                 link: "color-gradient hover:underline",
