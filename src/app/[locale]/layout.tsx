@@ -46,7 +46,7 @@ export default async function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${geistSans.variable} ${geistMono.variable} ${raleway.variable} bg-[#1b1b1b] bg-gradient-to-b from-[#1b1b1b] via-[#381e4b] to-[#1b1b1b] font-sans antialiased`}
+                className={`${geistSans.variable} ${geistMono.variable} ${raleway.variable} bg-gradient-to-b from-[#1b1b1b] from-0% via-[#381e4b] via-10% to-[#1b1b1b] font-sans antialiased`}
             >
                 <NextIntlClientProvider messages={messages}>
                     <div className="overflow-x-hidden">

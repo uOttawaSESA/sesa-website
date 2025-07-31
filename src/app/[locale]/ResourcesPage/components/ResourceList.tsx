@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { ResourceCard } from "./ResourceCard";
 import { Resource } from "@/app/types/Resource";
 import { ResourceModal } from "./ResourceModal";
+import Image from "next/image";
 
 interface ResourceListProps {
     currentResources: Resource[];
@@ -24,6 +25,16 @@ const ResourceList: React.FC<ResourceListProps> = ({ currentResources, isGridMod
 
     return (
         <div className="md:mt-12">
+            {/* Decorations */}
+            <div className="pointer-events-none select-none">
+                <Image
+                    src="/decoration/floor-grid.svg"
+                    className="fade-from-bottom-bg md:-bottom-18 absolute -bottom-5 left-1/2 z-0 h-[196px] -translate-x-1/2 transform object-cover object-bottom" // Reduced height crops the top
+                    width={1200}
+                    height={430}
+                    alt=""
+                />
+            </div>
             <div
                 className={
                     isGridMode
