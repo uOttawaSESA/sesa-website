@@ -7,10 +7,9 @@ import Image from "next/image";
 interface ResourceListProps {
     currentResources: Resource[];
     isGridMode: boolean;
-    isMobile: boolean;
 }
 
-const ResourceList: React.FC<ResourceListProps> = ({ currentResources, isGridMode, isMobile }) => {
+const ResourceList: React.FC<ResourceListProps> = ({ currentResources, isGridMode }) => {
     const [selectedResource, setSelectedResource] = useState<Resource | null>(null);
     const [isModalOpen, setModalOpen] = useState(false);
 

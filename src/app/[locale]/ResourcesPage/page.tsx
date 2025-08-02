@@ -141,11 +141,7 @@ const ResourcesPage: FC = () => {
                         />
 
                         {/* Resources Grid or Row */}
-                        <ResourceList
-                            currentResources={currentResources}
-                            isGridMode={isGridMode}
-                            isMobile={isMobile}
-                        />
+                        <ResourceList currentResources={currentResources} isGridMode={isGridMode} />
 
                         {/* Pagination */}
                         <Pagination
