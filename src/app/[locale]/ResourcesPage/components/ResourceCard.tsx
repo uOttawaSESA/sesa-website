@@ -104,3 +104,5 @@ export const ResourceCard = ({
         </div>
     );
 };
+
+export default ResourceCard;
