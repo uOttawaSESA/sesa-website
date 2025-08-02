@@ -285,7 +285,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                         >
                             <a href={resource.source} target="_blank" rel="noopener noreferrer">
                                 Open in New Tab
-                                <span className="ps-3">
+                                <span className="hidden ps-3 md:block">
                                     <Image
                                         src="/resources-page/new-tab.svg"
                                         width="15"
