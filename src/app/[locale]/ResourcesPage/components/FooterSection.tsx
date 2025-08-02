@@ -12,25 +12,25 @@ const FooterSection: React.FC = () => {
             {/* Decorations */}
             <div className="pointer-events-none select-none">
                 {/* Light gradient */}
-                <div className="fade-from-center-bg absolute right-[5rem] top-[6rem] h-[80rem] w-[100vw] bg-blueviolet-100 bg-opacity-25 blur-3xl backdrop-blur-2xl" />
+                <div className="fade-from-center-bg absolute right-[5rem] top-[6rem] hidden h-[80rem] w-[100vw] bg-blueviolet-100 bg-opacity-25 blur-3xl backdrop-blur-2xl md:block" />
 
                 <Image
                     src="/decoration/star.svg"
-                    className="absolute left-[14rem] rotate-[-110deg] transform md:left-[25rem] md:top-[55rem]"
+                    className="absolute left-[14rem] hidden rotate-[-110deg] transform md:left-[25rem] md:top-[55rem] md:block"
                     width={120}
                     height={120}
                     alt=""
                 />
                 <Image
                     src="/decoration/star.svg"
-                    className="absolute right-[14rem] md:right-[10rem] md:top-[14rem]"
+                    className="absolute right-[14rem] hidden md:right-[10rem] md:top-[14rem] md:block"
                     width={120}
                     height={120}
                     alt=""
                 />
                 <Image
                     src="/decoration/star-faded.svg"
-                    className="absolute right-[9rem] top-[19rem] rotate-[30deg] transform"
+                    className="absolute right-[2rem] top-[8rem] rotate-[30deg] transform md:right-[9rem] md:top-[19rem]"
                     width={63}
                     height={63}
                     alt=""
@@ -61,7 +61,7 @@ const FooterSection: React.FC = () => {
                     />
                 </div>
 
-                <div className="z-10 max-w-lg text-left text-white">
+                <div className="z-10 mx-5 max-w-lg text-left text-white">
                     <div className="font-heading text-2xl uppercase">
                         “{t("education_quote_1")}{" "}
                         <span className="highlight-text">{t("education_quote_1_hl")}</span>

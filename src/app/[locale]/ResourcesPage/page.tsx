@@ -106,7 +106,7 @@ const ResourcesPage: FC = () => {
 
                 <Image
                     src="/decoration/waves.svg"
-                    className="fade-from-top-bg absolute left-1/2 top-[26rem] -translate-x-1/2 transform md:top-[10rem]"
+                    className="fade-from-top-bg absolute left-1/2 top-[27.5rem] w-11/12 -translate-x-1/2 transform md:top-[10rem] md:w-max"
                     width={1200}
                     height={280}
                     alt=""
@@ -141,7 +141,11 @@ const ResourcesPage: FC = () => {
                         />
 
                         {/* Resources Grid or Row */}
-                        <ResourceList currentResources={currentResources} isGridMode={isGridMode} />
+                        <ResourceList
+                            currentResources={currentResources}
+                            isGridMode={isGridMode}
+                            isMobile={isMobile}
+                        />
 
                         {/* Pagination */}
                         <Pagination

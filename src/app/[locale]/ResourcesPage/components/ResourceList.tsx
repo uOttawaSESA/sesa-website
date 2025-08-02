@@ -7,9 +7,10 @@ import Image from "next/image";
 interface ResourceListProps {
     currentResources: Resource[];
     isGridMode: boolean;
+    isMobile: boolean;
 }
 
-const ResourceList: React.FC<ResourceListProps> = ({ currentResources, isGridMode }) => {
+const ResourceList: React.FC<ResourceListProps> = ({ currentResources, isGridMode, isMobile }) => {
     const [selectedResource, setSelectedResource] = useState<Resource | null>(null);
     const [isModalOpen, setModalOpen] = useState(false);
 
@@ -24,12 +25,12 @@ const ResourceList: React.FC<ResourceListProps> = ({ currentResources, isGridMod
     };
 
     return (
-        <div className="md:mt-12">
+        <div className="flex justify-center md:mt-12 md:block">
             {/* Decorations */}
             <div className="pointer-events-none select-none">
                 <Image
                     src="/decoration/floor-grid.svg"
-                    className="fade-from-bottom-bg md:-bottom-18 absolute -bottom-5 left-1/2 z-0 h-[196px] -translate-x-1/2 transform object-cover object-bottom" // Reduced height crops the top
+                    className="fade-from-bottom-bg md:-bottom-18 absolute -bottom-2 left-1/2 z-0 h-[196px] -translate-x-1/2 transform object-cover object-bottom" // Reduced height crops the top
                     width={1200}
                     height={430}
                     alt=""
@@ -43,7 +44,12 @@ const ResourceList: React.FC<ResourceListProps> = ({ currentResources, isGridMod
                 }
             >
                 {currentResources.map((resource, index) => (
-                    <ResourceCard key={index} {...resource} onOpen={() => openModal(resource)} />
+                    <ResourceCard
+                        key={index}
+                        {...resource}
+                        mode={isGridMode ? "grid" : "row"}
+                        onOpen={() => openModal(resource)}
+                    />
                 ))}
             </div>
 
