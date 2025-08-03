@@ -19,7 +19,7 @@ const Goals = () => {
 
                 <Image
                     src="/decoration/star.svg"
-                    className="absolute hidden md:right-[10rem] md:top-[5] md:block"
+                    className="absolute hidden md:right-[10rem] md:top-[5rem] md:block"
                     width={120}
                     height={120}
                     alt=""

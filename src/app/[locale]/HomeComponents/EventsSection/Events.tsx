@@ -10,7 +10,6 @@ import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import EventCard from "./EventCard";
 import { events } from "@/app/data/Events";
-import ComingSoonMessage from "@/components/ComingSoonMessage";
 
 export default function Events() {
     const t = useTranslations("homepage");
