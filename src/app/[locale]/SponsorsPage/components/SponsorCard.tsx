@@ -49,7 +49,7 @@ const SponsorCard = () => {
 
                 <div className="mt-6">
                     <Button className="font-heading text-sm uppercase text-white md:text-base">
-                        <Link href="/pages/ContactUsPage" className="block h-full w-full">
+                        <Link href="/ContactUsPage" className="block h-full w-full">
                             Work With Us
                         </Link>
                     </Button>

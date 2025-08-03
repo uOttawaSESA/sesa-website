@@ -39,7 +39,7 @@ const SponsorCard2 = () => {
                     <div className="mb-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
                         <Button className="w-fit min-w-[12rem] whitespace-nowrap font-heading text-sm uppercase text-white md:text-base">
                             <Link
-                                href="/pages/ContactUsPage"
+                                href="/ContactUsPage"
                                 className="block h-full w-full text-inherit"
                             >
                                 Become a Sponsor
@@ -49,10 +49,7 @@ const SponsorCard2 = () => {
                             variant="outline"
                             className="w-fit min-w-[12rem] whitespace-nowrap font-heading text-sm text-white md:text-base"
                         >
-                            <Link
-                                href="/pages/AboutPage"
-                                className="block h-full w-full text-inherit"
-                            >
+                            <Link href="/AboutPage" className="block h-full w-full text-inherit">
                                 Meet the Team
                             </Link>
                         </Button>

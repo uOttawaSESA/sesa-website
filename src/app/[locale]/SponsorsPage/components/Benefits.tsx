@@ -28,8 +28,8 @@ export default function Benefits() {
                 "Increase your brand visibility, survey your target audience, or offer exclusive discounts to students attending uOttawa.",
         },
         {
-            image: "/sponsors-page/benefits-4.png",
-            icon: "/sponsors-page/connect.png",
+            image: "/sponsors-page/benefits-4.webp",
+            icon: "/sponsors-page/connect.svg",
             title: "ACCESS EXCLUSIVE EVENTS",
             description:
                 "Participate in workshops, mentorship programs, and networking events tailored for sponsors and students alike.",
@@ -63,7 +63,10 @@ export default function Benefits() {
     };
 
     return (
-        <div className="relative flex min-h-screen flex-col justify-center space-y-5 py-10 md:py-20">
+        <div
+            id="benefits"
+            className="relative flex min-h-screen flex-col justify-center space-y-5 py-10 md:py-20"
+        >
             {/* Header + Arrows */}
             <div className="flex flex-col space-y-6 px-6 md:flex-row md:items-start md:justify-between md:space-y-0 md:px-40">
                 <div className="md:w-1/2">
