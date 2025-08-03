@@ -23,7 +23,7 @@ const Connect = () => {
                         <Image
                             src="/decoration/grid-mobile.svg"
                             alt=""
-                            className="fade-from-top-grid-mobile absolute top-[-6.5rem]"
+                            className="fade-from-top-grid-mobile absolute top-[-6.5rem] block md:hidden"
                             width={700}
                             height={700}
                         />

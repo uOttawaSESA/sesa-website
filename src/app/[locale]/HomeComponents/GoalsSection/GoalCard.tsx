@@ -30,7 +30,7 @@ export const GoalCard: React.FC<{ goal: Goal }> = ({ goal }) => {
                 <Image
                     src="/decoration/grid-mobile.svg"
                     alt=""
-                    className="fade-from-top-grid-mobile absolute top-[-7.5rem]"
+                    className="fade-from-top-grid-mobile absolute top-[-7.5rem] block md:hidden"
                     width={700}
                     height={700}
                 />

@@ -16,7 +16,7 @@ const Team = () => {
                 {/* Decorations */}
                 <div className="pointer-events-none z-0 select-none">
                     {/* Light gradient */}
-                    <div className="fade-from-center-bg absolute left-1/2 top-[-50rem] h-[112.8rem] w-full -translate-x-1/2 bg-blueviolet-100 bg-opacity-25 blur-xl md:w-[130rem]" />
+                    <div className="fade-from-center-bg absolute left-1/2 h-[112.8rem] w-full -translate-x-1/2 bg-blueviolet-100 bg-opacity-25 blur-xl md:top-[-50rem] md:w-[130rem] 2xl:top-[-53rem]" />
                     {/* Warm gradient */}
                     <div className="fade-from-center-bg absolute bottom-[-15rem] left-1/2 h-[55rem] w-full -translate-x-1/2 bg-[#B1219D] bg-opacity-30 blur-xl md:w-[80vw]" />
 
@@ -44,7 +44,7 @@ const Team = () => {
                         alt=""
                     />
 
-                    <div className="fade-from-center-tunnel-home absolute left-[7rem] top-[10rem] z-0 hidden h-[460px] w-full overflow-hidden md:block">
+                    <div className="fade-from-center-tunnel-home absolute top-[10rem] z-0 hidden h-[460px] w-full overflow-hidden md:left-[7rem] md:block 2xl:left-[40rem]">
                         <Image
                             src="/decoration/tunnel.svg"
                             className="absolute left-0 top-0 object-cover"

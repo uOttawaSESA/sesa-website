@@ -7,7 +7,7 @@ export default function Hero() {
     const t = useTranslations("homepage");
 
     return (
-        <section className="xl:items-between mb-8 mt-0 flex h-max w-full flex-col items-start justify-between gap-24 text-white md:mb-20 md:mt-28 lg:flex-row">
+        <section className="xl:items-between mb-8 mt-5 flex h-max w-full flex-col items-start justify-between gap-24 text-white md:mb-20 md:mt-28 lg:flex-row">
             {/* Decorations */}
             <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
                 {/* Warm gradient */}
@@ -71,7 +71,7 @@ export default function Hero() {
                 <Image
                     src="/decoration/grid-mobile.svg"
                     alt=""
-                    className="fade-from-top-grid-mobile absolute top-[-6.5rem]"
+                    className="fade-from-top-grid-mobile absolute top-[-6.5rem] block md:hidden"
                     width={700}
                     height={700}
                 />
