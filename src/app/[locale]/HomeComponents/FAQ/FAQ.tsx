@@ -33,7 +33,7 @@ const FAQ = () => {
 
                     <Image
                         src="/decoration/star-faded.svg"
-                        className="absolute right-[2rem] top-[8rem] rotate-[30deg] transform md:right-[10rem] md:top-[7rem]"
+                        className="absolute right-[2rem] top-[8rem] hidden rotate-[30deg] transform md:right-[10rem] md:top-[7rem] md:block"
                         width={60}
                         height={60}
                         alt=""

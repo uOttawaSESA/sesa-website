@@ -52,7 +52,7 @@ const Resources = () => {
                         alt=""
                     />
                 </div>
-                <div className="mb-14 flex flex-col gap-2 px-8 text-center md:px-10">
+                <div className="flex flex-col gap-2 px-8 text-center md:px-10 lg:mb-14">
                     <p className="font-monocode color-gradient">
                         Resources by students for students
                     </p>
@@ -100,7 +100,7 @@ const Resources = () => {
                         </div>
                     </Marquee>
                 ) : (
-                    <div className="my-10">
+                    <div className="lg:my-10">
                         <ComingSoonMessage
                             title="Coming Fall 2025: Your academic toolbox."
                             subtitle="All the resources you need, in one place—launching soon."

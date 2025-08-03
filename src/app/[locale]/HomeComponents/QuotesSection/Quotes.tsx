@@ -16,7 +16,7 @@ const Quotes = () => {
                 {/* Warm gradient */}
                 <div className="fade-from-center-bg absolute right-[15rem] top-1/2 h-[120rem] w-full -translate-y-1/2 bg-[#B1219D] bg-opacity-25 blur-xl md:w-[100vw]" />
                 {/* Light gradient */}
-                <div className="fade-from-center-bg absolute right-[0rem] top-1/2 h-[120rem] w-full -translate-y-1/2 bg-blueviolet-100 bg-opacity-20 blur-xl md:w-[80vw]" />
+                <div className="fade-from-center-bg absolute right-[0rem] top-1/2 h-[120rem] w-full -translate-y-1/2 bg-blueviolet-100 bg-opacity-10 blur-xl md:w-[80vw] lg:bg-opacity-20" />
             </div>
             <div className="grid-overlay-right absolute -top-24 lg:h-[43.93rem] xl:w-[48vw] 2xl:h-[50.1rem] 2xl:w-[32vw]"></div>
             <div className="flex flex-col xl:flex-row xl:gap-8">

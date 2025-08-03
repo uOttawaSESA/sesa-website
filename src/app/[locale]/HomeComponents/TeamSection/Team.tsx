@@ -44,7 +44,7 @@ const Team = () => {
                         alt=""
                     />
 
-                    <div className="fade-from-center-tunnel-home absolute left-[7rem] top-[10rem] z-0 h-[460px] w-full overflow-hidden">
+                    <div className="fade-from-center-tunnel-home absolute left-[7rem] top-[10rem] z-0 hidden h-[460px] w-full overflow-hidden md:block">
                         <Image
                             src="/decoration/tunnel.svg"
                             className="absolute left-0 top-0 object-cover"

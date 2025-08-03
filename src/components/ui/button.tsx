@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-    "inline-flex place-items-center text-center font-heading text-lg uppercase transition-all ease-in-out",
+    "inline-flex place-items-center text-center font-heading text-sm uppercase transition-all ease-in-out md:text-lg",
     {
         variants: {
             variant: {
@@ -16,7 +16,7 @@ const buttonVariants = cva(
                 link: "color-gradient hover:underline",
             },
             size: {
-                default: "p-2 md:px-6 md:py-3",
+                default: "px-3 py-3 md:px-6 md:py-3",
                 icon: "aspect-square !p-3",
             },
         },

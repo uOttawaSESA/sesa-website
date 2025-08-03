@@ -27,7 +27,14 @@ export const GoalCard: React.FC<{ goal: Goal }> = ({ goal }) => {
                     width={700}
                     height={700}
                 />
-                <div className="grid-overlay-left -top-12 z-0 h-[350px] w-full sm:h-[500px] md:h-[700px] lg:-top-12 lg:h-[43.9rem] xl:w-[45vw]"></div>
+                <Image
+                    src="/decoration/grid-mobile.svg"
+                    alt=""
+                    className="fade-from-top-grid-mobile absolute top-[-7.5rem]"
+                    width={700}
+                    height={700}
+                />
+                <div className="grid-overlay-left -top-12 z-0 hidden h-[350px] w-full sm:h-[500px] md:block md:h-[700px] lg:-top-12 lg:h-[43.9rem] xl:w-[45vw]"></div>
             </div>
 
             {/* Content */}

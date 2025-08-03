@@ -68,7 +68,14 @@ export default function Hero() {
                     width={700}
                     height={700}
                 />
-                <div className="grid-overlay-right -top-12 z-0 h-[350px] w-full sm:h-[500px] md:h-[700px] lg:-top-24 lg:h-[43.9rem] lg:w-[53vw]"></div>
+                <Image
+                    src="/decoration/grid-mobile.svg"
+                    alt=""
+                    className="fade-from-top-grid-mobile absolute top-[-6.5rem]"
+                    width={700}
+                    height={700}
+                />
+                <div className="grid-overlay-right -top-12 z-0 hidden h-[350px] w-full sm:h-[500px] md:block md:h-[700px] lg:-top-24 lg:h-[43.9rem] lg:w-[53vw]"></div>
             </div>
         </section>
     );
