@@ -2,7 +2,7 @@
 
 // import { resources as otherResources } from "@/app/[locale]/ResourcesPage/utils/resourcesData";
 import { resources as otherResources } from "@/app/data/Resources";
-import ResourceCard from "@/app/[locale]/ResourcesPage/components/ResourceCard";
+import ResourceCard from "@/app/[locale]/ResourcesPage/components/ResourceCard/ResourceCard";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useRef } from "react";

@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
-import { CategoryBadges } from "./ResourceCard/CategoryBadges";
-import { StatsSection } from "./ResourceCard/StatsSection";
-import { OpenButton } from "./ResourceCard/OpenButton";
+import { CategoryBadges } from "./CategoryBadges";
+import { StatsSection } from "./StatsSection";
+import { OpenButton } from "./OpenButton";
 
 // Main ResourceCard component
 export const ResourceCard = ({
@@ -93,11 +93,7 @@ export const ResourceCard = ({
 
                     {/* Open Button */}
                     <div className="ms-14 md:ms-28">
-                        <OpenButton
-                            showOpen={showOpen}
-                            onOpen={onOpen}
-                            className="md:opacity-0 md:group-hover:opacity-100"
-                        />
+                        <OpenButton showOpen={showOpen} onOpen={onOpen} />
                     </div>
                 </div>
             </div>

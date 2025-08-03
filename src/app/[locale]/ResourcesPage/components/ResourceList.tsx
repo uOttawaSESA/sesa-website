@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ResourceCard } from "./ResourceCard";
+import { ResourceCard } from "./ResourceCard/ResourceCard";
 import { Resource } from "@/app/types/Resource";
 import { ResourceModal } from "./ResourceModal";
 import Image from "next/image";

@@ -42,7 +42,7 @@ export const StatsSection = ({
                     alt="Thumbs Up"
                     width={iconSize}
                     height={iconSize}
-                    className={`h-${iconSize === 16 ? "4" : "5"} w-${iconSize === 16 ? "4" : "5"}`}
+                    className={iconSize === 16 ? "h-4 w-4" : "h-5 w-5"}
                 />
                 <span className={textSize}>{rating}%</span>
             </div>
