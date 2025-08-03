@@ -4,7 +4,12 @@ import Image from "next/image";
 const Connect = () => {
     return (
         <>
-            <section>
+            <section className="relative">
+                {/* Decorations */}
+                <div className="pointer-events-none z-0 select-none">
+                    {/* Light gradient */}
+                    <div className="fade-from-left-bg absolute top-1/2 h-[70rem] w-[50vw] -translate-y-1/2 bg-blueviolet-100 bg-opacity-30 blur-sm" />
+                </div>
                 <div className="my-8 flex flex-col gap-4 lg:my-20 lg:flex-row lg:items-center lg:gap-20 2xl:gap-52">
                     {/* Left Image */}
                     <div className="relative my-4 w-full max-w-2xl lg:max-w-2xl 2xl:max-w-4xl">

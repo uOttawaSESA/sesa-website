@@ -7,14 +7,29 @@ export default function Hero() {
     const t = useTranslations("homepage");
 
     return (
-        <section className="xl:items-between mb-8 mt-0 flex h-max w-full flex-col items-start justify-between gap-24 text-white md:mt-36 lg:flex-row">
+        <section className="xl:items-between mb-8 mt-0 flex h-max w-full flex-col items-start justify-between gap-24 text-white md:mb-20 md:mt-28 lg:flex-row">
             {/* Decorations */}
             <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
                 {/* Warm gradient */}
                 <div className="fade-from-top-left-bg absolute h-[70rem] w-full bg-[#B1219D] bg-opacity-15 blur-sm md:w-[60vw]" />
 
                 {/* Light gradient */}
-                <div className="fade-from-left-bg absolute top-[45rem] h-[90rem] w-[30vw] bg-blueviolet-100 bg-opacity-25 blur-sm" />
+                <div className="fade-from-left-bg absolute top-[48rem] h-[140rem] w-[25vw] bg-blueviolet-100 bg-opacity-25 blur-sm" />
+
+                <Image
+                    src="/decoration/star.svg"
+                    className="absolute hidden md:right-[15rem] md:top-[54rem] md:block"
+                    width={120}
+                    height={120}
+                    alt=""
+                />
+                <Image
+                    src="/decoration/star-faded.svg"
+                    className="absolute hidden md:right-[20rem] md:top-[59rem] md:block"
+                    width={63}
+                    height={63}
+                    alt=""
+                />
             </div>
 
             {/* Content Container */}

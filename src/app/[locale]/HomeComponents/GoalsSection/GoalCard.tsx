@@ -17,7 +17,7 @@ export const GoalCard: React.FC<{ goal: Goal }> = ({ goal }) => {
         mainImg,
     } = goal;
     return (
-        <div className="flex h-full w-full flex-col items-start justify-between gap-16 lg:flex-row lg:items-center lg:justify-start lg:gap-12 xl:h-[45rem] xl:gap-32">
+        <div className="flex h-full w-full flex-col items-start justify-between gap-16 lg:flex-row lg:items-center lg:justify-start lg:gap-10 xl:h-[45rem] 2xl:gap-32">
             {/* Left Image */}
             <div className="relative order-2 w-full max-w-2xl lg:max-w-2xl 2xl:max-w-4xl">
                 <Image
