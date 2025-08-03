@@ -8,6 +8,15 @@ export default function Hero() {
 
     return (
         <section className="xl:items-between mb-8 mt-0 flex h-max w-full flex-col items-start justify-between gap-24 text-white md:mt-36 lg:flex-row">
+            {/* Decorations */}
+            <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
+                {/* Warm gradient */}
+                <div className="fade-from-top-left-bg absolute h-[70rem] w-full bg-[#B1219D] bg-opacity-15 blur-sm md:w-[60vw]" />
+
+                {/* Light gradient */}
+                <div className="fade-from-left-bg absolute top-[45rem] h-[90rem] w-[30vw] bg-blueviolet-100 bg-opacity-25 blur-sm" />
+            </div>
+
             {/* Content Container */}
             <div className="relative max-w-80 ps-8 sm:max-w-md md:max-w-2xl md:ps-20 xl:ps-32">
                 <p className="font-monocode relative inline-block !bg-clip-text text-left text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">

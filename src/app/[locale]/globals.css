@@ -419,7 +419,7 @@ select::placeholder {
         ellipse 150% 100% at left center,
         rgba(0, 0, 0, 1) 0%,
         rgba(0, 0, 0, 1) 5%,
-        rgba(0, 0, 0, 0.2) 50%,
+        rgba(0, 0, 0, 0.05) 50%,
         rgba(0, 0, 0, 0) 70%
     );
 }
