@@ -5,9 +5,9 @@ const Connect = () => {
     return (
         <>
             <section>
-                <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:gap-0">
+                <div className="my-8 flex flex-col gap-4 lg:my-20 lg:flex-row lg:items-center lg:gap-20 2xl:gap-52">
                     {/* Left Image */}
-                    <div className="relative my-4 lg:w-1/2">
+                    <div className="relative my-4 w-full max-w-2xl lg:max-w-2xl 2xl:max-w-4xl">
                         <Image
                             src="/imgs/Home/connectImage.webp"
                             alt="Goal Main Image"
@@ -15,7 +15,7 @@ const Connect = () => {
                             width={700}
                             height={700}
                         />
-                        <div className="grid-overlay-left -top-12 z-0 h-[350px] w-full sm:h-[500px] md:h-[700px] lg:-top-12 lg:h-[43.9rem] lg:w-[53vw]"></div>
+                        <div className="grid-overlay-left -top-12 z-0 h-[350px] w-full sm:h-[500px] md:h-[700px] lg:-top-12 lg:h-[43.9rem] lg:w-[53vw] xl:w-[45vw]"></div>
                     </div>
 
                     <div className="flex w-full flex-col gap-2 px-8 md:px-20 lg:max-w-xl lg:px-8">

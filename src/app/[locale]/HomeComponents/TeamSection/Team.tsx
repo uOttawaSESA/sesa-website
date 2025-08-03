@@ -12,7 +12,7 @@ const Team = () => {
 
     return (
         <>
-            <section className="mb-12 flex flex-col gap-16 md:mb-16 xl:mb-24">
+            <section className="mb-12 flex flex-col gap-16 md:mb-16 2xl:mb-24 2xl:mt-44">
                 <div className="flex flex-col items-center justify-center gap-4 px-8 md:px-20 xl:px-32">
                     <div className="flex flex-row gap-3">
                         <Image src="/logo-filled.svg" width={50} height={50} alt="sesa" />
@@ -49,7 +49,7 @@ const Team = () => {
                 </div>
 
                 <div className="relative bg-transparent">
-                    <Marquee pauseOnHover speed={40}>
+                    <Marquee pauseOnHover speed={40} autoFill={true}>
                         <div className="mb-16 flex flex-row pt-2">
                             {membersData.map((member, index) => (
                                 <div key={index} className="relative">

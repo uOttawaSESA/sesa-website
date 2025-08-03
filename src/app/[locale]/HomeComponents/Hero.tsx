@@ -45,7 +45,7 @@ export default function Hero() {
             </div>
 
             {/* Right Side Image */}
-            <div className="relative w-full">
+            <div className="relative w-full max-w-2xl lg:max-w-3xl xl:max-w-4xl">
                 <Image
                     src="/imgs/Home/heroImage.webp"
                     alt="SESA Group Photo"

@@ -5,7 +5,7 @@ import { Link } from "@/i18n/navigation";
 const Sponsors = () => {
     return (
         <section>
-            <div className="text-center">
+            <div className="text-center lg:my-20">
                 <div className="flex w-full justify-center px-6">
                     {/* Content Container */}
                     <div className="relative z-10 text-center">

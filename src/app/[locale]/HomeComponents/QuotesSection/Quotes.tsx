@@ -10,16 +10,16 @@ import { QuoteCard } from "./QuoteCard";
 
 const Quotes = () => {
     return (
-        <section className="relative text-white">
-            <div className="grid-overlay-right absolute -top-24 xl:h-[43.93rem] xl:w-[48vw] 2xl:w-[32vw]"></div>
+        <section className="relative text-white lg:my-20">
+            <div className="grid-overlay-right absolute -top-24 lg:h-[43.93rem] xl:w-[48vw] 2xl:h-[50.1rem] 2xl:w-[32vw]"></div>
             <div className="flex flex-col xl:flex-row xl:gap-8">
-                <Carousel className="flex flex-col xl:items-start xl:ps-32">
+                <Carousel className="flex w-full flex-col justify-center">
                     <CarouselContent>
                         {quotesData.map((quote, index) => (
                             <QuoteCard key={`quote:${index}`} quote={quote} />
                         ))}
                     </CarouselContent>
-                    <div className="mt-8 flex justify-center gap-4 xl:justify-start">
+                    <div className="mt-8 flex justify-center gap-4">
                         <CarouselPrevious className="relative left-0 top-0 translate-y-0" />
                         <CarouselNext className="relative right-0 top-0 translate-y-0" />
                     </div>

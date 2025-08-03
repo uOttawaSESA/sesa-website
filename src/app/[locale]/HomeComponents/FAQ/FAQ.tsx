@@ -19,11 +19,11 @@ const FAQ = () => {
             <section className="flex flex-col gap-8 px-8 text-white md:px-20 xl:px-32">
                 <div className="flex flex-col items-center justify-center gap-2">
                     <p className="font-monocode color-gradient">Frequently asked questions</p>
-                    <h1 className="text-center font-heading text-2xl uppercase leading-tight md:text-5xl">
+                    <h1 className="text-center font-heading text-2xl uppercase leading-tight md:text-4xl 2xl:text-5xl">
                         Got Questions?&nbsp;
                         <span className="highlight-text">We&apos;ve got answers!</span>
                     </h1>
-                    <p className="max-w-sm text-center font-sans text-base text-thistle md:max-w-lg md:text-lg xl:max-w-xl xl:text-xl">
+                    <p className="max-w-sm text-center font-sans text-base text-thistle md:max-w-lg md:text-lg xl:max-w-xl">
                         We have A’s to your Q’s below. If you still have questions, contact us and
                         we’ll get back to you as soon as possible.
                     </p>
@@ -31,9 +31,7 @@ const FAQ = () => {
 
                 {/* Accordian */}
                 <div className="flex justify-center">
-                    {/* Wrapper with the outer clip-corner (transparent) */}
-                    <div className="clip-corner relative w-full overflow-hidden rounded-br-2xl border border-purple-600">
-                        {/* Inner content with the inner clip-corner (transparent) */}
+                    <div className="relative w-full overflow-hidden border border-purple-600">
                         <div className="clip-corner-inner">
                             <Accordion
                                 type="single"
@@ -184,7 +182,7 @@ const FAQ = () => {
                         </Link>
                     </Button>
                 </div>
-                <p className="text-center text-sm text-thistle md:text-xl">
+                <p className="text-center text-sm text-thistle">
                     We&apos;ll get back to you within 48 hours.
                 </p>
             </section>
