@@ -29,7 +29,7 @@ const ResourceList: React.FC<ResourceListProps> = ({ currentResources, isGridMod
             <div className="pointer-events-none select-none">
                 <Image
                     src="/decoration/floor-grid.svg"
-                    className="fade-from-bottom-bg md:-bottom-18 absolute -bottom-2 left-1/2 z-0 h-[196px] -translate-x-1/2 transform object-cover object-bottom" // Reduced height crops the top
+                    className="fade-from-bottom-bg md:-bottom-18 absolute -bottom-1 left-1/2 z-0 h-[196px] -translate-x-1/2 transform object-cover object-bottom" // Reduced height crops the top
                     width={1200}
                     height={430}
                     alt=""
