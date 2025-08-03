@@ -43,8 +43,8 @@ const EventFilters: React.FC<{
                     <Button
                         key={filter}
                         variant="outline"
-                        className={`font-heading uppercase text-white ${
-                            activeTimeFilter === filter ? "bg-gray-700" : ""
+                        className={`font-heading uppercase text-white backdrop-blur-lg ${
+                            activeTimeFilter === filter ? "fill-gradient" : ""
                         }`}
                         onClick={() => handleTimeFilterClick(filter)}
                     >
@@ -55,7 +55,7 @@ const EventFilters: React.FC<{
 
             {/* Right Side: Event Type Dropdown */}
             <Select onValueChange={onFilterChange}>
-                <SelectTrigger className="!border-none !px-0 !py-0 uppercase">
+                <SelectTrigger className="!border-none px-5 py-4 uppercase">
                     <SelectValue placeholder="Event Type" />
                 </SelectTrigger>
                 <SelectContent>

@@ -8,7 +8,34 @@ const FooterSection: React.FC = () => {
     const t = useTranslations("resources");
 
     return (
-        <>
+        <div className="relative">
+            {/* Decorations */}
+            <div className="pointer-events-none select-none">
+                {/* Light gradient */}
+                <div className="fade-from-center-bg absolute right-[5rem] top-[6rem] hidden h-[80rem] w-[100vw] bg-blueviolet-100 bg-opacity-25 blur-3xl backdrop-blur-2xl md:block" />
+
+                <Image
+                    src="/decoration/star.svg"
+                    className="absolute left-[14rem] hidden rotate-[-110deg] transform md:left-[25rem] md:top-[55rem] md:block"
+                    width={120}
+                    height={120}
+                    alt=""
+                />
+                <Image
+                    src="/decoration/star.svg"
+                    className="absolute right-[14rem] hidden md:right-[10rem] md:top-[14rem] md:block"
+                    width={120}
+                    height={120}
+                    alt=""
+                />
+                <Image
+                    src="/decoration/star-faded.svg"
+                    className="absolute right-[2rem] top-[8rem] rotate-[30deg] transform md:right-[9rem] md:top-[19rem]"
+                    width={63}
+                    height={63}
+                    alt=""
+                />
+            </div>
             {/* CTA Section */}
             <div className="mt-16 flex items-center justify-center gap-6">
                 <div className="flex flex-col items-center text-center">
@@ -26,7 +53,7 @@ const FooterSection: React.FC = () => {
             </div>
 
             {/* Ange quote section */}
-            <div className="my-36 flex h-[45rem] items-center justify-start gap-12 align-middle">
+            <div className="my-20 flex flex-col-reverse items-center justify-start gap-12 align-middle md:my-36 md:h-[45rem] md:flex-row">
                 {/* Grid Gradient Back */}
                 <div className="grid-overlay-left md:h-[43.93rem] md:w-[53vw]"></div>
 
@@ -40,7 +67,7 @@ const FooterSection: React.FC = () => {
                     />
                 </div>
 
-                <div className="z-10 max-w-lg text-left text-white">
+                <div className="z-10 mx-5 max-w-lg text-left text-white">
                     <div className="font-heading text-2xl uppercase">
                         “{t("education_quote_1")}{" "}
                         <span className="relative inline-block">
@@ -90,7 +117,7 @@ const FooterSection: React.FC = () => {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 

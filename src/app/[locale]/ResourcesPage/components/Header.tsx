@@ -5,7 +5,7 @@ const Header = () => {
     const t = useTranslations("resources");
 
     return (
-        <div className="mb-12 text-white">
+        <div className="mb-7 text-white md:mb-12">
             <span className="bg-gradient-to-r from-blueviolet-100 to-darkmagenta bg-clip-text font-mono text-transparent">
                 {t("resources")}
             </span>

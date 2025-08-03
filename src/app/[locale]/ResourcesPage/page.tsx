@@ -8,6 +8,7 @@ import { Resource } from "@/app/types/Resource";
 import Header from "./components/Header";
 import ResourceList from "./components/ResourceList";
 import FooterSection from "./components/FooterSection";
+import Image from "next/image";
 
 import ComingSoonMessage from "../../../components/ComingSoonMessage";
 
@@ -97,8 +98,21 @@ const ResourcesPage: FC = () => {
     );
 
     return (
-        // <div className="min-h-screen bg-gradient-to-b from-gray-100 via-blueviolet-200 to-[#361D49] text-white">
-        <div className="min-h-[83vh] text-white">
+        <div className="min-h-screen text-white">
+            {/* Decorations */}
+            <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
+                {/* Warm gradient */}
+                <div className="fade-from-top-right-bg absolute right-0 h-[120rem] w-full bg-[#B1219D] bg-opacity-15 blur-3xl md:w-[80vw]" />
+
+                <Image
+                    src="/decoration/waves.svg"
+                    className={`fade-from-top-bg absolute left-1/2 top-[26rem] w-11/12 -translate-x-1/2 transform md:top-[10rem] md:w-max ${resources.length === 0 ? "hidden" : ""}`}
+                    width={1200}
+                    height={280}
+                    alt=""
+                />
+            </div>
+
             {/* Main Content Container */}
             <div className="container relative z-10 mx-auto w-full px-4 py-8 md:max-w-7xl">
                 <Header />

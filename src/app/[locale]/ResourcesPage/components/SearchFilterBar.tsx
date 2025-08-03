@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
     Select,
     SelectContent,
@@ -40,7 +40,7 @@ interface SearchFilterBarProps {
 }
 
 export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
-    isGridMode,
+    isGridMode = true,
     setIsGridMode,
     rowsToShow,
     setRowsToShow,
@@ -56,8 +56,22 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
 
     const [isFilterOpen, setIsFilterOpen] = useState<boolean>(false);
 
+    // Auto-adjust rows based on grid mode
+    useEffect(() => {
+        if (isGridMode) {
+            if (isMobile) {
+                setRowsToShow(3);
+            } else {
+                setRowsToShow(2);
+            }
+        } else {
+            setRowsToShow(6);
+        }
+    }, [isGridMode, isMobile, setRowsToShow]);
+
     // Dropdown options for each filter
     const filterDropdownOptions: Record<keyof FilterOptions, { label: string; value: string }[]> = {
+        // TODO: Replace with actual courses from the future database
         course: [
             { label: "Select Course", value: "$none" },
             { label: "ITI1100", value: "ITI1100" },
@@ -130,19 +144,21 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                 </div>
 
                 <div className="ml-4 flex gap-6">
-                    {/* View Dropdown */}
-                    <Select value={isGridMode ? "grid" : "row"} onValueChange={changeView}>
-                        <SelectTrigger className="!border-none !px-0 !py-0">
-                            <SelectValue placeholder="View" />
-                        </SelectTrigger>
-                        <SelectContent>
-                            <SelectGroup>
-                                <SelectLabel>View</SelectLabel>
-                                <SelectItem value="grid">Grid</SelectItem>
-                                <SelectItem value="row">Row</SelectItem>
-                            </SelectGroup>
-                        </SelectContent>
-                    </Select>
+                    {/* View Dropdown - Hidden on mobile since grid mode is forced */}
+                    {!isMobile && (
+                        <Select value={isGridMode ? "grid" : "row"} onValueChange={changeView}>
+                            <SelectTrigger className="!border-none !px-0 !py-0">
+                                <SelectValue placeholder="View" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectGroup>
+                                    <SelectLabel>View</SelectLabel>
+                                    <SelectItem value="grid">Grid</SelectItem>
+                                    <SelectItem value="row">Row</SelectItem>
+                                </SelectGroup>
+                            </SelectContent>
+                        </Select>
+                    )}
 
                     {/* Row Selector */}
                     {isGridMode && !isMobile && (

@@ -100,7 +100,6 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                             className="h-full w-full"
                             src={`https://www.youtube.com/embed/${youtubeId}`}
                             title={resource.title}
-                            frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen
                         />
@@ -286,7 +285,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                         >
                             <a href={resource.source} target="_blank" rel="noopener noreferrer">
                                 Open in New Tab
-                                <span className="ps-3">
+                                <span className="hidden ps-3 md:block">
                                     <Image
                                         src="/resources-page/new-tab.svg"
                                         width="15"
