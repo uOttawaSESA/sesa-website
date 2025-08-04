@@ -9,7 +9,7 @@ import ComingSoonMessage from "@/components/ComingSoonMessage";
 const Resources = () => {
     return (
         <>
-            <section className="relative my-14 flex w-full flex-col gap-4 text-white">
+            <section className="relative my-10 flex w-full flex-col gap-4 text-white md:my-14">
                 {/* Decorations */}
                 <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
                     <Image
