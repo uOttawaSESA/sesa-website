@@ -6,14 +6,16 @@ const Header = () => {
 
     return (
         <div className="mb-7 text-white md:mb-12">
-            <span className="bg-gradient-to-r from-blueviolet-100 to-darkmagenta bg-clip-text font-mono text-transparent">
+            <span className="bg-gradient-to-r from-blueviolet-100 to-darkmagenta bg-clip-text font-mono text-xs text-transparent md:text-base">
                 {t("resources")}
             </span>
-            <h1 className="mt-4 font-heading text-4xl uppercase">
+            <h1 className="mt-4 font-heading text-2xl uppercase md:text-4xl">
                 {t("resources_heading")}{" "}
                 <span className="highlight-text">{t("resources_heading_hl")}</span>
             </h1>
-            <p className="max-w-10xl mt-4 font-sans text-xl text-thistle">{t("resources_blurb")}</p>
+            <p className="max-w-10xl mt-4 font-sans text-base text-thistle md:text-lg">
+                {t("resources_blurb")}
+            </p>
         </div>
     );
 };

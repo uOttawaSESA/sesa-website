@@ -24,7 +24,7 @@ const ComingSoonMessage: React.FC<ComingSoonMessageProps> = ({ title, subtitle, 
                     className="opacity-80"
                 />
             </div>
-            <h2 className="font-heading text-3xl">{title}</h2>
+            <h2 className="font-heading text-2xl md:text-3xl">{title}</h2>
             <p className="text-md text-thistle/80">{subtitle}</p>
             {homeButton && (
                 <Button asChild>
