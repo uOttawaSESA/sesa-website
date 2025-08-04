@@ -54,8 +54,10 @@ const FAQ = () => {
                         alt=""
                     />
                 </div>
-                <div className="backdrop-blue-xl flex flex-col items-center justify-center gap-2">
-                    <p className="font-monocode color-gradient">Frequently asked questions</p>
+                <div className="backdrop-blue-xl flex flex-col items-center justify-center gap-3">
+                    <p className="font-monocode color-gradient text-xs md:text-base">
+                        Frequently asked questions
+                    </p>
                     <h1 className="text-center font-heading text-2xl uppercase leading-tight md:text-4xl 2xl:text-5xl">
                         Got Questions?&nbsp;
                         <span className="highlight-text">We&apos;ve got answers!</span>
@@ -211,8 +213,8 @@ const FAQ = () => {
                     </div>
                 </div>
 
-                <div className="flex items-center justify-center gap-4 text-center font-heading uppercase">
-                    <h2 className="w-max text-base md:text-xl">Did we miss something?</h2>
+                <div className="flex items-center justify-center gap-7 text-center font-heading uppercase md:gap-4">
+                    <h2 className="w-max text-sm md:text-xl">Did we miss something?</h2>
                     <Button asChild>
                         <Link href={`/${locale}/ContactUsPage`}>
                             MESSAGE US <span className="text-gray-50/65">{` >`}</span>

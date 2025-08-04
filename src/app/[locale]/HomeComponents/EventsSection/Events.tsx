@@ -17,7 +17,7 @@ export default function Events() {
     return (
         <section className="space-y-4 ps-8 md:ps-20 xl:ps-32">
             <div className="max-w-80 sm:max-w-md md:max-w-2xl">
-                <p className="font-monocode relative inline-block !bg-clip-text text-left text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
+                <p className="font-monocode relative inline-block !bg-clip-text text-left text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)] md:text-base">
                     {t("events")}
                 </p>
                 <h1 className="my-2 font-heading text-2xl uppercase leading-tight md:text-5xl">

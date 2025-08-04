@@ -52,8 +52,8 @@ const Resources = () => {
                         alt=""
                     />
                 </div>
-                <div className="flex flex-col gap-2 px-8 text-center md:px-10 lg:mb-14">
-                    <p className="font-monocode color-gradient">
+                <div className="flex flex-col gap-3 px-8 text-center md:px-10 lg:mb-14">
+                    <p className="font-monocode color-gradient text-xs md:text-base">
                         Resources by students for students
                     </p>
                     <h1 className="font-heading text-2xl uppercase leading-tight md:text-5xl">

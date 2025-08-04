@@ -16,7 +16,7 @@ const Team = () => {
                 {/* Decorations */}
                 <div className="pointer-events-none z-0 select-none">
                     {/* Light gradient */}
-                    <div className="fade-from-center-bg absolute left-1/2 top-[-28.5rem] h-[112.8rem] w-full -translate-x-1/2 bg-blueviolet-100 bg-opacity-25 blur-xl md:top-[-50rem] md:w-[130rem] 2xl:top-[-53rem]" />
+                    <div className="fade-from-center-bg absolute left-1/2 top-[-29rem] h-[112.8rem] w-full -translate-x-1/2 bg-blueviolet-100 bg-opacity-25 blur-xl md:top-[-50rem] md:w-[130rem] 2xl:top-[-53rem]" />
                     {/* Warm gradient */}
                     <div className="fade-from-center-bg absolute bottom-[-15rem] left-1/2 h-[55rem] w-full -translate-x-1/2 bg-[#B1219D] bg-opacity-30 blur-xl md:w-[80vw]" />
 
@@ -38,7 +38,7 @@ const Team = () => {
 
                     <Image
                         src="/decoration/star-faded.svg"
-                        className="absolute right-[2rem] top-[8rem] rotate-[30deg] transform md:right-[10rem] md:top-[-1rem]"
+                        className="absolute right-[2rem] top-[1rem] rotate-[30deg] transform md:right-[10rem] md:top-[-1rem]"
                         width={60}
                         height={60}
                         alt=""

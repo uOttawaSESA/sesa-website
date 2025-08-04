@@ -39,7 +39,7 @@ export const GoalCard: React.FC<{ goal: Goal }> = ({ goal }) => {
 
             {/* Content */}
             <div className="order-1 flex h-full w-full max-w-lg flex-col justify-center gap-4 px-8 lg:order-2 lg:max-w-md xl:px-0 2xl:max-w-2xl">
-                <p className="font-monocode relative inline-block !bg-clip-text text-left text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
+                <p className="font-monocode relative inline-block !bg-clip-text text-left text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)] md:text-base">
                     {goalType}
                 </p>
                 <h1 className="font-heading text-2xl uppercase leading-tight md:text-3xl xl:text-5xl">

@@ -12,7 +12,7 @@ const Connect = () => {
                 </div>
                 <div className="my-8 flex flex-col gap-4 lg:my-20 lg:flex-row lg:items-center lg:gap-20 2xl:gap-52">
                     {/* Left Image */}
-                    <div className="relative my-4 w-full max-w-2xl lg:max-w-2xl 2xl:max-w-4xl">
+                    <div className="relative mb-5 mt-10 w-full max-w-2xl lg:max-w-2xl 2xl:max-w-4xl">
                         <Image
                             src="/imgs/Home/connectImage.webp"
                             alt="Goal Main Image"
@@ -31,7 +31,7 @@ const Connect = () => {
                     </div>
 
                     <div className="flex w-full flex-col gap-2 px-8 md:px-20 lg:max-w-xl lg:px-8">
-                        <p className="font-monocode relative inline-block !bg-clip-text text-left text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
+                        <p className="font-monocode relative inline-block !bg-clip-text text-left text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)] md:text-base">
                             Connect with us
                         </p>
                         <h1 className="font-heading text-2xl uppercase leading-tight md:text-3xl xl:text-5xl">
