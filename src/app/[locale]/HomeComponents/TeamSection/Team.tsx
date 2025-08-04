@@ -44,11 +44,11 @@ const Team = () => {
                         alt=""
                     />
 
-                    <div className="fade-from-center-tunnel-home absolute top-[10rem] z-0 hidden h-[460px] w-full overflow-hidden md:left-[7rem] md:block 2xl:left-[40rem]">
+                    <div className="fade-from-center-tunnel-home absolute bottom-[5rem] z-0 hidden h-[580px] w-full overflow-hidden md:left-[-4rem] md:block 2xl:left-[30rem]">
                         <Image
                             src="/decoration/tunnel.svg"
-                            className="absolute left-0 top-0 object-cover"
-                            width={1300}
+                            className="absolute left-0 top-0 object-cover opacity-85"
+                            width={1500}
                             height={300}
                             alt=""
                         />
@@ -72,7 +72,7 @@ const Team = () => {
                         <span className="highlight-text">University of Ottawa&apos;s</span> Software
                         Engineering Students Association
                     </h1>
-                    <p className="text-center font-sans text-base text-thistle md:text-lg xl:text-xl">
+                    <p className="w-1/2 text-center font-sans text-base text-thistle md:text-xl">
                         Our communications team meticulously crafted the web design, while our
                         development team built it with heart.
                     </p>
