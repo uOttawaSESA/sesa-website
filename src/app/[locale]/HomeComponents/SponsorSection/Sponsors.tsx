@@ -57,7 +57,7 @@ const Sponsors = () => {
                         <p className="relative inline-block !bg-clip-text font-mono text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)] md:text-base">
                             Our sponsors & partners
                         </p>
-                        <h1 className="mx-auto mt-2 max-w-[30ch] font-heading text-2xl uppercase leading-tight text-white md:text-5xl">
+                        <h1 className="mx-auto mt-2 max-w-[30ch] font-heading text-2xl uppercase leading-tight text-white md:text-4xl">
                             <span className="relative inline-block">
                                 <span className="highlight-text">Trusted and sponsored</span> by the
                                 best in the game

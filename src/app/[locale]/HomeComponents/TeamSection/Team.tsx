@@ -67,7 +67,7 @@ const Team = () => {
                         <Image src="/logo-filled.svg" width={50} height={50} alt="sesa" />
                         <Image src="/logo-text.svg" width={111} height={50} alt="sesa" />
                     </div>
-                    <h1 className="text-center font-heading text-2xl uppercase leading-tight md:text-3xl xl:text-5xl">
+                    <h1 className="text-center font-heading text-2xl uppercase leading-tight md:text-5xl">
                         The&nbsp;
                         <span className="highlight-text">University of Ottawa&apos;s</span> Software
                         Engineering Students Association
@@ -79,10 +79,7 @@ const Team = () => {
                 </div>
 
                 <div className="z-20 flex justify-center gap-4 px-8 text-center font-heading">
-                    <Button
-                        className="w-full font-heading text-sm uppercase sm:w-max md:text-lg xl:text-xl"
-                        asChild
-                    >
+                    <Button className="w-full font-heading uppercase sm:w-max" asChild>
                         <a href="#">
                             Become a sponsor <span className="text-gray opacity-50">{">"}</span>
                         </a>

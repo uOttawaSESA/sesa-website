@@ -30,15 +30,15 @@ const Connect = () => {
                         <div className="grid-overlay-left -top-12 z-0 hidden h-[350px] w-full sm:h-[500px] md:block md:h-[700px] lg:-top-12 lg:h-[43.9rem] lg:w-[53vw] xl:w-[45vw]"></div>
                     </div>
 
-                    <div className="flex w-full flex-col gap-2 px-8 md:px-20 lg:max-w-xl lg:px-8">
+                    <div className="flex w-full flex-col gap-2 px-8 md:px-10 lg:px-8">
                         <p className="font-monocode relative inline-block !bg-clip-text text-left text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)] md:text-base">
                             Connect with us
                         </p>
-                        <h1 className="font-heading text-2xl uppercase leading-tight md:text-3xl xl:text-5xl">
+                        <h1 className="font-heading text-2xl uppercase leading-tight md:text-4xl">
                             <span className="highlight-text">Connect, engage, and grow</span> <br />
                             with us!
                         </h1>
-                        <p className="relative text-left font-sans text-base text-thistle md:text-lg xl:text-xl 2xl:w-[40rem]">
+                        <p className="relative text-left font-sans text-base text-thistle md:text-lg 2xl:w-[40rem]">
                             Join our online communities to stay up to date with our latest events,
                             announcements, and resources,
                         </p>

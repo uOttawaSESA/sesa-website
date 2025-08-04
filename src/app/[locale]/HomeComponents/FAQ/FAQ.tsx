@@ -58,7 +58,7 @@ const FAQ = () => {
                     <p className="font-monocode color-gradient text-xs md:text-base">
                         Frequently asked questions
                     </p>
-                    <h1 className="text-center font-heading text-2xl uppercase leading-tight md:text-4xl 2xl:text-5xl">
+                    <h1 className="text-center font-heading text-2xl uppercase leading-tight md:text-4xl">
                         Got Questions?&nbsp;
                         <span className="highlight-text">We&apos;ve got answers!</span>
                     </h1>

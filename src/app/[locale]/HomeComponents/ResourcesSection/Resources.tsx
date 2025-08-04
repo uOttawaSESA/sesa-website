@@ -9,7 +9,7 @@ import ComingSoonMessage from "@/components/ComingSoonMessage";
 const Resources = () => {
     return (
         <>
-            <section className="relative my-10 flex w-full flex-col gap-4 text-white md:my-14">
+            <section className="relative my-10 mb-0 flex w-full flex-col gap-4 text-white md:mb-20">
                 {/* Decorations */}
                 <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
                     <Image
@@ -56,7 +56,7 @@ const Resources = () => {
                     <p className="font-monocode color-gradient text-xs md:text-base">
                         Resources by students for students
                     </p>
-                    <h1 className="font-heading text-2xl uppercase leading-tight md:text-5xl">
+                    <h1 className="font-heading text-2xl uppercase leading-tight md:text-4xl">
                         Resources at your&nbsp;
                         <span className="highlight-text">Fingertips</span>
                     </h1>
@@ -100,7 +100,7 @@ const Resources = () => {
                         </div>
                     </Marquee>
                 ) : (
-                    <div className="lg:my-10">
+                    <div className="2xl:my-10">
                         <ComingSoonMessage
                             title="Coming Fall 2025: Your academic toolbox."
                             subtitle="All the resources you need, in one place—launching soon."

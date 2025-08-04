@@ -42,7 +42,7 @@ export const GoalCard: React.FC<{ goal: Goal }> = ({ goal }) => {
                 <p className="font-monocode relative inline-block !bg-clip-text text-left text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)] md:text-base">
                     {goalType}
                 </p>
-                <h1 className="font-heading text-2xl uppercase leading-tight md:text-3xl xl:text-5xl">
+                <h1 className="font-heading text-2xl uppercase leading-tight md:text-4xl">
                     {title}&nbsp;
                     <span className="highlight-text">{highlightTitle}</span>
                 </h1>
