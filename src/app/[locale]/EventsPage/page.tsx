@@ -107,7 +107,7 @@ const EventsPage = () => {
 
                 <Image
                     src="/decoration/star-faded.svg"
-                    className="absolute left-[20rem] top-[13rem] md:left-[16rem] md:top-[16rem]"
+                    className="absolute left-[20rem] top-[8rem] md:left-[16rem] md:top-[16rem]"
                     width={55}
                     height={55}
                     alt=""
@@ -122,7 +122,7 @@ const EventsPage = () => {
             </div>
 
             <div className="relative z-10">
-                <div className="relative mx-auto mb-40 flex max-w-7xl flex-col justify-center">
+                <div className="relative mx-auto flex max-w-7xl flex-col justify-center">
                     <Header />
                     <EventFilters
                         onFilterChange={handleFilterChange}
@@ -130,8 +130,8 @@ const EventsPage = () => {
                     />
 
                     {filteredEvents.length === 0 ? (
-                        <div className="z-10 flex h-[calc(100vh-200px)] items-center justify-center">
-                            <div className="flex h-[85%] w-[100%] max-w-7xl flex-col items-center justify-center gap-9 rounded-none border-2 border-blueviolet-100/70 p-20 text-center font-heading text-2xl text-white backdrop-blur-lg">
+                        <div className="z-10 mt-10 flex h-[calc(100vh-200px)] items-start justify-center md:items-center">
+                            <div className="flex h-[60%] w-[100%] max-w-7xl flex-col items-center justify-center gap-9 rounded-none border-2 border-blueviolet-100/70 p-20 text-center font-heading text-2xl text-white backdrop-blur-lg md:h-[85%]">
                                 <Image
                                     src="/icons/calendar-empty.svg"
                                     alt="Coming Soon Icon"
@@ -158,21 +158,21 @@ const EventsPage = () => {
                     <div className="pointer-events-none select-none">
                         <Image
                             src="/decoration/floor-grid.svg"
-                            className="fade-from-bottom-bg absolute -bottom-5 left-1/2 z-0 -translate-x-1/2 transform md:-bottom-16"
+                            className="fade-from-bottom-bg absolute bottom-48 left-1/2 z-0 -translate-x-1/2 transform md:-bottom-16"
                             width={1200}
                             height={430}
                             alt=""
                         />
                         <Image
                             src="/decoration/star.svg"
-                            className="absolute bottom-[-9rem] right-[14rem] hidden md:bottom-[-3rem] md:right-[10rem] md:block"
+                            className="absolute bottom-[-9rem] right-[14rem] hidden md:bottom-[-5rem] md:right-[10rem] md:block"
                             width={120}
                             height={120}
                             alt=""
                         />
                         <Image
                             src="/decoration/star-faded.svg"
-                            className="absolute bottom-[-5rem] right-[9rem] hidden rotate-[30deg] transform md:block"
+                            className="absolute bottom-[-6rem] right-[9rem] hidden rotate-[30deg] transform md:block"
                             width={63}
                             height={63}
                             alt=""

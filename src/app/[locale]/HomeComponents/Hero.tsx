@@ -37,7 +37,7 @@ export default function Hero() {
                 <p className="font-monocode relative inline-block !bg-clip-text text-left text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)] md:text-base">
                     {t("we_are_sesa")}
                 </p>
-                <h1 className="my-2 font-heading text-2xl uppercase leading-tight md:text-5xl">
+                <h1 className="my-2 font-heading text-3xl uppercase leading-tight md:text-5xl">
                     <span className="highlight-text">{t("bridging_the_gap_hl")}</span>
                     <br />
                     {t("bridging_the_gap")}

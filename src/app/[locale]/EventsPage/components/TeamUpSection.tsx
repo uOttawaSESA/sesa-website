@@ -9,7 +9,7 @@ const TeamUpSection: React.FC = () => {
     const t = useTranslations("events");
 
     return (
-        <div className="mx-4 my-36 flex h-[45rem] flex-col items-center justify-start gap-12 sm:mx-0 sm:flex-row">
+        <div className="mx-4 mb-24 flex h-[45rem] flex-col items-center justify-start gap-12 sm:mx-0 sm:flex-row md:my-36">
             <div className="grid-overlay-left md:h-[43.93rem] md:w-[53vw]"></div>
 
             <div className="relative z-10 lg:block">
@@ -23,29 +23,27 @@ const TeamUpSection: React.FC = () => {
             </div>
 
             <div className="z-10 max-w-lg text-left text-white">
-                <span className="bg-gradient-to-r from-blueviolet-100 to-darkmagenta bg-clip-text font-mono text-transparent">
+                <p className="bg-gradient-to-r from-blueviolet-100 to-darkmagenta bg-clip-text font-mono text-xs text-transparent md:text-base">
                     {t("work_with_us")}
-                </span>
-                <div className="mt-3 font-heading text-2xl uppercase">{t("teamup_heading")}</div>
-                <p className="mt-4 max-w-[558px] font-sans text-xl text-thistle">
+                </p>
+                <h2 className="mt-3 font-heading text-2xl uppercase md:text-4xl">
+                    {t("teamup_heading")}
+                </h2>
+                <p className="mt-4 max-w-[558px] font-sans text-base text-thistle md:text-lg">
                     {t("teamup_blurb")}
                 </p>
 
                 <div className="mt-6 flex flex-wrap gap-4">
-                    <Button className="relative z-10 font-heading text-xl uppercase" asChild>
+                    <Button className="relative z-10 uppercase" asChild>
                         <Link href="/pages/ContactUsPage">{t("btn_talk")}</Link>
                     </Button>
 
-                    <Button
-                        variant="outline"
-                        className="relative z-10 font-heading text-xl uppercase"
-                        asChild
-                    >
+                    <Button variant="outline" className="relative z-10 uppercase" asChild>
                         <Link href="/pages/TeamPage">{t("btn_meet_team")}</Link>
                     </Button>
                 </div>
 
-                <div className="mt-6 flex">
+                <div className="ms-4 mt-6 flex">
                     <CircleImage
                         size={55}
                         src="/imgs/team/peter.webp"

@@ -7,13 +7,13 @@ const Header = () => {
     return (
         <div className="mx-4 pt-8">
             <div className="mx-auto max-w-7xl md:text-center">
-                <div className="color-gradient font-mono">{t("our_events")}</div>
-                <h1 className="mt-4 text-2xl uppercase md:text-4xl">
+                <p className="color-gradient font-mono text-xs md:text-base">{t("our_events")}</p>
+                <h1 className="mt-4 text-3xl uppercase md:text-4xl">
                     <span className="highlight-text">{t("stay_up_to_date_hl")}</span>
                     <span className="ml-4 md:ml-7">{t("stay_up_to_date")}</span>
                 </h1>
 
-                <p className="my-6 max-w-[558px] font-sans text-base text-thistle md:mx-auto">
+                <p className="my-6 max-w-[558px] font-sans text-base text-thistle md:mx-auto md:text-lg">
                     {t("stay_up_to_date_blurb")}
                 </p>
 

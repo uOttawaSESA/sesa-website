@@ -10,7 +10,7 @@ const ConnectSESA = () => {
             {/* Decorations */}
             <Image
                 src="/decoration/star.svg"
-                className="bottom absolute left-[14rem] top-[-6rem] rotate-[-110deg] transform md:top-[-3rem]"
+                className="bottom absolute left-[8rem] top-[-62rem] rotate-[-110deg] transform md:top-[-3rem]"
                 width={82}
                 height={82}
                 alt=""
@@ -24,19 +24,19 @@ const ConnectSESA = () => {
             />
             <Image
                 src="/decoration/star-faded.svg"
-                className="absolute left-[18rem] top-[-3rem] md:top-0"
+                className="absolute left-[12rem] top-[-59rem] md:top-0"
                 width={50}
                 height={50}
                 alt=""
             />
             <div className="mx-auto max-w-7xl text-center">
-                <div className="color-gradient font-mono">{t("connect_with_sesa")}</div>
-                <h1 className="mt-4 text-[36px] uppercase">
+                <p className="color-gradient font-mono">{t("connect_with_sesa")}</p>
+                <h2 className="mt-4 text-2xl uppercase md:text-4xl">
                     <span className="highlight-text">{t("stay_updated")}</span>
-                    <span className="ml-7">{t("stay_updated_hl")}</span>
-                </h1>
+                    <span className="ml-3 md:ml-7">{t("stay_updated_hl")}</span>
+                </h2>
 
-                <p className="mx-auto mb-6 mt-6 max-w-[558px] font-mono text-[16px] text-thistle">
+                <p className="mx-3 mb-6 mt-6 max-w-[558px] font-sans text-base text-thistle md:mx-auto md:text-lg">
                     {t("stay_updated_blurb")}
                 </p>
 
