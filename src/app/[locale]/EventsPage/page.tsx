@@ -99,7 +99,7 @@ const EventsPage = () => {
 
                 <Image
                     src="/decoration/waves.svg"
-                    className="fade-from-top-bg absolute left-1/2 top-[26rem] -translate-x-1/2 transform md:top-[16rem]"
+                    className="fade-from-top-bg absolute left-1/2 top-[26.5rem] -translate-x-1/2 transform md:top-[16rem]"
                     width={1200}
                     height={280}
                     alt=""
@@ -165,14 +165,14 @@ const EventsPage = () => {
                         />
                         <Image
                             src="/decoration/star.svg"
-                            className="absolute bottom-[-9rem] right-[14rem] md:bottom-[-3rem] md:right-[10rem]"
+                            className="absolute bottom-[-9rem] right-[14rem] hidden md:bottom-[-3rem] md:right-[10rem] md:block"
                             width={120}
                             height={120}
                             alt=""
                         />
                         <Image
                             src="/decoration/star-faded.svg"
-                            className="absolute bottom-[-5rem] right-[9rem] rotate-[30deg] transform"
+                            className="absolute bottom-[-5rem] right-[9rem] hidden rotate-[30deg] transform md:block"
                             width={63}
                             height={63}
                             alt=""

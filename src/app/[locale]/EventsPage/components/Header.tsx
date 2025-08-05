@@ -8,17 +8,17 @@ const Header = () => {
         <div className="mx-4 pt-8">
             <div className="mx-auto max-w-7xl md:text-center">
                 <div className="color-gradient font-mono">{t("our_events")}</div>
-                <h1 className="mt-4 text-[48px] uppercase">
+                <h1 className="mt-4 text-2xl uppercase md:text-4xl">
                     <span className="highlight-text">{t("stay_up_to_date_hl")}</span>
-                    <span className="ml-7">{t("stay_up_to_date")}</span>
+                    <span className="ml-4 md:ml-7">{t("stay_up_to_date")}</span>
                 </h1>
 
-                <p className="my-6 max-w-[558px] font-sans text-[16px] text-thistle md:mx-auto">
+                <p className="my-6 max-w-[558px] font-sans text-base text-thistle md:mx-auto">
                     {t("stay_up_to_date_blurb")}
                 </p>
 
                 <Button
-                    className="font-heading text-xl uppercase md:mx-8"
+                    className="font-heading uppercase md:mx-8"
                     onClick={() => {
                         // Add functionality here
                         console.log("Subscribed to calendar!");
@@ -27,7 +27,7 @@ const Header = () => {
                     {t("btn_subscribe")}
                 </Button>
 
-                <div className="mt-4 font-mono text-base text-thistle">
+                <div className="mt-4 font-mono text-sm text-thistle md:text-base">
                     <p>{t("subscribe_info_line1")}</p>
                     <p>{t("subscribe_info_line2")}</p>
                 </div>
