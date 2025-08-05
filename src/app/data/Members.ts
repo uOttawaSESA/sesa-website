@@ -1,6 +1,35 @@
 import Member from "../types/Member";
 
 export const membersData: Member[] = [
+    // Co-directors
+    {
+        name: "Rolf Addoumie",
+        team: "Co-directors",
+        role: "Co-Director",
+        imgPath: "/imgs/team/rolf.webp",
+        linkedin: "https://www.linkedin.com/in/rolfaddoumie/",
+        email: "rolfaddoumie@gmail.com",
+    },
+    {
+        name: "Asad Ali",
+        team: "Co-directors",
+        role: "Co-Director",
+        imgPath: "/imgs/team/asad.webp",
+        linkedin: "https://www.linkedin.com/in/asadbinali/",
+        github: "https://github.com/Twoos123",
+        email: "masadbali190@gmail.com",
+        portfolio: "https://twoos123.github.io/asadali-portfolio/",
+    },
+    {
+        name: "Rayen Ben Tamarzizt",
+        team: "Co-directors",
+        role: "Co-Director",
+        imgPath: "/imgs/team/rayen.webp",
+        linkedin: "https://www.linkedin.com/in/rayen-ben-tamarzizt-9001152b3/",
+        github: "https://github.com/Rayen-BT",
+        email: "rayenbentamarzizt@gmail.com",
+    },
+    // Academic Team
     {
         name: "Kouakou Jedidiah Ange-Emmanuel",
         team: "Academic",
@@ -28,30 +57,23 @@ export const membersData: Member[] = [
         email: "jackmackenzie60@gmail.com",
     },
     {
-        name: "Rolf Addoumie",
-        team: "Co-directors",
-        role: "Co-Director",
-        imgPath: "/imgs/team/rolf.webp",
-        linkedin: "https://www.linkedin.com/in/rolfaddoumie/",
-        email: "rolfaddoumie@gmail.com",
+        name: "Thomas Li",
+        team: "Academic",
+        role: "Academic Coordinator",
+        imgPath: "/imgs/team/thomas-li.webp",
+        linkedin: "https://www.linkedin.com/in/thomas-li-softwareeng",
+        email: "tli060@uottawa.ca",
     },
+
+    // Communications Team
     {
-        name: "Asad Ali",
-        team: "Co-directors",
-        role: "Co-Director",
-        imgPath: "/imgs/team/asad.webp",
-        linkedin: "https://www.linkedin.com/in/asadbinali/",
-        github: "https://github.com/Twoos123",
-        email: "masadbali190@gmail.com",
-        portfolio: "https://twoos123.github.io/asadali-portfolio/",
-    },
-    {
-        name: "Riki McAlear",
+        name: "Vinusha Uthayakumar",
         team: "Communications",
         role: "Communications Lead",
-        imgPath: "/imgs/team/riki.jpg",
-        linkedin: "https://www.linkedin.com/in/riki-mcalear/",
-        github: "https://github.com/riku737",
+        imgPath: "/imgs/team/vinusha.webp",
+        linkedin: "https://www.linkedin.com/in/vinusha-uthayakumar/",
+        github: "hthttps://github.com/vinushau",
+        email: "vutha032@uottawa.ca",
     },
     {
         name: "Mary Velez",
@@ -71,6 +93,13 @@ export const membersData: Member[] = [
         github: "https://github.com/sophiahopk012",
         email: "sophiagchopkins@gmail.com",
     },
+    {
+        name: "Sanika Sisodia",
+        team: "Communications",
+        role: "Communications Coordinator",
+        imgPath: "/imgs/team/sanika.webp",
+    },
+    // Development Team
     {
         name: "Tazim Khan",
         team: "Development",
@@ -98,18 +127,24 @@ export const membersData: Member[] = [
         github: "https://github.com/Kylan-Thurairajah",
     },
     {
-        name: "Sanika Sisodia",
-        team: "Communications",
-        role: "Communications Coordinator",
-        imgPath: "/imgs/team/sanika.webp",
+        name: "Raman Gupta",
+        team: "Development",
+        role: "Developer",
+        imgPath: "/imgs/team/raman.webp",
+        linkedin: "https://linkedin.com/in/gupta-raman",
+        github: "https://github.com/g-raman",
+        email: "gr.gupta.raman@gmail.com",
+        portfolio: "https://raman.codes",
     },
+    // Events Team
     {
-        name: "Peter Bou-Farah",
+        name: "Mehdi Semmar",
         team: "Events",
         role: "Events Lead",
-        imgPath: "/imgs/team/peter.webp",
-        linkedin: "https://www.linkedin.com/in/peter-bou-farah/",
-        github: "https://github.com/peter-bf",
+        imgPath: "/imgs/team/mehdi.webp",
+        linkedin: "https://www.linkedin.com/in/mehdi-semmar-946a1b27b/",
+        github: "https://github.com/FtKuBo",
+        email: "msemm031@uottawa.ca",
     },
     {
         name: "Ayushi Dosieah",
@@ -137,14 +172,14 @@ export const membersData: Member[] = [
         github: "https://github.com/RakosDarren",
         email: "darren.y.rakos@gmail.com",
     },
+    // Partnership Team
     {
-        name: "Rayen Ben Tamarzizt",
+        name: "Dragos Daiciulescu",
         team: "Partnership",
         role: "Partnership Lead",
-        imgPath: "/imgs/team/rayen.webp",
-        linkedin: "https://www.linkedin.com/in/rayen-ben-tamarzizt-9001152b3/",
-        github: "https://github.com/Rayen-BT",
-        email: "rayenbentamarzizt@gmail.com",
+        imgPath: "/imgs/team/dragos.webp",
+        linkedin: "https://www.linkedin.com/in/dragos-daiciulescu/",
+        email: "ddaic067@uottawa.ca",
     },
     {
         name: "Taha Rashid",
@@ -179,5 +214,12 @@ export const membersData: Member[] = [
         imgPath: "/imgs/team/bilal.jpeg",
         linkedin: "https://www.linkedin.com/in/sbilalshaikh/",
         email: "bshai076@uottawa.ca",
+    },
+    {
+        name: "Whitney Nsegbe",
+        team: "Partnership",
+        role: "Partnership Coordinator",
+        imgPath: "/imgs/team/whitney.webp",
+        email: "wnseg071@uottawa.ca",
     },
 ];

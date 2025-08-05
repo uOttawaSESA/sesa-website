@@ -49,7 +49,7 @@ function memberToIcons(member: Member) {
 
     if (member.email)
         icons.push(
-            <a key={`email:${member.name}`} href={`mailto:${member.email}`}>
+            <a key={`email:${member.name}`} href={`mailto:${member.email}`} target="_blank">
                 <Image
                     src="/icons/mail-plain.svg"
                     alt="Email"
