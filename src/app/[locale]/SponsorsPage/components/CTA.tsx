@@ -9,11 +9,12 @@ export default function CTA() {
                 <p className="text-center font-heading text-sm uppercase text-white md:text-lg">
                     Interested in joining our growing network of industry partners?
                 </p>
-                <Link href="/ContactUsPage">
-                    <Button className="px-4 py-1.5 font-heading text-xs uppercase text-white md:text-sm">
-                        Let&apos;s Talk
-                    </Button>
-                </Link>
+                <Button
+                    asChild
+                    className="px-4 py-1.5 font-heading text-xs uppercase text-white md:text-sm"
+                >
+                    <Link href="/ContactUsPage">Let&apos;s Talk</Link>
+                </Button>
             </div>
 
             <p className="mt-4 font-sans text-xs tracking-widest text-thistle md:text-sm">

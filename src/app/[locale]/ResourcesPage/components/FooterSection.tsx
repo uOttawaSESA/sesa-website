@@ -93,10 +93,7 @@ const FooterSection: React.FC = () => {
                     {/* Call To Action Button */}
                     <div className="mt-6">
                         <Button className="asChild relative z-10 font-heading text-lg uppercase">
-                            <Link
-                                href="/pages/AboutPage"
-                                className="block h-full w-full text-inherit"
-                            >
+                            <Link href="/AboutPage" className="block h-full w-full text-inherit">
                                 Meet the Team
                             </Link>
                         </Button>
