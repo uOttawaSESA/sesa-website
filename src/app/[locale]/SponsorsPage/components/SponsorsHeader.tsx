@@ -33,14 +33,15 @@ const SponsorsHeader = ({ topText, title, bottomText, btn1, btn2 }: SponsorsHead
                     <Button className="w-fit min-w-[12rem] justify-center text-center text-sm uppercase md:text-lg" asChild>
                         <Link href="/ContactUsPage">{btn1}</Link>
                     </Button>
-                    <Link href="#benefits">
-                        <Button
-                            className="w-fit min-w-[12rem] justify-center text-center text-sm uppercase md:text-lg"
-                            variant="outline"
-                        >
+                    <Button
+                        className="w-fit min-w-[12rem] justify-center text-center text-sm uppercase md:text-lg"
+                        variant="outline"
+                        asChild
+                    >
+                        <Link href="#benefits">
                             {btn2}
-                        </Button>
-                    </Link>
+                        </Link>
+                    </Button>
                 </div>
             </div>
         </div>
