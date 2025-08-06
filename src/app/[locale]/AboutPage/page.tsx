@@ -44,6 +44,7 @@ export default function AboutPage() {
     );
     const events = useMemo(() => membersData.filter(member => member.team === "Events"), []);
     const academic = useMemo(() => membersData.filter(member => member.team === "Academic"), []);
+    const advisors = useMemo(() => membersData.filter(member => member.team === "Advisors"), []);
 
     const t = useTranslations("about");
     const tWhatWeDo = useTranslations("about.what_do_we_do_cards");
@@ -263,6 +264,11 @@ export default function AboutPage() {
                         title={tOurTeam("academic")}
                         description={tOurTeam("academic_desc")}
                         people={academic}
+                    />
+                    <TeamMembers
+                        title={tOurTeam("advisors")}
+                        description={tOurTeam("advisors_desc")}
+                        people={advisors}
                     />
                 </div>
 
