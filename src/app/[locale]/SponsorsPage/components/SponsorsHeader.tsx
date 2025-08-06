@@ -30,7 +30,7 @@ const SponsorsHeader = ({ topText, title, bottomText, btn1, btn2 }: SponsorsHead
                 </p>
 
                 <div className="mt-6 flex flex-col items-center gap-3 text-center font-heading text-white md:flex-row md:justify-center md:gap-4 md:text-left">
-                    <Button className="w-fit min-w-[12rem] justify-center text-center text-sm uppercase md:text-lg">
+                    <Button className="w-fit min-w-[12rem] justify-center text-center text-sm uppercase md:text-lg" asChild>
                         <Link href="/ContactUsPage">{btn1}</Link>
                     </Button>
                     <Link href="#benefits">
