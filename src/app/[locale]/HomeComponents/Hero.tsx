@@ -7,9 +7,33 @@ export default function Hero() {
     const t = useTranslations("homepage");
 
     return (
-        <section className="xl:items-between mb-8 mt-8 flex h-max w-full flex-col items-start justify-between gap-24 text-white lg:flex-row">
+        <section className="xl:items-between mb-8 mt-5 flex h-max w-full flex-col items-start justify-between gap-24 text-white md:mb-20 md:mt-28 lg:flex-row">
+            {/* Decorations */}
+            <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
+                {/* Warm gradient */}
+                <div className="fade-from-top-left-bg absolute h-[70rem] w-full bg-[#B1219D] bg-opacity-15 blur-sm md:w-[60vw]" />
+
+                {/* Light gradient */}
+                <div className="fade-from-left-bg absolute top-[48rem] h-[140rem] w-[25vw] bg-blueviolet-100 bg-opacity-25 blur-sm" />
+
+                <Image
+                    src="/decoration/star.svg"
+                    className="absolute hidden md:right-[15rem] md:top-[54rem] md:block"
+                    width={120}
+                    height={120}
+                    alt=""
+                />
+                <Image
+                    src="/decoration/star-faded.svg"
+                    className="absolute hidden md:right-[20rem] md:top-[59rem] md:block"
+                    width={63}
+                    height={63}
+                    alt=""
+                />
+            </div>
+
             {/* Content Container */}
-            <div className="relative z-10 max-w-80 ps-8 sm:max-w-md md:max-w-2xl md:ps-20 xl:ps-32">
+            <div className="relative max-w-80 ps-8 sm:max-w-md md:max-w-2xl md:ps-20 xl:ps-32">
                 <p className="font-monocode relative inline-block !bg-clip-text text-left text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
                     {t("we_are_sesa")}
                 </p>
@@ -36,7 +60,7 @@ export default function Hero() {
             </div>
 
             {/* Right Side Image */}
-            <div className="relative w-full">
+            <div className="relative w-full max-w-2xl lg:max-w-3xl xl:max-w-4xl">
                 <Image
                     src="/imgs/Home/heroImage.webp"
                     alt="SESA Group Photo"
@@ -44,7 +68,14 @@ export default function Hero() {
                     width={700}
                     height={700}
                 />
-                <div className="grid-overlay-right -top-12 z-0 h-[350px] w-full sm:h-[500px] md:h-[700px] lg:-top-24 lg:h-[43.9rem] lg:w-[53vw]"></div>
+                <Image
+                    src="/decoration/grid-mobile.svg"
+                    alt=""
+                    className="fade-from-top-grid-mobile absolute top-[-6.5rem] block md:hidden"
+                    width={700}
+                    height={700}
+                />
+                <div className="grid-overlay-right -top-12 z-0 hidden h-[350px] w-full sm:h-[500px] md:block md:h-[700px] lg:-top-24 lg:h-[43.9rem] lg:w-[53vw]"></div>
             </div>
         </section>
     );

@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import Quote from "./types/Quote";
 import { CarouselItem } from "@/components/ui/carousel";
+import { Button } from "@/components/ui/button";
 
 export const QuoteCard: React.FC<{ quote: Quote }> = ({ quote }) => {
     return (
@@ -32,12 +33,14 @@ export const QuoteCard: React.FC<{ quote: Quote }> = ({ quote }) => {
                     </div>
                 </div>
                 <div className="mt-6 flex">
-                    <Link
-                        href={quote.buttonLink}
-                        className="fill-gradient relative z-10 px-2 py-2 font-heading text-sm uppercase transition-all ease-in-out md:px-6 md:py-3 md:text-lg"
-                    >
-                        See our story
-                    </Link>
+                    <Button>
+                        <Link
+                            href={quote.buttonLink}
+                            className="relative z-10 font-heading uppercase"
+                        >
+                            See our story
+                        </Link>
+                    </Button>
                 </div>
             </div>
         </CarouselItem>

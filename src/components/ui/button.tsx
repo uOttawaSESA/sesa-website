@@ -5,18 +5,20 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-    "inline-flex place-items-center text-center font-heading text-lg uppercase transition-all ease-in-out",
+    "group relative inline-flex place-items-center overflow-hidden text-center font-heading text-sm uppercase transition-all duration-300 ease-in-out md:text-lg",
     {
         variants: {
             variant: {
-                default: "fill-gradient",
-                outline: "outline-gradient backdrop-blur-lg",
-                ghost: "color-gradient",
-                "ghost-plain": "",
-                link: "color-gradient hover:underline",
+                default:
+                    "fill-gradient hover:-translate-y-0.5 hover:shadow-lg hover:shadow-purple-500/25 active:translate-y-0",
+                outline:
+                    "outline-gradient hover:fill-gradient backdrop-blur-lg hover:-translate-y-0.5 hover:shadow-lg hover:shadow-purple-500/25 active:translate-y-0",
+                ghost: "color-gradient hover:bg-gradient-to-r hover:from-purple-600/10 hover:to-pink-600/10 hover:backdrop-blur-sm",
+                "ghost-plain": "hover:bg-white/5 hover:backdrop-blur-sm",
+                link: "color-gradient hover:underline hover:decoration-2 hover:underline-offset-4",
             },
             size: {
-                default: "p-2 md:px-6 md:py-3",
+                default: "px-3 py-3 md:px-6 md:py-3",
                 icon: "aspect-square !p-3",
             },
         },
@@ -36,9 +38,16 @@ export interface ButtonProps
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ({ className, variant, size, asChild = false, ...props }, ref) => {
         const Comp = asChild ? Slot : "button";
+
+        // Add shimmer effect for default and outline variants
+        const shimmerClasses =
+            variant === "default" || variant === "outline"
+                ? "before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent hover:before:translate-x-full before:transition-transform before:duration-700 before:ease-out"
+                : "";
+
         return (
             <Comp
-                className={cn(buttonVariants({ variant, size, className }))}
+                className={cn(buttonVariants({ variant, size }), shimmerClasses, className)}
                 ref={ref}
                 {...props}
             />

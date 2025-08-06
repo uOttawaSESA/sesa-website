@@ -36,24 +36,27 @@ export default function Events() {
                     </div>
                 </div>
             </div>
+            {events.length === 0 ? (
+                <></>
+            ) : (
+                <Carousel className="w-full pe-8" opts={{ align: "start" }}>
+                    <CarouselContent>
+                        {events.map((event, index) => (
+                            <CarouselItem
+                                className="sm:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+                                key={`event:${index}`}
+                            >
+                                <EventCard {...event} />
+                            </CarouselItem>
+                        ))}
+                    </CarouselContent>
 
-            <Carousel className="w-full pe-8" opts={{ align: "start" }}>
-                <CarouselContent>
-                    {events.map((event, index) => (
-                        <CarouselItem
-                            className="sm:basis-1/2 lg:basis-1/3 xl:basis-1/4"
-                            key={`event:${index}`}
-                        >
-                            <EventCard {...event} />
-                        </CarouselItem>
-                    ))}
-                </CarouselContent>
-
-                <div className="mt-8 flex justify-center gap-4">
-                    <CarouselPrevious className="relative left-0 top-0 translate-y-0" />
-                    <CarouselNext className="relative right-0 top-0 translate-y-0" />
-                </div>
-            </Carousel>
+                    <div className="mt-8 flex justify-center gap-4">
+                        <CarouselPrevious className="relative left-0 top-0 translate-y-0" />
+                        <CarouselNext className="relative right-0 top-0 translate-y-0" />
+                    </div>
+                </Carousel>
+            )}
         </section>
     );
 }

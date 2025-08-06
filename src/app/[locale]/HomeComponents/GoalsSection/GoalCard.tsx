@@ -17,9 +17,9 @@ export const GoalCard: React.FC<{ goal: Goal }> = ({ goal }) => {
         mainImg,
     } = goal;
     return (
-        <div className="flex h-full w-full flex-col items-start justify-between gap-16 lg:flex-row lg:items-center lg:justify-start lg:gap-12 xl:h-[45rem]">
+        <div className="flex h-full w-full flex-col items-start justify-between gap-16 lg:flex-row lg:items-center lg:justify-start lg:gap-10 xl:h-[45rem] 2xl:gap-32">
             {/* Left Image */}
-            <div className="relative order-2 w-full lg:order-1 lg:w-1/2">
+            <div className="relative order-2 w-full max-w-2xl lg:max-w-2xl 2xl:max-w-4xl">
                 <Image
                     src={mainImg}
                     alt="Goal Main Image"
@@ -27,11 +27,18 @@ export const GoalCard: React.FC<{ goal: Goal }> = ({ goal }) => {
                     width={700}
                     height={700}
                 />
-                <div className="grid-overlay-left -top-12 z-0 h-[350px] w-full sm:h-[500px] md:h-[700px] lg:-top-12 lg:h-[43.9rem] lg:w-[53vw]"></div>
+                <Image
+                    src="/decoration/grid-mobile.svg"
+                    alt=""
+                    className="fade-from-top-grid-mobile absolute top-[-7.5rem] block md:hidden"
+                    width={700}
+                    height={700}
+                />
+                <div className="grid-overlay-left -top-12 z-0 hidden h-[350px] w-full sm:h-[500px] md:block md:h-[700px] lg:-top-12 lg:h-[43.9rem] xl:w-[45vw]"></div>
             </div>
 
             {/* Content */}
-            <div className="order-1 flex h-full w-full max-w-lg flex-col justify-center gap-4 px-8 md:max-w-xl lg:order-2 lg:max-w-md">
+            <div className="order-1 flex h-full w-full max-w-lg flex-col justify-center gap-4 px-8 lg:order-2 lg:max-w-md xl:px-0 2xl:max-w-2xl">
                 <p className="font-monocode relative inline-block !bg-clip-text text-left text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
                     {goalType}
                 </p>

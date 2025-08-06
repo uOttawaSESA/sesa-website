@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import Image from "next/image";
 
 const FAQ = () => {
     // Get the current locale from the dynamic route params
@@ -16,24 +17,58 @@ const FAQ = () => {
 
     return (
         <>
-            <section className="flex flex-col gap-8 px-8 text-white md:px-20 xl:px-32">
-                <div className="flex flex-col items-center justify-center gap-2">
+            <section className="relative flex flex-col gap-8 px-8 text-white md:px-20 xl:px-32">
+                {/* Decorations */}
+                <div className="pointer-events-none select-none">
+                    {/* Warm gradient */}
+                    <div className="fade-from-center-bg absolute left-1/2 top-1/2 h-[120rem] w-full -translate-x-1/2 -translate-y-1/2 bg-[#B1219D] bg-opacity-20 blur-xl md:w-[100rem]" />
+
+                    <Image
+                        src="/decoration/star.svg"
+                        className="absolute hidden rotate-[-110deg] transform md:left-[8rem] md:top-[1rem] md:block"
+                        width={120}
+                        height={120}
+                        alt=""
+                    />
+
+                    <Image
+                        src="/decoration/star-faded.svg"
+                        className="absolute right-[2rem] top-[8rem] hidden rotate-[30deg] transform md:right-[10rem] md:top-[7rem] md:block"
+                        width={60}
+                        height={60}
+                        alt=""
+                    />
+
+                    <Image
+                        src="/decoration/star.svg"
+                        className="absolute hidden md:bottom-[-8rem] md:right-[5rem] md:block"
+                        width={120}
+                        height={120}
+                        alt=""
+                    />
+                    <Image
+                        src="/decoration/star-faded.svg"
+                        className="absolute hidden md:bottom-[-8rem] md:right-[10rem] md:block"
+                        width={63}
+                        height={63}
+                        alt=""
+                    />
+                </div>
+                <div className="backdrop-blue-xl flex flex-col items-center justify-center gap-2">
                     <p className="font-monocode color-gradient">Frequently asked questions</p>
-                    <h1 className="text-center font-heading text-2xl uppercase leading-tight md:text-5xl">
+                    <h1 className="text-center font-heading text-2xl uppercase leading-tight md:text-4xl 2xl:text-5xl">
                         Got Questions?&nbsp;
                         <span className="highlight-text">We&apos;ve got answers!</span>
                     </h1>
-                    <p className="max-w-sm text-center font-sans text-base text-thistle md:max-w-lg md:text-lg xl:max-w-xl xl:text-xl">
+                    <p className="max-w-sm text-center font-sans text-base text-thistle md:max-w-lg md:text-lg xl:max-w-xl">
                         We have A’s to your Q’s below. If you still have questions, contact us and
                         we’ll get back to you as soon as possible.
                     </p>
                 </div>
 
                 {/* Accordian */}
-                <div className="flex justify-center">
-                    {/* Wrapper with the outer clip-corner (transparent) */}
-                    <div className="clip-corner relative w-full overflow-hidden rounded-br-2xl border border-purple-600">
-                        {/* Inner content with the inner clip-corner (transparent) */}
+                <div className="backdrop-blue-lg flex justify-center">
+                    <div className="relative w-full overflow-hidden border border-purple-600">
                         <div className="clip-corner-inner">
                             <Accordion
                                 type="single"
@@ -184,7 +219,7 @@ const FAQ = () => {
                         </Link>
                     </Button>
                 </div>
-                <p className="text-center text-sm text-thistle md:text-xl">
+                <p className="text-center text-sm text-thistle">
                     We&apos;ll get back to you within 48 hours.
                 </p>
             </section>

@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { LanguageSelect } from "@/components/LanguageSelect";
 import { useTranslations } from "next-intl";
-import { useLocale } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 // === Removed sponsor marquee, in case we want it again: ===
 // {/* Sponsors marquee */}
@@ -21,145 +22,160 @@ import { useLocale } from "next-intl";
 export default function Footer() {
     const t = useTranslations("footer");
     const tNav = useTranslations("navigation");
-    const locale = useLocale();
 
     return (
-        <footer className="flex flex-col gap-2 bg-transparent px-8 md:px-20 xl:px-32">
-            {/* Navigation links and socials */}
-            <div className="flex flex-col gap-4 md:flex-row md:justify-between md:gap-12 xl:gap-20">
-                <div className="flex flex-col items-start gap-2 text-left text-sm/5 md:text-base/5">
-                    <h3 className="color-gradient font-heading uppercase">SESA/AÉGL</h3>
-                    <p className="text-gray-400 md:w-48">{t("blurb")}</p>
-                    <p className="text-gray-400">
-                        &copy;&nbsp;2014&ndash;{new Date().getFullYear()}
-                    </p>
-                </div>
-
-                <div className="flex flex-grow justify-between gap-4 text-left text-sm md:text-base">
-                    <div className="flex flex-col gap-2">
-                        <h3 className="color-gradient font-heading uppercase">{t("sitemap")}</h3>
-                        <ul className="flex flex-col gap-2 leading-none text-gray-400">
-                            <li>
-                                <a href={`/${locale}`}>{tNav("home")}</a>
-                            </li>
-                            <li>
-                                <a href={`/${locale}/AboutPage`}>{tNav("about")}</a>
-                            </li>
-                            <li>
-                                <a href={`/${locale}/EventsPage`}>{tNav("events")}</a>
-                            </li>
-                            <li>
-                                <a href={`/${locale}/ResourcesPage`}>{tNav("resources")}</a>
-                            </li>
-                            <li>
-                                <a href={`/${locale}/ContactUsPage`}>{tNav("contact")}</a>
-                            </li>
-                            <li>
-                                <a href={`/${locale}/SponsorsPage`}>{tNav("sponsor")}</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="flex flex-col gap-2">
-                        <h3 className="color-gradient font-heading uppercase">{t("policies")}</h3>
-                        <ul className="flex flex-col gap-2 leading-none text-gray-400">
-                            <li>
-                                <a href="#">{t("privacy")}</a>
-                            </li>
-                            <li>
-                                <a href="#">{t("terms")}</a>
-                            </li>
-                            <li>
-                                <a href="#">{t("constitution")}</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="flex flex-col gap-2">
-                        <h3 className="color-gradient font-heading uppercase">{t("contact")}</h3>
-                        <p className="break-words text-gray-400">
-                            <span>800 King Edward Ave,</span>
-                            <br />
-                            <span>Ottawa, ON, K1N 1A2,</span>
-                            <br />
-                            <span>STE 0109</span>
-                            <br />
-                            <a href="mailto:uottawa.sesa@gmail.com">uottawa.sesa@gmail.com</a>
+        <footer className="flex justify-center">
+            <div className="flex flex-col gap-2 bg-transparent px-8">
+                {/* Navigation links and socials */}
+                <div className="flex flex-col gap-8 md:flex-row md:justify-between lg:gap-32">
+                    <div className="flex flex-col items-start gap-2 text-left">
+                        <h3 className="font-heading uppercase text-white">SESA/AÉGL</h3>
+                        <p className="text-thistle md:max-w-72">{t("blurb")}</p>
+                        <p className="text-thistle">
+                            &copy;&nbsp;2014&ndash;{new Date().getFullYear()}
                         </p>
+                    </div>
 
-                        <div className="flex items-start justify-center gap-2">
-                            <Button size="icon" variant="outline" asChild>
-                                <a href="https://www.instagram.com/uottawasesa/" target="_blank">
-                                    <Image
-                                        src="/icons/instagram-plain.svg"
-                                        width={25}
-                                        height={25}
-                                        alt="Instagram Logo"
-                                    />
-                                </a>
-                            </Button>
-                            <Button size="icon" variant="outline" asChild>
-                                <a href="https://discord.com/invite/atYdx5HHCs" target="_blank">
-                                    <Image
-                                        src="/icons/discord-plain.svg"
-                                        width={25}
-                                        height={25}
-                                        alt="Discord Logo"
-                                    />
-                                </a>
-                            </Button>
-                            <Button size="icon" variant="outline" asChild>
-                                <a
-                                    href="https://www.linkedin.com/company/software-engineering-students-association/"
-                                    target="_blank"
-                                >
-                                    <Image
-                                        src="/icons/linkedin-plain.svg"
-                                        width={25}
-                                        height={25}
-                                        alt="LinkedIn Logo"
-                                    />
-                                </a>
-                            </Button>
-                            <Button size="icon" variant="outline" asChild>
-                                <a href="https://www.youtube.com/@uottawasesa52" target="_blank">
-                                    <Image
-                                        src="/icons/youtube-plain.svg"
-                                        width={25}
-                                        height={25}
-                                        alt="YouTube Logo"
-                                    />
-                                </a>
-                            </Button>
+                    <div className="flex flex-wrap justify-between gap-4 text-left sm:flex-nowrap lg:gap-36">
+                        <div className="flex flex-col gap-4">
+                            <h3 className="font-heading uppercase text-white">{t("sitemap")}</h3>
+                            <ul className="flex flex-col gap-3 leading-none text-thistle">
+                                <li>
+                                    <Link href="/">{tNav("home")}</Link>
+                                </li>
+                                <li>
+                                    <Link href="/AboutPage">{tNav("about")}</Link>
+                                </li>
+                                <li>
+                                    <Link href="/EventsPage">{tNav("events")}</Link>
+                                </li>
+                                <li>
+                                    <Link href="/ResourcesPage">{tNav("resources")}</Link>
+                                </li>
+                                <li>
+                                    <Link href="/ContactUsPage">{tNav("contact")}</Link>
+                                </li>
+                                <li>
+                                    <Link href="/SponsorsPage">{tNav("sponsor")}</Link>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="flex flex-col gap-4">
+                            <h3 className="font-heading uppercase text-white">{t("policies")}</h3>
+                            <ul className="flex flex-col gap-3 leading-none text-thistle">
+                                <li>
+                                    <a href="#">{t("privacy")}</a>
+                                </li>
+                                <li>
+                                    <a href="#">{t("terms")}</a>
+                                </li>
+                                <li>
+                                    <a href="#">{t("constitution")}</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="flex flex-col gap-4">
+                            <h3 className="font-heading uppercase text-white">{t("contact")}</h3>
+                            <p className="break-words text-thistle">
+                                <span>800 King Edward Ave,</span>
+                                <br />
+                                <span>Ottawa, ON, K1N 1A2,</span>
+                                <br />
+                                <span>STE 0109</span>
+                                <br />
+                                <a href="mailto:uottawa.sesa@gmail.com">uottawa.sesa@gmail.com</a>
+                            </p>
+
+                            <div className="flex items-start justify-center gap-2">
+                                <Button size="icon" variant="outline" asChild>
+                                    <a
+                                        href="https://www.instagram.com/uottawasesa/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <Image
+                                            src="/icons/instagram-plain.svg"
+                                            width={25}
+                                            height={25}
+                                            alt="Instagram Logo"
+                                        />
+                                    </a>
+                                </Button>
+                                <Button size="icon" variant="outline" asChild>
+                                    <a
+                                        href="https://discord.com/invite/atYdx5HHCs"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <Image
+                                            src="/icons/discord-plain.svg"
+                                            width={25}
+                                            height={25}
+                                            alt="Discord Logo"
+                                        />
+                                    </a>
+                                </Button>
+                                <Button size="icon" variant="outline" asChild>
+                                    <a
+                                        href="https://www.linkedin.com/company/software-engineering-students-association/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <Image
+                                            src="/icons/linkedin-plain.svg"
+                                            width={25}
+                                            height={25}
+                                            alt="LinkedIn Logo"
+                                        />
+                                    </a>
+                                </Button>
+                                <Button size="icon" variant="outline" asChild>
+                                    <a
+                                        href="https://www.youtube.com/@uottawasesa52"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <Image
+                                            src="/icons/youtube-plain.svg"
+                                            width={25}
+                                            height={25}
+                                            alt="YouTube Logo"
+                                        />
+                                    </a>
+                                </Button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <hr className="fill-gradient mt-6 p-[0.25px]" />
-            <div className="flex items-center justify-between py-4">
-                {/* SESA logo + text */}
-                <div className="flex items-center justify-center gap-2">
-                    <Image
-                        className="size-10 md:size-12"
-                        width="45"
-                        height="45"
-                        src="/sesa-logo.svg"
-                        alt="SESA Logo"
-                    />
-                    <Image
-                        className="size-20 md:size-24"
-                        width="100"
-                        height="20"
-                        src="/logo-text.svg"
-                        alt="SESA Logo Text"
-                    />
-                </div>
-                <div className="flex items-center gap-2 text-sm text-white md:text-base">
-                    <Button variant="ghost-plain" className="h-min font-heading uppercase" asChild>
-                        <a href="#">{t("back_to_top")}</a>
-                    </Button>
-                    {/* TODO: Make this a real dropdown */}
-                    <Button variant="outline" className="h-min font-heading uppercase">
-                        English
-                    </Button>
+                <hr className="fill-gradient mt-6 p-[0.25px]" />
+                <div className="flex items-center justify-between py-4">
+                    {/* SESA logo + text */}
+                    <div className="flex items-center justify-center gap-2">
+                        <Image
+                            className="size-10 md:size-12"
+                            width="45"
+                            height="45"
+                            src="/sesa-logo.svg"
+                            alt="SESA Logo"
+                        />
+                        <Image
+                            className="size-20 md:size-24"
+                            width="100"
+                            height="20"
+                            src="/logo-text.svg"
+                            alt="SESA Logo Text"
+                        />
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-white md:text-base">
+                        <Button
+                            variant="ghost-plain"
+                            className="h-min font-heading uppercase"
+                            asChild
+                        >
+                            <a href="#">{t("back_to_top")}</a>
+                        </Button>
+                        <LanguageSelect />
+                    </div>
                 </div>
             </div>
         </footer>

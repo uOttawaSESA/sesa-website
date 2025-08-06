@@ -1,18 +1,10 @@
 "use client";
-
 import Image from "next/image";
-import { Button } from "./ui/button";
-import { Link, useRouter, usePathname } from "@/i18n/navigation";
+import { Button } from "@/components/ui/button";
+import { LanguageSelect } from "@/components/LanguageSelect";
+import { Link, usePathname } from "@/i18n/navigation";
 import { useState, useMemo } from "react";
-import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 
 interface NavLinkItemProps {
     href: string;
@@ -57,24 +49,8 @@ const navItemsData = [
 export default function Navbar() {
     const t = useTranslations("navigation");
     const pathname = usePathname();
-    const router = useRouter();
 
-    // _Technically_ this isn't necessary since the page refreshes anyway,
-    // but imo it looks better to a user if the select immediately updates
-    // instead of having a moment of confusion until the page reloads.
-    const [locale, setLocale] = useState(useLocale());
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-    const languageItems = [
-        {
-            label: "EN",
-            value: "en",
-        },
-        {
-            label: "FR",
-            value: "fr",
-        },
-    ] as const;
 
     const navItems = useMemo(() => {
         const firstPathname = pathname.split("/")[1];
@@ -93,13 +69,6 @@ export default function Navbar() {
             </>
         );
     }, [pathname, t]);
-
-    const changeLocale = (newLocale: string) => {
-        if (locale !== newLocale) {
-            setLocale(newLocale);
-            router.push(pathname, { locale: newLocale });
-        }
-    };
 
     return (
         <>
@@ -124,20 +93,7 @@ export default function Navbar() {
                 </nav>
 
                 <div className="flex items-center gap-4">
-                    <Select value={locale} onValueChange={changeLocale}>
-                        <SelectTrigger className="font-heading">
-                            <SelectValue placeholder="Language" />
-                        </SelectTrigger>
-                        <SelectContent>
-                            <SelectGroup>
-                                {languageItems.map(({ label, value }) => (
-                                    <SelectItem className="font-heading" key={value} value={value}>
-                                        {label}
-                                    </SelectItem>
-                                ))}
-                            </SelectGroup>
-                        </SelectContent>
-                    </Select>
+                    <LanguageSelect />
 
                     <Link href="/SponsorsPage" className="hidden lg:block">
                         <Button className="font-heading text-base uppercase text-white">
