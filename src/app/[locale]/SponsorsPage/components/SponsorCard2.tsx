@@ -48,6 +48,7 @@ const SponsorCard2 = () => {
                         <Button
                             variant="outline"
                             className="w-fit min-w-[12rem] whitespace-nowrap font-heading text-sm text-white md:text-base"
+                            asChild
                         >
                             <Link href="/AboutPage" className="block h-full w-full text-inherit">
                                 Meet the Team
