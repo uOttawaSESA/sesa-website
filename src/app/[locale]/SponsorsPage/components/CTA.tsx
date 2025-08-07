@@ -9,10 +9,7 @@ export default function CTA() {
                 <p className="text-center font-heading text-sm uppercase text-white md:text-lg">
                     Interested in joining our growing network of industry partners?
                 </p>
-                <Button
-                    asChild
-                    className="px-4 py-1.5 font-heading text-xs uppercase text-white md:text-sm"
-                >
+                <Button asChild className="px-5 font-heading uppercase text-white">
                     <Link href="/ContactUsPage">Let&apos;s Talk</Link>
                 </Button>
             </div>

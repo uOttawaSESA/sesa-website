@@ -54,7 +54,7 @@ const gradientBorderClass = `
 `;
 const SponsorsGrid = () => {
     return (
-        <div className="mt-16 flex justify-center px-6">
+        <div className="mt-10 flex justify-center px-6 md:mt-16">
             <div className="grid max-w-6xl grid-cols-2 gap-4 md:grid-cols-12">
                 {sponsors.map((sponsor, index) => (
                     <div

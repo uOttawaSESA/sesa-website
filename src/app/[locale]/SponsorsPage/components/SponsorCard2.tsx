@@ -14,9 +14,9 @@ const SponsorCard2 = () => {
     ];
 
     return (
-        <div className="relative flex flex-col items-start justify-start gap-10 px-4 py-16 text-white md:h-[80vh] md:flex-row md:items-center md:justify-between md:gap-12 md:ps-32 2xl:ps-96">
+        <div className="relative flex flex-col items-start justify-start gap-10 px-4 py-16 text-white md:h-[80vh] md:flex-row md:items-center md:justify-between md:gap-12 md:px-0 md:ps-32 2xl:ps-96">
             {/* Grid Overlay Right (desktop only) */}
-            <div className="grid-overlay-right hidden md:block md:h-[43.93rem] md:w-[50vw]"></div>
+            <div className="grid-overlay-right hidden md:block md:h-[43.93rem] md:w-[50vw] 2xl:w-[50vw]"></div>
 
             {/* Content Container */}
             <div className="relative z-10 flex w-full flex-col-reverse items-start justify-between gap-10 md:flex-row md:gap-12">
@@ -38,7 +38,7 @@ const SponsorCard2 = () => {
 
                     <div className="mb-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
                         <Button
-                            className="w-fit min-w-[12rem] whitespace-nowrap font-heading text-sm uppercase text-white md:text-base"
+                            className="w-fit min-w-[12rem] whitespace-nowrap font-heading text-sm uppercase text-white md:text-lg"
                             asChild
                         >
                             <Link href="/ContactUsPage" className="block h-full text-inherit">
@@ -47,7 +47,7 @@ const SponsorCard2 = () => {
                         </Button>
                         <Button
                             variant="outline"
-                            className="w-fit min-w-[12rem] whitespace-nowrap font-heading text-sm text-white md:text-base"
+                            className="w-fit min-w-[12rem] whitespace-nowrap font-heading text-sm text-white md:text-lg"
                             asChild
                         >
                             <Link href="/AboutPage" className="block h-full text-inherit">
@@ -66,7 +66,7 @@ const SponsorCard2 = () => {
                     <Image
                         src="/sponsors-page/sponsor-card-img-2.webp"
                         alt="SESA Team"
-                        className="h-[300px] w-auto object-cover md:h-[500px]"
+                        className="h-[300px] w-auto object-cover md:h-[500px] 2xl:h-max"
                         width={700}
                         height={700}
                     />
