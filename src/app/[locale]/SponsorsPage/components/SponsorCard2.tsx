@@ -41,10 +41,7 @@ const SponsorCard2 = () => {
                             className="w-fit min-w-[12rem] whitespace-nowrap font-heading text-sm uppercase text-white md:text-base"
                             asChild
                         >
-                            <Link
-                                href="/ContactUsPage"
-                                className="block h-full w-full text-inherit"
-                            >
+                            <Link href="/ContactUsPage" className="block h-full text-inherit">
                                 Become a Sponsor
                             </Link>
                         </Button>
@@ -53,7 +50,7 @@ const SponsorCard2 = () => {
                             className="w-fit min-w-[12rem] whitespace-nowrap font-heading text-sm text-white md:text-base"
                             asChild
                         >
-                            <Link href="/AboutPage" className="block h-full w-full text-inherit">
+                            <Link href="/AboutPage" className="block h-full text-inherit">
                                 Meet the Team
                             </Link>
                         </Button>

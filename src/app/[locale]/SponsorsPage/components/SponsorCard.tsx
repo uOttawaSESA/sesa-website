@@ -52,7 +52,7 @@ const SponsorCard = () => {
                         className="font-heading text-sm uppercase text-white md:text-base"
                         asChild
                     >
-                        <Link href="/ContactUsPage" className="block h-full w-full">
+                        <Link href="/ContactUsPage" className="block h-full">
                             Work With Us
                         </Link>
                     </Button>
