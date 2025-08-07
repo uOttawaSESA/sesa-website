@@ -38,10 +38,10 @@ const SponsorCard2 = () => {
 
                     <div className="mb-6 flex items-center gap-4">
                         <Button className="font-heading uppercase text-white" asChild>
-                            <Link href="/pages/ContactUsPage">Become a Sponsor</Link>
+                            <Link href="/ContactUsPage">Become a Sponsor</Link>
                         </Button>
                         <Button variant="outline" className="font-heading text-white">
-                            <Link href="/pages/AboutPage">Meet the Team</Link>
+                            <Link href="/AboutPage">Meet the Team</Link>
                         </Button>
                     </div>
 

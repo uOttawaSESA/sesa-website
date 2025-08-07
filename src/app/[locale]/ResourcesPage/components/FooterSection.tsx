@@ -83,7 +83,7 @@ const FooterSection: React.FC = () => {
                     {/* Call To Action Button */}
                     <div className="mt-10 md:mt-6">
                         <Button className="relative z-10 font-heading text-lg uppercase" asChild>
-                            <Link href="/pages/TeamPage">{t("btn_join_team")}</Link>
+                            <Link href="/TeamPage">{t("btn_join_team")}</Link>
                         </Button>
                         <div className="mt-6 flex items-center gap-2">
                             <Image

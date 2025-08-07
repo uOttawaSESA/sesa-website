@@ -46,7 +46,7 @@ const SponsorCard = () => {
                 </div>
                 <div className="mt-6">
                     <Button className="text-m font-heading uppercase text-white" asChild>
-                        <Link href="/pages/ContactUsPage">Work With Us</Link>
+                        <Link href="/ContactUsPage">Work With Us</Link>
                     </Button>
                 </div>
             </div>
