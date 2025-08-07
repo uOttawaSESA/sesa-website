@@ -13,7 +13,7 @@ const Sponsors = () => {
 
                 <Image
                     src="/decoration/large-wavy-grid.svg"
-                    className="fade-from-top-bottom-bg absolute left-1/2 top-[8rem] h-[900px] -translate-x-1/2 transform object-cover md:top-[19rem]"
+                    className="fade-from-top-bottom-bg absolute left-1/2 top-[8rem] h-[850px] -translate-x-1/2 transform object-cover md:top-[19rem]"
                     width={1000}
                     height={1870}
                     alt=""

@@ -59,7 +59,7 @@ const SponsorsGrid = () => {
                 {sponsors.map((sponsor, index) => (
                     <div
                         key={index}
-                        className={`flex items-center justify-center rounded-lg p-6 ${sponsor.size} ${gradientBorderClass} ${
+                        className={`flex items-center justify-center rounded-lg p-6 backdrop-blur-xl ${sponsor.size} ${gradientBorderClass} ${
                             sponsor.size === "col-span-6"
                                 ? "h-40" // Tallest
                                 : sponsor.size === "col-span-4"
