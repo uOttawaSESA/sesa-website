@@ -8,14 +8,9 @@ export const generateStaticParams = localeParams;
 const ContactUsPage: React.FC = () => {
     return (
         <div className="relative min-h-screen">
-            <div
-                className="absolute inset-0"
-                style={{
-                    background: "linear-gradient(to bottom right, #3b1e52, #2b1c39)",
-                }}
-            />
+            <div className="absolute inset-0" />
 
-            <div className="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-gray-100 to-transparent" />
+            <div className="absolute inset-x-0 top-0 h-64 to-transparent" />
 
             <div className="md:pt-26 relative px-8 pb-16 pt-24 font-heading text-white md:px-12 md:pb-20 lg:px-16 xl:px-24">
                 <div className="mx-auto flex max-w-7xl flex-col gap-12 md:flex-row md:gap-16">

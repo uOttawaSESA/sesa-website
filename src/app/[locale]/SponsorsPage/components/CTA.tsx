@@ -1,22 +1,20 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 export default function CTA() {
     return (
-        <div className="relative z-10 flex w-full flex-col items-center justify-center px-4 py-8 text-center">
-            <div className="flex flex-wrap items-center justify-center gap-3">
-                <p className="font-heading text-lg uppercase text-white">
+        <div className="relative z-10 flex w-full flex-col items-center justify-center px-4 py-6 text-center md:py-8">
+            <div className="flex flex-col items-center justify-center gap-3 md:flex-row md:flex-wrap">
+                <p className="text-center font-heading text-sm uppercase text-white md:text-lg">
                     Interested in joining our growing network of industry partners?
                 </p>
-                <Link href="/contact">
-                    <Button className="px-4 py-1.5 font-heading text-sm uppercase text-white">
-                        Let&apos;s Talk
-                    </Button>
-                </Link>
+                <Button asChild className="px-5 font-heading uppercase text-white">
+                    <Link href="/ContactUsPage">Let&apos;s Talk</Link>
+                </Button>
             </div>
 
-            <p className="mt-4 font-sans text-sm tracking-widest text-thistle">
+            <p className="mt-4 font-sans text-xs tracking-widest text-thistle md:text-sm">
                 We&apos;ll get back to you within 48 hours.
             </p>
         </div>

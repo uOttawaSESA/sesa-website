@@ -78,7 +78,7 @@ const Connect = () => {
                                 </a>
                             </Button>
                             <Button size="icon" variant="outline" asChild>
-                                <a href="https://www.youtube.com/@uottawasesa52" target="_blank">
+                                <a href="https://www.youtube.com/@uottawasesa527" target="_blank">
                                     <Image
                                         src="/icons/youtube-plain.svg"
                                         width={25}

@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 const sponsors = [
@@ -50,15 +52,14 @@ const gradientBorderClass = `
   border-[1px] border-solid
   [border-image:linear-gradient(55deg,rgba(136,36,220,0.3)_41.93%,rgba(177,33,157,0.3)_81.89%)_1]
 `;
-
 const SponsorsGrid = () => {
     return (
-        <div className="mt-16 flex justify-center px-6">
+        <div className="mt-10 flex justify-center px-6 md:mt-16">
             <div className="grid max-w-6xl grid-cols-2 gap-4 md:grid-cols-12">
                 {sponsors.map((sponsor, index) => (
                     <div
                         key={index}
-                        className={`flex items-center justify-center rounded-lg p-6 ${sponsor.size} ${gradientBorderClass} ${
+                        className={`flex items-center justify-center rounded-lg p-6 backdrop-blur-xl ${sponsor.size} ${gradientBorderClass} ${
                             sponsor.size === "col-span-6"
                                 ? "h-40" // Tallest
                                 : sponsor.size === "col-span-4"
@@ -79,5 +80,4 @@ const SponsorsGrid = () => {
         </div>
     );
 };
-
 export default SponsorsGrid;

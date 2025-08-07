@@ -37,13 +37,19 @@ const FooterSection: React.FC = () => {
                 />
             </div>
             {/* CTA Section */}
-            <div className="mt-10 flex flex-col items-center justify-center gap-4 px-4 text-center sm:flex-row sm:gap-6">
-                <h2 className="font-heading text-lg uppercase">{t("contributing_heading")}</h2>
-                <Button asChild>
-                    <a href="https://discord.com/invite/atYdx5HHCs" target="_blank">
-                        {t("btn_join_discord")}
-                    </a>
-                </Button>
+            <div className="mt-16 flex items-center justify-center gap-6">
+                <div className="flex flex-col items-center text-center">
+                    <h2 className="mb-8 font-heading text-lg uppercase">
+                        {t("contributing_heading")}
+                    </h2>
+                </div>
+                <div className="flex -translate-y-4 transform items-center justify-center">
+                    <Button asChild>
+                        <a href="https://discord.com/invite/atYdx5HHCs" target="_blank">
+                            {t("btn_join_discord")}
+                        </a>
+                    </Button>
+                </div>
             </div>
 
             {/* Ange quote section */}
@@ -55,7 +61,7 @@ const FooterSection: React.FC = () => {
                     <Image
                         src="/resources-page/ange-quote.webp"
                         alt="SESA Group Photo"
-                        className="w-auto object-contain md:h-[500px]"
+                        className="h-[500px] w-auto object-contain"
                         width={703}
                         height={700}
                     />
@@ -64,7 +70,11 @@ const FooterSection: React.FC = () => {
                 <div className="z-10 mx-5 max-w-lg text-left text-white">
                     <div className="font-heading text-2xl uppercase">
                         “{t("education_quote_1")}{" "}
-                        <span className="highlight-text">{t("education_quote_1_hl")}</span>
+                        <span className="relative inline-block">
+                            {t("education_quote_1_hl")}
+                            <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                        </span>
+                        {". "}
                         {t("education_quote_2")}.”
                     </div>
                     <div className="my-3 flex items-center gap-4">
@@ -81,10 +91,13 @@ const FooterSection: React.FC = () => {
                         </div>
                     </div>
                     {/* Call To Action Button */}
-                    <div className="mt-10 md:mt-6">
-                        <Button className="relative z-10 font-heading text-lg uppercase" asChild>
-                            <Link href="/pages/TeamPage">{t("btn_join_team")}</Link>
+                    <div className="mt-6">
+                        <Button asChild className="relative z-10 font-heading text-lg uppercase">
+                            <Link href="/AboutPage" className="block h-full w-full text-inherit">
+                                Meet the Team
+                            </Link>
                         </Button>
+
                         <div className="mt-6 flex items-center gap-2">
                             <Image
                                 src="/resources-page/thumbsup.svg"

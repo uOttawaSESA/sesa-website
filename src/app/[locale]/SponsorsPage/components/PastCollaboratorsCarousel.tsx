@@ -18,28 +18,32 @@ const logos = [
 
 const PastCollaboratorsCarousel = () => {
     return (
-        <div className="flex flex-col items-center justify-center overflow-hidden text-center">
-            {/* Header content with space between */}
+        <div className="flex flex-col items-center justify-center overflow-hidden px-4 py-10 text-center md:px-8 md:py-14">
+            {/* Header content */}
             <div className="flex flex-col items-center space-y-3">
-                <p className="relative inline-block !bg-clip-text font-mono text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
+                <p className="relative inline-block !bg-clip-text font-mono text-sm text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)] md:text-base">
                     Our previous partners
                 </p>
-                <div className="font-heading text-2xl uppercase text-white">
-                    <span className="highlight-text">PAST</span> COLLABORATORS SINCE 2014
+                <div className="font-heading text-xl uppercase text-white md:text-2xl">
+                    <span className="relative inline-block">
+                        PAST
+                        <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                    </span>{" "}
+                    COLLABORATORS SINCE 2014
                 </div>
-                <p className="max-w-2xl text-base text-thistle">
+                <p className="max-w-xl text-sm text-thistle md:text-base">
                     We&apos;ve had the privilege of working with over 20+ big and small companies
                     that have enhanced our events, including:
                 </p>
             </div>
 
             {/* Marquee Carousel */}
-            <div className="relative mt-10 w-full">
+            <div className="relative mt-8 w-full">
                 <Marquee speed={40} gradient={false} pauseOnHover={true}>
                     {logos.concat(logos).map((logo, index) => (
                         <div
                             key={index}
-                            className={`mx-6 flex h-28 min-w-[200px] items-center justify-center rounded-lg p-6 ${gradientBorderClass}`}
+                            className={`mx-4 flex h-24 min-w-[160px] items-center justify-center rounded-lg p-4 md:h-28 md:min-w-[200px] md:p-6 ${gradientBorderClass}`}
                         >
                             <Image
                                 src={logo.src}
