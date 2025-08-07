@@ -1,9 +1,28 @@
 import ContactForm from "./components/ContactForm";
 import ContactDetails from "./components/ContactDetails";
 
+import type { Metadata } from "next";
+
 // Precompile i18n
 import localeParams from "@/app/data/locales";
 export const generateStaticParams = localeParams;
+
+export const metadata: Metadata = {
+    title: "Contact | Software Engineering Student Association",
+    description: "The contact page for the University of Ottawa's SESA.",
+    alternates: {
+        canonical: "/ContactUsPage",
+        languages: {
+            en: "/en/ContactUsPage",
+            fr: "/fr/ContactUsPage",
+        },
+    },
+    openGraph: {
+        title: "Contact | Software Engineering Student Association",
+        description: "The contact page for the University of Ottawa's SESA.",
+        url: new URL("https://sesa-aegl.ca/ContactUsPage"),
+    },
+};
 
 const ContactUsPage: React.FC = () => {
     return (

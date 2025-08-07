@@ -3,7 +3,25 @@ import { Button } from "@/components/ui/button";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
 import { Link } from "@/i18n/navigation";
+import type { Metadata } from "next";
 export const generateStaticParams = localeParams;
+
+export const metadata: Metadata = {
+    title: "Thank You | Software Engineering Student Association",
+    description: "Thank you for contacting the Software Engineering Student Association!",
+    alternates: {
+        canonical: "/ThankYouPage",
+        languages: {
+            en: "/en/ThankYouPage",
+            fr: "/fr/ThankYouPage",
+        },
+    },
+    openGraph: {
+        title: "Thank You | Software Engineering Student Association",
+        description: "Thank you for contacting the Software Engineering Student Association!",
+        url: new URL("https://sesa-aegl.ca/ThankYouPage"),
+    },
+};
 
 const ThankYouPage = () => {
     return (

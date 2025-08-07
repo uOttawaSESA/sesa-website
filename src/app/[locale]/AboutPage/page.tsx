@@ -9,9 +9,28 @@ import { membersData } from "@/app/data/Members";
 import WhatWeDoCard from "./WhatWeDoCard";
 import { useTranslations } from "next-intl";
 
+import type { Metadata } from "next";
+
 // Precompile i18n
 import localeParams from "@/app/data/locales";
 export const generateStaticParams = localeParams;
+
+export const metadata: Metadata = {
+    title: "About | Software Engineering Student Association",
+    description: "The about page for the University of Ottawa's SESA.",
+    alternates: {
+        canonical: "/AboutPage",
+        languages: {
+            en: "/en/AboutPage",
+            fr: "/fr/AboutPage",
+        },
+    },
+    openGraph: {
+        title: "About | Software Engineering Student Association",
+        description: "The about page for the University of Ottawa's SESA.",
+        url: new URL("https://sesa-aegl.ca/AboutPage"),
+    },
+};
 
 export default function AboutPage() {
     const memberImages = ["/imgs/team/rolf.webp", "/imgs/team/asad.webp", "/imgs/team/rayen.webp"];

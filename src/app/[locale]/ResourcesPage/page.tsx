@@ -4,9 +4,28 @@ import FooterSection from "./components/FooterSection";
 import ResourceSection from "./components/ResourceSection";
 import Image from "next/image";
 
+import type { Metadata } from "next";
+
 // Precompile i18n
 import localeParams from "@/app/data/locales";
 export const generateStaticParams = localeParams;
+
+export const metadata: Metadata = {
+    title: "Resources | Software Engineering Student Association",
+    description: "Stay prepared with SESA's resources at the University of Ottawa.",
+    alternates: {
+        canonical: '/ResourcesPage',
+        languages: {
+            en: '/en/ResourcesPage',
+            fr: '/fr/ResourcesPage',
+        },
+    },
+    openGraph: {
+        title: "Resources | Software Engineering Student Association",
+        description: "Stay prepared with SESA's resources at the University of Ottawa.",
+        url: new URL('https://sesa-aegl.ca/ResourcesPage'),
+    },
+};
 
 const ResourcesPage = () => {
     return (

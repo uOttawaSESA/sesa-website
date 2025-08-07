@@ -6,9 +6,28 @@ import TestimonialsCarousel from "./components/TestimonialsCarousel";
 import SponsorsGrid from "./components/SponsorsGrid";
 import PartnerWithUs from "./components/PartnerWithUs";
 
+import type { Metadata } from "next";
+
 // Precompile i18n
 import localeParams from "@/app/data/locales";
 export const generateStaticParams = localeParams;
+
+export const metadata: Metadata = {
+    title: "Sponsors | Software Engineering Student Association",
+    description: "The sponsors page for the University of Ottawa's SESA.",
+    alternates: {
+        canonical: "/SponsorsPage",
+        languages: {
+            en: "/en/SponsorsPage",
+            fr: "/fr/SponsorsPage",
+        },
+    },
+    openGraph: {
+        title: "Sponsors | Software Engineering Student Association",
+        description: "The sponsors page for the University of Ottawa's SESA.",
+        url: new URL("https://sesa-aegl.ca/SponsorsPage"),
+    },
+};
 
 const SponsorsPage = () => {
     return (

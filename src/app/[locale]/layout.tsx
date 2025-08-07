@@ -19,14 +19,26 @@ const geistMono = Geist_Mono({
     subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-    title: "SESA Website",
-    description: "Created by the amazing developers at SESA!",
-};
 const raleway = Raleway({
     variable: "--font-raleway",
     subsets: ["latin"],
 });
+
+export const metadata: Metadata = {
+    title: "Software Engineering Student Association",
+    description: "The official website for the University of Ottawa's SESA.",
+    keywords: ["uottawa,sesa,software,students,seg"],
+    metadataBase: new URL("https://sesa-aegl.ca"), // TBD whether this is the real URL
+    openGraph: {
+        title: "Software Engineering Student Association",
+        siteName: "Software Engineering Student Association",
+        description: "The official website for the University of Ottawa's SESA.",
+        type: "website",
+        url: new URL("https://sesa-aegl.ca"),
+        // Should be changed, this is a random pic and I'm not even sure OG works with WebP?
+        images: "/imgs/about/team-1.webp",
+    },
+};
 
 export default async function RootLayout({
     children,

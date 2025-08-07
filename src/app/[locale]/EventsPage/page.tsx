@@ -1,12 +1,31 @@
-import TeamUpSection from "./components/TeamUpSection";
 import ConnectSESA from "./components/ConnectSESA";
+import EventSection from "./components/EventSection";
 import InfiniteCarousel from "./components/InfiniteCarousel";
+import TeamUpSection from "./components/TeamUpSection";
 import Image from "next/image";
+
+import { Metadata } from "next";
 
 // Precompile i18n
 import localeParams from "@/app/data/locales";
-import EventSection from "./components/EventSection";
 export const generateStaticParams = localeParams;
+
+export const metadata: Metadata = {
+    title: "Events | Software Engineering Student Association",
+    description: "Stay up to date on SESA's events at the University of Ottawa.",
+    alternates: {
+        canonical: '/EventsPage',
+        languages: {
+            en: '/en/EventsPage',
+            fr: '/fr/EventsPage',
+        },
+    },
+    openGraph: {
+        title: "Events | Software Engineering Student Association",
+        description: "Stay up to date on SESA's events at the University of Ottawa.",
+        url: new URL('https://sesa-aegl.ca/EventsPage'),
+    },
+};
 
 const EventsPage = () => {
     return (

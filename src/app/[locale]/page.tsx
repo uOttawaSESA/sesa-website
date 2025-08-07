@@ -8,9 +8,22 @@ import FAQ from "./HomeComponents/FAQ/FAQ";
 import Connect from "./HomeComponents/ConnectSection/Connect";
 import Team from "./HomeComponents/TeamSection/Team";
 
+import type { Metadata } from "next";
+
 // Precompile i18n
 import localeParams from "@/app/data/locales";
 export const generateStaticParams = localeParams;
+
+export const metadata: Metadata = {
+    title: "Home | Software Engineering Student Association",
+    alternates: {
+        canonical: "/",
+        languages: {
+            en: "/en",
+            fr: "/fr",
+        },
+    },
+};
 
 const Home = () => {
     return (
