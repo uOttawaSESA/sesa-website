@@ -30,14 +30,14 @@ const FooterSection: React.FC = () => {
                 />
                 <Image
                     src="/decoration/star-faded.svg"
-                    className="absolute right-[2rem] top-[8rem] rotate-[30deg] transform md:right-[9rem] md:top-[19rem]"
+                    className="absolute right-[2rem] top-[29rem] rotate-[30deg] transform md:right-[9rem] md:top-[19rem]"
                     width={63}
                     height={63}
                     alt=""
                 />
             </div>
             {/* CTA Section */}
-            <div className="mt-16 flex items-center justify-center gap-6">
+            <div className="mt-5 flex flex-col items-center justify-center md:mt-16 md:flex-row md:gap-6">
                 <div className="flex flex-col items-center text-center">
                     <h2 className="mb-8 font-heading text-lg uppercase">
                         {t("contributing_heading")}
@@ -53,15 +53,15 @@ const FooterSection: React.FC = () => {
             </div>
 
             {/* Ange quote section */}
-            <div className="my-20 flex flex-col-reverse items-center justify-start gap-12 align-middle md:my-36 md:h-[45rem] md:flex-row">
+            <div className="my-20 flex flex-col-reverse items-center justify-start gap-12 align-middle md:my-36 md:h-[45rem] md:flex-row 2xl:gap-20">
                 {/* Grid Gradient Back */}
-                <div className="grid-overlay-left md:h-[43.93rem] md:w-[53vw]"></div>
+                <div className="grid-overlay-left md:h-[43.93rem] md:w-[53vw] 2xl:w-[45vw]"></div>
 
                 <div className="relative z-10 lg:block">
                     <Image
                         src="/resources-page/ange-quote.webp"
                         alt="SESA Group Photo"
-                        className="h-[500px] w-auto object-contain"
+                        className="h-auto w-auto object-contain"
                         width={703}
                         height={700}
                     />
@@ -74,7 +74,6 @@ const FooterSection: React.FC = () => {
                             {t("education_quote_1_hl")}
                             <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                         </span>
-                        {". "}
                         {t("education_quote_2")}.”
                     </div>
                     <div className="my-3 flex items-center gap-4">
@@ -93,7 +92,7 @@ const FooterSection: React.FC = () => {
                     {/* Call To Action Button */}
                     <div className="mt-6">
                         <Button asChild className="relative z-10 font-heading text-lg uppercase">
-                            <Link href="/AboutPage" className="block h-full w-full text-inherit">
+                            <Link href="/AboutPage" className="block text-inherit">
                                 Meet the Team
                             </Link>
                         </Button>
