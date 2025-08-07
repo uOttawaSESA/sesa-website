@@ -27,7 +27,7 @@ const raleway = Raleway({
 export const metadata: Metadata = {
     title: "Software Engineering Student Association",
     description: "The official website for the University of Ottawa's SESA.",
-    keywords: ["uottawa,sesa,software,students,seg"],
+    keywords: ["uottawa", "sesa", "software", "students", "seg"],
     metadataBase: new URL("https://sesa-aegl.ca"), // TBD whether this is the real URL
     openGraph: {
         title: "Software Engineering Student Association",
