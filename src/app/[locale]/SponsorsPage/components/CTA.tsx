@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 
 export default function CTA() {
     return (
@@ -9,7 +9,7 @@ export default function CTA() {
                 <p className="font-heading text-lg uppercase text-white">
                     Interested in joining our growing network of industry partners?
                 </p>
-                <Link href="/contact">
+                <Link href="/ContactUsPage">
                     <Button className="px-4 py-1.5 font-heading text-sm uppercase text-white">
                         Let&apos;s Talk
                     </Button>
