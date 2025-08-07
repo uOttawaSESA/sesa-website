@@ -129,7 +129,7 @@ export default function AboutPage() {
                     </div>
                 </div>
                 {/* "What do we do" */}
-                <div className="my-8 flex flex-col gap-2">
+                <div className="my-8 flex flex-col gap-2 overflow-x-auto">
                     <p className="color-gradient font-mono">{t("what_do_we_do")}</p>
                     <h1 className="font-heading text-3xl uppercase">
                         {t("what_do_we_do_heading")}{" "}
@@ -145,7 +145,7 @@ export default function AboutPage() {
                     </Button>
                 </div>
                 {/* Cards for "What do we do" */}
-                <div className="mb-8 flex w-full gap-8 overflow-x-scroll md:justify-center">
+                <div className="mb-8 flex w-full gap-8 overflow-x-auto md:justify-center">
                     <WhatWeDoCard
                         imageHref="/imgs/about/social-events.webp"
                         icon={

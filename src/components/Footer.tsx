@@ -131,7 +131,7 @@ export default function Footer() {
                                 </Button>
                                 <Button size="icon" variant="outline" asChild>
                                     <a
-                                        href="https://www.youtube.com/@uottawasesa52"
+                                        href="https://www.youtube.com/@uottawasesa527"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
