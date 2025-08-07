@@ -70,7 +70,7 @@ export default function Benefits() {
             {/* Header + Arrows */}
             <div className="flex flex-col space-y-6 px-6 md:flex-row md:items-start md:justify-between md:space-y-0 md:px-40">
                 <div className="md:w-1/2">
-                    <p className="color-gradient relative font-mono text-sm md:text-base">
+                    <p className="color-gradient relative mb-1 font-mono text-xs md:text-base">
                         Benefits
                     </p>
                     <h2 className="mb-4 font-heading text-2xl uppercase text-white md:text-3xl">
@@ -82,7 +82,7 @@ export default function Benefits() {
                         <span className="block md:inline">OF SOFTWARE ENGINEERS</span>
                     </h2>
 
-                    <p className="mb-4 max-w-full text-sm leading-tight text-thistle md:max-w-2xl md:text-base">
+                    <p className="max-w-full text-base leading-tight text-thistle md:mb-4 md:max-w-2xl md:text-lg">
                         Without our sponsors and partners, we would not be able to fund our events
                         and projects that provide SEG students with academic opportunities and
                         workplace experiences.

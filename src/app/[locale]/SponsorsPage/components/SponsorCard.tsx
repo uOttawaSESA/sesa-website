@@ -47,12 +47,12 @@ const SponsorCard = () => {
                 <CarouselContent>
                     {sponsorsData.map((sponsor, index) => (
                         <CarouselItem key={`sponsor:${index}`}>
-                            <div className="flex flex-col items-center justify-start gap-12 md:h-[45rem] md:flex-row md:items-center">
+                            <div className="flex flex-col items-center justify-start gap-12 md:h-[45rem] md:flex-row md:items-center 2xl:gap-20">
                                 {/* Background Overlay (desktop only) */}
-                                <div className="grid-overlay-left hidden md:block md:h-[43.93rem] md:w-[53vw] 2xl:w-[50vw]"></div>
+                                <div className="grid-overlay-left hidden md:block md:h-[43.93rem] md:w-[53vw] 2xl:w-[45vw]"></div>
 
                                 {/* Sponsor Image */}
-                                <div className="relative z-10 flex-shrink-0 md:mr-36">
+                                <div className="relative z-10 flex-shrink-0">
                                     <Image
                                         src="/sponsors-page/sponsor-card-img.webp"
                                         alt="SESA Group Photo"
@@ -71,7 +71,7 @@ const SponsorCard = () => {
                                         height={20}
                                         className="mb-4"
                                     />
-                                    <div className="mt-3 font-heading text-base uppercase text-white md:text-2xl">
+                                    <div className="mt-3 font-heading text-xl uppercase text-white md:text-2xl">
                                         &ldquo;
                                         {sponsor.testimonial
                                             .split(new RegExp(`(${sponsor.highlights.join("|")})`))

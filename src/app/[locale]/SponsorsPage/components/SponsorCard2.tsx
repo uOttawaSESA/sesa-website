@@ -19,18 +19,18 @@ const SponsorCard2 = () => {
             <div className="grid-overlay-right hidden md:block md:h-[43.93rem] md:w-[50vw] 2xl:w-[50vw]"></div>
 
             {/* Content Container */}
-            <div className="relative z-10 flex w-full flex-col-reverse items-start justify-between gap-10 md:flex-row md:gap-12">
+            <div className="relative z-10 flex w-full flex-col-reverse items-start justify-between gap-8 md:flex-row md:gap-12">
                 {/* Text Section */}
                 <div className="max-w-xl text-left">
-                    <p className="font-monocode relative inline-block !bg-clip-text text-sm text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)] md:text-base">
+                    <p className="font-monocode relative inline-block !bg-clip-text text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)] md:text-base">
                         Partner with us
                     </p>
-                    <h2 className="mt-4 font-heading text-2xl uppercase leading-tight text-white md:text-3xl">
+                    <h2 className="mb-4 mt-2 font-heading text-2xl uppercase leading-tight text-white md:mt-4 md:text-3xl">
                         Let’s collaborate to make a{" "}
                         <span className="highlight-text">lasting difference </span> on aspiring
                         software engineers
                     </h2>
-                    <p className="mb-4 mt-2 text-sm leading-tight text-thistle md:text-lg">
+                    <p className="mb-4 mt-2 text-base leading-tight text-thistle md:text-lg">
                         Together, we can drive a meaningful impact on over 3500+ EECS students at
                         uOttawa by bridging the gap between academic education and industry
                         experience.

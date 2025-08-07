@@ -5,7 +5,7 @@ import { Link } from "@/i18n/navigation";
 export default function CTA() {
     return (
         <div className="relative z-10 flex w-full flex-col items-center justify-center px-4 py-6 text-center md:py-8">
-            <div className="flex flex-col items-center justify-center gap-3 md:flex-row md:flex-wrap">
+            <div className="flex flex-col items-center justify-center gap-5 md:flex-row md:flex-wrap md:gap-8">
                 <p className="text-center font-heading text-sm uppercase text-white md:text-lg">
                     Interested in joining our growing network of industry partners?
                 </p>

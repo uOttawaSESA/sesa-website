@@ -18,20 +18,20 @@ const logos = [
 
 const PastCollaboratorsCarousel = () => {
     return (
-        <div className="flex flex-col items-center justify-center overflow-hidden px-4 py-10 text-center md:px-8 md:py-14">
+        <div className="flex flex-col items-center justify-center overflow-hidden py-10 text-center md:py-14">
             {/* Header content */}
-            <div className="flex flex-col items-center space-y-3">
-                <p className="relative inline-block !bg-clip-text font-mono text-sm text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)] md:text-base">
+            <div className="flex flex-col items-center space-y-3 px-5">
+                <p className="relative inline-block !bg-clip-text font-mono text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)] md:text-base">
                     Our previous partners
                 </p>
-                <div className="font-heading text-xl uppercase text-white md:text-2xl">
+                <h2 className="font-heading text-2xl uppercase text-white md:text-3xl">
                     <span className="relative inline-block">
                         PAST
                         <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                     </span>{" "}
                     COLLABORATORS SINCE 2014
-                </div>
-                <p className="max-w-xl text-sm text-thistle md:text-base">
+                </h2>
+                <p className="max-w-xl text-base text-thistle md:text-lg">
                     We&apos;ve had the privilege of working with over 20+ big and small companies
                     that have enhanced our events, including:
                 </p>
