@@ -37,7 +37,10 @@ const SponsorCard2 = () => {
                     </p>
 
                     <div className="mb-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
-                        <Button className="w-fit min-w-[12rem] whitespace-nowrap font-heading text-sm uppercase text-white md:text-base" asChild>
+                        <Button
+                            className="w-fit min-w-[12rem] whitespace-nowrap font-heading text-sm uppercase text-white md:text-base"
+                            asChild
+                        >
                             <Link
                                 href="/ContactUsPage"
                                 className="block h-full w-full text-inherit"
