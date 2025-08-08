@@ -74,7 +74,7 @@ export default function Benefits() {
 
                 <Image
                     src="/decoration/waves.svg"
-                    className="fade-from-center-sponsorship-floor absolute left-1/2 w-11/12 -translate-x-1/2 transform md:bottom-10 md:w-max"
+                    className="fade-from-center-sponsorship-floor absolute left-1/2 hidden w-11/12 -translate-x-1/2 transform md:bottom-10 md:block md:w-max"
                     width={1200}
                     height={280}
                     alt=""

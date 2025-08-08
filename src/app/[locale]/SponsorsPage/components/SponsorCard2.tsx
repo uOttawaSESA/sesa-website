@@ -7,14 +7,42 @@ import { Link } from "@/i18n/navigation";
 
 const SponsorCard2 = () => {
     const teamImgs = [
-        "/imgs/team/taha.jpg",
-        "/imgs/team/rayen.webp",
-        "/imgs/team/anthony.webp",
-        "/imgs/team/priya.webp",
+        "/imgs/team/dragos.webp",
+        "/imgs/team/ayushi.webp",
+        "/imgs/team/bilal.jpeg",
+        "/imgs/team/whitney.webp",
     ];
 
     return (
-        <div className="relative flex flex-col items-start justify-start gap-10 px-4 py-16 text-white md:h-[80vh] md:flex-row md:items-center md:justify-between md:gap-12 md:px-0 md:ps-32 2xl:ps-96">
+        <div className="relative mb-12 flex flex-col items-start justify-start gap-10 px-4 py-16 text-white md:mb-32 md:h-[80vh] md:flex-row md:items-center md:justify-between md:gap-12 md:px-0 md:ps-32 2xl:ps-96">
+            {/* Decorations */}
+            <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
+                {/* Light gradient */}
+                <div className="fade-from-left-bg absolute h-[70rem] w-[60vw] bg-blueviolet-100 opacity-15 blur-sm md:bottom-[-20rem] md:h-[100rem]" />
+
+                <Image
+                    src="/decoration/star-faded.svg"
+                    className="absolute right-[4rem] top-[10rem] rotate-[30deg] transform md:left-[10rem] md:top-[-5rem]"
+                    width={75}
+                    height={75}
+                    alt=""
+                />
+                <Image
+                    src="/decoration/star.svg"
+                    className="absolute left-[4rem] top-[-9rem] hidden rotate-[-110deg] transform md:block"
+                    width={125}
+                    height={128}
+                    alt=""
+                />
+                <Image
+                    src="/decoration/star-faded.svg"
+                    className="absolute right-[4rem] top-[45rem] rotate-[30deg] md:left-[30rem] md:top-[30rem]"
+                    width={75}
+                    height={75}
+                    alt=""
+                />
+            </div>
+
             {/* Grid Overlay Right (desktop only) */}
             <div className="grid-overlay-right hidden md:block md:h-[43.93rem] md:w-[50vw] 2xl:w-[50vw]"></div>
 
