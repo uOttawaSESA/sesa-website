@@ -55,14 +55,16 @@ export default function AboutPage() {
             <div className="container relative mx-auto max-w-7xl px-4 py-8">
                 {/* Upper area */}
                 <div className="flex flex-col gap-2">
-                    <div className="flex items-center gap-2 font-heading text-lg uppercase">
+                    <div className="flex items-center gap-2 font-heading text-base uppercase md:text-lg">
                         <p className="fill-gradient px-2 py-0.5">{t("partner")}</p>
                         <p>{t("faculty_of_eng")}</p>
                     </div>
-                    <h1 className="max-w-96 font-heading text-4xl uppercase">
+                    <h1 className="max-w-96 font-heading text-3xl uppercase md:text-4xl">
                         {t("inspiring_heading")}
                     </h1>
-                    <p className="max-w-[28rem] text-thistle">{t("inspiring_blurb")}</p>
+                    <p className="max-w-[28rem] text-base text-thistle md:text-lg">
+                        {t("inspiring_blurb")}
+                    </p>
                     <div className="my-2 flex gap-2 font-heading uppercase">
                         <Button className="font-heading uppercase" asChild>
                             <a href="#introducing-our-team">{t("meet_the_team")}</a>
@@ -90,11 +92,11 @@ export default function AboutPage() {
                 {/* "Who are we" */}
                 <div className="my-8 flex max-w-[28rem] flex-col gap-2 md:ml-[50%] md:mt-28">
                     <p className="color-gradient font-mono">{t("who_are_we")}</p>
-                    <h1 className="font-heading text-3xl uppercase">
+                    <h2 className="font-heading text-2xl uppercase md:text-3xl">
                         {t("who_are_we_heading")}{" "}
                         <span className="highlight-text">{t("who_are_we_heading_hl")}</span>
-                    </h1>
-                    <p className="text-thistle">
+                    </h2>
+                    <p className="text-base text-thistle">
                         <b>{t("who_are_we_p1_bold")}</b>, {t("who_are_we_p1")}{" "}
                     </p>
                     <p className="my-2 text-thistle">
@@ -106,7 +108,7 @@ export default function AboutPage() {
                 </div>
                 {/* Figures */}
                 <div className="flex justify-center md:mb-28">
-                    <div className="grid w-fit grid-cols-1 place-items-center gap-0 md:grid-cols-2 md:grid-cols-4">
+                    <div className="grid w-fit grid-cols-1 place-items-center gap-0 md:grid-cols-4">
                         <Metric
                             className="!w-64"
                             figure="3500+"
@@ -130,13 +132,15 @@ export default function AboutPage() {
                 </div>
                 {/* "What do we do" */}
                 <div className="my-8 flex flex-col gap-2 overflow-x-auto">
-                    <p className="color-gradient font-mono">{t("what_do_we_do")}</p>
-                    <h1 className="font-heading text-3xl uppercase">
+                    <p className="color-gradient font-mono text-xs md:text-base">
+                        {t("what_do_we_do")}
+                    </p>
+                    <h2 className="font-heading text-2xl uppercase md:text-3xl">
                         {t("what_do_we_do_heading")}{" "}
                         <span className="highlight-text">{t("what_do_we_do_heading_hl")}</span>
-                    </h1>
+                    </h2>
                     <div className="max-w-[28rem]">
-                        <p className="text-thistle">
+                        <p className="mb-2 text-base text-thistle md:text-lg">
                             <b>{t("what_do_we_do_p_bold")}</b> {t("what_do_we_do_p")}
                         </p>
                     </div>
@@ -197,20 +201,22 @@ export default function AboutPage() {
                     id="introducing-our-team"
                     className="align-center flex scroll-mt-28 flex-col items-center gap-2 text-center md:mt-28"
                 >
-                    <p className="color-gradient font-mono">{t("introducing_our_team")}</p>
-                    <h1 className="font-heading text-3xl uppercase">
+                    <p className="color-gradient font-mono text-xs md:text-base">
+                        {t("introducing_our_team")}
+                    </p>
+                    <h2 className="font-heading text-2xl uppercase md:text-3xl">
                         <span className="highlight-text">
                             {t("introducing_our_team_heading_hl")}
                         </span>{" "}
                         {t("introducing_our_team_heading")}
-                    </h1>
-                    <p className="max-w-[32rem] text-lg leading-tight text-thistle">
+                    </h2>
+                    <p className="max-w-[32rem] text-base leading-tight text-thistle md:text-lg">
                         {t("introducing_our_team_blurb")}
                     </p>
                 </div>
                 {/* TODO: Add the `sticky` class once a way to make it not super ugly is found */}
-                <div className="top-[5.6rem] z-10 mt-4 grid grid-flow-col grid-rows-4 text-center font-heading uppercase backdrop-blur-sm md:grid-rows-2">
-                    <Button className="!inline" variant="outline" asChild>
+                <div className="top-[5.6rem] z-10 mt-4 grid grid-flow-col grid-rows-4 text-center font-heading uppercase backdrop-blur-sm md:grid-rows-1">
+                    <Button className="!inline !px-2" variant="outline" asChild>
                         <Link href="#co-directors">{tOurTeam("codirectors")}</Link>
                     </Button>
                     <Button className="!inline" variant="outline" asChild>
@@ -274,13 +280,15 @@ export default function AboutPage() {
 
                 {/* Beyond SESA */}
                 <div className="align-center mt-24 flex flex-col items-center gap-3 text-center">
-                    <p className="color-gradient font-mono">{t("our_previous_partners")}</p>
-                    <h1 className="font-heading text-3xl uppercase">
+                    <p className="color-gradient font-mono text-xs md:text-base">
+                        {t("our_previous_partners")}
+                    </p>
+                    <h2 className="font-heading text-2xl uppercase md:text-3xl">
                         <span className="highlight-text">
                             {t("our_previous_partners_heading_hl")}
                         </span>
-                    </h1>
-                    <p className="max-w-[32rem] text-lg leading-snug text-thistle">
+                    </h2>
+                    <p className="max-w-[32rem] text-base leading-snug text-thistle md:text-lg">
                         <b>{t("our_previous_partners_p_bold")}</b>,{" "}
                         {t("our_previous_partners_p")}{" "}
                     </p>
@@ -311,12 +319,14 @@ export default function AboutPage() {
 
                 {/* Content Container */}
                 <div className="relative z-10 max-w-2xl px-4 md:px-0">
-                    <p className="color-gradient font-mono">{t("our_family")}</p>
-                    <h1 className="mt-4 max-w-[28rem] font-heading text-3xl uppercase leading-tight">
+                    <p className="color-gradient font-mono text-xs md:text-base">
+                        {t("our_family")}
+                    </p>
+                    <h2 className="mt-4 max-w-[28rem] font-heading text-2xl uppercase leading-tight md:text-3xl">
                         {t("our_family_heading")}{" "}
                         <span className="highlight-text">{t("our_family_heading_hl")}</span>
-                    </h1>
-                    <p className="mt-4 max-w-[28rem] font-sans text-base text-thistle md:text-lg md:leading-tight">
+                    </h2>
+                    <p className="mt-4 max-w-[28rem] font-sans text-base text-thistle md:text-lg">
                         <b>{t("our_family_p_bold")}</b>. {t("our_family_p")}
                     </p>
                     <div className="mt-6 flex flex-col space-y-2 font-heading">
@@ -327,7 +337,9 @@ export default function AboutPage() {
                         >
                             <Link href="/ContactUsPage">{t("apply_now")}</Link>
                         </Button>
-                        <p className="max-w-[28rem] font-mono text-gray-400">{t("no_more_apps")}</p>
+                        <p className="max-w-[28rem] font-mono text-sm text-thistle">
+                            {t("no_more_apps")}
+                        </p>
                     </div>
                 </div>
 

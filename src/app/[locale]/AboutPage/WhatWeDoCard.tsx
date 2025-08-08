@@ -32,9 +32,9 @@ export default function WhatWeDoCard({
                 <p className="outline-gradient flex h-12 w-12 items-center justify-center">
                     {icon}
                 </p>
-                <h2 className="font-heading text-xl uppercase">{heading}</h2>
-                <p className="text-lg leading-tight text-gray-400">{description}</p>
-                <Link href={linkHref} className="color-gradient font-heading text-xl uppercase">
+                <h2 className="font-heading text-lg uppercase md:text-xl">{heading}</h2>
+                <p className="text-base leading-tight text-thistle">{description}</p>
+                <Link href={linkHref} className="color-gradient font-heading text-lg uppercase">
                     {linkLabel} &gt;
                 </Link>
             </div>

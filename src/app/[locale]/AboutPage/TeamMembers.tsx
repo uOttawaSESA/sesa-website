@@ -84,9 +84,11 @@ function memberToIcons(member: Member) {
 export default function TeamMembers({ title, description, people }: Props) {
     return (
         <div id={title.toLowerCase()} className="scroll-mt-[100px]">
-            <h2 className="mb-3 font-heading text-xl uppercase">{title}</h2>
-            <p className="mb-4 max-w-md text-lg leading-tight text-thistle">{description} </p>
-            <div className="mt-10 flex gap-5 overflow-x-auto">
+            <h2 className="mb-3 font-heading text-lg uppercase md:text-xl">{title}</h2>
+            <p className="mb-4 max-w-md text-base leading-tight text-thistle md:text-lg">
+                {description}{" "}
+            </p>
+            <div className="flex gap-5 overflow-x-auto md:mt-7">
                 {people.map(person => (
                     <div
                         className="outline-gradient flex h-[413px] w-64 min-w-64 flex-col"
@@ -100,7 +102,9 @@ export default function TeamMembers({ title, description, people }: Props) {
                             className="h-64 w-64 object-cover"
                         />
                         <div className="flex flex-grow flex-col gap-2 p-4">
-                            <h3 className="font-sans text-xl font-bold">{person.name}</h3>
+                            <h3 className="font-sans text-lg font-bold md:text-xl">
+                                {person.name}
+                            </h3>
                             <p className="text-thistle">{person.role}</p>
                             <div className="mt-auto flex gap-2">{memberToIcons(person)}</div>
                         </div>
