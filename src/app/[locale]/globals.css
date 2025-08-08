@@ -498,3 +498,16 @@ select::placeholder {
         rgba(0, 0, 0, 0) 50%
     );
 }
+
+.fade-from-center-sponsorship-floor {
+    -webkit-mask-image: radial-gradient(
+        ellipse 100% 100% at center,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0) 90%
+    );
+    mask-image: radial-gradient(
+        ellipse 100% 100% at center,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0) 60%
+    );
+}
