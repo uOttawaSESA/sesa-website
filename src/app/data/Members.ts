@@ -40,14 +40,6 @@ export const membersData: Member[] = [
         email: "angemmanuel.kouakou@gmail.com",
     },
     {
-        name: "Shuaib Salad",
-        team: "Academic",
-        role: "Academic Coordinator",
-        imgPath: "/imgs/team/shuaib.webp",
-        linkedin: "https://www.linkedin.com/in/shuaib-salad/",
-        email: "sh.salat@gmail.com",
-    },
-    {
         name: "Jack Mackenzie",
         team: "Academic",
         role: "Academic Coordinator",
@@ -64,6 +56,22 @@ export const membersData: Member[] = [
         linkedin: "https://www.linkedin.com/in/thomas-li-softwareeng",
         email: "tli060@uottawa.ca",
     },
+    {
+        name: "Shirina Huang",
+        team: "Academic",
+        role: "Academic Coordinator",
+        imgPath: "/imgs/team/shirina.webp",
+        linkedin: "https://www.linkedin.com/in/shirina-huang-152642262",
+        email: "shuan170@uottawa.ca",
+    },
+    {
+        name: "Aryan Gupta",
+        team: "Academic",
+        role: "Academic Coordinator",
+        imgPath: "/imgs/team/aryan.webp",
+        linkedin: "https://www.linkedin.com/in/aryan-gupta-123456/",
+        email: "agupt122@uottawa.ca",
+    },
 
     // Communications Team
     {
@@ -71,8 +79,8 @@ export const membersData: Member[] = [
         team: "Communications",
         role: "Communications Lead",
         imgPath: "/imgs/team/vinusha.webp",
-        linkedin: "https://www.linkedin.com/in/vinusha-uthayakumar/",
-        github: "hthttps://github.com/vinushau",
+        linkedin: "https://www.linkedin.com/in/aryangupta16/",
+        github: "https://github.com/aryangupta2",
         email: "vutha032@uottawa.ca",
     },
     {
@@ -141,13 +149,13 @@ export const membersData: Member[] = [
         email: "msemm031@uottawa.ca",
     },
     {
-        name: "Ayushi Dosieah",
+        name: "Taha Rashid",
         team: "Events",
         role: "Events Coordinator",
-        imgPath: "/imgs/team/ayushi.webp",
-        linkedin: "www.linkedin.com/in/ayushi-dosieah",
-        github: "https://github.com/yushi-dos",
-        email: "ayushi.dosieah@gmail.com",
+        imgPath: "/imgs/team/taha.jpg",
+        linkedin: "https://www.linkedin.com/in/taha-rashid192/",
+        github: "https://github.com/TheBossT910",
+        email: "taharashid710192@gmail.com",
     },
     {
         name: "Thomas Boyle",
@@ -176,15 +184,6 @@ export const membersData: Member[] = [
         email: "ddaic067@uottawa.ca",
     },
     {
-        name: "Taha Rashid",
-        team: "Partnership",
-        role: "Partnership Coordinator",
-        imgPath: "/imgs/team/taha.jpg",
-        linkedin: "https://www.linkedin.com/in/taha-rashid192/",
-        github: "https://github.com/TheBossT910",
-        email: "taharashid710192@gmail.com",
-    },
-    {
         name: "Bilal Shaikh",
         team: "Partnership",
         role: "Partnership Coordinator",
@@ -199,8 +198,41 @@ export const membersData: Member[] = [
         imgPath: "/imgs/team/whitney.webp",
         email: "wnseg071@uottawa.ca",
     },
+    {
+        name: "Ayushi Dosieah",
+        team: "Partnership",
+        role: "Partnerships Coordinator",
+        imgPath: "/imgs/team/ayushi.webp",
+        linkedin: "www.linkedin.com/in/ayushi-dosieah",
+        github: "https://github.com/yushi-dos",
+        email: "ayushi.dosieah@gmail.com",
+    },
 
     // Advisors
+    {
+        name: "Kelly Gao",
+        team: "Advisors",
+        role: "Advisor",
+        imgPath: "/imgs/team/kelly.jpg",
+        linkedin: "https://www.linkedin.com/in/kellymgao/",
+        github: "https://github.com/miuponn",
+    },
+    {
+        name: "Riki McAlear",
+        team: "Advisors",
+        role: "Advisor",
+        imgPath: "/imgs/team/riki.jpg",
+        linkedin: "https://www.linkedin.com/in/riki-mcalear/",
+        github: "https://github.com/riku737",
+    },
+    {
+        name: "Peter Bou-Farah",
+        team: "Advisors",
+        role: "Advisor",
+        imgPath: "/imgs/team/peter.webp",
+        linkedin: "https://www.linkedin.com/in/peter-bou-farah/",
+        github: "https://github.com/peter-bf",
+    },
     {
         name: "Adam Said",
         team: "Advisors",
@@ -216,28 +248,13 @@ export const membersData: Member[] = [
         linkedin: "https://www.linkedin.com/in/deniz-jasarbasic/",
     },
     {
-        name: "Kelly Gao",
-        team: "Advisors",
-        role: "Advisor",
-        imgPath: "/imgs/team/kelly.jpg",
-        linkedin: "https://www.linkedin.com/in/kellymgao/",
-        github: "https://github.com/miuponn",
-    },
-    {
         name: "Ichrak El Hatimi",
         team: "Advisors",
         role: "Advisor",
         imgPath: "/imgs/team/ichrak.webp",
         linkedin: "https://www.linkedin.com/in/ichrakelhatimi/",
     },
-    {
-        name: "Riki McAlear",
-        team: "Advisors",
-        role: "Advisor",
-        imgPath: "/imgs/team/riki.jpg",
-        linkedin: "https://www.linkedin.com/in/riki-mcalear/",
-        github: "https://github.com/riku737",
-    },
+
     {
         name: "Anthony Le",
         team: "Advisors",
