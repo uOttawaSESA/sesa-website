@@ -12,7 +12,7 @@ export const generateStaticParams = localeParams;
 
 const SponsorsPage = () => {
     return (
-        <>
+        <div className="relative">
             <SponsorsHeader
                 topText="Sponsor & partners"
                 title="HUGE THANKS TO OUR GENEROUS SPONSORS AND PARTNERS"
@@ -20,13 +20,17 @@ const SponsorsPage = () => {
                 btn1="Become a sponsor"
                 btn2="View Benefits"
             />
-            <SponsorsGrid />
-            <CTA />
+            <div className="relative z-20">
+                <SponsorsGrid />
+            </div>
+            <div className="relative z-10">
+                <CTA />
+            </div>
             <SponsorCard />
             <PastCollaboratorsCarousel />
             <Benefits />
             <SponsorCard2 />
-        </>
+        </div>
     );
 };
 
