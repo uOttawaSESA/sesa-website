@@ -12,7 +12,7 @@ interface SponsorsHeaderProps {
 
 const SponsorsHeader = ({ topText, title, bottomText, btn1, btn2 }: SponsorsHeaderProps) => {
     return (
-        <div className="mt-16 flex w-full justify-center px-4 md:mt-24 md:px-6">
+        <div className="relative mt-16 flex w-full justify-center px-4 md:mt-24 md:px-6">
             {/* Decorations */}
             <div className="pointer-events-none select-none">
                 {/* Warm gradient */}
@@ -34,7 +34,7 @@ const SponsorsHeader = ({ topText, title, bottomText, btn1, btn2 }: SponsorsHead
                 />
                 <Image
                     src="/decoration/star.svg"
-                    className="bottom absolute left-[15rem] top-[0rem] hidden rotate-[-110deg] transform md:top-[15rem] md:block"
+                    className="bottom absolute left-[15rem] top-[0rem] hidden rotate-[-110deg] transform md:top-[0rem] md:block"
                     width={125}
                     height={128}
                     alt=""
@@ -42,7 +42,7 @@ const SponsorsHeader = ({ topText, title, bottomText, btn1, btn2 }: SponsorsHead
 
                 <Image
                     src="/decoration/sponsorships-floor-grid.svg"
-                    className="fade-from-center-sponsorship-floor absolute left-1/2 z-0 hidden -translate-x-1/2 transform opacity-70 md:bottom-[8rem] md:block"
+                    className="fade-from-center-sponsorship-floor absolute left-1/2 z-0 hidden -translate-x-1/2 transform opacity-60 md:bottom-[-10rem] md:block"
                     width={1200}
                     height={1000}
                     alt=""
