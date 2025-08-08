@@ -18,9 +18,33 @@ const logos = [
 
 const PastCollaboratorsCarousel = () => {
     return (
-        <div className="flex flex-col items-center justify-center overflow-hidden py-10 text-center md:py-14">
+        <div className="relative flex flex-col items-center justify-center overflow-hidden py-24 text-center md:py-32">
+            {/* Decorations */}
+            <div className="pointer-events-none absolute inset-0 z-0">
+                <Image
+                    src="/decoration/star.svg"
+                    className="bottom absolute left-[15rem] top-0 hidden rotate-[-110deg] transform md:block"
+                    width={125}
+                    height={128}
+                    alt=""
+                />
+                <Image
+                    src="/decoration/star-faded.svg"
+                    className="absolute right-[20rem] rotate-[30deg] transform md:bottom-0 md:right-[16rem]"
+                    width={75}
+                    height={75}
+                    alt=""
+                />
+                <Image
+                    src="/decoration/globe.svg"
+                    className="fade-from-center-sponsorship-floor absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform opacity-40 md:opacity-60"
+                    width={520}
+                    height={520}
+                    alt="Globe Decoration"
+                />
+            </div>
             {/* Header content */}
-            <div className="flex flex-col items-center space-y-3 px-5">
+            <div className="z-20 flex flex-col items-center space-y-3 px-5">
                 <p className="relative inline-block !bg-clip-text font-mono text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)] md:text-base">
                     Our previous partners
                 </p>
@@ -43,7 +67,7 @@ const PastCollaboratorsCarousel = () => {
                     {logos.concat(logos).map((logo, index) => (
                         <div
                             key={index}
-                            className={`mx-4 flex h-24 min-w-[160px] items-center justify-center rounded-lg p-4 md:h-28 md:min-w-[200px] md:p-6 ${gradientBorderClass}`}
+                            className={`mx-4 flex h-24 min-w-[160px] items-center justify-center rounded-lg p-4 backdrop-blur-lg md:h-28 md:min-w-[200px] md:p-6 ${gradientBorderClass}`}
                         >
                             <Image
                                 src={logo.src}
