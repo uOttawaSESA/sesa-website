@@ -26,7 +26,7 @@ const ContactDetails = () => {
                 </p>
 
                 <Button
-                    className="flex items-center gap-3 font-heading text-lg uppercase md:text-xl"
+                    className="flex items-center gap-3 font-heading text-base uppercase md:text-xl"
                     style={{ width: "fit-content" }}
                     onClick={() => navigator.clipboard.writeText("uottawa.sesa@gmail.com")}
                 >
@@ -40,7 +40,7 @@ const ContactDetails = () => {
                     />
                 </Button>
 
-                <div className="mt-10 space-y-1 font-mono text-sm text-thistle md:text-base">
+                <div className="mt-7 space-y-1 font-mono text-sm text-thistle md:text-base">
                     <p>800 King Edward Ave,</p>
                     <p>Ottawa, ON, K1N 1A2,</p>
                     <p>STE 0109</p>
