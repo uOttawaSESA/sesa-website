@@ -63,7 +63,7 @@ const PastCollaboratorsCarousel = () => {
 
             {/* Marquee Carousel */}
             <div className="relative mt-8 w-full">
-                <Marquee speed={40} gradient={false} pauseOnHover={true}>
+                <Marquee speed={40} gradient={false} pauseOnHover={true} autoFill>
                     {logos.concat(logos).map((logo, index) => (
                         <div
                             key={index}

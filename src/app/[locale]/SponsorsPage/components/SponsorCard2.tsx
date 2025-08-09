@@ -36,7 +36,7 @@ const SponsorCard2 = () => {
                 />
                 <Image
                     src="/decoration/star-faded.svg"
-                    className="absolute right-[4rem] top-[45rem] rotate-[30deg] md:left-[30rem] md:top-[30rem]"
+                    className="absolute right-[4rem] top-[45rem] rotate-[30deg] md:left-[30rem] md:top-[30rem] 2xl:left-[40rem] 2xl:top-[40rem]"
                     width={75}
                     height={75}
                     alt=""
@@ -44,12 +44,12 @@ const SponsorCard2 = () => {
             </div>
 
             {/* Grid Overlay Right (desktop only) */}
-            <div className="grid-overlay-right hidden md:block md:h-[43.93rem] md:w-[50vw] 2xl:w-[50vw]"></div>
+            <div className="grid-overlay-right hidden md:block md:h-[43.93rem] md:w-[50vw] 2xl:w-[45vw]"></div>
 
             {/* Content Container */}
             <div className="relative z-10 flex w-full flex-col-reverse items-start justify-between gap-8 md:flex-row md:gap-12">
                 {/* Text Section */}
-                <div className="max-w-xl text-left">
+                <div className="max-w-xl text-left 2xl:max-w-2xl">
                     <p className="font-monocode relative inline-block !bg-clip-text text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)] md:text-base">
                         Partner with us
                     </p>

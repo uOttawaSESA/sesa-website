@@ -145,7 +145,7 @@ export default function Benefits() {
                                     alt={card.title}
                                     width={500}
                                     height={300}
-                                    className="h-40 w-full object-cover md:h-48"
+                                    className="h-40 w-full object-cover md:h-48 2xl:h-96"
                                 />
                                 <div className="flex grow flex-col justify-between p-4">
                                     <div>
