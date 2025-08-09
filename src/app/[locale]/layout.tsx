@@ -55,7 +55,7 @@ export default async function RootLayout({
                         backgroundRepeat: "no-repeat",
                         backgroundSize: "cover",
                         backgroundPosition: "center",
-                        opacity: 0.7,
+                        opacity: 0.9,
                     }}
                 />
                 <NextIntlClientProvider messages={messages}>
