@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { LanguageSelect } from "@/components/LanguageSelect";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { ExternalLink } from "lucide-react";
 
 // === Removed sponsor marquee, in case we want it again: ===
 // {/* Sponsors marquee */}
@@ -34,6 +35,24 @@ export default function Footer() {
                         <p className="text-thistle">
                             &copy;&nbsp;2014&ndash;{new Date().getFullYear()}
                         </p>
+                        <div className="flex w-full justify-center">
+                            <Button variant="ghost-plain" className="gap-2 text-thistle" asChild>
+                                <Link
+                                    href="https://github.com/uOttawaSESA/sesa-website/"
+                                    target="_blank"
+                                >
+                                    <Image
+                                        src="/icons/github-plain.svg"
+                                        alt="GitHub"
+                                        width={24}
+                                        height={24}
+                                        className="h-6 w-6"
+                                    />
+                                    View Source
+                                    <ExternalLink />
+                                </Link>
+                            </Button>
+                        </div>
                     </div>
 
                     <div className="flex flex-wrap justify-between gap-4 text-left sm:flex-nowrap lg:gap-36">
