@@ -48,6 +48,16 @@ export default async function RootLayout({
             <body
                 className={`${geistSans.variable} ${geistMono.variable} ${raleway.variable} bg-gradient-to-b from-[#1b1b1b] from-0% via-[#381e4b] via-10% to-[#1b1b1b] font-sans antialiased`}
             >
+                <div
+                    className="pointer-events-none fixed inset-0 z-[-1]"
+                    style={{
+                        backgroundImage: `url('/decoration/noise-texture.svg')`,
+                        backgroundRepeat: "no-repeat",
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                        opacity: 0.7,
+                    }}
+                />
                 <NextIntlClientProvider messages={messages}>
                     <div className="overflow-x-hidden">
                         <Navbar />
