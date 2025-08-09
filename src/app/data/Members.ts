@@ -101,6 +101,24 @@ export const membersData: Member[] = [
         github: "https://github.com/sophiahopk012",
         email: "sophiagchopkins@gmail.com",
     },
+    {
+        name: "Mercy Irera",
+        team: "Communications",
+        role: "Communications Coordinator",
+        imgPath: "/imgs/team/mercy.webp",
+        linkedin: "https://www.linkedin.com/in/mercyirera/",
+        email: "mirer091@uottawa.ca",
+    },
+    {
+        name: "Deggan Farah",
+        team: "Communications",
+        role: "Communications Coordinator",
+        imgPath: "/imgs/team/deggan.webp",
+        linkedin: "https://www.linkedin.com/in/deggan-farah/",
+        github: "https://github.com/Deggan12",
+        email: "dfara053@uottawa.ca",
+    },
+
     // Development Team
     {
         name: "Tazim Khan",
@@ -138,6 +156,7 @@ export const membersData: Member[] = [
         email: "gr.gupta.raman@gmail.com",
         portfolio: "https://raman.codes",
     },
+
     // Events Team
     {
         name: "Mehdi Semmar",
@@ -174,6 +193,17 @@ export const membersData: Member[] = [
         github: "https://github.com/RakosDarren",
         email: "darren.y.rakos@gmail.com",
     },
+    {
+        name: "Nodshley Marcelin",
+        team: "Events",
+        role: "Events Coordinator",
+        imgPath: "/imgs/team/nodshley.webp",
+        linkedin: "https://www.linkedin.com/in/nodshleymarcelin/",
+        github: "https://github.com/marcycode",
+        portfolio: "https://marcycode.github.io/",
+        email: "nmarcelin123@gmail.com",
+    },
+
     // Partnership Team
     {
         name: "Dragos Daiciulescu",
