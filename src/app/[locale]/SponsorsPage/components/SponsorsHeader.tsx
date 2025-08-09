@@ -34,7 +34,7 @@ const SponsorsHeader = ({ topText, title, bottomText, btn1, btn2 }: SponsorsHead
                 />
                 <Image
                     src="/decoration/star.svg"
-                    className="bottom absolute left-[15rem] top-[0rem] hidden rotate-[-110deg] transform md:top-[0rem] md:block"
+                    className="absolute left-[15rem] top-[0rem] hidden rotate-[-110deg] transform md:top-[0rem] md:block"
                     width={125}
                     height={128}
                     alt=""

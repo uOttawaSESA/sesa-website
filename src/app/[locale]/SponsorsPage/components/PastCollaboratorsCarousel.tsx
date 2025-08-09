@@ -23,7 +23,7 @@ const PastCollaboratorsCarousel = () => {
             <div className="pointer-events-none absolute inset-0 z-0">
                 <Image
                     src="/decoration/star.svg"
-                    className="bottom absolute left-[15rem] top-0 hidden rotate-[-110deg] transform md:block"
+                    className="absolute left-[15rem] top-0 hidden rotate-[-110deg] transform md:block"
                     width={125}
                     height={128}
                     alt=""
