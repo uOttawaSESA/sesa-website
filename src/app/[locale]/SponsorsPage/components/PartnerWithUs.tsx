@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { TeamBadgeStack } from "@/components/TeamBadgeStack";
 import { Link } from "@/i18n/navigation";
 
-const SponsorCard2 = () => {
+const PartnerWithUs = () => {
     const teamImgs = [
         "/imgs/team/dragos.webp",
         "/imgs/team/ayushi.webp",
@@ -104,4 +104,4 @@ const SponsorCard2 = () => {
     );
 };
 
-export default SponsorCard2;
+export default PartnerWithUs;

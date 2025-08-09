@@ -2,9 +2,9 @@ import SponsorsHeader from "./components/SponsorsHeader";
 import Benefits from "./components/Benefits";
 import CTA from "./components/CTA";
 import PastCollaboratorsCarousel from "./components/PastCollaboratorsCarousel";
-import SponsorCard from "./components/SponsorCard";
+import TestimonialsCarousel from "./components/TestimonialsCarousel";
 import SponsorsGrid from "./components/SponsorsGrid";
-import SponsorCard2 from "./components/SponsorCard2";
+import PartnerWithUs from "./components/PartnerWithUs";
 
 // Precompile i18n
 import localeParams from "../../data/locales";
@@ -26,10 +26,10 @@ const SponsorsPage = () => {
             <div className="relative z-10">
                 <CTA />
             </div>
-            <SponsorCard />
+            <TestimonialsCarousel />
             <PastCollaboratorsCarousel />
             <Benefits />
-            <SponsorCard2 />
+            <PartnerWithUs />
         </div>
     );
 };
