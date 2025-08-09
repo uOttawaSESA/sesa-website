@@ -48,19 +48,19 @@ export const StatsSection = ({
             </div>
 
             {/* Tier with Tooltip */}
-            <div
-                className={`group relative flex items-center gap-1 ${layout === "horizontal" ? "w-5" : ""}`}
-            >
-                <Image
-                    src="/resources-page/description.svg"
-                    alt="Document"
-                    width={iconSize}
-                    height={iconSize}
-                    className={`h-${iconSize === 16 ? "4" : "5"} w-${iconSize === 16 ? "4" : "5"}`}
-                />
-                <span className={textSize}>{tier}</span>
-                <div className="absolute -top-8 left-0 z-10 whitespace-nowrap rounded bg-black px-2 py-1 text-xs text-white opacity-0 transition-opacity group-hover:opacity-100">
-                    {getTierTooltip(tier)}
+            <div className={`relative flex gap-1 ${layout === "horizontal" ? "w-5" : ""}`}>
+                <div className="group relative flex items-center gap-1">
+                    <Image
+                        src="/resources-page/description.svg"
+                        alt="Document"
+                        width={iconSize}
+                        height={iconSize}
+                        className={`h-${iconSize === 16 ? "4" : "5"} w-${iconSize === 16 ? "4" : "5"}`}
+                    />
+                    <span className={textSize}>{tier}</span>
+                    <div className="outline-gradient absolute left-1/2 top-10 z-20 -translate-x-1/2 whitespace-nowrap bg-black/60 px-3 py-1.5 text-xs text-white opacity-0 shadow-lg shadow-purple-500/20 backdrop-blur-xl transition-all duration-300 group-hover:opacity-100">
+                        {getTierTooltip(tier)}
+                    </div>
                 </div>
             </div>
 
