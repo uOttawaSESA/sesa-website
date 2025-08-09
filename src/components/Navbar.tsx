@@ -95,11 +95,12 @@ export default function Navbar() {
                 <div className="flex items-center gap-4">
                     <LanguageSelect />
 
-                    <Link href="/SponsorsPage" className="hidden lg:block">
-                        <Button className="font-heading text-base uppercase text-white">
-                            {t("sponsor_us")}
-                        </Button>
-                    </Link>
+                    <Button
+                        className="hidden h-12 items-center text-center font-heading text-base uppercase !leading-none text-white lg:flex"
+                        asChild
+                    >
+                        <Link href="/SponsorsPage">{t("sponsor_us")}</Link>
+                    </Button>
                     {/* Hamburger menu for mobile */}
                     <Button
                         size="icon"
@@ -118,11 +119,11 @@ export default function Navbar() {
             >
                 <nav className="mt-16 flex flex-col items-center gap-8 py-10">
                     {navItems}
-                    <Link href="/SponsorsPage" onClick={() => setIsMobileMenuOpen(false)}>
-                        <Button className="font-heading text-base uppercase text-white">
+                    <Button className="font-heading text-base uppercase text-white" asChild>
+                        <Link href="/SponsorsPage" onClick={() => setIsMobileMenuOpen(false)}>
                             {t("sponsor_us")}
-                        </Button>
-                    </Link>
+                        </Link>
+                    </Button>
                 </nav>
             </div>
 
