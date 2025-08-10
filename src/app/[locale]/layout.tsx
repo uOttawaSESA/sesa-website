@@ -5,8 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { routing } from "@/i18n/routing";
 
 // Load fonts
@@ -38,13 +37,10 @@ export default async function RootLayout({
 }>) {
     // Ensure that the incoming `locale` is valid
     const { locale } = await params;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    if (!routing.locales.includes(locale as any)) notFound();
-
-    const messages = await getMessages();
+    if (!hasLocale(routing.locales, locale)) notFound();
 
     return (
-        <html lang="en">
+        <html lang={locale}>
             <body
                 className={`${geistSans.variable} ${geistMono.variable} ${raleway.variable} bg-gradient-to-b from-[#1b1b1b] from-0% via-[#381e4b] via-10% to-[#1b1b1b] font-sans antialiased`}
                 style={{
@@ -54,7 +50,7 @@ export default async function RootLayout({
                     // backgroundPosition: "center",
                 }}
             >
-                <NextIntlClientProvider messages={messages}>
+                <NextIntlClientProvider>
                     <div className="overflow-x-hidden">
                         <Navbar />
                         <main>{children}</main>
