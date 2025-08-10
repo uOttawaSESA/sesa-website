@@ -2,8 +2,11 @@ import { Button } from "@/components/ui/button";
 import SponsorsGrid from "../../SponsorsPage/components/SponsorsGrid";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const Sponsors = () => {
+    const t = useTranslations("homepage");
+
     return (
         <section className="relative">
             {/* Decorations */}
@@ -55,30 +58,31 @@ const Sponsors = () => {
                     {/* Content Container */}
                     <div className="relative z-10 text-center">
                         <p className="relative inline-block !bg-clip-text font-mono text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)] md:text-base">
-                            Our sponsors & partners
+                            {t("sponsors_partners")}
                         </p>
                         <h1 className="mx-auto mt-2 max-w-[30ch] font-heading text-2xl uppercase leading-tight text-white md:text-4xl">
                             <span className="relative inline-block">
-                                <span className="highlight-text">Trusted and sponsored</span> by the
-                                best in the game
+                                <span className="highlight-text">
+                                    {t("sponsors_heading_h1_highlighted")}
+                                </span>{" "}
+                                {t("sponsors_heading_h1")}
                             </span>
                             <br />
                         </h1>
 
                         <p className="relative mx-auto mt-4 w-full max-w-[40rem] font-sans text-base text-thistle md:text-lg">
-                            We’re incredibly grateful to our partners who believe in our mission to
-                            connect students with industry professionals.
+                            {t("sponsors_subheading")}
                         </p>
                         <div className="mt-6 flex justify-center space-x-4 font-heading text-white">
                             <Button className="font-heading text-sm uppercase md:text-lg" asChild>
-                                <Link href="/SponsorsPage">Become a sponsor</Link>
+                                <Link href="/SponsorsPage">{t("become_sponsor_btn")}</Link>
                             </Button>
                             <Button
                                 className="font-heading text-sm uppercase md:text-lg"
                                 variant="outline"
                                 asChild
                             >
-                                <Link href="/AboutPage">Meet the team</Link>
+                                <Link href="/AboutPage">{t("meet_team_btn")}</Link>
                             </Button>
                         </div>
                     </div>

@@ -14,15 +14,22 @@
         "view_all_events": "View All Events",
         "event_card_details_btn": "Details",
         "resources_by_students": "Resources by students for students",
-        "resources_at_your": "Resources at your",
-        "fingertips": "Fingertips",
-        "resources_description": "Our academic team actively organize free resources to support software engineering students in their studies.",
+        "resources_heading_h1": "Resources at your",
+        "resources_heading_h1_highlighted": "Fingertips",
+        "resources_subheading": "Our academic team actively organize free resources to support software engineering students in their studies.",
         "coming_soon_title": "Coming Fall 2025: Your academic toolbox.",
         "coming_soon_subtitle": "All the resources you need, in one place—launching soon.",
         "explore_all_resources": "Explore all resources",
         "join_our_discord": "Join our discord",
         "thumbs_up_alt": "thumbsUp",
-        "helpfulness_stats": "95% average helpfulness, 1000+ students helped"
+        "helpfulness_stats": "95% average helpfulness, 1000+ students helped",
+        "sponsors_partners": "Our sponsors & partners",
+        "sponsors_heading_h1_highlighted": "Trusted and sponsored",
+        "sponsors_heading_h1": "by the best in the game",
+        "sponsors_subheading": "We're incredibly grateful to our partners who believe in our mission to connect students with industry professionals.",
+        "become_sponsor_btn": "Become a sponsor",
+        "meet_team_btn": "Meet the team",
+        "coming_soon_home_btn": "Back to Home"
     },
 
     "about": {

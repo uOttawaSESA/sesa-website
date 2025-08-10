@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 
 interface ComingSoonMessageProps {
     title: string;
@@ -9,6 +10,7 @@ interface ComingSoonMessageProps {
 }
 
 const ComingSoonMessage: React.FC<ComingSoonMessageProps> = ({ title, subtitle, homeButton }) => {
+    const t = useTranslations("homepage");
     return (
         <div
             className={`mx-2 flex max-w-4xl flex-col items-center justify-center gap-6 rounded-2xl border border-white/10 p-10 text-center text-white backdrop-blur-super md:mx-auto ${
@@ -28,7 +30,7 @@ const ComingSoonMessage: React.FC<ComingSoonMessageProps> = ({ title, subtitle, 
             <p className="text-md text-thistle/80">{subtitle}</p>
             {homeButton && (
                 <Button asChild>
-                    <Link href="/">Back to Home</Link>
+                    <Link href="/">{t("coming_soon_home_btn")}</Link>
                 </Button>
             )}
         </div>
