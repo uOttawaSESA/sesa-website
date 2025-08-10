@@ -68,7 +68,7 @@ export const ResourceCard = ({
     // Grid mode layout
     return (
         <div
-            className="outline-gradient relative h-48 w-80 p-6 font-heading backdrop-blur-xl transition-all hover:shadow-lg hover:shadow-purple-500/25 md:w-96"
+            className="outline-gradient relative z-10 h-48 w-80 p-6 font-heading backdrop-blur-xl transition-all hover:shadow-lg hover:shadow-purple-500/25 md:w-96"
             onMouseEnter={() => setShowOpen(true)}
             onMouseLeave={() => setShowOpen(false)}
         >

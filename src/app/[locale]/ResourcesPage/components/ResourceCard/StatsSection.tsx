@@ -1,3 +1,5 @@
+import { createPortal } from "react-dom";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 
 const getTierTooltip = (tier: string) => {
@@ -15,6 +17,26 @@ const getTierTooltip = (tier: string) => {
     }
 };
 
+// Tooltip component to display tier information
+// This uses a portal to render the tooltip outside the normal DOM hierarchy
+const TooltipPortal = ({
+    children,
+    position,
+}: {
+    children: React.ReactNode;
+    position: { top: number; left: number };
+}) => {
+    return createPortal(
+        <div
+            className="outline-gradient fixed z-[9999] px-3 py-1.5 text-sm text-white shadow-lg shadow-purple-500/20 backdrop-blur-xl"
+            style={{ top: position.top, left: position.left }}
+        >
+            {children}
+        </div>,
+        document.body,
+    );
+};
+
 export const StatsSection = ({
     rating,
     tier,
@@ -28,10 +50,24 @@ export const StatsSection = ({
     size?: "sm" | "base";
     layout?: "horizontal" | "compact";
 }) => {
+    const [showTooltip, setShowTooltip] = useState(false);
+    const [tooltipPos, setTooltipPos] = useState({ top: 0, left: 0 });
+    const iconRef = useRef<HTMLDivElement>(null);
+
     const iconSize = size === "sm" ? 16 : 20;
     const textSize = size === "sm" ? "text-base" : "text-sm";
     const gapSize = layout === "compact" ? "gap-6" : "gap-7";
     const widthClasses = layout === "compact" ? "" : "w-10";
+
+    useEffect(() => {
+        if (showTooltip && iconRef.current) {
+            const rect = iconRef.current.getBoundingClientRect();
+            setTooltipPos({
+                top: rect.bottom + 8, // 8px offset
+                left: rect.left + rect.width / 2 - 170,
+            });
+        }
+    }, [showTooltip]);
 
     return (
         <div className={`flex ${gapSize} font-[Monocode] text-thistle`}>
@@ -49,19 +85,24 @@ export const StatsSection = ({
 
             {/* Tier with Tooltip */}
             <div className={`relative flex gap-1 ${layout === "horizontal" ? "w-5" : ""}`}>
-                <div className="group relative flex items-center gap-1">
+                <div
+                    ref={iconRef}
+                    className="-m-1 flex flex-1 items-center px-1 py-1"
+                    onMouseEnter={() => setShowTooltip(true)}
+                    onMouseLeave={() => setShowTooltip(false)}
+                >
                     <Image
                         src="/resources-page/description.svg"
                         alt="Document"
                         width={iconSize}
                         height={iconSize}
-                        className={`h-${iconSize === 16 ? "4" : "5"} w-${iconSize === 16 ? "4" : "5"}`}
+                        className={`h-${iconSize === 16 ? "4" : "5"} w-${iconSize === 16 ? "4" : "5"} mr-1`}
                     />
                     <span className={textSize}>{tier}</span>
-                    <div className="outline-gradient absolute left-1/2 top-10 z-20 -translate-x-1/2 whitespace-nowrap bg-black/60 px-3 py-1.5 text-xs text-white opacity-0 shadow-lg shadow-purple-500/20 backdrop-blur-xl transition-all duration-300 group-hover:opacity-100">
-                        {getTierTooltip(tier)}
-                    </div>
                 </div>
+                {showTooltip && (
+                    <TooltipPortal position={tooltipPos}>{getTierTooltip(tier)}</TooltipPortal>
+                )}
             </div>
 
             {/* Format */}
