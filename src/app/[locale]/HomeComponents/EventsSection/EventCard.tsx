@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { format } from "date-fns";
 import { Event } from "@/app/[locale]/EventsPage/utils/types";
+import { useTranslations } from "next-intl";
 
 const EventCard: React.FC<Event> = ({
     title,
@@ -16,6 +17,8 @@ const EventCard: React.FC<Event> = ({
     const day = format(date, "dd"); // e.g., "25"
     const month = format(date, "MMM"); // e.g., "Mar"
     const timeRange = `${format(startTime, "ha")} – ${format(endTime, "ha")}`; // "6PM – 8PM"
+
+    const t = useTranslations("homepage");
 
     return (
         <div className="flex h-full w-full flex-col overflow-hidden border-2 border-solid border-blueviolet-700 bg-gray-200 opacity-90">
@@ -67,7 +70,7 @@ const EventCard: React.FC<Event> = ({
                     target="_blank"
                     className="color-gradient-clickable text-lg text-transparent"
                 >
-                    Details
+                    {t("event_card_details_btn")}
                 </a>
             </div>
         </div>

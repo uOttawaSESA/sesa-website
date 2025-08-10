@@ -6,11 +6,23 @@
         "purpose": "We connect SEG & EECS students with industry professionals in software engineering, providing resources, networking, and career development.",
         "learn_more": "Learn More",
         "get_involved": "Get Involved",
+
         "events": "Events",
         "events_heading_hl": "Mark your calendar",
         "events_heading": "with our upcoming events",
         "events_subheading": "Register today and save the date. Add our events to your calendar using the built-in embed feature!",
-        "view_all_events": "View All Events"
+        "view_all_events": "View All Events",
+        "event_card_details_btn": "Details",
+        "resources_by_students": "Resources by students for students",
+        "resources_at_your": "Resources at your",
+        "fingertips": "Fingertips",
+        "resources_description": "Our academic team actively organize free resources to support software engineering students in their studies.",
+        "coming_soon_title": "Coming Fall 2025: Your academic toolbox.",
+        "coming_soon_subtitle": "All the resources you need, in one place—launching soon.",
+        "explore_all_resources": "Explore all resources",
+        "join_our_discord": "Join our discord",
+        "thumbs_up_alt": "thumbsUp",
+        "helpfulness_stats": "95% average helpfulness, 1000+ students helped"
     },
 
     "about": {
