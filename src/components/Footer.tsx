@@ -35,24 +35,27 @@ export default function Footer() {
                         <p className="text-thistle">
                             &copy;&nbsp;2014&ndash;{new Date().getFullYear()}
                         </p>
-                        <div className="flex w-full justify-center">
-                            <Button variant="ghost-plain" className="gap-2 text-thistle" asChild>
-                                <Link
-                                    href="https://github.com/uOttawaSESA/sesa-website/"
-                                    target="_blank"
-                                >
-                                    <Image
-                                        src="/icons/github-plain.svg"
-                                        alt="GitHub"
-                                        width={24}
-                                        height={24}
-                                        className="h-6 w-6"
-                                    />
-                                    View Source
-                                    <ExternalLink />
-                                </Link>
-                            </Button>
-                        </div>
+                        {/* Note: I've aligned this button with `-left-3` instead of making the padding 0 so that the hover animation still looks ok */}
+                        <Button
+                            variant="ghost-plain"
+                            className="-left-3 gap-2 p-3 text-sm text-thistle md:text-base"
+                            asChild
+                        >
+                            <Link
+                                href="https://github.com/uOttawaSESA/sesa-website/"
+                                target="_blank"
+                            >
+                                <Image
+                                    src="/icons/github-plain.svg"
+                                    alt="GitHub"
+                                    width={20}
+                                    height={20}
+                                    className="h-5 w-5"
+                                />
+                                View Source
+                                <ExternalLink className="h-5 w-5" />
+                            </Link>
+                        </Button>
                     </div>
 
                     <div className="flex flex-wrap justify-between gap-4 text-left sm:flex-nowrap lg:gap-36">
