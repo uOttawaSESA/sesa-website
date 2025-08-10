@@ -6,7 +6,7 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useParams } from "next/navigation";
 import Image from "next/image";
 
@@ -63,8 +63,8 @@ const FAQ = () => {
                         <span className="highlight-text">We&apos;ve got answers!</span>
                     </h1>
                     <p className="max-w-sm text-center font-sans text-base text-thistle md:max-w-lg md:text-lg xl:max-w-xl">
-                        We have A’s to your Q’s below. If you still have questions, contact us and
-                        we’ll get back to you as soon as possible.
+                        We have A's to your Q's below. If you still have questions, contact us and
+                        we'll get back to you as soon as possible.
                     </p>
                 </div>
 
@@ -77,13 +77,16 @@ const FAQ = () => {
                                 collapsible
                                 className="outline-gradient w-full overflow-hidden rounded-br-2xl border"
                             >
-                                <AccordionItem value="item-1" className="border-purple-600 px-4">
+                                <AccordionItem
+                                    value="item-1"
+                                    className="border-purple-600 px-4 leading-tight"
+                                >
                                     <AccordionTrigger className="py-4 font-heading text-base text-white md:text-lg">
                                         WHAT IS SESA?
                                     </AccordionTrigger>
-                                    <AccordionContent className="font-sans text-base text-thistle md:text-lg">
+                                    <AccordionContent className="tight font-sans text-base text-thistle md:text-lg">
                                         <b>SESA</b> is the University of Ottawa{" "}
-                                        <b>Software Engineering Students Association</b>! We’re an
+                                        <b>Software Engineering Students Association</b>! We're an
                                         informally and independently run student organization with
                                         the mission of <b>enriching SEG student life</b>,{" "}
                                         <b>promoting software engineering</b> as a field, and{" "}
@@ -93,40 +96,25 @@ const FAQ = () => {
                                         <br />
                                         Our initiatives are designed to help students succeed both
                                         in and out of the classroom. These include:
-                                        <ul className="mt-4 space-y-2 pl-4">
-                                            <li className="flex items-start gap-2">
-                                                <span className="mt-1 text-purple-400">•</span>
-                                                <span>
-                                                    <b>Professional development workshops</b> and{" "}
-                                                    <b>networking events</b> for students
-                                                </span>
+                                        <ul className="mt-2 list-disc pl-10">
+                                            <li>
+                                                <b>Professional development workshops</b> and{" "}
+                                                <b>networking events</b> for students
                                             </li>
-                                            <li className="flex items-start gap-2">
-                                                <span className="mt-1 text-purple-400">•</span>
-                                                <span>
-                                                    <b>Academic support</b> through study resources
-                                                </span>
+                                            <li>
+                                                <b>Academic support</b> through study resources
                                             </li>
-                                            <li className="flex items-start gap-2">
-                                                <span className="mt-1 text-purple-400">•</span>
-                                                <span>
-                                                    <b>Social and community-building events</b> to
-                                                    bring students together
-                                                </span>
+                                            <li>
+                                                <b>Social and community-building events</b> to bring
+                                                students together
                                             </li>
-                                            <li className="flex items-start gap-2">
-                                                <span className="mt-1 text-purple-400">•</span>
-                                                <span>
-                                                    <b>Student outreach</b> to inspire and engage
-                                                    future engineers
-                                                </span>
+                                            <li>
+                                                <b>Student outreach</b> to inspire and engage future
+                                                engineers
                                             </li>
-                                            <li className="flex items-start gap-2">
-                                                <span className="mt-1 text-purple-400">•</span>
-                                                <span>
-                                                    <b>Advocacy</b> for the SEG student voice within
-                                                    uOttawa
-                                                </span>
+                                            <li>
+                                                <b>Advocacy</b> for the SEG student voice within
+                                                uOttawa
                                             </li>
                                         </ul>
                                     </AccordionContent>
@@ -147,22 +135,15 @@ const FAQ = () => {
                                         <br />
                                         <br />
                                         <b>To become a SESA team member:</b>
-                                        <ul className="mt-2 space-y-2 pl-4">
-                                            <li className="flex items-start gap-2">
-                                                <span className="mt-1 text-purple-400">•</span>
-                                                <span>
-                                                    <b>You must be an enrolled uOttawa student</b>{" "}
-                                                    (undergraduate or graduate, full-time or
-                                                    part-time).
-                                                </span>
+                                        <ul className="mt-2 list-disc pl-10">
+                                            <li>
+                                                <b>You must be an enrolled uOttawa student</b>{" "}
+                                                (undergraduate or graduate, full-time or part-time).
                                             </li>
-                                            <li className="flex items-start gap-2">
-                                                <span className="mt-1 text-purple-400">•</span>
-                                                <span>
-                                                    You don’t have to be in the{" "}
-                                                    <b>software engineering program</b> — just
-                                                    passionate about the community.
-                                                </span>
+                                            <li>
+                                                You don't have to be in the{" "}
+                                                <b>software engineering program</b> — just
+                                                passionate about the community.
                                             </li>
                                         </ul>
                                     </AccordionContent>
@@ -177,7 +158,7 @@ const FAQ = () => {
                                         <b>creating opportunities</b>.
                                         <br />
                                         <br />
-                                        We’re committed to building an <b>inclusive space</b> where
+                                        We're committed to building an <b>inclusive space</b> where
                                         anyone can get involved, learn, and grow.
                                     </AccordionContent>
                                 </AccordionItem>
@@ -186,26 +167,25 @@ const FAQ = () => {
                                         WHAT EVENTS DOES SESA HOST?
                                     </AccordionTrigger>
                                     <AccordionContent className="font-sans text-base text-thistle md:text-lg">
-                                        <span>{`SESA hosts tech-related events each year at the University of Ottawa, including `}</span>
+                                        SESA hosts tech-related events each year at the University
+                                        of Ottawa, including{" "}
                                         <b>
                                             technical workshops, career fairs, meet and greets, mock
                                             interviews, and product launches
                                         </b>
-                                        <span>{`. Many of these activities are in partnership with community organizations, such as `}</span>
-                                        <b>Blackberry</b>
-                                        <span>{`, `}</span>
-                                        <b>Shopify</b>
-                                        <span>{`, `}</span>
-                                        <b>SurveyMonkey</b>
-                                        <span>{`, and `}</span>
-                                        <b>Warp</b>
-                                        <span>
-                                            {" "}
-                                            to help organize high quality experiences comparable to
-                                            the professional workplace. For organizations or
-                                            identities interested in collaborating with us, visit
-                                            our Sponsor page for more information.
-                                        </span>
+                                        . Many of these activities are in partnership with community
+                                        organizations, such as <b>Blackberry</b>, <b>Shopify</b>,{" "}
+                                        <b>SurveyMonkey</b>, and <b>Warp</b> to help organize high
+                                        quality experiences comparable to the professional
+                                        workplace. For organizations or identities interested in
+                                        collaborating with us, visit our{" "}
+                                        <Link
+                                            href="/SponsorsPage"
+                                            className="underline hover:text-white"
+                                        >
+                                            Sponsor page
+                                        </Link>{" "}
+                                        for more information.
                                     </AccordionContent>
                                 </AccordionItem>
                             </Accordion>
