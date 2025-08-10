@@ -64,13 +64,10 @@ export default function Footer() {
                             <h3 className="font-heading uppercase text-white">{t("policies")}</h3>
                             <ul className="flex flex-col gap-3 leading-none text-thistle">
                                 <li>
-                                    <a href="#">{t("privacy")}</a>
+                                    <Link href="/policies#privacy">{t("privacy")}</Link>
                                 </li>
                                 <li>
-                                    <a href="#">{t("terms")}</a>
-                                </li>
-                                <li>
-                                    <a href="#">{t("constitution")}</a>
+                                    <Link href="/policies#terms">{t("terms")}</Link>
                                 </li>
                             </ul>
                         </div>

@@ -139,6 +139,12 @@
         "avg_helpfulness": "{percentage}% average helpfulness",
         "students_helped": "{students} students helped"
     },
+    "terms": {
+        "tnc_heading": "Terms & Conditions",
+        "tnc": "We are committed to academic integrity. The resources and assistance we provide are intended for educational purposes only. We do not support or condone academic dishonesty, including but not limited to plagiarism, cheating, or any other violation of academic or institutional policies. By using our services, you agree to use the information and help you receive responsibly and in accordance with all applicable rules and regulations.",
+        "privacy_heading": "Privacy Policy",
+        "privacy": "Your privacy is important to us. When you use our contact form, we collect the personal information you voluntarily provide, such as your name, email address, and the content of your message. This information is used exclusively to respond to your inquiries and to communicate with you about our club's activities and resources. We do not sell, share, or disclose your information to any third parties."
+    },
     "navigation": {
         "home": "Home",
         "about": "About",
