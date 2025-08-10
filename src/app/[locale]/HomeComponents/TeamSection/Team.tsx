@@ -6,18 +6,17 @@ import Marquee from "react-fast-marquee";
 import { membersData } from "@/app/data/Members";
 import { useState } from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const Team = () => {
+    const t = useTranslations("homepage");
     const [hovered, setHovered] = useState<string>("");
 
     return (
         <>
             <section className="relative mb-12 flex flex-col gap-16 md:mb-24 2xl:mb-24 2xl:mt-44">
-                {/* Decorations */}
                 <div className="pointer-events-none z-0 select-none">
-                    {/* Light gradient */}
                     <div className="fade-from-center-bg absolute left-1/2 top-[-29rem] h-[112.8rem] w-full -translate-x-1/2 bg-blueviolet-100 bg-opacity-25 blur-xl md:top-[-50rem] md:w-[130rem] 2xl:top-[-53rem]" />
-                    {/* Warm gradient */}
                     <div className="fade-from-center-bg absolute bottom-[-15rem] left-1/2 h-[55rem] w-full -translate-x-1/2 bg-[#B1219D] bg-opacity-30 blur-xl md:w-[80vw]" />
 
                     <Image
@@ -52,7 +51,6 @@ const Team = () => {
                             height={300}
                             alt=""
                         />
-                        {/* Bottom light */}
                         <div
                             className="pointer-events-none absolute inset-0 z-10"
                             style={{
@@ -68,20 +66,20 @@ const Team = () => {
                         <Image src="/logo-text.svg" width={111} height={50} alt="sesa" />
                     </div>
                     <h1 className="text-center font-heading text-2xl uppercase leading-tight md:text-5xl">
-                        The&nbsp;
-                        <span className="highlight-text">University of Ottawa&apos;s</span> Software
-                        Engineering Students Association
+                        {t("team_heading_part1")}{" "}
+                        <span className="highlight-text">{t("team_heading_highlight")}</span>{" "}
+                        {t("team_heading_part2")}
                     </h1>
                     <p className="w-1/2 text-center font-sans text-base text-thistle md:text-xl">
-                        Our communications team meticulously crafted the web design, while our
-                        development team built it with heart.
+                        {t("team_subheading")}
                     </p>
                 </div>
 
                 <div className="z-20 flex justify-center gap-4 px-8 text-center font-heading">
                     <Button className="w-full font-heading uppercase sm:w-max" asChild>
                         <a href="#">
-                            Become a sponsor <span className="text-gray opacity-50">{">"}</span>
+                            {t("team_become_sponsor_btn")}{" "}
+                            <span className="text-gray opacity-50">{">"}</span>
                         </a>
                     </Button>
 
@@ -90,7 +88,7 @@ const Team = () => {
                         variant="outline"
                         asChild
                     >
-                        <Link href="/ContactUsPage">Get in touch</Link>
+                        <Link href="/ContactUsPage">{t("team_get_in_touch_btn")}</Link>
                     </Button>
                 </div>
 
@@ -112,12 +110,9 @@ const Team = () => {
                         </div>
                     </Marquee>
 
-                    {/* Hover text container - positioned absolutely */}
                     {hovered && (
                         <div className="absolute left-1/2 top-14 z-10 mt-7 -translate-x-1/2 px-4 py-2 text-center">
-                            <h1 className="mb-2 font-heading text-xl">
-                                {membersData.find(m => m.name === hovered)?.name}
-                            </h1>
+                            <h1 className="mb-2 font-heading text-xl">{hovered}</h1>
                             <p className="font-sans text-thistle">
                                 {membersData.find(m => m.name === hovered)?.role}
                             </p>

@@ -84,7 +84,25 @@
 
         "faq_missed_something": "Did we miss something?",
         "faq_message_us_btn": "MESSAGE US",
-        "faq_response_time": "We'll get back to you within 48 hours."
+        "faq_response_time": "We'll get back to you within 48 hours.",
+
+        "connect_subtitle": "Connect with us",
+        "connect_heading_h1_highlighted": "Connect, engage, and grow",
+        "connect_heading_h1": "with us!",
+        "connect_description": "Join our online communities to stay up to date with our latest events, announcements, and resources,",
+
+        "connect_image_alt": "Goal Main Image",
+        "instagram_logo_alt": "Instagram Logo",
+        "discord_logo_alt": "Discord Logo",
+        "linkedin_logo_alt": "LinkedIn Logo",
+        "youtube_logo_alt": "YouTube Logo",
+
+        "team_heading_part1": "The",
+        "team_heading_highlight": "University of Ottawa's",
+        "team_heading_part2": "Software Engineering Students Association",
+        "team_subheading": "Our communications team meticulously crafted the web design, while our development team built it with heart.",
+        "team_become_sponsor_btn": "Become a sponsor",
+        "team_get_in_touch_btn": "Get in touch"
     },
 
     "about": {

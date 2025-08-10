@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const Connect = () => {
+    const t = useTranslations("homepage");
+
     return (
         <>
             <section className="relative">
@@ -15,7 +18,7 @@ const Connect = () => {
                     <div className="relative mb-5 mt-10 w-full max-w-2xl lg:max-w-2xl 2xl:max-w-4xl">
                         <Image
                             src="/imgs/Home/connectImage.webp"
-                            alt="Goal Main Image"
+                            alt={t("connect_image_alt")}
                             className="relative z-10 mb-12 h-[250px] w-full object-cover sm:h-[400px] md:h-[600px] lg:mt-12 lg:h-[500px]"
                             width={700}
                             height={700}
@@ -32,15 +35,17 @@ const Connect = () => {
 
                     <div className="flex w-full flex-col gap-2 px-8 md:px-10 lg:px-8">
                         <p className="font-monocode relative inline-block !bg-clip-text text-left text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)] md:text-base">
-                            Connect with us
+                            {t("connect_subtitle")}
                         </p>
                         <h1 className="font-heading text-2xl uppercase leading-tight md:text-4xl">
-                            <span className="highlight-text">Connect, engage, and grow</span> <br />
-                            with us!
+                            <span className="highlight-text">
+                                {t("connect_heading_h1_highlighted")}
+                            </span>{" "}
+                            <br />
+                            {t("connect_heading_h1")}
                         </h1>
                         <p className="relative text-left font-sans text-base text-thistle md:text-lg 2xl:w-[40rem]">
-                            Join our online communities to stay up to date with our latest events,
-                            announcements, and resources,
+                            {t("connect_description")}
                         </p>
 
                         <div className="mt-4 flex justify-start gap-2">
@@ -50,7 +55,7 @@ const Connect = () => {
                                         src="/icons/instagram-plain.svg"
                                         width={25}
                                         height={25}
-                                        alt="Instagram Logo"
+                                        alt={t("instagram_logo_alt")}
                                     />
                                 </a>
                             </Button>
@@ -60,7 +65,7 @@ const Connect = () => {
                                         src="/icons/discord-plain.svg"
                                         width={25}
                                         height={25}
-                                        alt="Discord Logo"
+                                        alt={t("discord_logo_alt")}
                                     />
                                 </a>
                             </Button>
@@ -73,7 +78,7 @@ const Connect = () => {
                                         src="/icons/linkedin-plain.svg"
                                         width={25}
                                         height={25}
-                                        alt="LinkedIn Logo"
+                                        alt={t("linkedin_logo_alt")}
                                     />
                                 </a>
                             </Button>
@@ -83,7 +88,7 @@ const Connect = () => {
                                         src="/icons/youtube-plain.svg"
                                         width={25}
                                         height={25}
-                                        alt="YouTube Logo"
+                                        alt={t("youtube_logo_alt")}
                                     />
                                 </a>
                             </Button>
