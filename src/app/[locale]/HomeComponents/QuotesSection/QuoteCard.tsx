@@ -1,21 +1,28 @@
+"use client";
+
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import Quote from "./types/Quote";
 import { CarouselItem } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
+import { useLocale } from "next-intl";
 
 export const QuoteCard: React.FC<{ quote: Quote }> = ({ quote }) => {
+    const locale = useLocale();
+
+    const lang = locale === "fr" ? "fr" : "en";
+
     return (
         <CarouselItem className="flex justify-center lg:justify-center">
             <div className="flex max-w-xs flex-col items-center text-center md:max-w-lg xl:max-w-2xl xl:items-start xl:text-left">
                 <p className="font-monocode relative inline-block !bg-clip-text text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)] md:text-base">
-                    {quote.heading}
+                    {quote.heading[lang]}
                 </p>
                 <h1 className="my-2 font-heading text-2xl uppercase leading-tight md:text-4xl">
                     <q>
-                        {quote.quote_part1}&nbsp;
-                        <span className="highlight-text">{quote.highlightQuote}</span>{" "}
-                        {quote.quote_part2}
+                        {quote.quote_part1[lang]}&nbsp;
+                        <span className="highlight-text">{quote.highlightQuote[lang]}</span>{" "}
+                        {quote.quote_part2[lang]}
                     </q>
                 </h1>
 
@@ -38,6 +45,7 @@ export const QuoteCard: React.FC<{ quote: Quote }> = ({ quote }) => {
                             href={quote.buttonLink}
                             className="relative z-10 font-heading uppercase"
                         >
+                            {/* If you want, translate "See our story" as well using t() */}
                             See our story
                         </Link>
                     </Button>
