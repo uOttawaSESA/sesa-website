@@ -163,7 +163,7 @@ const FAQ = () => {
                                                         part-time).
                                                     </li>
                                                     <li>
-                                                        You don't have to be in the{" "}
+                                                        You don&apos;t have to be in the{" "}
                                                         <b>software engineering program</b> — just
                                                         passionate about the community.
                                                     </li>
@@ -186,7 +186,7 @@ const FAQ = () => {
                                             </p>
 
                                             <p>
-                                                We're committed to building an{" "}
+                                                We&apos;re committed to building an{" "}
                                                 <b>inclusive space</b> where anyone can get
                                                 involved, learn, and grow.
                                             </p>
