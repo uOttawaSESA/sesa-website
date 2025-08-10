@@ -140,6 +140,8 @@
         "students_helped": "{students} students helped"
     },
     "terms": {
+        "our_policies": "Our",
+        "our_policies_hl": "Policies",
         "tnc_heading": "Terms & Conditions",
         "tnc": "We are committed to academic integrity. The resources and assistance we provide are intended for educational purposes only. We do not support or condone academic dishonesty, including but not limited to plagiarism, cheating, or any other violation of academic or institutional policies. By using our services, you agree to use the information and help you receive responsibly and in accordance with all applicable rules and regulations.",
         "privacy_heading": "Privacy Policy",
