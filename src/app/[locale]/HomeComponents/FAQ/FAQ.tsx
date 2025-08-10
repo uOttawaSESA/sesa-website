@@ -63,8 +63,8 @@ const FAQ = () => {
                         <span className="highlight-text">We&apos;ve got answers!</span>
                     </h1>
                     <p className="max-w-sm text-center font-sans text-base text-thistle md:max-w-lg md:text-lg xl:max-w-xl">
-                        We have A's to your Q's below. If you still have questions, contact us and
-                        we'll get back to you as soon as possible.
+                        We have A&apos;s to your Q&apos;s below. If you still have questions,
+                        contact us and we&apos;ll get back to you as soon as possible.
                     </p>
                 </div>
 
@@ -89,8 +89,8 @@ const FAQ = () => {
                                             <p>
                                                 <b>SESA</b> is the University of Ottawa{" "}
                                                 <b>Software Engineering Students Association</b>!
-                                                We're an informally and independently run student
-                                                organization with the mission of{" "}
+                                                We&apos;re an informally and independently run
+                                                student organization with the mission of{" "}
                                                 <b>enriching SEG student life</b>,{" "}
                                                 <b>promoting software engineering</b> as a field,
                                                 and{" "}
