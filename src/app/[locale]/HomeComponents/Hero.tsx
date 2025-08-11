@@ -11,10 +11,32 @@ export default function Hero() {
             {/* Decorations */}
             <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
                 {/* Warm gradient */}
-                <div className="fade-from-top-left-bg absolute h-[70rem] w-full bg-[#B1219D] bg-opacity-15 blur-sm md:w-[60vw]" />
+                <div className="fade-from-top-left-bg absolute h-[70rem] w-full bg-[#B1219D] bg-opacity-20 blur-sm md:w-[60vw]" />
 
                 {/* Light gradient */}
                 <div className="fade-from-left-bg absolute top-[48rem] h-[140rem] w-[25vw] bg-blueviolet-100 bg-opacity-25 blur-sm" />
+
+                <Image
+                    src="/decoration/star.svg"
+                    className="absolute hidden md:left-[12vw] md:top-[75vh] md:block 2xl:left-[12vw] 2xl:top-[55vh]"
+                    width={120}
+                    height={120}
+                    alt=""
+                />
+                <Image
+                    src="/decoration/star-faded.svg"
+                    className="absolute hidden md:left-[10vw] md:top-[73vh] md:block 2xl:left-[11vw] 2xl:top-[53vh]"
+                    width={63}
+                    height={63}
+                    alt=""
+                />
+                <Image
+                    src="/decoration/star-faded.svg"
+                    className="absolute hidden rotate-[30deg] transform opacity-60 md:left-[40vw] md:top-[10vh] md:block"
+                    width={55}
+                    height={55}
+                    alt=""
+                />
 
                 <Image
                     src="/decoration/star.svg"
