@@ -6,7 +6,7 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
@@ -21,7 +21,7 @@ const FAQ = () => {
 
     return (
         <>
-            <section className="relative flex flex-col gap-8 px-8 text-white md:px-20 xl:px-32">
+            <section className="relative flex flex-col gap-8 px-8 text-white md:px-20 xl:px-32 2xl:px-96">
                 {/* Decorations */}
                 <div className="pointer-events-none select-none">
                     {/* Warm gradient */}
@@ -71,7 +71,7 @@ const FAQ = () => {
                     </p>
                 </div>
 
-                {/* Accordian */}
+                {/* Accordion */}
                 <div className="backdrop-blue-lg flex justify-center">
                     <div className="relative w-full overflow-hidden border border-purple-600">
                         <div className="clip-corner-inner">
@@ -80,7 +80,10 @@ const FAQ = () => {
                                 collapsible
                                 className="outline-gradient w-full overflow-hidden rounded-br-2xl border"
                             >
-                                <AccordionItem value="item-1" className="border-purple-600 px-4">
+                                <AccordionItem
+                                    value="item-1"
+                                    className="border-purple-600 px-4 leading-tight"
+                                >
                                     <AccordionTrigger className="py-4 font-heading text-base text-white md:text-lg">
                                         {t("faq_q1_title")}
                                     </AccordionTrigger>
@@ -130,6 +133,7 @@ const FAQ = () => {
                                         </div>
                                     </AccordionContent>
                                 </AccordionItem>
+
                                 <AccordionItem value="item-2" className="border-purple-600 px-4">
                                     <AccordionTrigger className="py-4 font-heading text-base text-white md:text-lg">
                                         {t("faq_q2_title")}
@@ -174,6 +178,7 @@ const FAQ = () => {
                                         </div>
                                     </AccordionContent>
                                 </AccordionItem>
+
                                 <AccordionItem value="item-3" className="border-purple-600 px-4">
                                     <AccordionTrigger className="py-4 font-heading text-base text-white md:text-lg">
                                         {t("faq_q3_title")}
@@ -194,6 +199,7 @@ const FAQ = () => {
                                         </div>
                                     </AccordionContent>
                                 </AccordionItem>
+
                                 <AccordionItem value="item-4" className="border-purple-600 px-4">
                                     <AccordionTrigger className="py-4 font-heading text-base text-white md:text-lg">
                                         {t("faq_q4_title")}
