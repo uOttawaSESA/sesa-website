@@ -6,11 +6,13 @@ import Quote from "./types/Quote";
 import { CarouselItem } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
 import { useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
 
 export const QuoteCard: React.FC<{ quote: Quote }> = ({ quote }) => {
     const locale = useLocale();
 
     const lang = locale === "fr" ? "fr" : "en";
+    const t = useTranslations("homepage");
 
     return (
         <CarouselItem className="flex justify-center lg:justify-center">
@@ -45,8 +47,7 @@ export const QuoteCard: React.FC<{ quote: Quote }> = ({ quote }) => {
                             href={quote.buttonLink}
                             className="relative z-10 font-heading uppercase"
                         >
-                            {/* If you want, translate "See our story" as well using t() */}
-                            See our story
+                            {t("see_our_story_btn")}
                         </Link>
                     </Button>
                 </div>
