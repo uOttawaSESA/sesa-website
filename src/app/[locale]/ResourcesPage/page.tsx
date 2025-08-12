@@ -14,7 +14,7 @@ import ComingSoonMessage from "../../../components/ComingSoonMessage";
 
 // TODO: Remove the "use client" directive from this file
 // // Precompile i18n
-// import localeParams from "../../data/locales";
+// import localeParams from "@/app/data/locales";
 // export const generateStaticParams = localeParams;
 
 const ResourcesPage: FC = () => {

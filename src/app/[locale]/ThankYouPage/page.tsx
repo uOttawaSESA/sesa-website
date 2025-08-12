@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 
 // Precompile i18n
-import localeParams from "../../data/locales";
+import localeParams from "@/app/data/locales";
 import { Link } from "@/i18n/navigation";
 export const generateStaticParams = localeParams;
 

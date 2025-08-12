@@ -10,7 +10,7 @@ import WhatWeDoCard from "./WhatWeDoCard";
 import { useTranslations } from "next-intl";
 
 // Precompile i18n
-import localeParams from "../../data/locales";
+import localeParams from "@/app/data/locales";
 export const generateStaticParams = localeParams;
 
 export default function AboutPage() {

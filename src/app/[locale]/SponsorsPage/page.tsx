@@ -7,7 +7,7 @@ import SponsorsGrid from "./components/SponsorsGrid";
 import PartnerWithUs from "./components/PartnerWithUs";
 
 // Precompile i18n
-import localeParams from "../../data/locales";
+import localeParams from "@/app/data/locales";
 export const generateStaticParams = localeParams;
 
 const SponsorsPage = () => {

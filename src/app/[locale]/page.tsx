@@ -9,7 +9,7 @@ import Connect from "./HomeComponents/ConnectSection/Connect";
 import Team from "./HomeComponents/TeamSection/Team";
 
 // Precompile i18n
-import localeParams from "../data/locales";
+import localeParams from "@/app/data/locales";
 export const generateStaticParams = localeParams;
 
 const Home = () => {

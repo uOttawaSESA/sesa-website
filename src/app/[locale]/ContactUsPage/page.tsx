@@ -2,7 +2,7 @@ import ContactForm from "./components/ContactForm";
 import ContactDetails from "./components/ContactDetails";
 
 // Precompile i18n
-import localeParams from "../../data/locales";
+import localeParams from "@/app/data/locales";
 export const generateStaticParams = localeParams;
 
 const ContactUsPage: React.FC = () => {
