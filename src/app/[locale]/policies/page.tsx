@@ -1,5 +1,24 @@
 import { useTranslations } from "next-intl";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Policies | Software Engineering Student Association",
+    description: "Policies for our website.",
+    alternates: {
+        canonical: "/policies",
+        languages: {
+            en: "/en/policies",
+            fr: "/fr/policies",
+        },
+    },
+    openGraph: {
+        title: "Policies | Software Engineering Student Association",
+        description: "Policies for our website.",
+        url: new URL("https://sesa-aegl.ca/policies"),
+    },
+};
+
 export default function Policies() {
     const t = useTranslations("terms");
 
