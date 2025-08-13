@@ -31,7 +31,7 @@ export default function Events() {
                 <div className="mt-4 flex w-[90%] flex-row items-center justify-between md:mt-6">
                     <div className="flex font-heading">
                         <Button className="font-heading text-sm uppercase md:text-lg">
-                            <Link href="/EventsPage">{t("view_all_events")}</Link>
+                            <Link href="/events">{t("view_all_events")}</Link>
                         </Button>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { format } from "date-fns";
-import { Event } from "@/app/[locale]/EventsPage/utils/types";
 import { useTranslations } from "next-intl";
+import { Event } from "@/app/[locale]/events/utils/types";
 
 const EventCard: React.FC<Event> = ({
     title,

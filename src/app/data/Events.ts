@@ -1,4 +1,4 @@
-import { Event } from "../[locale]/EventsPage/utils/types";
+import { Event } from "../[locale]/events/utils/types";
 
 export const events: Event[] = [
     // commented out for now, uncomment for updating events UI

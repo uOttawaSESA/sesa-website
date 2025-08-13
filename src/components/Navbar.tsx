@@ -40,10 +40,10 @@ interface NavItem {
 
 const navItemsData = [
     { href: "/", i18nKey: "home", pageName: "" },
-    { href: "/AboutPage", i18nKey: "about", pageName: "AboutPage" },
-    { href: "/EventsPage", i18nKey: "events", pageName: "EventsPage" },
-    { href: "/ResourcesPage", i18nKey: "resources", pageName: "ResourcesPage" },
-    { href: "/ContactUsPage", i18nKey: "contact", pageName: "ContactUsPage" },
+    { href: "/about", i18nKey: "about", pageName: "about" },
+    { href: "/events", i18nKey: "events", pageName: "events" },
+    { href: "/resources", i18nKey: "resources", pageName: "resources" },
+    { href: "/contact", i18nKey: "contact", pageName: "contact" },
 ] as const satisfies NavItem[];
 
 export default function Navbar() {
@@ -99,7 +99,7 @@ export default function Navbar() {
                         className="hidden h-12 items-center text-center font-heading text-base uppercase !leading-none text-white lg:flex"
                         asChild
                     >
-                        <Link href="/SponsorsPage">{t("sponsor_us")}</Link>
+                        <Link href="/sponsors">{t("sponsor_us")}</Link>
                     </Button>
                     {/* Hamburger menu for mobile */}
                     <Button
@@ -120,7 +120,7 @@ export default function Navbar() {
                 <nav className="mt-16 flex flex-col items-center gap-8 py-10">
                     {navItems}
                     <Button className="font-heading text-base uppercase text-white" asChild>
-                        <Link href="/SponsorsPage" onClick={() => setIsMobileMenuOpen(false)}>
+                        <Link href="/sponsors" onClick={() => setIsMobileMenuOpen(false)}>
                             {t("sponsor_us")}
                         </Link>
                     </Button>

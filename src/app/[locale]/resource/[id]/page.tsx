@@ -76,7 +76,7 @@ export default async function ResourcePage({ params }: { params: Promise<{ id: s
                     className="absolute left-72 top-0 font-heading uppercase"
                     asChild
                 >
-                    <Link href="/ResourcesPage">Go Back</Link>
+                    <Link href="/resources">Go Back</Link>
                 </Button>
                 <div className="flex min-w-[65ch] flex-col gap-32">
                     {/* Resource */}

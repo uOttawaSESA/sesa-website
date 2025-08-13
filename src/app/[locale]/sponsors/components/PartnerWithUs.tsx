@@ -69,7 +69,7 @@ const PartnerWithUs = () => {
                             className="w-fit min-w-[12rem] whitespace-nowrap font-heading text-sm uppercase text-white md:text-lg"
                             asChild
                         >
-                            <Link href="/ContactUsPage" className="block h-full text-inherit">
+                            <Link href="/contact" className="block h-full text-inherit">
                                 Become a Sponsor
                             </Link>
                         </Button>
@@ -78,7 +78,7 @@ const PartnerWithUs = () => {
                             className="w-fit min-w-[12rem] whitespace-nowrap font-heading text-sm text-white md:text-lg"
                             asChild
                         >
-                            <Link href="/AboutPage" className="block h-full text-inherit">
+                            <Link href="/about" className="block h-full text-inherit">
                                 Meet the Team
                             </Link>
                         </Button>

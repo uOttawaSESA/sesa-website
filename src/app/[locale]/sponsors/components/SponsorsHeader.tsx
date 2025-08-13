@@ -71,7 +71,7 @@ const SponsorsHeader = ({ topText, title, bottomText, btn1, btn2 }: SponsorsHead
                         className="w-fit min-w-[12rem] justify-center text-center uppercase"
                         asChild
                     >
-                        <Link href="/ContactUsPage">{btn1}</Link>
+                        <Link href="/contact">{btn1}</Link>
                     </Button>
                     <Button
                         className="w-fit min-w-[12rem] justify-center text-center uppercase"

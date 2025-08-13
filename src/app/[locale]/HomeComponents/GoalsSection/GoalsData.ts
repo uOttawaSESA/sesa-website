@@ -21,7 +21,7 @@ export const goalsData: Goal[] = [
             fr: `SESA organise des sessions de révision et de mentorat pour les cours d'ingénierie et de sciences chaque trimestre académique.
         Tout au long de l'année scolaire, nous organisons des ateliers pour améliorer les compétences techniques et relationnelles. Par ailleurs, nous gérons une plateforme en ligne gratuite où nous préparons des ressources par et pour les étudiants.`,
         },
-        buttonLink: "/ResourcesPage",
+        buttonLink: "/resources",
         buttonText: {
             en: "BROWSE RESOURCES",
             fr: "PARCOURIR LES RESSOURCES",
@@ -53,7 +53,7 @@ export const goalsData: Goal[] = [
             fr: `Bien que la mission de SESA soit de préparer la prochaine génération d'ingénieurs logiciels à l'uOttawa, nous organisons également des événements sociaux amusants chaque semestre. 
         Nous organisons des soirées cinéma, des séances de thérapie avec des chiens, des soirées jeux et des fêtes. Ces événements sont conçus pour réduire le stress des étudiants et développer leurs compétences sociales!`,
         },
-        buttonLink: "/EventsPage",
+        buttonLink: "/events",
         buttonText: {
             en: "Learn More",
             fr: "En savoir plus",

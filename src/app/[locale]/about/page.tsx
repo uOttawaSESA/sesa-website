@@ -19,20 +19,20 @@ export const metadata: Metadata = {
     title: "About | Software Engineering Student Association",
     description: "The about page for the University of Ottawa's SESA.",
     alternates: {
-        canonical: "/AboutPage",
+        canonical: "/about",
         languages: {
-            en: "/en/AboutPage",
-            fr: "/fr/AboutPage",
+            en: "/en/about",
+            fr: "/fr/about",
         },
     },
     openGraph: {
         title: "About | Software Engineering Student Association",
         description: "The about page for the University of Ottawa's SESA.",
-        url: new URL("https://sesa-aegl.ca/AboutPage"),
+        url: new URL("https://sesa-aegl.ca/about"),
     },
 };
 
-export default function AboutPage() {
+export default function About() {
     const memberImages = ["/imgs/team/rolf.webp", "/imgs/team/asad.webp", "/imgs/team/rayen.webp"];
     const beyonSesaCompanies = [
         { src: "/imgs/about/beyond-sesa/dropbox.webp", alt: "Dropbox", width: 75, height: 75 },
@@ -164,7 +164,7 @@ export default function AboutPage() {
                         </p>
                     </div>
                     <Button className="w-fit font-heading uppercase" asChild>
-                        <Link href="/SponsorsPage">{t("become_a_sponsor")} &gt;</Link>
+                        <Link href="/sponsors">{t("become_a_sponsor")} &gt;</Link>
                     </Button>
                 </div>
                 {/* Cards for "What do we do" */}
@@ -182,7 +182,7 @@ export default function AboutPage() {
                         heading={tWhatWeDo("social_events_heading")}
                         description={tWhatWeDo("social_events_desc")}
                         linkLabel={tWhatWeDo("social_events_btn")}
-                        linkHref="/EventsPage"
+                        linkHref="/events"
                     />
                     <WhatWeDoCard
                         imageHref="/imgs/about/academic-support.webp"
@@ -197,7 +197,7 @@ export default function AboutPage() {
                         heading={tWhatWeDo("academic_support_heading")}
                         description={tWhatWeDo("academic_support_desc")}
                         linkLabel={tWhatWeDo("academic_support_btn")}
-                        linkHref="/ResourcesPage"
+                        linkHref="/resources"
                     />
                     <WhatWeDoCard
                         imageHref="/imgs/about/professional-development.webp"
@@ -212,7 +212,7 @@ export default function AboutPage() {
                         heading={tWhatWeDo("professional_development_heading")}
                         description={tWhatWeDo("professional_development_desc")}
                         linkLabel={tWhatWeDo("professional_development_btn")}
-                        linkHref="/ContactUsPage"
+                        linkHref="/contact"
                     />
                 </div>
                 {/* Introducing our team */}
@@ -354,7 +354,7 @@ export default function AboutPage() {
                             disabled
                             asChild
                         >
-                            <Link href="/ContactUsPage">{t("apply_now")}</Link>
+                            <Link href="/contact">{t("apply_now")}</Link>
                         </Button>
                         <p className="max-w-[28rem] font-mono text-sm text-thistle">
                             {t("no_more_apps")}

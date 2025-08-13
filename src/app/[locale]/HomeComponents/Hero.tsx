@@ -69,7 +69,7 @@ export default function Hero() {
                 </p>
                 <div className="mt-4 flex gap-2 font-heading md:mt-6">
                     <Button className="font-heading text-sm uppercase md:text-lg" asChild>
-                        <Link href="/AboutPage">{t("learn_more")}</Link>
+                        <Link href="/about">{t("learn_more")}</Link>
                     </Button>
                     <Button
                         className="font-heading text-sm uppercase md:text-lg"

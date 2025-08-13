@@ -35,7 +35,7 @@ const TeamUpSection: React.FC = () => {
 
                 <div className="mt-6 flex flex-wrap gap-4">
                     <Button className="relative z-10 font-heading text-xl uppercase" asChild>
-                        <Link href="/ContactUsPage">{t("btn_talk")}</Link>
+                        <Link href="/contact">{t("btn_talk")}</Link>
                     </Button>
 
                     <Button

@@ -10,20 +10,20 @@ export const metadata: Metadata = {
     title: "Thank You | Software Engineering Student Association",
     description: "Thank you for contacting the Software Engineering Student Association!",
     alternates: {
-        canonical: "/ThankYouPage",
+        canonical: "/thank_you",
         languages: {
-            en: "/en/ThankYouPage",
-            fr: "/fr/ThankYouPage",
+            en: "/en/thank_you",
+            fr: "/fr/thank_you",
         },
     },
     openGraph: {
         title: "Thank You | Software Engineering Student Association",
         description: "Thank you for contacting the Software Engineering Student Association!",
-        url: new URL("https://sesa-aegl.ca/ThankYouPage"),
+        url: new URL("https://sesa-aegl.ca/thank_you"),
     },
 };
 
-const ThankYouPage = () => {
+const ThankYou = () => {
     return (
         <div className="flex min-h-[60vh] flex-col items-center justify-center px-4 py-24 text-center">
             <div className="mb-6 flex flex-row items-center gap-4">
@@ -43,7 +43,7 @@ const ThankYouPage = () => {
             </p>
             <div className="mb-12 flex flex-col justify-center gap-4 text-white sm:flex-row">
                 <Button asChild>
-                    <Link href="/SponsorsPage">
+                    <Link href="/sponsors">
                         Browse Sponsors <span className="text-white">{`>`}</span>
                     </Link>
                 </Button>
@@ -55,4 +55,4 @@ const ThankYouPage = () => {
     );
 };
 
-export default ThankYouPage;
+export default ThankYou;

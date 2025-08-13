@@ -11,20 +11,20 @@ export const metadata: Metadata = {
     title: "Contact | Software Engineering Student Association",
     description: "The contact page for the University of Ottawa's SESA.",
     alternates: {
-        canonical: "/ContactUsPage",
+        canonical: "/contact",
         languages: {
-            en: "/en/ContactUsPage",
-            fr: "/fr/ContactUsPage",
+            en: "/en/contact",
+            fr: "/fr/contact",
         },
     },
     openGraph: {
         title: "Contact | Software Engineering Student Association",
         description: "The contact page for the University of Ottawa's SESA.",
-        url: new URL("https://sesa-aegl.ca/ContactUsPage"),
+        url: new URL("https://sesa-aegl.ca/contact"),
     },
 };
 
-const ContactUsPage: React.FC = () => {
+const Contact: React.FC = () => {
     return (
         <div className="relative min-h-screen">
             <div className="absolute inset-0" />
@@ -43,4 +43,4 @@ const ContactUsPage: React.FC = () => {
     );
 };
 
-export default ContactUsPage;
+export default Contact;

@@ -87,7 +87,7 @@ const ContactForm: React.FC = () => {
             console.log("API response:", res.status, data);
 
             if (res.ok) {
-                router.push(`/${locale}/ThankYouPage`);
+                router.push(`/${locale}/thank_you`);
             } else {
                 alert("There was an error submitting the form. Please try again.");
             }

@@ -35,7 +35,7 @@ export default function CTA() {
                     Interested in joining our growing network of industry partners?
                 </p>
                 <Button asChild className="px-5 font-heading uppercase text-white">
-                    <Link href="/ContactUsPage">Let&apos;s Talk</Link>
+                    <Link href="/contact">Let&apos;s Talk</Link>
                 </Button>
             </div>
 

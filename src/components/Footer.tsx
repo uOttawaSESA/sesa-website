@@ -66,19 +66,19 @@ export default function Footer() {
                                     <Link href="/">{tNav("home")}</Link>
                                 </li>
                                 <li>
-                                    <Link href="/AboutPage">{tNav("about")}</Link>
+                                    <Link href="/about">{tNav("about")}</Link>
                                 </li>
                                 <li>
-                                    <Link href="/EventsPage">{tNav("events")}</Link>
+                                    <Link href="/events">{tNav("events")}</Link>
                                 </li>
                                 <li>
-                                    <Link href="/ResourcesPage">{tNav("resources")}</Link>
+                                    <Link href="/resources">{tNav("resources")}</Link>
                                 </li>
                                 <li>
-                                    <Link href="/ContactUsPage">{tNav("contact")}</Link>
+                                    <Link href="/contact">{tNav("contact")}</Link>
                                 </li>
                                 <li>
-                                    <Link href="/SponsorsPage">{tNav("sponsor")}</Link>
+                                    <Link href="/sponsors">{tNav("sponsor")}</Link>
                                 </li>
                             </ul>
                         </div>

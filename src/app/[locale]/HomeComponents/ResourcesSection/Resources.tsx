@@ -1,5 +1,5 @@
 import { resources } from "@/app/data/Resources";
-import ResourceCard from "../../ResourcesPage/components/ResourceCard/ResourceCard";
+import ResourceCard from "../../resources/components/ResourceCard/ResourceCard";
 import Marquee from "react-fast-marquee";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -116,7 +116,7 @@ const Resources = () => {
                 <div className="z-10 space-y-4 px-8 md:px-32">
                     <div className="flex w-full justify-center gap-4 font-heading">
                         <Button className="text-sm md:text-lg" asChild>
-                            <Link href="/ResourcesPage">
+                            <Link href="/resources">
                                 {t("explore_all_resources")}{" "}
                                 {/* <span className="text-gray opacity-50">{">"}</span> */}
                             </Link>

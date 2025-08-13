@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import SponsorsGrid from "../../SponsorsPage/components/SponsorsGrid";
+import SponsorsGrid from "../../sponsors/components/SponsorsGrid";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
@@ -75,14 +75,14 @@ const Sponsors = () => {
                         </p>
                         <div className="mt-6 flex justify-center space-x-4 font-heading text-white">
                             <Button className="font-heading text-sm uppercase md:text-lg" asChild>
-                                <Link href="/SponsorsPage">{t("become_sponsor_btn")}</Link>
+                                <Link href="/sponsors">{t("become_sponsor_btn")}</Link>
                             </Button>
                             <Button
                                 className="font-heading text-sm uppercase md:text-lg"
                                 variant="outline"
                                 asChild
                             >
-                                <Link href="/AboutPage">{t("meet_team_btn")}</Link>
+                                <Link href="/about">{t("meet_team_btn")}</Link>
                             </Button>
                         </div>
                     </div>

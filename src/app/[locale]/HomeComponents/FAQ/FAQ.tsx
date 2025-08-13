@@ -11,14 +11,10 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { marked } from "marked";
 import createDOMPurify from "dompurify";
-import { useLocale } from "next-intl";
 import { useMemo } from "react";
 
 const FAQ = () => {
     const t = useTranslations("homepage");
-
-    // Get the current locale from the dynamic route params
-    const locale = useLocale();
 
     // Only create DOMPurify when in browser
     const DOMPurify = useMemo(() => {
@@ -147,7 +143,7 @@ const FAQ = () => {
                 <div className="flex items-center justify-center gap-7 text-center font-heading uppercase md:gap-4">
                     <h2 className="w-max text-sm md:text-xl">{t("faq_missed_something")}</h2>
                     <Button asChild>
-                        <Link href={`/${locale}/ContactUsPage`}>
+                        <Link href={"/contact"}>
                             {t("faq_message_us_btn")}{" "}
                             {/* <span className="text-gray-50/65">{` >`}</span> */}
                         </Link>

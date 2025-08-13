@@ -16,20 +16,20 @@ export const metadata: Metadata = {
     title: "Sponsors | Software Engineering Student Association",
     description: "The sponsors page for the University of Ottawa's SESA.",
     alternates: {
-        canonical: "/SponsorsPage",
+        canonical: "/sponsors",
         languages: {
-            en: "/en/SponsorsPage",
-            fr: "/fr/SponsorsPage",
+            en: "/en/sponsors",
+            fr: "/fr/sponsors",
         },
     },
     openGraph: {
         title: "Sponsors | Software Engineering Student Association",
         description: "The sponsors page for the University of Ottawa's SESA.",
-        url: new URL("https://sesa-aegl.ca/SponsorsPage"),
+        url: new URL("https://sesa-aegl.ca/sponsors"),
     },
 };
 
-const SponsorsPage = () => {
+const Sponsors = () => {
     return (
         <div className="relative">
             <SponsorsHeader
@@ -53,4 +53,4 @@ const SponsorsPage = () => {
     );
 };
 
-export default SponsorsPage;
+export default Sponsors;

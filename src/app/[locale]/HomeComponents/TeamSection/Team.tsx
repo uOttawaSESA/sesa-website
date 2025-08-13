@@ -89,7 +89,7 @@ const Team = () => {
                         variant="outline"
                         asChild
                     >
-                        <Link href="/ContactUsPage">{t("team_get_in_touch_btn")}</Link>
+                        <Link href="/contact">{t("team_get_in_touch_btn")}</Link>
                     </Button>
                 </div>
 
