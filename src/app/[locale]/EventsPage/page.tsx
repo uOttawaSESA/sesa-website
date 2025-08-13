@@ -14,16 +14,16 @@ export const metadata: Metadata = {
     title: "Events | Software Engineering Student Association",
     description: "Stay up to date on SESA's events at the University of Ottawa.",
     alternates: {
-        canonical: '/EventsPage',
+        canonical: "/EventsPage",
         languages: {
-            en: '/en/EventsPage',
-            fr: '/fr/EventsPage',
+            en: "/en/EventsPage",
+            fr: "/fr/EventsPage",
         },
     },
     openGraph: {
         title: "Events | Software Engineering Student Association",
         description: "Stay up to date on SESA's events at the University of Ottawa.",
-        url: new URL('https://sesa-aegl.ca/EventsPage'),
+        url: new URL("https://sesa-aegl.ca/EventsPage"),
     },
 };
 
