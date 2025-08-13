@@ -2,6 +2,10 @@ import { useTranslations } from "next-intl";
 
 import type { Metadata } from "next";
 
+// Precompile i18n
+import localeParams from "@/app/data/locales";
+export const generateStaticParams = localeParams;
+
 export const metadata: Metadata = {
     title: "Policies | Software Engineering Student Association",
     description: "Policies for our website.",
