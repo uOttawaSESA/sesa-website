@@ -183,7 +183,7 @@ const EventsPage = () => {
                 <TeamUpSection />
                 <ConnectSESA />
 
-                <div className="pointer-events-none relative mb-52 select-none">
+                <div className="pointer-events relative mb-52 select-none">
                     {/* Bottom Star Decoration */}
                     <Image
                         src="/decoration/star.svg"
