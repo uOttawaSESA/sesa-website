@@ -10,7 +10,8 @@ import { Link } from "@/i18n/navigation";
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { Link as I18nLink } from "@/i18n/navigation";
+import { marked } from "marked";
+import DOMPurify from "dompurify";
 
 const FAQ = () => {
     const t = useTranslations("homepage");
@@ -18,6 +19,36 @@ const FAQ = () => {
     // Get the current locale from the dynamic route params
     const params = useParams();
     const locale = Array.isArray(params?.locale) ? params.locale[0] : params?.locale || "en";
+
+    // Helper function to safely parse markdown
+    const parseMarkdown = (markdown: string) => {
+        const rawHTML = marked(markdown, { async: false }) as string;
+        return DOMPurify.sanitize(rawHTML);
+    };
+
+    // FAQ data structure
+    const faqItems = [
+        {
+            id: "item-1",
+            title: t("faq_q1.title"),
+            answer: t("faq_q1.answer"),
+        },
+        {
+            id: "item-2",
+            title: t("faq_q2.title"),
+            answer: t("faq_q2.answer"),
+        },
+        {
+            id: "item-3",
+            title: t("faq_q3.title"),
+            answer: t("faq_q3.answer"),
+        },
+        {
+            id: "item-4",
+            title: t("faq_q4.title"),
+            answer: t("faq_q4.answer"),
+        },
+    ];
 
     return (
         <>
@@ -58,6 +89,7 @@ const FAQ = () => {
                         alt=""
                     />
                 </div>
+
                 <div className="backdrop-blue-xl flex flex-col items-center justify-center gap-3">
                     <p className="font-monocode color-gradient text-xs md:text-base">
                         {t("faq_subtitle")}
@@ -80,153 +112,25 @@ const FAQ = () => {
                                 collapsible
                                 className="outline-gradient w-full overflow-hidden rounded-br-2xl border"
                             >
-                                <AccordionItem
-                                    value="item-1"
-                                    className="border-purple-600 px-4 leading-tight"
-                                >
-                                    <AccordionTrigger className="py-4 font-heading text-base text-white md:text-lg">
-                                        {t("faq_q1_title")}
-                                    </AccordionTrigger>
-                                    <AccordionContent className="font-sans text-base text-thistle md:text-lg">
-                                        <div className="flex flex-col gap-4">
-                                            <p>
-                                                <b>SESA</b> {t("faq_q1_intro")}
-                                            </p>
-                                            <p>{t("faq_q1_initiatives")}</p>
-                                            <ul className="space-y-2 pl-4">
-                                                <li className="flex items-start gap-2">
-                                                    <span className="mt-1 text-purple-400">•</span>
-                                                    <span>
-                                                        <b>{t("faq_q1_point1_bold")}</b>{" "}
-                                                        {t("faq_q1_point1_text")}
-                                                    </span>
-                                                </li>
-                                                <li className="flex items-start gap-2">
-                                                    <span className="mt-1 text-purple-400">•</span>
-                                                    <span>
-                                                        <b>{t("faq_q1_point2_bold")}</b>{" "}
-                                                        {t("faq_q1_point2_text")}
-                                                    </span>
-                                                </li>
-                                                <li className="flex items-start gap-2">
-                                                    <span className="mt-1 text-purple-400">•</span>
-                                                    <span>
-                                                        <b>{t("faq_q1_point3_bold")}</b>{" "}
-                                                        {t("faq_q1_point3_text")}
-                                                    </span>
-                                                </li>
-                                                <li className="flex items-start gap-2">
-                                                    <span className="mt-1 text-purple-400">•</span>
-                                                    <span>
-                                                        <b>{t("faq_q1_point4_bold")}</b>{" "}
-                                                        {t("faq_q1_point4_text")}
-                                                    </span>
-                                                </li>
-                                                <li className="flex items-start gap-2">
-                                                    <span className="mt-1 text-purple-400">•</span>
-                                                    <span>
-                                                        <b>{t("faq_q1_point5_bold")}</b>{" "}
-                                                        {t("faq_q1_point5_text")}
-                                                    </span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </AccordionContent>
-                                </AccordionItem>
-
-                                <AccordionItem value="item-2" className="border-purple-600 px-4">
-                                    <AccordionTrigger className="py-4 font-heading text-base text-white md:text-lg">
-                                        {t("faq_q2_title")}
-                                    </AccordionTrigger>
-                                    <AccordionContent className="font-sans text-base text-thistle md:text-lg">
-                                        <div className="flex flex-col gap-4">
-                                            <p>
-                                                <b>{t("faq_q2_intro_bold")}</b>{" "}
-                                                {t("faq_q2_intro_text")}
-                                            </p>
-                                            <p>
-                                                {t("faq_q2_everyone_part1")}{" "}
-                                                <b>{t("faq_q2_everyone_types")}</b>
-                                                {t("faq_q2_everyone_part2")}
-                                            </p>
-                                            <div>
-                                                <p>
-                                                    <b>{t("faq_q2_team_member")}</b>
-                                                </p>
-                                                <ul className="mt-2 space-y-2 pl-4">
-                                                    <li className="flex items-start gap-2">
-                                                        <span className="mt-1 text-purple-400">
-                                                            •
-                                                        </span>
-                                                        <span>
-                                                            <b>{t("faq_q2_requirement1_bold")}</b>{" "}
-                                                            {t("faq_q2_requirement1_text")}
-                                                        </span>
-                                                    </li>
-                                                    <li className="flex items-start gap-2">
-                                                        <span className="mt-1 text-purple-400">
-                                                            •
-                                                        </span>
-                                                        <span>
-                                                            {t("faq_q2_requirement2_part1")}{" "}
-                                                            <b>{t("faq_q2_requirement2_bold")}</b>{" "}
-                                                            {t("faq_q2_requirement2_part2")}
-                                                        </span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </AccordionContent>
-                                </AccordionItem>
-
-                                <AccordionItem value="item-3" className="border-purple-600 px-4">
-                                    <AccordionTrigger className="py-4 font-heading text-base text-white md:text-lg">
-                                        {t("faq_q3_title")}
-                                    </AccordionTrigger>
-                                    <AccordionContent className="font-sans text-base text-thistle md:text-lg">
-                                        <div className="flex flex-col gap-4">
-                                            <p>
-                                                <b>{t("faq_q3_answer1_bold")}</b>
-                                                {t("faq_q3_answer1_part1")}{" "}
-                                                <b>{t("faq_q3_answer1_values")}</b>
-                                                {t("faq_q3_answer1_part2")}
-                                            </p>
-                                            <p>
-                                                {t("faq_q3_answer2_part1")}{" "}
-                                                <b>{t("faq_q3_answer2_bold")}</b>{" "}
-                                                {t("faq_q3_answer2_part2")}
-                                            </p>
-                                        </div>
-                                    </AccordionContent>
-                                </AccordionItem>
-
-                                <AccordionItem value="item-4" className="border-purple-600 px-4">
-                                    <AccordionTrigger className="py-4 font-heading text-base text-white md:text-lg">
-                                        {t("faq_q4_title")}
-                                    </AccordionTrigger>
-                                    <AccordionContent className="font-sans text-base text-thistle md:text-lg">
-                                        <p>
-                                            <span>{t("faq_q4_answer_part1")}</span>
-                                            <b>{t("faq_q4_events_list")}</b>
-                                            <span>{t("faq_q4_answer_part2")}</span>
-                                            <b>Blackberry</b>
-                                            <span>{`, `}</span>
-                                            <b>Shopify</b>
-                                            <span>{`, `}</span>
-                                            <b>SurveyMonkey</b>
-                                            <span>{`, and `}</span>
-                                            <b>Warp</b>
-                                            <span>{t("faq_q4_answer_part3")}</span>
-                                            <I18nLink
-                                                href="/SponsorsPage"
-                                                className="underline hover:text-white"
-                                            >
-                                                {t("faq_q4_sponsor_page_link")}
-                                            </I18nLink>
-                                            <span>{t("faq_q4_answer_part4")}</span>
-                                        </p>
-                                    </AccordionContent>
-                                </AccordionItem>
+                                {faqItems.map(item => (
+                                    <AccordionItem
+                                        key={item.id}
+                                        value={item.id}
+                                        className="border-purple-600 px-4 leading-tight"
+                                    >
+                                        <AccordionTrigger className="py-4 font-heading text-base text-white md:text-lg">
+                                            {item.title}
+                                        </AccordionTrigger>
+                                        <AccordionContent className="font-sans text-base text-thistle md:text-lg">
+                                            <div
+                                                className="prose prose-invert max-w-none [&>li]:mb-2 [&>p]:mb-4 [&>ul]:mb-4 [&>ul]:pl-4 [&_a:hover]:text-white [&_a]:text-purple-400 [&_a]:underline [&_strong]:text-white"
+                                                dangerouslySetInnerHTML={{
+                                                    __html: parseMarkdown(item.answer),
+                                                }}
+                                            />
+                                        </AccordionContent>
+                                    </AccordionItem>
+                                ))}
                             </Accordion>
                         </div>
                     </div>
