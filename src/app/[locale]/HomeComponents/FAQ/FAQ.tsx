@@ -10,8 +10,9 @@ import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { marked } from "marked";
-import DOMPurify from "dompurify";
+import createDOMPurify from "dompurify";
 import { useLocale } from "next-intl";
+import { useMemo } from "react";
 
 const FAQ = () => {
     const t = useTranslations("homepage");
@@ -19,10 +20,18 @@ const FAQ = () => {
     // Get the current locale from the dynamic route params
     const locale = useLocale();
 
+    // Only create DOMPurify when in browser
+    const DOMPurify = useMemo(() => {
+        if (typeof window !== "undefined") {
+            return createDOMPurify(window);
+        }
+        return null;
+    }, []);
+
     // Helper function to safely parse markdown
     const parseMarkdown = (markdown: string) => {
         const rawHTML = marked(markdown, { async: false }) as string;
-        return DOMPurify.sanitize(rawHTML);
+        return DOMPurify ? DOMPurify.sanitize(rawHTML) : "";
     };
 
     // FAQ data structure
@@ -122,7 +131,7 @@ const FAQ = () => {
                                         </AccordionTrigger>
                                         <AccordionContent className="markdown font-sans text-base text-thistle md:text-lg">
                                             <div
-                                                className="prose prose-invert max-w-none [&>li]:mb-2 [&>p]:mb-4 [&>ul]:mb-4 [&>ul]:pl-4 [&_a:hover]:text-white [&_a]:text-purple-400 [&_a]:underline [&_strong]:text-white"
+                                                className="prose prose-invert max-w-none [&>li]:mb-2 [&>p]:mb-4 [&>ul]:mb-4 [&>ul]:pl-4 [&_a:hover]:text-white [&_a]:text-purple-400 [&_a]:underline"
                                                 dangerouslySetInnerHTML={{
                                                     __html: parseMarkdown(item.answer),
                                                 }}
