@@ -43,15 +43,15 @@ const Team = () => {
                         height={60}
                         alt=""
                     />
-
-                    <div className="fade-from-center-tunnel-home absolute bottom-[5rem] z-0 hidden h-[580px] w-full overflow-hidden md:left-[-4rem] md:block 2xl:left-[30rem]">
+                    <div className="fade-from-center-tunnel-home absolute bottom-[5rem] left-1/2 z-0 hidden h-[580px] w-[1500px] -translate-x-1/2 transform overflow-hidden md:block">
                         <Image
                             src="/decoration/tunnel.svg"
-                            className="absolute left-0 top-0 object-cover opacity-85"
+                            className="relative left-1/2 -translate-x-1/2 object-cover opacity-85"
                             width={1500}
                             height={300}
                             alt=""
                         />
+
                         {/* Bottom light */}
                         <div
                             className="pointer-events-none absolute inset-0 z-10"
