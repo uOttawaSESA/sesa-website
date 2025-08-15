@@ -121,7 +121,7 @@ const FAQ = () => {
                                         <AccordionTrigger className="py-4 font-heading text-base text-white md:text-lg">
                                             {item.title}
                                         </AccordionTrigger>
-                                        <AccordionContent className="font-sans text-base text-thistle md:text-lg">
+                                        <AccordionContent className="markdown font-sans text-base text-thistle md:text-lg">
                                             <div
                                                 className="prose prose-invert max-w-none [&>li]:mb-2 [&>p]:mb-4 [&>ul]:mb-4 [&>ul]:pl-4 [&_a:hover]:text-white [&_a]:text-purple-400 [&_a]:underline [&_strong]:text-white"
                                                 dangerouslySetInnerHTML={{
