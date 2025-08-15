@@ -240,7 +240,8 @@ const FAQ = () => {
                     <h2 className="w-max text-sm md:text-xl">Did we miss something?</h2>
                     <Button asChild>
                         <Link href="ContactUsPage">
-                            MESSAGE US <span className="ms-2 text-gray-50/65">{` >`}</span>
+                            MESSAGE US
+                            {/* <span className="ms-2 text-gray-50/65">{` >`}</span> */}
                         </Link>
                     </Button>
                 </div>
