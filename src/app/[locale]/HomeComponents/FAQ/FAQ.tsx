@@ -7,13 +7,9 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Link } from "@/i18n/navigation";
-import { useParams } from "next/navigation";
 import Image from "next/image";
 
 const FAQ = () => {
-    // Get the current locale from the dynamic route params
-    const params = useParams();
-
     return (
         <>
             <section className="relative flex flex-col gap-8 px-8 text-white md:px-20 xl:px-32 2xl:px-96">
