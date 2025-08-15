@@ -18,14 +18,14 @@ export default function Hero() {
 
                 <Image
                     src="/decoration/star.svg"
-                    className="absolute hidden md:left-[12vw] md:top-[75vh] md:block 2xl:left-[12vw] 2xl:top-[55vh]"
+                    className="absolute hidden md:left-[12vw] md:top-[75vh] md:block 2xl:left-[33vw] 2xl:top-[55vh]"
                     width={120}
                     height={120}
                     alt=""
                 />
                 <Image
                     src="/decoration/star-faded.svg"
-                    className="absolute hidden md:left-[10vw] md:top-[73vh] md:block 2xl:left-[11vw] 2xl:top-[53vh]"
+                    className="absolute hidden md:left-[10vw] md:top-[73vh] md:block 2xl:left-[32vw] 2xl:top-[53vh]"
                     width={63}
                     height={63}
                     alt=""
