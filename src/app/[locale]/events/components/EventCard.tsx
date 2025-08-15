@@ -49,7 +49,7 @@ export const EventCard = ({ event }: EventCardProps) => {
     // Handle "Add to Calendar" action
     const handleAddToCalendar = () => {
         if (!isPastEvent) {
-            console.log("Adding to calendar:", title);
+            // Logic to add the event to the calendar
         }
     };
 

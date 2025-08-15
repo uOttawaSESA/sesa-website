@@ -21,7 +21,6 @@ const Header = () => {
                     className="font-heading uppercase md:mx-8"
                     onClick={() => {
                         // Add functionality here
-                        console.log("Subscribed to calendar!");
                     }}
                 >
                     {t("btn_subscribe")}

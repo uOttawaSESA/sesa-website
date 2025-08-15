@@ -57,7 +57,6 @@ const ResourceSection = () => {
     });
 
     // Debugging: Log the current sort option
-    console.log("Current Sort Option:", sortOption);
 
     // Sorting logic
     const sortedResources = [...filteredResources].sort((a, b) => {
@@ -77,7 +76,6 @@ const ResourceSection = () => {
     });
 
     // Debugging: Log the sorted resources
-    console.log("Sorted Resources:", sortedResources);
 
     const totalPages = Math.ceil(sortedResources.length / (itemsPerRow * rowsToShow));
 
