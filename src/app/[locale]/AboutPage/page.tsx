@@ -9,9 +9,28 @@ import { membersData } from "@/app/data/Members";
 import WhatWeDoCard from "./WhatWeDoCard";
 import { useTranslations } from "next-intl";
 
+import type { Metadata } from "next";
+
 // Precompile i18n
-import localeParams from "../../data/locales";
+import localeParams from "@/app/data/locales";
 export const generateStaticParams = localeParams;
+
+export const metadata: Metadata = {
+    title: "About | Software Engineering Student Association",
+    description: "The about page for the University of Ottawa's SESA.",
+    alternates: {
+        canonical: "/AboutPage",
+        languages: {
+            en: "/en/AboutPage",
+            fr: "/fr/AboutPage",
+        },
+    },
+    openGraph: {
+        title: "About | Software Engineering Student Association",
+        description: "The about page for the University of Ottawa's SESA.",
+        url: new URL("https://sesa-aegl.ca/AboutPage"),
+    },
+};
 
 export default function AboutPage() {
     const memberImages = ["/imgs/team/rolf.webp", "/imgs/team/asad.webp", "/imgs/team/rayen.webp"];
@@ -163,7 +182,7 @@ export default function AboutPage() {
                         heading={tWhatWeDo("social_events_heading")}
                         description={tWhatWeDo("social_events_desc")}
                         linkLabel={tWhatWeDo("social_events_btn")}
-                        linkHref="/events"
+                        linkHref="/EventsPage"
                     />
                     <WhatWeDoCard
                         imageHref="/imgs/about/academic-support.webp"
@@ -178,7 +197,7 @@ export default function AboutPage() {
                         heading={tWhatWeDo("academic_support_heading")}
                         description={tWhatWeDo("academic_support_desc")}
                         linkLabel={tWhatWeDo("academic_support_btn")}
-                        linkHref="/resources"
+                        linkHref="/ResourcesPage"
                     />
                     <WhatWeDoCard
                         imageHref="/imgs/about/professional-development.webp"
@@ -193,7 +212,7 @@ export default function AboutPage() {
                         heading={tWhatWeDo("professional_development_heading")}
                         description={tWhatWeDo("professional_development_desc")}
                         linkLabel={tWhatWeDo("professional_development_btn")}
-                        linkHref="/placeholder"
+                        linkHref="/ContactUsPage"
                     />
                 </div>
                 {/* Introducing our team */}

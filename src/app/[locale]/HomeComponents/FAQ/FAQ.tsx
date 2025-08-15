@@ -1,4 +1,3 @@
-"use client";
 import { Button } from "@/components/ui/button";
 import {
     Accordion,
@@ -7,7 +6,6 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Link } from "@/i18n/navigation";
-import { useParams } from "next/navigation";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { marked } from "marked";
@@ -141,7 +139,7 @@ const FAQ = () => {
                     <Button asChild>
                         <Link href={`/${locale}/ContactUsPage`}>
                             {t("faq_message_us_btn")}{" "}
-                            <span className="text-gray-50/65">{` >`}</span>
+                            {/* <span className="text-gray-50/65">{` >`}</span> */}
                         </Link>
                     </Button>
                 </div>

@@ -118,7 +118,7 @@ const Resources = () => {
                         <Button className="text-sm md:text-lg" asChild>
                             <Link href="/ResourcesPage">
                                 {t("explore_all_resources")}{" "}
-                                <span className="text-gray opacity-50">{">"}</span>
+                                {/* <span className="text-gray opacity-50">{">"}</span> */}
                             </Link>
                         </Button>
                         <Button className="text-sm md:text-lg" variant="outline" asChild>

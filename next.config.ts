@@ -3,7 +3,14 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const nextConfig: NextConfig = {
     images: {
-        domains: ["www.google.com"],
+        remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "www.google.com",
+                port: "",
+                pathname: "/**",
+            },
+        ],
     },
 };
 

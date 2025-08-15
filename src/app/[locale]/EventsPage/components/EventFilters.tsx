@@ -55,7 +55,7 @@ const EventFilters: React.FC<{
 
             {/* Right Side: Event Type Dropdown */}
             <Select onValueChange={onFilterChange}>
-                <SelectTrigger className="!border-none px-5 py-4 uppercase">
+                <SelectTrigger className="!border-none px-5 py-4 uppercase text-white data-[placeholder]:text-white">
                     <SelectValue placeholder="Event Type" />
                 </SelectTrigger>
                 <SelectContent>

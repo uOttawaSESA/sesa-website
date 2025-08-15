@@ -5,8 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { routing } from "@/i18n/routing";
 
 // Load fonts
@@ -20,14 +19,26 @@ const geistMono = Geist_Mono({
     subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-    title: "SESA Website",
-    description: "Created by the amazing developers at SESA!",
-};
 const raleway = Raleway({
     variable: "--font-raleway",
     subsets: ["latin"],
 });
+
+export const metadata: Metadata = {
+    title: "Software Engineering Student Association",
+    description: "The official website for the University of Ottawa's SESA.",
+    keywords: ["uottawa", "sesa", "software", "students", "seg"],
+    metadataBase: new URL("https://sesa-aegl.ca"), // TBD whether this is the real URL
+    openGraph: {
+        title: "Software Engineering Student Association",
+        siteName: "Software Engineering Student Association",
+        description: "The official website for the University of Ottawa's SESA.",
+        type: "website",
+        url: new URL("https://sesa-aegl.ca"),
+        // Should be changed, this is a random pic and I'm not even sure OG works with WebP?
+        images: "/imgs/about/team-1.webp",
+    },
+};
 
 export default async function RootLayout({
     children,
@@ -38,13 +49,10 @@ export default async function RootLayout({
 }>) {
     // Ensure that the incoming `locale` is valid
     const { locale } = await params;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    if (!routing.locales.includes(locale as any)) notFound();
-
-    const messages = await getMessages();
+    if (!hasLocale(routing.locales, locale)) notFound();
 
     return (
-        <html lang="en">
+        <html lang={locale}>
             <body
                 className={`${geistSans.variable} ${geistMono.variable} ${raleway.variable} bg-gradient-to-b from-[#1b1b1b] from-0% via-[#381e4b] via-10% to-[#1b1b1b] font-sans antialiased`}
                 style={{
@@ -54,7 +62,7 @@ export default async function RootLayout({
                     // backgroundPosition: "center",
                 }}
             >
-                <NextIntlClientProvider messages={messages}>
+                <NextIntlClientProvider>
                     <div className="overflow-x-hidden">
                         <Navbar />
                         <main>{children}</main>
