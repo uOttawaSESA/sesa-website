@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import {
     Accordion,
@@ -10,13 +11,13 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { marked } from "marked";
 import DOMPurify from "dompurify";
+import { useLocale } from "next-intl";
 
 const FAQ = () => {
     const t = useTranslations("homepage");
 
     // Get the current locale from the dynamic route params
-    const params = useParams();
-    const locale = Array.isArray(params?.locale) ? params.locale[0] : params?.locale || "en";
+    const locale = useLocale();
 
     // Helper function to safely parse markdown
     const parseMarkdown = (markdown: string) => {
