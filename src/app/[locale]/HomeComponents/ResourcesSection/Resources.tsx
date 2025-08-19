@@ -84,7 +84,6 @@ const Resources = () => {
                                                 title={resource.title}
                                                 category={resource.category}
                                                 course={resource.course}
-                                                rating={resource.rating}
                                                 tier={resource.tier}
                                                 format={resource.format}
                                             />

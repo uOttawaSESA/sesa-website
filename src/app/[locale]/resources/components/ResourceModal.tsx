@@ -208,21 +208,6 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                 {/* Footer */}
                 <div className="flex items-center justify-between p-4 text-sm text-thistle">
                     <div className="flex flex-row flex-wrap items-center gap-4 font-[Monocode] text-sm text-thistle">
-                        {/* Rating */}
-                        <div className="flex items-center gap-2">
-                            <Image
-                                src="/resources-page/thumbsup.svg"
-                                alt="Thumbs Up"
-                                width={20}
-                                height={20}
-                                className="h-5 w-5"
-                            />
-                            <span>{resource.rating}%</span>
-                        </div>
-
-                        {/* Spacer */}
-                        <div className="h-[14px] w-px border-r border-thistle opacity-35" />
-
                         {/* Tier */}
                         <div className="flex items-center gap-2">
                             <Image

@@ -9,7 +9,6 @@ export const ResourceCard = ({
     title,
     category,
     course,
-    rating,
     tier,
     format,
     mode = "grid",
@@ -18,7 +17,6 @@ export const ResourceCard = ({
     title: string;
     category: string;
     course?: string;
-    rating: string;
     tier: string;
     format: string;
     mode?: "grid" | "row";
@@ -48,13 +46,7 @@ export const ResourceCard = ({
 
                 {/* Right side - Stats and controls */}
                 <div className="flex items-center">
-                    <StatsSection
-                        rating={rating}
-                        tier={tier}
-                        format={format}
-                        size="sm"
-                        layout="compact"
-                    />
+                    <StatsSection tier={tier} format={format} size="sm" layout="compact" />
 
                     {/* Open Button */}
                     <div className="ml-24">
@@ -83,16 +75,10 @@ export const ResourceCard = ({
 
                 {/* Bottom Section */}
                 <div className="absolute bottom-0 flex flex-row items-center">
-                    <StatsSection
-                        rating={rating}
-                        tier={tier}
-                        format={format}
-                        size="base"
-                        layout="horizontal"
-                    />
+                    <StatsSection tier={tier} format={format} size="base" layout="horizontal" />
 
                     {/* Open Button */}
-                    <div className="ms-14 md:ms-28">
+                    <div className="ms-14 md:ms-44">
                         <OpenButton showOpen={showOpen} onOpen={onOpen} />
                     </div>
                 </div>
