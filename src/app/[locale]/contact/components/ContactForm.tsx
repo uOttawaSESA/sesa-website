@@ -82,8 +82,6 @@ const ContactForm: React.FC = () => {
                 body: JSON.stringify({ ...formData, recaptchaToken }),
             });
 
-            const data = await res.json();
-
             if (res.ok) {
                 router.push(`/${locale}/thank_you`);
             } else {
