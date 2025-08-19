@@ -55,7 +55,6 @@ export const StatsSection = ({
     const iconSize = size === "sm" ? 16 : 20;
     const textSize = size === "sm" ? "text-base" : "text-sm";
     const gapSize = layout === "compact" ? "gap-6" : "gap-7";
-    const widthClasses = layout === "compact" ? "" : "w-10";
 
     useEffect(() => {
         if (showTooltip && iconRef.current) {
