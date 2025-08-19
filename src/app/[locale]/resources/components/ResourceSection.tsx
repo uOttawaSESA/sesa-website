@@ -65,9 +65,6 @@ const ResourceSection = () => {
             case "relevance":
                 // Default order (no sorting)
                 return 0;
-            case "rating":
-                // Sort by rating (descending)
-                return parseInt(b.rating) - parseInt(a.rating);
             case "alphabetical":
                 // Sort by title (ascending)
                 return a.title.localeCompare(b.title);
