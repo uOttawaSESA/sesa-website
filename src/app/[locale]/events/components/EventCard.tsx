@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { Event } from "../../../types/Event";
 import { format } from "date-fns";
 import { useTranslations } from "next-intl";
 
