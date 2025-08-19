@@ -3,10 +3,23 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { Event } from "../utils/types";
+import { Event } from "../../../types/Event";
 import { format } from "date-fns";
 import { useTranslations } from "next-intl";
 
+interface EventCardProps {
+    title: string;
+    type: string;
+    date: Date;
+    startTime: Date;
+    endTime: Date;
+    location: string;
+    description: string;
+    image: string;
+    requiresRegistration: boolean;
+    instagramLink: string;
+    registrationLink?: string;
+}
 export const EventCard = ({
     title,
     type,
@@ -19,7 +32,7 @@ export const EventCard = ({
     requiresRegistration,
     instagramLink,
     registrationLink,
-}: Event) => {
+}: EventCardProps) => {
     const t = useTranslations("events");
 
     const [isRegistered, setIsRegistered] = useState(false);

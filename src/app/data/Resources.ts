@@ -5,7 +5,6 @@ export const resources: Resource[] = [
     //     title: "Lexical Analysis Lecture Notes",
     //     category: "Academic",
     //     course: "SEG2106",
-    //     rating: "70",
     //     tier: "B",
     //     format: "PDF",
     //     language: "English",
@@ -26,7 +25,6 @@ export const resources: Resource[] = [
     // {
     //     title: "Studocu Midterms, Assignments, Exams",
     //     category: "Academic",
-    //     rating: "96",
     //     tier: "S",
     //     format: "Website",
     //     language: "English",
@@ -36,7 +34,6 @@ export const resources: Resource[] = [
     // {
     //     title: "Job Search Tools for Programmers",
     //     category: "Career",
-    //     rating: "93",
     //     tier: "S",
     //     format: "List",
     //     language: "English",
@@ -74,7 +71,6 @@ export const resources: Resource[] = [
     // {
     //     title: "Tech Toolbox: Essential Resources",
     //     category: "Technical",
-    //     rating: "100",
     //     tier: "A",
     //     format: "Website",
     //     language: "English",
@@ -85,7 +81,6 @@ export const resources: Resource[] = [
     //     title: "Course Navigator: Your Learning Guide",
     //     category: "Academic",
     //     course: "SEG2900",
-    //     rating: "88",
     //     tier: "A",
     //     format: "PDF",
     //     language: "English",
@@ -96,7 +91,6 @@ export const resources: Resource[] = [
     //     title: "The Ultimate Guide to Scholarly Success",
     //     category: "Academic",
     //     course: "ITI1100",
-    //     rating: "80",
     //     tier: "S",
     //     format: "PDF",
     //     language: "English",
@@ -107,7 +101,6 @@ export const resources: Resource[] = [
     //     title: "Study Smarter: Academic Tips & Tricks",
     //     category: "Academic",
     //     course: "ITI1100",
-    //     rating: "85",
     //     tier: "A",
     //     format: "PDF",
     //     language: "English",
@@ -117,7 +110,6 @@ export const resources: Resource[] = [
     // {
     //     title: "Career Success: Tips and Strategies",
     //     category: "Career",
-    //     rating: "88",
     //     tier: "A",
     //     format: "PDF",
     //     language: "English",
@@ -127,7 +119,6 @@ export const resources: Resource[] = [
     // {
     //     title: "Empower Your Professional Journey",
     //     category: "Career",
-    //     rating: "80",
     //     tier: "D",
     //     format: "Video",
     //     language: "English",
@@ -137,7 +128,6 @@ export const resources: Resource[] = [
     // {
     //     title: "Your Professional Pathway",
     //     category: "Career",
-    //     rating: "80",
     //     tier: "S",
     //     format: "Website",
     //     language: "English",
@@ -148,7 +138,6 @@ export const resources: Resource[] = [
     //     title: "The Ultimate Guide to Scholarly Success",
     //     category: "Academic",
     //     course: "SEG2900",
-    //     rating: "88",
     //     tier: "A",
     //     format: "PDF",
     //     language: "English",
@@ -159,7 +148,6 @@ export const resources: Resource[] = [
     //     title: "Your Guide to Cutting-Edge Technology",
     //     category: "Technical",
     //     course: "SEG2900",
-    //     rating: "100",
     //     tier: "S",
     //     format: "Website",
     //     language: "English",
@@ -170,7 +158,6 @@ export const resources: Resource[] = [
     //     title: "Access to Millions of Academic Resources",
     //     category: "Academic",
     //     course: "SEG2900",
-    //     rating: "98",
     //     tier: "C",
     //     format: "Website",
     //     language: "English",
@@ -180,7 +167,6 @@ export const resources: Resource[] = [
     // {
     //     title: "Latest Technology News and Innovations",
     //     category: "Technical",
-    //     rating: "98",
     //     tier: "C",
     //     format: "Website",
     //     language: "English",
@@ -190,7 +176,6 @@ export const resources: Resource[] = [
     // {
     //     title: "Career Advice from uOttawa Graduates",
     //     category: "Career",
-    //     rating: "88",
     //     tier: "S",
     //     format: "Video",
     //     language: "English",
@@ -200,7 +185,6 @@ export const resources: Resource[] = [
     // {
     //     title: "Co-op 101 for uOttawa SEG Students",
     //     category: "Career",
-    //     rating: "100",
     //     tier: "S",
     //     format: "PDF",
     //     language: "English",

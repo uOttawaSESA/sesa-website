@@ -1,22 +1,16 @@
 import Image from "next/image";
 import { format } from "date-fns";
-import { useTranslations } from "next-intl";
-import { Event } from "@/app/[locale]/events/utils/types";
+import { useTranslations, useLocale } from "next-intl";
+import { Event } from "@/app/types/Event";
 
-const EventCard: React.FC<Event> = ({
-    title,
-    description,
-    date,
-    startTime,
-    endTime,
-    location,
-    image,
-    instagramLink,
-}) => {
-    const formattedDate = format(date, "MMM dd, yyyy"); // e.g., "Mar 25, 2024"
-    const day = format(date, "dd"); // e.g., "25"
-    const month = format(date, "MMM"); // e.g., "Mar"
-    const timeRange = `${format(startTime, "ha")} – ${format(endTime, "ha")}`; // "6PM – 8PM"
+const EventCard: React.FC<{ event: Event }> = ({ event }) => {
+    const locale = useLocale();
+    const lang = locale === "fr" ? "fr" : "en";
+
+    const formattedDate = format(event.date, "MMM dd, yyyy"); // e.g., "Mar 25, 2024"
+    const day = format(event.date, "dd"); // e.g., "25"
+    const month = format(event.date, "MMM"); // e.g., "Mar"
+    const timeRange = `${format(event.startTime, "ha")} – ${format(event.endTime, "ha")}`; // "6PM – 8PM"
 
     const t = useTranslations("homepage");
 
@@ -26,8 +20,8 @@ const EventCard: React.FC<Event> = ({
             <a href="#">
                 <Image
                     className="w-full border-b-2 border-solid border-blueviolet-700 object-cover"
-                    src={image}
-                    alt={title}
+                    src={event.image}
+                    alt={event.title[lang]}
                     width={350}
                     height={350}
                 />
@@ -49,24 +43,24 @@ const EventCard: React.FC<Event> = ({
                             {formattedDate}, {timeRange}
                         </span>
                         <span className="text-left font-mono text-base text-thistle">
-                            {location}
+                            {event.location}
                         </span>
                     </div>
                 </div>
 
                 {/* Title */}
-                <h5 className="text-lg uppercase tracking-tight">{title}</h5>
+                <h5 className="text-lg uppercase tracking-tight">{event.title[lang]}</h5>
 
                 {/* Description */}
                 <div>
                     <p className={`truncate-multiline font-sans text-base text-gray-400`}>
-                        {description}
+                        {event.description[lang]}
                     </p>
                 </div>
             </div>
             <div className="mb-4 mt-auto px-4 text-right">
                 <a
-                    href={instagramLink}
+                    href={event.instagramLink}
                     target="_blank"
                     className="color-gradient-clickable text-lg text-transparent"
                 >
@@ -76,5 +70,4 @@ const EventCard: React.FC<Event> = ({
         </div>
     );
 };
-
 export default EventCard;

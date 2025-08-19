@@ -46,7 +46,7 @@ export default function Events() {
                                 className="sm:basis-1/2 lg:basis-1/3 xl:basis-1/4"
                                 key={`event:${index}`}
                             >
-                                <EventCard {...event} />
+                                <EventCard event={event} />
                             </CarouselItem>
                         ))}
                     </CarouselContent>
