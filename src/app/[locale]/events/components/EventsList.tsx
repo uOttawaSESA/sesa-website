@@ -10,8 +10,6 @@ interface EventsListProps {
 }
 
 const EventsList: React.FC<EventsListProps> = ({ events }) => {
-    const locale = useLocale();
-
     return (
         <div className="mt-12 flex justify-center space-y-8 md:block">
             {events.map((event, index) => (
