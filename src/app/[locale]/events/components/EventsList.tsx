@@ -3,7 +3,6 @@
 import React from "react";
 import EventCard from "./EventCard";
 import { Event } from "../../../types/Event";
-import { useLocale } from "next-intl";
 
 interface EventsListProps {
     events: Event[];
