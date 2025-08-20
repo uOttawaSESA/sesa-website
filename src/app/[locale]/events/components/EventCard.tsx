@@ -4,69 +4,51 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { format } from "date-fns";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
+import { Event } from "../../../types/Event";
 
 interface EventCardProps {
-    title: string;
-    type: string;
-    date: Date;
-    startTime: Date;
-    endTime: Date;
-    location: string;
-    description: string;
-    image: string;
-    requiresRegistration: boolean;
-    instagramLink: string;
-    registrationLink?: string;
+    event: Event;
 }
-export const EventCard = ({
-    title,
-    type,
-    date,
-    startTime,
-    endTime,
-    location,
-    description,
-    image,
-    requiresRegistration,
-    instagramLink,
-    registrationLink,
-}: EventCardProps) => {
+
+export const EventCard = ({ event }: EventCardProps) => {
     const t = useTranslations("events");
+    const locale = useLocale();
+    const lang = locale === "fr" ? "fr" : "en";
 
     const [isRegistered, setIsRegistered] = useState(false);
     const [showFullDescription, setShowFullDescription] = useState(false);
 
-    const eventDate = date;
-    const eventStartTime = startTime;
-    const eventEndTime = endTime;
+    // Extract localized content
+    const title = event.title[lang];
+    const type = event.type[lang];
+    const description = event.description[lang];
 
-    const isPastEvent = eventDate < new Date();
+    const isPastEvent = event.date < new Date();
 
-    const formattedDate = format(eventDate, "MMM dd, yyyy"); // e.g., "Mar 25, 2024"
-    const day = format(eventDate, "dd"); // e.g., "25"
-    const dayOfWeek = format(eventDate, "EEE").toUpperCase(); // e.g., "FRI"
-    const timeRange = `${format(eventStartTime, "ha")} - ${format(eventEndTime, "ha")}`; // e.g., "6PM - 8PM"
+    const formattedDate = format(event.date, "MMM dd, yyyy");
+    const day = format(event.date, "dd");
+    const dayOfWeek = format(event.date, "EEE").toUpperCase();
+    const timeRange = `${format(event.startTime, "ha")} - ${format(event.endTime, "ha")}`;
 
     // Handle registration
     const handleRegister = () => {
-        if (registrationLink) {
-            window.open(registrationLink, "_blank"); // Open registration link in a new tab
-            setIsRegistered(true); // Mark the event as registered
+        if (event.registrationLink) {
+            window.open(event.registrationLink, "_blank");
+            setIsRegistered(true);
         }
     };
 
     // Handle details (Instagram link)
     const handleDetails = () => {
         if (!isPastEvent) {
-            window.open(instagramLink, "_blank"); // Open Instagram link in a new tab
+            window.open(event.instagramLink, "_blank");
         }
     };
 
     // Handle "Add to Calendar" action
     const handleAddToCalendar = () => {
         if (!isPastEvent) {
-            // Logic to add the event to the calendar
             console.log("Adding to calendar:", title);
         }
     };
@@ -89,7 +71,7 @@ export const EventCard = ({
                 {/* Left Side: Full-Height Image */}
                 <div>
                     <Image
-                        src={image}
+                        src={event.image}
                         alt={title}
                         width={350}
                         height={350}
@@ -114,7 +96,7 @@ export const EventCard = ({
                         {/* Date Box */}
                         <Button
                             variant="outline"
-                            className="-mt-2 flex flex-col items-center justify-center" // Adjusted margin to move the button higher
+                            className="-mt-2 flex flex-col items-center justify-center"
                         >
                             <div className="font-heading text-xs uppercase">{dayOfWeek}</div>
                             <div className="font-heading text-xl">{day}</div>
@@ -125,7 +107,7 @@ export const EventCard = ({
                             <span>
                                 {formattedDate}, {timeRange}
                             </span>
-                            <span className="text-thistle">{location}</span>
+                            <span className="text-thistle">{event.location}</span>
                         </div>
                     </div>
 
@@ -148,13 +130,13 @@ export const EventCard = ({
                         <Button
                             className="flex items-center gap-2 font-heading uppercase"
                             onClick={handleDetails}
-                            disabled={isPastEvent} // Disable for past events
+                            disabled={isPastEvent}
                         >
                             {t("btn_details")}
                         </Button>
 
                         {/* Register Button (only for events that require registration) */}
-                        {requiresRegistration && !isRegistered && !isPastEvent && (
+                        {event.requiresRegistration && !isRegistered && !isPastEvent && (
                             <Button
                                 className="flex items-center gap-2 font-heading uppercase"
                                 onClick={handleRegister}
@@ -167,8 +149,8 @@ export const EventCard = ({
                         <Button
                             className="flex items-center gap-2 font-heading uppercase"
                             onClick={handleAddToCalendar}
-                            disabled={isPastEvent} // Disable for past events
-                            variant="outline" // Keep the outline variant
+                            disabled={isPastEvent}
+                            variant="outline"
                         >
                             {t("btn_calendar")}
                         </Button>
