@@ -8,11 +8,17 @@ export async function GET() {
             success: true,
             data: resources,
         });
-    } catch (error: any) {
+    } catch (error: unknown) {
+        let message = "An unexpected error occurred";
+
+        if (error instanceof Error) {
+            message = error.message;
+        }
+
         return NextResponse.json(
             {
                 success: false,
-                error: error.message,
+                error: message,
             },
             { status: 500 },
         );
@@ -30,11 +36,17 @@ export async function POST(request: NextRequest) {
             },
             { status: 201 },
         );
-    } catch (error: any) {
+    } catch (error: unknown) {
+        let message = "An unexpected error occurred";
+
+        if (error instanceof Error) {
+            message = error.message;
+        }
+
         return NextResponse.json(
             {
                 success: false,
-                error: error.message,
+                error: message,
             },
             { status: 500 },
         );

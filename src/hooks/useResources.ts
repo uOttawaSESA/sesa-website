@@ -1,9 +1,10 @@
+import { Resource } from "@/app/types/Resource";
 import { useState, useEffect } from "react";
 
 export function useResources() {
-    const [resources, setResources] = useState([]); // Store fetched resources
-    const [loading, setLoading] = useState(true); // Loading state
-    const [error, setError] = useState(null); // Store error messages
+    const [resources, setResources] = useState<Resource[]>([]); // Store fetched resources
+    const [loading, setLoading] = useState<boolean>(true); // Loading state
+    const [error, setError] = useState<string | null>(null); // Store error messages
 
     // Async fetch function
     /**
@@ -23,8 +24,14 @@ export function useResources() {
             }
 
             setResources(result.data);
-        } catch (err: any) {
-            setError(err.message);
+        } catch (err: unknown) {
+            let message = "An unexpected error occurred";
+
+            if (err instanceof Error) {
+                message = err.message;
+            }
+
+            setError(message);
         } finally {
             setLoading(false);
         }
