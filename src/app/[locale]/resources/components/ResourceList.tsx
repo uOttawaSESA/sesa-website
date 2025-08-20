@@ -3,6 +3,7 @@ import { ResourceCard } from "./ResourceCard/ResourceCard";
 import { Resource } from "@/app/types/Resource";
 import { ResourceModal } from "./ResourceModal";
 import Image from "next/image";
+import { useResources } from "@/hooks/useResources";
 
 interface ResourceListProps {
     currentResources: Resource[];
@@ -12,6 +13,10 @@ interface ResourceListProps {
 const ResourceList: React.FC<ResourceListProps> = ({ currentResources, isGridMode }) => {
     const [selectedResource, setSelectedResource] = useState<Resource | null>(null);
     const [isModalOpen, setModalOpen] = useState(false);
+
+    const { resources, loading, error } = useResources();
+
+    console.log(resources);
 
     const openModal = (resource: Resource) => {
         setSelectedResource(resource);
