@@ -14,6 +14,7 @@ const ResourceList: React.FC<ResourceListProps> = ({ currentResources, isGridMod
     const [selectedResource, setSelectedResource] = useState<Resource | null>(null);
     const [isModalOpen, setModalOpen] = useState(false);
 
+    // TODO: Use the `resources` data from here instead of the hardcoded data
     const { resources, loading, error } = useResources();
 
     console.log(resources);
@@ -27,6 +28,9 @@ const ResourceList: React.FC<ResourceListProps> = ({ currentResources, isGridMod
         setModalOpen(false);
         setSelectedResource(null);
     };
+
+    if (loading) return <div>Loading resources...</div>;
+    if (error) return <div>Error: {error}</div>;
 
     return (
         <div className="flex justify-center md:mt-12 md:block">
