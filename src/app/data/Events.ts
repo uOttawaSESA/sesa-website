@@ -18,7 +18,6 @@ export const events: Event[] = [
         image: "/imgs/Events/chatbots.webp",
         requiresRegistration: false,
         instagramLink: "https://www.instagram.com/p/C4oyXIaRwSI/",
-        registrationLink: "",
     },
     {
         title: { en: "SESA SOCIAL", fr: "Social SESA" },
@@ -34,7 +33,6 @@ export const events: Event[] = [
         image: "/imgs/Events/social.webp",
         requiresRegistration: false,
         instagramLink: "https://www.instagram.com/p/C4HCXeRRNRT/",
-        registrationLink: "",
     },
     {
         title: { en: "SESA SOCIAL", fr: "Social SESA" },
@@ -50,7 +48,6 @@ export const events: Event[] = [
         image: "/imgs/Events/social2.webp",
         requiresRegistration: false,
         instagramLink: "https://www.instagram.com/p/CymmSr9Nx4o/",
-        registrationLink: "",
     },
     {
         title: { en: "POWER UP YOUR NETWORK WITH CIENA", fr: "Dynamisez votre réseau avec Ciena" },
@@ -66,7 +63,6 @@ export const events: Event[] = [
         image: "/imgs/Events/ciena.webp",
         requiresRegistration: false,
         instagramLink: "https://www.instagram.com/p/CxoUQMvxPg_/",
-        registrationLink: "",
     },
     {
         title: { en: "INTRODUCTION TO UNITY", fr: "Introduction à Unity" },
@@ -82,6 +78,5 @@ export const events: Event[] = [
         image: "/imgs/Events/hackthehill.webp",
         requiresRegistration: false,
         instagramLink: "https://www.instagram.com/p/Cnzy_lRpeGW/",
-        registrationLink: "",
     },
 ];
