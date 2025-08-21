@@ -1,4 +1,3 @@
-// src/lib/services/resourceService.ts
 import { collection, getDocs, doc, getDoc, addDoc, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import { ZodError } from "zod";
@@ -93,10 +92,10 @@ export const resourceService = {
     },
 
     // Add new resource with validation
-    async createResource(resourceData: unknown): Promise<ResourceDocument> {
+    async createResource(resourceData: Resource): Promise<ResourceDocument> {
         try {
-            // Validate the input data using Zod
-            const validatedData = ResourceSchema.parse(resourceData);
+            // Validate the input data using Resource schema
+            const validatedData: Resource = ResourceSchema.parse(resourceData);
 
             const docRef = await addDoc(collection(db, COLLECTION_NAME), {
                 ...validatedData,
@@ -126,7 +125,7 @@ export const resourceService = {
     },
 
     // Update resource with validation
-    async updateResource(id: string, updateData: unknown): Promise<ResourceDocument> {
+    async updateResource(id: string, updateData: PartialResource): Promise<ResourceDocument> {
         try {
             // Validate ID
             if (!id || typeof id !== "string" || id.trim() === "") {
@@ -134,7 +133,7 @@ export const resourceService = {
             }
 
             // Validate the update data using partial schema
-            const validatedUpdateData = PartialResourceSchema.parse(updateData);
+            const validatedUpdateData: PartialResource = PartialResourceSchema.parse(updateData);
 
             // Check if resource exists
             const existingResource = await this.getResourceById(id);
@@ -198,12 +197,60 @@ export const resourceService = {
         }
     },
 
+    // OVERLOADED METHODS: Accept both typed and unknown data
+
+    // Type-safe version for internal use
+    async createResourceTyped(resourceData: Resource): Promise<ResourceDocument> {
+        return this.createResource(resourceData);
+    },
+
+    // Runtime validation version for API endpoints
+    async createResourceFromUnknown(resourceData: unknown): Promise<ResourceDocument> {
+        try {
+            const validatedData: Resource = ResourceSchema.parse(resourceData);
+            return this.createResource(validatedData);
+        } catch (error) {
+            if (error instanceof ZodError) {
+                throw new ValidationError(
+                    "Invalid resource data provided",
+                    error.flatten().fieldErrors,
+                );
+            }
+            throw error;
+        }
+    },
+
+    // Type-safe version for internal use
+    async updateResourceTyped(id: string, updateData: PartialResource): Promise<ResourceDocument> {
+        return this.updateResource(id, updateData);
+    },
+
+    // Runtime validation version for API endpoints
+    async updateResourceFromUnknown(id: string, updateData: unknown): Promise<ResourceDocument> {
+        try {
+            const validatedData: PartialResource = PartialResourceSchema.parse(updateData);
+            return this.updateResource(id, validatedData);
+        } catch (error) {
+            if (error instanceof ZodError) {
+                throw new ValidationError(
+                    "Invalid update data provided",
+                    error.flatten().fieldErrors,
+                );
+            }
+            throw error;
+        }
+    },
+
     // Helper method: Validate resource data without saving (useful for forms)
-    validateResourceData(data: unknown): { isValid: boolean; errors?: Record<string, string[]> } {
+    validateResourceData(data: unknown): {
+        isValid: boolean;
+        errors?: Record<string, string[]>;
+        data?: Resource;
+    } {
         const result = ResourceSchema.safeParse(data);
 
         if (result.success) {
-            return { isValid: true };
+            return { isValid: true, data: result.data };
         }
 
         return {
@@ -216,11 +263,12 @@ export const resourceService = {
     validatePartialResourceData(data: unknown): {
         isValid: boolean;
         errors?: Record<string, string[]>;
+        data?: PartialResource;
     } {
         const result = PartialResourceSchema.safeParse(data);
 
         if (result.success) {
-            return { isValid: true };
+            return { isValid: true, data: result.data };
         }
 
         return {
