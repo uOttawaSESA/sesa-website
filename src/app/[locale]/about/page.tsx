@@ -135,7 +135,7 @@ export default function About() {
                 {/* Figures */}
                 <FadeInSection>
                     <div className="flex justify-center md:mb-28">
-                        <div className="grid w-fit grid-cols-1 place-items-center gap-0 md:grid-cols-4">
+                        <div className="grid w-fit grid-cols-1 place-items-center gap-0 bg-black/40 backdrop-blur-lg md:grid-cols-4">
                             <Metric
                                 className="!w-64"
                                 figure="3500+"
@@ -187,6 +187,7 @@ export default function About() {
                 <FadeInSection>
                     <div className="mb-8 flex w-full gap-8 overflow-x-auto md:justify-center">
                         <WhatWeDoCard
+                            className="bg-black/40 backdrop-blur-lg"
                             imageHref="/imgs/about/social-events.webp"
                             icon={
                                 <Image
@@ -202,6 +203,7 @@ export default function About() {
                             linkHref="/events"
                         />
                         <WhatWeDoCard
+                            className="bg-black/40 backdrop-blur-lg"
                             imageHref="/imgs/about/academic-support.webp"
                             icon={
                                 <Image
@@ -217,6 +219,7 @@ export default function About() {
                             linkHref="/resources"
                         />
                         <WhatWeDoCard
+                            className="bg-black/40 backdrop-blur-lg"
                             imageHref="/imgs/about/professional-development.webp"
                             icon={
                                 <Image
@@ -255,7 +258,7 @@ export default function About() {
                 </FadeInSection>
                 {/* TODO: Add the `sticky` class once a way to make it not super ugly is found */}
                 <FadeInSection>
-                    <div className="top-[5.6rem] z-10 mt-4 grid grid-flow-col grid-rows-4 text-center font-heading uppercase backdrop-blur-sm md:grid-rows-1">
+                    <div className="top-[5.6rem] z-10 mt-4 grid grid-flow-col grid-rows-4 bg-black/20 text-center font-heading uppercase backdrop-blur-lg md:grid-rows-1">
                         <Button className="!inline !px-2" variant="outline" asChild>
                             <Link href="#co-directors">{tOurTeam("codirectors")}</Link>
                         </Button>
@@ -351,7 +354,7 @@ export default function About() {
                             <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
                                 {beyonSesaCompanies.map((company, i) => (
                                     <div
-                                        className="outline-gradient flex h-36 w-64 items-center justify-center"
+                                        className="outline-gradient flex h-36 w-64 items-center justify-center bg-black/40 backdrop-blur-lg"
                                         key={`partners:${i}`}
                                     >
                                         <Image
