@@ -63,22 +63,52 @@ export default function Footer() {
                             <h3 className="font-heading uppercase text-white">{t("sitemap")}</h3>
                             <ul className="flex flex-col gap-3 leading-none text-thistle">
                                 <li>
-                                    <Link href="/">{tNav("home")}</Link>
+                                    <Link
+                                        href="/"
+                                        className="transition-colors hover:text-white hover:underline"
+                                    >
+                                        {tNav("home")}
+                                    </Link>
                                 </li>
                                 <li>
-                                    <Link href="/about">{tNav("about")}</Link>
+                                    <Link
+                                        href="/about"
+                                        className="transition-colors hover:text-white hover:underline"
+                                    >
+                                        {tNav("about")}
+                                    </Link>
                                 </li>
                                 <li>
-                                    <Link href="/events">{tNav("events")}</Link>
+                                    <Link
+                                        href="/events"
+                                        className="transition-colors hover:text-white hover:underline"
+                                    >
+                                        {tNav("events")}
+                                    </Link>
                                 </li>
                                 <li>
-                                    <Link href="/resources">{tNav("resources")}</Link>
+                                    <Link
+                                        href="/resources"
+                                        className="transition-colors hover:text-white hover:underline"
+                                    >
+                                        {tNav("resources")}
+                                    </Link>
                                 </li>
                                 <li>
-                                    <Link href="/contact">{tNav("contact")}</Link>
+                                    <Link
+                                        href="/contact"
+                                        className="transition-colors hover:text-white hover:underline"
+                                    >
+                                        {tNav("contact")}
+                                    </Link>
                                 </li>
                                 <li>
-                                    <Link href="/sponsors">{tNav("sponsor")}</Link>
+                                    <Link
+                                        href="/sponsors"
+                                        className="transition-colors hover:text-white hover:underline"
+                                    >
+                                        {tNav("sponsor")}
+                                    </Link>
                                 </li>
                             </ul>
                         </div>
@@ -86,10 +116,20 @@ export default function Footer() {
                             <h3 className="font-heading uppercase text-white">{t("policies")}</h3>
                             <ul className="flex flex-col gap-3 leading-none text-thistle">
                                 <li>
-                                    <Link href="/policies#privacy">{t("privacy")}</Link>
+                                    <Link
+                                        href="/policies#privacy"
+                                        className="transition-colors hover:text-white hover:underline"
+                                    >
+                                        {t("privacy")}
+                                    </Link>
                                 </li>
                                 <li>
-                                    <Link href="/policies#terms">{t("terms")}</Link>
+                                    <Link
+                                        href="/policies#terms"
+                                        className="transition-colors hover:text-white hover:underline"
+                                    >
+                                        {t("terms")}
+                                    </Link>
                                 </li>
                             </ul>
                         </div>
