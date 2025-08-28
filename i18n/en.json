@@ -75,10 +75,12 @@
         "linkedin_logo_alt": "LinkedIn Logo",
         "youtube_logo_alt": "YouTube Logo",
 
-        "team_heading_part1": "The",
-        "team_heading_highlight": "University of Ottawa's",
-        "team_heading_part2": "Software Engineering Students Association",
-        "team_subheading": "Our communications team meticulously crafted the web design, while our development team built it with heart.",
+        "team_heading_line1_part1": "The",
+        "team_heading_line1_highlight": "University of Ottawa's",
+        "team_heading_line1_part2": "Software",
+        "team_heading_line2": "Engineering Students Association",
+        "team_subheading_line1": "Our communications team meticulously crafted the web",
+        "team_subheading_line2": "design, while our development team built it with heart.",
         "team_become_sponsor_btn": "Become a sponsor",
         "team_get_in_touch_btn": "Get in touch"
     },
@@ -138,7 +140,7 @@
             "advisors": "Advisors",
             "advisors_desc": "Our trusted mentors provide guidance and insights to help the team navigate challenges and achieve success."
         },
-        "our_previous_partners": "Our previous partners",
+        "our_previous_partners": "Where our alumni are now",
         "our_previous_partners_heading_hl": "Beyond SESA",
         "our_previous_partners_p_bold": "Our community of past executive members spans around the globe",
         "our_previous_partners_p": "making their mark in top industries. Here are just a few places where you'll find the impact of our talented network driving innovation and success.",
@@ -148,7 +150,7 @@
         "our_family_p_bold": "Turn your passion into impact",
         "our_family_p": "Build, learn, and connect with like-minded peers while helping shape the next generation of software engineers.",
         "apply_now": "Apply Now",
-        "no_more_apps": "We're no longer accepting applications for Winter 2025. Stay tuned for Spring/Summer 2025 openings!"
+        "no_more_apps": "We're no longer accepting applications for Fall 2025. Stay tuned for Winter 2026 openings!"
     },
 
     "contact_us": {
