@@ -1,9 +1,7 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
 
-import ComingSoonMessage from "@/components/ComingSoonMessage";
 import Pagination from "@/components/Pagination";
-import { resources } from "@/app/data/Resources";
 
 import SearchFilterBar from "./SearchFilterBar";
 import ResourceList from "./ResourceList";

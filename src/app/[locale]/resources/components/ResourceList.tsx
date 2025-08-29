@@ -3,7 +3,6 @@ import { ResourceCard } from "./ResourceCard/ResourceCard";
 import { Resource } from "@/app/types/Resource";
 import { ResourceModal } from "./ResourceModal";
 import Image from "next/image";
-import { useResources } from "@/hooks/useResources";
 
 interface ResourceListProps {
     currentResources: Resource[];
