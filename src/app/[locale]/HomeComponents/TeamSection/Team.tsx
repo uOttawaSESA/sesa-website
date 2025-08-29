@@ -67,19 +67,12 @@ const Team = () => {
                         <Image src="/logo-text.svg" width={111} height={50} alt="sesa" />
                     </div>
                     <h1 className="text-center font-heading text-2xl uppercase leading-tight md:text-5xl">
-                        <span className="block">
-                            {t("team_heading_line1_part1")}{" "}
-                            <span className="highlight-text">
-                                {t("team_heading_line1_highlight")}
-                            </span>{" "}
-                            {t("team_heading_line1_part2")}
-                        </span>
-                        <span className="block">{t("team_heading_line2")}</span>
+                        {t("team_heading_part1")}{" "}
+                        <span className="highlight-text">{t("team_heading_highlight")}</span>{" "}
+                        {t("team_heading_part2")}
                     </h1>
-                    <p className="mt-6 w-full text-center font-sans text-base text-thistle md:text-xl">
-                        {t("team_subheading_line1")}
-                        <br />
-                        {t("team_subheading_line2")}
+                    <p className="w-1/2 text-center font-sans text-base text-thistle md:text-xl">
+                        {t("team_subheading")}
                     </p>
                 </div>
 
@@ -87,7 +80,7 @@ const Team = () => {
                     <Button className="w-full font-heading uppercase sm:w-max" asChild>
                         <a href="#">
                             {t("team_become_sponsor_btn")}{" "}
-                            <span className="text-gray ml-2 opacity-50">{">"}</span>
+                            <span className="text-gray opacity-50">{">"}</span>
                         </a>
                     </Button>
 

@@ -59,12 +59,12 @@ const SponsorsGrid = () => {
                 {sponsors.map((sponsor, index) => (
                     <div
                         key={index}
-                        className={`flex items-center justify-center rounded-lg p-10 ${sponsor.size} ${gradientBorderClass} backdrop-blur-lg ${
+                        className={`flex items-center justify-center rounded-lg p-6 backdrop-blur-xl ${sponsor.size} ${gradientBorderClass} ${
                             sponsor.size === "col-span-6"
-                                ? "h-56"
+                                ? "h-40" // Tallest
                                 : sponsor.size === "col-span-4"
-                                  ? "h-44"
-                                  : "h-32"
+                                  ? "h-32" // Medium height
+                                  : "h-24" // Shortest
                         }`}
                     >
                         <Image

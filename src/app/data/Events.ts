@@ -3,24 +3,6 @@ import { Event } from "../types/Event";
 export const events: Event[] = [
     {
         title: {
-            en: "Warp AI Masterclass",
-            fr: "Atelier Warp AI",
-        },
-        type: { en: "Workshop", fr: "Atelier" },
-        date: new Date("2025-03-04"),
-        startTime: new Date("2025-03-04T16:30:00"),
-        endTime: new Date("2025-03-04T18:00:00"),
-        location: "STM 117",
-        description: {
-            en: "Exclusive hands-on demo of Warp’s AI-powered terminal, Q&A with a Warp rep, prizes, and free pizza! Registration required.",
-            fr: "Atelier exclusif sur Warp AI. Démo en direct, Q&R, prix et pizza! Inscription requise.",
-        },
-        image: "/imgs/Events/warp.webp",
-        requiresRegistration: true,
-        instagramLink: "https://www.instagram.com/p/DGoAppFOrHW/",
-    },
-    {
-        title: {
             en: "CRAFTING CUSTOM CHATBOTS WITH MICROSOFT",
             fr: "Créer des chatbots personnalisés avec Microsoft",
         },
@@ -45,8 +27,8 @@ export const events: Event[] = [
         endTime: new Date("2024-11-11T20:00:00"),
         location: "STM117",
         description: {
-            en: "Unlock the fun at our SESA Social Event! Games, laughter, and new connections. See you there!",
-            fr: "Participez au Social SESA! Jeux, rires et nouvelles rencontres. À bientôt!",
+            en: "WE’RE BACK! Unlock the fun at our SESA Social Event on March 11 🎉 Swing by STM117 from 6-8 PM for an evening of games, laughter, and new connections! See you there ‼️",
+            fr: "NOUS SOMMES DE RETOUR! Participez au Social SESA le 11 mars 🎉 Passez au STM117 de 18h à 20h pour une soirée de jeux, de rires et de nouvelles rencontres! À bientôt ‼️",
         },
         image: "/imgs/Events/social.webp",
         requiresRegistration: false,
@@ -60,8 +42,8 @@ export const events: Event[] = [
         endTime: new Date("2024-11-02T21:00:00"),
         location: "STM117",
         description: {
-            en: "Join us for an evening of fun with video games, board games, free food, and more! Register now!",
-            fr: "Venez au Social de SESA pour une soirée de jeux vidéo, jeux de société, nourriture gratuite et plus encore! Inscrivez-vous maintenant!",
+            en: "WE’RE BACK! Unlock the fun at our SESA Social Event on March 11 🎉 Swing by STM117 from 6-8 PM for an evening of games, laughter, and new connections! See you there ‼️ YOU'RE INVITED! Come to SESA's Social for an evening of fun with video games, board games, free food, and more 🥳 REGISTER NOW with the link in our bio!",
+            fr: "NOUS SOMMES DE RETOUR! Participez au Social SESA le 11 mars 🎉 Passez au STM117 de 18h à 20h pour une soirée de jeux, de rires et de nouvelles rencontres! VOUS ÊTES INVITÉS! Venez au Social de SESA pour une soirée de jeux vidéo, de jeux de société, de nourriture gratuite et plus encore 🥳 INSCRIVEZ-VOUS maintenant via le lien dans notre bio!",
         },
         image: "/imgs/Events/social2.webp",
         requiresRegistration: false,
@@ -75,8 +57,8 @@ export const events: Event[] = [
         endTime: new Date("2024-11-02T21:00:00"),
         location: "STM117",
         description: {
-            en: "Ciena's 2nd Annual Networking Event! Meet industry professionals, learn trends, and expand your network.",
-            fr: "2e événement annuel de réseautage de Ciena! Rencontrez des pros, découvrez les tendances et élargissez votre réseau.",
+            en: "SOLD OUT — 🌐 Join us for an unforgettable networking experience! 🤝 Ciena's 2nd Annual Networking Event is back, and it's bigger than ever! 🎉 Hosted by Ciena in partnership with CSSA, IEEE, SESA, uOttaHack, and Hack the Hill, this exclusive in-person gathering is your gateway to endless opportunities in the networking industry. 💼💡 Meet industry professionals, learn about the latest trends, and expand your network. Don't miss this chance to connect with the best in the business!",
+            fr: "COMPLET — 🌐 Joignez-vous à nous pour une expérience de réseautage inoubliable! 🤝 Le 2e événement annuel de réseautage de Ciena est de retour, encore plus grand que jamais! 🎉 Organisé par Ciena en partenariat avec CSSA, IEEE, SESA, uOttaHack et Hack the Hill, cette rencontre exclusive en personne est votre porte d'entrée vers d'innombrables opportunités dans l'industrie du réseautage. 💼💡 Rencontrez des professionnels du secteur, découvrez les dernières tendances et élargissez votre réseau. Ne manquez pas cette chance de connecter avec les meilleurs!",
         },
         image: "/imgs/Events/ciena.webp",
         requiresRegistration: false,
@@ -90,8 +72,8 @@ export const events: Event[] = [
         endTime: new Date("2024-11-02T21:00:00"),
         location: "STM117",
         description: {
-            en: "Level up your game dev skills at our Unity workshop with Hack the Hill and uOttaHack!",
-            fr: "Améliorez vos compétences en développement de jeux lors de l'atelier Unity avec Hack the Hill et uOttaHack!",
+            en: "Calling all aspiring game developers! Get ready to level up your game development skills at the #GotGames introduction to Unity workshop! Join @hackthehill and @uogamedev on January 25th from 7pm to 9pm in STM117 and on Twitch.",
+            fr: "Avis à tous les futurs développeurs de jeux! Préparez-vous à améliorer vos compétences en développement de jeux lors de l'atelier d'introduction à Unity #GotGames! Rejoignez @hackthehill et @uogamedev le 25 janvier de 19h à 21h au STM117 et sur Twitch.",
         },
         image: "/imgs/Events/hackthehill.webp",
         requiresRegistration: false,
