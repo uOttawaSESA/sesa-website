@@ -9,7 +9,6 @@ export interface WhatWeDoCardProps {
     description: string;
     linkLabel: string;
     linkHref: string;
-    className?: string;
 }
 
 export default function WhatWeDoCard({
@@ -19,10 +18,9 @@ export default function WhatWeDoCard({
     description,
     linkLabel,
     linkHref,
-    className = "",
 }: WhatWeDoCardProps) {
     return (
-        <div className={`outline-gradient w-fit bg-black/40 backdrop-blur-lg ${className}`}>
+        <div className="outline-gradient w-fit">
             <Image
                 src={imageHref}
                 width={352}
