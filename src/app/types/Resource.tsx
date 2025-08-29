@@ -5,7 +5,7 @@ export interface Resource {
     tier: string;
     format: string;
     language: string;
-    source: string;
+    source: string; // If it is a file, put file name here
     list?: {
         name: string;
         description: string;

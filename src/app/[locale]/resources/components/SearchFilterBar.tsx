@@ -37,6 +37,7 @@ interface SearchFilterBarProps {
     sortOption: string;
     setSortOption: (option: string) => void;
     isMobile: boolean;
+    availableCourses: { label: string; value: string }[];
 }
 
 export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
@@ -51,6 +52,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
     sortOption,
     setSortOption,
     isMobile,
+    availableCourses,
 }) => {
     const t = useTranslations("resources");
 
@@ -71,36 +73,36 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
 
     // Dropdown options for each filter
     const filterDropdownOptions: Record<keyof FilterOptions, { label: string; value: string }[]> = {
-        // TODO: Replace with actual courses from the future database
-        course: [
-            { label: "Select Course", value: "$none" },
-            { label: "ITI1100", value: "ITI1100" },
-            { label: "CS101", value: "CS101" },
-        ],
+        course: availableCourses,
         type: [
-            { label: "Select Type", value: "$none" },
             { label: "Academic", value: "academic" },
             { label: "Career", value: "career" },
             { label: "Technical", value: "technical" },
         ],
         format: [
-            { label: "Select Format", value: "$none" },
             { label: "Video", value: "video" },
             { label: "PDF", value: "pdf" },
             { label: "Website", value: "website" },
         ],
         language: [
-            { label: "Select Language", value: "$none" },
             { label: "English", value: "english" },
             { label: "French", value: "french" },
         ],
         tier: [
-            { label: "Select Tier", value: "$none" },
             { label: "Tier S", value: "S" },
             { label: "Tier A", value: "A" },
             { label: "Tier B", value: "B" },
             { label: "Tier C", value: "C" },
         ],
+    };
+
+    // Placeholder text for each filter
+    const filterPlaceholders: Record<keyof FilterOptions, string> = {
+        course: "Select Course",
+        type: "Select Type",
+        format: "Select Format",
+        language: "Select Language",
+        tier: "Select Tier",
     };
 
     const changeView = (value: "grid" | "row") => {
@@ -218,16 +220,14 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                                     {key}
                                                 </label>
                                                 <Select
-                                                    value={filterOptions[key]}
+                                                    value={filterOptions[key] || undefined}
                                                     onValueChange={value =>
                                                         handleFilterChange(key, value)
                                                     }
                                                 >
                                                     <SelectTrigger className="w-full">
                                                         <SelectValue
-                                                            placeholder={
-                                                                filterDropdownOptions[key][0].label
-                                                            }
+                                                            placeholder={filterPlaceholders[key]}
                                                         />
                                                     </SelectTrigger>
                                                     <SelectContent>

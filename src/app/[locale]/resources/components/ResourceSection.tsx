@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import ComingSoonMessage from "@/components/ComingSoonMessage";
 import Pagination from "@/components/Pagination";
@@ -8,6 +8,7 @@ import { resources } from "@/app/data/Resources";
 import SearchFilterBar from "./SearchFilterBar";
 import ResourceList from "./ResourceList";
 import { Resource } from "@/app/types/Resource";
+import { useResources } from "@/hooks/useResources";
 
 const ResourceSection = () => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -23,6 +24,31 @@ const ResourceSection = () => {
     });
     const [sortOption, setSortOption] = useState<string>("relevance");
     const [isMobile, setIsMobile] = useState(false);
+
+    const { resources, loading, error } = useResources();
+
+    // Extract unique courses from resources for the course filter
+    const availableCourses = useMemo(() => {
+        const courseSet = new Set<string>();
+
+        resources.forEach(resource => {
+            if (resource.course && typeof resource.course === "string" && resource.course.trim()) {
+                courseSet.add(resource.course.trim());
+            }
+        });
+
+        // Convert to the format SearchFilterBar expects
+        return [
+            ...Array.from(courseSet)
+                .sort() // Sort alphabetically
+                .map(course => ({
+                    label: course,
+                    value: course,
+                })),
+        ];
+    }, [resources]); // Recalculate when resources change
+
+    console.log(resources);
 
     // Detect mobile
     useEffect(() => {
@@ -56,8 +82,6 @@ const ResourceSection = () => {
         return matchesSearchTerm && matchesFilters;
     });
 
-    // Debugging: Log the current sort option
-
     // Sorting logic
     const sortedResources = [...filteredResources].sort((a, b) => {
         switch (sortOption) {
@@ -75,8 +99,6 @@ const ResourceSection = () => {
         }
     });
 
-    // Debugging: Log the sorted resources
-
     const totalPages = Math.ceil(sortedResources.length / (itemsPerRow * rowsToShow));
 
     const currentResources = sortedResources.slice(
@@ -84,12 +106,10 @@ const ResourceSection = () => {
         currentPage * itemsPerRow * rowsToShow,
     );
 
-    return resources.length === 0 ? (
-        <ComingSoonMessage
-            title="Coming Fall 2025: Your academic toolbox."
-            subtitle="All the resources you need, in one place—launching soon."
-            homeButton={true}
-        />
+    return loading ? (
+        <div>Loading resources...</div>
+    ) : error ? (
+        <div>Error loading resources: {error}</div>
     ) : (
         <>
             {/* Pass state and handlers to SearchFilterBar */}
@@ -105,6 +125,7 @@ const ResourceSection = () => {
                 sortOption={sortOption}
                 setSortOption={setSortOption}
                 isMobile={isMobile}
+                availableCourses={availableCourses}
             />
 
             {/* Resources Grid or Row */}
