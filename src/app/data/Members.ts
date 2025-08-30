@@ -3,15 +3,23 @@ import Member from "../types/Member";
 export const membersData: Member[] = [
     // Co-directors
     {
-        name: "Thomas Li",
-        team: "Academic",
-        role: "Academic Coordinator",
-        imgPath: "/imgs/team/thomas-li.webp",
-        linkedin: "https://www.linkedin.com/in/thomas-li-softwareeng",
-        email: "tli060@uottawa.ca",
+        name: "Rolf Addoumie",
+        team: "Co-directors",
+        role: "Co-Director",
+        imgPath: "/imgs/team/rolf.webp",
+        linkedin: "https://www.linkedin.com/in/rolfaddoumie/",
+        email: "rolfaddoumie@gmail.com",
     },
-
-    // Communications Team
+    {
+        name: "Asad Ali",
+        team: "Co-directors",
+        role: "Co-Director",
+        imgPath: "/imgs/team/asad.webp",
+        linkedin: "https://www.linkedin.com/in/asadbinali/",
+        github: "https://github.com/Twoos123",
+        email: "masadbali190@gmail.com",
+        portfolio: "https://twoos123.github.io/asadali-portfolio/",
+    },
     {
         name: "Rayen Ben Tamarzizt",
         team: "Co-directors",
@@ -21,6 +29,7 @@ export const membersData: Member[] = [
         github: "https://github.com/Rayen-BT",
         email: "rayenbentamarzizt@gmail.com",
     },
+
     // Academic Team
     {
         name: "Kouakou Jedidiah Ange-Emmanuel",
@@ -76,15 +85,6 @@ export const membersData: Member[] = [
         email: "vutha032@uottawa.ca",
     },
     {
-        name: "Mary Velez",
-        team: "Communications",
-        role: "Communications Coordinator",
-        imgPath: "/imgs/team/mary.webp",
-        linkedin: "https://ca.linkedin.com/in/maryvelez",
-        github: "https://github.com/maryvelez",
-        email: "marychrisvelez@gmail.com",
-    },
-    {
         name: "Sophia Hopkins",
         team: "Communications",
         role: "Communications Coordinator",
@@ -131,22 +131,6 @@ export const membersData: Member[] = [
         github: "https://github.com/MysteryBlokHed/",
     },
     {
-        name: "Kylan Thurairajah",
-        team: "Development",
-        role: "Developer",
-        imgPath: "/imgs/team/kylan.webp",
-        linkedin: "https://www.linkedin.com/in/kylan-thurairajah/",
-        github: "https://github.com/Kylan-Thurairajah",
-    },
-    {
-        name: "Raman Gupta",
-        team: "Development",
-        role: "Developer",
-        imgPath: "/imgs/team/raman.webp",
-        linkedin: "https://linkedin.com/in/gupta-raman",
-        github: "https://github.com/g-raman",
-        email: "gr.gupta.raman@gmail.com",
-        portfolio: "https://raman.codes",
         name: "Raman Gupta",
         team: "Development",
         role: "Developer",
@@ -160,13 +144,8 @@ export const membersData: Member[] = [
     // Events Team
     {
         name: "Mehdi Semmar",
-        name: "Mehdi Semmar",
         team: "Events",
         role: "Events Lead",
-        imgPath: "/imgs/team/mehdi.webp",
-        linkedin: "https://www.linkedin.com/in/mehdi-semmar-946a1b27b/",
-        github: "https://github.com/FtKuBo",
-        email: "msemm031@uottawa.ca",
         imgPath: "/imgs/team/mehdi.webp",
         linkedin: "https://www.linkedin.com/in/mehdi-semmar-946a1b27b/",
         github: "https://github.com/FtKuBo",
@@ -181,14 +160,14 @@ export const membersData: Member[] = [
         github: "https://github.com/TheBossT910",
         email: "taharashid710192@gmail.com",
     },
-    {
-        name: "Thomas Boyle",
-        team: "Events",
-        role: "Events Coordinator",
-        imgPath: "/imgs/team/thomas.webp",
-        linkedin: "www.linkedin.com/in/thomas-boyle-software",
-        email: "tboyl098@uottawa.ca",
-    },
+    // {
+    //     name: "Thomas Boyle",
+    //     team: "Events",
+    //     role: "Events Coordinator",
+    //     imgPath: "/imgs/team/thomas.webp",
+    //     linkedin: "www.linkedin.com/in/thomas-boyle-software",
+    //     email: "tboyl098@uottawa.ca",
+    // },
     {
         name: "Darren Rakos",
         team: "Events",
@@ -198,7 +177,6 @@ export const membersData: Member[] = [
         github: "https://github.com/RakosDarren",
         email: "darren.y.rakos@gmail.com",
     },
-    // Partnership Team
     {
         name: "Nodshley Marcelin",
         team: "Events",
@@ -218,9 +196,6 @@ export const membersData: Member[] = [
         imgPath: "/imgs/team/dragos.webp",
         linkedin: "https://www.linkedin.com/in/dragos-daiciulescu/",
         email: "ddaic067@uottawa.ca",
-        imgPath: "/imgs/team/dragos.webp",
-        linkedin: "https://www.linkedin.com/in/dragos-daiciulescu/",
-        email: "ddaic067@uottawa.ca",
     },
     {
         name: "Bilal Shaikh",
@@ -231,13 +206,6 @@ export const membersData: Member[] = [
         email: "bshai076@uottawa.ca",
     },
     {
-        name: "Whitney Nsegbe",
-        team: "Partnership",
-        role: "Partnership Coordinator",
-        imgPath: "/imgs/team/whitney.webp",
-        email: "wnseg071@uottawa.ca",
-    },
-    {
         name: "Ayushi Dosieah",
         team: "Partnership",
         role: "Partnerships Coordinator",
@@ -245,6 +213,15 @@ export const membersData: Member[] = [
         linkedin: "www.linkedin.com/in/ayushi-dosieah",
         github: "https://github.com/yushi-dos",
         email: "ayushi.dosieah@gmail.com",
+    },
+    {
+        name: "Maximus",
+        team: "Partnership",
+        role: "Partnership Coordinator",
+        imgPath: "/imgs/team/maximus.webp",
+        linkedin: "https://linkedin.com/in/maximus-teo",
+        github: "https://github.com/maximus-teo",
+        email: "maximus.teo@uottawa.ca",
     },
 
     // Advisors
@@ -273,13 +250,6 @@ export const membersData: Member[] = [
         github: "https://github.com/peter-bf",
     },
     {
-        name: "Adam Said",
-        team: "Advisors",
-        role: "Advisor",
-        imgPath: "/imgs/team/adams.jpeg",
-        linkedin: "https://www.linkedin.com/in/adamsaid-/",
-    },
-    {
         name: "Deniz Jasarbasic",
         team: "Advisors",
         role: "Advisor",
@@ -305,8 +275,6 @@ export const membersData: Member[] = [
     },
     {
         name: "Priya Dharmendra Kumar",
-        team: "Advisors",
-        role: "Advisor",
         team: "Advisors",
         role: "Advisor",
         imgPath: "/imgs/team/priya.webp",
