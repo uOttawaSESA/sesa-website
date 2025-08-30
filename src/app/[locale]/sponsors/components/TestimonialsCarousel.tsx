@@ -67,7 +67,7 @@ const TestimonialsCarousel = () => {
                                     <Image
                                         src={sponsor.logo}
                                         alt={sponsor.logoAlt}
-                                        width={70}
+                                        width={100}
                                         height={20}
                                         className="mb-4"
                                     />

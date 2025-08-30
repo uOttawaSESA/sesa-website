@@ -84,7 +84,7 @@ const PartnerWithUs = () => {
                         </Button>
                     </div>
 
-                    <div className="relative left-0 md:left-3">
+                    <div className="-ml-2 md:-ml-1">
                         <TeamBadgeStack imgs={teamImgs} />
                     </div>
                 </div>
