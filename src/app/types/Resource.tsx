@@ -12,4 +12,5 @@ export interface Resource {
         url: string;
     }[];
     pricing: string;
+    accessibilityFeature?: string;
 }

@@ -82,7 +82,7 @@ const extractYoutubeId = (url: string): string | null => {
 export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps) => {
     const renderViewer = () => {
         switch (resource.format.toLowerCase()) {
-            case "pdf":
+            case "textbook":
                 return (
                     <div className="aspect-video max-h-[80vh] w-full">
                         <iframe
@@ -231,7 +231,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                                 height={20}
                                 className="h-5 w-5"
                             />
-                            <span>{resource.format}</span>
+                            <span className="capitalize">{resource.format}</span>
                         </div>
 
                         <div className="h-[14px] w-px border-r border-thistle opacity-35" />
@@ -245,7 +245,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                                 height={20}
                                 className="h-5 w-5"
                             />
-                            <span>{resource.pricing}</span>
+                            <span className="capitalize">{resource.pricing}</span>
                         </div>
 
                         <div className="h-[14px] w-px border-r border-thistle opacity-35" />
@@ -254,13 +254,33 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                         <div className="flex items-center gap-2">
                             <Image
                                 src="/resources-page/language.svg"
-                                alt="Pricing"
+                                alt="Language"
                                 width={20}
                                 height={20}
                                 className="h-5 w-5"
                             />
-                            <span>{resource.language}</span>
+                            <span className="capitalize">{resource.language}</span>
                         </div>
+
+                        {/* Accessibility Feature */}
+                        {resource.accessibilityFeature && (
+                            <>
+                                <div className="h-[14px] w-px border-r border-thistle opacity-35" />
+
+                                <div className="flex items-center gap-2">
+                                    <Image
+                                        src="/resources-page/accessibility.svg"
+                                        alt="Accessibility Feature"
+                                        width={20}
+                                        height={20}
+                                        className="h-5 w-5"
+                                    />
+                                    <span className="capitalize">
+                                        {resource.accessibilityFeature}
+                                    </span>
+                                </div>
+                            </>
+                        )}
                     </div>
 
                     {resource.format.toLowerCase() !== "list" && (
