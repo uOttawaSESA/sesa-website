@@ -134,7 +134,7 @@ export default function About() {
                 </FadeInSection>
                 {/* Figures */}
                 <FadeInSection>
-                    <div className="flex justify-center md:mb-28">
+                    <div className="flex justify-center backdrop-blur-lg md:mb-28">
                         <div className="grid w-fit grid-cols-1 place-items-center gap-0 md:grid-cols-4">
                             <Metric
                                 className="!w-64"
@@ -347,7 +347,7 @@ export default function About() {
                             <b>{t("our_previous_partners_p_bold")}</b>,{" "}
                             {t("our_previous_partners_p")}{" "}
                         </p>
-                        <div className="mt-10 flex items-center justify-center text-center">
+                        <div className="mt-10 flex items-center justify-center text-center backdrop-blur-lg">
                             <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
                                 {beyonSesaCompanies.map((company, i) => (
                                     <div

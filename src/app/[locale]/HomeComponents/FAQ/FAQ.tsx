@@ -108,7 +108,7 @@ const FAQ = () => {
                 </div>
 
                 {/* Accordion */}
-                <div className="backdrop-blue-lg flex justify-center">
+                <div className="backdrop-blue-lg flex justify-center backdrop-blur-lg">
                     <div className="relative w-full overflow-hidden border border-purple-600">
                         <div className="clip-corner-inner">
                             <Accordion

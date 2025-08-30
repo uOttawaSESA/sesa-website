@@ -31,7 +31,7 @@ export const SocialMediaCard = ({
             </div>
 
             {/* Bottom 40% - Content */}
-            <div className="flex h-[40%] flex-col p-4">
+            <div className="flex h-[40%] flex-col p-4 backdrop-blur-lg">
                 {/* Title and Logo */}
                 <div className="flex items-center justify-between">
                     <h3 className="text-left font-heading text-xl">{title}</h3>

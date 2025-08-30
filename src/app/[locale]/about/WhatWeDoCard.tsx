@@ -20,7 +20,7 @@ export default function WhatWeDoCard({
     linkHref,
 }: WhatWeDoCardProps) {
     return (
-        <div className="outline-gradient w-fit">
+        <div className="outline-gradient w-fit backdrop-blur-lg">
             <Image
                 src={imageHref}
                 width={352}
