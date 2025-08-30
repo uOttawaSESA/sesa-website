@@ -498,3 +498,29 @@ select::placeholder {
         rgba(0, 0, 0, 0) 50%
     );
 }
+
+.fade-from-center-sponsorship-floor {
+    -webkit-mask-image: radial-gradient(
+        ellipse 100% 100% at center,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0) 60%
+    );
+    mask-image: radial-gradient(
+        ellipse 100% 100% at center,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0) 60%
+    );
+}
+
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+        opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    /* will-change: opacity, transform; */
+}
+.fade-in-section.in-view {
+    opacity: 1;
+    transform: none;
+}

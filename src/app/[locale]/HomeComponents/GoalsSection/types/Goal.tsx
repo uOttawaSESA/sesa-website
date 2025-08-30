@@ -1,10 +1,10 @@
 export default interface Goal {
-    goalType: string;
-    title: string;
-    highlightTitle: string;
-    description: string;
+    goalType: { en: string; fr: string };
+    title: { en: string; fr: string };
+    highlightTitle: { en: string; fr: string };
+    description: { en: string; fr: string };
     buttonLink: string;
-    buttonText: string;
+    buttonText: { en: string; fr: string };
     memberImgLinks: string[];
     mainImg: string;
 }

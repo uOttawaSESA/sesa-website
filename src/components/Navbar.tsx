@@ -40,10 +40,10 @@ interface NavItem {
 
 const navItemsData = [
     { href: "/", i18nKey: "home", pageName: "" },
-    { href: "/AboutPage", i18nKey: "about", pageName: "AboutPage" },
-    { href: "/EventsPage", i18nKey: "events", pageName: "EventsPage" },
-    { href: "/ResourcesPage", i18nKey: "resources", pageName: "ResourcesPage" },
-    { href: "/ContactUsPage", i18nKey: "contact", pageName: "ContactUsPage" },
+    { href: "/about", i18nKey: "about", pageName: "about" },
+    { href: "/events", i18nKey: "events", pageName: "events" },
+    { href: "/resources", i18nKey: "resources", pageName: "resources" },
+    { href: "/contact", i18nKey: "contact", pageName: "contact" },
 ] as const satisfies NavItem[];
 
 export default function Navbar() {
@@ -72,7 +72,7 @@ export default function Navbar() {
 
     return (
         <>
-            <header className="fixed left-0 right-0 top-0 z-50 flex w-screen items-center justify-between bg-transparent px-8 py-6 backdrop-blur-sm md:px-12 lg:px-20 xl:px-32 2xl:px-64">
+            <header className="fixed left-0 right-0 top-0 z-50 flex w-screen items-center justify-between bg-transparent px-8 py-6 backdrop-blur-2xl md:px-12 lg:px-20 xl:px-32 2xl:px-64">
                 <div className="flex items-center gap-3">
                     <Link href="/">
                         <Image width={40} height={40} src="/sesa-logo.svg" alt="SESA Logo" />
@@ -95,11 +95,12 @@ export default function Navbar() {
                 <div className="flex items-center gap-4">
                     <LanguageSelect />
 
-                    <Link href="/SponsorsPage" className="hidden lg:block">
-                        <Button className="font-heading text-base uppercase text-white">
-                            {t("sponsor_us")}
-                        </Button>
-                    </Link>
+                    <Button
+                        className="hidden h-12 items-center text-center font-heading text-base uppercase !leading-none text-white lg:flex"
+                        asChild
+                    >
+                        <Link href="/sponsors">{t("sponsor_us")}</Link>
+                    </Button>
                     {/* Hamburger menu for mobile */}
                     <Button
                         size="icon"
@@ -118,11 +119,11 @@ export default function Navbar() {
             >
                 <nav className="mt-16 flex flex-col items-center gap-8 py-10">
                     {navItems}
-                    <Link href="/SponsorsPage" onClick={() => setIsMobileMenuOpen(false)}>
-                        <Button className="font-heading text-base uppercase text-white">
+                    <Button className="font-heading text-base uppercase text-white" asChild>
+                        <Link href="/sponsors" onClick={() => setIsMobileMenuOpen(false)}>
                             {t("sponsor_us")}
-                        </Button>
-                    </Link>
+                        </Link>
+                    </Button>
                 </nav>
             </div>
 

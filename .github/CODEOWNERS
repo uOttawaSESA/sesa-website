@@ -1,0 +1,15 @@
+# Sensitive files
+LICENSE    @uOttawaSESA/co-directors
+CODEOWNERS @uOttawaSESA/co-directors
+
+# CI/CD
+.github/workflows/   @uOttawaSESA/devops
+.husky/              @uOttawaSESA/devops
+.lintstagedrc.*      @uOttawaSESA/devops
+lint-staged.config.* @uOttawaSESA/devops
+
+# Build-related
+next.config.*  @uOttawaSESA/devops
+package.json   @uOttawaSESA/devops
+pnpm-lock.yaml @uOttawaSESA/devops
+tsconfig.json  @uOttawaSESA/devops

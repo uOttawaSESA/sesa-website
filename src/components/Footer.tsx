@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { LanguageSelect } from "@/components/LanguageSelect";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { ExternalLink } from "lucide-react";
 
 // === Removed sponsor marquee, in case we want it again: ===
 // {/* Sponsors marquee */}
@@ -24,7 +25,7 @@ export default function Footer() {
     const tNav = useTranslations("navigation");
 
     return (
-        <footer className="flex justify-center">
+        <footer className="flex justify-center backdrop-blur-lg">
             <div className="flex flex-col gap-2 bg-transparent px-8">
                 {/* Navigation links and socials */}
                 <div className="flex flex-col gap-8 md:flex-row md:justify-between lg:gap-32">
@@ -34,6 +35,27 @@ export default function Footer() {
                         <p className="text-thistle">
                             &copy;&nbsp;2014&ndash;{new Date().getFullYear()}
                         </p>
+                        {/* Note: I've aligned this button with `-left-3` instead of making the padding 0 so that the hover animation still looks ok */}
+                        <Button
+                            variant="ghost-plain"
+                            className="-left-3 gap-2 p-3 text-sm text-thistle md:text-base"
+                            asChild
+                        >
+                            <Link
+                                href="https://github.com/uOttawaSESA/sesa-website/"
+                                target="_blank"
+                            >
+                                <Image
+                                    src="/icons/github-plain.svg"
+                                    alt="GitHub"
+                                    width={20}
+                                    height={20}
+                                    className="h-5 w-5"
+                                />
+                                View Source
+                                <ExternalLink className="h-5 w-5" />
+                            </Link>
+                        </Button>
                     </div>
 
                     <div className="flex flex-wrap justify-between gap-4 text-left sm:flex-nowrap lg:gap-36">
@@ -41,22 +63,52 @@ export default function Footer() {
                             <h3 className="font-heading uppercase text-white">{t("sitemap")}</h3>
                             <ul className="flex flex-col gap-3 leading-none text-thistle">
                                 <li>
-                                    <Link href="/">{tNav("home")}</Link>
+                                    <Link
+                                        href="/"
+                                        className="transition-colors hover:text-white hover:underline"
+                                    >
+                                        {tNav("home")}
+                                    </Link>
                                 </li>
                                 <li>
-                                    <Link href="/AboutPage">{tNav("about")}</Link>
+                                    <Link
+                                        href="/about"
+                                        className="transition-colors hover:text-white hover:underline"
+                                    >
+                                        {tNav("about")}
+                                    </Link>
                                 </li>
                                 <li>
-                                    <Link href="/EventsPage">{tNav("events")}</Link>
+                                    <Link
+                                        href="/events"
+                                        className="transition-colors hover:text-white hover:underline"
+                                    >
+                                        {tNav("events")}
+                                    </Link>
                                 </li>
                                 <li>
-                                    <Link href="/ResourcesPage">{tNav("resources")}</Link>
+                                    <Link
+                                        href="/resources"
+                                        className="transition-colors hover:text-white hover:underline"
+                                    >
+                                        {tNav("resources")}
+                                    </Link>
                                 </li>
                                 <li>
-                                    <Link href="/ContactUsPage">{tNav("contact")}</Link>
+                                    <Link
+                                        href="/contact"
+                                        className="transition-colors hover:text-white hover:underline"
+                                    >
+                                        {tNav("contact")}
+                                    </Link>
                                 </li>
                                 <li>
-                                    <Link href="/SponsorsPage">{tNav("sponsor")}</Link>
+                                    <Link
+                                        href="/sponsors"
+                                        className="transition-colors hover:text-white hover:underline"
+                                    >
+                                        {tNav("sponsor")}
+                                    </Link>
                                 </li>
                             </ul>
                         </div>
@@ -64,13 +116,20 @@ export default function Footer() {
                             <h3 className="font-heading uppercase text-white">{t("policies")}</h3>
                             <ul className="flex flex-col gap-3 leading-none text-thistle">
                                 <li>
-                                    <a href="#">{t("privacy")}</a>
+                                    <Link
+                                        href="/policies#privacy"
+                                        className="transition-colors hover:text-white hover:underline"
+                                    >
+                                        {t("privacy")}
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a href="#">{t("terms")}</a>
-                                </li>
-                                <li>
-                                    <a href="#">{t("constitution")}</a>
+                                    <Link
+                                        href="/policies#terms"
+                                        className="transition-colors hover:text-white hover:underline"
+                                    >
+                                        {t("terms")}
+                                    </Link>
                                 </li>
                             </ul>
                         </div>
@@ -131,7 +190,7 @@ export default function Footer() {
                                 </Button>
                                 <Button size="icon" variant="outline" asChild>
                                     <a
-                                        href="https://www.youtube.com/@uottawasesa52"
+                                        href="https://www.youtube.com/@uottawasesa527"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >

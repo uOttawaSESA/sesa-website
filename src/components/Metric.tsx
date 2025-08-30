@@ -15,7 +15,7 @@ const Metric = ({ figure, caption, border, className }: MetricProps) => {
         <div className={`${baseStyle} ${className || ""} ${border && "outline-gradient"}`}>
             <span className="font-heading text-3xl">{figure}</span>
             {caption && (
-                <p className="whitespace-nowrap font-sans text-lg text-gray-500">{caption}</p>
+                <p className="whitespace-nowrap font-sans text-lg text-thistle">{caption}</p>
             )}
         </div>
     );

@@ -17,13 +17,13 @@ export default function Events() {
     return (
         <section className="space-y-4 ps-8 md:ps-20 xl:ps-32">
             <div className="max-w-80 sm:max-w-md md:max-w-2xl">
-                <p className="font-monocode relative inline-block !bg-clip-text text-left text-base text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)]">
+                <p className="font-monocode relative inline-block !bg-clip-text text-left text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)] md:text-base">
                     {t("events")}
                 </p>
-                <h1 className="my-2 font-heading text-2xl uppercase leading-tight md:text-5xl">
+                <h2 className="my-2 font-heading text-2xl uppercase leading-tight md:text-4xl">
                     <span className="highlight-text">{t("events_heading_hl")}</span>{" "}
                     {t("events_heading")}
-                </h1>
+                </h2>
                 <p className="relative flex items-center text-left font-sans text-base text-thistle md:text-lg">
                     {t("events_subheading")}
                 </p>
@@ -31,7 +31,7 @@ export default function Events() {
                 <div className="mt-4 flex w-[90%] flex-row items-center justify-between md:mt-6">
                     <div className="flex font-heading">
                         <Button className="font-heading text-sm uppercase md:text-lg">
-                            <Link href="/EventsPage">{t("view_all_events")}</Link>
+                            <Link href="/events">{t("view_all_events")}</Link>
                         </Button>
                     </div>
                 </div>
@@ -46,7 +46,7 @@ export default function Events() {
                                 className="sm:basis-1/2 lg:basis-1/3 xl:basis-1/4"
                                 key={`event:${index}`}
                             >
-                                <EventCard {...event} />
+                                <EventCard event={event} />
                             </CarouselItem>
                         ))}
                     </CarouselContent>

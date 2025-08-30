@@ -2,7 +2,6 @@ export interface Resource {
     title: string;
     category: string;
     course?: string;
-    rating: string;
     tier: string;
     format: string;
     language: string;

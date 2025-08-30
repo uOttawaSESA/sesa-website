@@ -1,15 +1,18 @@
 import { resources } from "@/app/data/Resources";
-import ResourceCard from "../../ResourcesPage/components/ResourceCard/ResourceCard";
+import ResourceCard from "../../resources/components/ResourceCard/ResourceCard";
 import Marquee from "react-fast-marquee";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import ComingSoonMessage from "@/components/ComingSoonMessage";
+import { useTranslations } from "next-intl";
 
 const Resources = () => {
+    const t = useTranslations("homepage");
+
     return (
         <>
-            <section className="relative my-14 flex w-full flex-col gap-4 text-white">
+            <section className="relative my-10 mb-0 flex w-full flex-col gap-4 text-white md:mb-20">
                 {/* Decorations */}
                 <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
                     <Image
@@ -52,17 +55,18 @@ const Resources = () => {
                         alt=""
                     />
                 </div>
-                <div className="flex flex-col gap-2 px-8 text-center md:px-10 lg:mb-14">
-                    <p className="font-monocode color-gradient">
-                        Resources by students for students
+                <div className="flex flex-col gap-3 px-8 text-center md:px-10 lg:mb-14">
+                    <p className="font-monocode color-gradient text-xs md:text-base">
+                        {t("resources_by_students")}
                     </p>
-                    <h1 className="font-heading text-2xl uppercase leading-tight md:text-5xl">
-                        Resources at your&nbsp;
-                        <span className="highlight-text">Fingertips</span>
+                    <h1 className="font-heading text-2xl uppercase leading-tight md:text-4xl">
+                        {t("resources_heading_h1")}&nbsp;
+                        <span className="highlight-text">
+                            {t("resources_heading_h1_highlighted")}
+                        </span>
                     </h1>
                     <p className="font-sans text-base text-thistle md:text-lg">
-                        Our academic team actively organize free resources to support software
-                        engineering students in their studies.
+                        {t("resources_subheading")}
                     </p>
                 </div>
                 {/* Carousel */}
@@ -80,7 +84,6 @@ const Resources = () => {
                                                 title={resource.title}
                                                 category={resource.category}
                                                 course={resource.course}
-                                                rating={resource.rating}
                                                 tier={resource.tier}
                                                 format={resource.format}
                                             />
@@ -100,10 +103,10 @@ const Resources = () => {
                         </div>
                     </Marquee>
                 ) : (
-                    <div className="lg:my-10">
+                    <div className="2xl:my-10">
                         <ComingSoonMessage
-                            title="Coming Fall 2025: Your academic toolbox."
-                            subtitle="All the resources you need, in one place—launching soon."
+                            title={t("coming_soon_title")}
+                            subtitle={t("coming_soon_subtitle")}
                             homeButton={false}
                         />
                     </div>
@@ -112,26 +115,26 @@ const Resources = () => {
                 <div className="z-10 space-y-4 px-8 md:px-32">
                     <div className="flex w-full justify-center gap-4 font-heading">
                         <Button className="text-sm md:text-lg" asChild>
-                            <Link href="/ResourcesPage">
-                                Explore all resources{" "}
-                                <span className="text-gray opacity-50">{">"}</span>
+                            <Link href="/resources">
+                                {t("explore_all_resources")}{" "}
+                                {/* <span className="text-gray opacity-50">{">"}</span> */}
                             </Link>
                         </Button>
                         <Button className="text-sm md:text-lg" variant="outline" asChild>
                             <a href="https://discord.com/invite/atYdx5HHCs" target="_blank">
-                                Join our discord
+                                {t("join_our_discord")}
                             </a>
                         </Button>
                     </div>
                     <div className="hidden w-full items-center justify-center text-center font-mono text-sm text-thistle md:text-base lg:flex">
                         <Image
                             src="/resources-page/thumbsup.svg"
-                            alt="thumbsUp"
+                            alt={t("thumbs_up_alt")}
                             width={25}
                             height={25}
                             className="me-2 size-5 md:size-8"
                         ></Image>
-                        <p>95% average helpfulness, 1000+ students helped</p>
+                        <p>{t("helpfulness_stats")}</p>
                     </div>
                 </div>
             </section>

@@ -18,7 +18,7 @@ const buttonVariants = cva(
                 link: "color-gradient hover:underline hover:decoration-2 hover:underline-offset-4",
             },
             size: {
-                default: "px-3 py-3 md:px-6 md:py-3",
+                default: "px-6 py-3",
                 icon: "aspect-square !p-3",
             },
         },
