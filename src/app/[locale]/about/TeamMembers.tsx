@@ -106,7 +106,7 @@ export default function TeamMembers({ title, description, people }: Props) {
                                 {person.name}
                             </h3>
                             <p className="text-thistle">{person.role}</p>
-                            <div className="mt-aut flex gap-2">{memberToIcons(person)}</div>
+                            <div className="mt-auto flex gap-2">{memberToIcons(person)}</div>
                         </div>
                     </div>
                 ))}
