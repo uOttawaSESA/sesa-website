@@ -29,6 +29,7 @@ export const membersData: Member[] = [
         github: "https://github.com/Rayen-BT",
         email: "rayenbentamarzizt@gmail.com",
     },
+
     // Academic Team
     {
         name: "Kouakou Jedidiah Ange-Emmanuel",
@@ -38,14 +39,6 @@ export const membersData: Member[] = [
         linkedin: "https://www.linkedin.com/in/angemmanuel-kouakou/",
         github: "https://github.com/ARelaxedScholar",
         email: "angemmanuel.kouakou@gmail.com",
-    },
-    {
-        name: "Shuaib Salad",
-        team: "Academic",
-        role: "Academic Coordinator",
-        imgPath: "/imgs/team/shuaib.webp",
-        linkedin: "https://www.linkedin.com/in/shuaib-salad/",
-        email: "sh.salat@gmail.com",
     },
     {
         name: "Jack Mackenzie",
@@ -64,6 +57,22 @@ export const membersData: Member[] = [
         linkedin: "https://www.linkedin.com/in/thomas-li-softwareeng",
         email: "tli060@uottawa.ca",
     },
+    {
+        name: "Shirina Huang",
+        team: "Academic",
+        role: "Academic Coordinator",
+        imgPath: "/imgs/team/shirina.webp",
+        linkedin: "https://www.linkedin.com/in/shirina-huang-152642262",
+        email: "shuan170@uottawa.ca",
+    },
+    {
+        name: "Aryan Gupta",
+        team: "Academic",
+        role: "Academic Coordinator",
+        imgPath: "/imgs/team/aryan.webp",
+        linkedin: "https://www.linkedin.com/in/aryan-gupta-123456/",
+        email: "agupt122@uottawa.ca",
+    },
 
     // Communications Team
     {
@@ -71,8 +80,8 @@ export const membersData: Member[] = [
         team: "Communications",
         role: "Communications Lead",
         imgPath: "/imgs/team/vinusha.webp",
-        linkedin: "https://www.linkedin.com/in/vinusha-uthayakumar/",
-        github: "hthttps://github.com/vinushau",
+        linkedin: "https://www.linkedin.com/in/aryangupta16/",
+        github: "https://github.com/aryangupta2",
         email: "vutha032@uottawa.ca",
     },
     {
@@ -84,6 +93,24 @@ export const membersData: Member[] = [
         github: "https://github.com/sophiahopk012",
         email: "sophiagchopkins@gmail.com",
     },
+    {
+        name: "Mercy Irera",
+        team: "Communications",
+        role: "Communications Coordinator",
+        imgPath: "/imgs/team/mercy.webp",
+        linkedin: "https://www.linkedin.com/in/mercyirera/",
+        email: "mirer091@uottawa.ca",
+    },
+    {
+        name: "Deggan Farah",
+        team: "Communications",
+        role: "Communications Coordinator",
+        imgPath: "/imgs/team/deggan.webp",
+        linkedin: "https://www.linkedin.com/in/deggan-farah/",
+        github: "https://github.com/Deggan12",
+        email: "dfara053@uottawa.ca",
+    },
+
     // Development Team
     {
         name: "Tazim Khan",
@@ -104,14 +131,6 @@ export const membersData: Member[] = [
         github: "https://github.com/MysteryBlokHed/",
     },
     {
-        name: "Kylan Thurairajah",
-        team: "Development",
-        role: "Developer",
-        imgPath: "/imgs/team/kylan.webp",
-        linkedin: "https://www.linkedin.com/in/kylan-thurairajah/",
-        github: "https://github.com/Kylan-Thurairajah",
-    },
-    {
         name: "Raman Gupta",
         team: "Development",
         role: "Developer",
@@ -121,6 +140,7 @@ export const membersData: Member[] = [
         email: "gr.gupta.raman@gmail.com",
         portfolio: "https://raman.codes",
     },
+
     // Events Team
     {
         name: "Mehdi Semmar",
@@ -132,22 +152,22 @@ export const membersData: Member[] = [
         email: "msemm031@uottawa.ca",
     },
     {
-        name: "Ayushi Dosieah",
+        name: "Taha Rashid",
         team: "Events",
         role: "Events Coordinator",
-        imgPath: "/imgs/team/ayushi.webp",
-        linkedin: "www.linkedin.com/in/ayushi-dosieah",
-        github: "https://github.com/yushi-dos",
-        email: "ayushi.dosieah@gmail.com",
+        imgPath: "/imgs/team/taha.jpg",
+        linkedin: "https://www.linkedin.com/in/taha-rashid192/",
+        github: "https://github.com/TheBossT910",
+        email: "taharashid710192@gmail.com",
     },
-    {
-        name: "Thomas Boyle",
-        team: "Events",
-        role: "Events Coordinator",
-        imgPath: "/imgs/team/thomas.webp",
-        linkedin: "www.linkedin.com/in/thomas-boyle-software",
-        email: "tboyl098@uottawa.ca",
-    },
+    // {
+    //     name: "Thomas Boyle",
+    //     team: "Events",
+    //     role: "Events Coordinator",
+    //     imgPath: "/imgs/team/thomas.webp",
+    //     linkedin: "www.linkedin.com/in/thomas-boyle-software",
+    //     email: "tboyl098@uottawa.ca",
+    // },
     {
         name: "Darren Rakos",
         team: "Events",
@@ -157,6 +177,17 @@ export const membersData: Member[] = [
         github: "https://github.com/RakosDarren",
         email: "darren.y.rakos@gmail.com",
     },
+    {
+        name: "Nodshley Marcelin",
+        team: "Events",
+        role: "Events Coordinator",
+        imgPath: "/imgs/team/nodshley.webp",
+        linkedin: "https://www.linkedin.com/in/nodshleymarcelin/",
+        github: "https://github.com/marcycode",
+        portfolio: "https://marcycode.github.io/",
+        email: "nmarcelin123@gmail.com",
+    },
+
     // Partnership Team
     {
         name: "Dragos Daiciulescu",
@@ -167,15 +198,6 @@ export const membersData: Member[] = [
         email: "ddaic067@uottawa.ca",
     },
     {
-        name: "Taha Rashid",
-        team: "Partnership",
-        role: "Partnership Coordinator",
-        imgPath: "/imgs/team/taha.jpg",
-        linkedin: "https://www.linkedin.com/in/taha-rashid192/",
-        github: "https://github.com/TheBossT910",
-        email: "taharashid710192@gmail.com",
-    },
-    {
         name: "Bilal Shaikh",
         team: "Partnership",
         role: "Partnership Coordinator",
@@ -184,28 +206,25 @@ export const membersData: Member[] = [
         email: "bshai076@uottawa.ca",
     },
     {
-        name: "Whitney Nsegbe",
+        name: "Ayushi Dosieah",
+        team: "Partnership",
+        role: "Partnerships Coordinator",
+        imgPath: "/imgs/team/ayushi.webp",
+        linkedin: "www.linkedin.com/in/ayushi-dosieah",
+        github: "https://github.com/yushi-dos",
+        email: "ayushi.dosieah@gmail.com",
+    },
+    {
+        name: "Maximus",
         team: "Partnership",
         role: "Partnership Coordinator",
-        imgPath: "/imgs/team/whitney.webp",
-        email: "wnseg071@uottawa.ca",
+        imgPath: "/imgs/team/maximus.webp",
+        linkedin: "https://linkedin.com/in/maximus-teo",
+        github: "https://github.com/maximus-teo",
+        email: "maximus.teo@uottawa.ca",
     },
 
     // Advisors
-    {
-        name: "Adam Said",
-        team: "Advisors",
-        role: "Advisor",
-        imgPath: "/imgs/team/adams.jpeg",
-        linkedin: "https://www.linkedin.com/in/adamsaid-/",
-    },
-    {
-        name: "Deniz Jasarbasic",
-        team: "Advisors",
-        role: "Advisor",
-        imgPath: "/imgs/team/deniz.webp",
-        linkedin: "https://www.linkedin.com/in/deniz-jasarbasic/",
-    },
     {
         name: "Kelly Gao",
         team: "Advisors",
@@ -215,13 +234,6 @@ export const membersData: Member[] = [
         github: "https://github.com/miuponn",
     },
     {
-        name: "Ichrak El Hatimi",
-        team: "Advisors",
-        role: "Advisor",
-        imgPath: "/imgs/team/ichrak.webp",
-        linkedin: "https://www.linkedin.com/in/ichrakelhatimi/",
-    },
-    {
         name: "Riki McAlear",
         team: "Advisors",
         role: "Advisor",
@@ -229,6 +241,29 @@ export const membersData: Member[] = [
         linkedin: "https://www.linkedin.com/in/riki-mcalear/",
         github: "https://github.com/riku737",
     },
+    {
+        name: "Peter Bou-Farah",
+        team: "Advisors",
+        role: "Advisor",
+        imgPath: "/imgs/team/peter.webp",
+        linkedin: "https://www.linkedin.com/in/peter-bou-farah/",
+        github: "https://github.com/peter-bf",
+    },
+    {
+        name: "Deniz Jasarbasic",
+        team: "Advisors",
+        role: "Advisor",
+        imgPath: "/imgs/team/deniz.webp",
+        linkedin: "https://www.linkedin.com/in/deniz-jasarbasic/",
+    },
+    {
+        name: "Ichrak El Hatimi",
+        team: "Advisors",
+        role: "Advisor",
+        imgPath: "/imgs/team/ichrak.webp",
+        linkedin: "https://www.linkedin.com/in/ichrakelhatimi/",
+    },
+
     {
         name: "Anthony Le",
         team: "Advisors",
