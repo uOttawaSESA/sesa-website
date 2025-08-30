@@ -86,18 +86,24 @@ export default function About() {
                         <p className="max-w-[28rem] text-base text-thistle md:text-lg">
                             {t("inspiring_blurb")}
                         </p>
-                        <div className="my-2 flex gap-2 font-heading uppercase">
-                            <Button className="font-heading uppercase" asChild>
-                                <a href="#introducing-our-team">{t("meet_the_team")}</a>
-                            </Button>
-                            <Button className="font-heading uppercase" variant="outline" asChild>
-                                <a href="https://linktr.ee/uottawa.sesa" target="_blank">
-                                    {t("join_our_family")}
-                                </a>
-                            </Button>
-                        </div>
-                        <div className="ml-3 flex flex-nowrap items-center">
-                            <TeamBadgeStack imgs={memberImages} />
+                        <div className="my-2 flex flex-col items-start gap-2 font-heading uppercase">
+                            <div>
+                                <Button className="font-heading uppercase" asChild>
+                                    <a href="#introducing-our-team">{t("meet_the_team")}</a>
+                                </Button>
+                                <Button
+                                    className="ml-2 font-heading uppercase"
+                                    variant="outline"
+                                    asChild
+                                >
+                                    <a href="https://linktr.ee/uottawa.sesa" target="_blank">
+                                        {t("join_our_family")}
+                                    </a>
+                                </Button>
+                            </div>
+                            <div className="mt-2 flex flex-nowrap items-center">
+                                <TeamBadgeStack imgs={memberImages} />
+                            </div>
                         </div>
                     </div>
                 </FadeInSection>
@@ -165,15 +171,15 @@ export default function About() {
                 </FadeInSection>
                 {/* "What do we do" */}
                 <FadeInSection>
-                    <div className="my-8 flex flex-col gap-2 overflow-x-auto">
+                    <div className="my-8 flex max-w-[28rem] flex-col gap-2">
                         <p className="color-gradient font-mono text-xs md:text-base">
                             {t("what_do_we_do")}
                         </p>
-                        <h2 className="font-heading text-2xl uppercase md:text-3xl">
+                        <h2 className="whitespace-nowrap font-heading text-2xl uppercase md:text-3xl">
                             {t("what_do_we_do_heading")}{" "}
                             <span className="highlight-text">{t("what_do_we_do_heading_hl")}</span>
                         </h2>
-                        <div className="max-w-[28rem]">
+                        <div>
                             <p className="mb-2 text-base text-thistle md:text-lg">
                                 <b>{t("what_do_we_do_p_bold")}</b> {t("what_do_we_do_p")}
                             </p>
@@ -185,7 +191,7 @@ export default function About() {
                 </FadeInSection>
                 {/* Cards for "What do we do" */}
                 <FadeInSection>
-                    <div className="mb-8 flex w-full gap-8 overflow-x-auto md:justify-center">
+                    <div className="mb-8 flex w-full max-w-[28rem] max-w-none gap-6 md:justify-start">
                         <WhatWeDoCard
                             imageHref="/imgs/about/social-events.webp"
                             icon={
