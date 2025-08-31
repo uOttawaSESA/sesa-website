@@ -26,7 +26,7 @@ const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange
     // Generate smart page numbers
     const generatePageNumbers = () => {
         const pages: (number | string)[] = [];
-        const maxVisiblePages = isMobile ? 3 : 7; // Maximum number of visible page numbers
+        const maxVisiblePages = isMobile ? 3 : 6; // Maximum number of visible page numbers
         const half = Math.floor(maxVisiblePages / 2);
 
         if (totalPages <= maxVisiblePages) {
@@ -74,6 +74,11 @@ const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange
     };
 
     const pageNumbers = generatePageNumbers();
+
+    // Don't render pagination if there's only one page
+    if (totalPages <= 1) {
+        return null;
+    }
 
     return (
         <div className="mt-4 flex flex-wrap items-center justify-center gap-2 sm:gap-4 md:mt-8">
