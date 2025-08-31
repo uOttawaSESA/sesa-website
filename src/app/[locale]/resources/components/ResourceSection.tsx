@@ -152,6 +152,7 @@ const ResourceSection = () => {
                 currentPage={currentPage}
                 totalPages={totalPages}
                 onPageChange={setCurrentPage}
+                isMobile={isMobile}
             />
         </>
     );
