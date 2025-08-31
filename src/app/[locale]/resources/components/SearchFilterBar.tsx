@@ -143,7 +143,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
     };
 
     return (
-        <div className="mb-8 bg-gradient-to-r from-blueviolet-100 to-darkmagenta p-px">
+        <div className="z-40 mb-8 bg-gradient-to-r from-blueviolet-100 to-darkmagenta p-px">
             <div className="flex items-center justify-between bg-gray-100 p-4">
                 <div className="flex flex-1 items-center gap-4 text-thistle">
                     <Image
@@ -233,7 +233,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                         </button>
 
                         {isFilterOpen && (
-                            <div className="absolute right-0 mt-2 min-w-[18rem]">
+                            <div className="absolute -right-20 z-50 mt-2 min-w-[18rem]">
                                 <div
                                     className={`${gradientBorderClass} animate-dropdown bg-[rgba(27,27,27,0.3)] p-4 backdrop-blur-md backdrop-saturate-150`}
                                 >
