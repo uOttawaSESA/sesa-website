@@ -13,4 +13,5 @@ export interface Resource {
     }[];
     pricing: string;
     accessibilityFeature?: string;
+    lastUpdated?: Date;
 }

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Trash } from "lucide-react";
 import { useEffect, useState } from "react";
 import {
     Select,
@@ -81,8 +82,10 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
         ],
         format: [
             { label: "Video", value: "video" },
-            { label: "PDF", value: "pdf" },
+            { label: "Textbook", value: "textbook" },
             { label: "Website", value: "website" },
+            { label: "Blog", value: "blog" },
+            { label: "Article", value: "article" },
         ],
         language: [
             { label: "English", value: "english" },
@@ -105,6 +108,9 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
         tier: "Select Tier",
     };
 
+    // Check if any filters are active
+    const hasActiveFilters = Object.values(filterOptions).some(value => value !== "");
+
     const changeView = (value: "grid" | "row") => {
         setIsGridMode(value === "grid");
     };
@@ -122,6 +128,16 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
             ...filterOptions,
             // Done because shadcn/ui Selects don't support empty string values
             [key]: value === "$none" ? "" : value,
+        });
+    };
+
+    const clearAllFilters = () => {
+        setFilterOptions({
+            course: "",
+            type: "",
+            format: "",
+            language: "",
+            tier: "",
         });
     };
 
@@ -185,15 +201,25 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                         </Select>
                     )}
 
+                    {/* Clear Filters Button - Only show if filters are active */}
+                    {hasActiveFilters && (
+                        <button
+                            onClick={clearAllFilters}
+                            className="flex items-center gap-2 uppercase text-thistle transition-colors hover:text-white"
+                            title="Clear all filters"
+                        >
+                            Clear Filters
+                            <Trash size={14} />
+                        </button>
+                    )}
+
                     {/* Filter Button */}
                     <div className="relative">
                         <button
                             className="flex items-center gap-2 uppercase text-thistle"
                             onClick={toggleFilterDropdown}
                         >
-                            {Object.values(filterOptions).some(value => value !== "")
-                                ? "Filters Active"
-                                : "Filter"}
+                            {hasActiveFilters ? "Filters Active" : "Filter"}
                             <Image
                                 src="/contact-page/arrows.svg"
                                 alt="Filter Arrow"
@@ -210,6 +236,18 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                 <div
                                     className={`${gradientBorderClass} animate-dropdown bg-[rgba(27,27,27,0.3)] p-4 backdrop-blur-md backdrop-saturate-150`}
                                 >
+                                    {/* Clear All Button inside dropdown */}
+                                    {hasActiveFilters && (
+                                        <div className="mb-4 flex justify-end">
+                                            <button
+                                                onClick={clearAllFilters}
+                                                className="text-sm uppercase text-thistle underline transition-colors hover:text-white"
+                                            >
+                                                Clear All
+                                            </button>
+                                        </div>
+                                    )}
+
                                     {(Object.keys(filterOptions) as Array<keyof FilterOptions>).map(
                                         key => (
                                             <div className="mb-4 last:mb-0" key={key}>

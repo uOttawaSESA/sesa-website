@@ -3,6 +3,7 @@ import { X } from "lucide-react";
 import { Resource } from "@/app/types/Resource";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { formatDate } from "date-fns";
 
 interface ResourceModalProps {
     resource: Resource;
@@ -80,18 +81,67 @@ const extractYoutubeId = (url: string): string | null => {
 };
 
 export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps) => {
+    const isFilePath = (source: string) => {
+        // Check if a source is a relative path or file extension
+        return (
+            source.startsWith("./") ||
+            source.startsWith("../") ||
+            source.startsWith("/") ||
+            /\.(pdf|html|htm)$/i.test(source)
+        );
+    };
+
     const renderViewer = () => {
         switch (resource.format.toLowerCase()) {
             case "textbook":
-                return (
-                    <div className="aspect-video max-h-[80vh] w-full">
-                        <iframe
-                            src={resource.source}
-                            title={resource.title}
-                            className="h-full w-full"
-                        />
-                    </div>
-                );
+                // Check if source is a file path or external URL
+                if (!resource.source) {
+                    return (
+                        <div className="w-full bg-gray-800 py-16 text-center text-white">
+                            No textbook source provided.
+                        </div>
+                    );
+                }
+
+                if (isFilePath(resource.source)) {
+                    // Handle as embedded file/PDF
+                    return (
+                        <div className="aspect-video max-h-[80vh] w-full">
+                            <iframe
+                                src={resource.source}
+                                title={resource.title}
+                                className="h-full w-full"
+                            />
+                        </div>
+                    );
+                } else {
+                    // Handle as external website link (like GitHub, etc.)
+                    const parsed = new URL(resource.source);
+                    const hostname = parsed.hostname.replace("www.", "");
+                    const path = parsed.pathname + parsed.search;
+
+                    return (
+                        <div className="outline-gradient font-raleway flex h-16 w-full items-center gap-2.5 border bg-white/10 px-6 text-lg text-thistle backdrop-blur-super">
+                            <Image
+                                src="/resources-page/link.svg"
+                                alt="Website Link"
+                                width={25}
+                                height={25}
+                                className="max-h-full"
+                            />
+                            <a
+                                href={resource.source}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="truncate hover:underline"
+                            >
+                                <span>https://</span>
+                                <b className="text-white">{hostname}</b>
+                                <span>{path}</span>
+                            </a>
+                        </div>
+                    );
+                }
             case "video":
                 const youtubeId = extractYoutubeId(resource.source);
                 return (
@@ -106,6 +156,8 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                     </div>
                 );
             case "website":
+            case "blog":
+            case "article":
                 if (!resource.source) {
                     return (
                         <div className="w-full bg-gray-800 py-16 text-center text-white">
@@ -277,6 +329,25 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                                     />
                                     <span className="capitalize">
                                         {resource.accessibilityFeature}
+                                    </span>
+                                </div>
+                            </>
+                        )}
+
+                        {/* Last Updated */}
+                        {resource.lastUpdated && (
+                            <>
+                                <div className="h-[14px] w-px border-r border-thistle opacity-35" />
+                                <div className="flex items-center gap-2">
+                                    <Image
+                                        src="/resources-page/last-updated.svg"
+                                        alt="Last Updated"
+                                        width={20}
+                                        height={20}
+                                        className="h-5 w-5"
+                                    />
+                                    <span className="capitalize">
+                                        {formatDate(resource.lastUpdated, "PP")}
                                     </span>
                                 </div>
                             </>
