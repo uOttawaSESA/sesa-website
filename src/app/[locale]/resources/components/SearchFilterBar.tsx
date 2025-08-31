@@ -304,10 +304,15 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                             <SelectContent>
                                 <SelectGroup>
                                     <SelectLabel>Sort</SelectLabel>
-                                    <SelectItem value="alphabetical">Alphabetical</SelectItem>
-                                    <SelectItem value="rating">Ratings</SelectItem>
-                                    <SelectItem value="recent">Recent</SelectItem>
                                     <SelectItem value="relevance">Relevance</SelectItem>
+                                    <SelectItem value="alphabetical">Alphabetical</SelectItem>
+                                    <SelectItem value="tier (worst to best)">
+                                        Tier (worst to best)
+                                    </SelectItem>
+                                    <SelectItem value="tier (best to worst)">
+                                        Tier (best to worst)
+                                    </SelectItem>
+                                    <SelectItem value="last updated">Last Updated</SelectItem>
                                 </SelectGroup>
                             </SelectContent>
                         </Select>

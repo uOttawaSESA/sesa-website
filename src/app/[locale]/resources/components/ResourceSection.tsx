@@ -82,6 +82,14 @@ const ResourceSection = () => {
 
     // Sorting logic
     const sortedResources = [...filteredResources].sort((a, b) => {
+        const tierOrder = { c: 1, b: 2, a: 3, s: 4 };
+
+        const tierA = a.tier?.toLowerCase() || "";
+        const tierB = b.tier?.toLowerCase() || "";
+
+        const tierValueA = tierA in tierOrder ? tierOrder[tierA as keyof typeof tierOrder] : 0;
+        const tierValueB = tierB in tierOrder ? tierOrder[tierB as keyof typeof tierOrder] : 0;
+
         switch (sortOption) {
             case "relevance":
                 // Default order (no sorting)
@@ -89,9 +97,21 @@ const ResourceSection = () => {
             case "alphabetical":
                 // Sort by title (ascending)
                 return a.title.localeCompare(b.title);
-            case "recent":
-                // Placeholder for recent sorting (requires a "dateAdded" field)
-                return 0;
+            case "last updated":
+                // Sort by lastUpdated date (newest first)
+                if (a.lastUpdated && b.lastUpdated) {
+                    const dateA = new Date(a.lastUpdated);
+                    const dateB = new Date(b.lastUpdated);
+                    return dateB.getTime() - dateA.getTime();
+                }
+                // Resources without a lastUpdated date are pushed to the end
+                if (a.lastUpdated) return -1;
+                if (b.lastUpdated) return 1;
+                return 0; // Both don't have a date, maintain original order
+            case "tier (worst to best)":
+                return tierValueA - tierValueB;
+            case "tier (best to worst)":
+                return tierValueB - tierValueA;
             default:
                 return 0;
         }
