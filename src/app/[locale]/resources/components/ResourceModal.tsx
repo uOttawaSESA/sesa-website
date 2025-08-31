@@ -214,7 +214,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                                 </a>
                             </div>
                         );
-                    } catch (e: any) {
+                    } catch (e) {
                         return (
                             <div className="w-full bg-gray-800 py-16 text-center text-white">
                                 Invalid textbook source URL. Please provide a valid URL.{" "}
@@ -273,7 +273,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                             </a>
                         </div>
                     );
-                } catch (e: any) {
+                } catch (e) {
                     return (
                         <div className="w-full bg-gray-800 py-16 text-center text-white">
                             Invalid website URL. Please provide a valid URL. {JSON.stringify(e)}
