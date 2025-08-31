@@ -187,32 +187,41 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                         </div>
                     );
                 } else {
-                    // Handle as external website link (like GitHub, etc.)
-                    const parsed = new URL(resource.source);
-                    const hostname = parsed.hostname.replace("www.", "");
-                    const path = parsed.pathname + parsed.search;
+                    try {
+                        // Handle as external website link (like GitHub, etc.)
+                        const parsed = new URL(resource.source);
+                        const hostname = parsed.hostname.replace("www.", "");
+                        const path = parsed.pathname + parsed.search;
 
-                    return (
-                        <div className="outline-gradient font-raleway flex h-16 w-full items-center gap-2.5 border bg-white/10 px-6 text-lg text-thistle backdrop-blur-super">
-                            <Image
-                                src="/resources-page/link.svg"
-                                alt="Website Link"
-                                width={25}
-                                height={25}
-                                className="max-h-full"
-                            />
-                            <a
-                                href={resource.source}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="truncate hover:underline"
-                            >
-                                <span>https://</span>
-                                <b className="text-white">{hostname}</b>
-                                <span>{path}</span>
-                            </a>
-                        </div>
-                    );
+                        return (
+                            <div className="outline-gradient font-raleway flex h-16 w-full items-center gap-2.5 border bg-white/10 px-6 text-lg text-thistle backdrop-blur-super">
+                                <Image
+                                    src="/resources-page/link.svg"
+                                    alt="Website Link"
+                                    width={25}
+                                    height={25}
+                                    className="max-h-full"
+                                />
+                                <a
+                                    href={resource.source}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="truncate hover:underline"
+                                >
+                                    <span>https://</span>
+                                    <b className="text-white">{hostname}</b>
+                                    <span>{path}</span>
+                                </a>
+                            </div>
+                        );
+                    } catch (e: any) {
+                        return (
+                            <div className="w-full bg-gray-800 py-16 text-center text-white">
+                                Invalid textbook source URL. Please provide a valid URL.{" "}
+                                {JSON.stringify(e)}
+                            </div>
+                        );
+                    }
                 }
             case "video":
                 const youtubeId = extractYoutubeId(resource.source);
@@ -238,31 +247,39 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                     );
                 }
 
-                const parsed = new URL(resource.source);
-                const hostname = parsed.hostname.replace("www.", "");
-                const path = parsed.pathname + parsed.search;
+                try {
+                    const parsed = new URL(resource.source);
+                    const hostname = parsed.hostname.replace("www.", "");
+                    const path = parsed.pathname + parsed.search;
 
-                return (
-                    <div className="outline-gradient font-raleway flex h-16 w-full items-center gap-2.5 border bg-white/10 px-6 text-lg text-thistle backdrop-blur-super">
-                        <Image
-                            src="/resources-page/link.svg"
-                            alt="Website Link"
-                            width={25}
-                            height={25}
-                            className="max-h-full"
-                        />
-                        <a
-                            href={resource.source}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="truncate hover:underline"
-                        >
-                            <span>https://</span>
-                            <b className="text-white">{hostname}</b>
-                            <span>{path}</span>
-                        </a>
-                    </div>
-                );
+                    return (
+                        <div className="outline-gradient font-raleway flex h-16 w-full items-center gap-2.5 border bg-white/10 px-6 text-lg text-thistle backdrop-blur-super">
+                            <Image
+                                src="/resources-page/link.svg"
+                                alt="Website Link"
+                                width={25}
+                                height={25}
+                                className="max-h-full"
+                            />
+                            <a
+                                href={resource.source}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="truncate hover:underline"
+                            >
+                                <span>https://</span>
+                                <b className="text-white">{hostname}</b>
+                                <span>{path}</span>
+                            </a>
+                        </div>
+                    );
+                } catch (e: any) {
+                    return (
+                        <div className="w-full bg-gray-800 py-16 text-center text-white">
+                            Invalid website URL. Please provide a valid URL. {JSON.stringify(e)}
+                        </div>
+                    );
+                }
             case "list":
                 return null; // handled separately under footer
             default:
