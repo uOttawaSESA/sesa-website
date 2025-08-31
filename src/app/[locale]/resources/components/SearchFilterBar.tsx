@@ -235,7 +235,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                         {isFilterOpen && (
                             <div className="absolute -right-20 z-50 mt-2 min-w-[18rem]">
                                 <div
-                                    className={`${gradientBorderClass} animate-dropdown bg-[rgba(27,27,27,0.3)] p-4 backdrop-blur-md backdrop-saturate-150`}
+                                    className={`${gradientBorderClass} animate-dropdown bg-[rgba(27,27,27,0.3)] p-4 backdrop-blur-3xl backdrop-saturate-150`}
                                 >
                                     {/* Clear All Button inside dropdown */}
                                     {hasActiveFilters && (
