@@ -90,6 +90,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
         language: [
             { label: "English", value: "english" },
             { label: "French", value: "french" },
+            { label: "Bilingual", value: "bilingual" },
         ],
         tier: [
             { label: "Tier S", value: "S" },
@@ -232,7 +233,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                         </button>
 
                         {isFilterOpen && (
-                            <div className="absolute right-0 z-50 mt-2 min-w-[18rem]">
+                            <div className="absolute right-0 mt-2 min-w-[18rem]">
                                 <div
                                     className={`${gradientBorderClass} animate-dropdown bg-[rgba(27,27,27,0.3)] p-4 backdrop-blur-md backdrop-saturate-150`}
                                 >

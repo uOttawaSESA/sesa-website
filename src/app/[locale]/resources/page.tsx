@@ -46,7 +46,7 @@ const Resources = () => {
             </div>
 
             {/* Main Content Container */}
-            <div className="container relative z-10 mx-auto w-full px-4 py-8 md:max-w-7xl">
+            <div className="container relative z-50 mx-auto w-full px-4 py-8 md:max-w-7xl">
                 <FadeInSection>
                     <Header />
                 </FadeInSection>
