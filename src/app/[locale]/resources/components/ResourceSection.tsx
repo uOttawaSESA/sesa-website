@@ -46,8 +46,6 @@ const ResourceSection = () => {
         ];
     }, [resources]); // Recalculate when resources change
 
-    console.log(resources);
-
     // Detect mobile
     useEffect(() => {
         const handleResize = () => {

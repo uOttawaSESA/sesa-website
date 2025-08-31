@@ -258,7 +258,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                                     {key}
                                                 </label>
                                                 <Select
-                                                    value={filterOptions[key] || undefined}
+                                                    value={filterOptions[key]}
                                                     onValueChange={value =>
                                                         handleFilterChange(key, value)
                                                     }
