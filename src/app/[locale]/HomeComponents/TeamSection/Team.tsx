@@ -85,10 +85,10 @@ const Team = () => {
 
                 <div className="z-20 -mt-8 flex justify-center gap-4 px-8 text-center font-heading md:-mt-10">
                     <Button className="w-full font-heading uppercase sm:w-max" asChild>
-                        <a href="sponsors">
+                        <Link href="/sponsors">
                             {t("team_become_sponsor_btn")}{" "}
                             <span className="text-gray ml-2 opacity-50">{">"}</span>
-                        </a>
+                        </Link>
                     </Button>
 
                     <Button
