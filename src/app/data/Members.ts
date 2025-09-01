@@ -215,7 +215,7 @@ export const membersData: Member[] = [
         email: "ayushi.dosieah@gmail.com",
     },
     {
-        name: "Maximus",
+        name: "Maximus Teo",
         team: "Partnership",
         role: "Partnership Coordinator",
         imgPath: "/imgs/team/maximus.webp",
