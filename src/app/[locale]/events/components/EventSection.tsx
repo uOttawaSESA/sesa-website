@@ -36,6 +36,7 @@ const EventSection = () => {
         // Cleanup
         return () => window.removeEventListener("resize", checkIsMobile);
     }, []);
+
     const eventsPerPage = isMobile ? 1 : 3;
 
     const handleFilterChange = (filter: string) => {
@@ -43,7 +44,9 @@ const EventSection = () => {
         if (filter === "All") {
             setFilteredEvents(events);
         } else {
-            const filtered = events.filter(event => event.type[lang] === filter);
+            const filtered = events.filter(event => {
+                return event.type.en === filter;
+            });
             setFilteredEvents(filtered);
         }
     };

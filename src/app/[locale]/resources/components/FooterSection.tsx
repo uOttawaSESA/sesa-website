@@ -93,7 +93,7 @@ const FooterSection: React.FC = () => {
                     <div className="mt-6">
                         <Button asChild className="relative z-10 font-heading text-lg uppercase">
                             <Link href="/about" className="block text-inherit">
-                                Meet the Team
+                                {t("btn_meet_the_team")}
                             </Link>
                         </Button>
 
