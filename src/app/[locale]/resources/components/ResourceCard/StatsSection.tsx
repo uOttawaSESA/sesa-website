@@ -61,7 +61,7 @@ export const StatsSection = ({
             const rect = iconRef.current.getBoundingClientRect();
             setTooltipPos({
                 top: rect.bottom + 8, // 8px offset
-                left: rect.left + rect.width / 2 - 170,
+                left: rect.left + rect.width / 2 - 100,
             });
         }
     }, [showTooltip]);

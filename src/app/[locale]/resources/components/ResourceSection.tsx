@@ -1,13 +1,12 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
-import ComingSoonMessage from "@/components/ComingSoonMessage";
 import Pagination from "@/components/Pagination";
-import { resources } from "@/app/data/Resources";
 
 import SearchFilterBar from "./SearchFilterBar";
 import ResourceList from "./ResourceList";
 import { Resource } from "@/app/types/Resource";
+import { useResources } from "@/hooks/useResources";
 
 const ResourceSection = () => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -16,13 +15,36 @@ const ResourceSection = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [filterOptions, setFilterOptions] = useState({
         course: "",
-        type: "",
+        category: "",
         format: "",
         language: "",
         tier: "",
     });
     const [sortOption, setSortOption] = useState<string>("relevance");
     const [isMobile, setIsMobile] = useState(false);
+
+    const { resources, loading, error } = useResources();
+
+    // Extract unique courses from resources for the course filter
+    const availableCourses = useMemo(() => {
+        const courseSet = new Set<string>();
+
+        resources.forEach(resource => {
+            if (resource.course && typeof resource.course === "string" && resource.course.trim()) {
+                courseSet.add(resource.course.trim());
+            }
+        });
+
+        // Convert to the format SearchFilterBar expects
+        return [
+            ...Array.from(courseSet)
+                .sort() // Sort alphabetically
+                .map(course => ({
+                    label: course,
+                    value: course,
+                })),
+        ];
+    }, [resources]); // Recalculate when resources change
 
     // Detect mobile
     useEffect(() => {
@@ -56,10 +78,16 @@ const ResourceSection = () => {
         return matchesSearchTerm && matchesFilters;
     });
 
-    // Debugging: Log the current sort option
-
     // Sorting logic
     const sortedResources = [...filteredResources].sort((a, b) => {
+        const tierOrder = { c: 1, b: 2, a: 3, s: 4 };
+
+        const tierA = a.tier?.toLowerCase() || "";
+        const tierB = b.tier?.toLowerCase() || "";
+
+        const tierValueA = tierA in tierOrder ? tierOrder[tierA as keyof typeof tierOrder] : 0;
+        const tierValueB = tierB in tierOrder ? tierOrder[tierB as keyof typeof tierOrder] : 0;
+
         switch (sortOption) {
             case "relevance":
                 // Default order (no sorting)
@@ -67,15 +95,25 @@ const ResourceSection = () => {
             case "alphabetical":
                 // Sort by title (ascending)
                 return a.title.localeCompare(b.title);
-            case "recent":
-                // Placeholder for recent sorting (requires a "dateAdded" field)
-                return 0;
+            case "last updated":
+                // Sort by lastUpdated date (newest first)
+                if (a.lastUpdated && b.lastUpdated) {
+                    const dateA = new Date(a.lastUpdated);
+                    const dateB = new Date(b.lastUpdated);
+                    return dateB.getTime() - dateA.getTime();
+                }
+                // Resources without a lastUpdated date are pushed to the end
+                if (a.lastUpdated) return -1;
+                if (b.lastUpdated) return 1;
+                return 0; // Both don't have a date, maintain original order
+            case "tier (worst to best)":
+                return tierValueA - tierValueB;
+            case "tier (best to worst)":
+                return tierValueB - tierValueA;
             default:
                 return 0;
         }
     });
-
-    // Debugging: Log the sorted resources
 
     const totalPages = Math.ceil(sortedResources.length / (itemsPerRow * rowsToShow));
 
@@ -84,12 +122,10 @@ const ResourceSection = () => {
         currentPage * itemsPerRow * rowsToShow,
     );
 
-    return resources.length === 0 ? (
-        <ComingSoonMessage
-            title="Coming Fall 2025: Your academic toolbox."
-            subtitle="All the resources you need, in one place—launching soon."
-            homeButton={true}
-        />
+    return loading ? (
+        <div>Loading resources...</div>
+    ) : error ? (
+        <div>Error loading resources: {error}</div>
     ) : (
         <>
             {/* Pass state and handlers to SearchFilterBar */}
@@ -105,6 +141,7 @@ const ResourceSection = () => {
                 sortOption={sortOption}
                 setSortOption={setSortOption}
                 isMobile={isMobile}
+                availableCourses={availableCourses}
             />
 
             {/* Resources Grid or Row */}
@@ -115,6 +152,7 @@ const ResourceSection = () => {
                 currentPage={currentPage}
                 totalPages={totalPages}
                 onPageChange={setCurrentPage}
+                isMobile={isMobile}
             />
         </>
     );

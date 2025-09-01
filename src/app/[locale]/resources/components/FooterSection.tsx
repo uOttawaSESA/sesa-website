@@ -96,20 +96,6 @@ const FooterSection: React.FC = () => {
                                 Meet the Team
                             </Link>
                         </Button>
-
-                        <div className="mt-6 flex items-center gap-2">
-                            <Image
-                                src="/resources-page/thumbsup.svg"
-                                alt="Thumbs Up"
-                                width={20}
-                                height={20}
-                                className="h-5 w-5"
-                            />
-                            <div className="font-mono leading-[100%] text-thistle">
-                                {t("avg_helpfulness", { percentage: "95" })},{" "}
-                                {t("students_helped", { students: "1000+" })}
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

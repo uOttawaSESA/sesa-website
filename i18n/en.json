@@ -23,7 +23,6 @@
         "explore_all_resources": "Explore all resources",
         "join_our_discord": "Join our discord",
         "thumbs_up_alt": "thumbsUp",
-        "helpfulness_stats": "95% average helpfulness, 1000+ students helped",
 
         "sponsors_partners": "Our sponsors & partners",
         "sponsors_heading_h1_highlighted": "Trusted and sponsored",
@@ -200,7 +199,7 @@
         "resources_heading": "Resources",
         "resources_heading_hl": "for students, by students",
         "resources_blurb": "Our academic team actively curates free resources to support software engineering students in their studies.",
-        "search_placeholder": "Search by title, category, course, or author",
+        "search_placeholder": "Search by title, category or course",
         "contributing_heading": "Interested in contributing or requesting resources?",
         "btn_join_discord": "Join Our Discord",
         "education_quote_1": "True education is born where",

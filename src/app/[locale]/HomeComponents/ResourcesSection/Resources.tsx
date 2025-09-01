@@ -1,4 +1,5 @@
-import { resources } from "@/app/data/Resources";
+"use client";
+
 import ResourceCard from "../../resources/components/ResourceCard/ResourceCard";
 import Marquee from "react-fast-marquee";
 import { Button } from "@/components/ui/button";
@@ -6,9 +7,11 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import ComingSoonMessage from "@/components/ComingSoonMessage";
 import { useTranslations } from "next-intl";
+import { useResources } from "@/hooks/useResources";
 
 const Resources = () => {
     const t = useTranslations("homepage");
+    const { resources } = useResources();
 
     return (
         <>
@@ -125,16 +128,6 @@ const Resources = () => {
                                 {t("join_our_discord")}
                             </a>
                         </Button>
-                    </div>
-                    <div className="hidden w-full items-center justify-center text-center font-mono text-sm text-thistle md:text-base lg:flex">
-                        <Image
-                            src="/resources-page/thumbsup.svg"
-                            alt={t("thumbs_up_alt")}
-                            width={25}
-                            height={25}
-                            className="me-2 size-5 md:size-8"
-                        ></Image>
-                        <p>{t("helpfulness_stats")}</p>
                     </div>
                 </div>
             </section>

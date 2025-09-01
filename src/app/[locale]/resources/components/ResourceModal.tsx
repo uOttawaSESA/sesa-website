@@ -3,6 +3,9 @@ import { X } from "lucide-react";
 import { Resource } from "@/app/types/Resource";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { formatDate } from "date-fns";
+import { createPortal } from "react-dom";
+import { useEffect, useRef, useState } from "react";
 
 interface ResourceModalProps {
     resource: Resource;
@@ -80,18 +83,146 @@ const extractYoutubeId = (url: string): string | null => {
 };
 
 export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps) => {
+    // Tooltip state for tier
+    const [showTierTooltip, setShowTierTooltip] = useState(false);
+    const [tierTooltipPos, setTierTooltipPos] = useState({ top: 0, left: 0 });
+
+    // Tooltip state for last updated
+    const [showUpdatedTooltip, setShowUpdatedTooltip] = useState(false);
+    const [updatedTooltipPos, setUpdatedTooltipPos] = useState({ top: 0, left: 0 });
+
+    const tierRef = useRef<HTMLDivElement>(null);
+    const updatedRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (showTierTooltip && tierRef.current) {
+            const rect = tierRef.current.getBoundingClientRect();
+            setTierTooltipPos({
+                top: rect.bottom + 8,
+                left: rect.left + rect.width / 2 - 100,
+            });
+        }
+    }, [showTierTooltip]);
+
+    useEffect(() => {
+        if (showUpdatedTooltip && updatedRef.current) {
+            const rect = updatedRef.current.getBoundingClientRect();
+            setUpdatedTooltipPos({
+                top: rect.bottom + 8,
+                left: rect.left + rect.width / 2 - 100,
+            });
+        }
+    }, [showUpdatedTooltip]);
+
+    const getIconTooltip = (icon: string) => {
+        switch (icon.toUpperCase()) {
+            case "LAST UPDATED":
+                return "When this resource was last updated.";
+
+            // Tier information
+            case "S":
+                return "S Tier: The absolute best (only resource you need realistically).";
+            case "A":
+                return "A Tier: Still great (your main resource, but benefits from comparison).";
+            case "B":
+                return "B Tier: Good (a comparison/reference resource for additional insights).";
+            case "C":
+                return "C Tier: Limited (you'll need many more resources to supplement this).";
+            default:
+                return "No information available.";
+        }
+    };
+
+    // Tooltip component to display icon information
+    // This uses a portal to render the tooltip outside the normal DOM hierarchy
+    const TooltipPortal = ({
+        children,
+        position,
+    }: {
+        children: React.ReactNode;
+        position: { top: number; left: number };
+    }) => {
+        return createPortal(
+            <div
+                className="outline-gradient fixed z-[9999] px-3 py-1.5 text-sm text-white shadow-lg shadow-purple-500/20 backdrop-blur-xl"
+                style={{ top: position.top, left: position.left }}
+            >
+                {children}
+            </div>,
+            document.body,
+        );
+    };
+
+    const isFilePath = (source: string) => {
+        // Check if a source is a relative path or file extension
+        return (
+            source.startsWith("./") ||
+            source.startsWith("../") ||
+            source.startsWith("/") ||
+            /\.(pdf|html|htm)$/i.test(source)
+        );
+    };
+
     const renderViewer = () => {
         switch (resource.format.toLowerCase()) {
-            case "pdf":
-                return (
-                    <div className="aspect-video max-h-[80vh] w-full">
-                        <iframe
-                            src={resource.source}
-                            title={resource.title}
-                            className="h-full w-full"
-                        />
-                    </div>
-                );
+            case "textbook":
+                // Check if source is a file path or external URL
+                if (!resource.source) {
+                    return (
+                        <div className="w-full bg-gray-800 py-16 text-center text-white">
+                            No textbook source provided.
+                        </div>
+                    );
+                }
+
+                if (isFilePath(resource.source)) {
+                    // Handle as embedded file/PDF
+                    return (
+                        <div className="aspect-video max-h-[80vh] w-full">
+                            <iframe
+                                src={resource.source}
+                                title={resource.title}
+                                className="h-full w-full"
+                            />
+                        </div>
+                    );
+                } else {
+                    try {
+                        // Handle as external website link (like GitHub, etc.)
+                        const parsed = new URL(resource.source);
+                        const hostname = parsed.hostname.replace("www.", "");
+                        const path = parsed.pathname + parsed.search;
+
+                        return (
+                            <div className="outline-gradient font-raleway flex h-16 w-full items-center gap-2.5 border bg-white/10 px-6 text-lg text-thistle backdrop-blur-super">
+                                <Image
+                                    src="/resources-page/link.svg"
+                                    alt="Website Link"
+                                    width={25}
+                                    height={25}
+                                    className="max-h-full"
+                                />
+                                <a
+                                    href={resource.source}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="truncate hover:underline"
+                                >
+                                    <span>https://</span>
+                                    <b className="text-white">{hostname}</b>
+                                    <span>{path}</span>
+                                </a>
+                            </div>
+                        );
+                    } catch (e) {
+                        return (
+                            <div className="w-full bg-gray-800 py-16 text-center text-white">
+                                Invalid textbook source URL. Please provide a valid URL.{" "}
+                                {JSON.stringify(e)}
+                            </div>
+                        );
+                    }
+                }
             case "video":
                 const youtubeId = extractYoutubeId(resource.source);
                 return (
@@ -106,6 +237,8 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                     </div>
                 );
             case "website":
+            case "blog":
+            case "article":
                 if (!resource.source) {
                     return (
                         <div className="w-full bg-gray-800 py-16 text-center text-white">
@@ -114,31 +247,39 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                     );
                 }
 
-                const parsed = new URL(resource.source);
-                const hostname = parsed.hostname.replace("www.", "");
-                const path = parsed.pathname + parsed.search;
+                try {
+                    const parsed = new URL(resource.source);
+                    const hostname = parsed.hostname.replace("www.", "");
+                    const path = parsed.pathname + parsed.search;
 
-                return (
-                    <div className="outline-gradient font-raleway flex h-16 w-full items-center gap-2.5 border bg-white/10 px-6 text-lg text-thistle backdrop-blur-super">
-                        <Image
-                            src="/resources-page/link.svg"
-                            alt="Website Link"
-                            width={25}
-                            height={25}
-                            className="max-h-full"
-                        />
-                        <a
-                            href={resource.source}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="truncate hover:underline"
-                        >
-                            <span>https://</span>
-                            <b className="text-white">{hostname}</b>
-                            <span>{path}</span>
-                        </a>
-                    </div>
-                );
+                    return (
+                        <div className="outline-gradient font-raleway flex h-16 w-full items-center gap-2.5 border bg-white/10 px-6 text-lg text-thistle backdrop-blur-super">
+                            <Image
+                                src="/resources-page/link.svg"
+                                alt="Website Link"
+                                width={25}
+                                height={25}
+                                className="max-h-full"
+                            />
+                            <a
+                                href={resource.source}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="truncate hover:underline"
+                            >
+                                <span>https://</span>
+                                <b className="text-white">{hostname}</b>
+                                <span>{path}</span>
+                            </a>
+                        </div>
+                    );
+                } catch (e) {
+                    return (
+                        <div className="w-full bg-gray-800 py-16 text-center text-white">
+                            Invalid website URL. Please provide a valid URL. {JSON.stringify(e)}
+                        </div>
+                    );
+                }
             case "list":
                 return null; // handled separately under footer
             default:
@@ -209,7 +350,12 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                 <div className="flex items-center justify-between p-4 text-sm text-thistle">
                     <div className="flex flex-row flex-wrap items-center gap-4 font-[Monocode] text-sm text-thistle">
                         {/* Tier */}
-                        <div className="flex items-center gap-2">
+                        <div
+                            className="flex items-center gap-2"
+                            ref={tierRef}
+                            onMouseEnter={() => setShowTierTooltip(true)}
+                            onMouseLeave={() => setShowTierTooltip(false)}
+                        >
                             <Image
                                 src="/resources-page/description.svg"
                                 alt="Tier"
@@ -231,7 +377,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                                 height={20}
                                 className="h-5 w-5"
                             />
-                            <span>{resource.format}</span>
+                            <span className="capitalize">{resource.format}</span>
                         </div>
 
                         <div className="h-[14px] w-px border-r border-thistle opacity-35" />
@@ -245,7 +391,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                                 height={20}
                                 className="h-5 w-5"
                             />
-                            <span>{resource.pricing}</span>
+                            <span className="capitalize">{resource.pricing}</span>
                         </div>
 
                         <div className="h-[14px] w-px border-r border-thistle opacity-35" />
@@ -254,13 +400,57 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                         <div className="flex items-center gap-2">
                             <Image
                                 src="/resources-page/language.svg"
-                                alt="Pricing"
+                                alt="Language"
                                 width={20}
                                 height={20}
                                 className="h-5 w-5"
                             />
-                            <span>{resource.language}</span>
+                            <span className="capitalize">{resource.language}</span>
                         </div>
+
+                        {/* Accessibility Feature */}
+                        {resource.accessibilityFeature && (
+                            <>
+                                <div className="h-[14px] w-px border-r border-thistle opacity-35" />
+
+                                <div className="flex items-center gap-2">
+                                    <Image
+                                        src="/resources-page/accessibility.svg"
+                                        alt="Accessibility Feature"
+                                        width={20}
+                                        height={20}
+                                        className="h-5 w-5"
+                                    />
+                                    <span className="capitalize">
+                                        {resource.accessibilityFeature}
+                                    </span>
+                                </div>
+                            </>
+                        )}
+
+                        {/* Last Updated */}
+                        {resource.lastUpdated && (
+                            <>
+                                <div className="h-[14px] w-px border-r border-thistle opacity-35" />
+                                <div
+                                    className="flex items-center gap-2"
+                                    ref={updatedRef}
+                                    onMouseEnter={() => setShowUpdatedTooltip(true)}
+                                    onMouseLeave={() => setShowUpdatedTooltip(false)}
+                                >
+                                    <Image
+                                        src="/resources-page/last-updated.svg"
+                                        alt="Last Updated"
+                                        width={20}
+                                        height={20}
+                                        className="h-5 w-5"
+                                    />
+                                    <span className="capitalize">
+                                        {formatDate(resource.lastUpdated, "PP")}
+                                    </span>
+                                </div>
+                            </>
+                        )}
                     </div>
 
                     {resource.format.toLowerCase() !== "list" && (
@@ -285,6 +475,19 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
 
                 {/* Render List under footer */}
                 {renderList()}
+
+                {/* Render tooltips */}
+                {showTierTooltip && (
+                    <TooltipPortal position={tierTooltipPos}>
+                        {getIconTooltip(resource.tier)}
+                    </TooltipPortal>
+                )}
+
+                {showUpdatedTooltip && (
+                    <TooltipPortal position={updatedTooltipPos}>
+                        {getIconTooltip("LAST UPDATED")}
+                    </TooltipPortal>
+                )}
             </DialogPanel>
         </Dialog>
     );

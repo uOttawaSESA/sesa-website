@@ -18,6 +18,8 @@ export const ResourceSchema = z.object({
     source: z.string().min(1, "Source is required"),
     list: z.array(ListItemSchema).optional(),
     pricing: z.enum(["Free", "Paid", "Freemium"]),
+    accessibilityFeature: z.string().optional(),
+    lastUpdated: z.date().optional(),
 });
 
 // Schema for partial updates (all fields optional except those that shouldn't be empty)

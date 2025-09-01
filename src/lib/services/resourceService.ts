@@ -42,6 +42,7 @@ export const resourceService = {
                     ...data,
                     createdAt: data.createdAt?.toDate?.() || data.createdAt,
                     updatedAt: data.updatedAt?.toDate?.() || data.updatedAt,
+                    lastUpdated: data.lastUpdated?.toDate?.() || data.lastUpdated,
                 };
 
                 return {
@@ -75,6 +76,7 @@ export const resourceService = {
                 ...data,
                 createdAt: data.createdAt?.toDate?.() || data.createdAt,
                 updatedAt: data.updatedAt?.toDate?.() || data.updatedAt,
+                lastUpdated: data.lastUpdated?.toDate?.() || data.lastUpdated,
             };
 
             return {
