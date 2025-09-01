@@ -191,7 +191,7 @@ export default function About() {
                 </FadeInSection>
                 {/* Cards for "What do we do" */}
                 <FadeInSection>
-                    <div className="max-w-[28rem]gap-6 mb-8 flex w-full md:justify-start">
+                    <div className="mb-8 flex w-full max-w-[28rem] gap-6 md:justify-start">
                         <WhatWeDoCard
                             imageHref="/imgs/about/social-events.webp"
                             icon={
