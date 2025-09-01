@@ -140,28 +140,28 @@ export default function About() {
                 </FadeInSection>
                 {/* Figures */}
                 <FadeInSection>
-                    <div className="flex justify-center backdrop-blur-lg md:mb-28">
+                    <div className="flex justify-center md:mb-28">
                         <div className="grid w-fit grid-cols-1 place-items-center gap-20 md:grid-cols-4">
                             <Metric
-                                className="!w-64"
+                                className="!w-64 backdrop-blur-lg"
                                 figure="3500+"
                                 caption={t("figure_eecs_students")}
                                 border
                             />
                             <Metric
-                                className="!w-64"
+                                className="!w-64 backdrop-blur-lg"
                                 figure="21"
                                 caption={t("figure_previous_partners")}
                                 border
                             />
                             <Metric
-                                className="!w-64"
+                                className="!w-64 backdrop-blur-lg"
                                 figure="2300+"
                                 caption={t("figure_event_attendees")}
                                 border
                             />
                             <Metric
-                                className="!w-64"
+                                className="!w-64 backdrop-blur-lg"
                                 figure="34"
                                 caption={t("figure_events")}
                                 border
