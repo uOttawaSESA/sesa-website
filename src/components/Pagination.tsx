@@ -26,52 +26,69 @@ const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange
         }
     };
 
-    // Always 7 elements: dynamic window with ellipsis
+    // Mobile: show max 4 elements (first, ..., current, last)
+    // Desktop: show up to 7 elements as before
     const generatePageNumbers = () => {
-        const pages: (number | string)[] = [];
-        if (totalPages <= 7) {
-            for (let i = 1; i <= totalPages; i++) {
-                pages.push(i);
-            }
-        } else {
-            if (currentPage <= 4) {
-                // Show first 5 pages, ellipsis, last page
-                pages.push(1, 2, 3, 4, 5, "...", totalPages);
-            } else if (currentPage >= totalPages - 3) {
-                // Show first page, ellipsis, last 5 pages
-                pages.push(
-                    1,
-                    "...",
-                    totalPages - 4,
-                    totalPages - 3,
-                    totalPages - 2,
-                    totalPages - 1,
-                    totalPages,
-                );
+        if (isMobile) {
+            const pages: (number | string)[] = [];
+            if (totalPages <= 4) {
+                for (let i = 1; i <= totalPages; i++) {
+                    pages.push(i);
+                }
             } else {
-                // Show first page, ellipsis, current-1, current, current+1, ellipsis, last page
-                pages.push(
-                    1,
-                    "...",
-                    currentPage - 1,
-                    currentPage,
-                    currentPage + 1,
-                    "...",
-                    totalPages,
-                );
+                if (currentPage <= 2) {
+                    // Show first, second, ..., last
+                    pages.push(1, 2, "...", totalPages);
+                } else if (currentPage >= totalPages - 1) {
+                    // Show first, ..., last-1, last
+                    pages.push(1, "...", totalPages - 1, totalPages);
+                } else {
+                    // Show first, ..., current, last
+                    pages.push(1, "...", currentPage, totalPages);
+                }
             }
+            return pages;
+        } else {
+            const pages: (number | string)[] = [];
+            if (totalPages <= 7) {
+                for (let i = 1; i <= totalPages; i++) {
+                    pages.push(i);
+                }
+            } else {
+                if (currentPage <= 4) {
+                    pages.push(1, 2, 3, 4, 5, "...", totalPages);
+                } else if (currentPage >= totalPages - 3) {
+                    pages.push(
+                        1,
+                        "...",
+                        totalPages - 4,
+                        totalPages - 3,
+                        totalPages - 2,
+                        totalPages - 1,
+                        totalPages,
+                    );
+                } else {
+                    pages.push(
+                        1,
+                        "...",
+                        currentPage - 1,
+                        currentPage,
+                        currentPage + 1,
+                        "...",
+                        totalPages,
+                    );
+                }
+            }
+            return pages;
         }
-        return pages;
     };
 
     const pageNumbers = generatePageNumbers();
 
-    // Don't render pagination if there's only one page
     if (totalPages <= 1) {
         return null;
     }
 
-    // Handle page jump and close
     const handleJump = () => {
         if (inputRef.current) {
             const val = Number(inputRef.current.value);
@@ -132,14 +149,14 @@ const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange
                                             }}
                                         />
                                         <Button
-                                            size="sm"
+                                            size="default"
                                             className="ml-2 px-2 py-1 text-xs"
                                             onClick={handleClose}
                                         >
                                             Close
                                         </Button>
                                         <Button
-                                            size="sm"
+                                            size="default"
                                             className="ml-2 px-2 py-1 text-xs"
                                             onClick={handleJump}
                                         >

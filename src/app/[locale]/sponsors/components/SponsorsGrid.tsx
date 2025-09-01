@@ -7,27 +7,27 @@ const sponsors = [
         name: "National Bank",
         src: "/sponsors/nationalbank.svg",
         alt: "National Bank",
-        width: 480, // Slightly bigger width
-        height: 240, // Slightly bigger height
-        size: "col-span-12 h-96 md:h-[28rem]", // Slightly bigger container
+        width: 480,
+        height: 240,
+        size: "col-span-12 h-96 md:h-[28rem]",
         link: "https://www.nbc.ca/",
     },
     {
         name: "Warp",
         src: "/sponsors/warp.svg",
         alt: "Warp",
-        width: 300, // Slightly bigger width
-        height: 150, // Slightly bigger height
-        size: "col-span-6 h-72 md:h-80", // Slightly bigger container
+        width: 300,
+        height: 150,
+        size: "col-span-6 h-72 md:h-80",
         link: "https://warp.dev/?ref=sesa",
     },
     {
         name: "CSE",
         src: "/sponsors/cse.svg",
         alt: "CSE",
-        width: 300, // Slightly bigger width
-        height: 150, // Slightly bigger height
-        size: "col-span-6 h-72 md:h-80", // Slightly bigger container
+        width: 300,
+        height: 150,
+        size: "col-span-6 h-72 md:h-80",
         link: "https://cse-cst.gc.ca/en",
     },
 ];
@@ -40,7 +40,7 @@ const gradientBorderClass = `
 const SponsorsGrid = () => {
     return (
         <div className="mt-10 flex justify-center px-6 md:mt-16">
-            <div className="grid max-w-4xl grid-cols-12 gap-8">
+            <div className="grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-12">
                 {sponsors.map((sponsor, index) => (
                     <a
                         key={index}
