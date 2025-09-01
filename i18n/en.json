@@ -170,7 +170,10 @@
         "form_disclosure": "By submitting this form, I confirm that I have read and accept the",
         "form_disclosure_link": "Privacy & Terms",
         "send_message": "Send Message",
-        "sending": "Sending..."
+        "sending": "Sending...",
+        "topic_general": "General Inquiry",
+        "topic_partnership": "Partnership",
+        "topic_support": "Support"
     },
     "events": {
         "no_events": "No events found",
