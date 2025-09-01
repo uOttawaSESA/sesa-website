@@ -421,6 +421,42 @@ select::placeholder {
     );
 }
 
+.fade-from-top-bottom-bg-globe {
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 1) 20%,
+        rgba(0, 0, 0, 0.5) 30%,
+        rgba(0, 0, 0, 0) 50%
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 1) 20%,
+        rgba(0, 0, 0, 0.5) 30%,
+        rgba(0, 0, 0, 0) 50%
+    );
+}
+
+@media (min-width: 1536px) {
+    .fade-from-top-bottom-bg-globe {
+        -webkit-mask-image: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 1) 20%,
+            rgba(0, 0, 0, 0.5) 30%,
+            rgba(0, 0, 0, 0) 60%
+        );
+        mask-image: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 1) 20%,
+            rgba(0, 0, 0, 0.5) 30%,
+            rgba(0, 0, 0, 0) 60%
+        );
+    }
+}
+
 .fade-from-top-left-bg {
     mask-image: radial-gradient(circle at top left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 70%);
     -webkit-mask-image: radial-gradient(
