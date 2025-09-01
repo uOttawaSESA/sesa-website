@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { TeamBadgeStack } from "@/components/TeamBadgeStack";
 import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 
 const PartnerWithUs = () => {
     const teamImgs = [
@@ -12,6 +13,8 @@ const PartnerWithUs = () => {
         "/imgs/team/bilal.jpeg",
         "/imgs/team/whitney.webp",
     ];
+
+    const t = useTranslations("sponsorships");
 
     return (
         <div className="relative mb-12 flex flex-col items-start justify-start gap-10 px-4 py-16 text-white md:mb-32 md:h-[80vh] md:flex-row md:items-center md:justify-between md:gap-12 md:px-0 md:ps-32 2xl:ps-96">
@@ -51,17 +54,15 @@ const PartnerWithUs = () => {
                 {/* Text Section */}
                 <div className="max-w-xl text-left 2xl:max-w-2xl">
                     <p className="font-monocode relative inline-block !bg-clip-text text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)] md:text-base">
-                        Partner with us
+                        {t("partner_with_us_top")}
                     </p>
                     <h2 className="mb-4 mt-2 font-heading text-2xl uppercase leading-tight text-white md:mt-4 md:text-3xl">
-                        Let’s collaborate to make a{" "}
-                        <span className="highlight-text">lasting difference </span> on aspiring
-                        software engineers
+                        {t("partner_with_us_title")}{" "}
+                        <span className="highlight-text">{t("partner_with_us_highlight")}</span>{" "}
+                        {t("partner_with_us_title_rest")}
                     </h2>
                     <p className="mb-4 mt-2 text-base leading-tight text-thistle md:text-lg">
-                        Together, we can drive a meaningful impact on over 3500+ EECS students at
-                        uOttawa by bridging the gap between academic education and industry
-                        experience.
+                        {t("partner_with_us_description")}
                     </p>
 
                     <div className="mb-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
@@ -70,7 +71,7 @@ const PartnerWithUs = () => {
                             asChild
                         >
                             <Link href="/contact" className="block h-full text-inherit">
-                                Become a Sponsor
+                                {t("partner_with_us_become_sponsor_button")}
                             </Link>
                         </Button>
                         <Button
@@ -79,7 +80,7 @@ const PartnerWithUs = () => {
                             asChild
                         >
                             <Link href="/about" className="block h-full text-inherit">
-                                Meet the Team
+                                {t("partner_with_us_meet_team_button")}
                             </Link>
                         </Button>
                     </div>
@@ -93,7 +94,7 @@ const PartnerWithUs = () => {
                 <div className="relative z-10 flex w-full justify-center md:justify-end">
                     <Image
                         src="/sponsors-page/sponsor-card-img-2.webp"
-                        alt="SESA Team"
+                        alt={t("partner_with_us_team_image_alt")}
                         className="h-[300px] w-auto object-cover md:h-[500px] 2xl:h-max"
                         width={700}
                         height={700}

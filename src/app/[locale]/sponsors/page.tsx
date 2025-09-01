@@ -6,6 +6,7 @@ import TestimonialsCarousel from "./components/TestimonialsCarousel";
 import SponsorsGrid from "./components/SponsorsGrid";
 import PartnerWithUs from "./components/PartnerWithUs";
 import FadeInSection from "@/components/FadeInSection";
+import { useTranslations } from "next-intl";
 
 import type { Metadata } from "next";
 
@@ -31,15 +32,18 @@ export const metadata: Metadata = {
 };
 
 const Sponsors = () => {
+    const t = useTranslations("sponsorships");
+
     return (
         <div className="relative">
             <FadeInSection>
                 <SponsorsHeader
-                    topText="Sponsor & partners"
-                    title="HUGE THANKS TO OUR GENEROUS SPONSORS AND PARTNERS"
-                    bottomText="Our incredible partnerships make SESA possible at uOttawa. Thank you for believing in our mission!"
-                    btn1="Become a sponsor"
-                    btn2="View Benefits"
+                    titleHighlighted={t("header_highlight")}
+                    title={t("header_title_rest")}
+                    topText={t("header_top")}
+                    bottomText={t("header_bottom")}
+                    btn1={t("header_btn1")}
+                    btn2={t("header_btn2")}
                 />
             </FadeInSection>
             <div className="relative z-20">

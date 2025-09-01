@@ -11,6 +11,7 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel";
+import { useTranslations } from "next-intl";
 
 const sponsorsData = [
     {
@@ -41,6 +42,8 @@ const sponsorsData = [
 ];
 
 const TestimonialsCarousel = () => {
+    const t = useTranslations("sponsorships");
+
     return (
         <div className="my-20 flex flex-col justify-start gap-12 px-4 md:my-36 md:px-0 2xl:mb-48">
             <Carousel className="w-full max-w-7xl">
@@ -109,7 +112,7 @@ const TestimonialsCarousel = () => {
                                             asChild
                                         >
                                             <Link href="/contact" className="block h-full">
-                                                Work With Us
+                                                {t("testimonials_work_with_us_btn")}
                                             </Link>
                                         </Button>
                                     </div>

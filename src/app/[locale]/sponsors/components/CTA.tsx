@@ -2,8 +2,11 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 export default function CTA() {
+    const t = useTranslations("sponsorships");
+
     return (
         <div className="relative flex w-full flex-col items-center justify-center px-4 py-6 text-center md:py-8">
             {/* Decorations */}
@@ -32,15 +35,15 @@ export default function CTA() {
             </div>
             <div className="flex flex-col items-center justify-center gap-5 md:flex-row md:flex-wrap md:gap-8">
                 <p className="text-center font-heading text-sm uppercase text-white md:text-lg">
-                    Interested in joining our growing network of industry partners?
+                    {t("cta_heading")}
                 </p>
                 <Button asChild className="px-5 font-heading uppercase text-white">
-                    <Link href="/contact">Let&apos;s Talk</Link>
+                    <Link href="/contact">{t("cta_button")}</Link>
                 </Button>
             </div>
 
             <p className="mt-4 font-sans text-xs tracking-widest text-thistle md:text-sm">
-                We&apos;ll get back to you within 48 hours.
+                {t("cta_disclaimer")}
             </p>
         </div>
     );

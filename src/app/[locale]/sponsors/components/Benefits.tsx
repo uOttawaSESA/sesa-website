@@ -3,41 +3,64 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { useTranslations, useLocale } from "next-intl";
 
 export default function Benefits() {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
+    const t = useTranslations("sponsorships");
+    const locale = useLocale();
+
     const cards = [
         {
             image: "/sponsors-page/benefits-1.webp",
             icon: "/sponsors-page/network.webp",
-            title: "NETWORK WITH TOP TALENT",
-            description:
-                "Connect and recruit highly skilled job-ready students pursuing the field of software engineering at uOttawa.",
+            title: {
+                en: "NETWORK WITH TOP TALENT",
+                fr: "RÉSEAUTER AVEC LES MEILLEURS TALENTS",
+            },
+            description: {
+                en: "Connect and recruit highly skilled job-ready students pursuing the field of software engineering at uOttawa.",
+                fr: "Connectez-vous et recrutez des étudiants hautement qualifiés et prêts à l'emploi poursuivant le domaine du génie logiciel à l'Université d'Ottawa.",
+            },
         },
         {
             image: "/sponsors-page/benefits-2.webp",
             icon: "/sponsors-page/impact.webp",
-            title: "MAKE A REAL-WORLD IMPACT",
-            description:
-                "Give back to your community and make a meaningful difference in software engineering education at the University of Ottawa.",
+            title: {
+                en: "MAKE A REAL-WORLD IMPACT",
+                fr: "FAITES UN IMPACT DANS LE MONDE RÉEL",
+            },
+            description: {
+                en: "Give back to your community and make a meaningful difference in software engineering education at the University of Ottawa.",
+                fr: "Redonnez à votre communauté et faites une différence significative dans l'éducation en génie logiciel à l'Université d'Ottawa.",
+            },
         },
         {
             image: "/sponsors-page/benefits-3.webp",
             icon: "/sponsors-page/brand.webp",
-            title: "PROMOTE YOUR BRAND",
-            description:
-                "Increase your brand visibility, survey your target audience, or offer exclusive discounts to students attending uOttawa.",
+            title: {
+                en: "PROMOTE YOUR BRAND",
+                fr: "PROMOUVOIR VOTRE MARQUE",
+            },
+            description: {
+                en: "Increase your brand visibility, survey your target audience, or offer exclusive discounts to students attending uOttawa.",
+                fr: "Augmentez la visibilité de votre marque, sondez votre public cible ou offrez des remises exclusives aux étudiants de l'Université d'Ottawa.",
+            },
         },
         {
             image: "/sponsors-page/benefits-4.webp",
             icon: "/sponsors-page/connect.svg",
-            title: "ACCESS EXCLUSIVE EVENTS",
-            description:
-                "Participate in workshops, mentorship programs, and networking events tailored for sponsors and students alike.",
+            title: {
+                en: "ACCESS EXCLUSIVE EVENTS",
+                fr: "ACCÉDEZ À DES ÉVÉNEMENTS EXCLUSIFS",
+            },
+            description: {
+                en: "Participate in workshops, mentorship programs, and networking events tailored for sponsors and students alike.",
+                fr: "Participez à des ateliers, des programmes de mentorat et des événements de réseautage conçus pour les commanditaires et les étudiants.",
+            },
         },
     ];
-
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
         const updateIsMobile = () => {
@@ -84,21 +107,19 @@ export default function Benefits() {
             <div className="flex flex-col space-y-6 px-6 md:flex-row md:items-start md:justify-between md:space-y-0 md:px-40">
                 <div className="md:w-1/2">
                     <p className="color-gradient relative mb-1 font-mono text-xs md:text-base">
-                        Benefits
+                        {t("benefits_top")}
                     </p>
                     <h2 className="mb-4 font-heading text-2xl uppercase text-white md:text-3xl">
-                        <span className="block md:inline">CONNECT WITH</span>{" "}
+                        <span className="block md:inline">{t("benefits_title_part1")}</span>{" "}
                         <span className="relative inline-block">
-                            THE NEXT GENERATION
+                            {t("benefits_title_highlight")}
                             <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                         </span>{" "}
-                        <span className="block md:inline">OF SOFTWARE ENGINEERS</span>
+                        <span className="block md:inline">{t("benefits_title_part3")}</span>
                     </h2>
 
                     <p className="max-w-full text-base leading-tight text-thistle md:mb-4 md:max-w-2xl md:text-lg">
-                        Without our sponsors and partners, we would not be able to fund our events
-                        and projects that provide SEG students with academic opportunities and
-                        workplace experiences.
+                        {t("benefits_description")}
                     </p>
                 </div>
 
@@ -109,7 +130,7 @@ export default function Benefits() {
                             src="/resources-page/arrow_backword.svg"
                             width={25}
                             height={25}
-                            alt="Left"
+                            alt={t("benefits_arrow_left_alt")}
                         />
                     </Button>
                     <Button size="icon" variant="outline" onClick={handleNext}>
@@ -117,7 +138,7 @@ export default function Benefits() {
                             src="/resources-page/arrow_forward.svg"
                             width={25}
                             height={25}
-                            alt="Right"
+                            alt={t("benefits_arrow_right_alt")}
                         />
                     </Button>
                 </div>
@@ -142,7 +163,7 @@ export default function Benefits() {
                             <div className="flex h-full flex-col overflow-hidden border-[1px] border-solid text-left text-white backdrop-blur-super [border-image:linear-gradient(55deg,rgba(136,36,220,0.3)_41.93%,rgba(177,33,157,0.3)_81.89%)_1]">
                                 <Image
                                     src={card.image}
-                                    alt={card.title}
+                                    alt={locale === "fr" ? card.title.fr : card.title.en}
                                     width={500}
                                     height={300}
                                     className="h-40 w-full object-cover md:h-48 2xl:h-96"
@@ -152,17 +173,19 @@ export default function Benefits() {
                                         <div className="my-3 inline-block border-[1px] border-solid [border-image:linear-gradient(55deg,rgba(136,36,220,0.3)_41.93%,rgba(177,33,157,0.3)_81.89%)_1]">
                                             <Image
                                                 src={card.icon}
-                                                alt={`${card.title} icon`}
+                                                alt={`${locale === "fr" ? card.title.fr : card.title.en} icon`}
                                                 width={24}
                                                 height={24}
                                                 className="m-3"
                                             />
                                         </div>
                                         <div className="mb-2 font-heading text-base uppercase leading-snug text-white md:text-lg">
-                                            {card.title}
+                                            {locale === "fr" ? card.title.fr : card.title.en}
                                         </div>
                                         <p className="font-sans text-sm leading-snug text-thistle md:text-lg">
-                                            {card.description}
+                                            {locale === "fr"
+                                                ? card.description.fr
+                                                : card.description.en}
                                         </p>
                                     </div>
                                 </div>

@@ -211,6 +211,43 @@
         "avg_helpfulness": "{percentage}% average helpfulness",
         "students_helped": "{students} students helped"
     },
+    "sponsorships": {
+        "header_top": "Sponsors & partners",
+        "header_highlight": "HUGE THANKS",
+        "header_title_rest": "TO OUR GENEROUS SPONSORS AND PARTNERS",
+        "header_bottom": "Our incredible partnerships make SESA possible at uOttawa. Thank you for believing in our mission!",
+        "header_btn1": "Become a sponsor",
+        "header_btn2": "View Benefits",
+
+        "cta_heading": "Interested in joining our growing network of industry partners?",
+        "cta_button": "Let's Talk",
+        "cta_disclaimer": "We'll get back to you within 48 hours.",
+
+        "testimonials_work_with_us_btn": "Work with us",
+
+        "past_collaborators_top": "Our previous partners",
+        "past_collaborators_highlight": "PAST",
+        "past_collaborators_title_rest": "COLLABORATORS SINCE 2014",
+        "past_collaborators_description": "We've had the privilege of working with over 20+ big and small companies that have enhanced our events, including:",
+
+        "benefits_top": "Benefits",
+        "benefits_title_part1": "CONNECT WITH",
+        "benefits_title_highlight": "THE NEXT GENERATION",
+        "benefits_title_part3": "OF SOFTWARE ENGINEERS",
+        "benefits_description": "Without our sponsors and partners, we would not be able to fund our events and projects that provide SEG students with academic opportunities and workplace experiences.",
+        "benefits_arrow_left_alt": "Left",
+        "benefits_arrow_right_alt": "Right",
+
+        "partner_with_us_top": "Partner with us",
+        "partner_with_us_title": "Let’s collaborate to make a",
+        "partner_with_us_highlight": "lasting difference",
+        "partner_with_us_title_rest": "on aspiring software engineers",
+        "partner_with_us_description": "Together, we can drive a meaningful impact on over 3500+ EECS students at uOttawa by bridging the gap between academic education and industry experience.",
+        "partner_with_us_become_sponsor_button": "Become a Sponsor",
+        "partner_with_us_meet_team_button": "Meet the Team",
+        "partner_with_us_team_image_alt": "Sponsor Team"
+    },
+
     "terms": {
         "our_policies": "Our",
         "our_policies_hl": "Policies",
