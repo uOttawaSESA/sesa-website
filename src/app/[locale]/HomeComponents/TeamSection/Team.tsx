@@ -76,16 +76,16 @@ const Team = () => {
                         </span>
                         <span className="block">{t("team_heading_line2")}</span>
                     </h1>
-                    <p className="mt-6 w-full text-center font-sans text-base text-thistle md:text-xl">
+                    <p className="w-full text-center font-sans text-base text-thistle md:text-xl">
                         {t("team_subheading_line1")}
                         <br />
                         {t("team_subheading_line2")}
                     </p>
                 </div>
 
-                <div className="z-20 flex justify-center gap-4 px-8 text-center font-heading">
+                <div className="z-20 -mt-8 flex justify-center gap-4 px-8 text-center font-heading md:-mt-10">
                     <Button className="w-full font-heading uppercase sm:w-max" asChild>
-                        <a href="#">
+                        <a href="sponsors">
                             {t("team_become_sponsor_btn")}{" "}
                             <span className="text-gray ml-2 opacity-50">{">"}</span>
                         </a>
@@ -100,7 +100,7 @@ const Team = () => {
                     </Button>
                 </div>
 
-                <div className="relative bg-transparent">
+                <div className="relative -mt-5 bg-transparent md:-mt-7">
                     <Marquee pauseOnHover speed={40} autoFill={true}>
                         <div className="mb-16 flex flex-row pt-2">
                             {membersData.map((member, index) => (

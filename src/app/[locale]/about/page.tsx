@@ -109,11 +109,11 @@ export default function About() {
                 </FadeInSection>
                 {/* Images (TODO) */}
                 <FadeInSection>
-                    <div className="mt-6 flex justify-center">
+                    <div className="mt-12 flex justify-center">
                         <Image
-                            className="outline-gradient h-[600px] w-[1000px] object-cover"
+                            className="outline-gradient h-[600px] w-[1250px] object-cover"
                             src="/imgs/about/team-1.webp"
-                            width={1000}
+                            width={1200}
                             height={600}
                             alt="Team picture"
                         />
@@ -121,7 +121,7 @@ export default function About() {
                 </FadeInSection>
                 {/* "Who are we" */}
                 <FadeInSection>
-                    <div className="my-8 flex max-w-[28rem] flex-col gap-2 md:ml-[50%] md:mt-28">
+                    <div className="my-8 flex max-w-[28rem] flex-col gap-2 md:ml-[53%] md:mt-28">
                         <p className="color-gradient font-mono">{t("who_are_we")}</p>
                         <h2 className="font-heading text-2xl uppercase md:text-3xl">
                             {t("who_are_we_heading")}{" "}
@@ -141,7 +141,7 @@ export default function About() {
                 {/* Figures */}
                 <FadeInSection>
                     <div className="flex justify-center backdrop-blur-lg md:mb-28">
-                        <div className="grid w-fit grid-cols-1 place-items-center gap-0 md:grid-cols-4">
+                        <div className="grid w-fit grid-cols-1 place-items-center gap-20 md:grid-cols-4">
                             <Metric
                                 className="!w-64"
                                 figure="3500+"
@@ -191,7 +191,7 @@ export default function About() {
                 </FadeInSection>
                 {/* Cards for "What do we do" */}
                 <FadeInSection>
-                    <div className="mb-8 flex w-full max-w-[28rem] max-w-none gap-6 md:justify-start">
+                    <div className="max-w-[28rem]gap-6 mb-8 flex w-full md:justify-start">
                         <WhatWeDoCard
                             imageHref="/imgs/about/social-events.webp"
                             icon={
