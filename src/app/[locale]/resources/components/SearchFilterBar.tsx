@@ -143,7 +143,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
     };
 
     return (
-        <div className="mb-8 bg-gradient-to-r from-blueviolet-100 to-darkmagenta p-px">
+        <div className="z-40 mb-8 bg-gradient-to-r from-blueviolet-100 to-darkmagenta p-px">
             <div className="flex items-center justify-between bg-gray-100 p-4">
                 <div className="flex flex-1 items-center gap-4 text-thistle">
                     <Image
