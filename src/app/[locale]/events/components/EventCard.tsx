@@ -101,7 +101,7 @@ export const EventCard = ({ event }: EventCardProps) => {
                         {/* Date and Location Text with Icons */}
                         <div className="flex flex-col gap-2 text-thistle">
                             {/* Date and Time with Icons */}
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 text-white">
                                 <CalendarClock className="h-4 w-4" />
                                 <span>
                                     {formattedDate}, {timeRange}
