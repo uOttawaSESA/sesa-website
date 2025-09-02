@@ -9,7 +9,7 @@ on:
             - pnpm-lock.yaml
             - src/**
             - "*.config.*"
-            - .prettier*
+            - biome.json
     push:
         branches:
             - main
@@ -19,7 +19,7 @@ on:
             - pnpm-lock.yaml
             - src/**
             - "*.config.*"
-            - .prettier*
+            - biome.json
 
 jobs:
     lint:
@@ -46,9 +46,7 @@ jobs:
               run: pnpm install
 
             - name: Lint project
-              run: |
-                  pnpm next telemetry disable
-                  pnpm lint
+              run: pnpm exec biome ci
 
             - name: Build project
               run: pnpm build --debug --no-lint

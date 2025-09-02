@@ -6,10 +6,8 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "lint:next": "next lint",
-        "lint:prettier": "prettier --cache --check .",
-        "lint": "npm run lint:next && npm run lint:prettier",
-        "format": "prettier --cache --write .",
+        "lint": "biome check",
+        "format": "biome check --write",
         "prepare": "husky"
     },
     "dependencies": {
@@ -41,6 +39,7 @@
         "tailwindcss-animate": "^1.0.7"
     },
     "devDependencies": {
+        "@biomejs/biome": "2.2.2",
         "@eslint/eslintrc": "^3",
         "@next/eslint-plugin-next": "^15.3.3",
         "@types/jsdom": "latest",
