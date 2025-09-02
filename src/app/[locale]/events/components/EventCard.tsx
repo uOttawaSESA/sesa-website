@@ -92,13 +92,10 @@ export const EventCard = ({ event }: EventCardProps) => {
                     {/* Date and Location */}
                     <div className="mt-4 flex items-start gap-4 font-mono text-white">
                         {/* Date Box */}
-                        <Button
-                            variant="outline"
-                            className="-mt-2 flex flex-col items-center justify-center"
-                        >
+                        <div className="outline-gradient -mt-2 flex flex-col items-center justify-center border px-4 py-3">
                             <div className="font-heading text-xs uppercase">{dayOfWeek}</div>
                             <div className="font-heading text-xl">{day}</div>
-                        </Button>
+                        </div>
 
                         {/* Date and Location Text */}
                         <div className="flex flex-col gap-2">
