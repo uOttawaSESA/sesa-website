@@ -189,7 +189,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                             value={isGridMode ? "grid" : "row"}
                                             onValueChange={changeView}
                                         >
-                                            <SelectTrigger className="w-full text-white">
+                                            <SelectTrigger className="w-full text-thistle">
                                                 <SelectValue placeholder="Grid" />
                                             </SelectTrigger>
                                             <SelectContent>
@@ -229,7 +229,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                                     setRowsToShow(parseInt(value))
                                                 }
                                             >
-                                                <SelectTrigger className="mt-2 w-full text-white">
+                                                <SelectTrigger className="mt-2 w-full text-thistle">
                                                     <SelectValue placeholder="Rows" />
                                                 </SelectTrigger>
                                                 <SelectContent>
@@ -257,7 +257,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                     {hasActiveFilters && (
                         <button
                             onClick={clearAllFilters}
-                            className="flex items-center gap-2 uppercase text-thistle transition-colors hover:text-white"
+                            className="flex items-center gap-2 uppercase text-white transition-colors hover:text-white"
                             title="Clear all filters"
                         >
                             {t("clear_filters")}
@@ -298,7 +298,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                         <div className="mb-4 flex justify-end">
                                             <button
                                                 onClick={clearAllFilters}
-                                                className="text-sm uppercase text-thistle underline transition-colors hover:text-white"
+                                                className="text-sm uppercase text-white underline transition-colors hover:text-white"
                                             >
                                                 {t("clear_all")}
                                             </button>
@@ -379,7 +379,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                     className={`${gradientBorderClass} animate-dropdown bg-[rgba(27,27,27,0.3)] p-4 backdrop-blur-md backdrop-saturate-150`}
                                 >
                                     <Select value={sortOption} onValueChange={handleSortChange}>
-                                        <SelectTrigger className="w-full text-white">
+                                        <SelectTrigger className="w-full text-thistle">
                                             <SelectValue placeholder="Sort" />
                                         </SelectTrigger>
                                         <SelectContent>

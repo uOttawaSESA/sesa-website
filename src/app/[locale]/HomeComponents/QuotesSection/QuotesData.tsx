@@ -67,6 +67,28 @@ export const quotesData: Quote[] = [
         buttonLink: "",
         memberImg: "/imgs/team/kelly.jpg",
         memberName: "Kelly Gao",
+        memberRole: "Advisor",
+    },
+    {
+        heading: {
+            en: "Building momentum together",
+            fr: "Construire de l'élan ensemble",
+        },
+        quote_part1: {
+            en: "We're building momentum for the next generation of Software Engineers — helping students",
+            fr: "Nous donnons de l'élan à la prochaine génération d'ingénieurs logiciels —",
+        },
+        highlightQuote: {
+            en: "push boundaries.",
+            fr: "en aidant les étudiants à repousser les limites.",
+        },
+        quote_part2: {
+            en: "",
+            fr: "",
+        },
+        buttonLink: "",
+        memberImg: "/imgs/team/rayen.webp",
+        memberName: "Rayen Tamarzizt",
         memberRole: "Co-Director",
     },
 ];

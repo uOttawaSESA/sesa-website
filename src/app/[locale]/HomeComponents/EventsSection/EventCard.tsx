@@ -17,22 +17,20 @@ const EventCard: React.FC<{ event: Event }> = ({ event }) => {
     return (
         <div className="flex h-full w-full flex-col overflow-hidden border-2 border-solid border-blueviolet-700 bg-gray-200 opacity-90">
             {/* Event Image */}
-            <a href="#">
-                <Image
-                    className="w-full border-b-2 border-solid border-blueviolet-700 object-cover"
-                    src={event.image}
-                    alt={event.title[lang]}
-                    width={350}
-                    height={350}
-                />
-            </a>
+            <Image
+                className="h-[350px] w-full border-b-2 border-solid border-blueviolet-700 object-cover"
+                src={event.image}
+                alt={event.title[lang]}
+                width={350}
+                height={350}
+            />
 
             {/* Event Content */}
             <div className="flex flex-col gap-2 p-4 font-heading">
                 {/* Date & Location Row */}
                 <div className="flex items-center gap-3 text-sm">
                     {/* Date Box */}
-                    <div className="outline-gradient flex aspect-square h-full flex-col items-center justify-center p-2">
+                    <div className="outline-gradient flex aspect-square h-full flex-col items-center justify-center px-3">
                         <span className="text-xs">{month}</span>
                         <span className="text-lg">{day}</span>
                     </div>

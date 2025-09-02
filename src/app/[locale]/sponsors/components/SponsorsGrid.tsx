@@ -18,7 +18,7 @@ const sponsors = [
         alt: "Warp",
         width: 300,
         height: 150,
-        size: "col-span-6 h-72 md:h-80",
+        size: "h-72 md:h-80",
         link: "https://warp.dev/?ref=sesa",
     },
     {
@@ -27,8 +27,17 @@ const sponsors = [
         alt: "CSE",
         width: 300,
         height: 150,
-        size: "col-span-6 h-72 md:h-80",
+        size: "h-72 md:h-80",
         link: "https://cse-cst.gc.ca/en",
+    },
+    {
+        name: "Amazon",
+        src: "/sponsors/amazon.svg",
+        alt: "Amazon",
+        width: 300,
+        height: 150,
+        size: "h-72 md:h-80",
+        link: "https://www.amazon.com/",
     },
 ];
 
@@ -40,25 +49,67 @@ const gradientBorderClass = `
 const SponsorsGrid = () => {
     return (
         <div className="mt-10 flex justify-center px-6 md:mt-16">
-            <div className="grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-12">
-                {sponsors.map((sponsor, index) => (
+            <div className="flex w-full max-w-4xl flex-col gap-8">
+                {/* Large sponsor on top */}
+                <div className="flex justify-center">
                     <a
-                        key={index}
-                        href={sponsor.link}
+                        href={sponsors[0].link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`flex items-center justify-center rounded-lg p-10 ${sponsor.size} ${gradientBorderClass} backdrop-blur-lg transition hover:scale-105`}
-                        title={sponsor.name}
+                        className={`flex items-center justify-center rounded-lg p-10 ${sponsors[0].size} ${gradientBorderClass} w-full backdrop-blur-lg transition hover:scale-105`}
+                        title={sponsors[0].name}
                     >
                         <Image
-                            src={sponsor.src}
-                            alt={sponsor.alt}
-                            width={sponsor.width}
-                            height={sponsor.height}
+                            src={sponsors[0].src}
+                            alt={sponsors[0].alt}
+                            width={sponsors[0].width}
+                            height={sponsors[0].height}
                             className="object-contain"
                         />
                     </a>
-                ))}
+                </div>
+                {/* Mobile: stack all sponsors vertically */}
+                <div className="flex flex-col gap-8 md:hidden">
+                    {sponsors.slice(1).map((sponsor, index) => (
+                        <a
+                            key={index}
+                            href={sponsor.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`flex items-center justify-center rounded-lg p-10 ${sponsor.size} ${gradientBorderClass} w-full backdrop-blur-lg transition hover:scale-105`}
+                            title={sponsor.name}
+                        >
+                            <Image
+                                src={sponsor.src}
+                                alt={sponsor.alt}
+                                width={sponsor.width}
+                                height={sponsor.height}
+                                className="object-contain"
+                            />
+                        </a>
+                    ))}
+                </div>
+                {/* Desktop: smaller sponsors in a row at the bottom */}
+                <div className="hidden flex-row justify-center gap-8 md:flex">
+                    {sponsors.slice(1).map((sponsor, index) => (
+                        <a
+                            key={index}
+                            href={sponsor.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`flex items-center justify-center rounded-lg p-10 ${sponsor.size} ${gradientBorderClass} backdrop-blur-lg transition hover:scale-105`}
+                            title={sponsor.name}
+                        >
+                            <Image
+                                src={sponsor.src}
+                                alt={sponsor.alt}
+                                width={sponsor.width}
+                                height={sponsor.height}
+                                className="object-contain"
+                            />
+                        </a>
+                    ))}
+                </div>
             </div>
         </div>
     );

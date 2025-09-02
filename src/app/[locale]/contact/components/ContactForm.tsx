@@ -33,18 +33,9 @@ const ContactForm: React.FC = () => {
     const [submitting, setSubmitting] = useState(false);
 
     const topicItems = [
-        {
-            label: "General Inquiry",
-            value: "General Inquiry",
-        },
-        {
-            label: "Partnership",
-            value: "Partnership",
-        },
-        {
-            label: "Support",
-            value: "Support",
-        },
+        { label: t("topic_general"), value: "General Inquiry" },
+        { label: t("topic_partnership"), value: "Partnership" },
+        { label: t("topic_support"), value: "Support" },
     ] as const;
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
