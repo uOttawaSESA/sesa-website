@@ -327,6 +327,7 @@
         "constitution": "Constitution",
         "contact": "Contact",
         "blurb": "We connect SEG & EECS students with software engineering industry professionals, providing resources and support.",
-        "back_to_top": "Back to top"
+        "back_to_top": "Back to top",
+        "view_source_btn": "View Source"
     }
 }
