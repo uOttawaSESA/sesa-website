@@ -5,7 +5,7 @@ import Pagination from "@/components/Pagination";
 
 import SearchFilterBar from "./SearchFilterBar";
 import ResourceList from "./ResourceList";
-import { Resource } from "@/app/types/Resource";
+import type { Resource } from "@/app/types/Resource";
 import { useResources } from "@/hooks/useResources";
 
 const ResourceSection = () => {

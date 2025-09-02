@@ -127,7 +127,11 @@ export default function About() {
                                     variant="outline"
                                     asChild
                                 >
-                                    <a href="https://linktr.ee/uottawa.sesa" target="_blank">
+                                    <a
+                                        href="https://linktr.ee/uottawa.sesa"
+                                        target="_blank"
+                                        rel="noopener"
+                                    >
                                         {t("join_our_family")}
                                     </a>
                                 </Button>

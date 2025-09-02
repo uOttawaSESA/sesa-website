@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import type React from "react";
+import { useState } from "react";
 import { ResourceCard } from "./ResourceCard/ResourceCard";
-import { Resource } from "@/app/types/Resource";
+import type { Resource } from "@/app/types/Resource";
 import { ResourceModal } from "./ResourceModal";
 import Image from "next/image";
 

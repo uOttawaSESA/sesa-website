@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { format } from "date-fns";
 import { useTranslations, useLocale } from "next-intl";
-import { Event } from "../../../types/Event";
+import type { Event } from "../../../types/Event";
 
 interface EventCardProps {
     event: Event;

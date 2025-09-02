@@ -1,5 +1,5 @@
 "use client";
-import { FC, useState, useRef } from "react";
+import { type FC, useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 

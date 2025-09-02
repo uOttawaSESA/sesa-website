@@ -1,6 +1,6 @@
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { X } from "lucide-react";
-import { Resource } from "@/app/types/Resource";
+import type { Resource } from "@/app/types/Resource";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { formatDate } from "date-fns";
@@ -223,7 +223,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                         );
                     }
                 }
-            case "video":
+            case "video": {
                 const youtubeId = extractYoutubeId(resource.source);
                 return (
                     <div className="aspect-video w-full">
@@ -236,6 +236,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                         />
                     </div>
                 );
+            }
             case "website":
             case "blog":
             case "article":

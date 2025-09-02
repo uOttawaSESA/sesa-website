@@ -5,7 +5,7 @@ import TeamUpSection from "./components/TeamUpSection";
 import Image from "next/image";
 import FadeInSection from "@/components/FadeInSection";
 
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 // Precompile i18n
 import localeParams from "@/app/data/locales";

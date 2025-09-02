@@ -1,6 +1,6 @@
 import type Member from "@/app/types/Member";
 import Image from "next/image";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 export interface Props {
     title: string;

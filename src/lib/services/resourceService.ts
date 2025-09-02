@@ -2,9 +2,9 @@ import { collection, getDocs, doc, getDoc, addDoc, updateDoc, deleteDoc } from "
 import { db } from "../firebase";
 import { ZodError } from "zod";
 import {
-    Resource,
-    PartialResource,
-    ResourceDocument,
+    type Resource,
+    type PartialResource,
+    type ResourceDocument,
     ResourceSchema,
     PartialResourceSchema,
 } from "../validation/resourceValidation";

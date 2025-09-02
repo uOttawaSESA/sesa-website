@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 import DOMPurify from "dompurify";
 import { JSDOM } from "jsdom";
 import nodemailer from "nodemailer";

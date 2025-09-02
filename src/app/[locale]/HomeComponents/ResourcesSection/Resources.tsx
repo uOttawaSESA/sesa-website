@@ -124,7 +124,11 @@ const Resources = () => {
                             </Link>
                         </Button>
                         <Button className="text-sm md:text-lg" variant="outline" asChild>
-                            <a href="https://discord.com/invite/atYdx5HHCs" target="_blank">
+                            <a
+                                href="https://discord.com/invite/atYdx5HHCs"
+                                target="_blank"
+                                rel="noopener"
+                            >
                                 {t("join_our_discord")}
                             </a>
                         </Button>

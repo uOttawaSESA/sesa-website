@@ -1,5 +1,5 @@
 // import {Button} from "@/components/ui/button";
-import Goal from "./types/Goal";
+import type Goal from "./types/Goal";
 import Image from "next/image";
 import { TeamBadgeStack } from "@/components/TeamBadgeStack";
 import { Button } from "@/components/ui/button";

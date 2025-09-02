@@ -1,4 +1,4 @@
-import { Resource } from "@/app/types/Resource";
+import type { Resource } from "@/app/types/Resource";
 import { useState, useEffect } from "react";
 
 export function useResources() {

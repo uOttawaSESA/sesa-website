@@ -1,4 +1,4 @@
-import { Resource } from "../types/Resource";
+import type { Resource } from "../types/Resource";
 
 export const resources: Resource[] = [
     {

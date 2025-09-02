@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
+import type React from "react";
 import EventCard from "./EventCard";
-import { Event } from "../../../types/Event";
+import type { Event } from "../../../types/Event";
 import FadeInSection from "@/components/FadeInSection";
 
 interface EventsListProps {
