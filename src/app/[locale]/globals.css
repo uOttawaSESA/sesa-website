@@ -30,8 +30,7 @@ body {
 /*** Scrollbar styling ***/
 /* Firefox */
 * {
-    scrollbar-color: #9a1ebf #381e4b;
-    /* thumb, track */
+    scrollbar-color: #9a1ebf #381e4b; /* thumb, track */
 }
 
 .bg-gradient {
@@ -77,8 +76,7 @@ body {
 .color-gradient-clickable {
     background-color: #8824dc;
     background-image: linear-gradient(55deg, #8824dc 20%, #b1219d 75%);
-    background-size: 200% 100%;
-    /* Double the size for animation */
+    background-size: 200% 100%; /* Double the size for animation */
     -webkit-background-clip: text;
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -87,8 +85,7 @@ body {
 }
 
 .color-gradient-clickable:hover {
-    background-position: 100% 0;
-    /* Move gradient to the right */
+    background-position: 100% 0; /* Move gradient to the right */
 }
 
 .highlight-text {
@@ -307,7 +304,6 @@ select::placeholder {
         --chart-5: 27 87% 67%;
         --radius: 0.5rem;
     }
-
     .dark {
         --background: 0 0% 3.9%;
         --foreground: 0 0% 98%;
@@ -340,7 +336,6 @@ select::placeholder {
     * {
         @apply border-border;
     }
-
     body {
         @apply bg-background text-foreground;
     }
@@ -351,13 +346,11 @@ select::placeholder {
         opacity: 0;
         transform: scaleY(0.96) translateY(-8px);
     }
-
     100% {
         opacity: 1;
         transform: scaleY(1) translateY(0);
     }
 }
-
 .animate-dropdown {
     animation: dropdown-fade-in 0.22s cubic-bezier(0.4, 0, 0.2, 1);
     transform-origin: top;
@@ -365,12 +358,10 @@ select::placeholder {
 
 .truncate-multiline {
     display: -webkit-box;
-    -webkit-line-clamp: 3;
-    /* Limit to 3 lines */
+    -webkit-line-clamp: 3; /* Limit to 3 lines */
     -webkit-box-orient: vertical;
     overflow: hidden;
-    text-overflow: ellipsis;
-    /* This alone is for single line, but required with -webkit-box */
+    text-overflow: ellipsis; /* This alone is for single line, but required with -webkit-box */
 }
 
 .fade-left-bottom {
