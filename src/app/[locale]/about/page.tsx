@@ -489,11 +489,11 @@ export default function About() {
                                 <b>{t("our_previous_partners_p_bold")}</b>,{" "}
                                 {t("our_previous_partners_p")}{" "}
                             </p>
-                            <div className="mt-10 flex items-center justify-center text-center backdrop-blur-lg">
+                            <div className="mt-10 flex items-center justify-center text-center">
                                 <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
                                     {beyonSesaCompanies.map((company, i) => (
                                         <div
-                                            className="outline-gradient flex h-36 w-64 items-center justify-center"
+                                            className="outline-gradient flex h-36 w-64 items-center justify-center backdrop-blur-lg"
                                             key={`partners:${i}`}
                                         >
                                             <Image
