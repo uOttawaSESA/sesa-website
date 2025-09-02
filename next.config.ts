@@ -12,6 +12,8 @@ const nextConfig: NextConfig = {
             },
         ],
     },
+    // Biome is used for linting, not ESLint
+    eslint: { ignoreDuringBuilds: true },
 };
 
 export default createNextIntlPlugin()(nextConfig);
