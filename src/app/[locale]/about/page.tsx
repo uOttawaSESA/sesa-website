@@ -83,7 +83,7 @@ export default function About() {
                         alt=""
                     />
                     <Image
-                        className="absolute right-[-6rem] top-[4rem] h-[15rem] w-[15rem]"
+                        className="absolute right-[-6rem] top-[4rem] hidden h-[15rem] w-[15rem] md:block"
                         src="/decoration/star.svg"
                         width={196}
                         height={197}
@@ -155,14 +155,14 @@ export default function About() {
                     {/* Decorations */}
                     <div className="pointer-events-none absolute left-0 top-0 h-full w-full select-none">
                         <Image
-                            className="fade-right-bottom absolute left-[-16rem] top-[-14rem] z-[-1] h-[55rem] w-[55rem]"
+                            className="fade-right-bottom absolute top-[-14rem] z-[-1] h-[55rem] w-[55rem] md:left-[-16rem]"
                             src="/decoration/disc.svg"
                             width={911}
                             height={822}
                             alt=""
                         />
                         <Image
-                            className="absolute left-[24rem] top-[3rem] h-[10rem] w-[10rem] rotate-[-15deg]"
+                            className="absolute left-[12rem] top-[3rem] hidden h-[10rem] w-[10rem] rotate-[-15deg] md:block lg:left-[24rem]"
                             src="/decoration/star.svg"
                             width={196}
                             height={197}
@@ -231,7 +231,7 @@ export default function About() {
                     {/* Decorations */}
                     <div className="pointer-events-none absolute left-0 top-0 h-full w-full select-none">
                         <Image
-                            className="absolute right-[10rem] top-[3rem] h-[8rem] w-[8rem] rotate-[0deg]"
+                            className="absolute right-0 top-[8rem] h-[8rem] w-[8rem] rotate-[0deg] md:right-[10rem] md:top-[3rem]"
                             src="/decoration/star.svg"
                             width={196}
                             height={197}
@@ -322,7 +322,7 @@ export default function About() {
                     {/* Decorations */}
                     <div className="pointer-events-none absolute left-0 top-0 h-full w-full select-none">
                         <Image
-                            className="absolute left-[4rem] top-[-4rem] h-[12rem] w-[12rem] rotate-[-15deg]"
+                            className="absolute left-[4rem] top-[-4rem] hidden h-[12rem] w-[12rem] rotate-[-15deg] lg:block"
                             src="/decoration/star.svg"
                             width={196}
                             height={197}
@@ -454,7 +454,7 @@ export default function About() {
                             alt=""
                         />
                         <Image
-                            className="absolute left-[4rem] top-[4rem] h-[12rem] w-[12rem] rotate-[-15deg]"
+                            className="absolute left-[4rem] top-[4rem] hidden h-[12rem] w-[12rem] rotate-[-15deg] lg:block"
                             src="/decoration/star.svg"
                             width={196}
                             height={197}
@@ -516,14 +516,14 @@ export default function About() {
                 {/* Decorations */}
                 <div className="pointer-events-none absolute left-0 top-0 h-full w-full select-none">
                     <Image
-                        className="absolute bottom-[-8rem] left-[35rem] h-[12rem] w-[12rem] rotate-[-15deg]"
+                        className="absolute bottom-[-8rem] left-[35rem] hidden h-[12rem] w-[12rem] rotate-[-15deg] lg:block"
                         src="/decoration/star.svg"
                         width={196}
                         height={197}
                         alt=""
                     />
                     <Image
-                        className="absolute bottom-[-9rem] left-[43rem] h-[6rem] w-[6rem] rotate-[20deg]"
+                        className="absolute bottom-[-9rem] left-[43rem] hidden h-[6rem] w-[6rem] rotate-[20deg] lg:block"
                         src="/decoration/star-faded.svg"
                         width={79}
                         height={80}
