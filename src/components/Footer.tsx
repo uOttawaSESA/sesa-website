@@ -1,9 +1,9 @@
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { LanguageSelect } from "@/components/LanguageSelect";
-import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
 import { ExternalLink } from "lucide-react";
+import Image from "next/image";
+import { useTranslations } from "next-intl";
+import { LanguageSelect } from "@/components/LanguageSelect";
+import { Button } from "@/components/ui/button";
+import { Link } from "@/i18n/navigation";
 
 // === Removed sponsor marquee, in case we want it again: ===
 // {/* Sponsors marquee */}
@@ -231,6 +231,7 @@ export default function Footer() {
                             className="h-min font-heading uppercase"
                             asChild
                         >
+                            {/* biome-ignore lint/a11y/useValidAnchor: Used to get to the top of the page */}
                             <a href="#">{t("back_to_top")}</a>
                         </Button>
                         <LanguageSelect />

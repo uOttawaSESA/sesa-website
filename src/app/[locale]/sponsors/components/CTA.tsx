@@ -1,8 +1,8 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { Button } from "@/components/ui/button";
+import { Link } from "@/i18n/navigation";
 
 export default function CTA() {
     const t = useTranslations("sponsorships");

@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
 import { Geist, Geist_Mono, Raleway } from "next/font/google";
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 
-import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 import { routing } from "@/i18n/routing";
 
 // Load fonts

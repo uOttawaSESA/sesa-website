@@ -1,14 +1,12 @@
-import { resources } from "@/app/data/Resources";
-import Header from "./components/Header";
-import FooterSection from "./components/FooterSection";
-import ResourceSection from "./components/ResourceSection";
 import Image from "next/image";
-import FadeInSection from "@/components/FadeInSection";
-
-import type { Metadata } from "next";
-
 // Precompile i18n
 import localeParams from "@/app/data/locales";
+import { resources } from "@/app/data/Resources";
+import FadeInSection from "@/components/FadeInSection";
+import FooterSection from "./components/FooterSection";
+import Header from "./components/Header";
+import ResourceSection from "./components/ResourceSection";
+import type { Metadata } from "next";
 export const generateStaticParams = localeParams;
 
 export const metadata: Metadata = {

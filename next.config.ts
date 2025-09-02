@@ -1,5 +1,5 @@
-import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
+import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
     images: {
@@ -12,6 +12,8 @@ const nextConfig: NextConfig = {
             },
         ],
     },
+    // Biome is used for linting, not ESLint
+    eslint: { ignoreDuringBuilds: true },
 };
 
 export default createNextIntlPlugin()(nextConfig);

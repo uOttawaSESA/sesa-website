@@ -1,4 +1,6 @@
 "use client";
+import { useLocale } from "next-intl";
+import { useState } from "react";
 import {
     Select,
     SelectContent,
@@ -7,9 +9,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
-import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
-import { useState } from "react";
 
 /**
  * Provides a select component that can be used to select the page locale.

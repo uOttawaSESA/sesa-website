@@ -1,5 +1,5 @@
-import { Resource } from "@/app/types/Resource";
-import { useState, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
+import type { Resource } from "@/app/types/Resource";
 
 export function useResources() {
     const [resources, setResources] = useState<Resource[]>([]); // Store fetched resources
@@ -11,7 +11,7 @@ export function useResources() {
      * Fetch resources from the API
      * Handles loading and error states
      */
-    const fetchResources = async () => {
+    const fetchResources = useCallback(async () => {
         try {
             setLoading(true);
             setError(null);
@@ -35,12 +35,12 @@ export function useResources() {
         } finally {
             setLoading(false);
         }
-    };
+    }, []);
 
     // Fetch resources on mount
     useEffect(() => {
         fetchResources();
-    }, []);
+    }, [fetchResources]);
 
     // Refetch resources - could used for refresh button?
     const refetch = () => {

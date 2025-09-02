@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
+import { useTranslations } from "next-intl";
 import CircleImage from "@/components/CircleImage";
-import { Link } from "@/i18n/navigation";
+import { Button } from "@/components/ui/button";
 import {
     Carousel,
     CarouselContent,
@@ -11,7 +11,7 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel";
-import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 const sponsorsData = [
     {

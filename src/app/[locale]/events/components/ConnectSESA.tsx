@@ -1,6 +1,6 @@
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { Button } from "@/components/ui/button";
 
 const ConnectSESA = () => {
     const t = useTranslations("events");
@@ -45,7 +45,11 @@ const ConnectSESA = () => {
 
                     <div className="mt-8 flex justify-center gap-4">
                         <Button size="icon" variant="outline" asChild>
-                            <a href="https://www.instagram.com/uottawasesa/" target="_blank">
+                            <a
+                                href="https://www.instagram.com/uottawasesa/"
+                                target="_blank"
+                                rel="noopener"
+                            >
                                 <Image
                                     src="/icons/instagram-plain.svg"
                                     width={25}
@@ -55,7 +59,11 @@ const ConnectSESA = () => {
                             </a>
                         </Button>
                         <Button size="icon" variant="outline" asChild>
-                            <a href="https://discord.com/invite/atYdx5HHCs" target="_blank">
+                            <a
+                                href="https://discord.com/invite/atYdx5HHCs"
+                                target="_blank"
+                                rel="noopener"
+                            >
                                 <Image
                                     src="/icons/discord-plain.svg"
                                     width={25}
@@ -65,7 +73,7 @@ const ConnectSESA = () => {
                             </a>
                         </Button>
                         <Button size="icon" variant="outline" asChild>
-                            <a href="https://github.com/uOttawaSESA" target="_blank">
+                            <a href="https://github.com/uOttawaSESA" target="_blank" rel="noopener">
                                 <Image
                                     src="/icons/github-plain.svg"
                                     width={25}

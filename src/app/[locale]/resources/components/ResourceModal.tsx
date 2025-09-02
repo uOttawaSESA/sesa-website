@@ -1,11 +1,11 @@
 import { Dialog, DialogPanel } from "@headlessui/react";
-import { X } from "lucide-react";
-import { Resource } from "@/app/types/Resource";
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import { formatDate } from "date-fns";
+import { X } from "lucide-react";
+import Image from "next/image";
+import { useEffect, useId, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { useEffect, useRef, useState } from "react";
+import { Button } from "@/components/ui/button";
+import type { Resource } from "@/app/types/Resource";
 
 interface ResourceModalProps {
     resource: Resource;
@@ -82,10 +82,36 @@ const extractYoutubeId = (url: string): string | null => {
     return null;
 };
 
+// Tooltip component to display icon information
+// This uses a portal to render the tooltip outside the normal DOM hierarchy
+const TooltipPortal = ({
+    children,
+    position,
+    id,
+}: {
+    children: React.ReactNode;
+    position: { top: number; left: number };
+    id?: string;
+}) => {
+    return createPortal(
+        <div
+            id={id}
+            className="outline-gradient fixed z-[9999] px-3 py-1.5 text-sm text-white shadow-lg shadow-purple-500/20 backdrop-blur-xl"
+            style={{ top: position.top, left: position.left }}
+        >
+            {children}
+        </div>,
+        document.body,
+    );
+};
+
 export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps) => {
     // Tooltip state for tier
     const [showTierTooltip, setShowTierTooltip] = useState(false);
     const [tierTooltipPos, setTierTooltipPos] = useState({ top: 0, left: 0 });
+
+    const tierTooltipId = useId();
+    const updatedTooltipId = useId();
 
     // Tooltip state for last updated
     const [showUpdatedTooltip, setShowUpdatedTooltip] = useState(false);
@@ -131,26 +157,6 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
             default:
                 return "No information available.";
         }
-    };
-
-    // Tooltip component to display icon information
-    // This uses a portal to render the tooltip outside the normal DOM hierarchy
-    const TooltipPortal = ({
-        children,
-        position,
-    }: {
-        children: React.ReactNode;
-        position: { top: number; left: number };
-    }) => {
-        return createPortal(
-            <div
-                className="outline-gradient fixed z-[9999] px-3 py-1.5 text-sm text-white shadow-lg shadow-purple-500/20 backdrop-blur-xl"
-                style={{ top: position.top, left: position.left }}
-            >
-                {children}
-            </div>,
-            document.body,
-        );
     };
 
     const isFilePath = (source: string) => {
@@ -223,7 +229,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                         );
                     }
                 }
-            case "video":
+            case "video": {
                 const youtubeId = extractYoutubeId(resource.source);
                 return (
                     <div className="aspect-video w-full">
@@ -236,6 +242,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                         />
                     </div>
                 );
+            }
             case "website":
             case "blog":
             case "article":
@@ -353,6 +360,8 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                         <div
                             className="flex items-center gap-2"
                             ref={tierRef}
+                            role="tooltip"
+                            aria-describedby={tierTooltipId}
                             onMouseEnter={() => setShowTierTooltip(true)}
                             onMouseLeave={() => setShowTierTooltip(false)}
                         >
@@ -435,6 +444,8 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                                 <div
                                     className="flex items-center gap-2"
                                     ref={updatedRef}
+                                    role="tooltip"
+                                    aria-describedby={updatedTooltipId}
                                     onMouseEnter={() => setShowUpdatedTooltip(true)}
                                     onMouseLeave={() => setShowUpdatedTooltip(false)}
                                 >
@@ -478,13 +489,13 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
 
                 {/* Render tooltips */}
                 {showTierTooltip && (
-                    <TooltipPortal position={tierTooltipPos}>
+                    <TooltipPortal id={tierTooltipId} position={tierTooltipPos}>
                         {getIconTooltip(resource.tier)}
                     </TooltipPortal>
                 )}
 
                 {showUpdatedTooltip && (
-                    <TooltipPortal position={updatedTooltipPos}>
+                    <TooltipPortal id={updatedTooltipId} position={updatedTooltipPos}>
                         {getIconTooltip("LAST UPDATED")}
                     </TooltipPortal>
                 )}

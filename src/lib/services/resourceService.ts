@@ -1,12 +1,12 @@
-import { collection, getDocs, doc, getDoc, addDoc, updateDoc, deleteDoc } from "firebase/firestore";
-import { db } from "../firebase";
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, updateDoc } from "firebase/firestore";
 import { ZodError } from "zod";
+import { db } from "../firebase";
 import {
-    Resource,
-    PartialResource,
-    ResourceDocument,
-    ResourceSchema,
+    type PartialResource,
     PartialResourceSchema,
+    type Resource,
+    type ResourceDocument,
+    ResourceSchema,
 } from "../validation/resourceValidation";
 
 const COLLECTION_NAME = "Resources";

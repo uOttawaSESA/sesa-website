@@ -1,9 +1,9 @@
+// biome-ignore-all lint: lint/correctness/useUniqueElementIds: IDs are only used once and should be human-readable
+
 import { useTranslations } from "next-intl";
-
-import type { Metadata } from "next";
-
 // Precompile i18n
 import localeParams from "@/app/data/locales";
+import type { Metadata } from "next";
 export const generateStaticParams = localeParams;
 
 export const metadata: Metadata = {

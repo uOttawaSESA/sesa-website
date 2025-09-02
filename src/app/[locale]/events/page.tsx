@@ -1,14 +1,12 @@
+import Image from "next/image";
+// Precompile i18n
+import localeParams from "@/app/data/locales";
+import FadeInSection from "@/components/FadeInSection";
 import ConnectSESA from "./components/ConnectSESA";
 import EventSection from "./components/EventSection";
 import InfiniteCarousel from "./components/InfiniteCarousel";
 import TeamUpSection from "./components/TeamUpSection";
-import Image from "next/image";
-import FadeInSection from "@/components/FadeInSection";
-
-import { Metadata } from "next";
-
-// Precompile i18n
-import localeParams from "@/app/data/locales";
+import type { Metadata } from "next";
 export const generateStaticParams = localeParams;
 
 export const metadata: Metadata = {

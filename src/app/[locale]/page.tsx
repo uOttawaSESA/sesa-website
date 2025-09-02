@@ -1,18 +1,16 @@
-import Hero from "./HomeComponents/Hero";
-import Events from "./HomeComponents/EventsSection/Events";
-import Goals from "./HomeComponents/GoalsSection/Goals";
-import Resources from "./HomeComponents/ResourcesSection/Resources";
-import Quotes from "./HomeComponents/QuotesSection/Quotes";
-import Sponsors from "./HomeComponents/SponsorSection/Sponsors";
-import FAQ from "./HomeComponents/FAQ/FAQ";
-import Connect from "./HomeComponents/ConnectSection/Connect";
-import Team from "./HomeComponents/TeamSection/Team";
-
-import type { Metadata } from "next";
-import FadeInSection from "@/components/FadeInSection";
-
 // Precompile i18n
 import localeParams from "@/app/data/locales";
+import FadeInSection from "@/components/FadeInSection";
+import Connect from "./HomeComponents/ConnectSection/Connect";
+import Events from "./HomeComponents/EventsSection/Events";
+import FAQ from "./HomeComponents/FAQ/FAQ";
+import Goals from "./HomeComponents/GoalsSection/Goals";
+import Hero from "./HomeComponents/Hero";
+import Quotes from "./HomeComponents/QuotesSection/Quotes";
+import Resources from "./HomeComponents/ResourcesSection/Resources";
+import Sponsors from "./HomeComponents/SponsorSection/Sponsors";
+import Team from "./HomeComponents/TeamSection/Team";
+import type { Metadata } from "next";
 export const generateStaticParams = localeParams;
 
 export const metadata: Metadata = {

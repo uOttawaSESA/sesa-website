@@ -1,12 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { Link } from "@/i18n/navigation";
-import Quote from "./types/Quote";
-import { CarouselItem } from "@/components/ui/carousel";
+import { useLocale, useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
-import { useLocale } from "next-intl";
-import { useTranslations } from "next-intl";
+import { CarouselItem } from "@/components/ui/carousel";
+import { Link } from "@/i18n/navigation";
+import type Quote from "./types/Quote";
 
 export const QuoteCard: React.FC<{ quote: Quote }> = ({ quote }) => {
     const locale = useLocale();

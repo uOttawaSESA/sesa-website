@@ -1,8 +1,8 @@
-import { Button } from "@/components/ui/button";
-import SponsorsGrid from "../../sponsors/components/SponsorsGrid";
-import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { Button } from "@/components/ui/button";
+import { Link } from "@/i18n/navigation";
+import SponsorsGrid from "../../sponsors/components/SponsorsGrid";
 
 const Sponsors = () => {
     const t = useTranslations("homepage");

@@ -1,8 +1,8 @@
-import Image from "next/image";
 import { format } from "date-fns";
-import { useTranslations, useLocale } from "next-intl";
-import { Event } from "@/app/types/Event";
 import { CalendarDays, Clock, MapPin } from "lucide-react";
+import Image from "next/image";
+import { useLocale, useTranslations } from "next-intl";
+import type { Event } from "@/app/types/Event";
 
 const EventCard: React.FC<{ event: Event }> = ({ event }) => {
     const locale = useLocale();

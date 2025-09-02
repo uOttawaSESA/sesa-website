@@ -1,3 +1,6 @@
+import { useTranslations } from "next-intl";
+import { events } from "@/app/data/Events";
+import { Button } from "@/components/ui/button";
 import {
     Carousel,
     CarouselContent,
@@ -5,11 +8,8 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
-import { useTranslations } from "next-intl";
 import EventCard from "./EventCard";
-import { events } from "@/app/data/Events";
 
 export default function Events() {
     const t = useTranslations("homepage");
@@ -36,9 +36,7 @@ export default function Events() {
                     </div>
                 </div>
             </div>
-            {events.length === 0 ? (
-                <></>
-            ) : (
+            {events.length === 0 && (
                 <Carousel className="w-full pe-8" opts={{ align: "start" }}>
                     <CarouselContent>
                         {events.map((event, index) => (

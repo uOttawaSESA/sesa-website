@@ -1,8 +1,7 @@
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
-
 // Precompile i18n
 import localeParams from "@/app/data/locales";
+import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import type { Metadata } from "next";
 export const generateStaticParams = localeParams;

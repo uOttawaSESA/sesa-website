@@ -1,17 +1,15 @@
-import SponsorsHeader from "./components/SponsorsHeader";
-import Benefits from "./components/Benefits";
-import CTA from "./components/CTA";
-import PastCollaboratorsCarousel from "./components/PastCollaboratorsCarousel";
-import TestimonialsCarousel from "./components/TestimonialsCarousel";
-import SponsorsGrid from "./components/SponsorsGrid";
-import PartnerWithUs from "./components/PartnerWithUs";
-import FadeInSection from "@/components/FadeInSection";
 import { useTranslations } from "next-intl";
-
-import type { Metadata } from "next";
-
 // Precompile i18n
 import localeParams from "@/app/data/locales";
+import FadeInSection from "@/components/FadeInSection";
+import Benefits from "./components/Benefits";
+import CTA from "./components/CTA";
+import PartnerWithUs from "./components/PartnerWithUs";
+import PastCollaboratorsCarousel from "./components/PastCollaboratorsCarousel";
+import SponsorsGrid from "./components/SponsorsGrid";
+import SponsorsHeader from "./components/SponsorsHeader";
+import TestimonialsCarousel from "./components/TestimonialsCarousel";
+import type { Metadata } from "next";
 export const generateStaticParams = localeParams;
 
 export const metadata: Metadata = {

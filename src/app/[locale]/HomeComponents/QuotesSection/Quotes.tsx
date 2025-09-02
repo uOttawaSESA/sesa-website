@@ -1,4 +1,3 @@
-import { quotesData } from "./QuotesData";
 import Image from "next/image";
 import {
     Carousel,
@@ -7,6 +6,7 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel";
 import { QuoteCard } from "./QuoteCard";
+import { quotesData } from "./QuotesData";
 
 const Quotes = () => {
     return (

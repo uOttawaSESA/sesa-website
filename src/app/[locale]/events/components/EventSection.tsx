@@ -1,12 +1,11 @@
 "use client";
-import { useEffect, useState } from "react";
 import Image from "next/image";
-
+import { useEffect, useState } from "react";
 import { events } from "@/app/data/Events";
 import Pagination from "@/components/Pagination";
 import EventFilters from "./EventFilters";
-import Header from "./Header";
 import EventsList from "./EventsList";
+import Header from "./Header";
 
 const parseEventDate = (date: Date): Date => {
     return date;
@@ -71,7 +70,6 @@ const EventSection = () => {
             case "upcoming":
                 filtered = events.filter(event => parseEventDate(event.date) > currentDate);
                 break;
-            case "all":
             default:
                 filtered = events;
                 break;

@@ -1,11 +1,11 @@
 "use client";
 
-// import { resources as otherResources } from "@/app/[locale]/resources/utils/resourcesData";
-import { resources as otherResources } from "@/app/data/Resources";
-import ResourceCard from "@/app/[locale]/resources/components/ResourceCard/ResourceCard";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useRef } from "react";
+import ResourceCard from "@/app/[locale]/resources/components/ResourceCard/ResourceCard";
+// import { resources as otherResources } from "@/app/[locale]/resources/utils/resourcesData";
+import { resources as otherResources } from "@/app/data/Resources";
+import { Button } from "@/components/ui/button";
 
 const RESOURCE_WIDTH = 350;
 

@@ -1,11 +1,10 @@
-import { notFound } from "next/navigation";
 import DOMPurify from "dompurify";
 import { JSDOM } from "jsdom";
 import { marked } from "marked";
+import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
-
-import OtherResources from "./OtherResources";
 import { Link } from "@/i18n/navigation";
+import OtherResources from "./OtherResources";
 
 export interface Resource {
     /** Tile of the resource. */
@@ -59,10 +58,10 @@ console.log("Hello, World!");
 export default async function ResourcePage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params;
 
+    const resource = resources[id];
     // 404 if the resource does not exist
-    if (!(id in resources)) notFound();
+    if (!resource) notFound();
 
-    const resource = resources[id]!;
     const resourceBody = DOMPurify(new JSDOM("<!DOCTYPE html>").window).sanitize(
         await marked(resource.body),
     );
@@ -98,18 +97,20 @@ export default async function ResourcePage({ params }: { params: Promise<{ id: s
                             {resourceDate.toLocaleDateString()}
                         </time>
                         {/* Markdown-parsed body */}
+                        {/* biome-ignore-start lint/security/noDangerouslySetInnerHtml: HTML has been sanitized */}
                         <p
                             className="markdown"
                             dangerouslySetInnerHTML={{ __html: resourceBody }}
                         />
+                        {/* biome-ignore-end lint/security/noDangerouslySetInnerHtml: HTML has been sanitized */}
                     </article>
                     {/* Rating */}
                     <div className="outline-gradient flex min-w-[65ch] justify-between p-5">
                         <p className="font-heading uppercase">Is this resource helpful?</p>
                         <div className="flex gap-1 font-mono">
-                            <a href="#">(thumbs up)</a>
+                            <button type="button">(thumbs up)</button>
                             <span>25</span>
-                            <a href="#">(thumbs down)</a>
+                            <button type="button">(thumbs down)</button>
                             <span>0</span>
                         </div>
                     </div>

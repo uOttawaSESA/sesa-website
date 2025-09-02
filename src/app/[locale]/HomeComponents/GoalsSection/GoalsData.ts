@@ -1,4 +1,4 @@
-import Goal from "./types/Goal";
+import type Goal from "./types/Goal";
 
 export const goalsData: Goal[] = [
     {

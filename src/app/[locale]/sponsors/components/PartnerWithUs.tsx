@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { TeamBadgeStack } from "@/components/TeamBadgeStack";
-import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
+import { TeamBadgeStack } from "@/components/TeamBadgeStack";
+import { Button } from "@/components/ui/button";
+import { Link } from "@/i18n/navigation";
 
 const PartnerWithUs = () => {
     const teamImgs = [

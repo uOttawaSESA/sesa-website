@@ -1,7 +1,7 @@
 "use client";
-import { FC, useState, useRef } from "react";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { type FC, useRef, useState } from "react";
+import { Button } from "@/components/ui/button";
 
 interface PaginationProps {
     currentPage: number;
@@ -127,7 +127,8 @@ const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange
                 {pageNumbers.map((page, index) => {
                     if (page === "...") {
                         return (
-                            <span
+                            <button
+                                type="button"
                                 key={`ellipsis-${index}`}
                                 className="relative flex h-[36px] w-[36px] cursor-pointer items-center justify-center text-sm text-thistle sm:h-[50px] sm:w-[50px] sm:text-lg"
                                 onClick={() => setOpenEllipsis(index)}
@@ -164,7 +165,7 @@ const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange
                                         </Button>
                                     </div>
                                 )}
-                            </span>
+                            </button>
                         );
                     }
 

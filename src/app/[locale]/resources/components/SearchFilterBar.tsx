@@ -1,5 +1,6 @@
-import Image from "next/image";
 import { Trash } from "lucide-react";
+import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import {
     Select,
@@ -10,7 +11,6 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
-import { useTranslations } from "next-intl";
 
 const gradientBorderClass = `
     border-[1px]
@@ -159,6 +159,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                     {!isMobile && (
                         <div className="relative">
                             <button
+                                type="button"
                                 className="flex items-center gap-2 uppercase text-white"
                                 onClick={() =>
                                     setOpenDropdown(openDropdown === "view" ? null : "view")
@@ -226,7 +227,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                             <Select
                                                 value={rowsToShow?.toString()}
                                                 onValueChange={value =>
-                                                    setRowsToShow(parseInt(value))
+                                                    setRowsToShow(parseInt(value, 10))
                                                 }
                                             >
                                                 <SelectTrigger className="mt-2 w-full text-thistle">
@@ -256,6 +257,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                     {/* Clear Filters Button - Only show if filters are active */}
                     {hasActiveFilters && (
                         <button
+                            type="button"
                             onClick={clearAllFilters}
                             className="flex items-center gap-2 uppercase text-white transition-colors hover:text-white"
                             title="Clear all filters"
@@ -268,6 +270,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                     {/* Filter Dropdown */}
                     <div className="relative">
                         <button
+                            type="button"
                             className="flex items-center gap-2 uppercase text-white"
                             onClick={() =>
                                 setOpenDropdown(openDropdown === "filter" ? null : "filter")
@@ -297,6 +300,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                     {hasActiveFilters && (
                                         <div className="mb-4 flex justify-end">
                                             <button
+                                                type="button"
                                                 onClick={clearAllFilters}
                                                 className="text-sm uppercase text-white underline transition-colors hover:text-white"
                                             >
@@ -355,6 +359,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                     {/* Sort Dropdown */}
                     <div className="relative">
                         <button
+                            type="button"
                             className="flex items-center gap-2 uppercase text-white"
                             onClick={() => setOpenDropdown(openDropdown === "sort" ? null : "sort")}
                         >

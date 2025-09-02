@@ -1,9 +1,9 @@
 "use client";
 
+import Image from "next/image";
+import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import { useTranslations, useLocale } from "next-intl";
 
 export default function Benefits() {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -86,6 +86,7 @@ export default function Benefits() {
     };
 
     return (
+        // biome-ignore lint/correctness/useUniqueElementIds: Should be human-readable
         <div
             id="benefits"
             className="relative flex min-h-screen flex-col justify-center space-y-5 py-10 md:mb-24 md:py-20"
@@ -103,7 +104,6 @@ export default function Benefits() {
                     alt=""
                 />
             </div>
-            {/* Header + Arrows */}
             <div className="flex flex-col space-y-6 px-6 md:flex-row md:items-start md:justify-between md:space-y-0 md:px-40">
                 <div className="md:w-1/2">
                     <p className="color-gradient relative mb-1 font-mono text-xs md:text-base">
@@ -143,8 +143,6 @@ export default function Benefits() {
                     </Button>
                 </div>
             </div>
-
-            {/* Carousel */}
             <div className="relative mt-10 overflow-visible">
                 <div
                     className="flex gap-6 pl-6 pr-6 transition-transform duration-500 ease-in-out md:gap-8 md:pl-40 md:pr-40"

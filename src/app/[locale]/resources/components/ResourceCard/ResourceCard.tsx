@@ -1,8 +1,6 @@
-"use client";
-import { useState } from "react";
 import { CategoryBadges } from "./CategoryBadges";
-import { StatsSection } from "./StatsSection";
 import { OpenButton } from "./OpenButton";
+import { StatsSection } from "./StatsSection";
 
 // Main ResourceCard component
 export const ResourceCard = ({
@@ -22,16 +20,10 @@ export const ResourceCard = ({
     mode?: "grid" | "row";
     onOpen?: () => void;
 }) => {
-    const [showOpen, setShowOpen] = useState(false);
-
     // Row mode layout
     if (mode === "row") {
         return (
-            <div
-                className="outline-gradient relative flex h-16 w-full items-center p-4 font-heading backdrop-blur-xl transition-all hover:shadow-lg hover:shadow-purple-500/25"
-                onMouseEnter={() => setShowOpen(true)}
-                onMouseLeave={() => setShowOpen(false)}
-            >
+            <div className="group outline-gradient relative flex h-16 w-full items-center p-4 font-heading backdrop-blur-xl transition-all hover:shadow-lg hover:shadow-purple-500/25">
                 {/* Left side - Category badges */}
                 <div className="flex min-w-fit">
                     <CategoryBadges category={category} course={course} size="sm" />
@@ -50,7 +42,7 @@ export const ResourceCard = ({
 
                     {/* Open Button */}
                     <div className="ml-24">
-                        <OpenButton showOpen={showOpen} onOpen={onOpen} />
+                        <OpenButton onOpen={onOpen} />
                     </div>
                 </div>
             </div>
@@ -59,11 +51,7 @@ export const ResourceCard = ({
 
     // Grid mode layout
     return (
-        <div
-            className="outline-gradient relative z-10 h-48 w-80 p-6 font-heading backdrop-blur-xl transition-all hover:shadow-lg hover:shadow-purple-500/25 md:w-96"
-            onMouseEnter={() => setShowOpen(true)}
-            onMouseLeave={() => setShowOpen(false)}
-        >
+        <div className="group outline-gradient relative z-10 h-48 w-80 p-6 font-heading backdrop-blur-xl transition-all hover:shadow-lg hover:shadow-purple-500/25 md:w-96">
             <div className="relative flex h-full flex-col">
                 {/* Category Badges */}
                 <div className="mb-4">
@@ -81,7 +69,7 @@ export const ResourceCard = ({
 
                     {/* Open Button */}
                     <div className="ms-14 md:ms-44">
-                        <OpenButton showOpen={showOpen} onOpen={onOpen} />
+                        <OpenButton onOpen={onOpen} />
                     </div>
                 </div>
             </div>

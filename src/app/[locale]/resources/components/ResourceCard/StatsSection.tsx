@@ -1,6 +1,6 @@
-import { createPortal } from "react-dom";
-import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import { useEffect, useId, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 
 const getTierTooltip = (tier: string) => {
     switch (tier.toUpperCase()) {
@@ -22,12 +22,15 @@ const getTierTooltip = (tier: string) => {
 const TooltipPortal = ({
     children,
     position,
+    id,
 }: {
     children: React.ReactNode;
     position: { top: number; left: number };
+    id?: string;
 }) => {
     return createPortal(
         <div
+            id={id}
             className="outline-gradient fixed z-[9999] px-3 py-1.5 text-sm text-white shadow-lg shadow-purple-500/20 backdrop-blur-xl"
             style={{ top: position.top, left: position.left }}
         >
@@ -52,6 +55,8 @@ export const StatsSection = ({
     const [tooltipPos, setTooltipPos] = useState({ top: 0, left: 0 });
     const iconRef = useRef<HTMLDivElement>(null);
 
+    const tooltipId = useId();
+
     const iconSize = size === "sm" ? 16 : 20;
     const textSize = size === "sm" ? "text-base" : "text-sm";
     const gapSize = layout === "compact" ? "gap-6" : "gap-7";
@@ -72,6 +77,8 @@ export const StatsSection = ({
             <div className={`relative flex gap-1 ${layout === "horizontal" ? "w-5" : ""}`}>
                 <div
                     ref={iconRef}
+                    role="tooltip"
+                    aria-describedby={tooltipId}
                     className="-m-1 flex flex-1 items-center px-1 py-1"
                     onMouseEnter={() => setShowTooltip(true)}
                     onMouseLeave={() => setShowTooltip(false)}
@@ -86,7 +93,9 @@ export const StatsSection = ({
                     <span className={textSize}>{tier}</span>
                 </div>
                 {showTooltip && (
-                    <TooltipPortal position={tooltipPos}>{getTierTooltip(tier)}</TooltipPortal>
+                    <TooltipPortal id={tooltipId} position={tooltipPos}>
+                        {getTierTooltip(tier)}
+                    </TooltipPortal>
                 )}
             </div>
 

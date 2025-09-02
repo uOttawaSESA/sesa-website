@@ -1,10 +1,11 @@
 // import {Button} from "@/components/ui/button";
-import Goal from "./types/Goal";
+
 import Image from "next/image";
+import { useLocale } from "next-intl";
 import { TeamBadgeStack } from "@/components/TeamBadgeStack";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
-import { useLocale } from "next-intl";
+import type Goal from "./types/Goal";
 
 export const GoalCard: React.FC<{ goal: Goal }> = ({ goal }) => {
     const locale = useLocale();

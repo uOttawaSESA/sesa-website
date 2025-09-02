@@ -1,5 +1,4 @@
-import { GoalCard } from "./GoalCard";
-import { goalsData } from "./GoalsData";
+import Image from "next/image";
 import {
     Carousel,
     CarouselContent,
@@ -7,7 +6,8 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel";
-import Image from "next/image";
+import { GoalCard } from "./GoalCard";
+import { goalsData } from "./GoalsData";
 
 const Goals = () => {
     return (
