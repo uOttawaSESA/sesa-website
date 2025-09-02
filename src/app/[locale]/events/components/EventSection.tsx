@@ -7,7 +7,6 @@ import Pagination from "@/components/Pagination";
 import EventFilters from "./EventFilters";
 import Header from "./Header";
 import EventsList from "./EventsList";
-import { useLocale } from "next-intl";
 
 const parseEventDate = (date: Date): Date => {
     return date;
@@ -17,8 +16,6 @@ const EventSection = () => {
     const [filteredEvents, setFilteredEvents] = useState(events);
     const [isMobile, setIsMobile] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
-
-    const locale = useLocale();
 
     // Check if device is mobile
     useEffect(() => {
