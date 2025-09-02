@@ -23,7 +23,6 @@
         "explore_all_resources": "Explore all resources",
         "join_our_discord": "Join our discord",
         "thumbs_up_alt": "thumbsUp",
-        "helpfulness_stats": "95% average helpfulness, 1000+ students helped",
 
         "sponsors_partners": "Our sponsors & partners",
         "sponsors_heading_h1_highlighted": "Trusted and sponsored",
@@ -196,10 +195,21 @@
         "teamup_blurb": "Whether you’re an organization or student club, we’re open to exploring partnerships that deliver meaningful opportunities and experiences to students pursuing software engineering at the University of Ottawa.",
         "btn_talk": "Let's Talk",
         "btn_meet_team": "Meet the Team",
-        "btn_view_post": "View Post"
+        "btn_view_post": "View Post",
+
+        "filter_type_placeholder": "Type",
+        "filter_all": "All",
+        "filter_workshop": "Workshop",
+        "filter_networking": "Networking Event",
+        "filter_social": "Social Event",
+        "filter_academic": "Academic Support",
+
+        "time_filter_all": "All",
+        "time_filter_past": "Past",
+        "time_filter_today": "Today",
+        "time_filter_upcoming": "Upcoming"
     },
     "resources": {
-        "resources": "Resources",
         "resources_heading": "Resources",
         "resources_heading_hl": "for students, by students",
         "resources_blurb": "Our academic team actively curates free resources to support software engineering students in their studies.",
@@ -211,9 +221,87 @@
         "education_quote_2": "SESA's academic team is proud to stand at that intersection",
         "academic_lead": "Academic Lead",
         "btn_join_team": "Join Our Team",
+        "btn_meet_the_team": "Meet the Team",
         "avg_helpfulness": "{percentage}% average helpfulness",
-        "students_helped": "{students} students helped"
+        "students_helped": "{students} students helped",
+
+        "view_label": "View",
+        "view_grid": "Grid",
+        "view_row": "Row",
+
+        "n_rows": "Rows",
+
+        "filter_label": "Filter",
+        "filters_active_label": "Filters Active",
+        "filter_academic": "Academic",
+        "filter_career": "Career",
+        "filter_technical": "Technical",
+        "filter_video": "Video",
+        "filter_textbook": "Textbook",
+        "filter_website": "Website",
+        "filter_blog": "Blog",
+        "filter_article": "Article",
+        "filter_english": "English",
+        "filter_french": "French",
+        "filter_bilingual": "Bilingual",
+        "filter_tier_s": "Tier S",
+        "filter_tier_a": "Tier A",
+        "filter_tier_b": "Tier B",
+        "filter_tier_c": "Tier C",
+
+        "filter_placeholder_course": "Select Course",
+        "filter_placeholder_category": "Select Category",
+        "filter_placeholder_format": "Select Format",
+        "filter_placeholder_language": "Select Language",
+        "filter_placeholder_tier": "Select Tier",
+
+        "clear_filters": "Clear Filters",
+        "clear_all": "Clear All",
+
+        "sort_label": "Sort",
+        "sort_item_relevance": "Relevance",
+        "sort_item_alphabetical": "Alphabetical",
+        "sort_tier_worst_best": "Tier (Worst to Best)",
+        "sort_tier_best_worst": "Tier (Best to Worst)",
+        "sort_last_updated": "Last Updated"
     },
+    "sponsorships": {
+        "header_top": "Sponsors & partners",
+        "header_highlight": "HUGE THANKS",
+        "header_title_rest": "TO OUR GENEROUS SPONSORS AND PARTNERS",
+        "header_bottom": "Our incredible partnerships make SESA possible at uOttawa. Thank you for believing in our mission!",
+        "header_btn1": "Become a sponsor",
+        "header_btn2": "View Benefits",
+
+        "cta_heading": "Interested in joining our growing network of industry partners?",
+        "cta_button": "Let's Talk",
+        "cta_disclaimer": "We'll get back to you within 48 hours.",
+
+        "testimonials_work_with_us_btn": "Work with us",
+
+        "past_collaborators_top": "Our previous partners",
+        "past_collaborators_highlight": "PAST",
+        "past_collaborators_title_rest": "COLLABORATORS SINCE 2014",
+        "past_collaborators_description": "We've had the privilege of working with over 20+ big and small companies that have enhanced our events, including:",
+
+        "benefits_top": "Benefits",
+        "benefits_title_part1": "CONNECT WITH",
+        "benefits_title_highlight": "THE NEXT GENERATION",
+        "benefits_title_part3": "OF SOFTWARE ENGINEERS",
+        "benefits_description": "Without our sponsors and partners, we would not be able to fund our events and projects that provide SEG students with academic opportunities and workplace experiences.",
+        "benefits_arrow_left_alt": "Left",
+        "benefits_arrow_right_alt": "Right",
+
+        "partner_with_us_top": "Partner with us",
+        "partner_with_us_title": "Let’s collaborate to make a",
+        "partner_with_us_highlight": "lasting difference",
+        "partner_with_us_title_rest": "on aspiring software engineers",
+        "partner_with_us_description": "Together, we can drive a meaningful impact on over 3500+ EECS students at uOttawa by bridging the gap between academic education and industry experience.",
+        "partner_with_us_become_sponsor_button": "Become a Sponsor",
+        "partner_with_us_meet_team_button": "Meet the Team",
+        "partner_with_us_team_image_alt": "Sponsor Team"
+    },
+
     "terms": {
         "our_policies": "Our",
         "our_policies_hl": "Policies",

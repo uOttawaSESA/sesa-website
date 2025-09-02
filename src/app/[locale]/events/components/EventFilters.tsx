@@ -11,28 +11,29 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
+import { useTranslations } from "next-intl";
 
-const filters = [
-    "All",
-    "Workshop",
-    "Networking Event",
-    "Social Event",
-    "Academic Support",
-] as const;
-const timeFilters = ["All", "Past", "Today", "Upcoming"] as const;
-
-type EventType = (typeof filters)[number];
-type TimeFilter = (typeof timeFilters)[number];
+// Type definitions
+type TimeFilter = "all" | "past" | "today" | "upcoming";
+type EventType = "all" | "workshop" | "networking" | "social" | "academic";
 
 const EventFilters: React.FC<{
-    onFilterChange: (filter: EventType) => void;
-    onTimeFilterChange: (filter: TimeFilter) => void;
+    onFilterChange: (filter: string) => void;
+    onTimeFilterChange: (filter: string) => void;
 }> = ({ onFilterChange, onTimeFilterChange }) => {
-    const [activeTimeFilter, setActiveTimeFilter] = useState<TimeFilter>("All");
+    const [activeTimeFilter, setActiveTimeFilter] = useState<TimeFilter>("all");
+    const t = useTranslations("events");
+
+    const timeFilters: TimeFilter[] = ["all", "past", "today", "upcoming"];
+    const eventTypes: EventType[] = ["all", "workshop", "networking", "social", "academic"];
 
     const handleTimeFilterClick = (filter: TimeFilter) => {
         setActiveTimeFilter(filter);
         onTimeFilterChange(filter);
+    };
+
+    const handleEventFilterChange = (filter: EventType) => {
+        onFilterChange(filter);
     };
 
     return (
@@ -48,22 +49,22 @@ const EventFilters: React.FC<{
                         }`}
                         onClick={() => handleTimeFilterClick(filter)}
                     >
-                        {filter}
+                        {t(`time_filter_${filter}`)}
                     </Button>
                 ))}
             </div>
 
             {/* Right Side: Event Type Dropdown */}
-            <Select onValueChange={onFilterChange}>
-                <SelectTrigger className="!border-none px-5 py-4 uppercase text-white data-[placeholder]:text-white">
-                    <SelectValue placeholder="Event Type" />
+            <Select onValueChange={value => handleEventFilterChange(value as EventType)}>
+                <SelectTrigger className="!border-none px-5 py-4 uppercase text-white transition-colors data-[placeholder]:text-white">
+                    <SelectValue placeholder={t("filter_type_placeholder")} />
                 </SelectTrigger>
                 <SelectContent>
                     <SelectGroup>
-                        <SelectLabel>Event Type</SelectLabel>
-                        {filters.map(filter => (
-                            <SelectItem key={filter} value={filter}>
-                                {filter}
+                        <SelectLabel>{t("filter_type_placeholder")}</SelectLabel>
+                        {eventTypes.map(type => (
+                            <SelectItem key={type} value={type}>
+                                {t(`filter_${type}`)}
                             </SelectItem>
                         ))}
                     </SelectGroup>

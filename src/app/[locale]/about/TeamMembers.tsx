@@ -91,7 +91,7 @@ export default function TeamMembers({ title, description, people }: Props) {
             <div className="flex gap-5 overflow-x-auto md:mt-7">
                 {people.map(person => (
                     <div
-                        className="outline-gradient flex h-[380px] w-64 min-w-64 flex-col backdrop-blur-lg"
+                        className="outline-gradient flex h-[405px] w-64 min-w-64 flex-col backdrop-blur-lg"
                         key={`member:${title}:${person.name}`}
                     >
                         <Image
@@ -106,7 +106,7 @@ export default function TeamMembers({ title, description, people }: Props) {
                                 {person.name}
                             </h3>
                             <p className="text-thistle">{person.role}</p>
-                            <div className="flex gap-2">{memberToIcons(person)}</div>
+                            <div className="mt-auto flex gap-2">{memberToIcons(person)}</div>
                         </div>
                     </div>
                 ))}

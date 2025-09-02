@@ -43,10 +43,7 @@ export const QuoteCard: React.FC<{ quote: Quote }> = ({ quote }) => {
                 </div>
                 <div className="mt-6 flex">
                     <Button>
-                        <Link
-                            href={quote.buttonLink}
-                            className="relative z-10 font-heading uppercase"
-                        >
+                        <Link href={`/about`} className="relative z-10 font-heading uppercase">
                             {t("see_our_story_btn")}
                         </Link>
                     </Button>

@@ -1,5 +1,5 @@
 "use client";
-import { FC } from "react";
+import { FC, useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
@@ -11,6 +11,9 @@ interface PaginationProps {
 }
 
 const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange, isMobile }) => {
+    const [openEllipsis, setOpenEllipsis] = useState<number | null>(null);
+    const inputRef = useRef<HTMLInputElement>(null);
+
     const handlePrev = () => {
         if (currentPage > 1) {
             onPageChange(currentPage - 1);
@@ -23,62 +26,83 @@ const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange
         }
     };
 
-    // Generate smart page numbers
+    // Mobile: show max 4 elements (first, ..., current, last)
+    // Desktop: show up to 7 elements as before
     const generatePageNumbers = () => {
-        const pages: (number | string)[] = [];
-        const maxVisiblePages = isMobile ? 3 : 6; // Maximum number of visible page numbers
-        const half = Math.floor(maxVisiblePages / 2);
-
-        if (totalPages <= maxVisiblePages) {
-            // Show all if total pages are less than max visible
-            for (let i = 1; i <= totalPages; i++) {
-                pages.push(i);
+        if (isMobile) {
+            const pages: (number | string)[] = [];
+            if (totalPages <= 4) {
+                for (let i = 1; i <= totalPages; i++) {
+                    pages.push(i);
+                }
+            } else {
+                if (currentPage <= 2) {
+                    // Show first, second, ..., last
+                    pages.push(1, 2, "...", totalPages);
+                } else if (currentPage >= totalPages - 1) {
+                    // Show first, ..., last-1, last
+                    pages.push(1, "...", totalPages - 1, totalPages);
+                } else {
+                    // Show first, ..., current, last
+                    pages.push(1, "...", currentPage, totalPages);
+                }
             }
+            return pages;
         } else {
-            // Show subset of pages
-            let start = Math.max(2, currentPage - half);
-            let end = Math.min(totalPages - 1, currentPage + half);
-
-            // Adjust if near the beginning
-            if (currentPage <= half) {
-                start = 2;
-                end = maxVisiblePages - 1;
+            const pages: (number | string)[] = [];
+            if (totalPages <= 7) {
+                for (let i = 1; i <= totalPages; i++) {
+                    pages.push(i);
+                }
+            } else {
+                if (currentPage <= 4) {
+                    pages.push(1, 2, 3, 4, 5, "...", totalPages);
+                } else if (currentPage >= totalPages - 3) {
+                    pages.push(
+                        1,
+                        "...",
+                        totalPages - 4,
+                        totalPages - 3,
+                        totalPages - 2,
+                        totalPages - 1,
+                        totalPages,
+                    );
+                } else {
+                    pages.push(
+                        1,
+                        "...",
+                        currentPage - 1,
+                        currentPage,
+                        currentPage + 1,
+                        "...",
+                        totalPages,
+                    );
+                }
             }
-
-            // Adjust if near the end
-            if (currentPage > totalPages - half) {
-                start = totalPages - (maxVisiblePages - 2);
-                end = totalPages - 1;
-            }
-
-            // Always include first page
-            pages.push(1);
-
-            if (start > 2) {
-                pages.push("...");
-            }
-
-            for (let i = start; i <= end; i++) {
-                pages.push(i);
-            }
-
-            if (end < totalPages - 1) {
-                pages.push("...");
-            }
-
-            // Always include last page
-            pages.push(totalPages);
+            return pages;
         }
-
-        return pages;
     };
 
     const pageNumbers = generatePageNumbers();
 
-    // Don't render pagination if there's only one page
     if (totalPages <= 1) {
         return null;
     }
+
+    const handleJump = () => {
+        if (inputRef.current) {
+            const val = Number(inputRef.current.value);
+            if (val >= 1 && val <= totalPages) {
+                onPageChange(val);
+                setOpenEllipsis(null);
+            }
+        }
+    };
+
+    const handleClose = (e?: React.MouseEvent) => {
+        e?.stopPropagation();
+        setOpenEllipsis(null);
+    };
 
     return (
         <div className="mt-4 flex flex-wrap items-center justify-center gap-2 sm:gap-4 md:mt-8">
@@ -99,15 +123,47 @@ const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange
             </Button>
 
             {/* Page Numbers */}
-            <div className="flex flex-wrap justify-center gap-2">
+            <div className="relative flex flex-wrap justify-center gap-2">
                 {pageNumbers.map((page, index) => {
                     if (page === "...") {
                         return (
                             <span
                                 key={`ellipsis-${index}`}
-                                className="flex h-[36px] w-[36px] items-center justify-center text-sm text-thistle sm:h-[50px] sm:w-[50px] sm:text-lg"
+                                className="relative flex h-[36px] w-[36px] cursor-pointer items-center justify-center text-sm text-thistle sm:h-[50px] sm:w-[50px] sm:text-lg"
+                                onClick={() => setOpenEllipsis(index)}
                             >
                                 ...
+                                {openEllipsis === index && (
+                                    <div className="outline-gradient absolute left-1/2 top-full z-50 mt-2 -translate-x-1/2 rounded p-2 shadow-lg backdrop-blur-lg">
+                                        <input
+                                            ref={inputRef}
+                                            type="number"
+                                            min={1}
+                                            max={totalPages}
+                                            className="w-16 rounded px-2 py-1 text-black"
+                                            placeholder="Page"
+                                            onKeyDown={e => {
+                                                if (e.key === "Enter") {
+                                                    handleJump();
+                                                }
+                                            }}
+                                        />
+                                        <Button
+                                            size="default"
+                                            className="ml-2 px-2 py-1 text-xs"
+                                            onClick={handleClose}
+                                        >
+                                            Close
+                                        </Button>
+                                        <Button
+                                            size="default"
+                                            className="ml-2 px-2 py-1 text-xs"
+                                            onClick={handleJump}
+                                        >
+                                            Go
+                                        </Button>
+                                    </div>
+                                )}
                             </span>
                         );
                     }

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
 import React from "react";
+import { useTranslations } from "next-intl";
 
 const gradientBorderClass = `
   border-[1px] border-solid
@@ -17,6 +18,8 @@ const logos = [
 ];
 
 const PastCollaboratorsCarousel = () => {
+    const t = useTranslations("sponsorships");
+
     return (
         <div className="relative flex flex-col items-center justify-center overflow-hidden py-24 text-center md:py-32">
             {/* Decorations */}
@@ -46,18 +49,17 @@ const PastCollaboratorsCarousel = () => {
             {/* Header content */}
             <div className="z-20 flex flex-col items-center space-y-3 px-5">
                 <p className="relative inline-block !bg-clip-text font-mono text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)] md:text-base">
-                    Our previous partners
+                    {t("past_collaborators_top")}
                 </p>
                 <h2 className="font-heading text-2xl uppercase text-white md:text-3xl">
                     <span className="relative inline-block">
-                        PAST
+                        {t("past_collaborators_highlight")}
                         <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
                     </span>{" "}
-                    COLLABORATORS SINCE 2014
+                    {t("past_collaborators_title_rest")}
                 </h2>
                 <p className="max-w-xl text-base text-thistle md:text-lg">
-                    We&apos;ve had the privilege of working with over 20+ big and small companies
-                    that have enhanced our events, including:
+                    {t("past_collaborators_description")}
                 </p>
             </div>
 

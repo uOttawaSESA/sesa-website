@@ -7,7 +7,6 @@ import Pagination from "@/components/Pagination";
 import EventFilters from "./EventFilters";
 import Header from "./Header";
 import EventsList from "./EventsList";
-import { useLocale } from "next-intl";
 
 const parseEventDate = (date: Date): Date => {
     return date;
@@ -17,9 +16,6 @@ const EventSection = () => {
     const [filteredEvents, setFilteredEvents] = useState(events);
     const [isMobile, setIsMobile] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
-
-    const locale = useLocale();
-    const lang = locale === "fr" ? "fr" : "en";
 
     // Check if device is mobile
     useEffect(() => {
@@ -36,14 +32,19 @@ const EventSection = () => {
         // Cleanup
         return () => window.removeEventListener("resize", checkIsMobile);
     }, []);
+
     const eventsPerPage = isMobile ? 1 : 3;
 
     const handleFilterChange = (filter: string) => {
         setCurrentPage(1);
-        if (filter === "All") {
+        if (filter === "all") {
             setFilteredEvents(events);
         } else {
-            const filtered = events.filter(event => event.type[lang] === filter);
+            const filtered = events.filter(event => {
+                // Convert event type to lowercase for comparison
+                const eventTypeLower = event.type.en.toLowerCase();
+                return eventTypeLower === filter;
+            });
             setFilteredEvents(filtered);
         }
     };
@@ -54,10 +55,10 @@ const EventSection = () => {
         let filtered = events;
 
         switch (filter) {
-            case "Past":
+            case "past":
                 filtered = events.filter(event => parseEventDate(event.date) < currentDate);
                 break;
-            case "Today":
+            case "today":
                 filtered = events.filter(event => {
                     const eventDate = parseEventDate(event.date);
                     return (
@@ -67,9 +68,10 @@ const EventSection = () => {
                     );
                 });
                 break;
-            case "Upcoming":
+            case "upcoming":
                 filtered = events.filter(event => parseEventDate(event.date) > currentDate);
                 break;
+            case "all":
             default:
                 filtered = events;
                 break;

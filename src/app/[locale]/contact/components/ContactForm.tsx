@@ -14,6 +14,7 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { useTranslations, useLocale } from "next-intl";
 import ReCAPTCHA from "react-google-recaptcha";
+import { Link } from "@/i18n/navigation";
 
 const ContactForm: React.FC = () => {
     const t = useTranslations("contact_us");
@@ -136,7 +137,7 @@ const ContactForm: React.FC = () => {
                     value={formData.topic}
                     onValueChange={topic => setFormData(prev => ({ ...prev, topic }))}
                 >
-                    <SelectTrigger className="min-h-[3.5rem] w-full font-sans">
+                    <SelectTrigger className="min-h-[3.5rem] w-full font-sans text-thistle">
                         <SelectValue placeholder={t("form_subject")} />
                     </SelectTrigger>
                     <SelectContent>
@@ -168,10 +169,9 @@ const ContactForm: React.FC = () => {
             <div className="mb-8">
                 <p className="font-mono text-xs text-[#AB9DB6]">
                     {t("form_disclosure")}{" "}
-                    <a href="#" className="underline">
+                    <Link href="/policies" className="underline">
                         {t("form_disclosure_link")}
-                    </a>
-                    .
+                    </Link>
                 </p>
             </div>
 

@@ -41,9 +41,7 @@ export const EventCard = ({ event }: EventCardProps) => {
 
     // Handle details (Instagram link)
     const handleDetails = () => {
-        if (!isPastEvent) {
-            window.open(event.instagramLink, "_blank");
-        }
+        window.open(event.instagramLink, "_blank");
     };
 
     // Handle "Add to Calendar" action
@@ -75,7 +73,7 @@ export const EventCard = ({ event }: EventCardProps) => {
                         alt={title}
                         width={350}
                         height={350}
-                        className="aspect-square h-full max-w-none"
+                        className="aspect-square h-full max-w-none object-cover"
                     />
                 </div>
 
@@ -130,7 +128,6 @@ export const EventCard = ({ event }: EventCardProps) => {
                         <Button
                             className="flex items-center gap-2 font-heading uppercase"
                             onClick={handleDetails}
-                            disabled={isPastEvent}
                         >
                             {t("btn_details")}
                         </Button>
@@ -149,7 +146,6 @@ export const EventCard = ({ event }: EventCardProps) => {
                         <Button
                             className="flex items-center gap-2 font-heading uppercase"
                             onClick={handleAddToCalendar}
-                            disabled={isPastEvent}
                             variant="outline"
                         >
                             {t("btn_calendar")}

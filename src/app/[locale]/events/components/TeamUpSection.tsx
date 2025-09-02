@@ -43,7 +43,7 @@ const TeamUpSection: React.FC = () => {
                         className="relative z-10 font-heading text-xl uppercase"
                         asChild
                     >
-                        <Link href="/TeamPage">{t("btn_meet_team")}</Link>
+                        <Link href="/about">{t("btn_meet_team")}</Link>
                     </Button>
                 </div>
 

@@ -15,7 +15,7 @@ const ResourceSection = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [filterOptions, setFilterOptions] = useState({
         course: "",
-        type: "",
+        category: "",
         format: "",
         language: "",
         tier: "",

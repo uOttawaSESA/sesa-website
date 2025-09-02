@@ -28,16 +28,27 @@ export const metadata: Metadata = {
     title: "Software Engineering Student Association",
     description: "The official website for the University of Ottawa's SESA.",
     keywords: ["uottawa", "sesa", "software", "students", "seg"],
-    metadataBase: new URL("https://sesa-aegl.ca"), // TBD whether this is the real URL
+    metadataBase: new URL("https://sesa-aegl.ca"),
     openGraph: {
         title: "Software Engineering Student Association",
         siteName: "Software Engineering Student Association",
         description: "The official website for the University of Ottawa's SESA.",
         type: "website",
         url: new URL("https://sesa-aegl.ca"),
-        // Should be changed, this is a random pic and I'm not even sure OG works with WebP?
         images: "/imgs/about/team-1.webp",
     },
+    icons: [
+        {
+            media: "(prefers-color-scheme: light)",
+            url: "/logo-filled.svg",
+            type: "image/svg+xml",
+        },
+        {
+            media: "(prefers-color-scheme: dark)",
+            url: "/sesa-logo.svg",
+            type: "image/svg+xml",
+        },
+    ],
 };
 
 export default async function RootLayout({
@@ -47,7 +58,6 @@ export default async function RootLayout({
     children: React.ReactNode;
     params: Promise<{ locale: string }>;
 }>) {
-    // Ensure that the incoming `locale` is valid
     const { locale } = await params;
     if (!hasLocale(routing.locales, locale)) notFound();
 
@@ -59,7 +69,6 @@ export default async function RootLayout({
                     backgroundImage: `url('/decoration/noise-texture.svg'), linear-gradient(to bottom, #1b1b1b 0%, #381e4b 10%, #1b1b1b 100%)`,
                     backgroundRepeat: "repeat",
                     backgroundSize: "cover",
-                    // backgroundPosition: "center",
                 }}
             >
                 <NextIntlClientProvider>

@@ -4,13 +4,21 @@ import Image from "next/image";
 
 interface SponsorsHeaderProps {
     topText: string;
+    titleHighlighted: string;
     title: string;
     bottomText: string;
     btn1: string;
     btn2: string;
 }
 
-const SponsorsHeader = ({ topText, title, bottomText, btn1, btn2 }: SponsorsHeaderProps) => {
+const SponsorsHeader = ({
+    topText,
+    titleHighlighted,
+    title,
+    bottomText,
+    btn1,
+    btn2,
+}: SponsorsHeaderProps) => {
     return (
         <div className="relative mt-16 flex w-full justify-center px-4 md:mt-24 md:px-6">
             {/* Decorations */}
@@ -57,9 +65,9 @@ const SponsorsHeader = ({ topText, title, bottomText, btn1, btn2 }: SponsorsHead
 
                 <h1 className="mx-auto mt-4 max-w-[18ch] font-heading text-3xl uppercase leading-snug text-white md:text-4xl md:leading-tight">
                     <span className="relative inline-block">
-                        <span className="highlight-text">huge thanks</span>
-                        <span> {title.replace(/huge thanks/i, "")}</span>
+                        <span className="highlight-text">{titleHighlighted}</span>
                     </span>
+                    <span> {title}</span>
                 </h1>
 
                 <p className="relative mx-auto mt-4 w-full max-w-lg font-sans text-base text-thistle md:text-lg">

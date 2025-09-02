@@ -23,12 +23,12 @@ export default function WhatWeDoCard({
         <div className="outline-gradient w-fit backdrop-blur-lg">
             <Image
                 src={imageHref}
-                width={352}
+                width={400}
                 height={200}
                 className="w-22 h-[200px] object-cover"
                 alt={`${heading} image`}
             />
-            <div className="flex w-[22rem] flex-col gap-4 p-8">
+            <div className="flex w-[25rem] flex-col gap-4 p-8">
                 <p className="outline-gradient flex h-12 w-12 items-center justify-center">
                     {icon}
                 </p>
