@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
-import React from "react";
 import { useTranslations } from "next-intl";
 
 const gradientBorderClass = `

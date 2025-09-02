@@ -226,7 +226,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                             <Select
                                                 value={rowsToShow?.toString()}
                                                 onValueChange={value =>
-                                                    setRowsToShow(parseInt(value))
+                                                    setRowsToShow(parseInt(value, 10))
                                                 }
                                             >
                                                 <SelectTrigger className="mt-2 w-full text-thistle">

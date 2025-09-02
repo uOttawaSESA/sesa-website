@@ -40,7 +40,7 @@ export function useResources() {
     // Fetch resources on mount
     useEffect(() => {
         fetchResources();
-    }, []);
+    }, [fetchResources]);
 
     // Refetch resources - could used for refresh button?
     const refetch = () => {

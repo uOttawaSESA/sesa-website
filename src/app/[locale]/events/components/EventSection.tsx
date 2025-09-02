@@ -71,7 +71,6 @@ const EventSection = () => {
             case "upcoming":
                 filtered = events.filter(event => parseEventDate(event.date) > currentDate);
                 break;
-            case "all":
             default:
                 filtered = events;
                 break;
