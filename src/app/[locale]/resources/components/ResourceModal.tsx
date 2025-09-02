@@ -1,11 +1,11 @@
 import { Dialog, DialogPanel } from "@headlessui/react";
+import { formatDate } from "date-fns";
 import { X } from "lucide-react";
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import type { Resource } from "@/app/types/Resource";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import { formatDate } from "date-fns";
-import { createPortal } from "react-dom";
-import { useEffect, useRef, useState } from "react";
 
 interface ResourceModalProps {
     resource: Resource;

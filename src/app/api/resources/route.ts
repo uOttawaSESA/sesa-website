@@ -1,4 +1,4 @@
-import { NextResponse, type NextRequest } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 import { resourceService } from "@/lib/services/resourceService";
 
 export async function GET() {

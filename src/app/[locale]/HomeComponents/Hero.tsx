@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
+import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 
 export default function Hero() {

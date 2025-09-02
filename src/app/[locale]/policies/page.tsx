@@ -1,6 +1,5 @@
-import { useTranslations } from "next-intl";
-
 import type { Metadata } from "next";
+import { useTranslations } from "next-intl";
 
 // Precompile i18n
 import localeParams from "@/app/data/locales";

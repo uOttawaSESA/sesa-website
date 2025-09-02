@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import type React from "react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -12,7 +13,6 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
-import { useTranslations } from "next-intl";
 
 // Type definitions
 type TimeFilter = "all" | "past" | "today" | "upcoming";

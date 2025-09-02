@@ -1,12 +1,12 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import CircleImage from "@/components/CircleImage";
-import { Link } from "@/i18n/navigation";
-import Marquee from "react-fast-marquee";
-import { membersData } from "@/app/data/Members";
-import { useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { useState } from "react";
+import Marquee from "react-fast-marquee";
+import { membersData } from "@/app/data/Members";
+import CircleImage from "@/components/CircleImage";
+import { Button } from "@/components/ui/button";
+import { Link } from "@/i18n/navigation";
 
 const Team = () => {
     const t = useTranslations("homepage");

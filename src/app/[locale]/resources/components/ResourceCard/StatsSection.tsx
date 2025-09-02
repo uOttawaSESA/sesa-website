@@ -1,6 +1,6 @@
-import { createPortal } from "react-dom";
-import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 
 const getTierTooltip = (tier: string) => {
     switch (tier.toUpperCase()) {

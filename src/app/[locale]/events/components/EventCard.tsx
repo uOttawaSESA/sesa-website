@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { useState } from "react";
 import { format } from "date-fns";
-import { useTranslations, useLocale } from "next-intl";
+import Image from "next/image";
+import { useLocale, useTranslations } from "next-intl";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
 import type { Event } from "../../../types/Event";
 
 interface EventCardProps {

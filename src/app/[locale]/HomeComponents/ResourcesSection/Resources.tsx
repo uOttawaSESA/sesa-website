@@ -1,13 +1,13 @@
 "use client";
 
-import ResourceCard from "../../resources/components/ResourceCard/ResourceCard";
-import Marquee from "react-fast-marquee";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { Link } from "@/i18n/navigation";
-import ComingSoonMessage from "@/components/ComingSoonMessage";
 import { useTranslations } from "next-intl";
+import Marquee from "react-fast-marquee";
+import ComingSoonMessage from "@/components/ComingSoonMessage";
+import { Button } from "@/components/ui/button";
 import { useResources } from "@/hooks/useResources";
+import { Link } from "@/i18n/navigation";
+import ResourceCard from "../../resources/components/ResourceCard/ResourceCard";
 
 const Resources = () => {
     const t = useTranslations("homepage");

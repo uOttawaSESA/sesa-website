@@ -1,6 +1,8 @@
 "use client";
-import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
+import { useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -12,8 +14,6 @@ import {
     SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { useTranslations, useLocale } from "next-intl";
-import ReCAPTCHA from "react-google-recaptcha";
 import { Link } from "@/i18n/navigation";
 
 const ContactForm: React.FC = () => {

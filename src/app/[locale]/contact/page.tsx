@@ -1,12 +1,10 @@
-import ContactForm from "./components/ContactForm";
-import ContactDetails from "./components/ContactDetails";
-import FadeInSection from "@/components/FadeInSection";
-import Image from "next/image";
-
 import type { Metadata } from "next";
-
+import Image from "next/image";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
+import FadeInSection from "@/components/FadeInSection";
+import ContactDetails from "./components/ContactDetails";
+import ContactForm from "./components/ContactForm";
 export const generateStaticParams = localeParams;
 
 export const metadata: Metadata = {

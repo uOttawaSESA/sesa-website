@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Marquee from "react-fast-marquee";
 import { useTranslations } from "next-intl";
+import Marquee from "react-fast-marquee";
 
 const gradientBorderClass = `
   border-[1px] border-solid

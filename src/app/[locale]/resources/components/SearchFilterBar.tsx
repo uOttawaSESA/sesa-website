@@ -1,5 +1,6 @@
-import Image from "next/image";
 import { Trash } from "lucide-react";
+import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import {
     Select,
@@ -10,7 +11,6 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
-import { useTranslations } from "next-intl";
 
 const gradientBorderClass = `
     border-[1px]

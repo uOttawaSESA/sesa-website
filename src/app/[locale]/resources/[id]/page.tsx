@@ -1,11 +1,10 @@
-import { notFound } from "next/navigation";
 import DOMPurify from "dompurify";
 import { JSDOM } from "jsdom";
 import { marked } from "marked";
+import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
-
-import OtherResources from "./OtherResources";
 import { Link } from "@/i18n/navigation";
+import OtherResources from "./OtherResources";
 
 export interface Resource {
     /** Tile of the resource. */

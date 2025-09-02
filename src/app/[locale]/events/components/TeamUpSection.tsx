@@ -1,8 +1,8 @@
-import type React from "react";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import CircleImage from "@/components/CircleImage"; // Import the CircleImage component
 import { useTranslations } from "next-intl";
+import type React from "react";
+import CircleImage from "@/components/CircleImage"; // Import the CircleImage component
+import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 
 const TeamUpSection: React.FC = () => {

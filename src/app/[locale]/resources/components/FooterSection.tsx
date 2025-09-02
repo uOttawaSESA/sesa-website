@@ -1,7 +1,7 @@
-import type React from "react";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import type React from "react";
+import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 
 const FooterSection: React.FC = () => {

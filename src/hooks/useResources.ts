@@ -1,5 +1,5 @@
+import { useEffect, useState } from "react";
 import type { Resource } from "@/app/types/Resource";
-import { useState, useEffect } from "react";
 
 export function useResources() {
     const [resources, setResources] = useState<Resource[]>([]); // Store fetched resources

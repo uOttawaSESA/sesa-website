@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
+import { Button } from "@/components/ui/button";
 
 const Header = () => {
     const t = useTranslations("events");

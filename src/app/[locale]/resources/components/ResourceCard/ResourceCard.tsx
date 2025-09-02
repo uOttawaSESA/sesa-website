@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import { CategoryBadges } from "./CategoryBadges";
-import { StatsSection } from "./StatsSection";
 import { OpenButton } from "./OpenButton";
+import { StatsSection } from "./StatsSection";
 
 // Main ResourceCard component
 export const ResourceCard = ({

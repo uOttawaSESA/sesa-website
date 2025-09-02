@@ -1,17 +1,17 @@
 "use client";
-import { Button } from "@/components/ui/button";
+import createDOMPurify from "dompurify";
+import { marked } from "marked";
+import Image from "next/image";
+import { useTranslations } from "next-intl";
+import { useMemo } from "react";
 import {
     Accordion,
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
-import Image from "next/image";
-import { useTranslations } from "next-intl";
-import { marked } from "marked";
-import createDOMPurify from "dompurify";
-import { useMemo } from "react";
 
 const FAQ = () => {
     const t = useTranslations("homepage");

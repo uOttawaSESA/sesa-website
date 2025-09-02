@@ -1,19 +1,17 @@
-import { TeamBadgeStack } from "@/components/TeamBadgeStack";
-import { Button } from "@/components/ui/button";
-import Metric from "@/components/Metric";
-import { Link } from "@/i18n/navigation";
-import Image from "next/image";
-import TeamMembers from "./TeamMembers";
-import { useMemo } from "react";
-import { membersData } from "@/app/data/Members";
-import WhatWeDoCard from "./WhatWeDoCard";
-import { useTranslations } from "next-intl";
-import FadeInSection from "@/components/FadeInSection";
-
 import type { Metadata } from "next";
-
+import Image from "next/image";
+import { useTranslations } from "next-intl";
+import { useMemo } from "react";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
+import { membersData } from "@/app/data/Members";
+import FadeInSection from "@/components/FadeInSection";
+import Metric from "@/components/Metric";
+import { TeamBadgeStack } from "@/components/TeamBadgeStack";
+import { Button } from "@/components/ui/button";
+import { Link } from "@/i18n/navigation";
+import TeamMembers from "./TeamMembers";
+import WhatWeDoCard from "./WhatWeDoCard";
 export const generateStaticParams = localeParams;
 
 export const metadata: Metadata = {

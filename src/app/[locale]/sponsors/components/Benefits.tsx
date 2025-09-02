@@ -1,9 +1,9 @@
 "use client";
 
+import Image from "next/image";
+import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import { useTranslations, useLocale } from "next-intl";
 
 export default function Benefits() {
     const [currentIndex, setCurrentIndex] = useState(0);

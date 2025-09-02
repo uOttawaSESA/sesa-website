@@ -1,7 +1,7 @@
 "use client";
-import { type FC, useState, useRef } from "react";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { type FC, useRef, useState } from "react";
+import { Button } from "@/components/ui/button";
 
 interface PaginationProps {
     currentPage: number;
