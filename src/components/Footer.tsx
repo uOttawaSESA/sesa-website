@@ -25,7 +25,7 @@ export default function Footer() {
     const tNav = useTranslations("navigation");
 
     return (
-        <footer className="flex justify-center backdrop-blur-lg">
+        <footer className="flex justify-center">
             <div className="flex flex-col gap-2 bg-transparent px-8">
                 {/* Navigation links and socials */}
                 <div className="flex flex-col gap-8 md:flex-row md:justify-between lg:gap-32">
