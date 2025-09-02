@@ -111,6 +111,7 @@ export const EventCard = ({ event }: EventCardProps) => {
                         {truncatedDescription}
                         {description.length > maxDescriptionLength && (
                             <button
+                                type="button"
                                 onClick={toggleDescription}
                                 className="ml-2 text-blueviolet-100 hover:underline focus:outline-none"
                             >

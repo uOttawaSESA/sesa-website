@@ -231,6 +231,7 @@ export default function Footer() {
                             className="h-min font-heading uppercase"
                             asChild
                         >
+                            {/* biome-ignore lint/a11y/useValidAnchor: Used to get to the top of the page */}
                             <a href="#">{t("back_to_top")}</a>
                         </Button>
                         <LanguageSelect />

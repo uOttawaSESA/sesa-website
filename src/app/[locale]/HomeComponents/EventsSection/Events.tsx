@@ -36,9 +36,7 @@ export default function Events() {
                     </div>
                 </div>
             </div>
-            {events.length === 0 ? (
-                <></>
-            ) : (
+            {events.length === 0 && (
                 <Carousel className="w-full pe-8" opts={{ align: "start" }}>
                     <CarouselContent>
                         {events.map((event, index) => (

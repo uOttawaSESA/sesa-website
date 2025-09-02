@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import type { Resource } from "@/app/types/Resource";
 
 export function useResources() {
@@ -11,7 +11,7 @@ export function useResources() {
      * Fetch resources from the API
      * Handles loading and error states
      */
-    const fetchResources = async () => {
+    const fetchResources = useCallback(async () => {
         try {
             setLoading(true);
             setError(null);
@@ -35,7 +35,7 @@ export function useResources() {
         } finally {
             setLoading(false);
         }
-    };
+    }, []);
 
     // Fetch resources on mount
     useEffect(() => {

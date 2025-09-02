@@ -1,3 +1,4 @@
+// biome-ignore-all lint: lint/correctness/useUniqueElementIds: IDs are only used once and should be human-readable
 import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
 

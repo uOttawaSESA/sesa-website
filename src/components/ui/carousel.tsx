@@ -1,3 +1,4 @@
+// biome-ignore-all lint: Unmodified shadcn/ui element
 "use client";
 
 import useEmblaCarousel, { type UseEmblaCarouselType } from "embla-carousel-react";

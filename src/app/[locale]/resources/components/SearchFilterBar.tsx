@@ -159,6 +159,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                     {!isMobile && (
                         <div className="relative">
                             <button
+                                type="button"
                                 className="flex items-center gap-2 uppercase text-white"
                                 onClick={() =>
                                     setOpenDropdown(openDropdown === "view" ? null : "view")
@@ -256,6 +257,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                     {/* Clear Filters Button - Only show if filters are active */}
                     {hasActiveFilters && (
                         <button
+                            type="button"
                             onClick={clearAllFilters}
                             className="flex items-center gap-2 uppercase text-white transition-colors hover:text-white"
                             title="Clear all filters"
@@ -268,6 +270,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                     {/* Filter Dropdown */}
                     <div className="relative">
                         <button
+                            type="button"
                             className="flex items-center gap-2 uppercase text-white"
                             onClick={() =>
                                 setOpenDropdown(openDropdown === "filter" ? null : "filter")
@@ -297,6 +300,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                     {hasActiveFilters && (
                                         <div className="mb-4 flex justify-end">
                                             <button
+                                                type="button"
                                                 onClick={clearAllFilters}
                                                 className="text-sm uppercase text-white underline transition-colors hover:text-white"
                                             >
@@ -355,6 +359,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                     {/* Sort Dropdown */}
                     <div className="relative">
                         <button
+                            type="button"
                             className="flex items-center gap-2 uppercase text-white"
                             onClick={() => setOpenDropdown(openDropdown === "sort" ? null : "sort")}
                         >

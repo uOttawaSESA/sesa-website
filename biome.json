@@ -22,7 +22,13 @@
             "!**/pnpm-lock.yaml"
         ]
     },
-    "linter": { "enabled": true, "rules": { "recommended": true } },
+    "linter": {
+        "enabled": true,
+        "rules": {
+            "recommended": true,
+            "suspicious": { "noArrayIndexKey": "off", "noUnknownAtRules": "off" }
+        }
+    },
     "javascript": {
         "formatter": {
             "jsxQuoteStyle": "double",

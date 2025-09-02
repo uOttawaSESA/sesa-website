@@ -125,12 +125,14 @@ const FAQ = () => {
                                         {item.title}
                                     </AccordionTrigger>
                                     <AccordionContent className="markdown font-sans text-base text-thistle md:text-lg">
+                                        {/* biome-ignore-start lint/security/noDangerouslySetInnerHtml: HTML has been sanitized */}
                                         <div
                                             className="prose prose-invert max-w-none [&>li]:mb-2 [&>p]:mb-4 [&>ul]:mb-4 [&>ul]:pl-4 [&_a:hover]:text-white [&_a]:text-purple-400 [&_a]:underline"
                                             dangerouslySetInnerHTML={{
                                                 __html: parseMarkdown(item.answer),
                                             }}
                                         />
+                                        {/* biome-ignore-end lint/security/noDangerouslySetInnerHtml: HTML has been sanitized */}
                                     </AccordionContent>
                                 </AccordionItem>
                             ))}
