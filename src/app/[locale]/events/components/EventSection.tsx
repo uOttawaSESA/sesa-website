@@ -19,7 +19,6 @@ const EventSection = () => {
     const [currentPage, setCurrentPage] = useState(1);
 
     const locale = useLocale();
-    const lang = locale === "fr" ? "fr" : "en";
 
     // Check if device is mobile
     useEffect(() => {
