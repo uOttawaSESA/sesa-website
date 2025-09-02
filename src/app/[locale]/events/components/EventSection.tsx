@@ -41,11 +41,13 @@ const EventSection = () => {
 
     const handleFilterChange = (filter: string) => {
         setCurrentPage(1);
-        if (filter === "All") {
+        if (filter === "all") {
             setFilteredEvents(events);
         } else {
             const filtered = events.filter(event => {
-                return event.type.en === filter;
+                // Convert event type to lowercase for comparison
+                const eventTypeLower = event.type.en.toLowerCase();
+                return eventTypeLower === filter;
             });
             setFilteredEvents(filtered);
         }
@@ -57,10 +59,10 @@ const EventSection = () => {
         let filtered = events;
 
         switch (filter) {
-            case "Past":
+            case "past":
                 filtered = events.filter(event => parseEventDate(event.date) < currentDate);
                 break;
-            case "Today":
+            case "today":
                 filtered = events.filter(event => {
                     const eventDate = parseEventDate(event.date);
                     return (
@@ -70,9 +72,10 @@ const EventSection = () => {
                     );
                 });
                 break;
-            case "Upcoming":
+            case "upcoming":
                 filtered = events.filter(event => parseEventDate(event.date) > currentDate);
                 break;
+            case "all":
             default:
                 filtered = events;
                 break;

@@ -11,78 +11,45 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
-import { useLocale } from "next-intl";
-
-// Object-based mapping with keys as canonical values
-const FILTER_OPTIONS = {
-    all: { en: "All", fr: "Tous" },
-    workshop: { en: "Workshop", fr: "Atelier" },
-    networking: { en: "Networking Event", fr: "Événement de réseautage" },
-    social: { en: "Social Event", fr: "Événement social" },
-    academic: { en: "Academic Support", fr: "Soutien académique" },
-} as const;
-
-const TIME_FILTER_OPTIONS = {
-    all: { en: "All", fr: "Tous" },
-    past: { en: "Past", fr: "Passé" },
-    today: { en: "Today", fr: "Aujourd'hui" },
-    upcoming: { en: "Upcoming", fr: "À venir" },
-} as const;
+import { useTranslations } from "next-intl";
 
 // Type definitions
-type EventType = keyof typeof FILTER_OPTIONS;
-type TimeFilter = keyof typeof TIME_FILTER_OPTIONS;
-
-// Translation helper function
-const getTranslation = <T extends Record<string, { en: string; fr: string }>>(
-    options: T,
-    locale: string,
-): Array<{ key: keyof T; label: string }> => {
-    return Object.entries(options).map(([key, translations]) => ({
-        key: key as keyof T,
-        label: translations[locale as keyof typeof translations] || translations.en,
-    }));
-};
-
-// Helper functions to map semantic keys to English display values
-const getEventTypeDisplayValue = (filter: EventType): string => FILTER_OPTIONS[filter].en;
-
-const getTimeFilterDisplayValue = (filter: TimeFilter): string => TIME_FILTER_OPTIONS[filter].en;
+type TimeFilter = "all" | "past" | "today" | "upcoming";
+type EventType = "all" | "workshop" | "networking" | "social" | "academic";
 
 const EventFilters: React.FC<{
     onFilterChange: (filter: string) => void;
     onTimeFilterChange: (filter: string) => void;
 }> = ({ onFilterChange, onTimeFilterChange }) => {
     const [activeTimeFilter, setActiveTimeFilter] = useState<TimeFilter>("all");
-    const locale = useLocale();
+    const t = useTranslations("events");
 
-    // Get localized options
-    const eventTypeOptions = getTranslation(FILTER_OPTIONS, locale);
-    const timeFilterOptions = getTranslation(TIME_FILTER_OPTIONS, locale);
+    const timeFilters: TimeFilter[] = ["all", "past", "today", "upcoming"];
+    const eventTypes: EventType[] = ["all", "workshop", "networking", "social", "academic"];
 
     const handleTimeFilterClick = (filter: TimeFilter) => {
         setActiveTimeFilter(filter);
-        onTimeFilterChange(getTimeFilterDisplayValue(filter));
+        onTimeFilterChange(filter);
     };
 
     const handleEventFilterChange = (filter: EventType) => {
-        onFilterChange(getEventTypeDisplayValue(filter));
+        onFilterChange(filter);
     };
 
     return (
         <div className="mx-4 -mb-6 mt-8 flex items-center justify-between">
             {/* Left Side: Time Filters */}
             <div className="flex flex-wrap gap-4">
-                {timeFilterOptions.map(({ key, label }) => (
+                {timeFilters.map(filter => (
                     <Button
-                        key={key}
+                        key={filter}
                         variant="outline"
                         className={`font-heading uppercase text-white backdrop-blur-lg ${
-                            activeTimeFilter === key ? "fill-gradient" : ""
+                            activeTimeFilter === filter ? "fill-gradient" : ""
                         }`}
-                        onClick={() => handleTimeFilterClick(key)}
+                        onClick={() => handleTimeFilterClick(filter)}
                     >
-                        {label}
+                        {t(`time_filter_${filter}`)}
                     </Button>
                 ))}
             </div>
@@ -90,18 +57,14 @@ const EventFilters: React.FC<{
             {/* Right Side: Event Type Dropdown */}
             <Select onValueChange={value => handleEventFilterChange(value as EventType)}>
                 <SelectTrigger className="!border-none px-5 py-4 uppercase text-white transition-colors data-[placeholder]:text-white">
-                    <SelectValue
-                        placeholder={locale === "fr" ? "Type d'événement" : "Event Type"}
-                    />
+                    <SelectValue placeholder={t("filter_type_placeholder")} />
                 </SelectTrigger>
                 <SelectContent>
                     <SelectGroup>
-                        <SelectLabel>
-                            {locale === "fr" ? "Type d'événement" : "Event Type"}
-                        </SelectLabel>
-                        {eventTypeOptions.map(({ key, label }) => (
-                            <SelectItem key={key} value={key}>
-                                {label}
+                        <SelectLabel>{t("filter_type_placeholder")}</SelectLabel>
+                        {eventTypes.map(type => (
+                            <SelectItem key={type} value={type}>
+                                {t(`filter_${type}`)}
                             </SelectItem>
                         ))}
                     </SelectGroup>

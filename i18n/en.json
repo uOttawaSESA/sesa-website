@@ -192,7 +192,19 @@
         "teamup_blurb": "Whether you’re an organization or student club, we’re open to exploring partnerships that deliver meaningful opportunities and experiences to students pursuing software engineering at the University of Ottawa.",
         "btn_talk": "Let's Talk",
         "btn_meet_team": "Meet the Team",
-        "btn_view_post": "View Post"
+        "btn_view_post": "View Post",
+
+        "filter_type_placeholder": "Type",
+        "filter_all": "All",
+        "filter_workshop": "Workshop",
+        "filter_networking": "Networking Event",
+        "filter_social": "Social Event",
+        "filter_academic": "Academic Support",
+
+        "time_filter_all": "All",
+        "time_filter_past": "Past",
+        "time_filter_today": "Today",
+        "time_filter_upcoming": "Upcoming"
     },
     "resources": {
         "resources_heading": "Resources",
