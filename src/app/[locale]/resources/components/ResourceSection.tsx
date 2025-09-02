@@ -1,10 +1,10 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
-import type { Resource } from "@/app/types/Resource";
 import Pagination from "@/components/Pagination";
 import { useResources } from "@/hooks/useResources";
 import ResourceList from "./ResourceList";
 import SearchFilterBar from "./SearchFilterBar";
+import type { Resource } from "@/app/types/Resource";
 
 const ResourceSection = () => {
     const [currentPage, setCurrentPage] = useState(1);

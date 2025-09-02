@@ -1,9 +1,9 @@
 import Image from "next/image";
-import type React from "react";
 import { useState } from "react";
-import type { Resource } from "@/app/types/Resource";
 import { ResourceCard } from "./ResourceCard/ResourceCard";
 import { ResourceModal } from "./ResourceModal";
+import type React from "react";
+import type { Resource } from "@/app/types/Resource";
 
 interface ResourceListProps {
     currentResources: Resource[];

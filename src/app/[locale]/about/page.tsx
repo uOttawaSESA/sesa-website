@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useMemo } from "react";
@@ -12,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import TeamMembers from "./TeamMembers";
 import WhatWeDoCard from "./WhatWeDoCard";
+import type { Metadata } from "next";
 export const generateStaticParams = localeParams;
 
 export const metadata: Metadata = {

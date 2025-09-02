@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import type React from "react";
 import CircleImage from "@/components/CircleImage"; // Import the CircleImage component
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
+import type React from "react";
 
 const TeamUpSection: React.FC = () => {
     const t = useTranslations("events");

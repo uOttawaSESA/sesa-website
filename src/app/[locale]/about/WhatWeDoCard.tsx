@@ -1,6 +1,6 @@
 import Image from "next/image";
-import type { ReactNode } from "react";
 import { Link } from "@/i18n/navigation";
+import type { ReactNode } from "react";
 
 export interface WhatWeDoCardProps {
     imageHref: string;

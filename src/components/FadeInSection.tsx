@@ -1,6 +1,6 @@
 "use client";
-import type React from "react";
 import { useInView } from "react-intersection-observer";
+import type React from "react";
 
 type FadeInSectionProps = React.PropsWithChildren<{
     className?: string;

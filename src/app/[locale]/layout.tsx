@@ -1,6 +1,6 @@
-import type { Metadata } from "next";
 import { Geist, Geist_Mono, Raleway } from "next/font/google";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import "./globals.css";
 
 import { hasLocale, NextIntlClientProvider } from "next-intl";

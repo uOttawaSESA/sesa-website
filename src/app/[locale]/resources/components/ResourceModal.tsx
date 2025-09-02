@@ -4,8 +4,8 @@ import { X } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useId, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import type { Resource } from "@/app/types/Resource";
 import { Button } from "@/components/ui/button";
+import type { Resource } from "@/app/types/Resource";
 
 interface ResourceModalProps {
     resource: Resource;

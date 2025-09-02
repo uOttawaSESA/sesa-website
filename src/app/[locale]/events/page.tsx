@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
@@ -7,6 +6,7 @@ import ConnectSESA from "./components/ConnectSESA";
 import EventSection from "./components/EventSection";
 import InfiniteCarousel from "./components/InfiniteCarousel";
 import TeamUpSection from "./components/TeamUpSection";
+import type { Metadata } from "next";
 export const generateStaticParams = localeParams;
 
 export const metadata: Metadata = {

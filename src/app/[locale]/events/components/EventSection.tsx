@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-
 import { events } from "@/app/data/Events";
 import Pagination from "@/components/Pagination";
 import EventFilters from "./EventFilters";

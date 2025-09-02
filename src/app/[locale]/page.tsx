@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
 import FadeInSection from "@/components/FadeInSection";
@@ -11,6 +10,7 @@ import Quotes from "./HomeComponents/QuotesSection/Quotes";
 import Resources from "./HomeComponents/ResourcesSection/Resources";
 import Sponsors from "./HomeComponents/SponsorSection/Sponsors";
 import Team from "./HomeComponents/TeamSection/Team";
+import type { Metadata } from "next";
 export const generateStaticParams = localeParams;
 
 export const metadata: Metadata = {
