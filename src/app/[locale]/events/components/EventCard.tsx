@@ -6,6 +6,7 @@ import { useState } from "react";
 import { format } from "date-fns";
 import { useTranslations, useLocale } from "next-intl";
 import { Event } from "../../../types/Event";
+import { CalendarDays, CalendarClock, MapPin } from "lucide-react";
 
 interface EventCardProps {
     event: Event;
@@ -97,12 +98,21 @@ export const EventCard = ({ event }: EventCardProps) => {
                             <div className="font-heading text-xl">{day}</div>
                         </div>
 
-                        {/* Date and Location Text */}
-                        <div className="flex flex-col gap-2">
-                            <span>
-                                {formattedDate}, {timeRange}
-                            </span>
-                            <span className="text-thistle">{event.location}</span>
+                        {/* Date and Location Text with Icons */}
+                        <div className="flex flex-col gap-2 text-thistle">
+                            {/* Date and Time with Icons */}
+                            <div className="flex items-center gap-2">
+                                <CalendarClock className="h-4 w-4" />
+                                <span>
+                                    {formattedDate}, {timeRange}
+                                </span>
+                            </div>
+
+                            {/* Location with Icon */}
+                            <div className="flex items-center gap-2">
+                                <MapPin className="h-4 w-4" />
+                                <span>{event.location}</span>
+                            </div>
                         </div>
                     </div>
 
