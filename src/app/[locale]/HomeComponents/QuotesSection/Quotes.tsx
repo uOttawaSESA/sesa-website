@@ -35,7 +35,7 @@ const Quotes = () => {
                 <Image
                     src="/imgs/Home/goals/academic.webp"
                     alt="Quote Main Image"
-                    className="z-10 hidden object-cover xl:block xl:h-[500px] 2xl:h-[600px] 2xl:max-w-3xl"
+                    className="z-10 hidden object-cover xl:-ml-16 xl:block xl:h-[500px] 2xl:-ml-24 2xl:h-[600px] 2xl:max-w-3xl"
                     width={700}
                     height={700}
                 />
