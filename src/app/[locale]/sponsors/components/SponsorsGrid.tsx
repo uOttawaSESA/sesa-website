@@ -3,69 +3,52 @@
 import Image from "next/image";
 
 const sponsors = [
-    { src: "/sponsors/ciena.webp", alt: "Ciena", size: "col-span-6 h-48", width: 160, height: 80 },
     {
-        src: "/sponsors/shopify.webp",
-        alt: "Shopify",
-        size: "col-span-6 h-48",
-        width: 180,
-        height: 90,
-    },
-    { src: "/sponsors/qnx.webp", alt: "QNX", size: "col-span-4 h-36", width: 100, height: 50 },
-    { src: "/sponsors/nokia.webp", alt: "Nokia", size: "col-span-4 h-36", width: 140, height: 70 },
-    { src: "/sponsors/eef.webp", alt: "EEF", size: "col-span-4 h-36", width: 140, height: 70 },
-    { src: "/sponsors/warp.webp", alt: "Warp", size: "col-span-3 h-26", width: 70, height: 35 },
-    {
-        src: "/sponsors/surveymonkey.webp",
-        alt: "SurveyMonkey",
-        size: "col-span-3 h-26",
-        width: 120,
-        height: 60,
-    },
-    {
-        src: "/sponsors/bitesite.webp",
-        alt: "BiteSite",
-        size: "col-span-3 h-26",
-        width: 80,
-        height: 40,
-    },
-    { src: "/sponsors/knak.webp", alt: "Knak", size: "col-span-3 h-26", width: 60, height: 30 },
-    {
-        src: "/sponsors/redbull.webp",
-        alt: "Red Bull",
-        size: "col-span-3 h-26",
-        width: 60,
-        height: 30,
-    },
-    {
-        src: "/sponsors/nationalbank.webp",
+        name: "National Bank",
+        src: "/sponsors/nationalbank.svg",
         alt: "National Bank",
-        size: "col-span-3 h-26",
-        width: 100,
-        height: 50,
+        width: 480,
+        height: 240,
+        size: "col-span-12 h-96 md:h-[28rem]",
+        link: "https://www.nbc.ca/",
     },
-    { src: "/sponsors/solace.webp", alt: "Solace", size: "col-span-3 h-26", width: 90, height: 45 },
-    { src: "/sponsors/aws.webp", alt: "AWS", size: "col-span-3 h-26", width: 50, height: 25 },
+    {
+        name: "Warp",
+        src: "/sponsors/warp.svg",
+        alt: "Warp",
+        width: 300,
+        height: 150,
+        size: "col-span-6 h-72 md:h-80",
+        link: "https://warp.dev/?ref=sesa",
+    },
+    {
+        name: "CSE",
+        src: "/sponsors/cse.svg",
+        alt: "CSE",
+        width: 300,
+        height: 150,
+        size: "col-span-6 h-72 md:h-80",
+        link: "https://cse-cst.gc.ca/en",
+    },
 ];
 
 const gradientBorderClass = `
   border-[1px] border-solid
   [border-image:linear-gradient(55deg,rgba(136,36,220,0.3)_41.93%,rgba(177,33,157,0.3)_81.89%)_1]
 `;
+
 const SponsorsGrid = () => {
     return (
         <div className="mt-10 flex justify-center px-6 md:mt-16">
-            <div className="grid max-w-6xl grid-cols-2 gap-4 md:grid-cols-12">
+            <div className="grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-12">
                 {sponsors.map((sponsor, index) => (
-                    <div
+                    <a
                         key={index}
-                        className={`flex items-center justify-center rounded-lg p-10 ${sponsor.size} ${gradientBorderClass} backdrop-blur-lg ${
-                            sponsor.size === "col-span-6"
-                                ? "h-56"
-                                : sponsor.size === "col-span-4"
-                                  ? "h-44"
-                                  : "h-32"
-                        }`}
+                        href={sponsor.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`flex items-center justify-center rounded-lg p-10 ${sponsor.size} ${gradientBorderClass} backdrop-blur-lg transition hover:scale-105`}
+                        title={sponsor.name}
                     >
                         <Image
                             src={sponsor.src}
@@ -74,10 +57,11 @@ const SponsorsGrid = () => {
                             height={sponsor.height}
                             className="object-contain"
                         />
-                    </div>
+                    </a>
                 ))}
             </div>
         </div>
     );
 };
+
 export default SponsorsGrid;

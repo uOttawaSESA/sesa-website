@@ -86,28 +86,34 @@ export default function About() {
                         <p className="max-w-[28rem] text-base text-thistle md:text-lg">
                             {t("inspiring_blurb")}
                         </p>
-                        <div className="my-2 flex gap-2 font-heading uppercase">
-                            <Button className="font-heading uppercase" asChild>
-                                <a href="#introducing-our-team">{t("meet_the_team")}</a>
-                            </Button>
-                            <Button className="font-heading uppercase" variant="outline" asChild>
-                                <a href="https://linktr.ee/uottawa.sesa" target="_blank">
-                                    {t("join_our_family")}
-                                </a>
-                            </Button>
-                        </div>
-                        <div className="ml-3 flex flex-nowrap items-center">
-                            <TeamBadgeStack imgs={memberImages} />
+                        <div className="my-2 flex flex-col items-start gap-2 font-heading uppercase">
+                            <div>
+                                <Button className="font-heading uppercase" asChild>
+                                    <a href="#introducing-our-team">{t("meet_the_team")}</a>
+                                </Button>
+                                <Button
+                                    className="ml-2 font-heading uppercase"
+                                    variant="outline"
+                                    asChild
+                                >
+                                    <a href="https://linktr.ee/uottawa.sesa" target="_blank">
+                                        {t("join_our_family")}
+                                    </a>
+                                </Button>
+                            </div>
+                            <div className="mt-2 flex flex-nowrap items-center">
+                                <TeamBadgeStack imgs={memberImages} />
+                            </div>
                         </div>
                     </div>
                 </FadeInSection>
                 {/* Images (TODO) */}
                 <FadeInSection>
-                    <div className="mt-6 flex justify-center">
+                    <div className="mt-12 flex justify-center">
                         <Image
-                            className="outline-gradient h-[600px] w-[1000px] object-cover"
+                            className="outline-gradient h-[600px] w-[1250px] object-cover"
                             src="/imgs/about/team-1.webp"
-                            width={1000}
+                            width={1200}
                             height={600}
                             alt="Team picture"
                         />
@@ -115,7 +121,7 @@ export default function About() {
                 </FadeInSection>
                 {/* "Who are we" */}
                 <FadeInSection>
-                    <div className="my-8 flex max-w-[28rem] flex-col gap-2 md:ml-[50%] md:mt-28">
+                    <div className="my-8 flex max-w-[28rem] flex-col gap-2 md:ml-[53%] md:mt-28">
                         <p className="color-gradient font-mono">{t("who_are_we")}</p>
                         <h2 className="font-heading text-2xl uppercase md:text-3xl">
                             {t("who_are_we_heading")}{" "}
@@ -134,28 +140,28 @@ export default function About() {
                 </FadeInSection>
                 {/* Figures */}
                 <FadeInSection>
-                    <div className="flex justify-center backdrop-blur-lg md:mb-28">
-                        <div className="grid w-fit grid-cols-1 place-items-center gap-0 md:grid-cols-4">
+                    <div className="flex justify-center md:mb-28">
+                        <div className="grid w-fit grid-cols-1 place-items-center gap-20 md:grid-cols-4">
                             <Metric
-                                className="!w-64"
+                                className="!w-64 backdrop-blur-lg"
                                 figure="3500+"
                                 caption={t("figure_eecs_students")}
                                 border
                             />
                             <Metric
-                                className="!w-64"
+                                className="!w-64 backdrop-blur-lg"
                                 figure="21"
                                 caption={t("figure_previous_partners")}
                                 border
                             />
                             <Metric
-                                className="!w-64"
+                                className="!w-64 backdrop-blur-lg"
                                 figure="2300+"
                                 caption={t("figure_event_attendees")}
                                 border
                             />
                             <Metric
-                                className="!w-64"
+                                className="!w-64 backdrop-blur-lg"
                                 figure="34"
                                 caption={t("figure_events")}
                                 border
@@ -165,15 +171,15 @@ export default function About() {
                 </FadeInSection>
                 {/* "What do we do" */}
                 <FadeInSection>
-                    <div className="my-8 flex flex-col gap-2 overflow-x-auto">
+                    <div className="my-8 flex max-w-[28rem] flex-col gap-2">
                         <p className="color-gradient font-mono text-xs md:text-base">
                             {t("what_do_we_do")}
                         </p>
-                        <h2 className="font-heading text-2xl uppercase md:text-3xl">
+                        <h2 className="whitespace-nowrap font-heading text-2xl uppercase md:text-3xl">
                             {t("what_do_we_do_heading")}{" "}
                             <span className="highlight-text">{t("what_do_we_do_heading_hl")}</span>
                         </h2>
-                        <div className="max-w-[28rem]">
+                        <div>
                             <p className="mb-2 text-base text-thistle md:text-lg">
                                 <b>{t("what_do_we_do_p_bold")}</b> {t("what_do_we_do_p")}
                             </p>
@@ -185,7 +191,7 @@ export default function About() {
                 </FadeInSection>
                 {/* Cards for "What do we do" */}
                 <FadeInSection>
-                    <div className="mb-8 flex w-full gap-8 overflow-x-auto md:justify-center">
+                    <div className="mb-8 flex w-full max-w-[28rem] gap-6 md:justify-start">
                         <WhatWeDoCard
                             imageHref="/imgs/about/social-events.webp"
                             icon={

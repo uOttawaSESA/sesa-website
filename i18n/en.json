@@ -23,7 +23,6 @@
         "explore_all_resources": "Explore all resources",
         "join_our_discord": "Join our discord",
         "thumbs_up_alt": "thumbsUp",
-        "helpfulness_stats": "95% average helpfulness, 1000+ students helped",
 
         "sponsors_partners": "Our sponsors & partners",
         "sponsors_heading_h1_highlighted": "Trusted and sponsored",
@@ -196,7 +195,6 @@
         "btn_view_post": "View Post"
     },
     "resources": {
-        "resources": "Resources",
         "resources_heading": "Resources",
         "resources_heading_hl": "for students, by students",
         "resources_blurb": "Our academic team actively curates free resources to support software engineering students in their studies.",
@@ -210,7 +208,47 @@
         "btn_join_team": "Join Our Team",
         "btn_meet_the_team": "Meet the Team",
         "avg_helpfulness": "{percentage}% average helpfulness",
-        "students_helped": "{students} students helped"
+        "students_helped": "{students} students helped",
+
+        "view_label": "View",
+        "view_grid": "Grid",
+        "view_row": "Row",
+
+        "n_rows": "Rows",
+
+        "filter_label": "Filter",
+        "filters_active_label": "Filters Active",
+        "filter_academic": "Academic",
+        "filter_career": "Career",
+        "filter_technical": "Technical",
+        "filter_video": "Video",
+        "filter_textbook": "Textbook",
+        "filter_website": "Website",
+        "filter_blog": "Blog",
+        "filter_article": "Article",
+        "filter_english": "English",
+        "filter_french": "French",
+        "filter_bilingual": "Bilingual",
+        "filter_tier_s": "Tier S",
+        "filter_tier_a": "Tier A",
+        "filter_tier_b": "Tier B",
+        "filter_tier_c": "Tier C",
+
+        "filter_placeholder_course": "Select Course",
+        "filter_placeholder_category": "Select Category",
+        "filter_placeholder_format": "Select Format",
+        "filter_placeholder_language": "Select Language",
+        "filter_placeholder_tier": "Select Tier",
+
+        "clear_filters": "Clear Filters",
+        "clear_all": "Clear All",
+
+        "sort_label": "Sort",
+        "sort_item_relevance": "Relevance",
+        "sort_item_alphabetical": "Alphabetical",
+        "sort_tier_worst_best": "Tier (Worst to Best)",
+        "sort_tier_best_worst": "Tier (Best to Worst)",
+        "sort_last_updated": "Last Updated"
     },
     "sponsorships": {
         "header_top": "Sponsors & partners",

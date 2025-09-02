@@ -29,7 +29,7 @@ const TIME_FILTER_OPTIONS = {
     upcoming: { en: "Upcoming", fr: "À venir" },
 } as const;
 
-// Type definitions using the keys
+// Type definitions
 type EventType = keyof typeof FILTER_OPTIONS;
 type TimeFilter = keyof typeof TIME_FILTER_OPTIONS;
 
@@ -45,12 +45,9 @@ const getTranslation = <T extends Record<string, { en: string; fr: string }>>(
 };
 
 // Helper functions to map semantic keys to English display values
-const getEventTypeDisplayValue = (filter: EventType): string => {
-    return FILTER_OPTIONS[filter].en;
-};
-const getTimeFilterDisplayValue = (filter: TimeFilter): string => {
-    return TIME_FILTER_OPTIONS[filter].en;
-};
+const getEventTypeDisplayValue = (filter: EventType): string => FILTER_OPTIONS[filter].en;
+
+const getTimeFilterDisplayValue = (filter: TimeFilter): string => TIME_FILTER_OPTIONS[filter].en;
 
 const EventFilters: React.FC<{
     onFilterChange: (filter: string) => void;
@@ -65,15 +62,11 @@ const EventFilters: React.FC<{
 
     const handleTimeFilterClick = (filter: TimeFilter) => {
         setActiveTimeFilter(filter);
-        // Send English display value to parent component
-        const displayValue = getTimeFilterDisplayValue(filter);
-        onTimeFilterChange(displayValue);
+        onTimeFilterChange(getTimeFilterDisplayValue(filter));
     };
 
     const handleEventFilterChange = (filter: EventType) => {
-        // Send English display value to parent component
-        const displayValue = getEventTypeDisplayValue(filter);
-        onFilterChange(displayValue);
+        onFilterChange(getEventTypeDisplayValue(filter));
     };
 
     return (
@@ -96,7 +89,7 @@ const EventFilters: React.FC<{
 
             {/* Right Side: Event Type Dropdown */}
             <Select onValueChange={value => handleEventFilterChange(value as EventType)}>
-                <SelectTrigger className="!border-none px-5 py-4 uppercase text-white data-[placeholder]:text-white">
+                <SelectTrigger className="!border-none px-5 py-4 uppercase text-white transition-colors data-[placeholder]:text-white">
                     <SelectValue
                         placeholder={locale === "fr" ? "Type d'événement" : "Event Type"}
                     />

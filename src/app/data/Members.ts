@@ -215,7 +215,7 @@ export const membersData: Member[] = [
         email: "ayushi.dosieah@gmail.com",
     },
     {
-        name: "Maximus",
+        name: "Maximus Teo",
         team: "Partnership",
         role: "Partnership Coordinator",
         imgPath: "/imgs/team/maximus.webp",
@@ -287,5 +287,14 @@ export const membersData: Member[] = [
         role: "Advisor",
         imgPath: "/imgs/team/sanika.webp",
         linkedin: "https://www.linkedin.com/in/sanika-sisodia-833638268/",
+    },
+    {
+        name: "Mary Velez",
+        team: "Advisors",
+        role: "Advisor",
+        imgPath: "/imgs/team/mary.webp",
+        linkedin: "https://ca.linkedin.com/in/maryvelez",
+        github: "https://github.com/maryvelez",
+        email: "marychrisvelez@gmail.com",
     },
 ];

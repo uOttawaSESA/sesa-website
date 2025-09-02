@@ -20,6 +20,7 @@ const buttonVariants = cva(
             size: {
                 default: "px-6 py-3",
                 icon: "aspect-square !p-3",
+                sm: "px-2 py-2",
             },
         },
         defaultVariants: {

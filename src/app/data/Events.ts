@@ -90,7 +90,7 @@ export const events: Event[] = [
         endTime: new Date("2024-11-02T21:00:00"),
         location: "STM117",
         description: {
-            en: "Level up your game dev skills at our Unity workshop with Hack the Hill and uOttaHack!",
+            en: "Level up your game dev skills at our Unity workshop with Hack the Hill and uOttaHack! Don't miss out!",
             fr: "Améliorez vos compétences en développement de jeux lors de l'atelier Unity avec Hack the Hill et uOttaHack!",
         },
         image: "/imgs/Events/hackthehill.webp",
