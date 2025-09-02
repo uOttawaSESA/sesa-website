@@ -83,33 +83,45 @@ function memberToIcons(member: Member) {
 
 export default function TeamMembers({ title, description, people }: Props) {
     return (
-        <div id={title.toLowerCase()} className="scroll-mt-[100px]">
-            <h2 className="mb-3 font-heading text-lg uppercase md:text-xl">{title}</h2>
-            <p className="mb-4 max-w-md text-base leading-tight text-thistle md:text-lg">
-                {description}{" "}
-            </p>
-            <div className="flex gap-5 overflow-x-auto md:mt-7">
-                {people.map(person => (
-                    <div
-                        className="outline-gradient flex h-[405px] w-64 min-w-64 flex-col backdrop-blur-lg"
-                        key={`member:${title}:${person.name}`}
-                    >
-                        <Image
-                            src={person.imgPath}
-                            alt={`Picture of ${person.name}`}
-                            width={256}
-                            height={256}
-                            className="h-64 w-64 object-cover"
-                        />
-                        <div className="flex flex-grow flex-col gap-2 p-4">
-                            <h3 className="font-sans text-lg font-bold md:text-xl">
-                                {person.name}
-                            </h3>
-                            <p className="text-thistle">{person.role}</p>
-                            <div className="mt-auto flex gap-2">{memberToIcons(person)}</div>
+        <div className="relative">
+            {/* Decorations */}
+            <div className="pointer-events-none absolute left-0 top-0 h-full w-full select-none">
+                <Image
+                    className="fade-from-center-sponsorship-floor absolute bottom-[-4rem] left-0 z-[-1] w-[100rem]"
+                    src="/decoration/waves.svg"
+                    width={1258}
+                    height={1872}
+                    alt=""
+                />
+            </div>
+            <div id={title.toLowerCase()} className="scroll-mt-[100px]">
+                <h2 className="mb-3 font-heading text-lg uppercase md:text-xl">{title}</h2>
+                <p className="mb-4 max-w-md text-base leading-tight text-thistle md:text-lg">
+                    {description}{" "}
+                </p>
+                <div className="flex gap-5 overflow-x-auto md:mt-7">
+                    {people.map(person => (
+                        <div
+                            className="outline-gradient flex h-[405px] w-64 min-w-64 flex-col backdrop-blur-lg"
+                            key={`member:${title}:${person.name}`}
+                        >
+                            <Image
+                                src={person.imgPath}
+                                alt={`Picture of ${person.name}`}
+                                width={256}
+                                height={256}
+                                className="h-64 w-64 object-cover"
+                            />
+                            <div className="flex flex-grow flex-col gap-2 p-4">
+                                <h3 className="font-sans text-lg font-bold md:text-xl">
+                                    {person.name}
+                                </h3>
+                                <p className="text-thistle">{person.role}</p>
+                                <div className="mt-auto flex gap-2">{memberToIcons(person)}</div>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </div>
     );

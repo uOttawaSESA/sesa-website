@@ -388,6 +388,23 @@ select::placeholder {
     mask-size: cover;
 }
 
+.fade-right-bottom {
+    /* Apply two masks: one for right fade, one for bottom fade */
+    -webkit-mask-image:
+        linear-gradient(to right, black, transparent),
+        linear-gradient(to bottom, black, transparent);
+    -webkit-mask-composite: destination-in;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: cover;
+
+    mask-image:
+        linear-gradient(to right, black, transparent),
+        linear-gradient(to bottom, black, transparent);
+    mask-composite: intersect;
+    mask-repeat: no-repeat;
+    mask-size: cover;
+}
+
 .fade-from-top-bg {
     -webkit-mask-image: linear-gradient(
         to bottom,
