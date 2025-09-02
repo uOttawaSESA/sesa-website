@@ -76,28 +76,28 @@ export default function About() {
                 {/* Decorations */}
                 <div className="pointer-events-none absolute left-0 top-0 h-full w-full select-none">
                     <Image
-                        className="fade-left-bottom absolute right-[-1rem] top-0 z-[-1] h-[40rem] w-[40rem]"
+                        className="fade-left-bottom absolute right-[-12rem] top-[-10rem] z-[-1] h-[60rem] w-[60rem]"
                         src="/decoration/double-tunnel.svg"
                         width={913}
                         height={909}
                         alt=""
                     />
                     <Image
-                        className="absolute right-[3rem] top-[6rem] h-[10rem] w-[10rem]"
+                        className="absolute right-[-6rem] top-[4rem] h-[15rem] w-[15rem]"
                         src="/decoration/star.svg"
                         width={196}
                         height={197}
                         alt=""
                     />
                     <Image
-                        className="absolute right-[1rem] top-[12rem] h-[6rem] w-[6rem] rotate-[30deg]"
+                        className="absolute right-[-6rem] top-[12rem] h-[6rem] w-[6rem] rotate-[40deg]"
                         src="/decoration/star-faded.svg"
                         width={79}
                         height={80}
                         alt=""
                     />
                     <Image
-                        className="absolute right-[21rem] top-[18rem] h-[6rem] w-[6rem] rotate-[-15deg]"
+                        className="absolute right-[23rem] top-[24rem] h-[8rem] w-[8rem] rotate-[-15deg]"
                         src="/decoration/star.svg"
                         width={196}
                         height={197}
