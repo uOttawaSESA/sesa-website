@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { events } from "@/app/data/Events";
 import Pagination from "@/components/Pagination";
+import Star from "@/components/ui/decorations/star";
 import EventFilters from "./EventFilters";
 import EventsList from "./EventsList";
 import Header from "./Header";
@@ -126,19 +127,16 @@ const EventSection = () => {
                     height={430}
                     alt=""
                 />
-                <Image
-                    src="/decoration/star.svg"
-                    className="absolute bottom-[-9rem] right-[14rem] hidden md:bottom-[-5rem] md:right-[10rem] md:block"
-                    width={120}
-                    height={120}
-                    alt=""
+
+                <Star
+                    variant="star"
+                    className="bottom-[-9rem] right-[14rem] md:bottom-[-5rem] md:right-[10rem]"
+                    delay={1}
                 />
-                <Image
-                    src="/decoration/star-faded.svg"
-                    className="absolute bottom-[-6rem] right-[9rem] hidden rotate-[30deg] transform md:block"
-                    width={63}
-                    height={63}
-                    alt=""
+                <Star
+                    variant="star-faded"
+                    className="bottom-[-6rem] right-[9rem] rotate-[30deg] transform md:block"
+                    delay={0.5}
                 />
             </div>
         </div>

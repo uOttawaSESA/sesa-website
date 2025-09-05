@@ -2,6 +2,7 @@ import Image from "next/image";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
 import FadeInSection from "@/components/FadeInSection";
+import Star from "@/components/ui/decorations/star";
 import ConnectSESA from "./components/ConnectSESA";
 import EventSection from "./components/EventSection";
 import InfiniteCarousel from "./components/InfiniteCarousel";
@@ -45,19 +46,11 @@ const Events = () => {
                     alt=""
                 />
 
-                <Image
-                    src="/decoration/star-faded.svg"
-                    className="absolute left-[20rem] top-[8rem] md:left-[16rem] md:top-[16rem]"
-                    width={55}
-                    height={55}
-                    alt=""
-                />
-                <Image
-                    src="/decoration/star.svg"
-                    className="absolute right-[11rem] top-[22rem] hidden md:block"
-                    width={125}
-                    height={128}
-                    alt=""
+                <Star variant="star" className="right-[11rem] top-[22rem]" delay={1} />
+                <Star
+                    variant="star-faded"
+                    className="left-[20rem] top-[8rem] md:left-[16rem] md:top-[16rem]"
+                    delay={0.5}
                 />
             </div>
 
@@ -74,12 +67,21 @@ const Events = () => {
 
                 <div className="pointer-events relative mb-52 select-none">
                     {/* Bottom Star Decoration */}
-                    <Image
-                        src="/decoration/star.svg"
-                        className="absolute bottom-[-9rem] left-[4rem] rotate-[-110deg] transform md:bottom-[-7rem] md:left-[10rem]"
-                        width={100}
-                        height={100}
-                        alt=""
+                    <Star
+                        variant="star"
+                        className="absolute bottom-[-9rem] left-[4rem] rotate-[-110deg] transform md:bottom-[-8rem] md:left-[10rem]"
+                        delay={1}
+                        rotate={-110}
+                    />
+                    <Star
+                        variant="star"
+                        className="absolute bottom-[-9rem] right-[14rem] md:bottom-[-10rem] md:right-[10rem]"
+                        delay={1}
+                    />
+                    <Star
+                        variant="star-faded"
+                        className="absolute bottom-[-6rem] right-[9rem] rotate-[30deg] transform md:block"
+                        delay={0.5}
                     />
 
                     <FadeInSection>

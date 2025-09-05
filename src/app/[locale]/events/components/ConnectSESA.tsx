@@ -1,34 +1,30 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
+import Star from "@/components/ui/decorations/star";
 
 const ConnectSESA = () => {
     const t = useTranslations("events");
 
     return (
         <>
-            <div className="pointer-events-none relative w-full select-none">
+            <div className="relative w-full select-none">
                 {/* Decorations */}
-                <Image
-                    src="/decoration/star.svg"
-                    className="bottom absolute left-[14rem] top-[-6rem] rotate-[-110deg] transform md:top-[-3rem]"
+                <Star
+                    variant="star"
+                    className="left-[14rem] top-[-6rem] md:top-[-3rem]"
+                    delay={1}
                     width={82}
                     height={82}
-                    alt=""
+                    rotate={-110}
                 />
-                <Image
-                    src="/decoration/star.svg"
-                    className="bottom absolute right-[14rem] top-[-5rem] hidden md:block"
-                    width={121}
-                    height={121}
-                    alt=""
-                />
-                <Image
-                    src="/decoration/star-faded.svg"
-                    className="absolute left-[18rem] top-[-3rem] md:top-0"
-                    width={50}
-                    height={50}
-                    alt=""
+
+                <Star variant="star" className="right-[14rem] top-[-5rem]" delay={1.5} />
+
+                <Star
+                    variant="star-faded"
+                    className="left-[18rem] top-[-3rem] md:top-0"
+                    delay={2}
                 />
             </div>
             <div>
