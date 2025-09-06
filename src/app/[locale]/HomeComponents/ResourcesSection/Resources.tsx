@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import Marquee from "react-fast-marquee";
 import ComingSoonMessage from "@/components/ComingSoonMessage";
 import { Button } from "@/components/ui/button";
+import Star from "@/components/ui/decorations/star";
 import { useResources } from "@/hooks/useResources";
 import { Link } from "@/i18n/navigation";
 import ResourceCard from "../../resources/components/ResourceCard/ResourceCard";
@@ -17,23 +18,24 @@ const Resources = () => {
         <section className="relative my-10 mb-0 flex w-full flex-col gap-4 text-white md:mb-20">
             {/* Decorations */}
             <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
-                <Image
-                    src="/decoration/star.svg"
-                    className="absolute hidden rotate-[-110deg] transform opacity-60 md:left-[5rem] md:top-[3rem] md:block"
-                    width={120}
-                    height={120}
-                    alt=""
+                <Star
+                    variant="star"
+                    className="hidden opacity-60 md:left-[5rem] md:top-[3rem] md:block"
+                    rotate={-110}
+                    delay={1}
                 />
-                <Image
-                    src="/decoration/star.svg"
-                    className="absolute hidden md:left-[10rem] md:top-[7rem] md:block"
+
+                <Star
+                    variant="star"
+                    className="hidden md:left-[10rem] md:top-[7rem] md:block"
                     width={63}
                     height={63}
-                    alt=""
+                    delay={0.5}
                 />
 
                 {/* Light gradient */}
                 <div className="fade-from-right-bg absolute right-0 top-[20rem] h-[100rem] w-[30vw] bg-blueviolet-100 bg-opacity-20 blur-sm" />
+
                 <Image
                     src="/decoration/waves.svg"
                     className={`fade-from-top-bottom-bg absolute left-1/2 hidden w-11/12 -translate-x-1/2 transform md:bottom-[4rem] md:block md:w-max ${resources.length === 0 ? "hidden" : ""}`}
@@ -42,19 +44,19 @@ const Resources = () => {
                     alt=""
                 />
 
-                <Image
-                    src="/decoration/star.svg"
-                    className="absolute hidden md:bottom-[-2rem] md:right-[15rem] md:block"
-                    width={120}
-                    height={120}
-                    alt=""
+                <Star
+                    variant="star"
+                    className="hidden md:bottom-[-4rem] md:right-[15rem] md:block"
+                    delay={1}
                 />
-                <Image
-                    src="/decoration/star-faded.svg"
-                    className="absolute hidden rotate-[30deg] transform md:bottom-[-4rem] md:right-[14rem] md:block"
+
+                <Star
+                    variant="star-faded"
+                    className="hidden md:bottom-[-5rem] md:right-[14rem] md:block"
+                    rotate={30}
                     width={63}
                     height={63}
-                    alt=""
+                    delay={0.5}
                 />
             </div>
             <div className="flex flex-col gap-3 px-8 text-center md:px-10 lg:mb-14">

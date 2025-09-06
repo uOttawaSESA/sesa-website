@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
+import Star from "@/components/ui/decorations/star";
 import { Link } from "@/i18n/navigation";
 
 export default function Hero() {
@@ -16,41 +17,44 @@ export default function Hero() {
                 {/* Light gradient */}
                 <div className="fade-from-left-bg absolute top-[48rem] h-[140rem] w-[25vw] bg-blueviolet-100 bg-opacity-25 blur-sm" />
 
-                <Image
-                    src="/decoration/star.svg"
-                    className="absolute hidden md:left-[12vw] md:top-[80vh] md:block 2xl:left-[33vw] 2xl:top-[55vh]"
+                <Star
+                    variant="star"
+                    className="hidden md:left-[12vw] md:top-[80vh] md:block 2xl:left-[33vw] 2xl:top-[55vh]"
                     width={120}
                     height={120}
-                    alt=""
-                />
-                <Image
-                    src="/decoration/star-faded.svg"
-                    className="absolute hidden md:left-[10vw] md:top-[78vh] md:block 2xl:left-[32vw] 2xl:top-[53vh]"
-                    width={63}
-                    height={63}
-                    alt=""
-                />
-                <Image
-                    src="/decoration/star-faded.svg"
-                    className="absolute hidden rotate-[30deg] transform opacity-60 md:left-[40vw] md:top-[15vh] md:block"
-                    width={55}
-                    height={55}
-                    alt=""
+                    delay={1}
                 />
 
-                <Image
-                    src="/decoration/star.svg"
-                    className="absolute hidden md:right-[15rem] md:top-[54rem] md:block"
-                    width={120}
-                    height={120}
-                    alt=""
-                />
-                <Image
-                    src="/decoration/star-faded.svg"
-                    className="absolute hidden md:right-[20rem] md:top-[59rem] md:block"
+                <Star
+                    variant="star-faded"
+                    className="hidden md:left-[10vw] md:top-[78vh] md:block 2xl:left-[32vw] 2xl:top-[53vh]"
                     width={63}
                     height={63}
-                    alt=""
+                    delay={0.5}
+                />
+
+                <Star
+                    variant="star-faded"
+                    className="hidden opacity-60 md:left-[40vw] md:top-[15vh] md:block"
+                    width={55}
+                    height={55}
+                    rotate={30}
+                />
+
+                <Star
+                    variant="star"
+                    className="hidden md:right-[15rem] md:top-[54rem] md:block"
+                    width={120}
+                    height={120}
+                    delay={1}
+                />
+
+                <Star
+                    variant="star-faded"
+                    className="hidden md:right-[20rem] md:top-[59rem] md:block"
+                    width={63}
+                    height={63}
+                    delay={0.5}
                 />
             </div>
 

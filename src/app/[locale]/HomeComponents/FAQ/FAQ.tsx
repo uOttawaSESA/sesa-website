@@ -1,7 +1,6 @@
 "use client";
 import createDOMPurify from "dompurify";
 import { marked } from "marked";
-import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useMemo } from "react";
 import {
@@ -11,6 +10,7 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import Star from "@/components/ui/decorations/star";
 import { Link } from "@/i18n/navigation";
 
 const FAQ = () => {
@@ -32,26 +32,10 @@ const FAQ = () => {
 
     // FAQ data structure
     const faqItems = [
-        {
-            id: "item-1",
-            title: t("faq_q1.title"),
-            answer: t("faq_q1.answer"),
-        },
-        {
-            id: "item-2",
-            title: t("faq_q2.title"),
-            answer: t("faq_q2.answer"),
-        },
-        {
-            id: "item-3",
-            title: t("faq_q3.title"),
-            answer: t("faq_q3.answer"),
-        },
-        {
-            id: "item-4",
-            title: t("faq_q4.title"),
-            answer: t("faq_q4.answer"),
-        },
+        { id: "item-1", title: t("faq_q1.title"), answer: t("faq_q1.answer") },
+        { id: "item-2", title: t("faq_q2.title"), answer: t("faq_q2.answer") },
+        { id: "item-3", title: t("faq_q3.title"), answer: t("faq_q3.answer") },
+        { id: "item-4", title: t("faq_q4.title"), answer: t("faq_q4.answer") },
     ];
 
     return (
@@ -61,35 +45,34 @@ const FAQ = () => {
                 {/* Warm gradient */}
                 <div className="fade-from-center-bg absolute left-1/2 top-1/2 h-[120rem] w-full -translate-x-1/2 -translate-y-1/2 bg-[#B1219D] bg-opacity-20 blur-xl md:w-[100rem]" />
 
-                <Image
-                    src="/decoration/star.svg"
-                    className="absolute hidden rotate-[-110deg] transform md:left-[8rem] md:top-[1rem] md:block"
-                    width={120}
-                    height={120}
-                    alt=""
+                <Star
+                    variant="star"
+                    className="hidden md:left-[8rem] md:top-[1rem] md:block"
+                    rotate={-110}
+                    delay={1}
                 />
 
-                <Image
-                    src="/decoration/star-faded.svg"
-                    className="absolute right-[2rem] top-[8rem] hidden rotate-[30deg] transform md:right-[10rem] md:top-[7rem] md:block"
+                <Star
+                    variant="star-faded"
+                    className="absolute right-[2rem] top-[8rem] hidden md:right-[10rem] md:top-[7rem] md:block"
+                    rotate={30}
                     width={60}
                     height={60}
-                    alt=""
+                    delay={0.5}
                 />
 
-                <Image
-                    src="/decoration/star.svg"
-                    className="absolute hidden md:bottom-[-8rem] md:right-[5rem] md:block"
-                    width={120}
-                    height={120}
-                    alt=""
+                <Star
+                    variant="star"
+                    className="hidden md:bottom-[-8rem] md:right-[5rem] md:block"
+                    delay={1}
                 />
-                <Image
-                    src="/decoration/star-faded.svg"
-                    className="absolute hidden md:bottom-[-8rem] md:right-[10rem] md:block"
+
+                <Star
+                    variant="star-faded"
+                    className="hidden md:bottom-[-8rem] md:right-[10rem] md:block"
                     width={63}
                     height={63}
-                    alt=""
+                    delay={0.5}
                 />
             </div>
 

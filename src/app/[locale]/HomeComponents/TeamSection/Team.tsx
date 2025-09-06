@@ -6,6 +6,7 @@ import Marquee from "react-fast-marquee";
 import { membersData } from "@/app/data/Members";
 import CircleImage from "@/components/CircleImage";
 import { Button } from "@/components/ui/button";
+import Star from "@/components/ui/decorations/star";
 import { Link } from "@/i18n/navigation";
 
 const Team = () => {
@@ -18,29 +19,30 @@ const Team = () => {
                 <div className="fade-from-center-bg absolute left-1/2 top-[-29rem] h-[112.8rem] w-full -translate-x-1/2 bg-blueviolet-100 bg-opacity-25 blur-xl md:top-[-50rem] md:w-[130rem] 2xl:top-[-53rem]" />
                 <div className="fade-from-center-bg absolute bottom-[-15rem] left-1/2 h-[55rem] w-full -translate-x-1/2 bg-[#B1219D] bg-opacity-30 blur-xl md:w-[80vw]" />
 
-                <Image
-                    src="/decoration/star.svg"
-                    className="absolute hidden rotate-[-110deg] transform md:left-[8rem] md:top-[1rem] md:block"
+                <Star
+                    variant="star"
+                    className="hidden md:left-[8rem] md:top-[1rem] md:block"
+                    rotate={-110}
                     width={77}
                     height={77}
-                    alt=""
+                    delay={1}
                 />
 
-                <Image
-                    src="/decoration/star.svg"
-                    className="absolute hidden opacity-60 md:right-[5rem] md:top-[-5rem] md:block"
-                    width={120}
-                    height={120}
-                    alt=""
+                <Star
+                    variant="star"
+                    className="hidden opacity-60 md:right-[5rem] md:top-[-5rem] md:block"
+                    delay={1}
                 />
 
-                <Image
-                    src="/decoration/star-faded.svg"
-                    className="absolute right-[2rem] top-[1rem] rotate-[30deg] transform md:right-[10rem] md:top-[-1rem]"
+                <Star
+                    variant="star-faded"
+                    className="absolute right-[2rem] top-[1rem] md:right-[10rem] md:top-[-1rem]"
+                    rotate={30}
                     width={60}
                     height={60}
-                    alt=""
+                    delay={0.5}
                 />
+
                 <div className="fade-from-center-tunnel-home absolute bottom-[5rem] left-1/2 z-0 hidden h-[580px] w-[1500px] -translate-x-1/2 transform overflow-hidden md:block">
                     <Image
                         src="/decoration/tunnel.svg"

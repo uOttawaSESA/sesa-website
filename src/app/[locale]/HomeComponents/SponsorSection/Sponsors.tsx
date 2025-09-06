@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
+import Star from "@/components/ui/decorations/star";
 import { Link } from "@/i18n/navigation";
 import SponsorsGrid from "../../sponsors/components/SponsorsGrid";
 
@@ -22,34 +23,35 @@ const Sponsors = () => {
                     alt=""
                 />
 
-                <Image
-                    src="/decoration/star.svg"
-                    className="absolute hidden rotate-[-110deg] transform md:left-[5rem] md:top-[3rem] md:block"
-                    width={120}
-                    height={120}
-                    alt=""
-                />
-                <Image
-                    src="/decoration/star-faded.svg"
-                    className="absolute hidden rotate-[30deg] transform md:left-[10rem] md:top-[7rem] md:block"
-                    width={63}
-                    height={63}
-                    alt=""
+                <Star
+                    variant="star"
+                    className="hidden md:left-[5rem] md:top-[3rem] md:block"
+                    rotate={-110}
+                    delay={1}
                 />
 
-                <Image
-                    src="/decoration/star.svg"
-                    className="absolute right-[14rem] hidden md:right-[10rem] md:top-[14rem] md:block"
-                    width={120}
-                    height={120}
-                    alt=""
+                <Star
+                    variant="star-faded"
+                    className="hidden md:left-[10rem] md:top-[7rem] md:block"
+                    rotate={30}
+                    width={63}
+                    height={63}
+                    delay={0.5}
                 />
-                <Image
-                    src="/decoration/star-faded.svg"
-                    className="absolute right-[2rem] top-[8rem] rotate-[30deg] transform md:right-[14rem] md:top-[13rem]"
+
+                <Star
+                    variant="star"
+                    className="right-[14rem] hidden md:right-[10rem] md:top-[14rem] md:block"
+                    delay={1}
+                />
+
+                <Star
+                    variant="star-faded"
+                    className="right-[2rem] top-[8rem] md:right-[14rem] md:top-[13rem]"
+                    rotate={30}
                     width={60}
                     height={60}
-                    alt=""
+                    delay={0.5}
                 />
             </div>
 

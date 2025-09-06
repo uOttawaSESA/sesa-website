@@ -1,4 +1,3 @@
-import Image from "next/image";
 import {
     Carousel,
     CarouselContent,
@@ -6,6 +5,7 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel";
+import Star from "@/components/ui/decorations/star";
 import { GoalCard } from "./GoalCard";
 import { goalsData } from "./GoalsData";
 
@@ -17,12 +17,10 @@ const Goals = () => {
                 {/* Warm gradient */}
                 <div className="fade-from-center-bg absolute left-1/2 top-1/2 h-[70rem] w-full -translate-x-1/2 -translate-y-1/2 bg-[#B1219D] bg-opacity-15 blur-sm md:w-[60vw]" />
 
-                <Image
-                    src="/decoration/star.svg"
-                    className="absolute hidden md:right-[10rem] md:top-[5rem] md:block"
-                    width={120}
-                    height={120}
-                    alt=""
+                <Star
+                    variant="star"
+                    className="hidden md:right-[10rem] md:top-[5rem] md:block"
+                    delay={1}
                 />
             </div>
             <Carousel className="w-full">
