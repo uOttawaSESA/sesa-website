@@ -8,6 +8,7 @@ import FadeInSection from "@/components/FadeInSection";
 import Metric from "@/components/Metric";
 import { TeamBadgeStack } from "@/components/TeamBadgeStack";
 import { Button } from "@/components/ui/button";
+import Star from "@/components/ui/decorations/star";
 import { Link } from "@/i18n/navigation";
 import TeamMembers from "./TeamMembers";
 import WhatWeDoCard from "./WhatWeDoCard";
@@ -70,6 +71,14 @@ export default function About() {
 
     return (
         <div className="min-h-screen text-white">
+            {/* Gradient */}
+            <div className="pointer-events-none absolute left-0 top-0 h-full w-full select-none">
+                {/* Light gradient */}
+                <div className="fade-from-left-bg absolute top-0 left-0 h-[70rem] w-[70vw] bg-blueviolet-100 bg-opacity-10 blur-sm" />
+                {/* Warm gradient */}
+                <div className="fade-from-left-bg absolute h-[90rem] top-[70rem] w-full bg-[#B1219D] bg-opacity-15 blur-sm md:w-[60vw]" />
+            </div>
+
             <div className="container relative mx-auto max-w-7xl px-4 py-8">
                 {/* Decorations */}
                 <div className="pointer-events-none absolute left-0 top-0 h-full w-full select-none">
@@ -80,26 +89,26 @@ export default function About() {
                         height={909}
                         alt=""
                     />
-                    <Image
-                        className="absolute right-[-6rem] top-[4rem] hidden h-[15rem] w-[15rem] md:block"
-                        src="/decoration/star.svg"
-                        width={196}
-                        height={197}
-                        alt=""
+                    <Star
+                        variant="star"
+                        className="absolute right-[1rem] top-[10rem] hidden md:block"
+                        width={170}
+                        height={170}
+                        delay={1}
                     />
-                    <Image
-                        className="absolute right-[-6rem] top-[12rem] h-[6rem] w-[6rem] rotate-[40deg]"
-                        src="/decoration/star-faded.svg"
+                    <Star
+                        variant="star-faded"
+                        className="absolute right-[0rem] top-[17rem]"
+                        rotate={40}
                         width={79}
                         height={80}
-                        alt=""
+                        delay={0.5}
                     />
-                    <Image
-                        className="absolute right-[23rem] top-[24rem] h-[8rem] w-[8rem] rotate-[-15deg]"
-                        src="/decoration/star.svg"
-                        width={196}
-                        height={197}
-                        alt=""
+                    <Star
+                        variant="star"
+                        className="absolute right-[27rem] top-[23rem]"
+                        rotate={-15}
+                        delay={1}
                     />
                 </div>
                 {/* Upper area */}
@@ -163,19 +172,20 @@ export default function About() {
                             height={822}
                             alt=""
                         />
-                        <Image
-                            className="absolute left-[12rem] top-[3rem] hidden h-[10rem] w-[10rem] rotate-[-15deg] md:block lg:left-[24rem]"
-                            src="/decoration/star.svg"
+                        <Star
+                            variant="star"
+                            className="absolute left-[12rem] top-[3rem] hidden md:block lg:left-[24rem]"
                             width={196}
                             height={197}
-                            alt=""
+                            delay={1}
                         />
-                        <Image
-                            className="absolute left-[4rem] top-[16rem] h-[6rem] w-[6rem] rotate-[5deg]"
-                            src="/decoration/star-faded.svg"
+                        <Star
+                            variant="star-faded"
+                            className="absolute left-[4rem] top-[16rem]"
+                            rotate={5}
                             width={79}
                             height={80}
-                            alt=""
+                            delay={0.5}
                         />
                     </div>
                     <FadeInSection>
@@ -232,19 +242,18 @@ export default function About() {
                 <div className="relative">
                     {/* Decorations */}
                     <div className="pointer-events-none absolute left-0 top-0 h-full w-full select-none">
-                        <Image
-                            className="absolute right-0 top-[8rem] h-[8rem] w-[8rem] rotate-[0deg] md:right-[10rem] md:top-[3rem]"
-                            src="/decoration/star.svg"
-                            width={196}
-                            height={197}
-                            alt=""
+                        <Star
+                            variant="star"
+                            className="absolute right-0 top-[8rem] md:right-[10rem] md:top-[3rem]"
+                            width={130}
+                            height={130}
+                            delay={1}
                         />
-                        <Image
-                            className="absolute right-[10rem] top-[8rem] h-[4rem] w-[4rem] rotate-[30deg]"
-                            src="/decoration/star-faded.svg"
-                            width={79}
-                            height={80}
-                            alt=""
+                        <Star
+                            variant="star-faded"
+                            className="absolute right-[10rem] top-[8rem]"
+                            rotate={30}
+                            delay={0.5}
                         />
                     </div>
                     <FadeInSection>
@@ -323,26 +332,40 @@ export default function About() {
                 <div className="relative">
                     {/* Decorations */}
                     <div className="pointer-events-none absolute left-0 top-0 h-full w-full select-none">
-                        <Image
-                            className="absolute left-[4rem] top-[-4rem] hidden h-[12rem] w-[12rem] rotate-[-15deg] lg:block"
-                            src="/decoration/star.svg"
-                            width={196}
-                            height={197}
-                            alt=""
+                        {/* Light gradient */}
+                        <div className="fade-from-center-bg relative top-[-10rem] left-[-10rem] h-[70rem] w-[70vw] bg-blueviolet-100 bg-opacity-15 blur-sm" />
+
+                        {/* Warm gradient */}
+                        <div className="fade-from-left-bg relative left-[-10rem] top-[-20rem] h-[90rem] w-full bg-[#B1219D] bg-opacity-15 blur-sm md:w-[60vw]" />
+
+                        {/* Warm gradient */}
+                        <div className="fade-from-center-bg relative left-1/2 top-[-20rem] h-[70rem] w-full -translate-x-1/2 bg-[#B1219D] bg-opacity-15 blur-sm md:w-[60vw]" />
+
+                        {/* Light gradient */}
+                        <div className="fade-from-left-bg relative top-[10rem] left-[-10rem] h-[100rem] w-[80vw] bg-blueviolet-100 bg-opacity-20 blur-sm" />
+
+                        <Star
+                            variant="star"
+                            className="absolute left-[4rem] top-[-4rem] hidden lg:block"
+                            rotate={-15}
+                            width={130}
+                            height={130}
+                            delay={1}
                         />
-                        <Image
-                            className="absolute left-[5rem] top-[3.5rem] h-[4rem] w-[4rem]"
-                            src="/decoration/star-faded.svg"
+                        <Star
+                            variant="star-faded"
+                            className="absolute left-[5rem] top-[3.5rem]"
+                            width={60}
+                            height={60}
+                            delay={0.5}
+                        />
+                        <Star
+                            variant="star-faded"
+                            className="absolute right-[2rem] top-[1rem]"
+                            rotate={30}
                             width={79}
                             height={80}
-                            alt=""
-                        />
-                        <Image
-                            className="absolute right-[2rem] top-[1rem] h-[7rem] w-[7rem] rotate-[30deg]"
-                            src="/decoration/star-faded.svg"
-                            width={79}
-                            height={80}
-                            alt=""
+                            delay={0.5}
                         />
                     </div>
                     <FadeInSection>
@@ -446,36 +469,40 @@ export default function About() {
                     </FadeInSection>
                 </div>
                 {/* Beyond SESA */}
-                <div className="relative">
+                <div className="relative mt-56">
                     {/* Decorations */}
                     <div className="pointer-events-none absolute left-0 top-0 h-full w-full select-none">
                         <Image
-                            className="fade-from-center-sponsorship-floor absolute left-0 right-0 z-[-1] me-auto ms-auto w-auto"
-                            src="/decoration/globe.svg"
+                            className="fade-from-center-bg absolute left-0 z-0 right-0 me-auto ms-auto w-auto opacity-60"
+                            src="/decoration/globe-sponsor-page.svg"
                             width={740}
                             height={741}
                             alt=""
                         />
-                        <Image
-                            className="absolute left-[4rem] top-[4rem] hidden h-[12rem] w-[12rem] rotate-[-15deg] lg:block"
-                            src="/decoration/star.svg"
-                            width={196}
-                            height={197}
-                            alt=""
+                        {/* Warm gradient */}
+                        <div className="fade-from-center-bg relative left-1/2 z-[-1] top-[-25rem] h-[100rem] w-full -translate-x-1/2 bg-[#B1219D] bg-opacity-15 blur-sm md:w-[100vw]" />
+
+                        <Star
+                            variant="star"
+                            className="absolute left-[4rem] top-[4rem] hidden lg:block"
+                            rotate={-15}
+                            width={130}
+                            height={130}
+                            delay={1}
                         />
-                        <Image
-                            className="absolute left-[10rem] top-[3rem] h-[6rem] w-[6rem] rotate-[15deg]"
-                            src="/decoration/star-faded.svg"
+                        <Star
+                            variant="star-faded"
+                            className="absolute left-[10rem] top-[3rem]"
+                            rotate={15}
+                            delay={0.5}
+                        />
+                        <Star
+                            variant="star-faded"
+                            className="absolute right-[15rem] top-[6.5rem]"
+                            rotate={25}
                             width={79}
                             height={80}
-                            alt=""
-                        />
-                        <Image
-                            className="absolute right-[15rem] top-[6.5rem] h-[7rem] w-[7rem] rotate-[25deg]"
-                            src="/decoration/star-faded.svg"
-                            width={79}
-                            height={80}
-                            alt=""
+                            delay={0.5}
                         />
                     </div>
                     <FadeInSection>
@@ -518,19 +545,23 @@ export default function About() {
             <div className="relative">
                 {/* Decorations */}
                 <div className="pointer-events-none absolute left-0 top-0 h-full w-full select-none">
-                    <Image
-                        className="absolute bottom-[-8rem] left-[35rem] hidden h-[12rem] w-[12rem] rotate-[-15deg] lg:block"
-                        src="/decoration/star.svg"
-                        width={196}
-                        height={197}
-                        alt=""
+                    {/* Light gradient */}
+                    <div className="fade-from-center-bg relative top-0 left-[10rem] h-[50rem] w-[70vw] bg-blueviolet-100 bg-opacity-10 blur-sm" />
+                    <Star
+                        variant="star"
+                        className="absolute bottom-[-5rem] left-[35rem] hidden lg:block"
+                        rotate={-15}
+                        width={130}
+                        height={130}
+                        delay={1}
                     />
-                    <Image
-                        className="absolute bottom-[-9rem] left-[43rem] hidden h-[6rem] w-[6rem] rotate-[20deg] lg:block"
-                        src="/decoration/star-faded.svg"
-                        width={79}
-                        height={80}
-                        alt=""
+                    <Star
+                        variant="star-faded"
+                        className="absolute bottom-[-7rem] left-[42rem] hidden lg:block"
+                        rotate={20}
+                        width={60}
+                        height={60}
+                        delay={0.5}
                     />
                 </div>
                 <FadeInSection>
