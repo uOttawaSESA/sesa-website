@@ -164,7 +164,7 @@ export default function About() {
                     {/* Decorations */}
                     <div className="pointer-events-none absolute left-0 top-0 h-full w-full select-none">
                         <Image
-                            className="fade-right-bottom absolute top-[-14rem] z-[-1] h-[55rem] w-[55rem] md:left-[-16rem]"
+                            className="fade-right-bottom absolute top-[20rem] left-[6rem] opacity-60 md:opacity-100 md:top-[-14rem] z-[-1] h-[55rem] w-[55rem] md:left-[-16rem]"
                             src="/decoration/disc.svg"
                             width={911}
                             height={822}
@@ -207,7 +207,7 @@ export default function About() {
                     {/* Figures */}
                     <FadeInSection>
                         <div className="flex justify-center md:mb-28">
-                            <div className="grid w-fit grid-cols-1 place-items-center gap-20 md:grid-cols-4">
+                            <div className="grid w-fit grid-cols-1 place-items-center gap-4 md:gap-20 md:grid-cols-4">
                                 <Metric
                                     className="!w-64 backdrop-blur-lg"
                                     figure="3500+"
@@ -259,7 +259,7 @@ export default function About() {
                             <p className="color-gradient font-mono text-xs md:text-base">
                                 {t("what_do_we_do")}
                             </p>
-                            <h2 className="whitespace-nowrap font-heading text-2xl uppercase md:text-3xl">
+                            <h2 className="font-heading text-2xl uppercase md:text-3xl">
                                 {t("what_do_we_do_heading")}{" "}
                                 <span className="highlight-text">
                                     {t("what_do_we_do_heading_hl")}
