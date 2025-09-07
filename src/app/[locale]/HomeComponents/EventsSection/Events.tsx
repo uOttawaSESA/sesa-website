@@ -1,5 +1,6 @@
+"use client";
+import { useQuery } from "@tanstack/react-query";
 import { useTranslations } from "next-intl";
-import { events } from "@/app/data/Events";
 import { Button } from "@/components/ui/button";
 import {
     Carousel,
@@ -9,10 +10,15 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Link } from "@/i18n/navigation";
+import { queryFn } from "@/schemas/events";
 import EventCard from "./EventCard";
 
 export default function Events() {
     const t = useTranslations("homepage");
+    const { data: events } = useQuery({
+        queryKey: ["eventsData"],
+        queryFn,
+    });
 
     return (
         <section className="space-y-4 ps-8 md:ps-20 xl:ps-32">
@@ -36,13 +42,13 @@ export default function Events() {
                     </div>
                 </div>
             </div>
-            {events.length === 0 && (
+            {events?.length && (
                 <Carousel className="w-full pe-8" opts={{ align: "start" }}>
                     <CarouselContent>
-                        {events.map((event, index) => (
+                        {events.map(event => (
                             <CarouselItem
                                 className="sm:basis-1/2 lg:basis-1/3 xl:basis-1/4"
-                                key={`event:${index}`}
+                                key={event.id}
                             >
                                 <EventCard event={event} />
                             </CarouselItem>

@@ -1,13 +1,10 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
-import { collection, getDocs } from "firebase/firestore";
 import Image from "next/image";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import * as z from "zod";
 import Pagination from "@/components/Pagination";
 import Star from "@/components/ui/decorations/star";
-import { db } from "@/lib/firebase";
-import { type Event, FirestoreEvent } from "@/schemas/events";
+import { type Event, queryFn } from "@/schemas/events";
 import EventFilters from "./EventFilters";
 import EventsList from "./EventsList";
 import Header from "./Header";
@@ -15,12 +12,7 @@ import Header from "./Header";
 const EventSection = () => {
     const { isPending, error, data } = useQuery({
         queryKey: ["eventsData"],
-        queryFn: async () => {
-            const docs = (await getDocs(collection(db, "Events"))).docs.map(doc => doc.data());
-            console.log(docs);
-            const validated = z.array(FirestoreEvent).parse(docs);
-            return validated;
-        },
+        queryFn,
     });
 
     const [isMobile, setIsMobile] = useState(false);

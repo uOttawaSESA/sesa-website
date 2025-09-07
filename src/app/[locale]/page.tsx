@@ -10,6 +10,7 @@ import Quotes from "./HomeComponents/QuotesSection/Quotes";
 import Resources from "./HomeComponents/ResourcesSection/Resources";
 import Sponsors from "./HomeComponents/SponsorSection/Sponsors";
 import Team from "./HomeComponents/TeamSection/Team";
+import Providers from "./providers";
 import type { Metadata } from "next";
 export const generateStaticParams = localeParams;
 
@@ -31,7 +32,9 @@ const Home = () => {
                 <Hero />
             </FadeInSection>
             <FadeInSection>
-                <Events />
+                <Providers>
+                    <Events />
+                </Providers>
             </FadeInSection>
             <FadeInSection>
                 <Goals />
