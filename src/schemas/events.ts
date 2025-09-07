@@ -3,6 +3,7 @@ import { isTimestamp, Localized } from "./common";
 import type { Timestamp } from "firebase/firestore";
 
 export const FirestoreEvent = z.object({
+    id: z.string("Expected a Firestore ID"),
     title: Localized,
     description: Localized,
     type: z.string("Expected an event type"),

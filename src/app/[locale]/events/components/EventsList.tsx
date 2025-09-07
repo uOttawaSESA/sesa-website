@@ -12,8 +12,8 @@ interface EventsListProps {
 const EventsList: React.FC<EventsListProps> = ({ events }) => {
     return (
         <div className="mt-12 flex justify-center space-y-8 md:block">
-            {events.map((event, index) => (
-                <FadeInSection key={index}>
+            {events.map(event => (
+                <FadeInSection key={event.id}>
                     <EventCard event={event} />
                 </FadeInSection>
             ))}
