@@ -26,11 +26,16 @@ export const FirestoreEvent = z.object({
 
 /** Query function to retrieve event data. */
 export const queryFn = async () => {
+    // Fetch from Firestore
     const docs = (await getDocs(collection(db, "Events"))).docs.map(doc => ({
         ...doc.data(),
         id: doc.id,
     }));
-    const validated = z.array(FirestoreEvent).parse(docs);
+    // Include only valid events
+    const validated = docs
+        .map(doc => FirestoreEvent.safeParse(doc))
+        .filter(doc => doc.success)
+        .map(doc => doc.data);
     return validated;
 };
 
