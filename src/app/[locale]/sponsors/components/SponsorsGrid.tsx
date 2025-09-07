@@ -4,15 +4,6 @@ import Image from "next/image";
 
 const sponsors = [
     {
-        name: "Ciena",
-        src: "/sponsors/ciena.webp",
-        alt: "Ciena",
-        width: 300,
-        height: 150,
-        size: "h-72 md:h-80",
-        link: "https://www.ciena.com/",
-    },
-    {
         name: "National Bank",
         src: "/sponsors/nationalbank.svg",
         alt: "National Bank",
@@ -21,6 +12,16 @@ const sponsors = [
         size: "h-72 md:h-80",
         link: "https://www.nbc.ca/",
     },
+    {
+        name: "Ciena",
+        src: "/sponsors/ciena.webp",
+        alt: "Ciena",
+        width: 300,
+        height: 150,
+        size: "h-72 md:h-80",
+        link: "https://www.ciena.com/",
+    },
+
     {
         name: "Warp",
         src: "/sponsors/warp.svg",
@@ -76,22 +77,6 @@ const SponsorsGrid = () => {
                             className="object-contain"
                         />
                     </a>
-
-                    <a
-                        href={sponsors[1].link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`flex items-center justify-center rounded-lg p-10 ${sponsors[1].size} ${gradientBorderClass} w-full backdrop-blur-lg transition hover:scale-105`}
-                        title={sponsors[1].name}
-                    >
-                        <Image
-                            src={sponsors[1].src}
-                            alt={sponsors[1].alt}
-                            width={sponsors[1].width}
-                            height={sponsors[1].height}
-                            className="object-contain"
-                        />
-                    </a>
                 </div>
                 {/* Mobile: stack all sponsors vertically */}
                 <div className="flex flex-col gap-8 md:hidden">
@@ -114,15 +99,37 @@ const SponsorsGrid = () => {
                         </a>
                     ))}
                 </div>
-                {/* Desktop: smaller sponsors in a row at the bottom */}
-                <div className="hidden flex-row justify-center gap-8 md:flex">
-                    {sponsors.slice(2).map((sponsor, index) => (
+                {/* Desktop: row 2 (Ciena + Warp) */}
+                <div className="hidden w-full flex-row gap-8 md:flex">
+                    {sponsors.slice(1, 3).map((sponsor, index) => (
                         <a
                             key={index}
                             href={sponsor.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`flex items-center justify-center rounded-lg p-10 ${sponsor.size} ${gradientBorderClass} backdrop-blur-lg transition hover:scale-105`}
+                            className={`flex flex-1 items-center justify-center rounded-lg p-10 ${sponsor.size} ${gradientBorderClass} backdrop-blur-lg transition hover:scale-105`}
+                            title={sponsor.name}
+                        >
+                            <Image
+                                src={sponsor.src}
+                                alt={sponsor.alt}
+                                width={sponsor.width}
+                                height={sponsor.height}
+                                className="object-contain"
+                            />
+                        </a>
+                    ))}
+                </div>
+
+                {/* Desktop: row 3 (CSE + Amazon) */}
+                <div className="hidden w-full flex-row gap-8 md:flex">
+                    {sponsors.slice(3).map((sponsor, index) => (
+                        <a
+                            key={index}
+                            href={sponsor.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`flex flex-1 items-center justify-center rounded-lg p-10 ${sponsor.size} ${gradientBorderClass} backdrop-blur-lg transition hover:scale-105`}
                             title={sponsor.name}
                         >
                             <Image
