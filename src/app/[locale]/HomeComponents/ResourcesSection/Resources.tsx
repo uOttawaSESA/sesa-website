@@ -6,13 +6,13 @@ import Marquee from "react-fast-marquee";
 import ComingSoonMessage from "@/components/ComingSoonMessage";
 import { Button } from "@/components/ui/button";
 import Star from "@/components/ui/decorations/star";
-import { useResources } from "@/hooks/useResources";
 import { Link } from "@/i18n/navigation";
+import { useResources } from "@/lib/query";
 import ResourceCard from "../../resources/components/ResourceCard/ResourceCard";
 
 const Resources = () => {
     const t = useTranslations("homepage");
-    const { resources } = useResources();
+    const { data: resources } = useResources();
 
     return (
         <section className="relative my-10 mb-0 flex w-full flex-col gap-4 text-white md:mb-20">
@@ -38,7 +38,7 @@ const Resources = () => {
 
                 <Image
                     src="/decoration/waves.svg"
-                    className={`fade-from-top-bottom-bg absolute left-1/2 hidden w-11/12 -translate-x-1/2 transform md:bottom-[4rem] md:block md:w-max ${resources.length === 0 ? "hidden" : ""}`}
+                    className={`fade-from-top-bottom-bg absolute left-1/2 hidden w-11/12 -translate-x-1/2 transform md:bottom-[4rem] md:block md:w-max ${resources && resources.length === 0 ? "hidden" : ""}`}
                     width={1200}
                     height={280}
                     alt=""
@@ -72,7 +72,7 @@ const Resources = () => {
                 </p>
             </div>
             {/* Carousel */}
-            {resources.length > 0 ? (
+            {resources && resources.length !== 0 ? (
                 <Marquee pauseOnHover>
                     <div className="flex flex-col gap-4">
                         {/* Two rows with gap */}

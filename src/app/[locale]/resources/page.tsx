@@ -3,6 +3,7 @@ import Image from "next/image";
 import localeParams from "@/app/data/locales";
 import { resources } from "@/app/data/Resources";
 import FadeInSection from "@/components/FadeInSection";
+import Providers from "../providers";
 import FooterSection from "./components/FooterSection";
 import Header from "./components/Header";
 import ResourceSection from "./components/ResourceSection";
@@ -49,7 +50,9 @@ const Resources = () => {
                     <Header />
                 </FadeInSection>
                 <FadeInSection>
-                    <ResourceSection />
+                    <Providers>
+                        <ResourceSection />
+                    </Providers>
                 </FadeInSection>
             </div>
 

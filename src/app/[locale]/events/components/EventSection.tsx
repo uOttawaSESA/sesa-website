@@ -1,22 +1,19 @@
 "use client";
-import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Pagination from "@/components/Pagination";
 import Star from "@/components/ui/decorations/star";
-import { type Event, queryFn } from "@/schemas/events";
+import { useEvents } from "@/lib/query";
 import EventFilters from "./EventFilters";
 import EventsList from "./EventsList";
 import Header from "./Header";
+import type { Event } from "@/schemas/events";
 
 const EventSection = () => {
     const t = useTranslations("events");
 
-    const { isPending, error, data } = useQuery({
-        queryKey: ["eventsData"],
-        queryFn,
-    });
+    const { isPending, error, data } = useEvents();
 
     const [isMobile, setIsMobile] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
