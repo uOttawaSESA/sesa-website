@@ -12,6 +12,67 @@ interface EventCardProps {
     event: Event;
 }
 
+/**
+ * Escape text as required by the iCalendar format.
+ * @param text Text to escape.
+ */
+function escapeCalendarText(text: string): string {
+    return text
+        .replace(/\\/g, "\\\\") // escape backslashes first
+        .replace(/;/g, "\\;") // escape semicolons
+        .replace(/,/g, "\\,") // escape commas
+        .replace(/\r?\n/g, "\\n"); // escape newlines
+}
+
+/**
+ * Convert a JS date to an iCalendar UTC date.
+ * @param date Date to convert.
+ */
+function dateToCalendar(date: Date): string {
+    const pad = (num: number) => String(num).padStart(2, "0");
+
+    const year = date.getUTCFullYear();
+    const month = pad(date.getUTCMonth() + 1); // months are 0-indexed
+    const day = pad(date.getUTCDate());
+    const hours = pad(date.getUTCHours());
+    const minutes = pad(date.getUTCMinutes());
+    const seconds = pad(date.getUTCSeconds());
+
+    return `${year}${month}${day}T${hours}${minutes}${seconds}Z`;
+}
+
+/**
+ * Generates an iCalendar file from event data.
+ * @param event Event to use.
+ * @param locale Locale to use for localized event data.
+ */
+function generateCalendarFile(event: Event, locale: "en" | "fr"): string {
+    let eventStr = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//SESA//${escapeCalendarText(event.title[locale])}//${locale.toUpperCase()}
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:${escapeCalendarText(event.id)}@sesa-aegl.ca
+SUMMARY:${escapeCalendarText(event.title[locale])}
+DESCRIPTION:${escapeCalendarText(event.description[locale])}
+DTSTART:${dateToCalendar(event.startTime)}
+DTEND:${dateToCalendar(event.endTime)}
+`;
+
+    if (event.location) eventStr += `LOCATION:${escapeCalendarText(event.location)}\n`;
+
+    eventStr += `STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+END:VCALENDAR`;
+
+    return eventStr;
+}
+
 export const EventCard = ({ event }: EventCardProps) => {
     const t = useTranslations("events");
     const tType = useTranslations("events.event_type");
@@ -48,9 +109,18 @@ export const EventCard = ({ event }: EventCardProps) => {
 
     // Handle "Add to Calendar" action
     const handleAddToCalendar = () => {
-        if (!isPastEvent) {
-            // Logic to add the event to the calendar
-        }
+        // Create ICS file
+        const eventStr = generateCalendarFile(event, lang);
+        const file = new Blob([eventStr], { type: "text/calendar;charset=utf-8" });
+        const url = URL.createObjectURL(file);
+
+        // Trigger download
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `${event.title[lang]}.ics`;
+        a.click();
+
+        URL.revokeObjectURL(url);
     };
 
     // Handle "Show More" toggle
