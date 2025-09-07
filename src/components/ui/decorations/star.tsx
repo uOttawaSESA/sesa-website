@@ -12,6 +12,7 @@ interface StarProps {
     width?: number; // override width
     height?: number; // override height
     rotate?: number; // rotation in degrees
+    showMobile?: boolean; // whether to show on mobile (default: false)
 }
 
 const STAR_CONFIG: Record<StarVariant, { src: string; width: number; height: number }> = {
@@ -19,12 +20,22 @@ const STAR_CONFIG: Record<StarVariant, { src: string; width: number; height: num
     "star-faded": { src: "/decoration/star-faded.svg", width: 50, height: 50 },
 };
 
-const Star = ({ variant, className = "", delay = 0, width, height, rotate = 0 }: StarProps) => {
+const Star = ({
+    variant,
+    className = "",
+    delay = 0,
+    width,
+    height,
+    rotate = 0,
+    showMobile = false,
+}: StarProps) => {
     const { src, width: defaultWidth, height: defaultHeight } = STAR_CONFIG[variant];
 
     return (
         <div
-            className={`absolute pointer-events-none select-none hidden md:block transform-gpu will-change-transform ${className}`}
+            className={`absolute pointer-events-none select-none transform-gpu will-change-transform ${
+                showMobile ? "block" : "hidden md:block"
+            } ${className}`}
             style={{
                 backfaceVisibility: "hidden",
                 transform: `rotate(${rotate}deg)`,

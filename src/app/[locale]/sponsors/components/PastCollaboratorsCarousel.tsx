@@ -26,7 +26,7 @@ const PastCollaboratorsCarousel = () => {
             <div className="pointer-events-none absolute inset-0 z-0">
                 <Star
                     variant="star"
-                    className="absolute left-[15rem] top-0 hidden md:block"
+                    className="absolute md:left-[15rem] md:top-0"
                     rotate={-110}
                     width={125}
                     height={128}
@@ -34,11 +34,12 @@ const PastCollaboratorsCarousel = () => {
                 />
                 <Star
                     variant="star-faded"
-                    className="absolute right-[20rem] md:bottom-0 md:right-[16rem]"
+                    className="absolute right-[18rem] md:bottom-0 md:right-[16rem]"
                     rotate={30}
                     width={75}
                     height={75}
                     delay={0.5}
+                    showMobile={true}
                 />
                 <Image
                     src="/decoration/globe-sponsor-page.svg"

@@ -26,7 +26,7 @@ const PartnerWithUs = () => {
 
                 <Star
                     variant="star-faded"
-                    className="absolute left-[4rem] top-[10rem] md:left-[10rem] md:top-[-5rem]"
+                    className="absolute md:left-[10rem] md:top-[-5rem]"
                     rotate={30}
                     width={75}
                     height={75}
@@ -34,7 +34,7 @@ const PartnerWithUs = () => {
                 />
                 <Star
                     variant="star"
-                    className="absolute left-[4rem] top-[-9rem] hidden md:block"
+                    className="absolute hidden md:block"
                     rotate={-110}
                     width={125}
                     height={128}
@@ -42,11 +42,12 @@ const PartnerWithUs = () => {
                 />
                 <Star
                     variant="star-faded"
-                    className="absolute left-[4rem] top-[45rem] md:left-[30rem] md:top-[30rem] 2xl:left-[40rem] 2xl:top-[40rem]"
+                    className="absolute left-[17rem] top-[45rem] md:left-[30rem] md:top-[30rem] 2xl:left-[40rem] 2xl:top-[40rem]"
                     rotate={30}
                     width={75}
                     height={75}
                     delay={0.5}
+                    showMobile={true}
                 />
             </div>
 

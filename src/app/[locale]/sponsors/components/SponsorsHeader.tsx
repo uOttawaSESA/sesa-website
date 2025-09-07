@@ -29,11 +29,12 @@ const SponsorsHeader = ({
 
                 <Star
                     variant="star-faded"
-                    className="absolute right-[20rem] top-[8rem] md:right-[13rem] md:top-[21rem]"
+                    className="absolute right-[20rem] top-[-2rem] md:right-[13rem] md:top-[21rem]"
                     rotate={30}
                     width={55}
                     height={55}
                     delay={0.5}
+                    showMobile={true}
                 />
 
                 <Star
