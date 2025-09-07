@@ -17,6 +17,7 @@ const Header = () => {
                     {t("stay_up_to_date_blurb")}
                 </p>
 
+                {/*
                 <Button
                     className="font-heading uppercase md:mx-8"
                     onClick={() => {
@@ -30,6 +31,7 @@ const Header = () => {
                     <p>{t("subscribe_info_line1")}</p>
                     <p>{t("subscribe_info_line2")}</p>
                 </div>
+                */}
             </div>
         </div>
     );
