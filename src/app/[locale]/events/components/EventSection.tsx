@@ -1,21 +1,74 @@
 "use client";
+import { useQuery } from "@tanstack/react-query";
+import { collection, getDocs } from "firebase/firestore";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { events } from "@/app/data/Events";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import * as z from "zod";
 import Pagination from "@/components/Pagination";
 import Star from "@/components/ui/decorations/star";
+import { db } from "@/lib/firebase";
+import { type Event, FirestoreEvent } from "@/schemas/events";
 import EventFilters from "./EventFilters";
 import EventsList from "./EventsList";
 import Header from "./Header";
 
-const parseEventDate = (date: Date): Date => {
-    return date;
-};
-
 const EventSection = () => {
-    const [filteredEvents, setFilteredEvents] = useState(events);
+    const { isPending, error, data } = useQuery({
+        queryKey: ["eventsData"],
+        queryFn: async () => {
+            const docs = (await getDocs(collection(db, "Events"))).docs.map(doc => doc.data());
+            console.log(docs);
+            const validated = z.array(FirestoreEvent).parse(docs);
+            return validated;
+        },
+    });
+
     const [isMobile, setIsMobile] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
+    const [typeFilter, setTypeFilter] = useState("all");
+    const [timeFilter, setTimeFilter] = useState<string | undefined>();
+
+    const today = useMemo(() => new Date(), []);
+
+    /**
+     * An argument that can be passed to {@link Array#filter} to exclude events by type.
+     */
+    const typeFilterPredicate = useCallback(
+        (event: Event) => {
+            if (typeFilter === "all") return true;
+            return event.type === typeFilter;
+        },
+        [typeFilter],
+    );
+
+    /**
+     * An argument that can be passed to {@link Array#filter} to exclude events by time.
+     */
+    const timeFilterPredicate = useCallback(
+        (event: Event) => {
+            switch (timeFilter) {
+                case "past":
+                    return event.startTime < today;
+                case "today":
+                    return (
+                        event.startTime.getDate() === today.getDate() &&
+                        event.startTime.getMonth() === today.getMonth() &&
+                        event.startTime.getFullYear() === today.getFullYear()
+                    );
+                case "upcoming":
+                    return event.startTime > today;
+                default:
+                    return true;
+            }
+        },
+        [timeFilter, today],
+    );
+
+    /** A filtered copy of the available events. */
+    const filteredEvents = useMemo(() => {
+        if (!data) return [];
+        return data.filter(typeFilterPredicate).filter(timeFilterPredicate);
+    }, [data, typeFilterPredicate, timeFilterPredicate]);
 
     // Check if device is mobile
     useEffect(() => {
@@ -35,50 +88,6 @@ const EventSection = () => {
 
     const eventsPerPage = isMobile ? 1 : 3;
 
-    const handleFilterChange = (filter: string) => {
-        setCurrentPage(1);
-        if (filter === "all") {
-            setFilteredEvents(events);
-        } else {
-            const filtered = events.filter(event => {
-                // Convert event type to lowercase for comparison
-                const eventTypeLower = event.type.en.toLowerCase();
-                return eventTypeLower === filter;
-            });
-            setFilteredEvents(filtered);
-        }
-    };
-
-    const handleTimeFilterChange = (filter: string) => {
-        setCurrentPage(1);
-        const currentDate = new Date();
-        let filtered = events;
-
-        switch (filter) {
-            case "past":
-                filtered = events.filter(event => parseEventDate(event.date) < currentDate);
-                break;
-            case "today":
-                filtered = events.filter(event => {
-                    const eventDate = parseEventDate(event.date);
-                    return (
-                        eventDate.getDate() === currentDate.getDate() &&
-                        eventDate.getMonth() === currentDate.getMonth() &&
-                        eventDate.getFullYear() === currentDate.getFullYear()
-                    );
-                });
-                break;
-            case "upcoming":
-                filtered = events.filter(event => parseEventDate(event.date) > currentDate);
-                break;
-            default:
-                filtered = events;
-                break;
-        }
-
-        setFilteredEvents(filtered);
-    };
-
     const indexOfLastEvent = currentPage * eventsPerPage;
     const indexOfFirstEvent = indexOfLastEvent - eventsPerPage;
     const currentEvents = filteredEvents.slice(indexOfFirstEvent, indexOfLastEvent);
@@ -88,10 +97,7 @@ const EventSection = () => {
     return (
         <div className="relative mx-auto flex max-w-7xl flex-col justify-center">
             <Header />
-            <EventFilters
-                onFilterChange={handleFilterChange}
-                onTimeFilterChange={handleTimeFilterChange}
-            />
+            <EventFilters onFilterChange={setTypeFilter} onTimeFilterChange={setTimeFilter} />
 
             {filteredEvents.length === 0 ? (
                 <div className="z-10 mt-10 flex h-[calc(100vh-200px)] items-start justify-center md:items-center">

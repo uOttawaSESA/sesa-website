@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import type { Event } from "../../../types/Event";
+import type { Event } from "@/schemas/events";
 
 interface EventCardProps {
     event: Event;
@@ -25,11 +25,11 @@ export const EventCard = ({ event }: EventCardProps) => {
     const type = event.type[lang];
     const description = event.description[lang];
 
-    const isPastEvent = event.date < new Date();
+    const isPastEvent = event.startTime < new Date();
 
-    const formattedDate = format(event.date, "MMM dd, yyyy");
-    const day = format(event.date, "dd");
-    const dayOfWeek = format(event.date, "EEE").toUpperCase();
+    const formattedDate = format(event.startTime, "MMM dd, yyyy");
+    const day = format(event.startTime, "dd");
+    const dayOfWeek = format(event.startTime, "EEE").toUpperCase();
     const timeRange = `${format(event.startTime, "ha")} - ${format(event.endTime, "ha")}`;
 
     // Handle registration

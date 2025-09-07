@@ -3,7 +3,7 @@
 import FadeInSection from "@/components/FadeInSection";
 import EventCard from "./EventCard";
 import type React from "react";
-import type { Event } from "../../../types/Event";
+import type { Event } from "@/schemas/events";
 
 interface EventsListProps {
     events: Event[];
