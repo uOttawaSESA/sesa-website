@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { TeamBadgeStack } from "@/components/TeamBadgeStack";
 import { Button } from "@/components/ui/button";
+import Star from "@/components/ui/decorations/star";
 import { Link } from "@/i18n/navigation";
 
 const PartnerWithUs = () => {
@@ -23,26 +24,29 @@ const PartnerWithUs = () => {
                 {/* Light gradient */}
                 <div className="fade-from-left-bg absolute h-[70rem] w-[60vw] bg-blueviolet-100 opacity-15 blur-sm md:bottom-[-20rem] md:h-[100rem]" />
 
-                <Image
-                    src="/decoration/star-faded.svg"
-                    className="absolute right-[4rem] top-[10rem] rotate-[30deg] transform md:left-[10rem] md:top-[-5rem]"
+                <Star
+                    variant="star-faded"
+                    className="absolute left-[4rem] top-[10rem] md:left-[10rem] md:top-[-5rem]"
+                    rotate={30}
                     width={75}
                     height={75}
-                    alt=""
+                    delay={0.5}
                 />
-                <Image
-                    src="/decoration/star.svg"
-                    className="absolute left-[4rem] top-[-9rem] hidden rotate-[-110deg] transform md:block"
+                <Star
+                    variant="star"
+                    className="absolute left-[4rem] top-[-9rem] hidden md:block"
+                    rotate={-110}
                     width={125}
                     height={128}
-                    alt=""
+                    delay={1}
                 />
-                <Image
-                    src="/decoration/star-faded.svg"
-                    className="absolute right-[4rem] top-[45rem] rotate-[30deg] md:left-[30rem] md:top-[30rem] 2xl:left-[40rem] 2xl:top-[40rem]"
+                <Star
+                    variant="star-faded"
+                    className="absolute left-[4rem] top-[45rem] md:left-[30rem] md:top-[30rem] 2xl:left-[40rem] 2xl:top-[40rem]"
+                    rotate={30}
                     width={75}
                     height={75}
-                    alt=""
+                    delay={0.5}
                 />
             </div>
 

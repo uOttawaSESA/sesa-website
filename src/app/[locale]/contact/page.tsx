@@ -2,6 +2,7 @@ import Image from "next/image";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
 import FadeInSection from "@/components/FadeInSection";
+import Star from "@/components/ui/decorations/star";
 import ContactDetails from "./components/ContactDetails";
 import ContactForm from "./components/ContactForm";
 import type { Metadata } from "next";
@@ -26,27 +27,29 @@ export const metadata: Metadata = {
 
 const Contact: React.FC = () => {
     return (
-        <div className="relative min-h-screen">
+        <div className="relative min-h-screen mb-20">
             {/* Decorations */}
-            <div className="pointer-events-none absolute inset-0">
+            <div className="absolute pointer-events-none">
                 {/* Light gradient */}
                 <div className="fade-from-left-bg absolute -top-10 hidden h-[110vh] w-[90vw] bg-blueviolet-100 bg-opacity-20 blur-sm md:block" />
 
-                <Image
-                    src="/decoration/star-faded.svg"
-                    className="absolute bottom-[60rem] right-10 rotate-[22deg] transform opacity-60 md:bottom-[32vh] md:left-[33vw] md:block 2xl:bottom-[40vh] 2xl:left-[20vw]"
+                <Star
+                    variant="star"
+                    className="absolute bottom-[60rem] md:bottom-[32vh] md:left-[33vw] 2xl:bottom-[40vh] 2xl:left-[20vw]"
                     width={55}
                     height={55}
-                    alt=""
+                    delay={0.5}
                 />
 
-                <Image
-                    src="/decoration/star.svg"
-                    className="absolute hidden rotate-[-10deg] opacity-70 md:left-[25rem] md:top-[35rem] md:block md:h-max md:opacity-100"
+                <Star
+                    variant="star"
+                    className="absolute md:left-[25rem] md:top-[35rem] md:h-max"
+                    rotate={-10}
                     width={120}
                     height={120}
-                    alt=""
+                    delay={1}
                 />
+
                 <div className="relative -bottom-[58rem] h-[60%] overflow-hidden md:-bottom-[30rem] md:left-0 md:block">
                     <Image
                         src="/decoration/globe.svg"

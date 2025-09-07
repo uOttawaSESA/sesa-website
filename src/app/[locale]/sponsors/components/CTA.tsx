@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
+import Star from "@/components/ui/decorations/star";
 import { Link } from "@/i18n/navigation";
 
 export default function CTA() {
@@ -18,21 +19,25 @@ export default function CTA() {
                     height={430}
                     alt=""
                 />
-                <Image
-                    src="/decoration/star-faded.svg"
-                    className="absolute right-[4rem] top-[10rem] rotate-[30deg] transform md:right-[10rem] md:top-[12rem]"
+
+                <Star
+                    variant="star-faded"
+                    className="absolute right-[4rem] top-[10rem] md:right-[10rem] md:top-[12rem]"
+                    rotate={30}
                     width={55}
                     height={55}
-                    alt=""
+                    delay={0.5}
                 />
-                <Image
-                    src="/decoration/star.svg"
+
+                <Star
+                    variant="star"
                     className="absolute right-[11rem] top-[7rem] hidden md:block"
                     width={125}
                     height={128}
-                    alt=""
+                    delay={1}
                 />
             </div>
+
             <div className="flex flex-col items-center justify-center gap-5 md:flex-row md:flex-wrap md:gap-8">
                 <p className="text-center font-heading text-sm uppercase text-white md:text-lg">
                     {t("cta_heading")}

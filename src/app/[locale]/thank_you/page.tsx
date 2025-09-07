@@ -2,6 +2,7 @@ import Image from "next/image";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
 import { Button } from "@/components/ui/button";
+import Star from "@/components/ui/decorations/star";
 import { Link } from "@/i18n/navigation";
 import type { Metadata } from "next";
 export const generateStaticParams = localeParams;
@@ -25,27 +26,30 @@ export const metadata: Metadata = {
 
 const ThankYou = () => {
     return (
-        <div className="flex min-h-[85vh] flex-col items-center justify-center px-4 py-24 text-center">
+        <div className="flex min-h-[85vh] flex-col items-center justify-center px-4 py-24 text-center mb-56 md:mb-32 2xl:mb-20">
             {/* Decorations */}
             <div className="pointer-events-none absolute inset-0">
                 {/* Light gradient */}
                 <div className="fade-from-left-bg absolute -top-10 hidden h-[110vh] w-[90vw] bg-blueviolet-100 bg-opacity-20 blur-sm md:block" />
 
-                <Image
-                    src="/decoration/star-faded.svg"
-                    className="absolute bottom-[60rem] right-10 rotate-[22deg] transform opacity-60 md:bottom-[32vh] md:left-[27vw] md:block 2xl:bottom-[40vh] 2xl:left-[20vw]"
+                <Star
+                    variant="star-faded"
+                    className="absolute 2xl:bottom-[40vh] 2xl:left-[20vw] md:bottom-[20vh] md:left-[33vw] bottom-[60rem]"
+                    rotate={22}
                     width={55}
                     height={55}
-                    alt=""
+                    delay={0.5}
                 />
 
-                <Image
-                    src="/decoration/star.svg"
-                    className="absolute hidden rotate-[-10deg] opacity-70 md:left-[25rem] md:top-[35rem] md:block md:h-max md:opacity-100"
+                <Star
+                    variant="star"
+                    className="absolute hidden md:left-[25rem] md:top-[35rem] md:block md:h-max"
+                    rotate={-10}
                     width={120}
                     height={120}
-                    alt=""
+                    delay={1}
                 />
+
                 <div className="relative -bottom-[35rem] h-[60%] overflow-hidden md:-bottom-[30rem] md:left-0 md:block">
                     <Image
                         src="/decoration/globe.svg"
@@ -74,11 +78,9 @@ const ThankYou = () => {
             </p>
             <div className="mb-12 flex flex-col justify-center gap-4 text-white sm:flex-row">
                 <Button asChild>
-                    <Link href="/sponsors">
-                        Browse Sponsors <span className="text-white">{`>`}</span>
-                    </Link>
+                    <Link href="/sponsors">Browse Sponsors</Link>
                 </Button>
-                <Button variant="outline">
+                <Button variant="outline" asChild>
                     <Link href="/">Back to Home</Link>
                 </Button>
             </div>

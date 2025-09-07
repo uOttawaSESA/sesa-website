@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import Star from "@/components/ui/decorations/star";
 import { Link } from "@/i18n/navigation";
 
 interface SponsorsHeaderProps {
@@ -26,26 +27,30 @@ const SponsorsHeader = ({
                 {/* Warm gradient */}
                 <div className="fade-from-center-bg absolute right-0 top-0 h-[120rem] w-full bg-[#B1219D] bg-opacity-15 blur-3xl md:w-[80vw]" />
 
-                <Image
-                    src="/decoration/star-faded.svg"
-                    className="absolute right-[20rem] top-[8rem] rotate-[30deg] transform md:right-[16rem] md:top-[21rem]"
+                <Star
+                    variant="star-faded"
+                    className="absolute right-[20rem] top-[8rem] md:right-[13rem] md:top-[21rem]"
+                    rotate={30}
                     width={55}
                     height={55}
-                    alt=""
+                    delay={0.5}
                 />
-                <Image
-                    src="/decoration/star.svg"
-                    className="absolute right-[11rem] top-[22rem] hidden md:block"
+
+                <Star
+                    variant="star"
+                    className="absolute right-[8rem] top-[22rem] hidden md:block"
                     width={125}
                     height={128}
-                    alt=""
+                    delay={1}
                 />
-                <Image
-                    src="/decoration/star.svg"
-                    className="absolute left-[15rem] top-[0rem] hidden rotate-[-110deg] transform md:top-[0rem] md:block"
+
+                <Star
+                    variant="star"
+                    className="absolute left-[15rem] top-0 hidden md:block"
+                    rotate={-110}
                     width={125}
                     height={128}
-                    alt=""
+                    delay={1}
                 />
 
                 <Image

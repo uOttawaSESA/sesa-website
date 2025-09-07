@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import Marquee from "react-fast-marquee";
+import Star from "@/components/ui/decorations/star";
 
 const gradientBorderClass = `
   border-[1px] border-solid
@@ -23,28 +24,31 @@ const PastCollaboratorsCarousel = () => {
         <div className="relative flex flex-col items-center justify-center overflow-hidden py-24 text-center md:py-32">
             {/* Decorations */}
             <div className="pointer-events-none absolute inset-0 z-0">
-                <Image
-                    src="/decoration/star.svg"
-                    className="absolute left-[15rem] top-0 hidden rotate-[-110deg] transform md:block"
+                <Star
+                    variant="star"
+                    className="absolute left-[15rem] top-0 hidden md:block"
+                    rotate={-110}
                     width={125}
                     height={128}
-                    alt=""
+                    delay={1}
                 />
-                <Image
-                    src="/decoration/star-faded.svg"
-                    className="absolute right-[20rem] rotate-[30deg] transform md:bottom-0 md:right-[16rem]"
+                <Star
+                    variant="star-faded"
+                    className="absolute right-[20rem] md:bottom-0 md:right-[16rem]"
+                    rotate={30}
                     width={75}
                     height={75}
-                    alt=""
+                    delay={0.5}
                 />
                 <Image
-                    src="/decoration/globe.svg"
+                    src="/decoration/globe-sponsor-page.svg"
                     className="fade-from-center-sponsorship-floor absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform opacity-40 md:opacity-60"
                     width={520}
                     height={520}
                     alt="Globe Decoration"
                 />
             </div>
+
             {/* Header content */}
             <div className="z-20 flex flex-col items-center space-y-3 px-5">
                 <p className="relative inline-block !bg-clip-text font-mono text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)] md:text-base">

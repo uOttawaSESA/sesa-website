@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
+import Star from "@/components/ui/decorations/star";
 import { Link } from "@/i18n/navigation";
 import type React from "react";
 
@@ -14,28 +15,33 @@ const FooterSection: React.FC = () => {
                 {/* Light gradient */}
                 <div className="fade-from-center-bg absolute right-[5rem] top-[6rem] hidden h-[80rem] w-[100vw] bg-blueviolet-100 bg-opacity-25 blur-3xl backdrop-blur-2xl md:block" />
 
-                <Image
-                    src="/decoration/star.svg"
-                    className="absolute left-[14rem] hidden rotate-[-110deg] transform md:left-[25rem] md:top-[55rem] md:block"
-                    width={120}
-                    height={120}
-                    alt=""
+                <Star
+                    variant="star"
+                    className="absolute left-[14rem] hidden md:left-[25rem] md:top-[58rem] md:block"
+                    rotate={-110}
+                    width={100}
+                    height={100}
+                    delay={1}
                 />
-                <Image
-                    src="/decoration/star.svg"
+
+                <Star
+                    variant="star"
                     className="absolute right-[14rem] hidden md:right-[10rem] md:top-[14rem] md:block"
                     width={120}
                     height={120}
-                    alt=""
+                    delay={1}
                 />
-                <Image
-                    src="/decoration/star-faded.svg"
-                    className="absolute right-[2rem] top-[29rem] rotate-[30deg] transform md:right-[9rem] md:top-[19rem]"
+
+                <Star
+                    variant="star-faded"
+                    className="absolute right-[2rem] top-[29rem] md:right-[9rem] md:top-[19rem]"
+                    rotate={30}
                     width={63}
                     height={63}
-                    alt=""
+                    delay={0.5}
                 />
             </div>
+
             {/* CTA Section */}
             <div className="mt-5 flex flex-col items-center justify-center md:mt-16 md:flex-row md:gap-6">
                 <div className="flex flex-col items-center text-center">
@@ -57,7 +63,7 @@ const FooterSection: React.FC = () => {
             </div>
 
             {/* Ange quote section */}
-            <div className="my-20 flex flex-col-reverse items-center justify-start gap-12 align-middle md:my-36 md:h-[45rem] md:flex-row 2xl:gap-20">
+            <div className="my-20 flex flex-col-reverse items-center justify-start gap-12 align-middle md:my-36 md:h-[45rem] md:flex-row 2xl:gap-32">
                 {/* Grid Gradient Back */}
                 <div className="grid-overlay-left md:h-[43.93rem] md:w-[53vw] 2xl:w-[45vw]"></div>
 
