@@ -61,7 +61,7 @@ const TestimonialsCarousel = () => {
         <div className="my-20 flex flex-col justify-start gap-12 px-4 md:my-36 md:px-0 2xl:mb-48">
             <div className="flex flex-col items-center justify-start gap-12 md:h-[45rem] md:flex-row md:items-center 2xl:gap-20">
                 {/* Background Overlay (desktop only) */}
-                <div className="grid-overlay-left hidden md:block md:h-[43.93rem] md:w-[53vw] 2xl:w-[45vw]"></div>
+                <div className="grid-overlay-left hidden md:block md:h-[43.93rem] md:w-[53vw] 2xl:w-[36vw]"></div>
 
                 {/* Sponsor Image - STATIC */}
                 <div className="relative z-10 flex-shrink-0">
