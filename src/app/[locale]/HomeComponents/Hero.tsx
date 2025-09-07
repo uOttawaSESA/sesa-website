@@ -8,42 +8,28 @@ export default function Hero() {
     const t = useTranslations("homepage");
 
     return (
-        <section className="xl:items-between mb-8 mt-5 flex h-max w-full flex-col items-start justify-between gap-24 text-white md:mb-20 md:mt-28 lg:flex-row">
+        <section className="relative xl:items-between mb-8 mt-5 flex h-max w-full flex-col items-start justify-between gap-24 text-white md:mb-20 md:mt-28 lg:flex-row">
             {/* Decorations */}
             <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
                 {/* Warm gradient */}
-                <div className="fade-from-top-left-bg absolute h-[70rem] w-full bg-[#B1219D] bg-opacity-20 blur-sm md:w-[60vw]" />
+                <div className="fade-from-top-left-bg absolute top-[-13rem] h-[70rem] w-full bg-[#B1219D] bg-opacity-20 blur-sm md:w-[60vw]" />
 
                 {/* Light gradient */}
                 <div className="fade-from-left-bg absolute top-[48rem] h-[140rem] w-[25vw] bg-blueviolet-100 bg-opacity-25 blur-sm" />
 
-                <Star
-                    variant="star"
-                    className="hidden md:left-[12vw] md:top-[80vh] md:block 2xl:left-[33vw] 2xl:top-[55vh]"
-                    width={120}
-                    height={120}
-                    delay={1}
-                />
-
+                {/* Stars */}
                 <Star
                     variant="star-faded"
-                    className="hidden md:left-[10vw] md:top-[78vh] md:block 2xl:left-[32vw] 2xl:top-[53vh]"
-                    width={63}
-                    height={63}
-                    delay={0.5}
-                />
-
-                <Star
-                    variant="star-faded"
-                    className="hidden opacity-60 md:left-[40vw] md:top-[15vh] md:block"
+                    className="hidden opacity-60 md:left-[40vw] md:top-[-3rem] md:block"
                     width={55}
                     height={55}
                     rotate={30}
                 />
 
+                {/* Middle Group */}
                 <Star
                     variant="star"
-                    className="hidden md:right-[15rem] md:top-[54rem] md:block"
+                    className="hidden md:left-[12vw] md:top-[55vh] md:block 2xl:left-[33vw] 2xl:top-[40vh]"
                     width={120}
                     height={120}
                     delay={1}
@@ -51,7 +37,24 @@ export default function Hero() {
 
                 <Star
                     variant="star-faded"
-                    className="hidden md:right-[20rem] md:top-[59rem] md:block"
+                    className="hidden md:left-[10vw] md:top-[53vh] md:block 2xl:left-[32vw] 2xl:top-[37vh]"
+                    width={63}
+                    height={63}
+                    delay={0.5}
+                />
+
+                {/* Bottom Right Group */}
+                <Star
+                    variant="star"
+                    className="hidden md:right-[15rem] md:top-[41rem] md:block"
+                    width={120}
+                    height={120}
+                    delay={1}
+                />
+
+                <Star
+                    variant="star-faded"
+                    className="hidden md:right-[20rem] md:top-[46rem] md:block"
                     width={63}
                     height={63}
                     delay={0.5}
