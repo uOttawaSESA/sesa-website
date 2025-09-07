@@ -181,6 +181,13 @@
             "networking": "Networking Event"
         },
 
+        "query_state": {
+            "pending": "Loading events...",
+            "no_results": "No events right now. Check back soon!",
+            "error": "Failed to load events.",
+            "error_details": "Error details"
+        },
+
         "no_events": "No events found",
         "connect_with_sesa": "Connect with SESA",
         "stay_updated": "Stay updated",

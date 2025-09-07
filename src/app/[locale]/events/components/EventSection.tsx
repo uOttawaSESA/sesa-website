@@ -1,6 +1,7 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Pagination from "@/components/Pagination";
 import Star from "@/components/ui/decorations/star";
@@ -10,6 +11,8 @@ import EventsList from "./EventsList";
 import Header from "./Header";
 
 const EventSection = () => {
+    const t = useTranslations("events");
+
     const { isPending, error, data } = useQuery({
         queryKey: ["eventsData"],
         queryFn,
@@ -81,21 +84,21 @@ const EventSection = () => {
     /** If there is some form of issue with the page, this will be the element to display. */
     const errorElement = useMemo(() => {
         if (isPending) {
-            return <p className="text-xl">Loading events...</p>;
+            return <p>{t("query_state.pending")}</p>;
         } else if (error) {
             return (
                 <>
-                    <p className="text-xl">Failed to load events.</p>
-                    <details>
-                        <summary>Error details</summary>
-                        <pre>{error.stack || error.message}</pre>
+                    <p>{t("query_state.error")}</p>
+                    <details className="text-xl">
+                        <summary>{t("query_state.error_details")}</summary>
+                        <pre className="font-mono">{error.stack || error.message}</pre>
                     </details>
                 </>
             );
         } else if (filteredEvents.length === 0) {
-            return <p>No events right now — check back soon!</p>;
+            return <p>{t("query_state.no_results")}</p>;
         }
-    }, [isPending, error, filteredEvents.length]);
+    }, [isPending, error, filteredEvents.length, t]);
 
     const eventsPerPage = isMobile ? 1 : 3;
 
