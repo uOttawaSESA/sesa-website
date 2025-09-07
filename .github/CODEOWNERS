@@ -9,6 +9,8 @@ CODEOWNERS @uOttawaSESA/co-directors
 lint-staged.config.* @uOttawaSESA/devops
 
 # Build-related
+flake.lock     @uOttawaSESA/devops
+flake.nix      @uOttawaSESA/devops
 next.config.*  @uOttawaSESA/devops
 package.json   @uOttawaSESA/devops
 pnpm-lock.yaml @uOttawaSESA/devops
