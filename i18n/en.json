@@ -1,6 +1,6 @@
 {
     "homepage": {
-        "we_are_sesa": "Software Engineering Student's Association",
+        "we_are_sesa": "Software Engineering Students' Association",
         "bridging_the_gap_hl": "Bridging the gap",
         "bridging_the_gap": "between students and industry professionals",
         "purpose": "We connect SEG & EECS students with industry professionals in software engineering, providing resources, networking, and career development.",
@@ -41,7 +41,7 @@
 
         "faq_q1": {
             "title": "WHAT IS SESA?",
-            "answer": "SESA is the University of Ottawa **Software Engineering Student's Association**! We're an informally and independently run student organization with the mission of enriching SEG student life, promoting software engineering as a field, and supporting students academically and professionally as they begin their careers.\n\nOur initiatives are designed to help students succeed both in and out of the classroom. These include:\n\n- **Professional development workshops** and networking events for students\n- **Academic support** through study resources\n- **Social and community-building events** to bring students together\n- **Student outreach** to inspire and engage future engineers\n- **Advocacy** for the SEG student voice within uOttawa"
+            "answer": "SESA is the University of Ottawa **Software Engineering Students' Association**! We're an informally and independently run student organization with the mission of enriching SEG student life, promoting software engineering as a field, and supporting students academically and professionally as they begin their careers.\n\nOur initiatives are designed to help students succeed both in and out of the classroom. These include:\n\n- **Professional development workshops** and networking events for students\n- **Academic support** through study resources\n- **Social and community-building events** to bring students together\n- **Student outreach** to inspire and engage future engineers\n- **Advocacy** for the SEG student voice within uOttawa"
         },
 
         "faq_q2": {
@@ -95,7 +95,7 @@
         "who_are_we_heading": "We're a student-led organization made up of",
         "who_are_we_heading_hl": "future tech builders",
         "who_are_we_p1_bold": "Founded in 2014",
-        "who_are_we_p1": "the Software Engineering Student's Association (SESA) helps students gain practical, hands-on experience, and make connections while still in university.",
+        "who_are_we_p1": "the Software Engineering Students' Association (SESA) helps students gain practical, hands-on experience, and make connections while still in university.",
         "who_are_we_p2_bold": "Partnered with the Faculity of Engineering, we address challenges",
         "who_are_we_p2": "in academic support, professional development, and engagement with the software engineering industry.",
         "figure_eecs_students": "EECS students",

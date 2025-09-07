@@ -14,7 +14,7 @@ import type { Metadata } from "next";
 export const generateStaticParams = localeParams;
 
 export const metadata: Metadata = {
-    title: "Home | Software Engineering Student's Association",
+    title: "Home | Software Engineering Students' Association",
     alternates: {
         canonical: "/",
         languages: {
