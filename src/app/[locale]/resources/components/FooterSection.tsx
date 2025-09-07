@@ -17,7 +17,7 @@ const FooterSection: React.FC = () => {
 
                 <Star
                     variant="star"
-                    className="absolute left-[14rem] hidden md:left-[25rem] md:top-[58rem] md:block"
+                    className="absolute left-[14rem] md:left-[25rem] md:top-[58rem]"
                     rotate={-110}
                     width={100}
                     height={100}
@@ -26,7 +26,7 @@ const FooterSection: React.FC = () => {
 
                 <Star
                     variant="star"
-                    className="absolute right-[14rem] hidden md:right-[10rem] md:top-[14rem] md:block"
+                    className="absolute right-[14rem] md:right-[10rem] md:top-[14rem]"
                     width={120}
                     height={120}
                     delay={1}
@@ -39,6 +39,7 @@ const FooterSection: React.FC = () => {
                     width={63}
                     height={63}
                     delay={0.5}
+                    showMobile={true}
                 />
             </div>
 

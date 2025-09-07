@@ -51,6 +51,7 @@ const Events = () => {
                     variant="star-faded"
                     className="left-[20rem] top-[8rem] md:left-[16rem] md:top-[16rem]"
                     delay={0.5}
+                    showMobile={true}
                 />
             </div>
 
