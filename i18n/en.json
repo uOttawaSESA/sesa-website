@@ -175,6 +175,10 @@
         "topic_support": "Support"
     },
     "events": {
+        "event_type": {
+            "workshop": "Workshop"
+        },
+
         "no_events": "No events found",
         "connect_with_sesa": "Connect with SESA",
         "stay_updated": "Stay updated",

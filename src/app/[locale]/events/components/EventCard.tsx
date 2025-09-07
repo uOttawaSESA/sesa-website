@@ -14,6 +14,7 @@ interface EventCardProps {
 
 export const EventCard = ({ event }: EventCardProps) => {
     const t = useTranslations("events");
+    const tType = useTranslations("events.event_type");
     const locale = useLocale();
     const lang = locale === "fr" ? "fr" : "en";
 
@@ -22,7 +23,7 @@ export const EventCard = ({ event }: EventCardProps) => {
 
     // Extract localized content
     const title = event.title[lang];
-    const type = event.type[lang];
+    const type = tType(event.type);
     const description = event.description[lang];
 
     const isPastEvent = event.startTime < new Date();
@@ -71,7 +72,7 @@ export const EventCard = ({ event }: EventCardProps) => {
                 <div>
                     <Image
                         src={event.image}
-                        alt={title}
+                        alt={event.imageAlt[lang]}
                         width={350}
                         height={350}
                         className="aspect-square h-full max-w-none object-cover"
@@ -141,7 +142,7 @@ export const EventCard = ({ event }: EventCardProps) => {
                         </Button>
 
                         {/* Register Button (only for events that require registration) */}
-                        {event.requiresRegistration && !isRegistered && !isPastEvent && (
+                        {event.registrationLink && !isRegistered && !isPastEvent && (
                             <Button
                                 className="flex items-center gap-2 font-heading uppercase"
                                 onClick={handleRegister}

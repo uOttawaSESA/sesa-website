@@ -6,7 +6,8 @@ export const FirestoreEvent = z.object({
     title: Localized,
     description: Localized,
     type: z.string("Expected an event type"),
-    image: z.string().optional(),
+    image: z.string("Expected image URL or base64-encoded data"),
+    imageAlt: Localized,
     startTime: z
         .unknown()
         .refine(isTimestamp, { message: "Expected a Firestore Timestamp" })
