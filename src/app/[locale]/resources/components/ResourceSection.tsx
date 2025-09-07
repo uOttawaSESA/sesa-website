@@ -121,9 +121,15 @@ const ResourceSection = () => {
     );
 
     return loading ? (
-        <div>Loading resources...</div>
+        <div className="flex w-full items-center justify-center py-12">
+            <p className="rounded-md px-4 py-2 font-sans text-violet-400">Loading resources...</p>
+        </div>
     ) : error ? (
-        <div>Error loading resources: {error}</div>
+        <div className="flex w-full items-center justify-center py-12">
+            <p className="rounded-md px-4 py-2 font-sans text-red-400">
+                Error loading resources: <span className="font-semibold">{error}</span>
+            </p>
+        </div>
     ) : (
         <>
             {/* Pass state and handlers to SearchFilterBar */}
