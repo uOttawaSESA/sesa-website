@@ -4,12 +4,21 @@ import Image from "next/image";
 
 const sponsors = [
     {
+        name: "Ciena",
+        src: "/sponsors/ciena.webp",
+        alt: "Ciena",
+        width: 300,
+        height: 150,
+        size: "h-72 md:h-80",
+        link: "https://www.ciena.com/",
+    },
+    {
         name: "National Bank",
         src: "/sponsors/nationalbank.svg",
         alt: "National Bank",
         width: 480,
         height: 240,
-        size: "col-span-12 h-96 md:h-[28rem]",
+        size: "h-72 md:h-80",
         link: "https://www.nbc.ca/",
     },
     {
@@ -51,7 +60,7 @@ const SponsorsGrid = () => {
         <div className="mt-10 flex justify-center px-6 md:mt-16">
             <div className="flex w-full max-w-4xl flex-col gap-8">
                 {/* Large sponsor on top */}
-                <div className="flex justify-center">
+                <div className="flex justify-center gap-8 md:flex">
                     <a
                         href={sponsors[0].link}
                         target="_blank"
@@ -67,10 +76,26 @@ const SponsorsGrid = () => {
                             className="object-contain"
                         />
                     </a>
+
+                    <a
+                        href={sponsors[1].link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`flex items-center justify-center rounded-lg p-10 ${sponsors[1].size} ${gradientBorderClass} w-full backdrop-blur-lg transition hover:scale-105`}
+                        title={sponsors[1].name}
+                    >
+                        <Image
+                            src={sponsors[1].src}
+                            alt={sponsors[1].alt}
+                            width={sponsors[1].width}
+                            height={sponsors[1].height}
+                            className="object-contain"
+                        />
+                    </a>
                 </div>
                 {/* Mobile: stack all sponsors vertically */}
                 <div className="flex flex-col gap-8 md:hidden">
-                    {sponsors.slice(1).map((sponsor, index) => (
+                    {sponsors.slice(2).map((sponsor, index) => (
                         <a
                             key={index}
                             href={sponsor.link}
@@ -91,7 +116,7 @@ const SponsorsGrid = () => {
                 </div>
                 {/* Desktop: smaller sponsors in a row at the bottom */}
                 <div className="hidden flex-row justify-center gap-8 md:flex">
-                    {sponsors.slice(1).map((sponsor, index) => (
+                    {sponsors.slice(2).map((sponsor, index) => (
                         <a
                             key={index}
                             href={sponsor.link}
