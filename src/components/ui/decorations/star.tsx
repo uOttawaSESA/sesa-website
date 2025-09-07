@@ -59,7 +59,7 @@ const Star = ({
                     src={src}
                     width={width ?? defaultWidth}
                     height={height ?? defaultHeight}
-                    alt={variant}
+                    alt=""
                     className="drop-shadow-[0_0_6px_rgba(255,255,255,0.25)] block"
                     style={{ maxWidth: "none", display: "block" }}
                 />
