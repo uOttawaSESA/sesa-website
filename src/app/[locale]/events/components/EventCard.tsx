@@ -174,7 +174,7 @@ export const EventCard = ({ event }: EventCardProps) => {
                         <DialogDescription>
                             {/* biome-ignore-start lint/security/noDangerouslySetInnerHtml: HTML has been sanitized */}
                             <div
-                                className="markdown prose prose-invert max-w-none [&>li]:mb-2 [&>p]:mb-4 [&>ul]:mb-4 [&>ul]:pl-4 [&_a:hover]:text-white [&_a]:text-purple-400 [&_a]:underline"
+                                className="markdown text-left prose prose-invert max-w-none [&>li]:mb-2 [&>p]:mb-4 [&>ul]:mb-4 [&>ul]:pl-4 [&_a:hover]:text-white [&_a]:text-purple-400 [&_a]:underline"
                                 dangerouslySetInnerHTML={{
                                     __html: dialogBody,
                                 }}
