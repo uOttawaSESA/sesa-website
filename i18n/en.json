@@ -176,7 +176,9 @@
     },
     "events": {
         "event_type": {
-            "workshop": "Workshop"
+            "workshop": "Workshop",
+            "social": "Social Event",
+            "networking": "Networking Event"
         },
 
         "no_events": "No events found",
