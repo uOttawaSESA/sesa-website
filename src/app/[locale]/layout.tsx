@@ -25,13 +25,13 @@ const raleway = Raleway({
 });
 
 export const metadata: Metadata = {
-    title: "Software Engineering Student Association",
+    title: "Software Engineering Student's Association",
     description: "The official website for the University of Ottawa's SESA.",
     keywords: ["uottawa", "sesa", "software", "students", "seg"],
     metadataBase: new URL("https://sesa-aegl.ca"),
     openGraph: {
-        title: "Software Engineering Student Association",
-        siteName: "Software Engineering Student Association",
+        title: "Software Engineering Student's Association",
+        siteName: "Software Engineering Student's Association",
         description: "The official website for the University of Ottawa's SESA.",
         type: "website",
         url: new URL("https://sesa-aegl.ca"),

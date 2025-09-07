@@ -1,4 +1,4 @@
-# uOttawa Software Engineering Student Association (SESA)
+# uOttawa Software Engineering Student's Association (SESA)
 
 This is the repository for the main SESA website.
 

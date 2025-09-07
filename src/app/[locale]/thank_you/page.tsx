@@ -8,8 +8,8 @@ import type { Metadata } from "next";
 export const generateStaticParams = localeParams;
 
 export const metadata: Metadata = {
-    title: "Thank You | Software Engineering Student Association",
-    description: "Thank you for contacting the Software Engineering Student Association!",
+    title: "Thank You | Software Engineering Student's Association",
+    description: "Thank you for contacting the Software Engineering Student's Association!",
     alternates: {
         canonical: "/thank_you",
         languages: {
@@ -18,8 +18,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        title: "Thank You | Software Engineering Student Association",
-        description: "Thank you for contacting the Software Engineering Student Association!",
+        title: "Thank You | Software Engineering Student's Association",
+        description: "Thank you for contacting the Software Engineering Student's Association!",
         url: new URL("https://sesa-aegl.ca/thank_you"),
     },
 };
