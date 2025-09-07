@@ -24,6 +24,7 @@ const EventFilters: React.FC<{
 }> = ({ onFilterChange, onTimeFilterChange }) => {
     const [activeTimeFilter, setActiveTimeFilter] = useState<TimeFilter>("all");
     const t = useTranslations("events");
+    const tType = useTranslations("events.event_type");
 
     const timeFilters: TimeFilter[] = ["all", "past", "today", "upcoming"];
     const eventTypes: EventType[] = ["all", "workshop", "networking", "social", "academic"];
@@ -65,7 +66,7 @@ const EventFilters: React.FC<{
                         <SelectLabel>{t("filter_type_placeholder")}</SelectLabel>
                         {eventTypes.map(type => (
                             <SelectItem key={type} value={type}>
-                                {t(`filter_${type}`)}
+                                {tType(type)}
                             </SelectItem>
                         ))}
                     </SelectGroup>

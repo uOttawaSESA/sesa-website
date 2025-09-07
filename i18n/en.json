@@ -176,9 +176,11 @@
     },
     "events": {
         "event_type": {
+            "all": "All",
             "workshop": "Workshop",
             "social": "Social Event",
-            "networking": "Networking Event"
+            "networking": "Networking Event",
+            "academic": "Academic Support"
         },
 
         "query_state": {
@@ -211,11 +213,6 @@
         "btn_view_post": "View Post",
 
         "filter_type_placeholder": "Type",
-        "filter_all": "All",
-        "filter_workshop": "Workshop",
-        "filter_networking": "Networking Event",
-        "filter_social": "Social Event",
-        "filter_academic": "Academic Support",
 
         "time_filter_all": "All",
         "time_filter_past": "Past",
