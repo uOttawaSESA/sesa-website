@@ -86,6 +86,25 @@ const EventSection = () => {
         return () => window.removeEventListener("resize", checkIsMobile);
     }, []);
 
+    /** If there is some form of issue with the page, this will be the element to display. */
+    const errorElement = useMemo(() => {
+        if (isPending) {
+            return <p className="text-xl">Loading events...</p>;
+        } else if (error) {
+            return (
+                <>
+                    <p className="text-xl">Failed to load events.</p>
+                    <details>
+                        <summary>Error details</summary>
+                        <pre>{error.stack || error.message}</pre>
+                    </details>
+                </>
+            );
+        } else if (filteredEvents.length === 0) {
+            return <p>No events right now — check back soon!</p>;
+        }
+    }, [isPending, error, filteredEvents.length]);
+
     const eventsPerPage = isMobile ? 1 : 3;
 
     const indexOfLastEvent = currentPage * eventsPerPage;
@@ -98,33 +117,6 @@ const EventSection = () => {
         <div className="relative mx-auto flex max-w-7xl flex-col justify-center">
             <Header />
             <EventFilters onFilterChange={setTypeFilter} onTimeFilterChange={setTimeFilter} />
-
-            {filteredEvents.length === 0 ? (
-                <div className="z-10 mt-10 flex h-[calc(100vh-200px)] items-start justify-center md:items-center">
-                    <div className="flex h-[60%] w-[100%] max-w-7xl flex-col items-center justify-center gap-9 rounded-none border-2 border-blueviolet-100/70 p-20 text-center font-heading text-2xl text-white backdrop-blur-lg md:h-[85%]">
-                        <Image
-                            src="/icons/calendar-empty.svg"
-                            alt="Coming Soon Icon"
-                            width={64}
-                            height={64}
-                            className="opacity-80"
-                        />
-                        <p>No events right now — check back soon!</p>
-                    </div>
-                </div>
-            ) : (
-                <div className="z-10">
-                    <EventsList events={currentEvents} />
-
-                    {filteredEvents.length > eventsPerPage && (
-                        <Pagination
-                            currentPage={currentPage}
-                            totalPages={totalPages}
-                            onPageChange={setCurrentPage}
-                        />
-                    )}
-                </div>
-            )}
             <div className="pointer-events-none select-none">
                 <Image
                     src="/decoration/floor-grid.svg"
@@ -145,6 +137,33 @@ const EventSection = () => {
                     delay={0.5}
                 />
             </div>
+
+            {errorElement ? (
+                <div className="z-10 mt-10 flex h-[calc(100vh-200px)] items-start justify-center md:items-center">
+                    <div className="flex h-[60%] w-[100%] max-w-7xl flex-col items-center justify-center gap-9 rounded-none border-2 border-blueviolet-100/70 p-20 text-center font-heading text-2xl text-white backdrop-blur-lg md:h-[85%]">
+                        <Image
+                            src="/icons/calendar-empty.svg"
+                            alt="Coming Soon Icon"
+                            width={64}
+                            height={64}
+                            className="opacity-80"
+                        />
+                        {errorElement}
+                    </div>
+                </div>
+            ) : (
+                <div className="z-10">
+                    <EventsList events={currentEvents} />
+
+                    {filteredEvents.length > eventsPerPage && (
+                        <Pagination
+                            currentPage={currentPage}
+                            totalPages={totalPages}
+                            onPageChange={setCurrentPage}
+                        />
+                    )}
+                </div>
+            )}
         </div>
     );
 };
