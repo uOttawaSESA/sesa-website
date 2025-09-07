@@ -2,15 +2,15 @@ import { format } from "date-fns";
 import { CalendarDays, Clock, MapPin } from "lucide-react";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
-import type { Event } from "@/app/types/Event";
+import type { Event } from "@/schemas/events";
 
 const EventCard: React.FC<{ event: Event }> = ({ event }) => {
     const locale = useLocale();
     const lang = locale === "fr" ? "fr" : "en";
 
-    const formattedDate = format(event.date, "MMM dd, yyyy"); // e.g., "Mar 25, 2024"
-    const day = format(event.date, "dd"); // e.g., "25"
-    const month = format(event.date, "MMM"); // e.g., "Mar"
+    const formattedDate = format(event.startTime, "MMM dd, yyyy"); // e.g., "Mar 25, 2024"
+    const day = format(event.startTime, "dd"); // e.g., "25"
+    const month = format(event.startTime, "MMM"); // e.g., "Mar"
     const timeRange = `${format(event.startTime, "ha")} – ${format(event.endTime, "ha")}`; // "6PM – 8PM"
 
     const t = useTranslations("homepage");
