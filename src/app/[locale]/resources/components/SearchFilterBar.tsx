@@ -57,8 +57,9 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
 }) => {
     const t = useTranslations("resources");
 
-    // Only one dropdown open at a time
-    const [openDropdown, setOpenDropdown] = useState<null | "view" | "filter" | "sort">(null);
+    const [openDropdown, setOpenDropdown] = useState<null | "view" | "filter" | "sort" | "mobile">(
+        null,
+    );
 
     useEffect(() => {
         if (isGridMode) {
@@ -95,7 +96,6 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
         ],
     };
 
-    // Placeholder text for each filter
     const filterPlaceholders: Record<keyof FilterOptions, string> = {
         course: t("filter_placeholder_course"),
         category: t("filter_placeholder_category"),
@@ -104,7 +104,6 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
         tier: t("filter_placeholder_tier"),
     };
 
-    // Check if any filters are active
     const hasActiveFilters = Object.values(filterOptions).some(value => value !== "");
 
     const changeView = (value: "grid" | "row") => {
@@ -135,9 +134,10 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
     };
 
     return (
-        <div className="z-40 mb-8 bg-gradient-to-r from-blueviolet-100 to-darkmagenta p-px">
-            <div className="flex items-center justify-between bg-gray-100 p-4">
-                <div className="flex flex-1 items-center gap-4 text-white">
+        <div className="z-40 mb-8 p-px">
+            <div className="flex flex-col outline-gradient bg-gray-100 p-4 md:flex-row md:items-center md:justify-between">
+                {/* Search */}
+                <div className="flex w-full flex-1 items-center gap-4 text-white">
                     <Image
                         src="/resources-page/search.svg"
                         alt="Search"
@@ -150,13 +150,14 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                         value={searchTerm}
                         onChange={e => setSearchTerm(e.target.value)}
                         placeholder={t("search_placeholder")}
-                        className="w-full bg-transparent font-sans text-base placeholder-white focus:outline-none"
+                        className="w-full bg-transparent font-sans md:text-base placeholder-white focus:outline-none"
                     />
                 </div>
 
-                <div className="ml-4 flex gap-8">
-                    {/* View Dropdown */}
-                    {!isMobile && (
+                {/* Desktop Controls */}
+                {!isMobile && (
+                    <div className="ml-4 mt-4 flex gap-8 md:mt-0">
+                        {/* View Dropdown */}
                         <div className="relative">
                             <button
                                 type="button"
@@ -164,7 +165,6 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                 onClick={() =>
                                     setOpenDropdown(openDropdown === "view" ? null : "view")
                                 }
-                                aria-label="View"
                             >
                                 <Image
                                     src="/resources-page/view.svg"
@@ -195,30 +195,11 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                             </SelectTrigger>
                                             <SelectContent>
                                                 <SelectGroup>
-                                                    <SelectLabel className="text-white">
-                                                        {t("view_label")}
-                                                    </SelectLabel>
                                                     <SelectItem value="grid">
-                                                        <span className="flex items-center gap-2">
-                                                            <Image
-                                                                src="/resources-page/view.svg"
-                                                                width={14}
-                                                                height={14}
-                                                                alt="Grid"
-                                                            />
-                                                            {t("view_grid")}
-                                                        </span>
+                                                        {t("view_grid")}
                                                     </SelectItem>
                                                     <SelectItem value="row">
-                                                        <span className="flex items-center gap-2">
-                                                            <Image
-                                                                src="/resources-page/view.svg"
-                                                                width={14}
-                                                                height={14}
-                                                                alt="Rows"
-                                                            />
-                                                            {t("view_row")}
-                                                        </span>
+                                                        {t("view_row")}
                                                     </SelectItem>
                                                 </SelectGroup>
                                             </SelectContent>
@@ -235,9 +216,6 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                                 </SelectTrigger>
                                                 <SelectContent>
                                                     <SelectGroup>
-                                                        <SelectLabel className="text-white">
-                                                            {t("view_row")}
-                                                        </SelectLabel>
                                                         {[1, 2, 3, 4, 5].map(rows => (
                                                             <SelectItem
                                                                 key={rows}
@@ -252,71 +230,57 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                 </div>
                             )}
                         </div>
-                    )}
 
-                    {/* Clear Filters Button - Only show if filters are active */}
-                    {hasActiveFilters && (
-                        <button
-                            type="button"
-                            onClick={clearAllFilters}
-                            className="flex items-center gap-2 uppercase text-white transition-colors hover:text-white"
-                            title="Clear all filters"
-                        >
-                            {t("clear_filters")}
-                            <Trash size={14} />
-                        </button>
-                    )}
+                        {/* Clear Filters */}
+                        {hasActiveFilters && (
+                            <button
+                                type="button"
+                                onClick={clearAllFilters}
+                                className="flex items-center gap-2 uppercase text-white transition-colors hover:text-white"
+                            >
+                                {t("clear_filters")}
+                                <Trash size={14} />
+                            </button>
+                        )}
 
-                    {/* Filter Dropdown */}
-                    <div className="relative">
-                        <button
-                            type="button"
-                            className="flex items-center gap-2 uppercase text-white"
-                            onClick={() =>
-                                setOpenDropdown(openDropdown === "filter" ? null : "filter")
-                            }
-                        >
-                            <Image
-                                src="/resources-page/filter.svg"
-                                alt="Filter"
-                                width={18}
-                                height={18}
-                            />
-                            {hasActiveFilters ? t("filters_active_label") : t("filter_label")}
-                            <Image
-                                src="/contact-page/arrows.svg"
-                                alt="Dropdown Arrow"
-                                width={16}
-                                height={16}
-                                className={`transition-transform duration-200 ${openDropdown === "filter" ? "rotate-180" : ""}`}
-                            />
-                        </button>
-                        {openDropdown === "filter" && (
-                            <div className="absolute -right-20 z-30 mt-2 min-w-[18rem]">
-                                <div
-                                    className={`${gradientBorderClass} animate-dropdown bg-[rgba(27,27,27,0.3)] p-4 backdrop-blur-3xl backdrop-saturate-150`}
-                                >
-                                    {/* Clear All Button inside dropdown */}
-                                    {hasActiveFilters && (
-                                        <div className="mb-4 flex justify-end">
-                                            <button
-                                                type="button"
-                                                onClick={clearAllFilters}
-                                                className="text-sm uppercase text-white underline transition-colors hover:text-white"
-                                            >
-                                                {t("clear_all")}
-                                            </button>
-                                        </div>
-                                    )}
-
-                                    {(Object.keys(filterOptions) as Array<keyof FilterOptions>).map(
-                                        key => (
+                        {/* Filter Dropdown */}
+                        <div className="relative">
+                            <button
+                                type="button"
+                                className="flex items-center gap-2 uppercase text-white"
+                                onClick={() =>
+                                    setOpenDropdown(openDropdown === "filter" ? null : "filter")
+                                }
+                            >
+                                <Image
+                                    src="/resources-page/filter.svg"
+                                    alt="Filter"
+                                    width={18}
+                                    height={18}
+                                />
+                                {hasActiveFilters ? t("filters_active_label") : t("filter_label")}
+                                <Image
+                                    src="/contact-page/arrows.svg"
+                                    alt="Dropdown Arrow"
+                                    width={16}
+                                    height={16}
+                                    className={`transition-transform duration-200 ${openDropdown === "filter" ? "rotate-180" : ""}`}
+                                />
+                            </button>
+                            {openDropdown === "filter" && (
+                                <div className="absolute right-0 z-30 mt-2 min-w-[18rem]">
+                                    <div
+                                        className={`${gradientBorderClass} animate-dropdown bg-[rgba(27,27,27,0.3)] p-4 backdrop-blur-3xl backdrop-saturate-150`}
+                                    >
+                                        {(
+                                            Object.keys(filterOptions) as Array<keyof FilterOptions>
+                                        ).map(key => (
                                             <div className="mb-4 last:mb-0" key={key}>
                                                 <label
+                                                    className="mb-2 block font-heading text-sm uppercase text-white"
                                                     htmlFor={key}
-                                                    className="mb-2 block font-heading text-base uppercase text-white"
                                                 >
-                                                    {key}
+                                                    {filterPlaceholders[key]}
                                                 </label>
                                                 <Select
                                                     value={filterOptions[key]}
@@ -331,10 +295,6 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                                     </SelectTrigger>
                                                     <SelectContent>
                                                         <SelectGroup>
-                                                            <SelectLabel className="text-white">
-                                                                {key.charAt(0).toUpperCase() +
-                                                                    key.slice(1)}
-                                                            </SelectLabel>
                                                             {filterDropdownOptions[key].map(
                                                                 option => (
                                                                     <SelectItem
@@ -349,73 +309,185 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                                     </SelectContent>
                                                 </Select>
                                             </div>
-                                        ),
-                                    )}
+                                        ))}
+                                    </div>
                                 </div>
-                            </div>
-                        )}
-                    </div>
+                            )}
+                        </div>
 
-                    {/* Sort Dropdown */}
-                    <div className="relative">
-                        <button
-                            type="button"
-                            className="flex items-center gap-2 uppercase text-white"
-                            onClick={() => setOpenDropdown(openDropdown === "sort" ? null : "sort")}
-                        >
-                            <Image
-                                src="/resources-page/sort-arrows.svg"
-                                alt="Sort"
-                                width={18}
-                                height={18}
-                            />
-                            {t("sort_label")}
-                            <Image
-                                src="/contact-page/arrows.svg"
-                                alt="Dropdown Arrow"
-                                width={16}
-                                height={16}
-                                className={`transition-transform duration-200 ${openDropdown === "sort" ? "rotate-180" : ""}`}
-                            />
-                        </button>
-                        {openDropdown === "sort" && (
-                            <div className="absolute right-0 z-50 mt-2 min-w-[14rem]">
-                                <div
-                                    className={`${gradientBorderClass} animate-dropdown bg-[rgba(27,27,27,0.3)] p-4 backdrop-blur-md backdrop-saturate-150`}
-                                >
-                                    <Select value={sortOption} onValueChange={handleSortChange}>
-                                        <SelectTrigger className="w-full text-thistle">
-                                            <SelectValue placeholder="Sort" />
-                                        </SelectTrigger>
-                                        <SelectContent>
-                                            <SelectGroup>
-                                                <SelectLabel className="text-white">
-                                                    {t("sort_label")}
-                                                </SelectLabel>
-                                                <SelectItem value="relevance">
-                                                    {t("sort_item_relevance")}
-                                                </SelectItem>
-                                                <SelectItem value="alphabetical">
-                                                    {t("sort_item_alphabetical")}
-                                                </SelectItem>
-                                                <SelectItem value="tier (worst to best)">
-                                                    {t("sort_tier_worst_best")}
-                                                </SelectItem>
-                                                <SelectItem value="tier (best to worst)">
-                                                    {t("sort_tier_best_worst")}
-                                                </SelectItem>
-                                                <SelectItem value="last updated">
-                                                    {t("sort_last_updated")}
-                                                </SelectItem>
-                                            </SelectGroup>
-                                        </SelectContent>
-                                    </Select>
+                        {/* Sort Dropdown */}
+                        <div className="relative">
+                            <button
+                                type="button"
+                                className="flex items-center gap-2 uppercase text-white"
+                                onClick={() =>
+                                    setOpenDropdown(openDropdown === "sort" ? null : "sort")
+                                }
+                            >
+                                <Image
+                                    src="/resources-page/sort-arrows.svg"
+                                    alt="Sort"
+                                    width={18}
+                                    height={18}
+                                />
+                                {t("sort_label")}
+                                <Image
+                                    src="/contact-page/arrows.svg"
+                                    alt="Dropdown Arrow"
+                                    width={16}
+                                    height={16}
+                                    className={`transition-transform duration-200 ${openDropdown === "sort" ? "rotate-180" : ""}`}
+                                />
+                            </button>
+                            {openDropdown === "sort" && (
+                                <div className="absolute right-0 z-50 mt-2 min-w-[14rem]">
+                                    <div
+                                        className={`${gradientBorderClass} animate-dropdown bg-[rgba(27,27,27,0.3)] p-4 backdrop-blur-md backdrop-saturate-150`}
+                                    >
+                                        <Select value={sortOption} onValueChange={handleSortChange}>
+                                            <SelectTrigger className="w-full text-thistle">
+                                                <SelectValue placeholder="Sort" />
+                                            </SelectTrigger>
+                                            <SelectContent>
+                                                <SelectGroup>
+                                                    <SelectItem value="relevance">
+                                                        {t("sort_item_relevance")}
+                                                    </SelectItem>
+                                                    <SelectItem value="alphabetical">
+                                                        {t("sort_item_alphabetical")}
+                                                    </SelectItem>
+                                                    <SelectItem value="tier (worst to best)">
+                                                        {t("sort_tier_worst_best")}
+                                                    </SelectItem>
+                                                    <SelectItem value="tier (best to worst)">
+                                                        {t("sort_tier_best_worst")}
+                                                    </SelectItem>
+                                                    <SelectItem value="last updated">
+                                                        {t("sort_last_updated")}
+                                                    </SelectItem>
+                                                </SelectGroup>
+                                            </SelectContent>
+                                        </Select>
+                                    </div>
                                 </div>
-                            </div>
-                        )}
+                            )}
+                        </div>
                     </div>
-                </div>
+                )}
             </div>
+
+            {/* Mobile: Unified Dropdown */}
+            {isMobile && (
+                <div className="relative mt-2 w-full">
+                    <button
+                        type="button"
+                        className="flex w-full items-center justify-between rounded-md border outline-gradient bg-black/40 px-4 py-2 text-sm uppercase text-white"
+                        onClick={() => setOpenDropdown(openDropdown === "mobile" ? null : "mobile")}
+                    >
+                        Filters & Sort
+                        <Image
+                            src="/contact-page/arrows.svg"
+                            alt="Dropdown Arrow"
+                            width={16}
+                            height={16}
+                            className={`transition-transform duration-200 ${openDropdown === "mobile" ? "rotate-180" : ""}`}
+                        />
+                    </button>
+
+                    {openDropdown === "mobile" && (
+                        <div
+                            className={`${gradientBorderClass} absolute left-0 right-0 z-50 mt-2 rounded-md p-4 backdrop-blur-3xl`}
+                        >
+                            {/* Sort */}
+                            <div className="mb-6">
+                                <p className="mb-2 font-sans text-sm uppercase text-white">
+                                    {t("sort_label")}
+                                </p>
+                                <Select value={sortOption} onValueChange={handleSortChange}>
+                                    <SelectTrigger className="w-full text-thistle">
+                                        <SelectValue placeholder="Sort" />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        <SelectGroup>
+                                            <SelectItem value="relevance">
+                                                {t("sort_item_relevance")}
+                                            </SelectItem>
+                                            <SelectItem value="alphabetical">
+                                                {t("sort_item_alphabetical")}
+                                            </SelectItem>
+                                            <SelectItem value="tier (worst to best)">
+                                                {t("sort_tier_worst_best")}
+                                            </SelectItem>
+                                            <SelectItem value="tier (best to worst)">
+                                                {t("sort_tier_best_worst")}
+                                            </SelectItem>
+                                            <SelectItem value="last updated">
+                                                {t("sort_last_updated")}
+                                            </SelectItem>
+                                        </SelectGroup>
+                                    </SelectContent>
+                                </Select>
+                            </div>
+
+                            {/* Filters */}
+                            <div>
+                                <p className="mb-2 font-sans text-sm uppercase text-white">
+                                    {t("filter_label")}
+                                </p>
+                                {(Object.keys(filterOptions) as Array<keyof FilterOptions>).map(
+                                    key => (
+                                        <div className="mb-3 last:mb-0" key={key}>
+                                            <label
+                                                className="mb-1 block text-xs font-heading uppercase text-thistle"
+                                                htmlFor={key}
+                                            >
+                                                {filterPlaceholders[key]}
+                                            </label>
+                                            <Select
+                                                value={filterOptions[key]}
+                                                onValueChange={value =>
+                                                    handleFilterChange(key, value)
+                                                }
+                                            >
+                                                <SelectTrigger className="w-full text-white">
+                                                    <SelectValue
+                                                        placeholder={filterPlaceholders[key]}
+                                                    />
+                                                </SelectTrigger>
+                                                <SelectContent>
+                                                    <SelectGroup>
+                                                        {filterDropdownOptions[key].map(option => (
+                                                            <SelectItem
+                                                                key={option.value}
+                                                                value={option.value}
+                                                            >
+                                                                {option.label}
+                                                            </SelectItem>
+                                                        ))}
+                                                    </SelectGroup>
+                                                </SelectContent>
+                                            </Select>
+                                        </div>
+                                    ),
+                                )}
+                            </div>
+                        </div>
+                    )}
+                </div>
+            )}
+
+            {hasActiveFilters && isMobile && (
+                <div className="w-full flex justify-center">
+                    <button
+                        type="button"
+                        onClick={clearAllFilters}
+                        className="flex items-center justify-center text-center gap-2 mt-4 uppercase text-white text-sm transition-colors hover:text-white"
+                    >
+                        {t("clear_filters")}
+                        <Trash size={14} />
+                    </button>
+                </div>
+            )}
         </div>
     );
 };
