@@ -75,23 +75,20 @@ const Team = () => {
                     </span>
                     <span className="block">{t("team_heading_line2")}</span>
                 </h1>
-                <p className="w-full text-center font-sans text-base text-thistle md:text-xl">
+                <p className="w-full md:text-center font-sans text-base text-thistle md:text-xl">
                     {t("team_subheading_line1")}
-                    <br />
+                    <br className="md:block hidden" />
                     {t("team_subheading_line2")}
                 </p>
             </div>
 
-            <div className="z-20 -mt-8 flex justify-center gap-4 px-8 text-center font-heading md:-mt-10">
+            <div className="z-20 -mt-8 flex flex-col md:flex-row md:justify-center items-center gap-4 px-8 md:-mt-10 sm:flex-row">
                 <Button className="w-full font-heading uppercase sm:w-max" asChild>
-                    <Link href="/sponsors">
-                        {t("team_become_sponsor_btn")}{" "}
-                        <span className="text-gray ml-2 opacity-50">{">"}</span>
-                    </Link>
+                    <Link href="/sponsors">{t("team_become_sponsor_btn")}</Link>
                 </Button>
 
                 <Button
-                    className="w-full font-heading text-sm uppercase sm:w-max md:text-lg xl:text-xl"
+                    className="w-full font-heading uppercase sm:w-max "
                     variant="outline"
                     asChild
                 >
