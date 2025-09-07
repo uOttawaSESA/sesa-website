@@ -70,11 +70,11 @@ export default function About() {
     const tOurTeam = useTranslations("about.introducing_our_team_section");
 
     return (
-        <div className="min-h-screen text-white">
+        <div className="min-h-screen text-white relative ">
             {/* Gradient */}
             <div className="pointer-events-none absolute left-0 top-0 h-full w-full select-none">
                 {/* Light gradient */}
-                <div className="fade-from-left-bg absolute top-0 left-0 h-[70rem] w-[70vw] bg-blueviolet-100 bg-opacity-10 blur-sm" />
+                <div className="fade-from-left-bg absolute top-[-20rem] left-0 h-[70rem] w-[80vw] bg-blueviolet-100 bg-opacity-20 blur-sm" />
                 {/* Warm gradient */}
                 <div className="fade-from-left-bg absolute h-[90rem] top-[70rem] w-full bg-[#B1219D] bg-opacity-15 blur-sm md:w-[60vw]" />
             </div>
@@ -91,22 +91,20 @@ export default function About() {
                     />
                     <Star
                         variant="star"
-                        className="absolute right-[1rem] top-[10rem] hidden md:block"
-                        width={170}
-                        height={170}
+                        className="absolute right-[1rem] top-[12rem] hidden md:block"
+                        width={130}
+                        height={130}
                         delay={1}
                     />
                     <Star
                         variant="star-faded"
                         className="absolute right-[0rem] top-[17rem]"
-                        rotate={40}
-                        width={79}
-                        height={80}
+                        rotate={33}
                         delay={0.5}
                     />
                     <Star
                         variant="star"
-                        className="absolute right-[27rem] top-[23rem]"
+                        className="absolute right-[24rem] top-[23rem]"
                         rotate={-15}
                         delay={1}
                     />
@@ -175,8 +173,8 @@ export default function About() {
                         <Star
                             variant="star"
                             className="absolute left-[12rem] top-[3rem] hidden md:block lg:left-[24rem]"
-                            width={196}
-                            height={197}
+                            width={150}
+                            height={150}
                             delay={1}
                         />
                         <Star
@@ -333,16 +331,22 @@ export default function About() {
                     {/* Decorations */}
                     <div className="pointer-events-none absolute left-0 top-0 h-full w-full select-none">
                         {/* Light gradient */}
-                        <div className="fade-from-center-bg relative top-[-10rem] left-[-10rem] h-[70rem] w-[70vw] bg-blueviolet-100 bg-opacity-15 blur-sm" />
+                        <div className="fade-from-center-bg absolute top-[-10rem] left-[-10rem] h-[70rem] w-[70vw] bg-blueviolet-100 bg-opacity-15 blur-sm" />
 
                         {/* Warm gradient */}
-                        <div className="fade-from-left-bg relative left-[-10rem] top-[-20rem] h-[90rem] w-full bg-[#B1219D] bg-opacity-15 blur-sm md:w-[60vw]" />
-
-                        {/* Warm gradient */}
-                        <div className="fade-from-center-bg relative left-1/2 top-[-20rem] h-[70rem] w-full -translate-x-1/2 bg-[#B1219D] bg-opacity-15 blur-sm md:w-[60vw]" />
+                        <div className="fade-from-left-bg absolute left-[-10rem] top-[-20rem] h-[90rem] w-full bg-[#B1219D] bg-opacity-15 blur-sm md:w-[60vw]" />
 
                         {/* Light gradient */}
-                        <div className="fade-from-left-bg relative top-[10rem] left-[-10rem] h-[100rem] w-[80vw] bg-blueviolet-100 bg-opacity-20 blur-sm" />
+                        <div className="fade-from-left-bg absolute top-[10rem] left-[-10rem] h-[100rem] w-[80vw] bg-blueviolet-100 bg-opacity-20 blur-sm" />
+
+                        {/* Warm gradient */}
+                        <div className="fade-from-center-bg absolute left-1/2 top-[100rem] h-[100rem] w-full -translate-x-1/2 bg-[#B1219D] bg-opacity-25 blur-sm md:w-[100vw]" />
+
+                        {/* Warm gradient */}
+                        <div className="fade-from-center-bg absolute left-1/2 top-[190rem] h-[100rem] w-full -translate-x-1/2 bg-[#B1219D] bg-opacity-25 blur-sm md:w-[100vw]" />
+
+                        {/* Light gradient */}
+                        <div className="fade-from-right-bg absolute top-[130rem] right-[-6rem] h-[100rem] w-[50vw] bg-blueviolet-100 bg-opacity-20 blur-sm" />
 
                         <Star
                             variant="star"
@@ -418,6 +422,40 @@ export default function About() {
                 </div>
                 {/* TODO: Add horizontal scrolling if the members don't all fit onscreen. */}
                 <div className="mt-16 flex flex-col gap-24">
+                    {/* Stars */}
+                    <div className="absolute w-full">
+                        {/* Between Co-Directors and Partnerships */}
+                        <Star
+                            variant="star"
+                            className="absolute right-[0rem] top-[40rem] hidden lg:block"
+                            delay={1}
+                            width={90}
+                            height={90}
+                        />
+
+                        {/* Next to Events text */}
+                        <Star
+                            variant="star"
+                            className="absolute right-1/2 top-[85rem] hidden lg:block"
+                            delay={1}
+                            width={90}
+                            height={90}
+                            rotate={-22}
+                        />
+
+                        {/* Next to Development */}
+                        <Star
+                            variant="star"
+                            className="absolute right-[5rem] top-[160rem] hidden lg:block"
+                            delay={1}
+                        />
+                        <Star
+                            variant="star-faded"
+                            className="absolute right-[10rem] top-[165rem] hidden lg:block"
+                            delay={1}
+                            rotate={10}
+                        />
+                    </div>
                     <FadeInSection>
                         <TeamMembers
                             title={tOurTeam("codirectors")}
@@ -471,7 +509,7 @@ export default function About() {
                 {/* Beyond SESA */}
                 <div className="relative mt-56">
                     {/* Decorations */}
-                    <div className="pointer-events-none absolute left-0 top-0 h-full w-full select-none">
+                    <div className="pointer-events-none absolute left-0 top-0 h-full w-full select-none z-[-1]">
                         <Image
                             className="fade-from-center-bg absolute left-0 z-0 right-0 me-auto ms-auto w-auto opacity-60"
                             src="/decoration/globe-sponsor-page.svg"
@@ -479,8 +517,11 @@ export default function About() {
                             height={741}
                             alt=""
                         />
+                        {/* Light gradient */}
+                        <div className="fade-from-left-bg absolute left-[-6rem] top-[-100rem] h-[200rem] w-[80vw] bg-blueviolet-100 bg-opacity-20 blur-sm" />
+
                         {/* Warm gradient */}
-                        <div className="fade-from-center-bg relative left-1/2 z-[-1] top-[-25rem] h-[100rem] w-full -translate-x-1/2 bg-[#B1219D] bg-opacity-15 blur-sm md:w-[100vw]" />
+                        <div className="fade-from-center-bg absolute left-1/2 top-[-25rem] h-[100rem]  w-full -translate-x-1/2 bg-[#B1219D] bg-opacity-25 blur-sm md:w-[100vw]" />
 
                         <Star
                             variant="star"
