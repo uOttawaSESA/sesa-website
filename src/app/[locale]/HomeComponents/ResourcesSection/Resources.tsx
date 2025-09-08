@@ -99,13 +99,23 @@ const Resources = () => {
                         </div>
                         {/* Second Row */}
                         <div className="me-4 flex gap-4">
-                            {resources
-                                .slice(Math.ceil(resources.length / 2))
-                                .map((resource, index) => (
-                                    <div key={index}>
-                                        <ResourceCard {...resource} />
-                                    </div>
-                                ))}
+                            {resources.slice(Math.ceil(resources.length / 2)).map(resource => (
+                                <div key={resource.id}>
+                                    <ResourceCard
+                                        title={resource.title}
+                                        category={resource.category}
+                                        course={resource.course}
+                                        tier={resource.tier}
+                                        format={resource.format}
+                                        onOpen={() =>
+                                            router.push({
+                                                pathname: "/resources",
+                                                query: { id: resource.id },
+                                            })
+                                        }
+                                    />
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </Marquee>
