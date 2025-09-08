@@ -94,8 +94,9 @@ export default function Hero() {
                     src="/imgs/Home/heroImage.webp"
                     alt="SESA Group Photo"
                     className="relative z-10 h-[250px] w-full object-cover sm:h-[400px] md:h-[600px] lg:h-[500px]"
-                    width={700}
-                    height={700}
+                    width={2000}
+                    height={1200}
+                    priority
                 />
                 <Image
                     src="/decoration/grid-mobile.svg"

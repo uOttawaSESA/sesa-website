@@ -10,15 +10,15 @@ const TeamUpSection: React.FC = () => {
 
     return (
         <div className="mx-4 mb-24 flex h-[45rem] flex-col items-center justify-start gap-12 sm:mx-0 sm:flex-row md:my-36 2xl:gap-24">
-            <div className="grid-overlay-left md:h-[43.93rem] md:w-[53vw] xl:w-[37vw]"></div>
+            <div className="grid-overlay-left md:h-[43.93rem] md:w-[50vw] 2xl:w-[37vw]"></div>
 
             <div className="relative z-10 lg:block">
                 <Image
                     src="/imgs/Events/team-up.webp"
                     alt="SESA Group Photo"
-                    className="aspect-[7/5] max-h-[400px] sm:max-h-[500px]"
+                    className="aspect-[7/5] object-cover max-h-[400px] sm:max-h-[500px]"
                     width={700}
-                    height={500}
+                    height={700}
                 />
             </div>
 

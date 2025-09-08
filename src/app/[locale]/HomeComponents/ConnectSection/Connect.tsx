@@ -19,8 +19,8 @@ const Connect = () => {
                         src="/imgs/Home/connectImage.webp"
                         alt={t("connect_image_alt")}
                         className="relative z-10 mb-12 h-[250px] w-full object-cover sm:h-[400px] md:h-[600px] lg:mt-12 lg:h-[500px]"
-                        width={700}
-                        height={700}
+                        width={1500}
+                        height={1500}
                     />
                     <Image
                         src="/decoration/grid-mobile.svg"
