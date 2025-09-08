@@ -16,9 +16,11 @@ const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 if (!SITE_KEY) throw new Error("Expected NEXT_PUBLIC_RECAPTCHA_SITE_KEY env variable.");
 
 // Enable App Check to mitigate bot requests
-initializeAppCheck(app, {
-    provider: new ReCaptchaEnterpriseProvider(SITE_KEY),
-    isTokenAutoRefreshEnabled: true,
-});
+if (typeof window !== "undefined") {
+    initializeAppCheck(app, {
+        provider: new ReCaptchaEnterpriseProvider(SITE_KEY),
+        isTokenAutoRefreshEnabled: true,
+    });
+}
 
 export const db = getFirestore(app);
