@@ -90,7 +90,7 @@ const Resources = () => {
                                         onOpen={() =>
                                             router.push({
                                                 pathname: "/resources",
-                                                query: { resource: resource.id },
+                                                query: { id: resource.id },
                                             })
                                         }
                                     />

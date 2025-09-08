@@ -19,7 +19,7 @@ const ResourceList: React.FC<ResourceListProps> = ({
     isGridMode,
 }) => {
     // URL-based state
-    const [openResource, setOpenResource] = useQueryState("resource");
+    const [openResource, setOpenResource] = useQueryState("id");
 
     const selectedResource = useMemo(
         () => allResources.find(resource => resource.id === openResource) ?? null,
