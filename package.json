@@ -31,6 +31,7 @@
         "next": "15.4.7",
         "node-fetch": "^3.3.2",
         "nodemailer": "^6.10.0",
+        "nuqs": "^2.6.0",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
         "react-fast-marquee": "^1.6.5",
