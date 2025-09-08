@@ -1,27 +1,37 @@
+"use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useQueryState } from "nuqs";
+import { useMemo } from "react";
 import { ResourceCard } from "./ResourceCard/ResourceCard";
 import { ResourceModal } from "./ResourceModal";
 import type React from "react";
 import type { Resource } from "@/schemas/resources";
 
 interface ResourceListProps {
+    allResources: Resource[];
     currentResources: Resource[];
     isGridMode: boolean;
 }
 
-const ResourceList: React.FC<ResourceListProps> = ({ currentResources, isGridMode }) => {
-    const [selectedResource, setSelectedResource] = useState<Resource | null>(null);
-    const [isModalOpen, setModalOpen] = useState(false);
+const ResourceList: React.FC<ResourceListProps> = ({
+    allResources,
+    currentResources,
+    isGridMode,
+}) => {
+    // URL-based state
+    const [openResource, setOpenResource] = useQueryState("resource");
+
+    const selectedResource = useMemo(
+        () => allResources.find(resource => resource.id === openResource) ?? null,
+        [openResource, allResources.find],
+    );
 
     const openModal = (resource: Resource) => {
-        setSelectedResource(resource);
-        setModalOpen(true);
+        setOpenResource(resource.id);
     };
 
     const closeModal = () => {
-        setModalOpen(false);
-        setSelectedResource(null);
+        setOpenResource(null);
     };
 
     return (
@@ -56,7 +66,7 @@ const ResourceList: React.FC<ResourceListProps> = ({ currentResources, isGridMod
             {selectedResource && (
                 <ResourceModal
                     resource={selectedResource}
-                    isOpen={isModalOpen}
+                    isOpen={!!selectedResource}
                     onClose={closeModal}
                 />
             )}
