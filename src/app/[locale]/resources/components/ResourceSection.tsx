@@ -1,5 +1,4 @@
 "use client";
-import { parseAsInteger, useQueryState } from "nuqs";
 import { useEffect, useMemo, useState } from "react";
 import Pagination from "@/components/Pagination";
 import { useResources } from "@/lib/query";
@@ -8,8 +7,7 @@ import SearchFilterBar from "./SearchFilterBar";
 import type { Resource } from "@/schemas/resources";
 
 const ResourceSection = () => {
-    // URL-based state
-    const [currentPage, setCurrentPage] = useQueryState("page", parseAsInteger.withDefault(1));
+    const [currentPage, setCurrentPage] = useState(1);
 
     const [rowsToShow, setRowsToShow] = useState(2);
     const [isGridMode, setIsGridMode] = useState(true);
