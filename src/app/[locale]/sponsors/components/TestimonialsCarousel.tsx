@@ -31,7 +31,7 @@ const sponsorsData = [
         logoAlt: "BiteSite logo",
         testimonial:
             "SESA has always been an amazing organization. I've always been impressed with their work and what they provide to students. In fact, my first two hires at BiteSite were SESA members. Their continued efforts to help out not only students, but the software community in general is admirable and I hope their work grows for years to come.",
-        highlights: ["first two hires at BiteSite were SESA members"],
+        highlights: ["In fact, my first two hires at BiteSite were SESA members."],
         person: {
             name: "Casey Li",
             title: "CEO at BiteSite",
@@ -66,20 +66,20 @@ const TestimonialsCarousel = () => {
                 {/* Sponsor Image - STATIC */}
                 <div className="relative z-10 flex-shrink-0">
                     <Image
-                        src="/sponsors-page/sponsor-card-img.webp"
-                        alt="SESA Group Photo"
+                        src="/imgs/Sponsorships/warp-event.webp"
+                        alt="Warp Event Photo"
                         className="h-[300px] w-auto md:h-[500px]"
-                        width={700}
-                        height={700}
+                        width={1200}
+                        height={1200}
                     />
                 </div>
 
                 {/* Carousel - Only Text Content Moves */}
-                <Carousel className="w-full max-w-2xl z-10">
+                <Carousel className="w-full 2xl:max-w-2xl z-10 md:max-w-xl">
                     <CarouselContent>
                         {sponsorsData.map((sponsor, index) => (
                             <CarouselItem key={`sponsor:${index}`}>
-                                <div className="text-left text-white">
+                                <div className="flex h-full flex-col justify-center text-left text-white">
                                     <Image
                                         src={sponsor.logo}
                                         alt={sponsor.logoAlt}
