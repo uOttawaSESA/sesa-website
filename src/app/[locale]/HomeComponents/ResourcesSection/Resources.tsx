@@ -6,13 +6,14 @@ import Marquee from "react-fast-marquee";
 import ComingSoonMessage from "@/components/ComingSoonMessage";
 import { Button } from "@/components/ui/button";
 import Star from "@/components/ui/decorations/star";
-import { Link } from "@/i18n/navigation";
+import { Link, useRouter } from "@/i18n/navigation";
 import { useResources } from "@/lib/query";
 import ResourceCard from "../../resources/components/ResourceCard/ResourceCard";
 
 const Resources = () => {
     const t = useTranslations("homepage");
     const { data: resources } = useResources();
+    const router = useRouter();
 
     return (
         <section className="relative my-10 mb-0 flex w-full flex-col gap-4 text-white md:mb-20">
@@ -78,19 +79,23 @@ const Resources = () => {
                         {/* Two rows with gap */}
                         {/* First Row */}
                         <div className="me-4 flex gap-4">
-                            {resources
-                                .slice(0, Math.ceil(resources.length / 2))
-                                .map((resource, index) => (
-                                    <div key={index}>
-                                        <ResourceCard
-                                            title={resource.title}
-                                            category={resource.category}
-                                            course={resource.course}
-                                            tier={resource.tier}
-                                            format={resource.format}
-                                        />
-                                    </div>
-                                ))}
+                            {resources.slice(0, Math.ceil(resources.length / 2)).map(resource => (
+                                <div key={resource.id}>
+                                    <ResourceCard
+                                        title={resource.title}
+                                        category={resource.category}
+                                        course={resource.course}
+                                        tier={resource.tier}
+                                        format={resource.format}
+                                        onOpen={() =>
+                                            router.push({
+                                                pathname: "/resources",
+                                                query: { resource: resource.id },
+                                            })
+                                        }
+                                    />
+                                </div>
+                            ))}
                         </div>
                         {/* Second Row */}
                         <div className="me-4 flex gap-4">
