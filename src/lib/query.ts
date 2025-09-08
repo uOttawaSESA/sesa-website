@@ -1,8 +1,8 @@
 import { QueryClient, useQuery } from "@tanstack/react-query";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import { db } from "@/lib/firebase";
-import { FirestoreEvent } from "@/schemas/events";
-import { FirestoreResource } from "@/schemas/resources";
+import { type Event, FirestoreEvent } from "@/schemas/events";
+import { FirestoreResource, type Resource } from "@/schemas/resources";
 
 export const queryClient = new QueryClient();
 
@@ -34,6 +34,30 @@ export const useEvents = () =>
     });
 
 /**
+ * Query function used for {@link useEvent}.
+ */
+export const fetchEvent = async (id: string) => {
+    const event = await getDoc(doc(db, "Events", id));
+    if (!event.exists()) throw new TypeError(`Requested event ${id} does not exist.`);
+    return FirestoreEvent.parse(event);
+};
+
+/**
+ * Get a single event from Firestore.
+ * Remote data is validated with Zod before returning.
+ * Any validation errors are uncaught and will be propogated.
+ */
+export const useEvent = (id: string) =>
+    useQuery({
+        queryKey: ["events", { id }],
+        queryFn: () => fetchEvent(id),
+        // Check if we have already fetched this event before making a new request
+        initialData: () =>
+            queryClient.getQueryData<Event[]>(["events"])?.find(event => event.id === id),
+        initialDataUpdatedAt: () => queryClient.getQueryState(["events"])?.dataUpdatedAt,
+    });
+
+/**
  * Query function used for {@link useResources}.
  */
 export const fetchResources = async () => {
@@ -58,4 +82,30 @@ export const useResources = () =>
     useQuery({
         queryKey: ["resources"],
         queryFn: fetchResources,
+    });
+
+/**
+ * Query function used for {@link useResource}.
+ */
+export const fetchResource = async (id: string) => {
+    const resource = await getDoc(doc(db, "Resources", id));
+    if (!resource.exists()) throw new TypeError(`Requested resource ${id} does not exist.`);
+    return FirestoreResource.parse(resource);
+};
+
+/**
+ * Get a single resource from Firestore.
+ * Remote data is validated with Zod before returning.
+ * Any validation errors are uncaught and will be propogated.
+ */
+export const useResource = (id: string) =>
+    useQuery({
+        queryKey: ["resources", { id }],
+        queryFn: () => fetchResource(id),
+        // Check if we have already fetched this resource before making a new request
+        initialData: () =>
+            queryClient
+                .getQueryData<Resource[]>(["resources"])
+                ?.find(resource => resource.id === id),
+        initialDataUpdatedAt: () => queryClient.getQueryState(["resources"])?.dataUpdatedAt,
     });
