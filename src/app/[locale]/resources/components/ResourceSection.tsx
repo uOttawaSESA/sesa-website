@@ -4,7 +4,7 @@ import Pagination from "@/components/Pagination";
 import { useResources } from "@/lib/query";
 import ResourceList from "./ResourceList";
 import SearchFilterBar from "./SearchFilterBar";
-import type { Resource } from "@/app/types/Resource";
+import type { Resource } from "@/schemas/resources";
 
 const ResourceSection = () => {
     const [currentPage, setCurrentPage] = useState(1);

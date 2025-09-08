@@ -3,7 +3,7 @@ import { useState } from "react";
 import { ResourceCard } from "./ResourceCard/ResourceCard";
 import { ResourceModal } from "./ResourceModal";
 import type React from "react";
-import type { Resource } from "@/app/types/Resource";
+import type { Resource } from "@/schemas/resources";
 
 interface ResourceListProps {
     currentResources: Resource[];
@@ -43,9 +43,9 @@ const ResourceList: React.FC<ResourceListProps> = ({ currentResources, isGridMod
                         : "flex flex-col gap-6"
                 }
             >
-                {currentResources.map((resource, index) => (
+                {currentResources.map(resource => (
                     <ResourceCard
-                        key={index}
+                        key={resource.id}
                         {...resource}
                         mode={isGridMode ? "grid" : "row"}
                         onOpen={() => openModal(resource)}

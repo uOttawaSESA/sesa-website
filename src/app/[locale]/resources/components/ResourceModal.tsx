@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useEffect, useId, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Button } from "@/components/ui/button";
-import type { Resource } from "@/app/types/Resource";
+import type { Resource } from "@/schemas/resources";
 
 interface ResourceModalProps {
     resource: Resource;
