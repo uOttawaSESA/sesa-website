@@ -1,30 +1,23 @@
 "use client";
 import Image from "next/image";
 import { useQueryState } from "nuqs";
-import { useMemo } from "react";
+import { useResource } from "@/lib/query";
 import { ResourceCard } from "./ResourceCard/ResourceCard";
 import { ResourceModal } from "./ResourceModal";
 import type React from "react";
 import type { Resource } from "@/schemas/resources";
 
 interface ResourceListProps {
-    allResources: Resource[];
     currentResources: Resource[];
     isGridMode: boolean;
 }
 
-const ResourceList: React.FC<ResourceListProps> = ({
-    allResources,
-    currentResources,
-    isGridMode,
-}) => {
+const ResourceList: React.FC<ResourceListProps> = ({ currentResources, isGridMode }) => {
     // URL-based state
     const [openResource, setOpenResource] = useQueryState("id");
 
-    const selectedResource = useMemo(
-        () => allResources.find(resource => resource.id === openResource) ?? null,
-        [openResource, allResources.find],
-    );
+    // Fetch the resource
+    const { data: selectedResource } = useResource(openResource);
 
     const openModal = (resource: Resource) => {
         setOpenResource(resource.id);

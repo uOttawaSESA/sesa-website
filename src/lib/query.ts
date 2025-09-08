@@ -47,10 +47,12 @@ export const fetchEvent = async (id: string) => {
  * Remote data is validated with Zod before returning.
  * Any validation errors are uncaught and will be propogated.
  */
-export const useEvent = (id: string) =>
+export const useEvent = (id: string | null) =>
     useQuery({
+        enabled: !!id,
         queryKey: ["events", { id }],
-        queryFn: () => fetchEvent(id),
+        // biome-ignore lint/style/noNonNullAssertion: The `enabled` key ensures that this will be non-null
+        queryFn: () => fetchEvent(id!),
         // Check if we have already fetched this event before making a new request
         initialData: () =>
             queryClient.getQueryData<Event[]>(["events"])?.find(event => event.id === id),
@@ -98,10 +100,12 @@ export const fetchResource = async (id: string) => {
  * Remote data is validated with Zod before returning.
  * Any validation errors are uncaught and will be propogated.
  */
-export const useResource = (id: string) =>
+export const useResource = (id: string | null) =>
     useQuery({
+        enabled: !!id,
         queryKey: ["resources", { id }],
-        queryFn: () => fetchResource(id),
+        // biome-ignore lint/style/noNonNullAssertion: The `enabled` key ensures that this will be non-null
+        queryFn: () => fetchResource(id!),
         // Check if we have already fetched this resource before making a new request
         initialData: () =>
             queryClient

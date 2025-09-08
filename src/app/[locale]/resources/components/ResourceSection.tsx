@@ -155,11 +155,7 @@ const ResourceSection = () => {
             />
 
             {/* Resources Grid or Row */}
-            <ResourceList
-                allResources={resources}
-                currentResources={currentResources}
-                isGridMode={isGridMode}
-            />
+            <ResourceList currentResources={currentResources} isGridMode={isGridMode} />
 
             {/* Pagination */}
             <Pagination
