@@ -20,7 +20,9 @@ export default function WhatWeDoCard({
     linkHref,
 }: WhatWeDoCardProps) {
     return (
-        <div className="outline-gradient w-fit backdrop-blur-lg">
+        // Setting a max width of 85vw makes sure that the user can see the next card, indicating that there is something to swipe to.
+        // Otherwise, it would be hard to notice that there are more cards
+        <div className="outline-gradient w-fit max-w-[85vw] backdrop-blur-lg">
             <Image
                 src={imageHref}
                 width={400}

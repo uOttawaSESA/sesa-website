@@ -70,7 +70,7 @@ export default function About() {
     const tOurTeam = useTranslations("about.introducing_our_team_section");
 
     return (
-        <div className="min-h-screen text-white relative ">
+        <div className="min-h-screen text-white relative">
             {/* Gradient */}
             <div className="pointer-events-none absolute left-0 top-0 h-full w-full select-none">
                 {/* Light gradient */}
@@ -277,7 +277,7 @@ export default function About() {
                     </FadeInSection>
                     {/* Cards for "What do we do" */}
                     <FadeInSection>
-                        <div className="mb-8 flex w-full max-w-[28rem] gap-6 md:justify-start">
+                        <div className="mx-0 mb-8 flex w-full max-w-[28rem] gap-3 md:gap-6 md:justify-start overflow-x-auto">
                             <WhatWeDoCard
                                 imageHref="/imgs/about/social-events.webp"
                                 icon={
