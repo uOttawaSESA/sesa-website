@@ -1,4 +1,4 @@
-import { Dialog, DialogPanel } from "@headlessui/react";
+import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { formatDate } from "date-fns";
 import { X } from "lucide-react";
 import Image from "next/image";
@@ -314,192 +314,204 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
     };
 
     return (
-        <Dialog
+        <DialogPrimitive.Root
             open={isOpen}
-            onClose={onClose}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/10 backdrop-blur-md"
+            onOpenChange={open => {
+                if (!open) onClose();
+            }}
         >
-            <div className="inset-0 bg-fixed" />
-            <DialogPanel className="relative z-10 w-full max-w-5xl overflow-hidden">
-                {/* Header */}
-                <div className="flex items-center justify-between p-4">
-                    <div>
-                        {/* Category Badges */}
-                        <div className="mb-4 flex gap-2 font-heading text-white">
-                            <span className="cursor-pointer bg-gradient-to-r from-blueviolet-100 to-darkmagenta p-2 text-sm uppercase">
-                                {resource.category}
-                            </span>
-                            {resource.course && (
-                                <span className="cursor-pointer bg-gradient-to-r from-blueviolet-100 to-darkmagenta p-2 text-sm uppercase">
-                                    {resource.course}
-                                </span>
-                            )}
-                        </div>
-                        <h2 className="font-heading text-2xl uppercase text-white">
-                            {resource.title}
-                        </h2>
-                    </div>
-
-                    <Button
-                        size="icon"
-                        variant="outline"
-                        className="mb-10 text-white"
-                        onClick={onClose}
-                    >
-                        <X size={20} />
-                    </Button>
-                </div>
-
-                {/* Format-specific Viewer (excluding list) */}
-                {renderViewer()}
-
-                {/* Footer */}
-                <div className="flex items-center justify-between p-4 text-sm text-thistle">
-                    <div className="flex flex-row flex-wrap items-center gap-4 font-[Monocode] text-sm text-thistle">
-                        {/* Tier */}
-                        <div
-                            className="flex items-center gap-2"
-                            ref={tierRef}
-                            role="tooltip"
-                            aria-describedby={tierTooltipId}
-                            onMouseEnter={() => setShowTierTooltip(true)}
-                            onMouseLeave={() => setShowTierTooltip(false)}
-                        >
-                            <Image
-                                src="/resources-page/description.svg"
-                                alt="Tier"
-                                width={20}
-                                height={20}
-                                className="h-5 w-5"
-                            />
-                            <span>{resource.tier}</span>
-                        </div>
-
-                        <div className="h-[14px] w-px border-r border-thistle opacity-35" />
-
-                        {/* Format */}
-                        <div className="flex items-center gap-2">
-                            <Image
-                                src="/resources-page/folder.svg"
-                                alt="Format"
-                                width={20}
-                                height={20}
-                                className="h-5 w-5"
-                            />
-                            <span className="capitalize">{resource.format}</span>
-                        </div>
-
-                        <div className="h-[14px] w-px border-r border-thistle opacity-35" />
-
-                        {/* Pricing */}
-                        <div className="flex items-center gap-2">
-                            <Image
-                                src="/resources-page/pricing.svg"
-                                alt="Pricing"
-                                width={20}
-                                height={20}
-                                className="h-5 w-5"
-                            />
-                            <span className="capitalize">{resource.pricing}</span>
-                        </div>
-
-                        <div className="h-[14px] w-px border-r border-thistle opacity-35" />
-
-                        {/* Language */}
-                        <div className="flex items-center gap-2">
-                            <Image
-                                src="/resources-page/language.svg"
-                                alt="Language"
-                                width={20}
-                                height={20}
-                                className="h-5 w-5"
-                            />
-                            <span className="capitalize">{resource.language}</span>
-                        </div>
-
-                        {/* Accessibility Feature */}
-                        {resource.accessibilityFeature && (
-                            <>
-                                <div className="h-[14px] w-px border-r border-thistle opacity-35" />
-
-                                <div className="flex items-center gap-2">
-                                    <Image
-                                        src="/resources-page/accessibility.svg"
-                                        alt="Accessibility Feature"
-                                        width={20}
-                                        height={20}
-                                        className="h-5 w-5"
-                                    />
-                                    <span className="capitalize">
-                                        {resource.accessibilityFeature}
+            <DialogPrimitive.Portal>
+                <DialogPrimitive.Content className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/10">
+                    <DialogPrimitive.Overlay className="fixed z-[-1] backdrop-blur-md w-full h-full" />
+                    <div className="inset-0 bg-fixed" />
+                    <div className="w-full max-w-5xl">
+                        {/* Header */}
+                        <div className="flex items-center w-full justify-between p-4">
+                            <div>
+                                {/* Category Badges */}
+                                <div className="mb-4 flex gap-2 font-heading text-white">
+                                    <span className="cursor-pointer bg-gradient-to-r from-blueviolet-100 to-darkmagenta p-2 text-sm uppercase">
+                                        {resource.category}
                                     </span>
+                                    {resource.course && (
+                                        <span className="cursor-pointer bg-gradient-to-r from-blueviolet-100 to-darkmagenta p-2 text-sm uppercase">
+                                            {resource.course}
+                                        </span>
+                                    )}
                                 </div>
-                            </>
-                        )}
+                                <DialogPrimitive.Title className="font-heading text-2xl uppercase text-white">
+                                    {resource.title}
+                                </DialogPrimitive.Title>
+                            </div>
 
-                        {/* Last Updated */}
-                        {resource.lastUpdated && (
-                            <>
-                                <div className="h-[14px] w-px border-r border-thistle opacity-35" />
+                            <DialogPrimitive.Close asChild>
+                                <Button
+                                    size="icon"
+                                    variant="outline"
+                                    className="mb-10 text-white"
+                                    onClick={onClose}
+                                >
+                                    <X size={20} />
+                                </Button>
+                            </DialogPrimitive.Close>
+                        </div>
+
+                        {/* Format-specific Viewer (excluding list) */}
+                        {renderViewer()}
+
+                        {/* Footer */}
+                        <div className="flex items-center justify-between p-4 text-sm text-thistle w-full">
+                            <div className="flex flex-row flex-wrap items-center gap-4 font-[Monocode] text-sm text-thistle">
+                                {/* Tier */}
                                 <div
                                     className="flex items-center gap-2"
-                                    ref={updatedRef}
+                                    ref={tierRef}
                                     role="tooltip"
-                                    aria-describedby={updatedTooltipId}
-                                    onMouseEnter={() => setShowUpdatedTooltip(true)}
-                                    onMouseLeave={() => setShowUpdatedTooltip(false)}
+                                    aria-describedby={tierTooltipId}
+                                    onMouseEnter={() => setShowTierTooltip(true)}
+                                    onMouseLeave={() => setShowTierTooltip(false)}
                                 >
                                     <Image
-                                        src="/resources-page/last-updated.svg"
-                                        alt="Last Updated"
+                                        src="/resources-page/description.svg"
+                                        alt="Tier"
                                         width={20}
                                         height={20}
                                         className="h-5 w-5"
                                     />
-                                    <span className="capitalize">
-                                        {formatDate(resource.lastUpdated, "PP")}
-                                    </span>
+                                    <span>{resource.tier}</span>
                                 </div>
-                            </>
+
+                                <div className="h-[14px] w-px border-r border-thistle opacity-35" />
+
+                                {/* Format */}
+                                <div className="flex items-center gap-2">
+                                    <Image
+                                        src="/resources-page/folder.svg"
+                                        alt="Format"
+                                        width={20}
+                                        height={20}
+                                        className="h-5 w-5"
+                                    />
+                                    <span className="capitalize">{resource.format}</span>
+                                </div>
+
+                                <div className="h-[14px] w-px border-r border-thistle opacity-35" />
+
+                                {/* Pricing */}
+                                <div className="flex items-center gap-2">
+                                    <Image
+                                        src="/resources-page/pricing.svg"
+                                        alt="Pricing"
+                                        width={20}
+                                        height={20}
+                                        className="h-5 w-5"
+                                    />
+                                    <span className="capitalize">{resource.pricing}</span>
+                                </div>
+
+                                <div className="h-[14px] w-px border-r border-thistle opacity-35" />
+
+                                {/* Language */}
+                                <div className="flex items-center gap-2">
+                                    <Image
+                                        src="/resources-page/language.svg"
+                                        alt="Language"
+                                        width={20}
+                                        height={20}
+                                        className="h-5 w-5"
+                                    />
+                                    <span className="capitalize">{resource.language}</span>
+                                </div>
+
+                                {/* Accessibility Feature */}
+                                {resource.accessibilityFeature && (
+                                    <>
+                                        <div className="h-[14px] w-px border-r border-thistle opacity-35" />
+
+                                        <div className="flex items-center gap-2">
+                                            <Image
+                                                src="/resources-page/accessibility.svg"
+                                                alt="Accessibility Feature"
+                                                width={20}
+                                                height={20}
+                                                className="h-5 w-5"
+                                            />
+                                            <span className="capitalize">
+                                                {resource.accessibilityFeature}
+                                            </span>
+                                        </div>
+                                    </>
+                                )}
+
+                                {/* Last Updated */}
+                                {resource.lastUpdated && (
+                                    <>
+                                        <div className="h-[14px] w-px border-r border-thistle opacity-35" />
+                                        <div
+                                            className="flex items-center gap-2"
+                                            ref={updatedRef}
+                                            role="tooltip"
+                                            aria-describedby={updatedTooltipId}
+                                            onMouseEnter={() => setShowUpdatedTooltip(true)}
+                                            onMouseLeave={() => setShowUpdatedTooltip(false)}
+                                        >
+                                            <Image
+                                                src="/resources-page/last-updated.svg"
+                                                alt="Last Updated"
+                                                width={20}
+                                                height={20}
+                                                className="h-5 w-5"
+                                            />
+                                            <span className="capitalize">
+                                                {formatDate(resource.lastUpdated, "PP")}
+                                            </span>
+                                        </div>
+                                    </>
+                                )}
+                            </div>
+
+                            {resource.format.toLowerCase() !== "list" && (
+                                <Button
+                                    className="flex flex-row items-center justify-center font-heading uppercase text-white"
+                                    asChild
+                                >
+                                    <a
+                                        href={resource.source}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        Open in New Tab
+                                        <span className="hidden ps-3 md:block">
+                                            <Image
+                                                src="/resources-page/new-tab.svg"
+                                                width="15"
+                                                height="15"
+                                                alt="Open in a new tab"
+                                            ></Image>
+                                        </span>
+                                    </a>
+                                </Button>
+                            )}
+                        </div>
+
+                        {/* Render List under footer */}
+                        {renderList()}
+
+                        {/* Render tooltips */}
+                        {showTierTooltip && (
+                            <TooltipPortal id={tierTooltipId} position={tierTooltipPos}>
+                                {getIconTooltip(resource.tier)}
+                            </TooltipPortal>
+                        )}
+
+                        {showUpdatedTooltip && (
+                            <TooltipPortal id={updatedTooltipId} position={updatedTooltipPos}>
+                                {getIconTooltip("LAST UPDATED")}
+                            </TooltipPortal>
                         )}
                     </div>
-
-                    {resource.format.toLowerCase() !== "list" && (
-                        <Button
-                            className="flex flex-row items-center justify-center font-heading uppercase text-white"
-                            asChild
-                        >
-                            <a href={resource.source} target="_blank" rel="noopener noreferrer">
-                                Open in New Tab
-                                <span className="hidden ps-3 md:block">
-                                    <Image
-                                        src="/resources-page/new-tab.svg"
-                                        width="15"
-                                        height="15"
-                                        alt="Open in a new tab"
-                                    ></Image>
-                                </span>
-                            </a>
-                        </Button>
-                    )}
-                </div>
-
-                {/* Render List under footer */}
-                {renderList()}
-
-                {/* Render tooltips */}
-                {showTierTooltip && (
-                    <TooltipPortal id={tierTooltipId} position={tierTooltipPos}>
-                        {getIconTooltip(resource.tier)}
-                    </TooltipPortal>
-                )}
-
-                {showUpdatedTooltip && (
-                    <TooltipPortal id={updatedTooltipId} position={updatedTooltipPos}>
-                        {getIconTooltip("LAST UPDATED")}
-                    </TooltipPortal>
-                )}
-            </DialogPanel>
-        </Dialog>
+                </DialogPrimitive.Content>
+            </DialogPrimitive.Portal>
+        </DialogPrimitive.Root>
     );
 };
