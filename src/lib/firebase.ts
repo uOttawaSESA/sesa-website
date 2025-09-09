@@ -12,11 +12,11 @@ const app = initializeApp({
     appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 });
 
-const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
-if (!SITE_KEY) throw new Error("Expected NEXT_PUBLIC_RECAPTCHA_SITE_KEY env variable.");
-
 // Enable App Check to mitigate bot requests
 if (typeof window !== "undefined") {
+    const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+    if (!SITE_KEY) throw new Error("Expected NEXT_PUBLIC_RECAPTCHA_SITE_KEY env variable.");
+
     initializeAppCheck(app, {
         provider: new ReCaptchaEnterpriseProvider(SITE_KEY),
         isTokenAutoRefreshEnabled: true,
