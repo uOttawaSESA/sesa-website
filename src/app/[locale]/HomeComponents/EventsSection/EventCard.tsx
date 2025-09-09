@@ -16,7 +16,7 @@ const EventCard: React.FC<{ event: Event }> = ({ event }) => {
     const t = useTranslations("homepage");
 
     return (
-        <div className="flex h-full w-full flex-col overflow-hidden border-2 border-solid border-blueviolet-700 bg-gray-200 opacity-90">
+        <div className="flex h-full w-full flex-col overflow-hidden border-2 border-solid border-blueviolet-700 bg-gray-200 opacity-90 backdrop-blur-lg">
             {/* Event Image */}
             <Image
                 className="h-[350px] w-full border-b-2 border-solid border-blueviolet-700 object-cover"
