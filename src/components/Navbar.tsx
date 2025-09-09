@@ -72,7 +72,7 @@ export default function Navbar() {
 
     return (
         <>
-            <header className="fixed left-0 right-0 top-0 z-50 flex w-screen items-center justify-between bg-transparent px-8 py-6 backdrop-blur-2xl md:px-12 lg:px-20 xl:px-32 2xl:px-64">
+            <header className="fixed left-0 right-0 top-0 z-50 flex w-screen items-center justify-between bg-transparent px-8 py-6 backdrop-blur-2xl md:px-12 2xl:px-64">
                 <div className="flex items-center gap-3">
                     <Link href="/">
                         <Image width={40} height={40} src="/sesa-logo.svg" alt="SESA Logo" />
