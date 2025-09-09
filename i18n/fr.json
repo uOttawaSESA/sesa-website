@@ -1,7 +1,7 @@
 {
     "homepage": {
         "we_are_sesa": "Association des Étudiants en Génie Logiciel",
-        "bridging_the_gap_hl": "Réduire l’écart",
+        "bridging_the_gap_hl": "Réduire l'écart",
         "bridging_the_gap": "entre les étudiants et les professionnels de l'industrie",
         "purpose": "Nous mettons en relation les étudiants en génie logiciel (SEG) et en informatique et génie électrique (EECS) avec des professionnels de l'industrie du logiciel, en leur fournissant des ressources, des occasions de réseautage et des possibilités de développement de carrière.",
         "learn_more": "En Savoir Plus",
@@ -25,7 +25,7 @@
         "sponsors_partners": "Nos commanditaires et partenaires",
         "sponsors_heading_h1_highlighted": "Fiable et sponsorisé",
         "sponsors_heading_h1": "par les meilleurs dans le jeu",
-        "sponsors_subheading": "Nous sommes extrêmement reconnaissants envers nos partenaires qui croient en notre mission de connecter les étudiants aux professionnels de l’industrie.",
+        "sponsors_subheading": "Nous sommes extrêmement reconnaissants envers nos partenaires qui croient en notre mission de connecter les étudiants aux professionnels de l'industrie.",
         "become_sponsor_btn": "Devenez sponsor",
         "meet_team_btn": "Découvrez l'équipe",
         "coming_soon_home_btn": "Retour à la page d'accueil",
@@ -36,19 +36,19 @@
         "faq_description": "Nous avons les réponses à vos questions ci-dessous. Si vous avez encore des interrogations, contactez-nous et nous vous répondrons dans les plus brefs délais.",
         "faq_q1": {
             "title": "QU'EST-CE QUE AÉGL?",
-            "answer": "AÉGL est l’association des étudiants en génie logiciel de l’Université d’Ottawa, une organisation étudiante indépendante visant à enrichir la vie étudiante, promouvoir le génie logiciel, et soutenir les étudiants académiquement et professionnellement grâce à des ateliers, ressources, événements sociaux, sensibilisation et plaidoyer."
+            "answer": "AÉGL est l'association des étudiants en génie logiciel de l'Université d'Ottawa, une organisation étudiante indépendante visant à enrichir la vie étudiante, promouvoir le génie logiciel, et soutenir les étudiants académiquement et professionnellement grâce à des ateliers, ressources, événements sociaux, sensibilisation et plaidoyer."
         },
         "faq_q2": {
             "title": "QUI PEUT S'Y JOINDRE ?",
-            "answer": "**Les événements de l’AÉGL sont ouverts à tous** — pas seulement aux étudiants en génie logiciel !\n\nQue vous soyez un élève du secondaire, un membre de la communauté, un étudiant de premier cycle, un étudiant aux cycles supérieurs ou un diplômé, vous êtes les bienvenus (sauf indication contraire).\n\n**Pour devenir membre de l’équipe de l’AÉGL :**\n- **Vous devez être inscrit à l’Université d’Ottawa** (premier cycle ou cycles supérieurs, à temps plein ou à temps partiel)\n- Vous n’avez pas besoin d’être dans le **programme de génie logiciel** — seulement passionné par la communauté"
+            "answer": "**Les événements de l'AÉGL sont ouverts à tous** — pas seulement aux étudiants en génie logiciel !\n\nQue vous soyez un élève du secondaire, un membre de la communauté, un étudiant de premier cycle, un étudiant aux cycles supérieurs ou un diplômé, vous êtes les bienvenus (sauf indication contraire).\n\n**Pour devenir membre de l'équipe de l'AÉGL :**\n- **Vous devez être inscrit à l'Université d'Ottawa** (premier cycle ou cycles supérieurs, à temps plein ou à temps partiel)\n- Vous n'avez pas besoin d'être dans le **programme de génie logiciel** — seulement passionné par la communauté"
         },
         "faq_q3": {
             "title": "QU'EST-CE QUI REND AÉGL SPÉCIAL?",
             "answer": "**AÉGL est géré par des étudiants, pour des étudiants**, en mettant l'accent sur la communauté, la collaboration et la création d'opportunités.\n\nNous nous engageons à créer un **espace inclusif** où chacun peut s'impliquer, apprendre et grandir."
         },
         "faq_q4": {
-            "title": "QUELS ÉVÉNEMENTS L’AÉGL ORGANISE-T-ELLE ?",
-            "answer": "L’AÉGL organise chaque année des événements liés à la technologie à l'Université d'Ottawa, notamment des ateliers techniques, des foires de l'emploi, des rencontres, des simulations d'entrevues et des lancements de produits.\n\nBon nombre de ces activités sont réalisées en partenariat avec des organismes communautaires, tels que la [page des commanditaires](/fr/sponsors), afin d’aider à organiser des expériences de haute qualité comparables au milieu professionnel."
+            "title": "QUELS ÉVÉNEMENTS L'AÉGL ORGANISE-T-ELLE ?",
+            "answer": "L'AÉGL organise chaque année des événements liés à la technologie à l'Université d'Ottawa, notamment des ateliers techniques, des foires de l'emploi, des rencontres, des simulations d'entrevues et des lancements de produits.\n\nBon nombre de ces activités sont réalisées en partenariat avec des organismes communautaires, tels que la [page des commanditaires](/fr/sponsors), afin d'aider à organiser des expériences de haute qualité comparables au milieu professionnel."
         },
         "faq_missed_something": "Avons-nous oublié quelque chose ?",
         "faq_message_us_btn": "ÉCRIVEZ-NOUS",
@@ -67,7 +67,7 @@
         "team_heading_line1_part2": "Association des",
         "team_heading_line2": "Étudiants en Génie Logiciel",
         "team_subheading_line1": "Notre équipe communications a soigneusement conçu le web",
-        "team_subheading_line2": "design, tandis que notre équipe de développement l’a construit avec cœur.",
+        "team_subheading_line2": "design, tandis que notre équipe de développement l'a construit avec cœur.",
         "team_become_sponsor_btn": "Devenir commanditaire",
         "team_get_in_touch_btn": "Nous contacter"
     },
@@ -82,7 +82,7 @@
         "who_are_we_heading": "Nous sommes une organisation dirigée par des étudiants composée de",
         "who_are_we_heading_hl": "futurs bâtisseurs technologiques",
         "who_are_we_p1_bold": "Fondée en 2014",
-        "who_are_we_p1": "l’Association des Étudiants en Génie Logiciel (AÉGL) aide les étudiants à acquérir une expérience pratique et à établir des contacts tout en étant encore à l’université.",
+        "who_are_we_p1": "l'Association des Étudiants en Génie Logiciel (AÉGL) aide les étudiants à acquérir une expérience pratique et à établir des contacts tout en étant encore à l'université.",
         "who_are_we_p2_bold": "En partenariat avec la Faculté de génie, nous relevons les défis",
         "who_are_we_p2": "en matière de soutien académique, de développement professionnel et d'engagement avec l'industrie du génie logiciel.",
         "figure_eecs_students": "étudiants EECS",
@@ -93,14 +93,14 @@
         "what_do_we_do_heading": "Où",
         "what_do_we_do_heading_hl": "les étudiants rencontrent l'industrie",
         "what_do_we_do_p_bold": "Nous préparons la prochaine génération",
-        "what_do_we_do_p": "d’ingénieurs en logiciel pour le monde du travail en offrant des expériences et des opportunités passionnantes en partenariat avec des professionnels de l’industrie.",
+        "what_do_we_do_p": "d'ingénieurs en logiciel pour le monde du travail en offrant des expériences et des opportunités excitantes en partenariat avec des professionnels de l'industrie.",
         "become_a_sponsor": "Devenir commanditaire",
         "what_do_we_do_cards": {
             "social_events_heading": "Événements sociaux",
             "social_events_desc": "Nous organisons des événements éducatifs et divertissants, tels que des soirées cinéma, de la zoothérapie, des soirées jeux et des fêtes.",
             "social_events_btn": "Découvrir les événements",
             "academic_support_heading": "Soutien académique",
-            "academic_support_desc": "Nous offrons également de l’aide académique, incluant mentorat, ressources, conseils et soutien pour les cours, projets et examens.",
+            "academic_support_desc": "Nous offrons également de l'aide académique, incluant mentorat, ressources, conseils et soutien pour les cours, projets et examens.",
             "academic_support_btn": "Découvrir les ressources",
             "professional_development_heading": "Développement professionnel",
             "professional_development_desc": "Nous offrons aussi des opportunités de carrière, incluant des ateliers, des conférences et des événements de réseautage.",
@@ -108,11 +108,11 @@
         },
         "introducing_our_team": "Présentation de notre équipe",
         "introducing_our_team_heading_hl": "Rencontrez les personnes",
-        "introducing_our_team_heading": "qui font l’AÉGL",
-        "introducing_our_team_blurb": "Rencontrez l’incroyable équipe de back-end qui alimente notre succès front-end et rend tout possible.",
+        "introducing_our_team_heading": "qui font l'AÉGL",
+        "introducing_our_team_blurb": "Rencontrez l'incroyable équipe de back-end qui alimente notre succès front-end et rend tout possible.",
         "introducing_our_team_section": {
             "codirectors": "Co-Directeurs",
-            "codirectors_desc": "Rencontrez nos Co-Directeurs, qui s’assurent que tout fonctionne bien. Ils supervisent les projets, soutiennent l’équipe et veillent à ce que les objectifs soient atteints avec une vision claire et une forte collaboration.",
+            "codirectors_desc": "Rencontrez nos Co-Directeurs, qui s'assurent que tout fonctionne bien. Ils supervisent les projets, soutiennent l'équipe et veillent à ce que les objectifs soient atteints avec une vision claire et une forte collaboration.",
             "partnerships": "Partenariats",
             "partnerships_desc": "Créateurs de relations, collaborant avec les commanditaires, partenaires et intervenants pour stimuler une croissance mutuelle et des opportunités.",
             "events": "Événements",
@@ -124,19 +124,19 @@
             "academic": "Académique",
             "academic_desc": "Experts en recherche et en partage de connaissances, soutenant les initiatives éducatives et assurant la qualité des résultats académiques.",
             "advisors": "Conseillers",
-            "advisors_desc": "Nos mentors de confiance fournissent des conseils et des perspectives pour aider l’équipe à relever les défis et à réussir."
+            "advisors_desc": "Nos mentors de confiance fournissent des conseils et des perspectives pour aider l'équipe à relever les défis et à réussir."
         },
         "our_previous_partners": "Où sont nos anciens maintenant",
-        "our_previous_partners_heading_hl": "Au-delà de l’AÉGL",
-        "our_previous_partners_p_bold": "Notre communauté d’anciens membres exécutifs s’étend dans le monde entier",
-        "our_previous_partners_p": "laissant leur marque dans les meilleures industries. Voici quelques endroits où vous trouverez l’impact de notre réseau talentueux qui stimule l’innovation et le succès.",
+        "our_previous_partners_heading_hl": "Au-delà de l'AÉGL",
+        "our_previous_partners_p_bold": "Notre communauté d'anciens membres exécutifs s'étend dans le monde entier",
+        "our_previous_partners_p": "laissant leur marque dans les meilleures industries. Voici quelques endroits où vous trouverez l'impact de notre réseau talentueux qui stimule l'innovation et le succès.",
         "our_family": "Faites partie de notre famille",
         "our_family_heading": "Êtes-vous passionné par",
         "our_family_heading_hl": "le génie logiciel ?",
         "our_family_p_bold": "Transformez votre passion en impact",
-        "our_family_p": "Construisez, apprenez et connectez-vous avec des pairs partageant les mêmes idées tout en aidant à façonner la prochaine génération d’ingénieurs en logiciel.",
+        "our_family_p": "Construisez, apprenez et connectez-vous avec des pairs partageant les mêmes idées tout en aidant à façonner la prochaine génération d'ingénieurs en logiciel.",
         "apply_now": "Postulez maintenant",
-        "no_more_apps": "Nous n’acceptons plus de candidatures pour l’automne 2025. Restez à l’écoute pour les ouvertures de l’hiver 2026 !"
+        "no_more_apps": "Nous n'acceptons plus de candidatures pour l'automne 2025. Restez à l'écoute pour les ouvertures de l'hiver 2026 !"
     },
     "contact_us": {
         "contact_us": "Contactez-nous",
@@ -152,7 +152,7 @@
         "form_subject": "Sélectionnez un sujet",
         "form_body_label": "Comment pouvons-nous vous aider ?",
         "form_body_placeholder": "Incluez autant de détails que possible.",
-        "form_disclosure": "En soumettant ce formulaire, je confirme avoir lu et accepté les",
+        "form_disclosure": "En soumettant ce formulaire, je confirme avoir read et accepté les",
         "form_disclosure_link": "Politiques de confidentialité et conditions",
         "send_message": "Envoyer le message",
         "sending": "Envoi...",
@@ -175,10 +175,10 @@
             "error_details": "Détails de l'erreur"
         },
         "no_events": "Aucun événement trouvé",
-        "connect_with_sesa": "Connectez-vous avec l’AÉGL",
+        "connect_with_sesa": "Connectez-vous avec l'AÉGL",
         "stay_updated": "Restez informé",
         "stay_updated_hl": "en nous suivant",
-        "stay_updated_blurb": "Restez au courant des mises à jour, événements et annonces de l’AÉGL en suivant nos réseaux sociaux !",
+        "stay_updated_blurb": "Restez au courant des mises à jour, événements et annonces de l'AÉGL en suivant nos réseaux sociaux !",
         "our_events": "Nos événements",
         "stay_up_to_date_hl": "Restez",
         "stay_up_to_date": "à jour",
@@ -187,14 +187,14 @@
         "subscribe_info_line1": "Se synchronise avec Apple, Outlook, Yahoo ou Google.",
         "subscribe_info_line2": "Désabonnement possible à tout moment.",
         "btn_details": "Détails",
-        "btn_register": "S’inscrire",
+        "btn_register": "S'inscrire",
         "btn_calendar": "Ajouter au calendrier",
+        "btn_view_post": "Voir la publication",
         "work_with_us": "Travaillez avec nous",
         "teamup_heading": "Intéressé à collaborer sur un événement ?",
-        "teamup_blurb": "Que vous soyez une organisation ou un club étudiant, nous sommes ouverts à explorer des partenariats qui offrent des opportunités et des expériences significatives aux étudiants en génie logiciel à l’Université d’Ottawa.",
+        "teamup_blurb": "Que vous soyez une organisation ou un club étudiant, nous sommes ouverts à explorer des partenariats qui offrent des opportunités et des expériences significatives aux étudiants en génie logiciel à l'Université d'Ottawa.",
         "btn_talk": "Discutons",
-        "btn_meet_team": "Rencontrer l’équipe",
-        "btn_view_post": "Voir la publication",
+        "btn_meet_team": "Rencontrer l'équipe",
         "filter_type_placeholder": "Type",
         "time_filter_all": "Tous",
         "time_filter_past": "Passé",
@@ -209,23 +209,22 @@
         },
         "open": "OUVRIR",
         "tooltip": {
-            "s_tier": "S Tier: The absolute best (only resource you need realistically).",
-            "a_tier": "A Tier: Still great (your main resource, but benefits from comparison).",
-            "b_tier": "B Tier: Good (a comparison/reference resource for additional insights).",
-            "c_tier": "C Tier: Limited (you'll need many more resources to supplement this).",
-            "default": "No tier information available."
+            "s_tier": "Niveau S : Le meilleur absolu (la seule ressource dont vous avez vraiment besoin).",
+            "a_tier": "Niveau A : Excellente (votre ressource principale, mais à comparer avec d'autres).",
+            "b_tier": "Niveau B : Bonne (une ressource de comparaison/de référence pour plus d'idées).",
+            "c_tier": "Niveau C : Limitée (vous aurez besoin de plusieurs autres ressources en complément).",
+            "default": "Aucune information de niveau disponible."
         },
-
         "modal": {
-            "visit_website": "Visit Website",
-            "no_textbook_source": "No textbook source provided.",
-            "invalid_textbook_source": "Invalid textbook source URL. Please provide a valid URL.",
-            "no_website_url": "No website URL provided.",
-            "invalid_website_url": "Invalid website URL. Please provide a valid URL.",
-            "unsupported_format": "Unsupported format",
+            "visit_website": "Visiter le site",
+            "no_textbook_source": "Aucune source de manuel fournie.",
+            "invalid_textbook_source": "URL de manuel invalide. Veuillez fournir une URL valide.",
+            "no_website_url": "Aucune URL de site web fournie.",
+            "invalid_website_url": "URL de site web invalide. Veuillez fournir une URL valide.",
+            "unsupported_format": "Format non pris en charge",
             "accessibility": {
-                "closed_captions": "Closed Captions",
-                "screen_reader_compatible": "Screen Reader Compatible"
+                "closed_captions": "Sous-titres",
+                "screen_reader_compatible": "Compatible avec lecteur d'écran"
             },
             "pricing": {
                 "free": "Gratuit",
@@ -233,7 +232,6 @@
                 "paid": "Payant"
             }
         },
-
         "resources_heading": "Ressources",
         "resources_heading_hl": "pour les étudiants, par les étudiants",
         "resources_blurb": "Notre équipe académique sélectionne activement des ressources gratuites pour soutenir les étudiants en génie logiciel dans leurs études.",
@@ -241,12 +239,12 @@
         "contributing_heading": "Intéressé à contribuer ou à demander des ressources ?",
         "btn_join_discord": "Rejoignez notre Discord",
         "education_quote_1": "La véritable éducation naît là où",
-        "education_quote_1_hl": "la connaissance rencontre l’accessibilité.",
-        "education_quote_2": "L’équipe académique de l’AÉGL est fière de se tenir à cette intersection",
+        "education_quote_1_hl": "la connaissance rencontre l'accessibilité.",
+        "education_quote_2": "L'équipe académique de l'AÉGL est fière de se tenir à cette intersection",
         "academic_lead": "Responsable académique",
         "btn_join_team": "Rejoignez notre équipe",
         "btn_meet_the_team": "Rencontrer l'équipe",
-        "avg_helpfulness": "{percentage}% d’utilité moyenne",
+        "avg_helpfulness": "{percentage}% d'utilité moyenne",
         "students_helped": "{students} étudiants aidés",
         "view_label": "Vue",
         "view_grid": "Grille",
@@ -287,7 +285,7 @@
         "header_top": "Commanditaires et partenaires",
         "header_highlight": "UN ÉNORME MERCI",
         "header_title_rest": "À NOS GÉNÉREUX COMMANDITAIRES ET PARTENAIRES",
-        "header_bottom": "Nos incroyables partenariats rendent l’AÉGL possible à uOttawa. Merci de croire en notre mission !",
+        "header_bottom": "Nos incroyables partenariats rendent l'AÉGL possible à uOttawa. Merci de croire en notre mission !",
         "header_btn1": "Devenir commanditaire",
         "header_btn2": "Voir les avantages",
         "cta_heading": "Intéressé à rejoindre notre réseau croissant de partenaires industriels ?",
@@ -301,7 +299,7 @@
         "benefits_top": "Avantages",
         "benefits_title_part1": "CONNECTEZ-VOUS AVEC",
         "benefits_title_highlight": "LA PROCHAINE GÉNÉRATION",
-        "benefits_title_part3": "D’INGÉNIEURS EN LOGICIEL",
+        "benefits_title_part3": "D'INGÉNIEURS EN LOGICIEL",
         "benefits_description": "Sans nos commanditaires et partenaires, nous ne pourrions pas financer nos événements et projets qui offrent aux étudiants en SEG des opportunités académiques et des expériences professionnelles.",
         "benefits_arrow_left_alt": "Gauche",
         "benefits_arrow_right_alt": "Droite",
@@ -309,16 +307,16 @@
         "partner_with_us_title": "Collaborons pour faire une",
         "partner_with_us_highlight": "différence durable",
         "partner_with_us_title_rest": "auprès des futurs ingénieurs en logiciel",
-        "partner_with_us_description": "Ensemble, nous pouvons avoir un impact significatif sur plus de 3500 étudiants en EECS à uOttawa en comblant l’écart entre l’éducation académique et l’expérience industrielle.",
+        "partner_with_us_description": "Ensemble, nous pouvons avoir un impact significatif sur plus de 3500 étudiants en EECS à uOttawa en comblant l'écart entre l'éducation académique et l'expérience industrielle.",
         "partner_with_us_become_sponsor_button": "Devenir commanditaire",
-        "partner_with_us_meet_team_button": "Rencontrer l’équipe",
+        "partner_with_us_meet_team_button": "Rencontrer l'équipe",
         "partner_with_us_team_image_alt": "Équipe des commanditaires"
     },
     "terms": {
         "our_policies": "Nos",
         "our_policies_hl": "Politiques",
         "tnc_heading": "Termes et Conditions",
-        "tnc": "Nous sommes engagés envers l’intégrité académique. Les ressources et l’assistance que nous fournissons sont destinées uniquement à des fins éducatives. Nous ne soutenons ni n’approuvons la malhonnêteté académique, y compris, sans s’y limiter, le plagiat, la tricherie ou toute autre violation des politiques académiques ou institutionnelles. En utilisant nos services, vous acceptez d’utiliser les informations et l’aide que vous recevez de manière responsable et conformément à toutes les règles et réglementations applicables.",
+        "tnc": "Nous sommes engagés envers l'intégrité académique. Les ressources et l'assistance que nous fournissons sont destinées uniquement à des fins éducatives. Nous ne soutenons ni n'approuvons la malhonnêteté académique, y compris, sans s'y limiter, le plagiat, la tricherie ou toute autre violation des politiques académiques ou institutionnelles. En utilisant nos services, vous acceptez d'utiliser les informations et l'aide que vous recevez de manière responsable et conformément à toutes les règles et réglementations applicables.",
         "privacy_heading": "Politique de confidentialité",
         "privacy": "Votre vie privée est importante pour nous. Lorsque vous utilisez notre formulaire de contact, nous recueillons les informations personnelles que vous nous fournissez volontairement, telles que votre nom, votre adresse courriel et le contenu de votre message. Ces informations sont utilisées exclusivement pour répondre à vos demandes et pour communiquer avec vous au sujet des activités et ressources de notre club. Nous ne vendons, ne partageons ni ne divulguons vos informations à des tiers."
     },
@@ -338,7 +336,7 @@
         "terms": "Conditions d'utilisation",
         "constitution": "Constitution",
         "contact": "Contact",
-        "blurb": "Nous mettons en relation les étudiants en génie logiciel et en EECS avec des professionnels de l’industrie du logiciel, en leur fournissant ressources et soutien.",
+        "blurb": "Nous mettons en relation les étudiants en génie logiciel et en EECS avec des professionnels de l'industrie du logiciel, en leur fournissant ressources et soutien.",
         "back_to_top": "Retour en haut",
         "view_source_btn": "Voir la source"
     }
