@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 export const generateStaticParams = localeParams;
 
 export const metadata: Metadata = {
-    title: "Policies | Software Engineering Student Association",
+    title: "Policies | Software Engineering Students' Association",
     description: "Policies for our website.",
     alternates: {
         canonical: "/policies",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        title: "Policies | Software Engineering Student Association",
+        title: "Policies | Software Engineering Students' Association",
         description: "Policies for our website.",
         url: new URL("https://sesa-aegl.ca/policies"),
     },

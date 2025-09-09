@@ -2,8 +2,8 @@ import { Geist, Geist_Mono, Raleway } from "next/font/google";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import "./globals.css";
-
 import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { routing } from "@/i18n/routing";
@@ -25,13 +25,13 @@ const raleway = Raleway({
 });
 
 export const metadata: Metadata = {
-    title: "Software Engineering Student Association",
+    title: "Software Engineering Students' Association",
     description: "The official website for the University of Ottawa's SESA.",
     keywords: ["uottawa", "sesa", "software", "students", "seg"],
     metadataBase: new URL("https://sesa-aegl.ca"),
     openGraph: {
-        title: "Software Engineering Student Association",
-        siteName: "Software Engineering Student Association",
+        title: "Software Engineering Students' Association",
+        siteName: "Software Engineering Students' Association",
         description: "The official website for the University of Ottawa's SESA.",
         type: "website",
         url: new URL("https://sesa-aegl.ca"),
@@ -72,11 +72,13 @@ export default async function RootLayout({
                 }}
             >
                 <NextIntlClientProvider>
-                    <div className="overflow-x-hidden">
-                        <Navbar />
-                        <main>{children}</main>
-                        <Footer />
-                    </div>
+                    <NuqsAdapter>
+                        <div className="overflow-x-hidden">
+                            <Navbar />
+                            <main>{children}</main>
+                            <Footer />
+                        </div>
+                    </NuqsAdapter>
                 </NextIntlClientProvider>
             </body>
         </html>

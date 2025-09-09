@@ -15,7 +15,7 @@ import type { Metadata } from "next";
 export const generateStaticParams = localeParams;
 
 export const metadata: Metadata = {
-    title: "Home | Software Engineering Student Association",
+    title: "Home | Software Engineering Students' Association",
     alternates: {
         canonical: "/",
         languages: {
@@ -40,7 +40,9 @@ const Home = () => {
                 <Goals />
             </FadeInSection>
             <FadeInSection>
-                <Resources />
+                <Providers>
+                    <Resources />
+                </Providers>
             </FadeInSection>
             <FadeInSection>
                 <Quotes />

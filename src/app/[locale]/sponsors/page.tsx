@@ -13,7 +13,7 @@ import type { Metadata } from "next";
 export const generateStaticParams = localeParams;
 
 export const metadata: Metadata = {
-    title: "Sponsors | Software Engineering Student Association",
+    title: "Sponsors | Software Engineering Students' Association",
     description: "The sponsors page for the University of Ottawa's SESA.",
     alternates: {
         canonical: "/sponsors",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        title: "Sponsors | Software Engineering Student Association",
+        title: "Sponsors | Software Engineering Students' Association",
         description: "The sponsors page for the University of Ottawa's SESA.",
         url: new URL("https://sesa-aegl.ca/sponsors"),
     },

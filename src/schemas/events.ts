@@ -1,6 +1,4 @@
-import { collection, getDocs } from "firebase/firestore";
 import * as z from "zod";
-import { db } from "@/lib/firebase";
 import { isTimestamp, Localized } from "./common";
 import type { Timestamp } from "firebase/firestore";
 
@@ -23,20 +21,5 @@ export const FirestoreEvent = z.object({
     registrationLink: z.string().optional(),
     location: z.string().optional(),
 });
-
-/** Query function to retrieve event data. */
-export const queryFn = async () => {
-    // Fetch from Firestore
-    const docs = (await getDocs(collection(db, "Events"))).docs.map(doc => ({
-        ...doc.data(),
-        id: doc.id,
-    }));
-    // Include only valid events
-    const validated = docs
-        .map(doc => FirestoreEvent.safeParse(doc))
-        .filter(doc => doc.success)
-        .map(doc => doc.data);
-    return validated;
-};
 
 export type Event = z.infer<typeof FirestoreEvent>;
