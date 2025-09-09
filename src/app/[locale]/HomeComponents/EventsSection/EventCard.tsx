@@ -19,7 +19,7 @@ const EventCard: React.FC<{ event: Event }> = ({ event }) => {
         <div className="flex h-full w-full flex-col overflow-hidden border-2 border-solid border-blueviolet-700 bg-gray-200 opacity-90">
             {/* Event Image */}
             <Image
-                className="h-[350px] w-full border-b-2 border-solid border-blueviolet-700 object-cover"
+                className="w-full aspect-square border-b-2 border-solid border-blueviolet-700 object-cover"
                 src={event.image}
                 alt={event.title[lang]}
                 width={350}
