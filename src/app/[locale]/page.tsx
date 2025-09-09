@@ -1,7 +1,7 @@
-import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query";
+import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import localeParams from "@/app/data/locales";
 import FadeInSection from "@/components/FadeInSection";
-import { fetchEvents, fetchResources } from "@/lib/query";
+import { createQueryClient, fetchEvents, fetchResources } from "@/lib/query";
 import Connect from "./HomeComponents/ConnectSection/Connect";
 import Events from "./HomeComponents/EventsSection/Events";
 import FAQ from "./HomeComponents/FAQ/FAQ";
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-    const queryClient = new QueryClient();
+    const queryClient = createQueryClient();
 
     await Promise.all([
         queryClient.prefetchQuery({

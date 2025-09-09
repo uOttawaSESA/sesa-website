@@ -1,10 +1,10 @@
-import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query";
+import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import Image from "next/image";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
 import FadeInSection from "@/components/FadeInSection";
 import Star from "@/components/ui/decorations/star";
-import { fetchEvents } from "@/lib/query";
+import { createQueryClient, fetchEvents } from "@/lib/query";
 import ConnectSESA from "./components/ConnectSESA";
 import EventSection from "./components/EventSection";
 import InfiniteCarousel from "./components/InfiniteCarousel";
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Events() {
-    const queryClient = new QueryClient();
+    const queryClient = createQueryClient();
 
     await queryClient.prefetchQuery({
         queryKey: ["events"],

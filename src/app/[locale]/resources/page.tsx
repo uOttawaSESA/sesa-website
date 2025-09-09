@@ -1,9 +1,9 @@
-import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query";
+import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import Image from "next/image";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
 import FadeInSection from "@/components/FadeInSection";
-import { fetchResources } from "@/lib/query";
+import { createQueryClient, fetchResources } from "@/lib/query";
 import FooterSection from "./components/FooterSection";
 import Header from "./components/Header";
 import ResourceSection from "./components/ResourceSection";
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Resources() {
-    const queryClient = new QueryClient();
+    const queryClient = createQueryClient();
 
     await queryClient.prefetchQuery({
         queryKey: ["resources"],
