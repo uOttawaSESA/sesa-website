@@ -1,13 +1,16 @@
 "use client";
+import { parseAsInteger, useQueryState } from "nuqs";
 import { useEffect, useMemo, useState } from "react";
 import Pagination from "@/components/Pagination";
-import { useResources } from "@/hooks/useResources";
+import { useResources } from "@/lib/query";
 import ResourceList from "./ResourceList";
 import SearchFilterBar from "./SearchFilterBar";
-import type { Resource } from "@/app/types/Resource";
+import type { Resource } from "@/schemas/resources";
 
 const ResourceSection = () => {
-    const [currentPage, setCurrentPage] = useState(1);
+    // URL-based state
+    const [currentPage, setCurrentPage] = useQueryState("page", parseAsInteger.withDefault(1));
+
     const [rowsToShow, setRowsToShow] = useState(2);
     const [isGridMode, setIsGridMode] = useState(true);
     const [searchTerm, setSearchTerm] = useState("");
@@ -21,11 +24,12 @@ const ResourceSection = () => {
     const [sortOption, setSortOption] = useState<string>("relevance");
     const [isMobile, setIsMobile] = useState(false);
 
-    const { resources, loading, error } = useResources();
+    const { isPending, error, data: resources } = useResources();
 
     // Extract unique courses from resources for the course filter
     const availableCourses = useMemo(() => {
         const courseSet = new Set<string>();
+        if (!resources) return [];
 
         resources.forEach(resource => {
             if (resource.course && typeof resource.course === "string" && resource.course.trim()) {
@@ -57,24 +61,28 @@ const ResourceSection = () => {
     const itemsPerRow = isGridMode ? (isMobile ? 1 : 3) : 1;
 
     // Filter resources based on search term and filter options
-    const filteredResources = resources.filter(resource => {
-        const matchesSearchTerm =
-            resource.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            resource.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            resource.course?.toLowerCase().includes(searchTerm.toLowerCase());
+    const filteredResources = useMemo(() => {
+        if (!resources) return [];
 
-        const matchesFilters = Object.entries(filterOptions).every(([key, value]) => {
-            if (!value) return true;
+        return resources.filter(resource => {
+            const matchesSearchTerm =
+                resource.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                resource.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                resource.course?.toLowerCase().includes(searchTerm.toLowerCase());
 
-            const resourceValue = resource[key as keyof Resource];
-            return (
-                typeof resourceValue === "string" &&
-                resourceValue.toLowerCase() === value.toLowerCase()
-            );
+            const matchesFilters = Object.entries(filterOptions).every(([key, value]) => {
+                if (!value) return true;
+
+                const resourceValue = resource[key as keyof Resource];
+                return (
+                    typeof resourceValue === "string" &&
+                    resourceValue.toLowerCase() === value.toLowerCase()
+                );
+            });
+
+            return matchesSearchTerm && matchesFilters;
         });
-
-        return matchesSearchTerm && matchesFilters;
-    });
+    }, [resources, searchTerm, filterOptions]);
 
     // Sorting logic
     const sortedResources = [...filteredResources].sort((a, b) => {
@@ -120,14 +128,14 @@ const ResourceSection = () => {
         currentPage * itemsPerRow * rowsToShow,
     );
 
-    return loading ? (
+    return isPending ? (
         <div className="flex w-full items-center justify-center py-12">
             <p className="rounded-md px-4 py-2 font-sans text-violet-400">Loading resources...</p>
         </div>
     ) : error ? (
         <div className="flex w-full items-center justify-center py-12">
             <p className="rounded-md px-4 py-2 font-sans text-red-400">
-                Error loading resources: <span className="font-semibold">{error}</span>
+                Error loading resources: <span className="font-semibold">{error.message}</span>
             </p>
         </div>
     ) : (
@@ -149,7 +157,11 @@ const ResourceSection = () => {
             />
 
             {/* Resources Grid or Row */}
-            <ResourceList currentResources={currentResources} isGridMode={isGridMode} />
+            <ResourceList
+                allResources={resources}
+                currentResources={currentResources}
+                isGridMode={isGridMode}
+            />
 
             {/* Pagination */}
             <Pagination

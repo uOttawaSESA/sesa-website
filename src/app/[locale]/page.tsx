@@ -40,7 +40,9 @@ const Home = () => {
                 <Goals />
             </FadeInSection>
             <FadeInSection>
-                <Resources />
+                <Providers>
+                    <Resources />
+                </Providers>
             </FadeInSection>
             <FadeInSection>
                 <Quotes />

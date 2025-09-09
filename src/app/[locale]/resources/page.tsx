@@ -1,8 +1,8 @@
 import Image from "next/image";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
-import { resources } from "@/app/data/Resources";
 import FadeInSection from "@/components/FadeInSection";
+import Providers from "../providers";
 import FooterSection from "./components/FooterSection";
 import Header from "./components/Header";
 import ResourceSection from "./components/ResourceSection";
@@ -36,7 +36,7 @@ const Resources = () => {
 
                 <Image
                     src="/decoration/waves.svg"
-                    className={`fade-from-top-bg absolute left-1/2 top-[26rem] hidden w-11/12 -translate-x-1/2 transform md:top-[10rem] md:block md:w-max ${resources.length === 0 ? "hidden" : ""}`}
+                    className="fade-from-top-bg absolute left-1/2 top-[26rem] hidden w-11/12 -translate-x-1/2 transform md:top-[10rem] md:block md:w-max"
                     width={1200}
                     height={280}
                     alt=""
@@ -49,7 +49,9 @@ const Resources = () => {
                     <Header />
                 </FadeInSection>
                 <FadeInSection>
-                    <ResourceSection />
+                    <Providers>
+                        <ResourceSection />
+                    </Providers>
                 </FadeInSection>
             </div>
 

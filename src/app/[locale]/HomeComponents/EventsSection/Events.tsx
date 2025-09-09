@@ -1,5 +1,4 @@
 "use client";
-import { useQuery } from "@tanstack/react-query";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import {
@@ -10,15 +9,12 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Link } from "@/i18n/navigation";
-import { queryFn } from "@/schemas/events";
+import { useEvents } from "@/lib/query";
 import EventCard from "./EventCard";
 
 export default function Events() {
     const t = useTranslations("homepage");
-    const { data: events } = useQuery({
-        queryKey: ["eventsData"],
-        queryFn,
-    });
+    const { data: events } = useEvents();
 
     return (
         <section className="space-y-4 ps-8 md:ps-20 xl:ps-32">
