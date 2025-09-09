@@ -3,7 +3,6 @@ import Image from "next/image";
 import localeParams from "@/app/data/locales";
 import FadeInSection from "@/components/FadeInSection";
 import Star from "@/components/ui/decorations/star";
-import Providers from "../providers";
 import ConnectSESA from "./components/ConnectSESA";
 import EventSection from "./components/EventSection";
 import InfiniteCarousel from "./components/InfiniteCarousel";
@@ -58,9 +57,7 @@ const Events = () => {
 
             <div className="relative z-10">
                 <FadeInSection>
-                    <Providers>
-                        <EventSection />
-                    </Providers>
+                    <EventSection />
                 </FadeInSection>
                 <FadeInSection>
                     <TeamUpSection />

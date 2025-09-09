@@ -4,7 +4,10 @@ import { db } from "@/lib/firebase";
 import { FirestoreEvent } from "@/schemas/events";
 import { FirestoreResource } from "@/schemas/resources";
 
-export const queryClient = new QueryClient();
+/**
+ * Function to create a query client with the same config from different parts of the app.
+ */
+export const createQueryClient = () => new QueryClient();
 
 /**
  * Get events data from Firestore.

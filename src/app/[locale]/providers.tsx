@@ -1,16 +1,26 @@
 "use client";
-import { QueryClientProvider } from "@tanstack/react-query";
-import { queryClient } from "@/lib/query";
+import { type QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { createQueryClient } from "@/lib/query";
 import type { ReactNode } from "react";
+
+let clientQueryClientSingleton: QueryClient | undefined;
+const getQueryClient = () => {
+    if (typeof window === "undefined") {
+        // Server: always make a new query client
+        return createQueryClient();
+    }
+    // Browser: use singleton pattern to keep the same query client
+    clientQueryClientSingleton ??= createQueryClient();
+
+    return clientQueryClientSingleton;
+};
 
 export interface Props {
     children: ReactNode;
 }
 
-/**
- * Used to provide clientside-only providers to specific elements that need it.
- * This can be used to nicely wrap clientside portions of an otherwise SSR-ready page.
- */
-export default function Providers({ children }: Props) {
+/** Provider for TanStack Query. */
+export function QueryProvider({ children }: Props) {
+    const queryClient = getQueryClient();
     return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
 }

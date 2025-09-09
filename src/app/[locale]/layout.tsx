@@ -7,6 +7,7 @@ import { NuqsAdapter } from "nuqs/adapters/next/app";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { routing } from "@/i18n/routing";
+import { QueryProvider } from "./providers";
 
 // Load fonts
 const geistSans = Geist({
@@ -72,13 +73,15 @@ export default async function RootLayout({
                 }}
             >
                 <NextIntlClientProvider>
-                    <NuqsAdapter>
-                        <div className="overflow-x-hidden">
-                            <Navbar />
-                            <main>{children}</main>
-                            <Footer />
-                        </div>
-                    </NuqsAdapter>
+                    <QueryProvider>
+                        <NuqsAdapter>
+                            <div className="overflow-x-hidden">
+                                <Navbar />
+                                <main>{children}</main>
+                                <Footer />
+                            </div>
+                        </NuqsAdapter>
+                    </QueryProvider>
                 </NextIntlClientProvider>
             </body>
         </html>

@@ -2,7 +2,6 @@ import Image from "next/image";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
 import FadeInSection from "@/components/FadeInSection";
-import Providers from "../providers";
 import FooterSection from "./components/FooterSection";
 import Header from "./components/Header";
 import ResourceSection from "./components/ResourceSection";
@@ -49,9 +48,7 @@ const Resources = () => {
                     <Header />
                 </FadeInSection>
                 <FadeInSection>
-                    <Providers>
-                        <ResourceSection />
-                    </Providers>
+                    <ResourceSection />
                 </FadeInSection>
             </div>
 
