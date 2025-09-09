@@ -66,7 +66,7 @@ const TestimonialsCarousel = () => {
                 {/* Sponsor Image - STATIC */}
                 <div className="relative z-10 flex-shrink-0">
                     <Image
-                        src="/imgs/home/heroImage.webp"
+                        src="/imgs/Home/heroImage.webp"
                         alt="Warp Event Photo"
                         className="h-[300px] w-auto md:h-[500px]"
                         width={1200}
