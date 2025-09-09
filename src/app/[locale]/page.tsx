@@ -1,6 +1,7 @@
-// Precompile i18n
+import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query";
 import localeParams from "@/app/data/locales";
 import FadeInSection from "@/components/FadeInSection";
+import { fetchEvents, fetchResources } from "@/lib/query";
 import Connect from "./HomeComponents/ConnectSection/Connect";
 import Events from "./HomeComponents/EventsSection/Events";
 import FAQ from "./HomeComponents/FAQ/FAQ";
@@ -24,38 +25,51 @@ export const metadata: Metadata = {
     },
 };
 
-const Home = () => {
-    return (
-        <div className="flex h-full flex-col gap-24 bg-gray-300 font-mono text-white lg:gap-20 xl:gap-32">
-            <FadeInSection>
-                <Hero />
-            </FadeInSection>
-            <FadeInSection>
-                <Events />
-            </FadeInSection>
-            <FadeInSection>
-                <Goals />
-            </FadeInSection>
-            <FadeInSection>
-                <Resources />
-            </FadeInSection>
-            <FadeInSection>
-                <Quotes />
-            </FadeInSection>
-            <FadeInSection>
-                <Sponsors />
-            </FadeInSection>
-            <FadeInSection>
-                <FAQ />
-            </FadeInSection>
-            <FadeInSection>
-                <Connect />
-            </FadeInSection>
-            <FadeInSection>
-                <Team />
-            </FadeInSection>
-        </div>
-    );
-};
+export default async function Home() {
+    const queryClient = new QueryClient();
 
-export default Home;
+    await Promise.all([
+        queryClient.prefetchQuery({
+            queryKey: ["events"],
+            queryFn: fetchEvents,
+        }),
+        queryClient.prefetchQuery({
+            queryKey: ["resources"],
+            queryFn: fetchResources,
+        }),
+    ]);
+
+    return (
+        <HydrationBoundary state={dehydrate(queryClient)}>
+            <div className="flex h-full flex-col gap-24 bg-gray-300 font-mono text-white lg:gap-20 xl:gap-32">
+                <FadeInSection>
+                    <Hero />
+                </FadeInSection>
+                <FadeInSection>
+                    <Events />
+                </FadeInSection>
+                <FadeInSection>
+                    <Goals />
+                </FadeInSection>
+                <FadeInSection>
+                    <Resources />
+                </FadeInSection>
+                <FadeInSection>
+                    <Quotes />
+                </FadeInSection>
+                <FadeInSection>
+                    <Sponsors />
+                </FadeInSection>
+                <FadeInSection>
+                    <FAQ />
+                </FadeInSection>
+                <FadeInSection>
+                    <Connect />
+                </FadeInSection>
+                <FadeInSection>
+                    <Team />
+                </FadeInSection>
+            </div>
+        </HydrationBoundary>
+    );
+}
