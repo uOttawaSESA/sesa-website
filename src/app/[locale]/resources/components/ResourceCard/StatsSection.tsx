@@ -1,21 +1,7 @@
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { useEffect, useId, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-
-const getTierTooltip = (tier: string) => {
-    switch (tier.toUpperCase()) {
-        case "S":
-            return "S Tier: The absolute best (only resource you need realistically).";
-        case "A":
-            return "A Tier: Still great (your main resource, but benefits from comparison).";
-        case "B":
-            return "B Tier: Good (a comparison/reference resource for additional insights).";
-        case "C":
-            return "C Tier: Limited (you'll need many more resources to supplement this).";
-        default:
-            return "No tier information available.";
-    }
-};
 
 // Tooltip component to display tier information
 // This uses a portal to render the tooltip outside the normal DOM hierarchy
@@ -55,6 +41,8 @@ export const StatsSection = ({
     const [tooltipPos, setTooltipPos] = useState({ top: 0, left: 0 });
     const iconRef = useRef<HTMLDivElement>(null);
 
+    const t = useTranslations("resources");
+
     const tooltipId = useId();
 
     const iconSize = size === "sm" ? 16 : 20;
@@ -70,6 +58,21 @@ export const StatsSection = ({
             });
         }
     }, [showTooltip]);
+
+    const getTierTooltip = (tier: string) => {
+        switch (tier.toUpperCase()) {
+            case "S":
+                return t("tooltip.s_tier");
+            case "A":
+                return t("tooltip.a_tier");
+            case "B":
+                return t("tooltip.b_tier");
+            case "C":
+                return t("tooltip.c_tier");
+            default:
+                return t("tooltip.default");
+        }
+    };
 
     return (
         <div className={`flex ${gapSize} font-[Monocode] text-thistle`}>

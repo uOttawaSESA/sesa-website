@@ -222,6 +222,37 @@
         "calendar_export": "The event information has been downloaded in iCalendar (.ics) format.\nThis file can be imported into your preferred calendar to add the event.\n\nSee:\n\n- [Google Calendar](https://support.google.com/calendar/answer/37118)\n- [Outlook](https://support.microsoft.com/en-us/office/import-or-subscribe-to-a-calendar-in-outlook-com-or-outlook-on-the-web-cff1429c-5af6-41ec-a5b4-74f2c278e98c)\n"
     },
     "resources": {
+        "query_state": {
+            "pending": "Loading resources...",
+            "error": "Failed to load resources."
+        },
+        "open": "OPEN",
+        "tooltip": {
+            "s_tier": "S Tier: The absolute best (only resource you need realistically).",
+            "a_tier": "A Tier: Still great (your main resource, but benefits from comparison).",
+            "b_tier": "B Tier: Good (a comparison/reference resource for additional insights).",
+            "c_tier": "C Tier: Limited (you'll need many more resources to supplement this).",
+            "default": "No tier information available."
+        },
+
+        "modal": {
+            "visit_website": "Visit Website",
+            "no_textbook_source": "No textbook source provided.",
+            "invalid_textbook_source": "Invalid textbook source URL. Please provide a valid URL.",
+            "no_website_url": "No website URL provided.",
+            "invalid_website_url": "Invalid website URL. Please provide a valid URL.",
+            "unsupported_format": "Unsupported format",
+            "accessibility": {
+                "closed_captions": "Closed Captions",
+                "screen_reader_compatible": "Screen Reader Compatible"
+            },
+            "pricing": {
+                "free": "Free",
+                "freemium": "Freemium",
+                "paid": "Paid"
+            }
+        },
+
         "resources_heading": "Resources",
         "resources_heading_hl": "for students, by students",
         "resources_blurb": "Our academic team actively curates free resources to support software engineering students in their studies.",

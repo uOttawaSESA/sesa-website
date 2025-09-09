@@ -2,6 +2,7 @@ import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { formatDate } from "date-fns";
 import { X } from "lucide-react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { useEffect, useId, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Button } from "@/components/ui/button";
@@ -23,6 +24,8 @@ const ListLinkCard = ({
     description: string;
     url: string;
 }) => {
+    const t = useTranslations("resources");
+
     const domain = (() => {
         try {
             return new URL(url).hostname;
@@ -56,7 +59,7 @@ const ListLinkCard = ({
                 rel="noopener noreferrer"
                 className="color-gradient-clickable my-auto flex items-center gap-2 text-sm font-bold"
             >
-                VISIT WEBSITE
+                {t("modal.visit_website")}
                 <Image
                     src="/resources-page/new-tab-gradient.svg"
                     alt="New tab"
@@ -120,6 +123,60 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
     const tierRef = useRef<HTMLDivElement>(null);
     const updatedRef = useRef<HTMLDivElement>(null);
 
+    const t = useTranslations("resources");
+
+    // Localization helper functions for Resource attributes
+    const getLocalizedFormat = (format: string) => {
+        switch (format.toLowerCase()) {
+            case "textbook":
+                return t("filter_textbook");
+            case "video":
+                return t("filter_video");
+            case "article":
+                return t("filter_article");
+            case "website":
+                return t("filter_website");
+            case "blog":
+                return t("filter_blog");
+            default:
+                return format;
+        }
+    };
+    const getLocalizedPricing = (pricing: string) => {
+        switch (pricing.toLowerCase()) {
+            case "free":
+                return t("modal.pricing.free");
+            case "freemium":
+                return t("modal.pricing.freemium");
+            case "paid":
+                return t("modal.pricing.paid");
+            default:
+                return pricing;
+        }
+    };
+    const getLocalizedCategory = (category: string) => {
+        switch (category.toLowerCase()) {
+            case "academic":
+                return t("filter_academic");
+            case "career":
+                return t("filter_career");
+            case "technical":
+                return t("filter_technical");
+            default:
+                return category;
+        }
+    };
+    const getLocalizedAccessibilityFeature = (feature: string) => {
+        switch (feature.toLowerCase()) {
+            case "closed captions":
+            case "cc":
+            case "closed captions [cc]":
+                return t("modal.accessibility.closed_captions");
+            case "screen reader compatible":
+                return t("modal.accessibility.screen_reader_compatible");
+        }
+    };
+
     useEffect(() => {
         if (showTierTooltip && tierRef.current) {
             const rect = tierRef.current.getBoundingClientRect();
@@ -147,15 +204,15 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
 
             // Tier information
             case "S":
-                return "S Tier: The absolute best (only resource you need realistically).";
+                return t("tooltip.s_tier");
             case "A":
-                return "A Tier: Still great (your main resource, but benefits from comparison).";
+                return t("tooltip.a_tier");
             case "B":
-                return "B Tier: Good (a comparison/reference resource for additional insights).";
+                return t("tooltip.b_tier");
             case "C":
-                return "C Tier: Limited (you'll need many more resources to supplement this).";
+                return t("tooltip.c_tier");
             default:
-                return "No information available.";
+                return t("tooltip.default");
         }
     };
 
@@ -176,7 +233,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                 if (!resource.source) {
                     return (
                         <div className="w-full bg-gray-800 py-16 text-center text-white">
-                            No textbook source provided.
+                            {t("modal.no_textbook_source")}
                         </div>
                     );
                 }
@@ -223,8 +280,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                     } catch (e) {
                         return (
                             <div className="w-full bg-gray-800 py-16 text-center text-white">
-                                Invalid textbook source URL. Please provide a valid URL.{" "}
-                                {JSON.stringify(e)}
+                                {t("modal.invalid_textbook_source")} {JSON.stringify(e)}
                             </div>
                         );
                     }
@@ -249,7 +305,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                 if (!resource.source) {
                     return (
                         <div className="w-full bg-gray-800 py-16 text-center text-white">
-                            No website URL provided.
+                            {t("modal.no_website_url")}
                         </div>
                     );
                 }
@@ -283,7 +339,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                 } catch (e) {
                     return (
                         <div className="w-full bg-gray-800 py-16 text-center text-white">
-                            Invalid website URL. Please provide a valid URL. {JSON.stringify(e)}
+                            {t("modal.invalid_website_url")} {JSON.stringify(e)}
                         </div>
                     );
                 }
@@ -291,7 +347,9 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                 return null; // handled separately under footer
             default:
                 return (
-                    <div className="w-full py-16 text-center text-red-400">Unsupported format</div>
+                    <div className="w-full py-16 text-center text-red-400">
+                        {t("modal.unsupported_format")}
+                    </div>
                 );
         }
     };
@@ -331,7 +389,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                                 {/* Category Badges */}
                                 <div className="mb-4 flex gap-2 font-heading text-white">
                                     <span className="cursor-pointer bg-gradient-to-r from-blueviolet-100 to-darkmagenta p-2 text-sm uppercase">
-                                        {resource.category}
+                                        {getLocalizedCategory(resource.category)}
                                     </span>
                                     {resource.course && (
                                         <span className="cursor-pointer bg-gradient-to-r from-blueviolet-100 to-darkmagenta p-2 text-sm uppercase">
@@ -392,7 +450,9 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                                         height={20}
                                         className="h-5 w-5"
                                     />
-                                    <span className="capitalize">{resource.format}</span>
+                                    <span className="capitalize">
+                                        {getLocalizedFormat(resource.format)}
+                                    </span>
                                 </div>
 
                                 <div className="h-[14px] w-px border-r border-thistle opacity-35" />
@@ -406,7 +466,9 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                                         height={20}
                                         className="h-5 w-5"
                                     />
-                                    <span className="capitalize">{resource.pricing}</span>
+                                    <span className="capitalize">
+                                        {getLocalizedPricing(resource.pricing)}
+                                    </span>
                                 </div>
 
                                 <div className="h-[14px] w-px border-r border-thistle opacity-35" />
@@ -437,7 +499,9 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                                                 className="h-5 w-5"
                                             />
                                             <span className="capitalize">
-                                                {resource.accessibilityFeature}
+                                                {getLocalizedAccessibilityFeature(
+                                                    resource.accessibilityFeature,
+                                                )}
                                             </span>
                                         </div>
                                     </>

@@ -1,4 +1,5 @@
 "use client";
+import { useTranslations } from "next-intl";
 import { parseAsInteger, useQueryState } from "nuqs";
 import { useEffect, useMemo, useState } from "react";
 import Pagination from "@/components/Pagination";
@@ -10,6 +11,8 @@ import type { Resource } from "@/schemas/resources";
 const ResourceSection = () => {
     // URL-based state
     const [currentPage, setCurrentPage] = useQueryState("page", parseAsInteger.withDefault(1));
+
+    const t = useTranslations("resources");
 
     const [rowsToShow, setRowsToShow] = useState(2);
     const [isGridMode, setIsGridMode] = useState(true);
@@ -130,12 +133,14 @@ const ResourceSection = () => {
 
     return isPending ? (
         <div className="flex w-full items-center justify-center py-12">
-            <p className="rounded-md px-4 py-2 font-sans text-violet-400">Loading resources...</p>
+            <p className="rounded-md px-4 py-2 font-sans text-violet-400">
+                {t("query_state.pending")}
+            </p>
         </div>
     ) : error ? (
         <div className="flex w-full items-center justify-center py-12">
             <p className="rounded-md px-4 py-2 font-sans text-red-400">
-                Error loading resources: <span className="font-semibold">{error.message}</span>
+                {t("query_state.error")}: <span className="font-semibold">{error.message}</span>
             </p>
         </div>
     ) : (
