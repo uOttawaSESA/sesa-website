@@ -1,10 +1,9 @@
-import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import Image from "next/image";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
 import FadeInSection from "@/components/FadeInSection";
 import Star from "@/components/ui/decorations/star";
-import { createQueryClient, fetchEvents } from "@/lib/query";
+import { api, HydrateClient } from "@/trpc/server";
 import ConnectSESA from "./components/ConnectSESA";
 import EventSection from "./components/EventSection";
 import InfiniteCarousel from "./components/InfiniteCarousel";
@@ -30,15 +29,10 @@ export const metadata: Metadata = {
 };
 
 export default async function Events() {
-    const queryClient = createQueryClient();
-
-    await queryClient.prefetchQuery({
-        queryKey: ["events"],
-        queryFn: fetchEvents,
-    });
+    void api.event.getAll.prefetch();
 
     return (
-        <HydrationBoundary state={dehydrate(queryClient)}>
+        <HydrateClient>
             <div className="min-h-screen font-heading text-white">
                 {/* Decorations */}
                 <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
@@ -101,6 +95,6 @@ export default async function Events() {
                     </div>
                 </div>
             </div>
-        </HydrationBoundary>
+        </HydrateClient>
     );
 }

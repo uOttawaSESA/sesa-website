@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Pagination from "@/components/Pagination";
 import Star from "@/components/ui/decorations/star";
-import { useEvents } from "@/lib/query";
+import { api } from "@/trpc/react";
 import EventFilters from "./EventFilters";
 import EventsList from "./EventsList";
 import Header from "./Header";
@@ -13,7 +13,7 @@ import type { Event } from "@/schemas/events";
 const EventSection = () => {
     const t = useTranslations("events");
 
-    const { isPending, error, data } = useEvents();
+    const { isPending, error, data } = api.event.getAll.useQuery();
 
     const [isMobile, setIsMobile] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
@@ -88,7 +88,7 @@ const EventSection = () => {
                     <p>{t("query_state.error")}</p>
                     <details className="text-xl">
                         <summary>{t("query_state.error_details")}</summary>
-                        <pre className="font-mono">{error.stack || error.message}</pre>
+                        <pre className="font-mono">{error.message}</pre>
                     </details>
                 </>
             );

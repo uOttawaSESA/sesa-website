@@ -7,12 +7,12 @@ import ComingSoonMessage from "@/components/ComingSoonMessage";
 import { Button } from "@/components/ui/button";
 import Star from "@/components/ui/decorations/star";
 import { Link, useRouter } from "@/i18n/navigation";
-import { useResources } from "@/lib/query";
+import { api } from "@/trpc/react";
 import ResourceCard from "../../resources/components/ResourceCard/ResourceCard";
 
 const Resources = () => {
     const t = useTranslations("homepage");
-    const { data: resources } = useResources();
+    const { data: resources } = api.resource.getAll.useQuery();
     const router = useRouter();
 
     return (

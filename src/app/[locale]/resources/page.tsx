@@ -1,9 +1,8 @@
-import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import Image from "next/image";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
 import FadeInSection from "@/components/FadeInSection";
-import { createQueryClient, fetchResources } from "@/lib/query";
+import { api, HydrateClient } from "@/trpc/server";
 import FooterSection from "./components/FooterSection";
 import Header from "./components/Header";
 import ResourceSection from "./components/ResourceSection";
@@ -28,15 +27,10 @@ export const metadata: Metadata = {
 };
 
 export default async function Resources() {
-    const queryClient = createQueryClient();
-
-    await queryClient.prefetchQuery({
-        queryKey: ["resources"],
-        queryFn: fetchResources,
-    });
+    void api.resource.getAll.prefetch();
 
     return (
-        <HydrationBoundary state={dehydrate(queryClient)}>
+        <HydrateClient>
             <div className="min-h-screen text-white">
                 {/* Decorations */}
                 <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
@@ -69,6 +63,6 @@ export default async function Resources() {
                     </FadeInSection>
                 </div>
             </div>
-        </HydrationBoundary>
+        </HydrateClient>
     );
 }
