@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
 import Pagination from "@/components/Pagination";
-import { useResources } from "@/lib/query";
+import { useInfiniteResources } from "@/lib/query";
 import ResourceList from "./ResourceList";
 import SearchFilterBar from "./SearchFilterBar";
 import type { Resource } from "@/schemas/resources";
@@ -22,7 +22,22 @@ const ResourceSection = () => {
     const [sortOption, setSortOption] = useState<string>("relevance");
     const [isMobile, setIsMobile] = useState(false);
 
-    const { isPending, error, data: resources } = useResources();
+    const { isPending, isFetching, error, data, fetchNextPage } = useInfiniteResources();
+    const resources = useMemo(() => {
+        if (!data) return undefined;
+        return data.pages.flatMap(page => page.docs);
+    }, [data]);
+
+    const itemsPerRow = isGridMode ? (isMobile ? 1 : 3) : 1;
+    const resourcesPerPage = itemsPerRow * rowsToShow;
+
+    // Fetch new resources as required
+    const loadedResources = resources?.length ?? 0;
+    useEffect(() => {
+        // We do currentPage + 1 so that if the user is on the current last available page,
+        // the next page's fetch will already have started
+        if (!isFetching && loadedResources < (currentPage + 1) * resourcesPerPage) fetchNextPage();
+    }, [loadedResources, currentPage, resourcesPerPage, isFetching, fetchNextPage]);
 
     // Extract unique courses from resources for the course filter
     const availableCourses = useMemo(() => {
@@ -56,10 +71,9 @@ const ResourceSection = () => {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    const itemsPerRow = isGridMode ? (isMobile ? 1 : 3) : 1;
-
     // Filter resources based on search term and filter options
-    const filteredResources = useMemo(() => {
+    const filteredResources = resources ?? [];
+    const _filteredResources = useMemo(() => {
         if (!resources) return [];
 
         return resources.filter(resource => {
@@ -83,7 +97,8 @@ const ResourceSection = () => {
     }, [resources, searchTerm, filterOptions]);
 
     // Sorting logic
-    const sortedResources = [...filteredResources].sort((a, b) => {
+    const sortedResources = filteredResources;
+    const _sortedResources = [...filteredResources].sort((a, b) => {
         const tierOrder = { c: 1, b: 2, a: 3, s: 4 };
 
         const tierA = a.tier?.toLowerCase() || "";

@@ -1,10 +1,24 @@
-import { QueryClient, useQuery } from "@tanstack/react-query";
-import { collection, doc, getDoc, getDocs } from "firebase/firestore";
+import { QueryClient, useInfiniteQuery, useQuery } from "@tanstack/react-query";
+import {
+    collection,
+    type DocumentSnapshot,
+    doc,
+    getDoc,
+    getDocs,
+    limit,
+    orderBy,
+    type Query,
+    query,
+    startAfter,
+} from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { type Event, FirestoreEvent } from "@/schemas/events";
 import { FirestoreResource, type Resource } from "@/schemas/resources";
 
 export const queryClient = new QueryClient();
+
+/** The number of resources to request at a time when using {@link useInfiniteResources}. */
+const RESOURCE_PAGE_SIZE = 18;
 
 /**
  * Query function used for {@link useEvents}.
@@ -61,29 +75,67 @@ export const useEvent = (id: string | null) =>
 
 /**
  * Query function used for {@link useResources}.
+ * @param cursor The document to start after for paginated search.
+ * If undefined, the entire collection is dumped.
+ * If null, then the first page of results is provided.
  */
-export const fetchResources = async () => {
+export async function fetchResources(cursor?: DocumentSnapshot | null) {
+    const coll = collection(db, "Resources");
+    let q: Query;
+
+    if (cursor) {
+        // Cursor provided; start after the cursor
+        q = query(
+            coll,
+            orderBy("createdAt", "desc"),
+            startAfter(cursor),
+            limit(RESOURCE_PAGE_SIZE),
+        );
+    } else if (cursor === null) {
+        // Cursor explicitly null; start at the beginning
+        q = query(coll, orderBy("createdAt", "desc"), limit(RESOURCE_PAGE_SIZE));
+    } else {
+        // No cursor; return everything
+        q = query(coll, orderBy("createdAt", "desc"));
+    }
+
     // Fetch from Firestore
-    const docs = (await getDocs(collection(db, "Resources"))).docs.map(doc => ({
+    const snapshot = await getDocs(q);
+    const docs = snapshot.docs.map(doc => ({
         ...doc.data(),
         id: doc.id,
     }));
     // Include only valid resources
-    const validated = docs
-        .map(doc => FirestoreResource.safeParse(doc))
-        .filter(doc => doc.success)
-        .map(doc => doc.data);
-    return validated;
-};
+    const validated = docs.map(doc => FirestoreResource.parse(doc));
+
+    return {
+        docs: validated,
+        prevCursor: cursor || null,
+        nextCursor: snapshot.docs.at(-1) || null,
+    };
+}
 
 /**
- * Get resources data from Firestore.
- * Remote data is validated with Zod before returning.
+ * Get resources data from Firestore. Remote data is validated with Zod before returning.
+ * This function gets all of the resource data at once; you likely want to use {@link useInfiniteResources}.
  */
 export const useResources = () =>
     useQuery({
         queryKey: ["resources"],
-        queryFn: fetchResources,
+        queryFn: async () => (await fetchResources()).docs,
+    });
+
+/**
+ * Gets resources from Firestore with an infinite query.
+ * Remote data is validated with Zod before returning.
+ */
+export const useInfiniteResources = () =>
+    useInfiniteQuery({
+        queryKey: ["infiniteResources"],
+        queryFn: ({ pageParam }) => fetchResources(pageParam),
+        initialPageParam: null as DocumentSnapshot | null,
+        getNextPageParam: lastPage => lastPage.nextCursor,
+        getPreviousPageParam: lastPage => lastPage.prevCursor,
     });
 
 /**
