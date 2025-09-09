@@ -174,6 +174,8 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                 return t("modal.accessibility.closed_captions");
             case "screen reader compatible":
                 return t("modal.accessibility.screen_reader_compatible");
+            default:
+                return feature;
         }
     };
 
