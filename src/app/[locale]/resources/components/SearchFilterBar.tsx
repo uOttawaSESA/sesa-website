@@ -383,7 +383,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                         className="flex w-full items-center justify-between rounded-md border outline-gradient bg-black/40 px-4 py-2 text-sm uppercase text-white"
                         onClick={() => setOpenDropdown(openDropdown === "mobile" ? null : "mobile")}
                     >
-                        Filters & Sort
+                        {t("filter_label")} & {t("sort_label")}
                         <Image
                             src="/contact-page/arrows.svg"
                             alt="Dropdown Arrow"
