@@ -35,6 +35,14 @@
             "suspicious": {
                 "noArrayIndexKey": "off",
                 "noUnknownAtRules": "off"
+            },
+            "nursery": {
+                "useSortedClasses": {
+                    "level": "error",
+                    "options": {
+                        "functions": ["clsx", "cva", "cn", "tw", "tw.*"]
+                    }
+                }
             }
         }
     },
