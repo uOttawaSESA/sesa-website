@@ -1,4 +1,5 @@
 import { createCallerFactory, createTRPCRouter } from "@/server/api/trpc";
+import { contactRouter } from "./routers/contact";
 import { eventRouter } from "./routers/event";
 import { resourceRouter } from "./routers/resource";
 
@@ -8,6 +9,7 @@ import { resourceRouter } from "./routers/resource";
  * All routers added in /api/routers should be manually added here.
  */
 export const appRouter = createTRPCRouter({
+    contact: contactRouter,
     event: eventRouter,
     resource: resourceRouter,
 });

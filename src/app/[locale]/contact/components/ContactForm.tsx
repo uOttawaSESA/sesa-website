@@ -1,6 +1,5 @@
 "use client";
-import { useRouter } from "next/navigation";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Button } from "@/components/ui/button";
@@ -14,12 +13,13 @@ import {
     SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { Link } from "@/i18n/navigation";
+import { Link, useRouter } from "@/i18n/navigation";
+import { api } from "@/trpc/react";
 
 const ContactForm: React.FC = () => {
-    const t = useTranslations("contact_us");
     const router = useRouter();
-    const locale = useLocale();
+
+    const t = useTranslations("contact_us");
 
     const [formData, setFormData] = useState({
         firstName: "",
@@ -30,7 +30,10 @@ const ContactForm: React.FC = () => {
     });
 
     const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
-    const [submitting, setSubmitting] = useState(false);
+
+    const emailMutation = api.contact.sendEmail.useMutation({
+        onSuccess: () => router.push("/thank_you"),
+    });
 
     const topicItems = [
         { label: t("topic_general"), value: "General Inquiry" },
@@ -46,16 +49,12 @@ const ContactForm: React.FC = () => {
         }));
     };
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (
-            !formData.firstName ||
-            !formData.lastName ||
-            !formData.email ||
-            !formData.topic ||
-            !formData.message
-        ) {
+        const { firstName, lastName, email, topic, message } = formData;
+
+        if (!firstName || !lastName || !email || !topic || !message) {
             alert("Please fill out all fields.");
             return;
         }
@@ -65,25 +64,7 @@ const ContactForm: React.FC = () => {
             return;
         }
 
-        setSubmitting(true);
-
-        try {
-            const res = await fetch("/api/send-email", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ ...formData, recaptchaToken }),
-            });
-
-            if (res.ok) {
-                router.push(`/${locale}/thank_you`);
-            } else {
-                alert("There was an error submitting the form. Please try again.");
-            }
-        } catch {
-            alert("There was an error submitting the form. Please try again.");
-        } finally {
-            setSubmitting(false);
-        }
+        emailMutation.mutate({ firstName, lastName, email, topic, message, recaptchaToken });
     };
 
     return (
@@ -188,9 +169,9 @@ const ContactForm: React.FC = () => {
                 <Button
                     type="submit"
                     className="mt-4 flex items-center gap-3 font-heading text-xl uppercase"
-                    disabled={submitting}
+                    disabled={emailMutation.isPending}
                 >
-                    {submitting ? t("sending") : t("send_message")}
+                    {emailMutation.isPending ? t("sending") : t("send_message")}
                 </Button>
             </div>
         </form>
