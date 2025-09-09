@@ -154,12 +154,12 @@ const SponsorsGrid = () => {
                 </div>
 
                 {/* Desktop: Bank of Canada centered as its own row */}
-                <div className="hidden w-full md:flex justify-center">
+                <div className="hidden w-full justify-center md:flex">
                     <a
                         href={sponsors[5].link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`flex items-center justify-center rounded-lg p-10 ${sponsors[5].size} ${gradientBorderClass} backdrop-blur-lg transition hover:scale-105 w-3/5`}
+                        className={`flex items-center justify-center rounded-lg p-10 ${sponsors[5].size} ${gradientBorderClass} w-3/5 backdrop-blur-lg transition hover:scale-105`}
                         title={sponsors[5].name}
                     >
                         <Image

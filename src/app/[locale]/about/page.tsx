@@ -79,20 +79,20 @@ export default function About() {
     const tOurTeam = useTranslations("about.introducing_our_team_section");
 
     return (
-        <div className="min-h-screen text-white relative">
+        <div className="relative min-h-screen text-white">
             {/* Gradient */}
-            <div className="pointer-events-none absolute left-0 top-0 h-full w-full select-none">
+            <div className="pointer-events-none absolute top-0 left-0 h-full w-full select-none">
                 {/* Light gradient */}
                 <div className="fade-from-left-bg absolute top-[-20rem] left-0 h-[70rem] w-[80vw] bg-blueviolet-100/20 blur-xs" />
                 {/* Warm gradient */}
-                <div className="fade-from-left-bg absolute h-[90rem] top-[70rem] w-full bg-[#B1219D]/15 blur-xs md:w-[60vw]" />
+                <div className="fade-from-left-bg absolute top-[70rem] h-[90rem] w-full bg-[#B1219D]/15 blur-xs md:w-[60vw]" />
             </div>
 
             <div className="container relative mx-auto max-w-7xl px-4 py-8">
                 {/* Decorations */}
-                <div className="pointer-events-none absolute left-0 top-0 h-full w-full select-none">
+                <div className="pointer-events-none absolute top-0 left-0 h-full w-full select-none">
                     <Image
-                        className="fade-left-bottom absolute right-[-12rem] top-[-10rem] z-[-1] h-[60rem] w-[60rem]"
+                        className="fade-left-bottom absolute top-[-10rem] right-[-12rem] z-[-1] h-[60rem] w-[60rem]"
                         src="/decoration/double-tunnel.svg"
                         width={913}
                         height={909}
@@ -100,20 +100,20 @@ export default function About() {
                     />
                     <Star
                         variant="star"
-                        className="absolute right-[1rem] top-[12rem] hidden md:block"
+                        className="absolute top-[12rem] right-[1rem] hidden md:block"
                         width={130}
                         height={130}
                         delay={1}
                     />
                     <Star
                         variant="star-faded"
-                        className="absolute right-[0rem] top-[17rem]"
+                        className="absolute top-[17rem] right-[0rem]"
                         rotate={33}
                         delay={0.5}
                     />
                     <Star
                         variant="star"
-                        className="absolute right-[24rem] top-[23rem]"
+                        className="absolute top-[23rem] right-[24rem]"
                         rotate={-15}
                         delay={1}
                     />
@@ -160,7 +160,7 @@ export default function About() {
                 <FadeInSection>
                     <div className="mt-12 flex justify-center">
                         <Image
-                            className="outline-gradient h-[600px] w-[1250px] object-cover"
+                            className="h-[600px] w-[1250px] object-cover outline-gradient"
                             src="/imgs/about/team-1.webp"
                             width={1200}
                             height={600}
@@ -171,9 +171,9 @@ export default function About() {
                 {/* "Who are we" */}
                 <div className="relative">
                     {/* Decorations */}
-                    <div className="pointer-events-none absolute left-0 top-0 h-full w-full select-none">
+                    <div className="pointer-events-none absolute top-0 left-0 h-full w-full select-none">
                         <Image
-                            className="fade-right-bottom absolute top-[20rem] left-[6rem] opacity-60 md:opacity-100 md:top-[-14rem] z-[-1] h-[55rem] w-[55rem] md:left-[-16rem]"
+                            className="fade-right-bottom absolute top-[20rem] left-[6rem] z-[-1] h-[55rem] w-[55rem] opacity-60 md:top-[-14rem] md:left-[-16rem] md:opacity-100"
                             src="/decoration/disc.svg"
                             width={911}
                             height={822}
@@ -181,14 +181,14 @@ export default function About() {
                         />
                         <Star
                             variant="star"
-                            className="absolute left-[12rem] top-[3rem] hidden md:block lg:left-[24rem]"
+                            className="absolute top-[3rem] left-[12rem] hidden md:block lg:left-[24rem]"
                             width={150}
                             height={150}
                             delay={1}
                         />
                         <Star
                             variant="star-faded"
-                            className="absolute left-[4rem] top-[16rem]"
+                            className="absolute top-[16rem] left-[4rem]"
                             rotate={5}
                             width={79}
                             height={80}
@@ -196,7 +196,7 @@ export default function About() {
                         />
                     </div>
                     <FadeInSection>
-                        <div className="my-8 flex max-w-[28rem] flex-col gap-2 md:ml-[53%] md:mt-28">
+                        <div className="my-8 flex max-w-[28rem] flex-col gap-2 md:mt-28 md:ml-[53%]">
                             <p className="color-gradient font-mono">{t("who_are_we")}</p>
                             <h2 className="font-heading text-2xl uppercase md:text-3xl">
                                 {t("who_are_we_heading")}{" "}
@@ -216,7 +216,7 @@ export default function About() {
                     {/* Figures */}
                     <FadeInSection>
                         <div className="flex justify-center md:mb-28">
-                            <div className="grid w-fit grid-cols-1 place-items-center gap-4 md:gap-20 md:grid-cols-4">
+                            <div className="grid w-fit grid-cols-1 place-items-center gap-4 md:grid-cols-4 md:gap-20">
                                 <Metric
                                     className="w-64! backdrop-blur-lg"
                                     figure={3500}
@@ -250,17 +250,17 @@ export default function About() {
                 {/* "What do we do" */}
                 <div className="relative">
                     {/* Decorations */}
-                    <div className="pointer-events-none absolute left-0 top-0 h-full w-full select-none">
+                    <div className="pointer-events-none absolute top-0 left-0 h-full w-full select-none">
                         <Star
                             variant="star"
-                            className="absolute right-0 top-[8rem] md:right-[10rem] md:top-[3rem]"
+                            className="absolute top-[8rem] right-0 md:top-[3rem] md:right-[10rem]"
                             width={130}
                             height={130}
                             delay={1}
                         />
                         <Star
                             variant="star-faded"
-                            className="absolute right-[10rem] top-[8rem]"
+                            className="absolute top-[8rem] right-[10rem]"
                             rotate={30}
                             delay={0.5}
                         />
@@ -288,7 +288,7 @@ export default function About() {
                     </FadeInSection>
                     {/* Cards for "What do we do" */}
                     <FadeInSection>
-                        <div className="mx-0 mb-8 flex w-max max-w-[28rem] md:max-w-max gap-3 md:gap-6 md:justify-start overflow-x-auto">
+                        <div className="mx-0 mb-8 flex w-max max-w-[28rem] gap-3 overflow-x-auto md:max-w-max md:justify-start md:gap-6">
                             <WhatWeDoCard
                                 imageHref="/imgs/about/social-events.webp"
                                 icon={
@@ -340,28 +340,28 @@ export default function About() {
                 {/* Introducing our team */}
                 <div className="relative">
                     {/* Decorations */}
-                    <div className="pointer-events-none absolute left-0 top-0 h-full w-full select-none">
+                    <div className="pointer-events-none absolute top-0 left-0 h-full w-full select-none">
                         {/* Light gradient */}
                         <div className="fade-from-center-bg absolute top-[-10rem] left-[-10rem] h-[70rem] w-[70vw] bg-blueviolet-100/15 blur-xs 2xl:left-[-45rem]" />
 
                         {/* Warm gradient */}
-                        <div className="fade-from-left-bg absolute left-[-10rem] top-[-20rem] h-[90rem] w-full bg-[#B1219D]/15 blur-xs md:w-[60vw] 2xl:left-[-45rem]" />
+                        <div className="fade-from-left-bg absolute top-[-20rem] left-[-10rem] h-[90rem] w-full bg-[#B1219D]/15 blur-xs md:w-[60vw] 2xl:left-[-45rem]" />
 
                         {/* Light gradient */}
                         <div className="fade-from-left-bg absolute top-[10rem] left-[-10rem] h-[100rem] w-[80vw] bg-blueviolet-100/20 blur-xs 2xl:left-[-45rem]" />
 
                         {/* Warm gradient */}
-                        <div className="fade-from-center-bg absolute left-1/2 top-[100rem] h-[100rem] w-full -translate-x-1/2 bg-[#B1219D]/25 blur-xs md:w-screen 2xl:left-[-45rem]" />
+                        <div className="fade-from-center-bg -translate-x-1/2 absolute top-[100rem] left-1/2 h-[100rem] w-full bg-[#B1219D]/25 blur-xs md:w-screen 2xl:left-[-45rem]" />
 
                         {/* Light gradient */}
                         <div className="fade-from-right-bg absolute top-[130rem] right-[-6rem] h-[100rem] w-[50vw] bg-blueviolet-100/20 blur-xs 2xl:right-[-45rem]" />
 
                         {/* Warm gradient */}
-                        <div className="fade-from-center-bg absolute left-1/2 top-[190rem] h-[100rem] w-full -translate-x-1/2 bg-[#B1219D]/25 blur-xs md:w-screen" />
+                        <div className="fade-from-center-bg -translate-x-1/2 absolute top-[190rem] left-1/2 h-[100rem] w-full bg-[#B1219D]/25 blur-xs md:w-screen" />
 
                         <Star
                             variant="star"
-                            className="absolute left-[4rem] top-[-4rem] hidden lg:block"
+                            className="absolute top-[-4rem] left-[4rem] hidden lg:block"
                             rotate={-15}
                             width={130}
                             height={130}
@@ -369,14 +369,14 @@ export default function About() {
                         />
                         <Star
                             variant="star-faded"
-                            className="absolute left-[5rem] top-[3.5rem]"
+                            className="absolute top-[3.5rem] left-[5rem]"
                             width={60}
                             height={60}
                             delay={0.5}
                         />
                         <Star
                             variant="star-faded"
-                            className="absolute right-[2rem] top-[1rem]"
+                            className="absolute top-[1rem] right-[2rem]"
                             rotate={30}
                             width={79}
                             height={80}
@@ -387,7 +387,7 @@ export default function About() {
                         {/* biome-ignore lint/correctness/useUniqueElementIds: Should be human-readable */}
                         <div
                             id="introducing-our-team"
-                            className="align-center flex scroll-mt-28 flex-col items-center gap-2 text-center md:mt-28"
+                            className="flex scroll-mt-28 flex-col items-center gap-2 text-center align-center md:mt-28"
                         >
                             <p className="color-gradient font-mono text-xs md:text-base">
                                 {t("introducing_our_team")}
@@ -398,7 +398,7 @@ export default function About() {
                                 </span>{" "}
                                 {t("introducing_our_team_heading")}
                             </h2>
-                            <p className="max-w-[32rem] text-base leading-tight text-thistle md:text-lg">
+                            <p className="max-w-[32rem] text-base text-thistle leading-tight md:text-lg">
                                 {t("introducing_our_team_blurb")}
                             </p>
                         </div>
@@ -438,7 +438,7 @@ export default function About() {
                         {/* Between Co-Directors and Partnerships */}
                         <Star
                             variant="star"
-                            className="absolute right-[0rem] top-[40rem] hidden lg:block"
+                            className="absolute top-[40rem] right-[0rem] hidden lg:block"
                             delay={1}
                             width={90}
                             height={90}
@@ -447,7 +447,7 @@ export default function About() {
                         {/* Next to Events text */}
                         <Star
                             variant="star"
-                            className="absolute right-1/2 top-[85rem] hidden lg:block"
+                            className="absolute top-[85rem] right-1/2 hidden lg:block"
                             delay={1}
                             width={90}
                             height={90}
@@ -457,12 +457,12 @@ export default function About() {
                         {/* Next to Development */}
                         <Star
                             variant="star"
-                            className="absolute right-[5rem] top-[160rem] hidden lg:block"
+                            className="absolute top-[160rem] right-[5rem] hidden lg:block"
                             delay={1}
                         />
                         <Star
                             variant="star-faded"
-                            className="absolute right-[10rem] top-[165rem] hidden lg:block"
+                            className="absolute top-[165rem] right-[10rem] hidden lg:block"
                             delay={1}
                             rotate={10}
                         />
@@ -520,23 +520,23 @@ export default function About() {
                 {/* Beyond SESA */}
                 <div className="relative mt-56">
                     {/* Decorations */}
-                    <div className="pointer-events-none absolute left-0 top-0 h-full w-full select-none z-[-1]">
+                    <div className="pointer-events-none absolute top-0 left-0 z-[-1] h-full w-full select-none">
                         <Image
-                            className="fade-from-center-bg absolute left-0 z-0 right-0 me-auto ms-auto w-auto opacity-60"
+                            className="fade-from-center-bg absolute right-0 left-0 z-0 ms-auto me-auto w-auto opacity-60"
                             src="/decoration/globe-sponsor-page.svg"
                             width={740}
                             height={741}
                             alt=""
                         />
                         {/* Light gradient */}
-                        <div className="fade-from-left-bg absolute left-[-6rem] top-[-100rem] h-[200rem] w-[80vw] bg-blueviolet-100/20 blur-xs 2xl:left-[-45rem]" />
+                        <div className="fade-from-left-bg absolute top-[-100rem] left-[-6rem] h-[200rem] w-[80vw] bg-blueviolet-100/20 blur-xs 2xl:left-[-45rem]" />
 
                         {/* Warm gradient */}
-                        <div className="fade-from-center-bg absolute left-1/2 top-[-25rem] h-[100rem]  w-full -translate-x-1/2 bg-[#B1219D]/25 blur-xs md:w-screen" />
+                        <div className="fade-from-center-bg -translate-x-1/2 absolute top-[-25rem] left-1/2 h-[100rem] w-full bg-[#B1219D]/25 blur-xs md:w-screen" />
 
                         <Star
                             variant="star"
-                            className="absolute left-[4rem] top-[4rem] hidden lg:block"
+                            className="absolute top-[4rem] left-[4rem] hidden lg:block"
                             rotate={-15}
                             width={130}
                             height={130}
@@ -544,13 +544,13 @@ export default function About() {
                         />
                         <Star
                             variant="star-faded"
-                            className="absolute left-[10rem] top-[3rem]"
+                            className="absolute top-[3rem] left-[10rem]"
                             rotate={15}
                             delay={0.5}
                         />
                         <Star
                             variant="star-faded"
-                            className="absolute right-[15rem] top-[6.5rem]"
+                            className="absolute top-[6.5rem] right-[15rem]"
                             rotate={25}
                             width={79}
                             height={80}
@@ -558,7 +558,7 @@ export default function About() {
                         />
                     </div>
                     <FadeInSection>
-                        <div className="align-center mt-24 flex flex-col items-center gap-3 text-center">
+                        <div className="mt-24 flex flex-col items-center gap-3 text-center align-center">
                             <p className="color-gradient font-mono text-xs md:text-base">
                                 {t("our_previous_partners")}
                             </p>
@@ -567,7 +567,7 @@ export default function About() {
                                     {t("our_previous_partners_heading_hl")}
                                 </span>
                             </h2>
-                            <p className="max-w-[32rem] text-base leading-snug text-thistle md:text-lg">
+                            <p className="max-w-[32rem] text-base text-thistle leading-snug md:text-lg">
                                 <b>{t("our_previous_partners_p_bold")}</b>,{" "}
                                 {t("our_previous_partners_p")}{" "}
                             </p>
@@ -575,7 +575,7 @@ export default function About() {
                                 <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
                                     {beyonSesaCompanies.map((company, i) => (
                                         <div
-                                            className="outline-gradient flex h-36 w-64 items-center justify-center backdrop-blur-lg"
+                                            className="flex h-36 w-64 items-center justify-center outline-gradient backdrop-blur-lg"
                                             key={`partners:${i}`}
                                         >
                                             <Image
@@ -596,7 +596,7 @@ export default function About() {
             {/* Be a part of our family */}
             <div className="relative">
                 {/* Decorations */}
-                <div className="pointer-events-none absolute left-0 top-0 h-full w-full select-none">
+                <div className="pointer-events-none absolute top-0 left-0 h-full w-full select-none">
                     {/* Light gradient */}
                     <div className="fade-from-center-bg relative top-0 left-[10rem] h-[50rem] w-[70vw] bg-blueviolet-100/10 blur-xs" />
                     <Star
@@ -652,7 +652,7 @@ export default function About() {
                             <Image
                                 src="/imgs/about/team-1.webp"
                                 alt="Team picture"
-                                className="outline-gradient h-[400px] w-auto object-cover md:h-[500px]"
+                                className="h-[400px] w-auto object-cover outline-gradient md:h-[500px]"
                                 width={700}
                                 height={500}
                             />

@@ -153,8 +153,8 @@ const ResourceSection = () => {
                             filterOptions={filterOptions}
                         />
                     ) : (
-                        <div className="flex justify-center items-center h-16">
-                            <h1 className="font-heading text-xl text-white font-bold">
+                        <div className="flex h-16 items-center justify-center">
+                            <h1 className="font-bold font-heading text-white text-xl">
                                 No results were found matching this search!
                             </h1>
                         </div>

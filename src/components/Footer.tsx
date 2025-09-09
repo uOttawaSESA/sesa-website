@@ -30,7 +30,7 @@ export default function Footer() {
                 {/* Navigation links and socials */}
                 <div className="flex flex-col gap-8 md:flex-row md:justify-between lg:gap-32">
                     <div className="flex flex-col items-start gap-2 text-left">
-                        <h3 className="font-heading uppercase text-white">SESA/AÉGL</h3>
+                        <h3 className="font-heading text-white uppercase">SESA/AÉGL</h3>
                         <p className="text-thistle md:max-w-72">{t("blurb")}</p>
                         <p className="text-thistle">
                             &copy;&nbsp;2014&ndash;{new Date().getFullYear()}
@@ -60,8 +60,8 @@ export default function Footer() {
 
                     <div className="flex flex-wrap justify-between gap-4 text-left sm:flex-nowrap lg:gap-36">
                         <div className="flex flex-col gap-4">
-                            <h3 className="font-heading uppercase text-white">{t("sitemap")}</h3>
-                            <ul className="flex flex-col gap-3 leading-none text-thistle">
+                            <h3 className="font-heading text-white uppercase">{t("sitemap")}</h3>
+                            <ul className="flex flex-col gap-3 text-thistle leading-none">
                                 <li>
                                     <Link
                                         href="/"
@@ -113,8 +113,8 @@ export default function Footer() {
                             </ul>
                         </div>
                         <div className="flex flex-col gap-4">
-                            <h3 className="font-heading uppercase text-white">{t("policies")}</h3>
-                            <ul className="flex flex-col gap-3 leading-none text-thistle">
+                            <h3 className="font-heading text-white uppercase">{t("policies")}</h3>
+                            <ul className="flex flex-col gap-3 text-thistle leading-none">
                                 <li>
                                     <Link
                                         href="/policies#privacy"
@@ -134,7 +134,7 @@ export default function Footer() {
                             </ul>
                         </div>
                         <div className="flex flex-col gap-4">
-                            <h3 className="font-heading uppercase text-white">{t("contact")}</h3>
+                            <h3 className="font-heading text-white uppercase">{t("contact")}</h3>
                             <p className="break-words text-thistle">
                                 <span>800 King Edward Ave,</span>
                                 <br />
@@ -206,7 +206,7 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
-                <hr className="fill-gradient mt-6 p-[0.25px]" />
+                <hr className="mt-6 fill-gradient p-[0.25px]" />
                 <div className="flex items-center justify-between py-4">
                     {/* SESA logo + text */}
                     <div className="flex items-center justify-center gap-2">

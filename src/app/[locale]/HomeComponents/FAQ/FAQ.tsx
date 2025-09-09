@@ -43,18 +43,18 @@ const FAQ = () => {
             {/* Decorations */}
             <div className="pointer-events-none select-none">
                 {/* Warm gradient */}
-                <div className="fade-from-center-bg absolute left-1/2 top-1/2 h-[120rem] w-full -translate-x-1/2 -translate-y-1/2 bg-[#B1219D]/20 blur-xl md:w-[100rem]" />
+                <div className="fade-from-center-bg -translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 h-[120rem] w-full bg-[#B1219D]/20 blur-xl md:w-[100rem]" />
 
                 <Star
                     variant="star"
-                    className="hidden md:left-[8rem] md:top-[1rem] md:block"
+                    className="hidden md:top-[1rem] md:left-[8rem] md:block"
                     rotate={-110}
                     delay={1}
                 />
 
                 <Star
                     variant="star-faded"
-                    className="absolute right-[2rem] top-[8rem] hidden md:right-[10rem] md:top-[7rem] md:block"
+                    className="absolute top-[8rem] right-[2rem] hidden md:top-[7rem] md:right-[10rem] md:block"
                     rotate={30}
                     width={60}
                     height={60}
@@ -63,13 +63,13 @@ const FAQ = () => {
 
                 <Star
                     variant="star"
-                    className="hidden md:bottom-[-8rem] md:right-[5rem] md:block"
+                    className="hidden md:right-[5rem] md:bottom-[-8rem] md:block"
                     delay={1}
                 />
 
                 <Star
                     variant="star-faded"
-                    className="hidden md:bottom-[-8rem] md:right-[10rem] md:block"
+                    className="hidden md:right-[10rem] md:bottom-[-8rem] md:block"
                     width={63}
                     height={63}
                     delay={0.5}
@@ -77,7 +77,7 @@ const FAQ = () => {
             </div>
 
             <div className="backdrop-blue-xl flex flex-col items-center justify-center gap-3">
-                <p className="font-monocode color-gradient text-xs md:text-base">
+                <p className="color-gradient font-monocode text-xs md:text-base">
                     {t("faq_subtitle")}
                 </p>
                 <h1 className="text-center font-heading text-2xl uppercase leading-tight md:text-4xl">
@@ -96,7 +96,7 @@ const FAQ = () => {
                         <Accordion
                             type="single"
                             collapsible
-                            className="outline-gradient w-full overflow-hidden rounded-br-2xl border"
+                            className="w-full overflow-hidden rounded-br-2xl border outline-gradient"
                         >
                             {faqItems.map(item => (
                                 <AccordionItem

@@ -113,7 +113,7 @@ const EventSection = () => {
             <div className="pointer-events-none select-none">
                 <Image
                     src="/decoration/floor-grid.svg"
-                    className="fade-from-bottom-bg absolute bottom-48 left-1/2 z-0 -translate-x-1/2 transform md:-bottom-16"
+                    className="fade-from-bottom-bg -translate-x-1/2 md:-bottom-16 absolute bottom-48 left-1/2 z-0 transform"
                     width={1200}
                     height={430}
                     alt=""
@@ -121,12 +121,12 @@ const EventSection = () => {
 
                 <Star
                     variant="star"
-                    className="bottom-[-9rem] right-[14rem] md:bottom-[-5rem] md:right-[10rem]"
+                    className="right-[14rem] bottom-[-9rem] md:right-[10rem] md:bottom-[-5rem]"
                     delay={1}
                 />
                 <Star
                     variant="star-faded"
-                    className="bottom-[-6rem] right-[9rem] rotate-30 transform md:block"
+                    className="right-[9rem] bottom-[-6rem] rotate-30 transform md:block"
                     delay={0.5}
                 />
             </div>
@@ -149,7 +149,7 @@ const EventSection = () => {
                     <EventsList events={currentEvents} />
 
                     {filteredEvents.length > eventsPerPage && (
-                        <div className="flex mt-4 mb-8 px-8">
+                        <div className="mt-4 mb-8 flex px-8">
                             <Pagination
                                 currentPage={currentPage}
                                 totalPages={totalPages}

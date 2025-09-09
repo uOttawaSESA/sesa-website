@@ -14,7 +14,7 @@ export default function CTA() {
             <div className="pointer-events-none inset-0 select-none">
                 <Image
                     src="/decoration/floor-grid.svg"
-                    className="fade-from-center-bg md:-bottom-18 absolute bottom-10 left-1/2 h-[196px] -translate-x-1/2 transform object-cover object-bottom"
+                    className="fade-from-center-bg md:-bottom-18 -translate-x-1/2 absolute bottom-10 left-1/2 h-[196px] transform object-cover object-bottom"
                     width={1200}
                     height={430}
                     alt=""
@@ -22,7 +22,7 @@ export default function CTA() {
 
                 <Star
                     variant="star-faded"
-                    className="absolute right-[4rem] top-[10rem] md:right-[10rem] md:top-[12rem]"
+                    className="absolute top-[10rem] right-[4rem] md:top-[12rem] md:right-[10rem]"
                     rotate={30}
                     width={55}
                     height={55}
@@ -31,7 +31,7 @@ export default function CTA() {
 
                 <Star
                     variant="star"
-                    className="absolute right-[11rem] top-[7rem] hidden md:block"
+                    className="absolute top-[7rem] right-[11rem] hidden md:block"
                     width={125}
                     height={128}
                     delay={1}
@@ -39,15 +39,15 @@ export default function CTA() {
             </div>
 
             <div className="flex flex-col items-center justify-center gap-5 md:flex-row md:flex-wrap md:gap-8">
-                <p className="text-center font-heading text-sm uppercase text-white md:text-lg">
+                <p className="text-center font-heading text-sm text-white uppercase md:text-lg">
                     {t("cta_heading")}
                 </p>
-                <Button asChild className="px-5 font-heading uppercase text-white">
+                <Button asChild className="px-5 font-heading text-white uppercase">
                     <Link href="/contact">{t("cta_button")}</Link>
                 </Button>
             </div>
 
-            <p className="mt-4 font-sans text-xs tracking-widest text-thistle md:text-sm">
+            <p className="mt-4 font-sans text-thistle text-xs tracking-widest md:text-sm">
                 {t("cta_disclaimer")}
             </p>
         </div>

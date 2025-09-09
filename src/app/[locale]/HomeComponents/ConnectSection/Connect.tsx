@@ -10,11 +10,11 @@ const Connect = () => {
             {/* Decorations */}
             <div className="pointer-events-none z-0 select-none">
                 {/* Light gradient */}
-                <div className="fade-from-left-bg absolute top-1/2 hidden h-[70rem] w-[50vw] -translate-y-1/2 bg-blueviolet-100/30 blur-xs md:block" />
+                <div className="fade-from-left-bg -translate-y-1/2 absolute top-1/2 hidden h-[70rem] w-[50vw] bg-blueviolet-100/30 blur-xs md:block" />
             </div>
             <div className="my-8 flex flex-col gap-4 lg:my-20 lg:flex-row lg:items-center lg:gap-20 2xl:gap-52">
                 {/* Left Image */}
-                <div className="relative mb-5 mt-10 w-full max-w-2xl lg:max-w-2xl 2xl:max-w-4xl">
+                <div className="relative mt-10 mb-5 w-full max-w-2xl lg:max-w-2xl 2xl:max-w-4xl">
                     <Image
                         src="/imgs/Home/connectImage.webp"
                         alt={t("connect_image_alt")}
@@ -29,11 +29,11 @@ const Connect = () => {
                         width={700}
                         height={700}
                     />
-                    <div className="grid-overlay-left -top-12 z-0 hidden h-[350px] w-full sm:h-[500px] md:block md:h-[700px] lg:-top-12 lg:h-[43.9rem] lg:w-[55vw] 2xl:w-[45vw]"></div>
+                    <div className="grid-overlay-left -top-12 lg:-top-12 z-0 hidden h-[350px] w-full sm:h-[500px] md:block md:h-[700px] lg:h-[43.9rem] lg:w-[55vw] 2xl:w-[45vw]"></div>
                 </div>
 
                 <div className="flex w-full flex-col gap-2 px-8 md:px-10 lg:px-8">
-                    <p className="font-monocode relative inline-block bg-clip-text! text-left text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,#8824dc,#b1219d)] md:text-base">
+                    <p className="relative inline-block bg-clip-text! text-left font-monocode text-transparent text-xs [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,#8824dc,#b1219d)] md:text-base">
                         {t("connect_subtitle")}
                     </p>
                     <h1 className="font-heading text-2xl uppercase leading-tight md:text-4xl">

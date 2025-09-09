@@ -63,7 +63,7 @@ export default async function Resources() {
 
                     <Image
                         src="/decoration/waves.svg"
-                        className="fade-from-top-bg absolute left-1/2 top-[26rem] hidden w-11/12 -translate-x-1/2 transform md:top-[10rem] md:block md:w-max"
+                        className="fade-from-top-bg -translate-x-1/2 absolute top-[26rem] left-1/2 hidden w-11/12 transform md:top-[10rem] md:block md:w-max"
                         width={1200}
                         height={280}
                         alt=""

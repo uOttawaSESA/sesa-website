@@ -98,7 +98,7 @@ export default function Benefits() {
 
                 <Image
                     src="/decoration/waves.svg"
-                    className="fade-from-center-sponsorship-floor absolute left-1/2 hidden w-11/12 -translate-x-1/2 transform md:bottom-10 md:block md:w-max"
+                    className="fade-from-center-sponsorship-floor -translate-x-1/2 absolute left-1/2 hidden w-11/12 transform md:bottom-10 md:block md:w-max"
                     width={1200}
                     height={280}
                     alt=""
@@ -109,16 +109,16 @@ export default function Benefits() {
                     <p className="color-gradient relative mb-1 font-mono text-xs md:text-base">
                         {t("benefits_top")}
                     </p>
-                    <h2 className="mb-4 font-heading text-2xl uppercase text-white md:text-3xl">
+                    <h2 className="mb-4 font-heading text-2xl text-white uppercase md:text-3xl">
                         <span className="block md:inline">{t("benefits_title_part1")}</span>{" "}
                         <span className="relative inline-block">
                             {t("benefits_title_highlight")}
-                            <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,rgba(136,36,220,0.25),rgba(177,33,97,0.25))]"></div>
+                            <div className="absolute top-0 right-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,rgba(136,36,220,0.25),rgba(177,33,97,0.25))]"></div>
                         </span>{" "}
                         <span className="block md:inline">{t("benefits_title_part3")}</span>
                     </h2>
 
-                    <p className="max-w-full text-base leading-tight text-thistle md:mb-4 md:max-w-2xl md:text-lg">
+                    <p className="max-w-full text-base text-thistle leading-tight md:mb-4 md:max-w-2xl md:text-lg">
                         {t("benefits_description")}
                     </p>
                 </div>
@@ -145,7 +145,7 @@ export default function Benefits() {
             </div>
             <div className="relative mt-10 overflow-visible">
                 <div
-                    className="flex gap-6 pl-6 pr-6 transition-transform duration-500 ease-in-out md:gap-8 md:pl-40 md:pr-40"
+                    className="flex gap-6 pr-6 pl-6 transition-transform duration-500 ease-in-out md:gap-8 md:pr-40 md:pl-40"
                     style={{
                         transform: `translateX(-${currentIndex * cardWidthVW}vw)`,
                     }}
@@ -177,10 +177,10 @@ export default function Benefits() {
                                                 className="m-3"
                                             />
                                         </div>
-                                        <div className="mb-2 font-heading text-base uppercase leading-snug text-white md:text-lg">
+                                        <div className="mb-2 font-heading text-base text-white uppercase leading-snug md:text-lg">
                                             {locale === "fr" ? card.title.fr : card.title.en}
                                         </div>
-                                        <p className="font-sans text-sm leading-snug text-thistle md:text-lg">
+                                        <p className="font-sans text-sm text-thistle leading-snug md:text-lg">
                                             {locale === "fr"
                                                 ? card.description.fr
                                                 : card.description.en}

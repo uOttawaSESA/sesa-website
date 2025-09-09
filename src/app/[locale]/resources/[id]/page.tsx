@@ -72,7 +72,7 @@ export default async function ResourcePage({ params }: { params: Promise<{ id: s
             <div className="relative my-16 flex justify-center">
                 <Button
                     variant="outline"
-                    className="absolute left-72 top-0 font-heading uppercase"
+                    className="absolute top-0 left-72 font-heading uppercase"
                     asChild
                 >
                     <Link href="/resources">Go Back</Link>
@@ -93,7 +93,7 @@ export default async function ResourcePage({ params }: { params: Promise<{ id: s
                         {resource.author && (
                             <p className="color-gradient font-mono text-lg">{resource.author}</p>
                         )}
-                        <time className="text-md font-mono" dateTime={resourceDate.toISOString()}>
+                        <time className="font-mono text-md" dateTime={resourceDate.toISOString()}>
                             {resourceDate.toLocaleDateString()}
                         </time>
                         {/* Markdown-parsed body */}
@@ -105,7 +105,7 @@ export default async function ResourcePage({ params }: { params: Promise<{ id: s
                         {/* biome-ignore-end lint/security/noDangerouslySetInnerHtml: HTML has been sanitized */}
                     </article>
                     {/* Rating */}
-                    <div className="outline-gradient flex min-w-[65ch] justify-between p-5">
+                    <div className="flex min-w-[65ch] justify-between p-5 outline-gradient">
                         <p className="font-heading uppercase">Is this resource helpful?</p>
                         <div className="flex gap-1 font-mono">
                             <button type="button">(thumbs up)</button>

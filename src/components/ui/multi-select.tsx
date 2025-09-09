@@ -39,7 +39,7 @@ export interface AnimationConfig {
 const multiSelectVariants = cva("m-1 transition-all duration-300 ease-in-out", {
     variants: {
         variant: {
-            default: "border-foreground/10 text-white bg-card hover:bg-card/80",
+            default: "border-foreground/10 bg-card text-white hover:bg-card/80",
             secondary:
                 "border-foreground/10 bg-secondary text-secondary-foreground hover:bg-secondary/80",
             destructive:
@@ -767,11 +767,11 @@ export const MultiSelect = React.forwardRef<MultiSelectRef, MultiSelectProps>(
                                 getAllOptions().length
                             } options selected. ${placeholder}`}
                             className={cn(
-                                "flex p-3 min-h-10 h-auto items-center outline-gradient text-base text-thistle justify-between [&_svg]:pointer-events-auto",
+                                "flex h-auto min-h-10 items-center justify-between p-3 text-base text-thistle outline-gradient [&_svg]:pointer-events-auto",
                                 autoSize ? "w-auto" : "w-full",
                                 responsiveSettings.compactMode && "min-h-8 text-sm",
                                 screenSize === "mobile" && "min-h-12 text-base",
-                                disabled && "opacity-50 cursor-not-allowed",
+                                disabled && "cursor-not-allowed opacity-50",
                                 className,
                             )}
                             variant="multiselect"
@@ -781,12 +781,12 @@ export const MultiSelect = React.forwardRef<MultiSelectRef, MultiSelectProps>(
                             }}
                         >
                             {selectedValues.length > 0 ? (
-                                <div className="flex justify-between items-center w-full">
+                                <div className="flex w-full items-center justify-between">
                                     <div
                                         className={cn(
                                             "flex items-center gap-1",
                                             singleLine
-                                                ? "overflow-x-auto multiselect-singleline-scroll"
+                                                ? "multiselect-singleline-scroll overflow-x-auto"
                                                 : "flex-wrap",
                                             responsiveSettings.compactMode && "gap-0.5",
                                         )}
@@ -827,7 +827,7 @@ export const MultiSelect = React.forwardRef<MultiSelectRef, MultiSelectProps>(
                                                             customStyle?.gradient &&
                                                                 "!text-white border-transparent",
                                                             responsiveSettings.compactMode &&
-                                                                "text-xs px-1.5 py-0.5",
+                                                                "px-1.5 py-0.5 text-xs",
                                                             screenSize === "mobile" &&
                                                                 "max-w-[120px] truncate",
                                                             singleLine &&
@@ -847,9 +847,9 @@ export const MultiSelect = React.forwardRef<MultiSelectRef, MultiSelectProps>(
                                                             !responsiveSettings.hideIcons && (
                                                                 <IconComponent
                                                                     className={cn(
-                                                                        "h-4 w-4 mr-2",
+                                                                        "mr-2 h-4 w-4",
                                                                         responsiveSettings.compactMode &&
-                                                                            "h-3 w-3 mr-1",
+                                                                            "mr-1 h-3 w-3",
                                                                         customStyle?.iconColor &&
                                                                             "text-current",
                                                                     )}
@@ -885,7 +885,7 @@ export const MultiSelect = React.forwardRef<MultiSelectRef, MultiSelectProps>(
                                                                 }
                                                             }}
                                                             aria-label={`Remove ${option.label} from selection`}
-                                                            className="ml-2 h-4 w-4 cursor-pointer hover:bg-white/20 rounded-sm p-0.5 -m-0.5 focus:outline-none focus:ring-1 focus:ring-white/50"
+                                                            className="-m-0.5 ml-2 h-4 w-4 cursor-pointer rounded-sm p-0.5 hover:bg-white/20 focus:outline-none focus:ring-1 focus:ring-white/50"
                                                             variant="unstyled"
                                                         >
                                                             <XCircle
@@ -903,11 +903,11 @@ export const MultiSelect = React.forwardRef<MultiSelectRef, MultiSelectProps>(
                                         {selectedValues.length > responsiveSettings.maxCount && (
                                             <Badge
                                                 className={cn(
-                                                    "bg-transparent text-foreground border-foreground/1 hover:bg-transparent",
+                                                    "border-foreground/1 bg-transparent text-foreground hover:bg-transparent",
                                                     getBadgeAnimationClass(),
                                                     multiSelectVariants({ variant }),
                                                     responsiveSettings.compactMode &&
-                                                        "text-xs px-1.5 py-0.5",
+                                                        "px-1.5 py-0.5 text-xs",
                                                     singleLine && "flex-shrink-0 whitespace-nowrap",
                                                     "[&>svg]:pointer-events-auto",
                                                 )}
@@ -938,17 +938,17 @@ export const MultiSelect = React.forwardRef<MultiSelectRef, MultiSelectProps>(
                                     </div>
                                     <div className="flex items-center">
                                         <ChevronDown
-                                            className="h-4 mx-2 cursor-pointer text-thistle opacity-40"
+                                            className="mx-2 h-4 cursor-pointer text-thistle opacity-40"
                                             aria-hidden="true"
                                         />
                                     </div>
                                 </div>
                             ) : (
-                                <div className="flex items-center justify-between w-full mx-auto">
-                                    <span className="text-base text-thistle mx-3">
+                                <div className="mx-auto flex w-full items-center justify-between">
+                                    <span className="mx-3 text-base text-thistle">
                                         {placeholder}
                                     </span>
-                                    <ChevronDown className="h-4 cursor-pointer text-thistle opacity-30 mx-2" />
+                                    <ChevronDown className="mx-2 h-4 cursor-pointer text-thistle opacity-30" />
                                 </div>
                             )}
                         </Button>
@@ -994,7 +994,7 @@ export const MultiSelect = React.forwardRef<MultiSelectRef, MultiSelectProps>(
                             )}
                             <CommandList
                                 className={cn(
-                                    "max-h-[40vh] overflow-y-auto multiselect-scrollbar",
+                                    "multiselect-scrollbar max-h-[40vh] overflow-y-auto",
                                     screenSize === "mobile" && "max-h-[50vh]",
                                     "overscroll-behavior-y-contain",
                                 )}
@@ -1060,13 +1060,13 @@ export const MultiSelect = React.forwardRef<MultiSelectRef, MultiSelectProps>(
                                                         className={cn(
                                                             "cursor-pointer",
                                                             option.disabled &&
-                                                                "opacity-50 cursor-not-allowed",
+                                                                "cursor-not-allowed opacity-50",
                                                         )}
                                                         disabled={option.disabled}
                                                     >
                                                         <div
                                                             className={cn(
-                                                                "mr-2 flex h-4 w-4 items-center text-thistle justify-center rounded-sm border border-thistle",
+                                                                "mr-2 flex h-4 w-4 items-center justify-center rounded-sm border border-thistle text-thistle",
                                                                 isSelected
                                                                     ? "bg-white"
                                                                     : "opacity-50 [&_svg]:invisible",
@@ -1106,13 +1106,13 @@ export const MultiSelect = React.forwardRef<MultiSelectRef, MultiSelectProps>(
                                                     className={cn(
                                                         "cursor-pointer",
                                                         option.disabled &&
-                                                            "opacity-50 cursor-not-allowed",
+                                                            "cursor-not-allowed opacity-50",
                                                     )}
                                                     disabled={option.disabled}
                                                 >
                                                     <div
                                                         className={cn(
-                                                            "mr-2 flex h-4 w-4 text-thistle items-center justify-center rounded-sm border border-thistle",
+                                                            "mr-2 flex h-4 w-4 items-center justify-center rounded-sm border border-thistle text-thistle",
                                                             isSelected
                                                                 ? "bg-white"
                                                                 : "opacity-50 [&_svg]:invisible",
@@ -1140,19 +1140,19 @@ export const MultiSelect = React.forwardRef<MultiSelectRef, MultiSelectProps>(
                                             <>
                                                 <CommandItem
                                                     onSelect={handleClear}
-                                                    className="flex-1 justify-center cursor-pointer"
+                                                    className="flex-1 cursor-pointer justify-center"
                                                 >
                                                     Clear
                                                 </CommandItem>
                                                 <Separator
                                                     orientation="vertical"
-                                                    className="flex min-h-6 h-full"
+                                                    className="flex h-full min-h-6"
                                                 />
                                             </>
                                         )}
                                         <CommandItem
                                             onSelect={() => setIsPopoverOpen(false)}
-                                            className="flex-1 justify-center cursor-pointer max-w-full"
+                                            className="max-w-full flex-1 cursor-pointer justify-center"
                                         >
                                             Close
                                         </CommandItem>
@@ -1164,7 +1164,7 @@ export const MultiSelect = React.forwardRef<MultiSelectRef, MultiSelectProps>(
                     {animation > 0 && selectedValues.length > 0 && (
                         <WandSparkles
                             className={cn(
-                                "cursor-pointer my-2 text-foreground bg-background w-3 h-3",
+                                "my-2 h-3 w-3 cursor-pointer bg-background text-foreground",
                                 isAnimating ? "" : "text-thistle",
                             )}
                             onClick={() => setIsAnimating(!isAnimating)}

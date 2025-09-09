@@ -26,7 +26,7 @@ const PartnerWithUs = () => {
 
                 <Star
                     variant="star-faded"
-                    className="absolute md:left-[10rem] md:top-[-5rem]"
+                    className="absolute md:top-[-5rem] md:left-[10rem]"
                     rotate={30}
                     width={75}
                     height={75}
@@ -42,7 +42,7 @@ const PartnerWithUs = () => {
                 />
                 <Star
                     variant="star-faded"
-                    className="absolute left-[17rem] top-[45rem] md:left-[30rem] md:top-[30rem] 2xl:left-[40rem] 2xl:top-[40rem]"
+                    className="absolute top-[45rem] left-[17rem] md:top-[30rem] md:left-[30rem] 2xl:top-[40rem] 2xl:left-[40rem]"
                     rotate={30}
                     width={75}
                     height={75}
@@ -58,21 +58,21 @@ const PartnerWithUs = () => {
             <div className="relative z-10 flex w-full flex-col-reverse items-start justify-between gap-8 md:flex-row md:gap-12">
                 {/* Text Section */}
                 <div className="max-w-xl text-left 2xl:max-w-2xl">
-                    <p className="font-monocode relative inline-block bg-clip-text! text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,#8824dc,#b1219d)] md:text-base">
+                    <p className="relative inline-block bg-clip-text! font-monocode text-transparent text-xs [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,#8824dc,#b1219d)] md:text-base">
                         {t("partner_with_us_top")}
                     </p>
-                    <h2 className="mb-4 mt-2 font-heading text-2xl uppercase leading-tight text-white md:mt-4 md:text-3xl">
+                    <h2 className="mt-2 mb-4 font-heading text-2xl text-white uppercase leading-tight md:mt-4 md:text-3xl">
                         {t("partner_with_us_title")}{" "}
                         <span className="highlight-text">{t("partner_with_us_highlight")}</span>{" "}
                         {t("partner_with_us_title_rest")}
                     </h2>
-                    <p className="mb-4 mt-2 text-base leading-tight text-thistle md:text-lg">
+                    <p className="mt-2 mb-4 text-base text-thistle leading-tight md:text-lg">
                         {t("partner_with_us_description")}
                     </p>
 
                     <div className="mb-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
                         <Button
-                            className="w-fit min-w-[12rem] whitespace-nowrap font-heading text-sm uppercase text-white md:text-lg"
+                            className="w-fit min-w-[12rem] whitespace-nowrap font-heading text-sm text-white uppercase md:text-lg"
                             asChild
                         >
                             <Link href="/contact" className="block h-full text-inherit">

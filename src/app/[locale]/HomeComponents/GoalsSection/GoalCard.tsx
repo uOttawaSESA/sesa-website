@@ -28,11 +28,11 @@ export const GoalCard: React.FC<{ goal: Goal }> = ({ goal }) => {
                     width={700}
                     height={700}
                 />
-                <div className="grid-overlay-left -top-12 z-0 hidden h-[350px] w-full sm:h-[500px] md:block md:h-[700px] lg:-top-12 lg:h-[43.9rem] xl:w-[45vw]"></div>
+                <div className="grid-overlay-left -top-12 lg:-top-12 z-0 hidden h-[350px] w-full sm:h-[500px] md:block md:h-[700px] lg:h-[43.9rem] xl:w-[45vw]"></div>
             </div>
 
             <div className="order-1 flex h-full w-full max-w-lg flex-col justify-center gap-4 px-8 lg:order-2 lg:max-w-md xl:px-0 2xl:max-w-2xl">
-                <p className="font-monocode relative inline-block bg-clip-text! text-left text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,#8824dc,#b1219d)] md:text-base">
+                <p className="relative inline-block bg-clip-text! text-left font-monocode text-transparent text-xs [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,#8824dc,#b1219d)] md:text-base">
                     {goal.goalType[lang]}
                 </p>
                 <h1 className="font-heading text-2xl uppercase leading-tight md:text-4xl">

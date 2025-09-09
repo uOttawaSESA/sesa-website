@@ -53,25 +53,25 @@ const Resources = () => {
             <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
                 <Star
                     variant="star"
-                    className="hidden opacity-60 md:left-[5rem] md:top-[3rem] md:block"
+                    className="hidden opacity-60 md:top-[3rem] md:left-[5rem] md:block"
                     rotate={-110}
                     delay={1}
                 />
 
                 <Star
                     variant="star"
-                    className="hidden md:left-[10rem] md:top-[7rem] md:block"
+                    className="hidden md:top-[7rem] md:left-[10rem] md:block"
                     width={63}
                     height={63}
                     delay={0.5}
                 />
 
                 {/* Light gradient */}
-                <div className="fade-from-right-bg absolute right-0 top-[20rem] h-[100rem] w-[30vw] bg-blueviolet-100/20 blur-xs" />
+                <div className="fade-from-right-bg absolute top-[20rem] right-0 h-[100rem] w-[30vw] bg-blueviolet-100/20 blur-xs" />
 
                 <Image
                     src="/decoration/waves.svg"
-                    className={`fade-from-top-bottom-bg absolute left-1/2 hidden w-11/12 -translate-x-1/2 transform md:bottom-[4rem] md:block md:w-max ${resources && resources.length === 0 ? "hidden" : ""}`}
+                    className={`fade-from-top-bottom-bg -translate-x-1/2 absolute left-1/2 hidden w-11/12 transform md:bottom-[4rem] md:block md:w-max ${resources && resources.length === 0 ? "hidden" : ""}`}
                     width={1200}
                     height={280}
                     alt=""
@@ -79,13 +79,13 @@ const Resources = () => {
 
                 <Star
                     variant="star"
-                    className="hidden md:bottom-[-4rem] md:right-[15rem] md:block"
+                    className="hidden md:right-[15rem] md:bottom-[-4rem] md:block"
                     delay={1}
                 />
 
                 <Star
                     variant="star-faded"
-                    className="hidden md:bottom-[-5rem] md:right-[14rem] md:block"
+                    className="hidden md:right-[14rem] md:bottom-[-5rem] md:block"
                     rotate={30}
                     width={63}
                     height={63}
@@ -93,7 +93,7 @@ const Resources = () => {
                 />
             </div>
             <div className="flex flex-col gap-3 px-8 text-center md:px-10 lg:mb-14">
-                <p className="font-monocode color-gradient text-xs md:text-base">
+                <p className="color-gradient font-monocode text-xs md:text-base">
                     {t("resources_by_students")}
                 </p>
                 <h1 className="font-heading text-2xl uppercase leading-tight md:text-4xl">

@@ -9,21 +9,21 @@ const TeamUpSection: React.FC = () => {
     const t = useTranslations("events");
 
     return (
-        <div className="px-8 lg:my-56 md:ps-0 flex my-8 md:my-24 flex-col items-center justify-start gap-4 md:gap-12 sm:flex-row 2xl:gap-24">
-            <div className="grid-overlay-left md:h-[25rem] xl:h-[43.93rem] md:w-[50vw] 2xl:w-[37vw]"></div>
+        <div className="my-8 flex flex-col items-center justify-start gap-4 px-8 sm:flex-row md:my-24 md:gap-12 md:ps-0 lg:my-56 2xl:gap-24">
+            <div className="grid-overlay-left md:h-[25rem] md:w-[50vw] xl:h-[43.93rem] 2xl:w-[37vw]"></div>
 
             <div className="">
                 <Image
                     src="/imgs/Events/team-up.webp"
                     alt="SESA Group Photo"
-                    className="relative z-10 lg:block aspect-7/5 object-cover max-h-[400px] sm:max-h-[500px]"
+                    className="relative z-10 aspect-7/5 max-h-[400px] object-cover sm:max-h-[500px] lg:block"
                     width={700}
                     height={700}
                 />
             </div>
 
             <div className="z-10 max-w-lg text-left text-white">
-                <p className="bg-linear-to-r from-blueviolet-100 to-darkmagenta bg-clip-text font-mono text-xs text-transparent md:text-base">
+                <p className="bg-linear-to-r from-blueviolet-100 to-darkmagenta bg-clip-text font-mono text-transparent text-xs md:text-base">
                     {t("work_with_us")}
                 </p>
                 <h2 className="mt-3 font-heading text-2xl uppercase md:text-4xl">

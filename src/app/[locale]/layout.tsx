@@ -80,7 +80,7 @@ export default async function RootLayout({
     return (
         <html lang={locale}>
             <body
-                className={`${geistSans.variable} ${geistMono.variable} ${raleway.variable} bg-linear-to-b from-gray-100 from-0% via-[#381e4b] via-10% to-gray-100 font-sans antialiased`}
+                className={`${geistSans.variable} ${geistMono.variable} ${raleway.variable} bg-linear-to-b from-0% from-gray-100 via-10% via-[#381e4b] to-gray-100 font-sans antialiased`}
                 style={{
                     backgroundImage: `url('/decoration/noise-texture.svg'), linear-gradient(to bottom, #1b1b1b 0%, #381e4b 10%, #1b1b1b 100%)`,
                     backgroundRepeat: "repeat",

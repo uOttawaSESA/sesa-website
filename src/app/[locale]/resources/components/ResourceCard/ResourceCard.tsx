@@ -25,7 +25,7 @@ export const ResourceCard = ({
     if (mode === "row") {
         return (
             <button
-                className="group outline-gradient relative flex h-16 w-full items-center p-4 font-heading backdrop-blur-xl transition-all hover:shadow-lg hover:shadow-purple-500/25"
+                className="group relative flex h-16 w-full items-center p-4 font-heading outline-gradient backdrop-blur-xl transition-all hover:shadow-lg hover:shadow-purple-500/25"
                 onClick={onOpen}
                 type="button"
             >
@@ -40,8 +40,8 @@ export const ResourceCard = ({
                 </div>
 
                 {/* Center - Title */}
-                <div className="flex-1 pl-6 min-w-0">
-                    <h3 className="truncate group-hover:underline text-sm uppercase text-start leading-tight md:text-base">
+                <div className="min-w-0 flex-1 pl-6">
+                    <h3 className="truncate text-start text-sm uppercase leading-tight group-hover:underline md:text-base">
                         {title}
                     </h3>
                 </div>
@@ -58,7 +58,7 @@ export const ResourceCard = ({
     return (
         <button
             type="button"
-            className="group outline-gradient relative z-10 h-48 w-80 p-6 font-heading backdrop-blur-xl transition-all hover:shadow-lg hover:shadow-purple-500/25 md:w-96"
+            className="group relative z-10 h-48 w-80 p-6 font-heading outline-gradient backdrop-blur-xl transition-all hover:shadow-lg hover:shadow-purple-500/25 md:w-96"
             onClick={onOpen}
         >
             <div className="relative flex h-full flex-col">
@@ -73,12 +73,12 @@ export const ResourceCard = ({
                 </div>
 
                 {/* Title */}
-                <h3 className="line-clamp-3 text-start group-hover:underline overflow-hidden text-base uppercase leading-tight md:text-xl">
+                <h3 className="line-clamp-3 overflow-hidden text-start text-base uppercase leading-tight group-hover:underline md:text-xl">
                     {title}
                 </h3>
 
                 {/* Bottom Section */}
-                <div className="absolute -bottom-2 flex flex-row items-center">
+                <div className="-bottom-2 absolute flex flex-row items-center">
                     <StatsSection tier={tier} format={format} size="base" layout="horizontal" />
                 </div>
             </div>

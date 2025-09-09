@@ -66,7 +66,7 @@ const ResourceList: React.FC<ResourceListProps> = ({
                 <div className="pointer-events-none select-none">
                     <Image
                         src="/decoration/floor-grid.svg"
-                        className="fade-from-bottom-bg md:-bottom-18 absolute -bottom-1 left-1/2 z-0 h-[196px] -translate-x-1/2 transform object-cover object-bottom" // Reduced height crops the top
+                        className="fade-from-bottom-bg md:-bottom-18 -bottom-1 -translate-x-1/2 absolute left-1/2 z-0 h-[196px] transform object-cover object-bottom" // Reduced height crops the top
                         width={1200}
                         height={430}
                         alt=""
@@ -98,7 +98,7 @@ const ResourceList: React.FC<ResourceListProps> = ({
                     />
                 )}
             </div>
-            <div className="flex justify-center mt-8">
+            <div className="mt-8 flex justify-center">
                 {isFetching ? (
                     <p className="rounded-md px-4 py-2 font-sans text-violet-400">
                         {t("query_state.pending")}

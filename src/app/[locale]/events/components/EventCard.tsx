@@ -178,7 +178,7 @@ export const EventCard = ({ event }: EventCardProps) => {
                         <DialogDescription>
                             {/* biome-ignore-start lint/security/noDangerouslySetInnerHtml: HTML has been sanitized */}
                             <div
-                                className="markdown text-left prose prose-invert max-w-none [&>li]:mb-2 [&>p]:mb-4 [&>ul]:mb-4 [&>ul]:pl-4 [&_a:hover]:text-white [&_a]:text-purple-400 [&_a]:underline"
+                                className="markdown prose prose-invert max-w-none text-left [&>li]:mb-2 [&>p]:mb-4 [&>ul]:mb-4 [&>ul]:pl-4 [&_a:hover]:text-white [&_a]:text-purple-400 [&_a]:underline"
                                 dangerouslySetInnerHTML={{
                                     __html: dialogBody,
                                 }}
@@ -189,32 +189,32 @@ export const EventCard = ({ event }: EventCardProps) => {
                 </DialogContent>
             </Dialog>
 
-            <div className="lg:flex-row lg:max-w-none md:mb-4 w-full flex flex-col md:max-w-72 justify-start border outline-gradient backdrop-blur-2xl font-heading transition-all">
+            <div className="flex w-full flex-col justify-start border font-heading outline-gradient backdrop-blur-2xl transition-all md:mb-4 md:max-w-72 lg:max-w-none lg:flex-row">
                 {/* Left Side: Full-Height Image */}
                 <Image
                     src={event.imageUrl}
                     alt={event.imageAlt}
                     width={350}
                     height={350}
-                    className="aspect-square w-full lg:size-96 object-cover"
+                    className="aspect-square w-full object-cover lg:size-96"
                 />
 
                 {/* Right Side: Event Details */}
-                <div className="flex flex-col justify-between h-full gap-4 p-6">
+                <div className="flex h-full flex-col justify-between gap-4 p-6">
                     {/* Event Type Badge */}
                     <div>
-                        <span className="cursor-pointer bg-linear-to-r from-blueviolet-100 to-darkmagenta px-3 py-1 text-xs md:text-base uppercase">
+                        <span className="cursor-pointer bg-linear-to-r from-blueviolet-100 to-darkmagenta px-3 py-1 text-xs uppercase md:text-base">
                             {type}
                         </span>
                     </div>
 
                     {/* Event Title */}
-                    <h3 className="text-xl md:text-2xl uppercase leading-tight">{title}</h3>
+                    <h3 className="text-xl uppercase leading-tight md:text-2xl">{title}</h3>
 
                     {/* Date and Location */}
                     <div className="flex items-center gap-4 font-mono text-white">
                         {/* Date Box */}
-                        <div className="outline-gradient flex flex-col items-center justify-center border aspect-square px-4">
+                        <div className="flex aspect-square flex-col items-center justify-center border px-4 outline-gradient">
                             <div className="font-heading text-xs uppercase">{dayOfWeek}</div>
                             <div className="font-heading text-xl">{day}</div>
                         </div>
@@ -222,7 +222,7 @@ export const EventCard = ({ event }: EventCardProps) => {
                         {/* Date and Location Text with Icons */}
                         <div className="flex flex-col gap-2 text-thistle">
                             {/* Date and Time with Icons */}
-                            <div className="flex md:text-wrap text-nowrap text-xs xl:text-base items-center gap-2 text-white">
+                            <div className="flex items-center gap-2 text-nowrap text-white text-xs md:text-wrap xl:text-base">
                                 <CalendarClock className="size-4" />
                                 <span>
                                     {formattedDate}, {timeRange}
@@ -230,7 +230,7 @@ export const EventCard = ({ event }: EventCardProps) => {
                             </div>
 
                             {/* Location with Icon */}
-                            <div className="flex text-xs xl:text-base items-center gap-2">
+                            <div className="flex items-center gap-2 text-xs xl:text-base">
                                 <MapPin className="size-4" />
                                 <span>{event.location}</span>
                             </div>
@@ -238,7 +238,7 @@ export const EventCard = ({ event }: EventCardProps) => {
                     </div>
 
                     {/* Event Description */}
-                    <p className="w-full font-mono text-sm xl:text-base text-thistle">
+                    <p className="w-full font-mono text-sm text-thistle xl:text-base">
                         {truncatedDescription}
                         {description.length > maxDescriptionLength && (
                             <button
@@ -252,10 +252,10 @@ export const EventCard = ({ event }: EventCardProps) => {
                     </p>
 
                     {/* Buttons */}
-                    <div className="flex w-full justify-start gap-2 mt-auto flex-wrap">
+                    <div className="mt-auto flex w-full flex-wrap justify-start gap-2">
                         {/* Details Button */}
                         <Button
-                            className="px-4 flex-grow xl:flex-grow-0 text-sm md:text-base font-heading uppercase"
+                            className="flex-grow px-4 font-heading text-sm uppercase md:text-base xl:flex-grow-0"
                             onClick={handleDetails}
                         >
                             {t("btn_details")}
@@ -264,7 +264,7 @@ export const EventCard = ({ event }: EventCardProps) => {
                         {/* Register Button (only for events that require registration) */}
                         {event.registrationUrl && !isRegistered && !isPastEvent && (
                             <Button
-                                className="flex-grow xl:flex-grow-0 font-heading uppercase text-sm md:text-base"
+                                className="flex-grow font-heading text-sm uppercase md:text-base xl:flex-grow-0"
                                 onClick={handleRegister}
                             >
                                 {t("btn_register")}
@@ -273,7 +273,7 @@ export const EventCard = ({ event }: EventCardProps) => {
 
                         {/* Add to Calendar Button */}
                         <Button
-                            className="flex-grow xl:flex-grow-0 font-heading uppercase text-sm md:text-base"
+                            className="flex-grow font-heading text-sm uppercase md:text-base xl:flex-grow-0"
                             onClick={handleAddToCalendar}
                             variant="outline"
                             disabled={isPastEvent}

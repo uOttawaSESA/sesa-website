@@ -12,35 +12,35 @@ const ConnectSESA = () => {
                 {/* Decorations */}
                 <Star
                     variant="star"
-                    className="left-[14rem] top-[-6rem] md:top-[-3rem]"
+                    className="top-[-6rem] left-[14rem] md:top-[-3rem]"
                     delay={1}
                     width={82}
                     height={82}
                     rotate={-110}
                 />
 
-                <Star variant="star" className="right-[14rem] top-[-5rem]" delay={1.5} />
+                <Star variant="star" className="top-[-5rem] right-[14rem]" delay={1.5} />
 
                 <Star
                     variant="star-faded"
-                    className="left-[18rem] top-[-3rem] md:top-0"
+                    className="top-[-3rem] left-[18rem] md:top-0"
                     delay={2}
                 />
             </div>
-            <div className="mx-auto lg:max-w-3xl lg:my-36 px-8 max-w-7xl md:text-center">
-                <div className="text-sm md:text-base color-gradient font-mono">
+            <div className="mx-auto max-w-7xl px-8 md:text-center lg:my-36 lg:max-w-3xl">
+                <div className="color-gradient font-mono text-sm md:text-base">
                     {t("connect_with_sesa")}
                 </div>
-                <h1 className="mt-1 text-3xl md:text-5xl uppercase">
+                <h1 className="mt-1 text-3xl uppercase md:text-5xl">
                     <span className="highlight-text">{t("stay_updated")}</span>
                     <span> {t("stay_updated_hl")}</span>
                 </h1>
 
-                <p className="mt-4 font-mono text-sm md:text-lg text-thistle">
+                <p className="mt-4 font-mono text-sm text-thistle md:text-lg">
                     {t("stay_updated_blurb")}
                 </p>
 
-                <div className="mt-4 flex justify-start md:justify-center gap-4">
+                <div className="mt-4 flex justify-start gap-4 md:justify-center">
                     <Button size="icon" variant="outline" asChild>
                         <a
                             href="https://www.instagram.com/uottawasesa/"

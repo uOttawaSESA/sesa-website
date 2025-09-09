@@ -8,7 +8,7 @@ export default function Hero() {
     const t = useTranslations("homepage");
 
     return (
-        <section className="relative xl:items-between mb-8 mt-5 flex h-max w-full flex-col items-start justify-between gap-24 text-white md:mb-20 md:mt-28 lg:flex-row">
+        <section className="xl:items-between relative mt-5 mb-8 flex h-max w-full flex-col items-start justify-between gap-24 text-white md:mt-28 md:mb-20 lg:flex-row">
             {/* Decorations */}
             <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
                 {/* Warm gradient */}
@@ -20,7 +20,7 @@ export default function Hero() {
                 {/* Stars */}
                 <Star
                     variant="star-faded"
-                    className="hidden opacity-60 md:left-[40vw] md:top-[-3rem] md:block"
+                    className="hidden opacity-60 md:top-[-3rem] md:left-[40vw] md:block"
                     width={55}
                     height={55}
                     rotate={30}
@@ -29,7 +29,7 @@ export default function Hero() {
                 {/* Middle Group */}
                 <Star
                     variant="star"
-                    className="hidden md:left-[12vw] md:top-[55vh] md:block 2xl:left-[33vw] 2xl:top-[40vh]"
+                    className="hidden md:top-[55vh] md:left-[12vw] md:block 2xl:top-[40vh] 2xl:left-[33vw]"
                     width={120}
                     height={120}
                     delay={1}
@@ -37,7 +37,7 @@ export default function Hero() {
 
                 <Star
                     variant="star-faded"
-                    className="hidden md:left-[10vw] md:top-[53vh] md:block 2xl:left-[32vw] 2xl:top-[37vh]"
+                    className="hidden md:top-[53vh] md:left-[10vw] md:block 2xl:top-[37vh] 2xl:left-[32vw]"
                     width={63}
                     height={63}
                     delay={0.5}
@@ -46,7 +46,7 @@ export default function Hero() {
                 {/* Bottom Right Group */}
                 <Star
                     variant="star"
-                    className="hidden md:right-[15rem] md:top-[41rem] md:block"
+                    className="hidden md:top-[41rem] md:right-[15rem] md:block"
                     width={120}
                     height={120}
                     delay={1}
@@ -54,7 +54,7 @@ export default function Hero() {
 
                 <Star
                     variant="star-faded"
-                    className="hidden md:right-[20rem] md:top-[46rem] md:block"
+                    className="hidden md:top-[46rem] md:right-[20rem] md:block"
                     width={63}
                     height={63}
                     delay={0.5}
@@ -63,7 +63,7 @@ export default function Hero() {
 
             {/* Content Container */}
             <div className="relative max-w-80 ps-8 sm:max-w-md md:max-w-2xl md:ps-20 xl:ps-32">
-                <p className="font-monocode relative inline-block bg-clip-text! text-left text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,#8824dc,#b1219d)] md:text-base">
+                <p className="relative inline-block bg-clip-text! text-left font-monocode text-transparent text-xs [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,#8824dc,#b1219d)] md:text-base">
                     {t("we_are_sesa")}
                 </p>
                 <h1 className="my-2 font-heading text-3xl uppercase leading-tight md:text-5xl">
@@ -71,7 +71,7 @@ export default function Hero() {
                     <br />
                     {t("bridging_the_gap")}
                 </h1>
-                <p className="relative flex items-center text-left font-sans text-base leading-tight text-thistle md:text-lg">
+                <p className="relative flex items-center text-left font-sans text-base text-thistle leading-tight md:text-lg">
                     {t("purpose")}
                 </p>
                 <div className="mt-4 flex gap-2 font-heading md:mt-6">
@@ -105,7 +105,7 @@ export default function Hero() {
                     width={700}
                     height={700}
                 />
-                <div className="grid-overlay-right -top-12 z-0 hidden h-[350px] w-full sm:h-[500px] md:block md:h-[700px] lg:-top-24 lg:h-[43.9rem] lg:w-[53vw]"></div>
+                <div className="grid-overlay-right -top-12 lg:-top-24 z-0 hidden h-[350px] w-full sm:h-[500px] md:block md:h-[700px] lg:h-[43.9rem] lg:w-[53vw]"></div>
             </div>
         </section>
     );

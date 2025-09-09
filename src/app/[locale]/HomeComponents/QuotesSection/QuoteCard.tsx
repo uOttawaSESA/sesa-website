@@ -16,7 +16,7 @@ export const QuoteCard: React.FC<{ quote: Quote }> = ({ quote }) => {
     return (
         <CarouselItem className="flex justify-center lg:justify-center">
             <div className="flex max-w-xs flex-col items-center text-center md:max-w-lg xl:max-w-2xl xl:items-start xl:text-left">
-                <p className="font-monocode relative inline-block bg-clip-text! text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,#8824dc,#b1219d)] md:text-base">
+                <p className="relative inline-block bg-clip-text! font-monocode text-transparent text-xs [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,#8824dc,#b1219d)] md:text-base">
                     {quote.heading[lang]}
                 </p>
                 <h1 className="my-2 font-heading text-2xl uppercase leading-tight md:text-4xl">

@@ -33,7 +33,7 @@ const Star = ({
 
     return (
         <div
-            className={`absolute pointer-events-none select-none transform-gpu will-change-transform ${
+            className={`pointer-events-none absolute transform-gpu select-none will-change-transform ${
                 showMobile ? "block" : "hidden md:block"
             } ${className}`}
             style={{
@@ -60,7 +60,7 @@ const Star = ({
                     width={width ?? defaultWidth}
                     height={height ?? defaultHeight}
                     alt=""
-                    className="drop-shadow-[0_0_6px_rgba(255,255,255,0.25)] block"
+                    className="block drop-shadow-[0_0_6px_rgba(255,255,255,0.25)]"
                     style={{ maxWidth: "none", display: "block" }}
                 />
             </motion.div>

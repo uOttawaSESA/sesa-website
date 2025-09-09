@@ -85,9 +85,9 @@ export default function TeamMembers({ title, description, people }: Props) {
     return (
         <div className="relative">
             {/* Decorations */}
-            <div className="pointer-events-none absolute left-0 top-0 h-full w-full select-none">
+            <div className="pointer-events-none absolute top-0 left-0 h-full w-full select-none">
                 <Image
-                    className="fade-from-center-sponsorship-floor absolute bottom-[-4rem] opacity-70 left-0 2xl:-left-20 w-[100rem]"
+                    className="fade-from-center-sponsorship-floor 2xl:-left-20 absolute bottom-[-4rem] left-0 w-[100rem] opacity-70"
                     src="/decoration/waves.svg"
                     width={1258}
                     height={1872}
@@ -96,13 +96,13 @@ export default function TeamMembers({ title, description, people }: Props) {
             </div>
             <div id={title.toLowerCase()} className="scroll-mt-[100px]">
                 <h2 className="mb-3 font-heading text-lg uppercase md:text-xl">{title}</h2>
-                <p className="mb-4 max-w-md text-base leading-tight text-thistle md:text-lg">
+                <p className="mb-4 max-w-md text-base text-thistle leading-tight md:text-lg">
                     {description}{" "}
                 </p>
                 <div className="flex gap-5 overflow-x-auto md:mt-7">
                     {people.map(person => (
                         <div
-                            className="outline-gradient flex h-[405px] w-64 min-w-64 flex-col backdrop-blur-lg"
+                            className="flex h-[405px] w-64 min-w-64 flex-col outline-gradient backdrop-blur-lg"
                             key={`member:${title}:${person.name}`}
                         >
                             <Image
@@ -113,7 +113,7 @@ export default function TeamMembers({ title, description, people }: Props) {
                                 className="h-64 w-64 object-cover"
                             />
                             <div className="flex grow flex-col gap-2 p-4">
-                                <h3 className="font-sans text-lg font-bold md:text-xl">
+                                <h3 className="font-bold font-sans text-lg md:text-xl">
                                     {person.name}
                                 </h3>
                                 <p className="text-thistle">{person.role}</p>

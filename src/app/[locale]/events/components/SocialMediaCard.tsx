@@ -18,7 +18,7 @@ export const SocialMediaCard = ({
     const t = useTranslations("events");
 
     return (
-        <div className="outline-gradient flex h-[470px] w-[270px] shrink-0 flex-col overflow-hidden shadow-lg">
+        <div className="flex h-[470px] w-[270px] shrink-0 flex-col overflow-hidden shadow-lg outline-gradient">
             {/* Top 60% - Image */}
             <div className="h-[60%] w-full">
                 <Image
@@ -55,7 +55,7 @@ export const SocialMediaCard = ({
                     {/* mt-auto pushes the button to the bottom */}
                     <Button
                         variant="ghost"
-                        className="text-l p-0! font-heading uppercase text-blue-500 hover:underline"
+                        className="p-0! font-heading text-blue-500 text-l uppercase hover:underline"
                         asChild
                     >
                         <a href={postLink} target="_blank">

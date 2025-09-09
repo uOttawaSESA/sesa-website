@@ -12,7 +12,7 @@ export interface CircleImageProps
 const CircleImage = ({ className, innerClassName, size, ...rest }: CircleImageProps) => {
     return (
         <div
-            className={`fill-gradient flex h-min items-center justify-center rounded-full p-0.5 ${className || ""}`}
+            className={`flex h-min items-center justify-center rounded-full fill-gradient p-0.5 ${className || ""}`}
             {...rest}
         >
             {/* eslint-disable-next-line jsx-a11y/alt-text */}

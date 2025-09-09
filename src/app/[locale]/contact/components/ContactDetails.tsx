@@ -32,7 +32,7 @@ const ContactDetails = () => {
                     <span className="highlight-text">{t("get_in_touch_hl")}</span>
                 </h1>
 
-                <p className="mb-5 mt-4 max-w-[558px] font-sans text-thistle md:mb-7 md:text-xl">
+                <p className="mt-4 mb-5 max-w-[558px] font-sans text-thistle md:mb-7 md:text-xl">
                     {t("questions_blurb")}
                 </p>
 

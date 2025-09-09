@@ -89,7 +89,7 @@ const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange
 
     return (
         <ShadcnPagination className="overflow-y-scroll md:mt-8">
-            <PaginationContent className="flex justify-center w-full">
+            <PaginationContent className="flex w-full justify-center">
                 {/* Prev */}
                 <PaginationItem>
                     <PaginationPrevious
@@ -99,7 +99,7 @@ const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange
                             handlePrev();
                         }}
                         aria-disabled={currentPage === 1}
-                        className={`px-0 ml-12 md:px-6 ${currentPage === 1 ? "pointer-events-none opacity-50" : ""}`}
+                        className={`ml-12 px-0 md:px-6 ${currentPage === 1 ? "pointer-events-none opacity-50" : ""}`}
                     />
                 </PaginationItem>
 
@@ -115,7 +115,7 @@ const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange
                                     <PopoverContent
                                         align="center"
                                         side="top"
-                                        className="w-auto rounded-lg p-3 shadow-lg backdrop-blur-lg bg-[rgba(27,27,27,0.3)]"
+                                        className="w-auto rounded-lg bg-[rgba(27,27,27,0.3)] p-3 shadow-lg backdrop-blur-lg"
                                     >
                                         <div className="flex items-center gap-2">
                                             <Input
@@ -124,7 +124,7 @@ const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange
                                                 min={1}
                                                 max={totalPages}
                                                 defaultValue={currentPage}
-                                                className="w-16 text-lg text-center"
+                                                className="w-16 text-center text-lg"
                                                 onKeyDown={e => {
                                                     if (e.key === "Enter") handleJump();
                                                 }}
@@ -132,7 +132,7 @@ const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange
                                             <Button
                                                 variant="ghost"
                                                 size="sm"
-                                                className="px-2 py-1 text-xs text-white bg-transparent"
+                                                className="bg-transparent px-2 py-1 text-white text-xs"
                                                 onClick={handleJump}
                                             >
                                                 {t("pagination_go")}

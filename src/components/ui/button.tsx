@@ -4,18 +4,18 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-    "group relative inline-flex place-items-center justify-center overflow-hidden text-center font-heading text-sm transition-all duration-300 ease-in-out md:text-lg disabled:pointer-events-none disabled:opacity-50",
+    "group relative inline-flex place-items-center justify-center overflow-hidden text-center font-heading text-sm transition-all duration-300 ease-in-out disabled:pointer-events-none disabled:opacity-50 md:text-lg",
     {
         variants: {
             variant: {
                 default:
-                    "fill-gradient hover:-translate-y-0.5 hover:shadow-lg hover:shadow-purple-500/25 active:translate-y-0 uppercase",
+                    "hover:-translate-y-0.5 fill-gradient uppercase hover:shadow-lg hover:shadow-purple-500/25 active:translate-y-0",
                 outline:
-                    "outline-gradient hover:fill-gradient backdrop-blur-lg hover:-translate-y-0.5 uppercase hover:shadow-lg hover:shadow-purple-500/25 active:translate-y-0",
-                ghost: "color-gradient hover:bg-linear-to-r hover:from-purple-600/10 hover:to-pink-600/10 hover:backdrop-blur-xs uppercase",
-                "ghost-plain": "hover:bg-white/5 hover:backdrop-blur-xs uppercase",
-                link: "color-gradient hover:underline hover:decoration-2 hover:underline-offset-4 uppercase",
-                multiselect: "font-sans text-thistle text-base", // for multi-select
+                    "hover:-translate-y-0.5 uppercase outline-gradient backdrop-blur-lg hover:fill-gradient hover:shadow-lg hover:shadow-purple-500/25 active:translate-y-0",
+                ghost: "color-gradient uppercase hover:bg-linear-to-r hover:from-purple-600/10 hover:to-pink-600/10 hover:backdrop-blur-xs",
+                "ghost-plain": "uppercase hover:bg-white/5 hover:backdrop-blur-xs",
+                link: "color-gradient uppercase hover:underline hover:decoration-2 hover:underline-offset-4",
+                multiselect: "font-sans text-base text-thistle", // for multi-select
                 unstyled: "",
             },
             size: {

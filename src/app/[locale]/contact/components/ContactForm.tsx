@@ -70,7 +70,7 @@ const ContactForm: React.FC = () => {
     return (
         <form onSubmit={handleSubmit} className="space-y-6">
             <div className="mb-8">
-                <h2 className="font-vcr-osd-mono mb-4 text-sm uppercase text-white md:text-sm lg:text-base xl:text-base">
+                <h2 className="mb-4 font-vcr-osd-mono text-sm text-white uppercase md:text-sm lg:text-base xl:text-base">
                     {t("form_name_label")}
                 </h2>
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -96,7 +96,7 @@ const ContactForm: React.FC = () => {
             </div>
 
             <div className="mb-8">
-                <h2 className="font-vcr-osd-mono mb-4 text-sm uppercase text-white md:text-sm lg:text-base xl:text-base">
+                <h2 className="mb-4 font-vcr-osd-mono text-sm text-white uppercase md:text-sm lg:text-base xl:text-base">
                     {t("form_email_label")}
                 </h2>
                 <Input
@@ -111,14 +111,14 @@ const ContactForm: React.FC = () => {
             </div>
 
             <div className="mb-8">
-                <h2 className="font-vcr-osd-mono mb-4 text-sm uppercase text-white md:text-sm lg:text-base xl:text-base">
+                <h2 className="mb-4 font-vcr-osd-mono text-sm text-white uppercase md:text-sm lg:text-base xl:text-base">
                     {t("form_subject_label")}
                 </h2>
                 <Select
                     value={formData.topic}
                     onValueChange={topic => setFormData(prev => ({ ...prev, topic }))}
                 >
-                    <SelectTrigger className="bg-transparent! cursor-pointer min-h-[3.5rem] w-full font-sans text-thistle">
+                    <SelectTrigger className="min-h-[3.5rem] w-full cursor-pointer bg-transparent! font-sans text-thistle">
                         <SelectValue placeholder={t("form_subject")} />
                     </SelectTrigger>
                     <SelectContent>
@@ -134,7 +134,7 @@ const ContactForm: React.FC = () => {
             </div>
 
             <div className="mb-8">
-                <h2 className="font-vcr-osd-mono mb-4 text-sm uppercase text-white md:text-sm lg:text-base xl:text-base">
+                <h2 className="mb-4 font-vcr-osd-mono text-sm text-white uppercase md:text-sm lg:text-base xl:text-base">
                     {t("form_body_label")}
                 </h2>
                 <Textarea
@@ -148,7 +148,7 @@ const ContactForm: React.FC = () => {
             </div>
 
             <div className="mb-8">
-                <p className="font-mono text-xs text-[#AB9DB6]">
+                <p className="font-mono text-[#AB9DB6] text-xs">
                     {t("form_disclosure")}{" "}
                     <Link href="/policies" className="underline">
                         {t("form_disclosure_link")}

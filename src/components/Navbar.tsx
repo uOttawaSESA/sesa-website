@@ -72,7 +72,7 @@ export default function Navbar() {
 
     return (
         <>
-            <header className="fixed left-0 right-0 top-0 z-50 flex w-screen items-center justify-between bg-transparent px-8 py-6 backdrop-blur-2xl lg:px-10 2xl:px-64">
+            <header className="fixed top-0 right-0 left-0 z-50 flex w-screen items-center justify-between bg-transparent px-8 py-6 backdrop-blur-2xl lg:px-10 2xl:px-64">
                 <div className="flex items-center gap-3">
                     <Link href="/">
                         <Image width={40} height={40} src="/sesa-logo.svg" alt="SESA Logo" />
@@ -96,7 +96,7 @@ export default function Navbar() {
                     <LanguageSelect />
 
                     <Button
-                        className="hidden h-12 items-center text-center font-heading text-base uppercase leading-none! text-white lg:flex"
+                        className="hidden h-12 items-center text-center font-heading text-base text-white uppercase leading-none! lg:flex"
                         asChild
                     >
                         <Link href="/sponsors">{t("sponsor_us")}</Link>
@@ -119,7 +119,7 @@ export default function Navbar() {
             >
                 <nav className="mt-16 flex flex-col items-center gap-8 py-10">
                     {navItems}
-                    <Button className="font-heading text-base uppercase text-white" asChild>
+                    <Button className="font-heading text-base text-white uppercase" asChild>
                         <Link href="/sponsors" onClick={() => setIsMobileMenuOpen(false)}>
                             {t("sponsor_us")}
                         </Link>

@@ -91,7 +91,7 @@ const TestimonialsCarousel = () => {
                 </div>
 
                 {/* Carousel - Only Text Content Moves */}
-                <Carousel className="w-full 2xl:max-w-2xl z-10 md:max-w-xl">
+                <Carousel className="z-10 w-full md:max-w-xl 2xl:max-w-2xl">
                     <CarouselContent>
                         {sponsorsData.map((sponsor, index) => (
                             <CarouselItem key={`sponsor:${index}`}>
@@ -105,7 +105,7 @@ const TestimonialsCarousel = () => {
                                             sponsor.logo.includes("uottawa") ? "-mb-6" : "mb-2"
                                         }
                                     />
-                                    <div className="mt-2 font-heading text-xl uppercase text-white md:text-2xl">
+                                    <div className="mt-2 font-heading text-white text-xl uppercase md:text-2xl">
                                         &ldquo;
                                         {sponsor.testimonial
                                             .split(new RegExp(`(${sponsor.highlights.join("|")})`))
@@ -128,10 +128,10 @@ const TestimonialsCarousel = () => {
                                             alt={sponsor.person.name}
                                         />
                                         <div>
-                                            <p className="text-sm font-bold text-white md:text-base">
+                                            <p className="font-bold text-sm text-white md:text-base">
                                                 {sponsor.person.name}
                                             </p>
-                                            <p className="text-xs text-thistle md:text-sm">
+                                            <p className="text-thistle text-xs md:text-sm">
                                                 {sponsor.person.title}
                                             </p>
                                         </div>
@@ -139,7 +139,7 @@ const TestimonialsCarousel = () => {
 
                                     <div className="mt-6">
                                         <Button
-                                            className="font-heading text-sm uppercase text-white md:text-base"
+                                            className="font-heading text-sm text-white uppercase md:text-base"
                                             asChild
                                         >
                                             <Link href="/contact" className="block h-full">
@@ -154,8 +154,8 @@ const TestimonialsCarousel = () => {
 
                     {/* Navigation Buttons */}
                     <div className="mt-8 flex justify-center gap-4">
-                        <CarouselPrevious className="relative left-0 top-0 translate-y-0" />
-                        <CarouselNext className="relative right-0 top-0 translate-y-0" />
+                        <CarouselPrevious className="relative top-0 left-0 translate-y-0" />
+                        <CarouselNext className="relative top-0 right-0 translate-y-0" />
                     </div>
                 </Carousel>
             </div>

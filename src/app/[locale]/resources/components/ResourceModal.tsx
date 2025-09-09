@@ -42,7 +42,7 @@ const TooltipPortal = ({
     return createPortal(
         <div
             id={id}
-            className="outline-gradient fixed z-9999 px-3 py-1.5 text-sm text-white shadow-lg shadow-purple-500/20 backdrop-blur-xl"
+            className="fixed z-9999 px-3 py-1.5 text-sm text-white shadow-lg shadow-purple-500/20 outline-gradient backdrop-blur-xl"
             style={{ top: position.top, left: position.left }}
         >
             {children}
@@ -203,7 +203,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                         const path = parsed.pathname + parsed.search;
 
                         return (
-                            <div className="outline-gradient font-raleway flex h-16 w-full items-center gap-2.5 border bg-white/10 px-6 text-lg text-thistle backdrop-blur-super">
+                            <div className="flex h-16 w-full items-center gap-2.5 border bg-white/10 px-6 font-raleway text-lg text-thistle outline-gradient backdrop-blur-super">
                                 <Image
                                     src="/resources-page/link.svg"
                                     alt="Website Link"
@@ -262,7 +262,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                     const path = parsed.pathname + parsed.search;
 
                     return (
-                        <div className="outline-gradient font-raleway flex h-16 w-full items-center gap-2.5 border bg-white/10 px-6 text-lg text-thistle backdrop-blur-super">
+                        <div className="flex h-16 w-full items-center gap-2.5 border bg-white/10 px-6 font-raleway text-lg text-thistle outline-gradient backdrop-blur-super">
                             <Image
                                 src="/resources-page/link.svg"
                                 alt="Website Link"
@@ -309,11 +309,11 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
         >
             <DialogPrimitive.Portal>
                 <DialogPrimitive.Content className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/10">
-                    <DialogPrimitive.Overlay className="fixed z-[-1] backdrop-blur-md w-full h-full" />
+                    <DialogPrimitive.Overlay className="fixed z-[-1] h-full w-full backdrop-blur-md" />
                     <div className="inset-0 bg-fixed" />
                     <div className="w-full max-w-5xl">
                         {/* Header */}
-                        <div className="flex items-center w-full justify-between p-4">
+                        <div className="flex w-full items-center justify-between p-4">
                             <div>
                                 {/* Category Badges */}
                                 <div className="mb-4 flex gap-2 font-heading text-white">
@@ -326,7 +326,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                                         </span>
                                     )}
                                 </div>
-                                <DialogPrimitive.Title className="font-heading text-2xl uppercase text-white">
+                                <DialogPrimitive.Title className="font-heading text-2xl text-white uppercase">
                                     {resource.title}
                                 </DialogPrimitive.Title>
                             </div>
@@ -347,7 +347,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                         {renderViewer()}
 
                         {/* Footer */}
-                        <div className="flex items-center justify-between p-4 text-sm text-thistle w-full">
+                        <div className="flex w-full items-center justify-between p-4 text-sm text-thistle">
                             <div className="flex flex-row flex-wrap items-center gap-4 font-[Monocode] text-sm text-thistle">
                                 {/* Tier */}
                                 <div
@@ -368,7 +368,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                                     <span>{resource.tier}</span>
                                 </div>
 
-                                <div className="h-[14px] w-px border-r border-thistle opacity-35" />
+                                <div className="h-[14px] w-px border-thistle border-r opacity-35" />
 
                                 {/* Format */}
                                 <div className="flex items-center gap-2">
@@ -384,7 +384,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                                     </span>
                                 </div>
 
-                                <div className="h-[14px] w-px border-r border-thistle opacity-35" />
+                                <div className="h-[14px] w-px border-thistle border-r opacity-35" />
 
                                 {/* Pricing */}
                                 <div className="flex items-center gap-2">
@@ -400,7 +400,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                                     </span>
                                 </div>
 
-                                <div className="h-[14px] w-px border-r border-thistle opacity-35" />
+                                <div className="h-[14px] w-px border-thistle border-r opacity-35" />
 
                                 {/* Language */}
                                 <div className="flex items-center gap-2">
@@ -421,7 +421,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                                 {/* Accessibility Feature */}
                                 {resource.accessibility.length > 0 && (
                                     <>
-                                        <div className="h-[14px] w-px border-r border-thistle opacity-35" />
+                                        <div className="h-[14px] w-px border-thistle border-r opacity-35" />
 
                                         <div className="flex items-center gap-2">
                                             <Image
@@ -443,7 +443,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                                 {/* Last Updated */}
                                 {resource.updatedAt && (
                                     <>
-                                        <div className="h-[14px] w-px border-r border-thistle opacity-35" />
+                                        <div className="h-[14px] w-px border-thistle border-r opacity-35" />
                                         <div
                                             className="flex items-center gap-2"
                                             ref={updatedRef}
@@ -469,7 +469,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
 
                             {resource.format.toLowerCase() !== "list" && (
                                 <Button
-                                    className="flex flex-row items-center justify-center font-heading uppercase text-white"
+                                    className="flex flex-row items-center justify-center font-heading text-white uppercase"
                                     asChild
                                 >
                                     <a

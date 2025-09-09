@@ -13,11 +13,11 @@ const FooterSection: React.FC = () => {
             {/* Decorations */}
             <div className="pointer-events-none select-none">
                 {/* Light gradient */}
-                <div className="fade-from-center-bg absolute right-[5rem] top-[6rem] hidden h-[80rem] w-screen bg-blueviolet-100/25 blur-3xl backdrop-blur-2xl md:block" />
+                <div className="fade-from-center-bg absolute top-[6rem] right-[5rem] hidden h-[80rem] w-screen bg-blueviolet-100/25 blur-3xl backdrop-blur-2xl md:block" />
 
                 <Star
                     variant="star"
-                    className="absolute left-[14rem] md:left-[25rem] md:top-[58rem]"
+                    className="absolute left-[14rem] md:top-[58rem] md:left-[25rem]"
                     rotate={-110}
                     width={100}
                     height={100}
@@ -26,7 +26,7 @@ const FooterSection: React.FC = () => {
 
                 <Star
                     variant="star"
-                    className="absolute right-[14rem] md:right-[10rem] md:top-[14rem]"
+                    className="absolute right-[14rem] md:top-[14rem] md:right-[10rem]"
                     width={120}
                     height={120}
                     delay={1}
@@ -34,7 +34,7 @@ const FooterSection: React.FC = () => {
 
                 <Star
                     variant="star-faded"
-                    className="absolute right-[2rem] top-[29rem] md:right-[9rem] md:top-[19rem]"
+                    className="absolute top-[29rem] right-[2rem] md:top-[19rem] md:right-[9rem]"
                     rotate={30}
                     width={63}
                     height={63}
@@ -50,7 +50,7 @@ const FooterSection: React.FC = () => {
                         {t("contributing_heading")}
                     </h2>
                 </div>
-                <div className="flex -translate-y-4 transform items-center justify-center">
+                <div className="-translate-y-4 flex transform items-center justify-center">
                     <Button asChild>
                         <a
                             href="https://discord.com/invite/atYdx5HHCs"
@@ -83,7 +83,7 @@ const FooterSection: React.FC = () => {
                         “{t("education_quote_1")}{" "}
                         <span className="relative inline-block">
                             {t("education_quote_1_hl")}
-                            <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,rgba(136,36,220,0.25),rgba(177,33,97,0.25))]"></div>
+                            <div className="absolute top-0 right-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,rgba(136,36,220,0.25),rgba(177,33,97,0.25))]"></div>
                         </span>
                         {t("education_quote_2")}.”
                     </div>

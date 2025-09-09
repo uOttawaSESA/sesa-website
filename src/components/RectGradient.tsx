@@ -18,7 +18,7 @@ const RectGradient = forwardRef<HTMLDivElement, RectGradientProps>(
         return (
             <div
                 style={{ padding: width || "2px" }}
-                className={`fill-gradient h-min w-min ${className || ""}`}
+                className={`h-min w-min fill-gradient ${className || ""}`}
                 ref={ref}
                 {...rest}
             >

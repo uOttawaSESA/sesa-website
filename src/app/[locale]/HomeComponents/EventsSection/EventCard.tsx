@@ -13,10 +13,10 @@ const EventCard: React.FC<{ event: LocalizedEvent }> = ({ event }) => {
     const t = useTranslations("homepage");
 
     return (
-        <div className="flex h-full w-full flex-col overflow-hidden border-2 border-solid border-blueviolet-700 bg-gray-200 opacity-90 backdrop-blur-lg">
+        <div className="flex h-full w-full flex-col overflow-hidden border-2 border-blueviolet-700 border-solid bg-gray-200 opacity-90 backdrop-blur-lg">
             {/* Event Image */}
             <Image
-                className="w-full aspect-square border-b-2 border-solid border-blueviolet-700 object-cover"
+                className="aspect-square w-full border-blueviolet-700 border-b-2 border-solid object-cover"
                 src={event.imageUrl}
                 alt={event.title}
                 width={350}
@@ -28,7 +28,7 @@ const EventCard: React.FC<{ event: LocalizedEvent }> = ({ event }) => {
                 {/* Date & Location Row */}
                 <div className="flex items-center gap-3 text-sm">
                     {/* Date Box */}
-                    <div className="outline-gradient flex aspect-square h-full flex-col items-center justify-center px-3">
+                    <div className="flex aspect-square h-full flex-col items-center justify-center px-3 outline-gradient">
                         <span className="text-xs">{month}</span>
                         <span className="text-lg">{day}</span>
                     </div>
@@ -38,13 +38,13 @@ const EventCard: React.FC<{ event: LocalizedEvent }> = ({ event }) => {
                         {/* Date with Calendar Icon */}
                         <div className="flex items-center gap-2">
                             <CalendarDays className="h-4 w-4" />
-                            <span className="text-base font-medium">{formattedDate}</span>
+                            <span className="font-medium text-base">{formattedDate}</span>
                         </div>
 
                         {/* Time with Clock Icon */}
                         <div className="flex items-center gap-2">
                             <Clock className="h-4 w-4" />
-                            <span className="text-base font-medium">{timeRange}</span>
+                            <span className="font-medium text-base">{timeRange}</span>
                         </div>
 
                         {/* Location with Map Pin Icon */}
@@ -65,7 +65,7 @@ const EventCard: React.FC<{ event: LocalizedEvent }> = ({ event }) => {
                     </p>
                 </div>
             </div>
-            <div className="mb-4 mt-auto px-4 text-right">
+            <div className="mt-auto mb-4 px-4 text-right">
                 <a
                     href={event.detailsUrl}
                     target="_blank"

@@ -39,12 +39,12 @@ const EventFilters: React.FC<{
     };
 
     return (
-        <div className="md:px-20 px-8 mt-8 lg:mt-16 mb-4 flex md:gap-4 gap-1 flex-wrap items-center justify-between">
+        <div className="mt-8 mb-4 flex flex-wrap items-center justify-between gap-1 px-8 md:gap-4 md:px-20 lg:mt-16">
             {timeFilters.map(filter => (
                 <Button
                     key={filter}
                     variant="outline"
-                    className={`cursor-pointer flex-grow xl:flex-grow-0 text-base p-2 md:px-8 font-heading uppercase text-white backdrop-blur-lg ${
+                    className={`flex-grow cursor-pointer p-2 font-heading text-base text-white uppercase backdrop-blur-lg md:px-8 xl:flex-grow-0 ${
                         activeTimeFilter === filter ? "fill-gradient" : ""
                     }`}
                     onClick={() => handleTimeFilterClick(filter)}
@@ -54,7 +54,7 @@ const EventFilters: React.FC<{
             ))}
 
             <Select onValueChange={value => handleEventFilterChange(value as EventType)}>
-                <SelectTrigger className="md:ml-auto bg-transparent! cursor-pointer border-none! px-0 md:px-6 uppercase text-white transition-colors data-placeholder:text-white">
+                <SelectTrigger className="cursor-pointer border-none! bg-transparent! px-0 text-white uppercase transition-colors data-placeholder:text-white md:ml-auto md:px-6">
                     <SelectValue placeholder={t("filter_type_placeholder")} />
                 </SelectTrigger>
                 <SelectContent>

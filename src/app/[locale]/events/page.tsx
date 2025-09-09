@@ -58,16 +58,16 @@ export default async function Events() {
 
                     <Image
                         src="/decoration/waves.svg"
-                        className="fade-from-top-bg absolute left-1/2 top-[26.5rem] -translate-x-1/2 transform md:top-[10rem]"
+                        className="fade-from-top-bg -translate-x-1/2 absolute top-[26.5rem] left-1/2 transform md:top-[10rem]"
                         width={1200}
                         height={280}
                         alt=""
                     />
 
-                    <Star variant="star" className="right-[11rem] top-[13rem]" delay={1} />
+                    <Star variant="star" className="top-[13rem] right-[11rem]" delay={1} />
                     <Star
                         variant="star-faded"
-                        className="left-[20rem] top-[8rem] md:left-[16rem] md:top-[16rem]"
+                        className="top-[8rem] left-[20rem] md:top-[16rem] md:left-[16rem]"
                         delay={0.5}
                         showMobile={true}
                     />
@@ -84,7 +84,7 @@ export default async function Events() {
                         <ConnectSESA />
                     </FadeInSection>
 
-                    <div className="pointer-events relative my-16 md:mb-52 select-none">
+                    <div className="pointer-events relative my-16 select-none md:mb-52">
                         {/* Bottom Star Decoration */}
                         <Star
                             variant="star"
@@ -94,12 +94,12 @@ export default async function Events() {
                         />
                         <Star
                             variant="star"
-                            className="absolute bottom-[-9rem] right-[14rem] md:bottom-[-10rem] md:right-[10rem]"
+                            className="absolute right-[14rem] bottom-[-9rem] md:right-[10rem] md:bottom-[-10rem]"
                             delay={1}
                         />
                         <Star
                             variant="star-faded"
-                            className="absolute bottom-[-6rem] right-[9rem] rotate-30 transform md:block"
+                            className="absolute right-[9rem] bottom-[-6rem] rotate-30 transform md:block"
                             delay={0.5}
                         />
 

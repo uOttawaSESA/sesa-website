@@ -35,15 +35,15 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const ThankYou = () => {
     return (
-        <div className="flex min-h-[85vh] flex-col items-center justify-center px-4 py-24 text-center mb-56 md:mb-32 2xl:mb-20">
+        <div className="mb-56 flex min-h-[85vh] flex-col items-center justify-center px-4 py-24 text-center md:mb-32 2xl:mb-20">
             {/* Decorations */}
             <div className="pointer-events-none absolute inset-0">
                 {/* Light gradient */}
-                <div className="fade-from-left-bg absolute -top-10 hidden h-[110vh] w-[90vw] bg-blueviolet-100/20 blur-xs md:block" />
+                <div className="fade-from-left-bg -top-10 absolute hidden h-[110vh] w-[90vw] bg-blueviolet-100/20 blur-xs md:block" />
 
                 <Star
                     variant="star-faded"
-                    className="absolute 2xl:bottom-[40vh] 2xl:left-[20vw] md:bottom-[20vh] md:left-[33vw] bottom-[60rem]"
+                    className="absolute bottom-[60rem] md:bottom-[20vh] md:left-[33vw] 2xl:bottom-[40vh] 2xl:left-[20vw]"
                     rotate={22}
                     width={55}
                     height={55}
@@ -52,14 +52,14 @@ const ThankYou = () => {
 
                 <Star
                     variant="star"
-                    className="absolute hidden md:left-[25rem] md:top-[35rem] md:block md:h-max"
+                    className="absolute hidden md:top-[35rem] md:left-[25rem] md:block md:h-max"
                     rotate={-10}
                     width={120}
                     height={120}
                     delay={1}
                 />
 
-                <div className="relative -bottom-[35rem] h-[60%] overflow-hidden md:-bottom-[30rem] md:left-0 md:block">
+                <div className="-bottom-[35rem] md:-bottom-[30rem] relative h-[60%] overflow-hidden md:left-0 md:block">
                     <Image
                         src="/decoration/globe.svg"
                         className="fade-from-top-bottom-bg-globe opacity-50 md:opacity-80"
@@ -71,17 +71,17 @@ const ThankYou = () => {
             </div>
 
             <div className="mb-6 flex flex-col items-center gap-4 md:flex-row">
-                <span className="bg-linear-to-r from-blueviolet-100 to-[#b1219d] px-3 py-1 font-heading text-base uppercase text-white">
+                <span className="bg-linear-to-r from-blueviolet-100 to-[#b1219d] px-3 py-1 font-heading text-base text-white uppercase">
                     Success
                 </span>
-                <span className="font-heading text-base uppercase tracking-widest text-white">
+                <span className="font-heading text-base text-white uppercase tracking-widest">
                     Message Successfully Received
                 </span>
             </div>
-            <h1 className="mb-4 font-heading text-4xl uppercase text-white">
+            <h1 className="mb-4 font-heading text-4xl text-white uppercase">
                 <span className="highlight-text">Thank you</span> for reaching out!
             </h1>
-            <p className="font-raleway mb-8 max-w-xl text-base text-thistle md:text-lg">
+            <p className="mb-8 max-w-xl font-raleway text-base text-thistle md:text-lg">
                 We’ll get back to you within 48 hours. In the meantime, check out our amazing
                 sponsors who make SESA possible.
             </p>
