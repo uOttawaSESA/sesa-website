@@ -1,4 +1,4 @@
-import { QueryClient, useInfiniteQuery, useQuery } from "@tanstack/react-query";
+import { keepPreviousData, QueryClient, useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import {
     collection,
     type DocumentSnapshot,
@@ -8,6 +8,7 @@ import {
     limit,
     orderBy,
     type Query,
+    type QueryConstraint,
     query,
     startAfter,
 } from "firebase/firestore";
@@ -73,30 +74,55 @@ export const useEvent = (id: string | null) =>
         initialDataUpdatedAt: () => queryClient.getQueryState(["events"])?.dataUpdatedAt,
     });
 
+export type ResourceSorts =
+    | "alphabetical"
+    | "update_desc"
+    | "creation_desc"
+    | "tier_asc"
+    | "tier_desc";
+
 /**
  * Query function used for {@link useResources}.
  * @param cursor The document to start after for paginated search.
  * If undefined, the entire collection is dumped.
  * If null, then the first page of results is provided.
  */
-export async function fetchResources(cursor?: DocumentSnapshot | null) {
+export async function fetchResources(
+    cursor?: DocumentSnapshot | null,
+    sort: ResourceSorts = "creation_desc",
+) {
     const coll = collection(db, "Resources");
+    let order: QueryConstraint;
+    switch (sort) {
+        case "alphabetical":
+            order = orderBy("title", "asc");
+            break;
+        case "update_desc":
+            order = orderBy("lastUpdated", "desc");
+            break;
+        case "creation_desc":
+            order = orderBy("createdAt", "desc");
+            break;
+        case "tier_asc":
+            order = orderBy("tier", "asc");
+            break;
+        case "tier_desc":
+            order = orderBy("tier", "desc");
+            break;
+        default:
+            throw new TypeError(`Unexpected sort option ${sort}.`);
+    }
     let q: Query;
 
     if (cursor) {
         // Cursor provided; start after the cursor
-        q = query(
-            coll,
-            orderBy("createdAt", "desc"),
-            startAfter(cursor),
-            limit(RESOURCE_PAGE_SIZE),
-        );
+        q = query(coll, order, startAfter(cursor), limit(RESOURCE_PAGE_SIZE));
     } else if (cursor === null) {
         // Cursor explicitly null; start at the beginning
-        q = query(coll, orderBy("createdAt", "desc"), limit(RESOURCE_PAGE_SIZE));
+        q = query(coll, order, limit(RESOURCE_PAGE_SIZE));
     } else {
         // No cursor; return everything
-        q = query(coll, orderBy("createdAt", "desc"));
+        q = query(coll, order);
     }
 
     // Fetch from Firestore
@@ -129,13 +155,14 @@ export const useResources = () =>
  * Gets resources from Firestore with an infinite query.
  * Remote data is validated with Zod before returning.
  */
-export const useInfiniteResources = () =>
+export const useInfiniteResources = (sort?: ResourceSorts) =>
     useInfiniteQuery({
-        queryKey: ["infiniteResources"],
-        queryFn: ({ pageParam }) => fetchResources(pageParam),
+        queryKey: ["infiniteResources", { sort }],
+        queryFn: ({ pageParam }) => fetchResources(pageParam, sort),
         initialPageParam: null as DocumentSnapshot | null,
         getNextPageParam: lastPage => lastPage.nextCursor,
         getPreviousPageParam: lastPage => lastPage.prevCursor,
+        placeholderData: keepPreviousData,
     });
 
 /**

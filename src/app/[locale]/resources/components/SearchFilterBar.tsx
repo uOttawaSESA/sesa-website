@@ -10,6 +10,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
+import type { ResourceSorts } from "@/lib/query";
 
 const gradientBorderClass = `
     border-[1px]
@@ -35,7 +36,7 @@ interface SearchFilterBarProps {
     filterOptions: FilterOptions;
     setFilterOptions: (options: FilterOptions) => void;
     sortOption: string;
-    setSortOption: (option: string) => void;
+    setSortOption: (option: ResourceSorts) => void;
     isMobile: boolean;
     availableCourses: { label: string; value: string }[];
 }
@@ -110,7 +111,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
         setOpenDropdown(null);
     };
 
-    const handleSortChange = (value: string) => {
+    const handleSortChange = (value: ResourceSorts) => {
         setSortOption(value);
         setOpenDropdown(null);
     };
@@ -349,20 +350,20 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                             </SelectTrigger>
                                             <SelectContent>
                                                 <SelectGroup>
-                                                    <SelectItem value="relevance">
-                                                        {t("sort_item_relevance")}
-                                                    </SelectItem>
                                                     <SelectItem value="alphabetical">
                                                         {t("sort_item_alphabetical")}
                                                     </SelectItem>
-                                                    <SelectItem value="tier (worst to best)">
+                                                    <SelectItem value="tier_asc">
                                                         {t("sort_tier_worst_best")}
                                                     </SelectItem>
-                                                    <SelectItem value="tier (best to worst)">
+                                                    <SelectItem value="tier_desc">
                                                         {t("sort_tier_best_worst")}
                                                     </SelectItem>
-                                                    <SelectItem value="last updated">
+                                                    <SelectItem value="update_desc">
                                                         {t("sort_last_updated")}
+                                                    </SelectItem>
+                                                    <SelectItem value="creation_desc">
+                                                        {t("sort_created")}
                                                     </SelectItem>
                                                 </SelectGroup>
                                             </SelectContent>

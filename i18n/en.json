@@ -275,7 +275,8 @@
         "sort_item_alphabetical": "Alphabetical",
         "sort_tier_worst_best": "Tier (Worst to Best)",
         "sort_tier_best_worst": "Tier (Best to Worst)",
-        "sort_last_updated": "Last Updated"
+        "sort_last_updated": "Last Updated",
+        "sort_created": "Creation Date"
     },
     "sponsorships": {
         "header_top": "Sponsors & partners",

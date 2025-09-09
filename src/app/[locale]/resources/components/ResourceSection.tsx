@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
 import Pagination from "@/components/Pagination";
-import { useInfiniteResources } from "@/lib/query";
+import { type ResourceSorts, useInfiniteResources } from "@/lib/query";
 import ResourceList from "./ResourceList";
 import SearchFilterBar from "./SearchFilterBar";
 import type { Resource } from "@/schemas/resources";
@@ -19,12 +19,12 @@ const ResourceSection = () => {
         language: "",
         tier: "",
     });
-    const [sortOption, setSortOption] = useState<string>("relevance");
+    const [sortOption, setSortOption] = useState<ResourceSorts>("creation_desc");
     const [isMobile, setIsMobile] = useState(false);
 
-    const { isPending, isFetching, error, data, fetchNextPage } = useInfiniteResources();
+    const { isPending, isFetching, error, data, fetchNextPage } = useInfiniteResources(sortOption);
     const resources = useMemo(() => {
-        if (!data) return undefined;
+        if (!data) return [];
         return data.pages.flatMap(page => page.docs);
     }, [data]);
 
@@ -96,47 +96,9 @@ const ResourceSection = () => {
         });
     }, [resources, searchTerm, filterOptions]);
 
-    // Sorting logic
-    const sortedResources = filteredResources;
-    const _sortedResources = [...filteredResources].sort((a, b) => {
-        const tierOrder = { c: 1, b: 2, a: 3, s: 4 };
+    const totalPages = Math.ceil(resources.length / (itemsPerRow * rowsToShow));
 
-        const tierA = a.tier?.toLowerCase() || "";
-        const tierB = b.tier?.toLowerCase() || "";
-
-        const tierValueA = tierA in tierOrder ? tierOrder[tierA as keyof typeof tierOrder] : 0;
-        const tierValueB = tierB in tierOrder ? tierOrder[tierB as keyof typeof tierOrder] : 0;
-
-        switch (sortOption) {
-            case "relevance":
-                // Default order (no sorting)
-                return 0;
-            case "alphabetical":
-                // Sort by title (ascending)
-                return a.title.localeCompare(b.title);
-            case "last updated":
-                // Sort by lastUpdated date (newest first)
-                if (a.lastUpdated && b.lastUpdated) {
-                    const dateA = new Date(a.lastUpdated);
-                    const dateB = new Date(b.lastUpdated);
-                    return dateB.getTime() - dateA.getTime();
-                }
-                // Resources without a lastUpdated date are pushed to the end
-                if (a.lastUpdated) return -1;
-                if (b.lastUpdated) return 1;
-                return 0; // Both don't have a date, maintain original order
-            case "tier (worst to best)":
-                return tierValueA - tierValueB;
-            case "tier (best to worst)":
-                return tierValueB - tierValueA;
-            default:
-                return 0;
-        }
-    });
-
-    const totalPages = Math.ceil(sortedResources.length / (itemsPerRow * rowsToShow));
-
-    const currentResources = sortedResources.slice(
+    const currentResources = resources.slice(
         (currentPage - 1) * itemsPerRow * rowsToShow,
         currentPage * itemsPerRow * rowsToShow,
     );
@@ -164,7 +126,10 @@ const ResourceSection = () => {
                 filterOptions={filterOptions}
                 setFilterOptions={setFilterOptions}
                 sortOption={sortOption}
-                setSortOption={setSortOption}
+                setSortOption={sort => {
+                    setSortOption(sort);
+                    setCurrentPage(1);
+                }}
                 isMobile={isMobile}
                 availableCourses={availableCourses}
             />
