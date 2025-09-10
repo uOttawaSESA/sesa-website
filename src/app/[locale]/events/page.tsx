@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { NextResponse } from "next/server";
-import { getLocale } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
 import FadeInSection from "@/components/FadeInSection";
@@ -13,22 +13,30 @@ import TeamUpSection from "./components/TeamUpSection";
 import type { Metadata } from "next";
 export const generateStaticParams = localeParams;
 
-export const metadata: Metadata = {
-    title: "Events | Software Engineering Students' Association",
-    description: "Stay up to date on SESA's events at the University of Ottawa.",
-    alternates: {
-        canonical: "/events",
-        languages: {
-            en: "/en/events",
-            fr: "/fr/events",
+export async function generateMetadata(): Promise<Metadata> {
+    const locale = await getLocale();
+    const t = await getTranslations("meta");
+
+    const title = `${t("events_title")} | ${t("title_suffix")}`;
+    const description = t("events_description");
+
+    return {
+        title,
+        description,
+        alternates: {
+            canonical: `/${locale}/events`,
+            languages: {
+                en: "/en/events",
+                fr: "/fr/events",
+            },
         },
-    },
-    openGraph: {
-        title: "Events | Software Engineering Students' Association",
-        description: "Stay up to date on SESA's events at the University of Ottawa.",
-        url: new URL("https://sesa-aegl.ca/events"),
-    },
-};
+        openGraph: {
+            title,
+            description,
+            url: new URL("https://sesa-aegl.ca/events"),
+        },
+    };
+}
 
 export default async function Events() {
     const locale = await getLocale();

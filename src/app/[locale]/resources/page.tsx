@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { NextResponse } from "next/server";
-import { getLocale } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
 import FadeInSection from "@/components/FadeInSection";
@@ -11,22 +11,30 @@ import ResourceSection from "./components/ResourceSection";
 import type { Metadata } from "next";
 export const generateStaticParams = localeParams;
 
-export const metadata: Metadata = {
-    title: "Resources | Software Engineering Students' Association",
-    description: "Stay prepared with SESA's resources at the University of Ottawa.",
-    alternates: {
-        canonical: "/resources",
-        languages: {
-            en: "/en/resources",
-            fr: "/fr/resources",
+export async function generateMetadata(): Promise<Metadata> {
+    const locale = await getLocale();
+    const t = await getTranslations("meta");
+
+    const title = `${t("resources_title")} | ${t("title_suffix")}`;
+    const description = t("resources_description");
+
+    return {
+        title,
+        description,
+        alternates: {
+            canonical: `/${locale}/resources`,
+            languages: {
+                en: "/en/resources",
+                fr: "/fr/resources",
+            },
         },
-    },
-    openGraph: {
-        title: "Resources | Software Engineering Students' Association",
-        description: "Stay prepared with SESA's resources at the University of Ottawa.",
-        url: new URL("https://sesa-aegl.ca/resources"),
-    },
-};
+        openGraph: {
+            title,
+            description,
+            url: new URL("https://sesa-aegl.ca/resources"),
+        },
+    };
+}
 
 export default async function Resources() {
     const locale = await getLocale();

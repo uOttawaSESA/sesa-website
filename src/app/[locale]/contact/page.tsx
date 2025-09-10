@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { getLocale, getTranslations } from "next-intl/server";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
 import FadeInSection from "@/components/FadeInSection";
@@ -8,22 +9,30 @@ import ContactForm from "./components/ContactForm";
 import type { Metadata } from "next";
 export const generateStaticParams = localeParams;
 
-export const metadata: Metadata = {
-    title: "Contact | Software Engineering Students' Association",
-    description: "The contact page for the University of Ottawa's SESA.",
-    alternates: {
-        canonical: "/contact",
-        languages: {
-            en: "/en/contact",
-            fr: "/fr/contact",
+export async function generateMetadata(): Promise<Metadata> {
+    const locale = await getLocale();
+    const t = await getTranslations("meta");
+
+    const title = `${t("contact_title")} | ${t("title_suffix")}`;
+    const description = t("contact_description");
+
+    return {
+        title,
+        description,
+        alternates: {
+            canonical: `/${locale}/contact`,
+            languages: {
+                en: "/en/contact",
+                fr: "/fr/contact",
+            },
         },
-    },
-    openGraph: {
-        title: "Contact | Software Engineering Students' Association",
-        description: "The contact page for the University of Ottawa's SESA.",
-        url: new URL("https://sesa-aegl.ca/contact"),
-    },
-};
+        openGraph: {
+            title,
+            description,
+            url: new URL("https://sesa-aegl.ca/contact"),
+        },
+    };
+}
 
 const Contact: React.FC = () => {
     return (

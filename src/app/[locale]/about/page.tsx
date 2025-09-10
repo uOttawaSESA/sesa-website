@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 import { useMemo } from "react";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
@@ -15,22 +16,30 @@ import WhatWeDoCard from "./WhatWeDoCard";
 import type { Metadata } from "next";
 export const generateStaticParams = localeParams;
 
-export const metadata: Metadata = {
-    title: "About | Software Engineering Students' Association",
-    description: "The about page for the University of Ottawa's SESA.",
-    alternates: {
-        canonical: "/about",
-        languages: {
-            en: "/en/about",
-            fr: "/fr/about",
+export async function generateMetadata(): Promise<Metadata> {
+    const locale = await getLocale();
+    const t = await getTranslations("meta");
+
+    const title = `${t("about_title")} | ${t("title_suffix")}`;
+    const description = t("about_description");
+
+    return {
+        title,
+        description,
+        alternates: {
+            canonical: `/${locale}/about`,
+            languages: {
+                en: "/en/about",
+                fr: "/fr/about",
+            },
         },
-    },
-    openGraph: {
-        title: "About | Software Engineering Students' Association",
-        description: "The about page for the University of Ottawa's SESA.",
-        url: new URL("https://sesa-aegl.ca/about"),
-    },
-};
+        openGraph: {
+            title,
+            description,
+            url: new URL("https://sesa-aegl.ca/about"),
+        },
+    };
+}
 
 export default function About() {
     const memberImages = ["/imgs/team/rolf.webp", "/imgs/team/asad.webp", "/imgs/team/rayen.webp"];
