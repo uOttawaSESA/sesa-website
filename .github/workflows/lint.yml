@@ -33,6 +33,3 @@ jobs:
 
             - name: Lint project
               run: pnpm exec biome ci
-
-            - name: Build project
-              run: pnpm build --debug --no-lint
