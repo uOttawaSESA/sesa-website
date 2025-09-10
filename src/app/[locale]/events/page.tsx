@@ -44,13 +44,13 @@ export default async function Events() {
 
                     <Image
                         src="/decoration/waves.svg"
-                        className="fade-from-top-bg absolute left-1/2 top-[26.5rem] -translate-x-1/2 transform md:top-[16rem]"
+                        className="fade-from-top-bg absolute left-1/2 top-[26.5rem] -translate-x-1/2 transform md:top-[10rem]"
                         width={1200}
                         height={280}
                         alt=""
                     />
 
-                    <Star variant="star" className="right-[11rem] top-[22rem]" delay={1} />
+                    <Star variant="star" className="right-[11rem] top-[13rem]" delay={1} />
                     <Star
                         variant="star-faded"
                         className="left-[20rem] top-[8rem] md:left-[16rem] md:top-[16rem]"
