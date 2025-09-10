@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Marquee from "react-fast-marquee";
 import { Button } from "@/components/ui/button";
 import Star from "@/components/ui/decorations/star";
@@ -11,7 +11,9 @@ import ResourceCard from "../../resources/components/ResourceCard/ResourceCard";
 
 const Resources = () => {
     const t = useTranslations("homepage");
-    const { data: resources } = api.resource.getAll.useQuery();
+    const locale = useLocale() as "en" | "fr";
+
+    const { data: resources } = api.resource.getAll.useQuery({ locale });
     const router = useRouter();
 
     return (

@@ -8,15 +8,15 @@ export const events = pgTable(
         createdAt: timestamp("created_at", { withTimezone: true, mode: "string" })
             .defaultNow()
             .notNull(),
+        updatedAt: timestamp("updated_at", { withTimezone: true, mode: "string" })
+            .defaultNow()
+            .notNull(),
         startTime: timestamp("start_time", { withTimezone: true, mode: "string" }).notNull(),
         endTime: timestamp("end_time", { withTimezone: true, mode: "string" }).notNull(),
         type: text("type").notNull(),
         location: text("location").notNull(),
         imageUrl: text("image_url").notNull(),
         detailsUrl: text("details_url").notNull(),
-        updatedAt: timestamp("updated_at", { withTimezone: true, mode: "string" })
-            .defaultNow()
-            .notNull(),
     },
     t => [
         index("events_start_time_idx").on(t.startTime),
@@ -70,6 +70,7 @@ export const resources = pgTable(
             .notNull(),
         tier: smallint("tier").notNull(),
         locale: text("locale").array().notNull(),
+        accessibility: text("accessibility").array().notNull(),
         category: text("category").notNull(),
         course: text("course"), // nullable
         pricing: text("pricing").notNull(),

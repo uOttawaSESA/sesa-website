@@ -1,5 +1,5 @@
 "use client";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import {
     Carousel,
@@ -14,7 +14,9 @@ import EventCard from "./EventCard";
 
 export default function Events() {
     const t = useTranslations("homepage");
-    const { data: events } = api.event.getAll.useQuery();
+    const locale = useLocale() as "en" | "fr";
+
+    const { data: events } = api.event.getAll.useQuery({ locale });
 
     return (
         <section className="space-y-4 ps-8 md:ps-20 xl:ps-32">

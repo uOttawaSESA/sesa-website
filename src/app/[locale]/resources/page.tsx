@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { NextResponse } from "next/server";
+import { getLocale } from "next-intl/server";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
 import FadeInSection from "@/components/FadeInSection";
@@ -27,7 +29,11 @@ export const metadata: Metadata = {
 };
 
 export default async function Resources() {
-    void api.resource.getAll.prefetch();
+    const locale = await getLocale();
+    if (locale !== "en" && locale !== "fr")
+        return NextResponse.json({ message: "Invalid locale" }, { status: 400 });
+
+    void api.resource.getAll.prefetch({ locale });
 
     return (
         <HydrateClient>

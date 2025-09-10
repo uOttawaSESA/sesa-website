@@ -1,3 +1,5 @@
+import { NextResponse } from "next/server";
+import { getLocale } from "next-intl/server";
 import localeParams from "@/app/data/locales";
 import FadeInSection from "@/components/FadeInSection";
 import { api, HydrateClient } from "@/trpc/server";
@@ -25,8 +27,12 @@ export const metadata: Metadata = {
 };
 
 export default async function Home() {
-    void api.event.getAll.prefetch();
-    void api.resource.getAll.prefetch();
+    const locale = await getLocale();
+    if (locale !== "en" && locale !== "fr")
+        return NextResponse.json({ message: "Invalid locale" }, { status: 400 });
+
+    void api.event.getAll.prefetch({ locale });
+    void api.resource.getAll.prefetch({ locale });
 
     return (
         <HydrateClient>

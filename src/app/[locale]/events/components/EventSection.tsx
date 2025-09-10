@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Pagination from "@/components/Pagination";
 import Star from "@/components/ui/decorations/star";
@@ -12,8 +12,9 @@ import type { Event } from "@/schemas/events";
 
 const EventSection = () => {
     const t = useTranslations("events");
+    const locale = useLocale() as "en" | "fr";
 
-    const { isPending, error, data } = api.event.getAll.useQuery();
+    const { isPending, error, data } = api.event.getAll.useQuery({ locale });
 
     const [isMobile, setIsMobile] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);

@@ -28,6 +28,7 @@ CREATE TABLE "resources" (
 	"updated_at" timestamp with time zone DEFAULT now() NOT NULL,
 	"tier" smallint NOT NULL,
 	"locale" text[] NOT NULL,
+	"accessibility" text[] NOT NULL,
 	"category" text NOT NULL,
 	"course" text,
 	"pricing" text NOT NULL,

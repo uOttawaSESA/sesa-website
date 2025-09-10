@@ -1,5 +1,5 @@
 "use client";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { parseAsInteger, useQueryState } from "nuqs";
 import { useEffect, useMemo, useState } from "react";
 import Pagination from "@/components/Pagination";
@@ -27,7 +27,9 @@ const ResourceSection = () => {
     const [sortOption, setSortOption] = useState<string>("relevance");
     const [isMobile, setIsMobile] = useState(false);
 
-    const { isPending, error, data: resources } = api.resource.getAll.useQuery();
+    const locale = useLocale() as "en" | "fr";
+
+    const { isPending, error, data: resources } = api.resource.getAll.useQuery({ locale });
 
     // Extract unique courses from resources for the course filter
     const availableCourses = useMemo(() => {
