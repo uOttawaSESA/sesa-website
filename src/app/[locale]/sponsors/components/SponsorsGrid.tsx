@@ -80,7 +80,7 @@ const SponsorsGrid = () => {
                 </div>
                 {/* Mobile: stack all sponsors vertically */}
                 <div className="flex flex-col gap-8 md:hidden">
-                    {sponsors.slice(2).map((sponsor, index) => (
+                    {sponsors.slice(1).map((sponsor, index) => (
                         <a
                             key={index}
                             href={sponsor.link}
