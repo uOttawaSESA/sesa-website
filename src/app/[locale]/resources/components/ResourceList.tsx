@@ -5,11 +5,11 @@ import { useMemo } from "react";
 import { ResourceCard } from "./ResourceCard/ResourceCard";
 import { ResourceModal } from "./ResourceModal";
 import type React from "react";
-import type { Resource } from "@/schemas/resources";
+import type { MappedResource } from "@/server/db/schema";
 
 interface ResourceListProps {
-    allResources: Resource[];
-    currentResources: Resource[];
+    allResources: MappedResource[];
+    currentResources: MappedResource[];
     isGridMode: boolean;
 }
 
@@ -26,7 +26,7 @@ const ResourceList: React.FC<ResourceListProps> = ({
         [openResource, allResources.find],
     );
 
-    const openModal = (resource: Resource) => {
+    const openModal = (resource: MappedResource) => {
         setOpenResource(resource.id);
     };
 

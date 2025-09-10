@@ -7,7 +7,7 @@ CREATE TABLE "events" (
 	"type" text NOT NULL,
 	"location" text NOT NULL,
 	"image_url" text NOT NULL,
-	"details_url" text NOT NULL
+	"details_url" text
 );
 --> statement-breakpoint
 CREATE TABLE "events_i18n" (
@@ -26,6 +26,8 @@ CREATE TABLE "resources" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"created_at" timestamp with time zone DEFAULT now() NOT NULL,
 	"updated_at" timestamp with time zone DEFAULT now() NOT NULL,
+	"title" text NOT NULL,
+	"source" text NOT NULL,
 	"tier" smallint NOT NULL,
 	"locale" text[] NOT NULL,
 	"accessibility" text[] NOT NULL,
@@ -35,18 +37,7 @@ CREATE TABLE "resources" (
 	"format" text NOT NULL
 );
 --> statement-breakpoint
-CREATE TABLE "resources_i18n" (
-	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
-	"created_at" timestamp with time zone DEFAULT now() NOT NULL,
-	"updated_at" timestamp with time zone DEFAULT now() NOT NULL,
-	"resource_id" uuid NOT NULL,
-	"locale" text NOT NULL,
-	"title" text NOT NULL,
-	CONSTRAINT "resources_i18n_locale_resource_id_unique" UNIQUE("locale","resource_id")
-);
---> statement-breakpoint
 ALTER TABLE "events_i18n" ADD CONSTRAINT "events_i18n_event_id_events_id_fk" FOREIGN KEY ("event_id") REFERENCES "public"."events"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
-ALTER TABLE "resources_i18n" ADD CONSTRAINT "resources_i18n_resource_id_resources_id_fk" FOREIGN KEY ("resource_id") REFERENCES "public"."resources"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
 CREATE INDEX "events_start_time_idx" ON "events" USING btree ("start_time");--> statement-breakpoint
 CREATE INDEX "events_end_time_idx" ON "events" USING btree ("end_time");--> statement-breakpoint
 CREATE INDEX "events_type_idx" ON "events" USING btree ("type");--> statement-breakpoint
@@ -61,6 +52,4 @@ CREATE INDEX "resources_pricing_idx" ON "resources" USING btree ("pricing");--> 
 CREATE INDEX "resources_format_idx" ON "resources" USING btree ("format");--> statement-breakpoint
 CREATE INDEX "resources_tier_idx" ON "resources" USING btree ("tier");--> statement-breakpoint
 CREATE INDEX "resources_created_at_idx" ON "resources" USING btree ("created_at");--> statement-breakpoint
-CREATE INDEX "resources_updated_at_idx" ON "resources" USING btree ("updated_at");--> statement-breakpoint
-CREATE INDEX "resources_i18n_resource_id_idx" ON "resources_i18n" USING btree ("resource_id");--> statement-breakpoint
-CREATE INDEX "resources_i18n_locale_idx" ON "resources_i18n" USING btree ("locale");
+CREATE INDEX "resources_updated_at_idx" ON "resources" USING btree ("updated_at");

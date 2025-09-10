@@ -1,6 +1,6 @@
 {
-    "id": "dd8bf3ef-4f25-409f-9799-ecda74c6ce4c",
-    "prevId": "00000000-0000-0000-0000-000000000000",
+    "id": "c87d1621-de9e-45cc-9dbb-eda9e98403b3",
+    "prevId": "dd8bf3ef-4f25-409f-9799-ecda74c6ce4c",
     "version": "7",
     "dialect": "postgresql",
     "tables": {
@@ -63,7 +63,7 @@
                     "name": "details_url",
                     "type": "text",
                     "primaryKey": false,
-                    "notNull": false
+                    "notNull": true
                 }
             },
             "indexes": {

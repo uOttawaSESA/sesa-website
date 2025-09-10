@@ -15,10 +15,10 @@ import {
     DialogHeader,
     DialogTitle,
 } from "@/components/ui/dialog";
-import type { Event } from "@/schemas/events";
+import type { LocalizedEvent } from "@/server/db/schema";
 
 interface EventCardProps {
-    event: Event;
+    event: LocalizedEvent;
 }
 
 /**
@@ -55,15 +55,15 @@ function dateToCalendar(date: Date): string {
  * @param event Event to use.
  * @param locale Locale to use for localized event data.
  */
-function generateCalendarFile(event: Event, locale: "en" | "fr"): string {
+function generateCalendarFile(event: LocalizedEvent, locale: "en" | "fr"): string {
     let eventStr = `BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//SESA//${escapeCalendarText(event.title[locale])}//${locale.toUpperCase()}
+PRODID:-//SESA//${escapeCalendarText(event.title)}//${locale.toUpperCase()}
 CALSCALE:GREGORIAN
 BEGIN:VEVENT
 UID:${escapeCalendarText(event.id)}@sesa-aegl.ca
-SUMMARY:${escapeCalendarText(event.title[locale])}
-DESCRIPTION:${escapeCalendarText(event.description[locale])}
+SUMMARY:${escapeCalendarText(event.title)}
+DESCRIPTION:${escapeCalendarText(event.description)}
 DTSTART:${dateToCalendar(event.startTime)}
 DTEND:${dateToCalendar(event.endTime)}
 `;
@@ -98,10 +98,9 @@ export const EventCard = ({ event }: EventCardProps) => {
 
     const [icsDialogOpen, setIcsDialogOpen] = useState(false);
 
-    // Extract localized content
-    const title = event.title[lang];
+    const title = event.title;
     const type = tType(event.type);
-    const description = event.description[lang];
+    const description = event.description;
 
     const isPastEvent = event.startTime < new Date();
 
@@ -112,15 +111,15 @@ export const EventCard = ({ event }: EventCardProps) => {
 
     // Handle registration
     const handleRegister = () => {
-        if (event.registrationLink) {
-            window.open(event.registrationLink, "_blank");
+        if (event.registrationUrl) {
+            window.open(event.registrationUrl, "_blank");
             setIsRegistered(true);
         }
     };
 
-    // Handle details (Instagram link)
+    // Handle details
     const handleDetails = () => {
-        window.open(event.instagramLink, "_blank");
+        window.open(event.detailsUrl, "_blank");
     };
 
     // Handle "Add to Calendar" action
@@ -133,7 +132,7 @@ export const EventCard = ({ event }: EventCardProps) => {
         // Trigger download
         const a = document.createElement("a");
         a.href = url;
-        a.download = `${event.title[lang]}.ics`;
+        a.download = `${event.title}.ics`;
         a.click();
 
         // Open modal explaining .ics format
@@ -194,8 +193,8 @@ export const EventCard = ({ event }: EventCardProps) => {
                     {/* Left Side: Full-Height Image */}
                     <div>
                         <Image
-                            src={event.image}
-                            alt={event.imageAlt[lang]}
+                            src={event.imageUrl}
+                            alt={event.imageAlt}
                             width={350}
                             height={350}
                             className="aspect-square h-full max-w-none object-cover"
@@ -265,7 +264,7 @@ export const EventCard = ({ event }: EventCardProps) => {
                             </Button>
 
                             {/* Register Button (only for events that require registration) */}
-                            {event.registrationLink && !isRegistered && !isPastEvent && (
+                            {event.registrationUrl && !isRegistered && !isPastEvent && (
                                 <Button
                                     className="flex items-center gap-2 font-heading uppercase"
                                     onClick={handleRegister}

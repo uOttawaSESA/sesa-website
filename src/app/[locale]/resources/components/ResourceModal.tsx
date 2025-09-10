@@ -6,70 +6,13 @@ import { useTranslations } from "next-intl";
 import { useEffect, useId, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Button } from "@/components/ui/button";
-import type { Resource } from "@/schemas/resources";
+import type { MappedResource } from "@/server/db/schema";
 
 interface ResourceModalProps {
-    resource: Resource;
+    resource: MappedResource;
     isOpen: boolean;
     onClose: () => void;
 }
-
-// component for List modal
-const ListLinkCard = ({
-    name,
-    description,
-    url,
-}: {
-    name: string;
-    description: string;
-    url: string;
-}) => {
-    const t = useTranslations("resources");
-
-    const domain = (() => {
-        try {
-            return new URL(url).hostname;
-        } catch {
-            return "";
-        }
-    })();
-
-    const favicon = `https://www.google.com/s2/favicons?sz=32&domain=${domain}`;
-
-    return (
-        <div className="outline-gradient flex items-start justify-between border bg-white/10 p-4 font-heading text-thistle backdrop-blur-super transition hover:border-thistle">
-            <div className="flex flex-row gap-5">
-                <Image
-                    src={favicon}
-                    alt={`${name} favicon`}
-                    width={20}
-                    height={20}
-                    className="my-auto h-8 w-8 rounded object-contain"
-                />
-                <div className="flex flex-col gap-1">
-                    <span className="w-[700px] text-base font-bold uppercase tracking-wider text-white">
-                        {name}
-                    </span>
-                    <span className="font-sans text-base text-thistle">{description}</span>
-                </div>
-            </div>
-            <a
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="color-gradient-clickable my-auto flex items-center gap-2 text-sm font-bold"
-            >
-                {t("modal.visit_website")}
-                <Image
-                    src="/resources-page/new-tab-gradient.svg"
-                    alt="New tab"
-                    width={15}
-                    height={15}
-                />
-            </a>
-        </div>
-    );
-};
 
 const extractYoutubeId = (url: string): string | null => {
     try {
@@ -356,23 +299,6 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
         }
     };
 
-    const renderList = () => {
-        if (resource.format.toLowerCase() !== "list" || !resource.list) return null;
-
-        return (
-            <div className="flex flex-col gap-4 p-4">
-                {resource.list.map((item, index) => (
-                    <ListLinkCard
-                        key={index}
-                        name={item.name}
-                        description={item.description}
-                        url={item.url}
-                    />
-                ))}
-            </div>
-        );
-    };
-
     return (
         <DialogPrimitive.Root
             open={isOpen}
@@ -484,11 +410,15 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                                         height={20}
                                         className="h-5 w-5"
                                     />
-                                    <span className="capitalize">{resource.language}</span>
+                                    <span className="capitalize">
+                                        {resource.locale.length === 2
+                                            ? "bilingual"
+                                            : resource.locale[0]}
+                                    </span>
                                 </div>
 
                                 {/* Accessibility Feature */}
-                                {resource.accessibilityFeature && (
+                                {resource.accessibility && (
                                     <>
                                         <div className="h-[14px] w-px border-r border-thistle opacity-35" />
 
@@ -500,17 +430,17 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                                                 height={20}
                                                 className="h-5 w-5"
                                             />
-                                            <span className="capitalize">
-                                                {getLocalizedAccessibilityFeature(
-                                                    resource.accessibilityFeature,
-                                                )}
-                                            </span>
+                                            {resource.accessibility.map(feature => (
+                                                <span className="capitalize" key={feature}>
+                                                    {getLocalizedAccessibilityFeature(feature)}
+                                                </span>
+                                            ))}
                                         </div>
                                     </>
                                 )}
 
                                 {/* Last Updated */}
-                                {resource.lastUpdated && (
+                                {resource.updatedAt && (
                                     <>
                                         <div className="h-[14px] w-px border-r border-thistle opacity-35" />
                                         <div
@@ -529,7 +459,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                                                 className="h-5 w-5"
                                             />
                                             <span className="capitalize">
-                                                {formatDate(resource.lastUpdated, "PP")}
+                                                {formatDate(resource.updatedAt, "PP")}
                                             </span>
                                         </div>
                                     </>
@@ -559,9 +489,6 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                                 </Button>
                             )}
                         </div>
-
-                        {/* Render List under footer */}
-                        {renderList()}
 
                         {/* Render tooltips */}
                         {showTierTooltip && (

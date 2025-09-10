@@ -6,7 +6,7 @@ import Pagination from "@/components/Pagination";
 import { api } from "@/trpc/react";
 import ResourceList from "./ResourceList";
 import SearchFilterBar from "./SearchFilterBar";
-import type { Resource } from "@/schemas/resources";
+import type { MappedResource } from "@/server/db/schema";
 
 const ResourceSection = () => {
     // URL-based state
@@ -30,6 +30,8 @@ const ResourceSection = () => {
     const locale = useLocale() as "en" | "fr";
 
     const { isPending, error, data: resources } = api.resource.getAll.useQuery({ locale });
+
+    useEffect(() => resources && console.log(resources.slice(0, 5)), [resources]);
 
     // Extract unique courses from resources for the course filter
     const availableCourses = useMemo(() => {
@@ -78,7 +80,7 @@ const ResourceSection = () => {
             const matchesFilters = Object.entries(filterOptions).every(([key, value]) => {
                 if (!value) return true;
 
-                const resourceValue = resource[key as keyof Resource];
+                const resourceValue = resource[key as keyof MappedResource];
                 return (
                     typeof resourceValue === "string" &&
                     resourceValue.toLowerCase() === value.toLowerCase()
@@ -107,15 +109,15 @@ const ResourceSection = () => {
                 // Sort by title (ascending)
                 return a.title.localeCompare(b.title);
             case "last updated":
-                // Sort by lastUpdated date (newest first)
-                if (a.lastUpdated && b.lastUpdated) {
-                    const dateA = new Date(a.lastUpdated);
-                    const dateB = new Date(b.lastUpdated);
+                // Sort by updatedAt date (newest first)
+                if (a.updatedAt && b.updatedAt) {
+                    const dateA = new Date(a.updatedAt);
+                    const dateB = new Date(b.updatedAt);
                     return dateB.getTime() - dateA.getTime();
                 }
-                // Resources without a lastUpdated date are pushed to the end
-                if (a.lastUpdated) return -1;
-                if (b.lastUpdated) return 1;
+                // Resources without a updatedAt date are pushed to the end
+                if (a.updatedAt) return -1;
+                if (b.updatedAt) return 1;
                 return 0; // Both don't have a date, maintain original order
             case "tier (worst to best)":
                 return tierValueA - tierValueB;

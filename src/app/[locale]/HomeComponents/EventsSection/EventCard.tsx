@@ -1,13 +1,10 @@
 import { format } from "date-fns";
 import { CalendarDays, Clock, MapPin } from "lucide-react";
 import Image from "next/image";
-import { useLocale, useTranslations } from "next-intl";
-import type { Event } from "@/schemas/events";
+import { useTranslations } from "next-intl";
+import type { LocalizedEvent } from "@/server/db/schema";
 
-const EventCard: React.FC<{ event: Event }> = ({ event }) => {
-    const locale = useLocale();
-    const lang = locale === "fr" ? "fr" : "en";
-
+const EventCard: React.FC<{ event: LocalizedEvent }> = ({ event }) => {
     const formattedDate = format(event.startTime, "MMM dd, yyyy"); // e.g., "Mar 25, 2024"
     const day = format(event.startTime, "dd"); // e.g., "25"
     const month = format(event.startTime, "MMM"); // e.g., "Mar"
@@ -20,8 +17,8 @@ const EventCard: React.FC<{ event: Event }> = ({ event }) => {
             {/* Event Image */}
             <Image
                 className="w-full aspect-square border-b-2 border-solid border-blueviolet-700 object-cover"
-                src={event.image}
-                alt={event.title[lang]}
+                src={event.imageUrl}
+                alt={event.title}
                 width={350}
                 height={350}
             />
@@ -59,18 +56,18 @@ const EventCard: React.FC<{ event: Event }> = ({ event }) => {
                 </div>
 
                 {/* Title */}
-                <h5 className="text-lg uppercase tracking-tight">{event.title[lang]}</h5>
+                <h5 className="text-lg uppercase tracking-tight">{event.title}</h5>
 
                 {/* Description */}
                 <div>
                     <p className={`truncate-multiline font-sans text-base text-thistle`}>
-                        {event.description[lang]}
+                        {event.description}
                     </p>
                 </div>
             </div>
             <div className="mb-4 mt-auto px-4 text-right">
                 <a
-                    href={event.instagramLink}
+                    href={event.detailsUrl}
                     target="_blank"
                     className="color-gradient-clickable text-lg text-transparent"
                 >

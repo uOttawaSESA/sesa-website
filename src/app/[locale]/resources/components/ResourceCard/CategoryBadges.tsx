@@ -4,7 +4,7 @@ export const CategoryBadges = ({
     size = "sm",
 }: {
     category: string;
-    course?: string;
+    course?: string | null;
     size?: "sm" | "base";
 }) => {
     const sizeClasses = size === "sm" ? "text-xs px-3 py-2" : "text-sm p-2";

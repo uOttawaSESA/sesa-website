@@ -3,10 +3,10 @@
 import FadeInSection from "@/components/FadeInSection";
 import EventCard from "./EventCard";
 import type React from "react";
-import type { Event } from "@/schemas/events";
+import type { LocalizedEvent } from "@/server/db/schema";
 
 interface EventsListProps {
-    events: Event[];
+    events: LocalizedEvent[];
 }
 
 const EventsList: React.FC<EventsListProps> = ({ events }) => {

@@ -1,37 +1,34 @@
-import { and, eq } from "drizzle-orm";
 import * as z from "zod";
 import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
-import { resources, resourcesI18n } from "@/server/db/schema";
+import { type MappedResource, resources } from "@/server/db/schema";
+
+const TIER_MAP = ["S", "A", "B", "C", "D", "E", "F"];
 
 export const resourceRouter = createTRPCRouter({
     getAll: publicProcedure
         .input(z.object({ locale: z.enum(["en", "fr"]) }))
-        .query(async ({ ctx, input }) => {
+        .query(async ({ ctx }) => {
             const rows = await ctx.db
                 .select({
                     // Columns from the resource table
                     id: resources.id,
                     createdAt: resources.createdAt,
                     updatedAt: resources.updatedAt,
+                    title: resources.title,
+                    source: resources.source,
                     tier: resources.tier,
                     locale: resources.locale,
+                    accessibility: resources.accessibility,
                     category: resources.category,
                     course: resources.course,
                     pricing: resources.pricing,
                     format: resources.format,
-                    // Columns from the i18n table
-                    title: resourcesI18n.title,
                 })
-                .from(resources)
-                .leftJoin(
-                    resourcesI18n,
-                    and(
-                        eq(resources.id, resourcesI18n.resourceId),
-                        eq(resourcesI18n.locale, input.locale),
-                    ),
-                )
-                .orderBy(resources.createdAt);
+                .from(resources);
 
-            return rows;
+            return rows.map(resource => ({
+                ...resource,
+                tier: TIER_MAP[resource.tier] ?? "F",
+            })) satisfies MappedResource[];
         }),
 });

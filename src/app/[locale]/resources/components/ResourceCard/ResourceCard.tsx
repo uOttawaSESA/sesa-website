@@ -13,7 +13,7 @@ export const ResourceCard = ({
 }: {
     title: string;
     category: string;
-    course?: string;
+    course?: string | null;
     tier: string;
     format: string;
     mode?: "grid" | "row";

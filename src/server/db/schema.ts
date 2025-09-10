@@ -5,18 +5,19 @@ export const events = pgTable(
     "events",
     {
         id: uuid("id").defaultRandom().primaryKey().notNull(),
-        createdAt: timestamp("created_at", { withTimezone: true, mode: "string" })
+        createdAt: timestamp("created_at", { withTimezone: true, mode: "date" })
             .defaultNow()
             .notNull(),
-        updatedAt: timestamp("updated_at", { withTimezone: true, mode: "string" })
+        updatedAt: timestamp("updated_at", { withTimezone: true, mode: "date" })
             .defaultNow()
             .notNull(),
-        startTime: timestamp("start_time", { withTimezone: true, mode: "string" }).notNull(),
-        endTime: timestamp("end_time", { withTimezone: true, mode: "string" }).notNull(),
+        startTime: timestamp("start_time", { withTimezone: true, mode: "date" }).notNull(),
+        endTime: timestamp("end_time", { withTimezone: true, mode: "date" }).notNull(),
         type: text("type").notNull(),
         location: text("location").notNull(),
         imageUrl: text("image_url").notNull(),
         detailsUrl: text("details_url").notNull(),
+        registrationUrl: text("details_url").notNull(),
     },
     t => [
         index("events_start_time_idx").on(t.startTime),
@@ -29,15 +30,16 @@ export const events = pgTable(
 
 export type Event = InferSelectModel<typeof events>;
 export type NewEvent = InferInsertModel<typeof events>;
+export type LocalizedEvent = Event & { title: string; description: string; imageAlt: string };
 
 export const eventsI18n = pgTable(
     "events_i18n",
     {
         id: uuid("id").defaultRandom().primaryKey().notNull(),
-        createdAt: timestamp("created_at", { withTimezone: true, mode: "string" })
+        createdAt: timestamp("created_at", { withTimezone: true, mode: "date" })
             .defaultNow()
             .notNull(),
-        updatedAt: timestamp("updated_at", { withTimezone: true, mode: "string" })
+        updatedAt: timestamp("updated_at", { withTimezone: true, mode: "date" })
             .defaultNow()
             .notNull(),
         eventId: uuid("event_id")
@@ -62,12 +64,14 @@ export const resources = pgTable(
     "resources",
     {
         id: uuid("id").defaultRandom().primaryKey().notNull(),
-        createdAt: timestamp("created_at", { withTimezone: true, mode: "string" })
+        createdAt: timestamp("created_at", { withTimezone: true, mode: "date" })
             .defaultNow()
             .notNull(),
-        updatedAt: timestamp("updated_at", { withTimezone: true, mode: "string" })
+        updatedAt: timestamp("updated_at", { withTimezone: true, mode: "date" })
             .defaultNow()
             .notNull(),
+        title: text("title").notNull(),
+        source: text("source").notNull(),
         tier: smallint("tier").notNull(),
         locale: text("locale").array().notNull(),
         accessibility: text("accessibility").array().notNull(),
@@ -90,29 +94,4 @@ export const resources = pgTable(
 
 export type Resource = InferSelectModel<typeof resources>;
 export type NewResource = InferInsertModel<typeof resources>;
-
-export const resourcesI18n = pgTable(
-    "resources_i18n",
-    {
-        id: uuid("id").defaultRandom().primaryKey().notNull(),
-        createdAt: timestamp("created_at", { withTimezone: true, mode: "string" })
-            .defaultNow()
-            .notNull(),
-        updatedAt: timestamp("updated_at", { withTimezone: true, mode: "string" })
-            .defaultNow()
-            .notNull(),
-        resourceId: uuid("resource_id")
-            .notNull()
-            .references(() => resources.id, { onDelete: "cascade" }),
-        locale: text("locale").notNull(),
-        title: text("title").notNull(),
-    },
-    t => [
-        unique("resources_i18n_locale_resource_id_unique").on(t.locale, t.resourceId),
-        index("resources_i18n_resource_id_idx").on(t.resourceId),
-        index("resources_i18n_locale_idx").on(t.locale),
-    ],
-);
-
-export type ResourceI18n = InferSelectModel<typeof resourcesI18n>;
-export type NewResourceI18n = InferInsertModel<typeof resourcesI18n>;
+export type MappedResource = Omit<Resource, "tier"> & { tier: string };
