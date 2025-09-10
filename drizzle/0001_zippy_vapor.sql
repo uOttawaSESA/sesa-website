@@ -1,1 +1,0 @@
-ALTER TABLE "events" ALTER COLUMN "details_url" SET NOT NULL;

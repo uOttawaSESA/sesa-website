@@ -7,7 +7,7 @@ CREATE TABLE "events" (
 	"type" text NOT NULL,
 	"location" text NOT NULL,
 	"image_url" text NOT NULL,
-	"details_url" text
+	"details_url" text NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE "events_i18n" (
@@ -45,11 +45,13 @@ CREATE INDEX "events_created_at_idx" ON "events" USING btree ("created_at");--> 
 CREATE INDEX "events_updated_at_idx" ON "events" USING btree ("updated_at");--> statement-breakpoint
 CREATE INDEX "events_i18n_event_id_idx" ON "events_i18n" USING btree ("event_id");--> statement-breakpoint
 CREATE INDEX "events_i18n_locale_idx" ON "events_i18n" USING btree ("locale");--> statement-breakpoint
-CREATE INDEX "resources_locale_gin_idx" ON "resources" USING btree ("locale");--> statement-breakpoint
+CREATE INDEX "resources_locale_idx" ON "resources" USING btree ("locale");--> statement-breakpoint
+CREATE INDEX "resources_locale_gin_idx" ON "resources" USING gin ("locale");--> statement-breakpoint
 CREATE INDEX "resources_category_idx" ON "resources" USING btree ("category");--> statement-breakpoint
 CREATE INDEX "resources_course_idx" ON "resources" USING btree ("course");--> statement-breakpoint
 CREATE INDEX "resources_pricing_idx" ON "resources" USING btree ("pricing");--> statement-breakpoint
 CREATE INDEX "resources_format_idx" ON "resources" USING btree ("format");--> statement-breakpoint
 CREATE INDEX "resources_tier_idx" ON "resources" USING btree ("tier");--> statement-breakpoint
 CREATE INDEX "resources_created_at_idx" ON "resources" USING btree ("created_at");--> statement-breakpoint
-CREATE INDEX "resources_updated_at_idx" ON "resources" USING btree ("updated_at");
+CREATE INDEX "resources_updated_at_idx" ON "resources" USING btree ("updated_at");--> statement-breakpoint
+CREATE INDEX "resources_title_trgm_idx" ON "resources" USING gin ("title" gin_trgm_ops);

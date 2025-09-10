@@ -1,1 +1,0 @@
-CREATE INDEX "resources_title_trgm_idx" ON "resources" USING gin ("title" gin_trgm_ops);

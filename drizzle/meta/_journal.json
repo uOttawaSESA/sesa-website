@@ -5,29 +5,8 @@
         {
             "idx": 0,
             "version": "7",
-            "when": 1757472276932,
-            "tag": "0000_left_red_skull",
-            "breakpoints": true
-        },
-        {
-            "idx": 1,
-            "version": "7",
-            "when": 1757473678226,
-            "tag": "0001_zippy_vapor",
-            "breakpoints": true
-        },
-        {
-            "idx": 2,
-            "version": "7",
-            "when": 1757513131883,
-            "tag": "0002_ordinary_firebird",
-            "breakpoints": true
-        },
-        {
-            "idx": 3,
-            "version": "7",
-            "when": 1757514134192,
-            "tag": "0003_futuristic_the_order",
+            "when": 1757530915353,
+            "tag": "0000_sad_micromax",
             "breakpoints": true
         }
     ]

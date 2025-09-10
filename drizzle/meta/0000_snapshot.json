@@ -1,5 +1,5 @@
 {
-    "id": "dd8bf3ef-4f25-409f-9799-ecda74c6ce4c",
+    "id": "bd2f6c28-c350-492a-a596-531ccdae6a37",
     "prevId": "00000000-0000-0000-0000-000000000000",
     "version": "7",
     "dialect": "postgresql",
@@ -63,7 +63,7 @@
                     "name": "details_url",
                     "type": "text",
                     "primaryKey": false,
-                    "notNull": false
+                    "notNull": true
                 }
             },
             "indexes": {
@@ -342,6 +342,21 @@
                 }
             },
             "indexes": {
+                "resources_locale_idx": {
+                    "name": "resources_locale_idx",
+                    "columns": [
+                        {
+                            "expression": "locale",
+                            "isExpression": false,
+                            "asc": true,
+                            "nulls": "last"
+                        }
+                    ],
+                    "isUnique": false,
+                    "concurrently": false,
+                    "method": "btree",
+                    "with": {}
+                },
                 "resources_locale_gin_idx": {
                     "name": "resources_locale_gin_idx",
                     "columns": [
@@ -354,7 +369,7 @@
                     ],
                     "isUnique": false,
                     "concurrently": false,
-                    "method": "btree",
+                    "method": "gin",
                     "with": {}
                 },
                 "resources_category_idx": {
@@ -460,6 +475,21 @@
                     "isUnique": false,
                     "concurrently": false,
                     "method": "btree",
+                    "with": {}
+                },
+                "resources_title_trgm_idx": {
+                    "name": "resources_title_trgm_idx",
+                    "columns": [
+                        {
+                            "expression": "\"title\" gin_trgm_ops",
+                            "asc": true,
+                            "isExpression": true,
+                            "nulls": "last"
+                        }
+                    ],
+                    "isUnique": false,
+                    "concurrently": false,
+                    "method": "gin",
                     "with": {}
                 }
             },
