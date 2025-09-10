@@ -1,5 +1,5 @@
+import { type InferInsertModel, type InferSelectModel, sql } from "drizzle-orm";
 import { index, pgTable, smallint, text, timestamp, unique, uuid } from "drizzle-orm/pg-core";
-import type { InferInsertModel, InferSelectModel } from "drizzle-orm";
 
 export const events = pgTable(
     "events",
@@ -90,6 +90,7 @@ export const resources = pgTable(
         index("resources_tier_idx").on(t.tier),
         index("resources_created_at_idx").on(t.createdAt),
         index("resources_updated_at_idx").on(t.updatedAt),
+        index("resources_title_trgm_idx").using("gin", sql`${t.title} gin_trgm_ops`),
     ],
 );
 
