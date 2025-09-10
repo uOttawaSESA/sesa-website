@@ -162,11 +162,19 @@ const ResourceSection = () => {
             />
 
             {/* Resources Grid or Row */}
-            <ResourceList
-                allResources={resources}
-                currentResources={currentResources}
-                isGridMode={isGridMode}
-            />
+            {filteredResources.length > 0 ? (
+                <ResourceList
+                    allResources={resources}
+                    currentResources={currentResources}
+                    isGridMode={isGridMode}
+                />
+            ) : (
+                <div className="flex justify-center items-center h-16">
+                    <h1 className="font-heading text-xl text-white font-bold">
+                        No results were found matching this search!
+                    </h1>
+                </div>
+            )}
 
             {/* Pagination */}
             <Pagination

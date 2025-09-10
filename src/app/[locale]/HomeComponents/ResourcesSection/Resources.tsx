@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import Marquee from "react-fast-marquee";
-import ComingSoonMessage from "@/components/ComingSoonMessage";
 import { Button } from "@/components/ui/button";
 import Star from "@/components/ui/decorations/star";
 import { Link, useRouter } from "@/i18n/navigation";
@@ -73,7 +72,7 @@ const Resources = () => {
                 </p>
             </div>
             {/* Carousel */}
-            {resources && resources.length !== 0 ? (
+            {resources && resources.length !== 0 && (
                 <Marquee pauseOnHover>
                     <div className="flex flex-col gap-4">
                         {/* Two rows with gap */}
@@ -119,14 +118,6 @@ const Resources = () => {
                         </div>
                     </div>
                 </Marquee>
-            ) : (
-                <div className="2xl:my-10">
-                    <ComingSoonMessage
-                        title={t("coming_soon_title")}
-                        subtitle={t("coming_soon_subtitle")}
-                        homeButton={false}
-                    />
-                </div>
             )}
 
             <div className="z-10 space-y-4 px-8 md:px-32">
