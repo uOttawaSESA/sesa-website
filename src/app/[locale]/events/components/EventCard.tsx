@@ -189,8 +189,8 @@ export const EventCard = ({ event }: EventCardProps) => {
                     </DialogHeader>
                 </DialogContent>
             </Dialog>
-            <div className="w-min border border-gray-300 bg-gray-100 from-blueviolet-100 to-darkmagenta p-px font-heading transition-all hover:bg-gradient-to-r md:w-auto">
-                <div className="flex w-min flex-col justify-start bg-gray-100 md:w-auto md:flex-row">
+            <div className="w-min border outline-gradient backdrop-blur-2xl p-px font-heading transition-all md:w-auto">
+                <div className="flex w-min flex-col justify-start md:w-auto md:flex-row">
                     {/* Left Side: Full-Height Image */}
                     <div>
                         <Image
