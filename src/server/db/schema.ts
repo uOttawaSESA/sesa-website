@@ -81,7 +81,8 @@ export const resources = pgTable(
         format: text("format").notNull(),
     },
     t => [
-        index("resources_locale_gin_idx").on(t.locale),
+        index("resources_locale_idx").on(t.locale),
+        index("resources_locale_gin_idx").using("gin", t.locale),
         index("resources_category_idx").on(t.category),
         index("resources_course_idx").on(t.course),
         index("resources_pricing_idx").on(t.pricing),
