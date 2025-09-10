@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import "./globals.css";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
@@ -25,32 +26,46 @@ const raleway = Raleway({
     subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-    title: "Software Engineering Students' Association",
-    description: "The official website for the University of Ottawa's SESA.",
-    keywords: ["uottawa", "sesa", "software", "students", "seg"],
-    metadataBase: new URL("https://sesa-aegl.ca"),
-    openGraph: {
-        title: "Software Engineering Students' Association",
-        siteName: "Software Engineering Students' Association",
-        description: "The official website for the University of Ottawa's SESA.",
-        type: "website",
-        url: new URL("https://sesa-aegl.ca"),
-        images: "/imgs/about/team-1.webp",
-    },
-    icons: [
-        {
-            media: "(prefers-color-scheme: light)",
-            url: "/logo-filled.svg",
-            type: "image/svg+xml",
+export async function generateMetadata(): Promise<Metadata> {
+    const locale = await getLocale();
+    const t = await getTranslations("meta");
+
+    const title = t("title_suffix");
+    const description = t("default_description");
+
+    // Arrays not supported by next-intl
+    const keywords = {
+        en: ["uottawa", "sesa", "software", "students", "engineering"],
+        fr: ["uottawa", "aegl", "logiciel", "étudiants", "génie"],
+    };
+
+    return {
+        title,
+        description,
+        keywords: keywords[locale as "en" | "fr"],
+        metadataBase: new URL("https://sesa-aegl.ca"),
+        openGraph: {
+            title,
+            siteName: title,
+            description,
+            type: "website",
+            url: new URL("https://sesa-aegl.ca"),
+            images: "/imgs/about/team-1.webp",
         },
-        {
-            media: "(prefers-color-scheme: dark)",
-            url: "/sesa-logo.svg",
-            type: "image/svg+xml",
-        },
-    ],
-};
+        icons: [
+            {
+                media: "(prefers-color-scheme: light)",
+                url: "/logo-filled.svg",
+                type: "image/svg+xml",
+            },
+            {
+                media: "(prefers-color-scheme: dark)",
+                url: "/sesa-logo.svg",
+                type: "image/svg+xml",
+            },
+        ],
+    };
+}
 
 export default async function RootLayout({
     children,
