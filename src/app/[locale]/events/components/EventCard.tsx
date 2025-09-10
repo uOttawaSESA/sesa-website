@@ -279,6 +279,7 @@ export const EventCard = ({ event }: EventCardProps) => {
                                 className="flex items-center gap-2 font-heading uppercase"
                                 onClick={handleAddToCalendar}
                                 variant="outline"
+                                disabled={isPastEvent}
                             >
                                 {t("btn_calendar")}
                             </Button>
