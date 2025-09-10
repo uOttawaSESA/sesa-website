@@ -1,4 +1,10 @@
 {
+    "misc": {
+        "lang_en": "Anglais",
+        "lang_fr": "Français",
+        "lang_bilingual": "Bilingue"
+    },
+
     "homepage": {
         "we_are_sesa": "Association des Étudiants en Génie Logiciel",
         "bridging_the_gap_hl": "Réduire l'écart",

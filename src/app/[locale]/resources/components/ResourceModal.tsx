@@ -67,6 +67,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
     const updatedRef = useRef<HTMLDivElement>(null);
 
     const t = useTranslations("resources");
+    const tMisc = useTranslations("misc");
 
     // Localization helper functions for Resource attributes
     const getLocalizedFormat = (format: string) => {
@@ -413,7 +414,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                                     <span className="capitalize">
                                         {resource.locale.length === 2
                                             ? "bilingual"
-                                            : resource.locale[0]}
+                                            : tMisc(`lang_${resource.locale[0]}`)}
                                     </span>
                                 </div>
 
