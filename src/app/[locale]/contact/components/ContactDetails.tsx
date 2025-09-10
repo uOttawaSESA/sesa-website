@@ -1,18 +1,30 @@
 "use client";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
+import { Toaster } from "@/components/ui/sonner";
 
 const ContactDetails = () => {
     const t = useTranslations("contact_us");
 
+    const copyEmail = () => {
+        navigator.clipboard.writeText("uottawa.sesa@gmail.com");
+        toast("Email copied!", {
+            unstyled: true,
+            classNames: {
+                toast: `backdrop-blur-2xl bg-blueviolet/30 
+                        outline-gradient-rounded
+                        rounded-lg py-4 px-8 shadow-lg`,
+                title: "font-bold text-white",
+            },
+        });
+    };
+
     return (
         <div>
-            {/* <div className="absolute bottom-0 left-0 h-full w-1/2">
-                <GridGlobe />
-            </div> */}
-
-            <div className="">
+            <Toaster position="top-center" className="flex justify-center" />
+            <div>
                 <p className="color-gradient font-mono text-xs md:text-base">{t("contact_us")}</p>
 
                 <h1 className="mt-2 font-heading text-3xl uppercase leading-tight md:mt-4 md:text-5xl">
@@ -27,7 +39,7 @@ const ContactDetails = () => {
                 <Button
                     className="flex items-center gap-3 font-heading text-base uppercase md:text-xl"
                     style={{ width: "fit-content" }}
-                    onClick={() => navigator.clipboard.writeText("uottawa.sesa@gmail.com")}
+                    onClick={copyEmail}
                 >
                     uottawa.sesa@gmail.com
                     <Image

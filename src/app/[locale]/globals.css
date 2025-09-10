@@ -57,6 +57,22 @@ body {
     border-image: linear-gradient(55deg, #8824dc 41.93%, #b1219d 81.89%) 1;
 }
 
+.outline-gradient-rounded {
+    position: relative;
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+
+    background:
+        linear-gradient(rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.8)) padding-box,
+        linear-gradient(55deg, #8824dc 41.93%, #b1219d 81.89%) border-box; /* gradient border */
+
+    background-clip: padding-box, border-box;
+    background-origin: border-box;
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
 .fill-gradient {
     background: linear-gradient(55deg, #8824dc 41.93%, #b1219d 81.89%);
 }
