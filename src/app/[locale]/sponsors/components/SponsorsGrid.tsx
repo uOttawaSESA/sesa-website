@@ -12,6 +12,7 @@ const sponsors = [
         size: "h-72 md:h-80",
         link: "https://www.nbc.ca/",
     },
+
     {
         name: "Ciena",
         src: "/sponsors/ciena.webp",
@@ -48,6 +49,15 @@ const sponsors = [
         height: 150,
         size: "h-72 md:h-80",
         link: "https://www.amazon.com/",
+    },
+    {
+        name: "Bank of Canada",
+        src: "/sponsors/bankofcanada.svg",
+        alt: "Bank of Canada",
+        width: 500,
+        height: 250,
+        size: "h-72 md:h-80",
+        link: "https://www.bankofcanada.ca/",
     },
 ];
 
@@ -123,7 +133,7 @@ const SponsorsGrid = () => {
 
                 {/* Desktop: row 3 (CSE + Amazon) */}
                 <div className="hidden w-full flex-row gap-8 md:flex">
-                    {sponsors.slice(3).map((sponsor, index) => (
+                    {sponsors.slice(3, 5).map((sponsor, index) => (
                         <a
                             key={index}
                             href={sponsor.link}
@@ -141,6 +151,25 @@ const SponsorsGrid = () => {
                             />
                         </a>
                     ))}
+                </div>
+
+                {/* Desktop: Bank of Canada centered as its own row */}
+                <div className="hidden w-full md:flex justify-center">
+                    <a
+                        href={sponsors[5].link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`flex items-center justify-center rounded-lg p-10 ${sponsors[5].size} ${gradientBorderClass} backdrop-blur-lg transition hover:scale-105 w-3/5`}
+                        title={sponsors[5].name}
+                    >
+                        <Image
+                            src={sponsors[5].src}
+                            alt={sponsors[5].alt}
+                            width={sponsors[5].width}
+                            height={sponsors[5].height}
+                            className="object-contain"
+                        />
+                    </a>
                 </div>
             </div>
         </div>
