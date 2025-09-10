@@ -1,8 +1,5 @@
 import { defaultShouldDehydrateQuery, QueryClient } from "@tanstack/react-query";
-import { collection, getDocs } from "firebase/firestore";
 import SuperJSON from "superjson";
-import { db } from "@/lib/firebase";
-import { FirestoreResource } from "@/schemas/resources";
 
 /**
  * Function to create a query client with the same config from different parts of the app.
@@ -25,21 +22,3 @@ export const createQueryClient = () =>
             },
         },
     });
-
-/**
- * Function used to fetch all of the remote resources from Firestore.
- * You probably don't want to call this directly; use tRPC for requests from the frontend.
- */
-export const fetchResources = async () => {
-    // Fetch from Firestore
-    const docs = (await getDocs(collection(db, "Resources"))).docs.map(doc => ({
-        ...doc.data(),
-        id: doc.id,
-    }));
-    // Include only valid resources
-    const validated = docs
-        .map(doc => FirestoreResource.safeParse(doc))
-        .filter(doc => doc.success)
-        .map(doc => doc.data);
-    return validated;
-};
