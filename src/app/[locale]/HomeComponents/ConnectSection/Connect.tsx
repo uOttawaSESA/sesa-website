@@ -19,8 +19,8 @@ const Connect = () => {
                         src="/imgs/Home/connectImage.webp"
                         alt={t("connect_image_alt")}
                         className="relative z-10 mb-12 h-[250px] w-full object-cover sm:h-[400px] md:h-[600px] lg:mt-12 lg:h-[500px]"
-                        width={700}
-                        height={700}
+                        width={1500}
+                        height={1500}
                     />
                     <Image
                         src="/decoration/grid-mobile.svg"
@@ -29,7 +29,7 @@ const Connect = () => {
                         width={700}
                         height={700}
                     />
-                    <div className="grid-overlay-left -top-12 z-0 hidden h-[350px] w-full sm:h-[500px] md:block md:h-[700px] lg:-top-12 lg:h-[43.9rem] lg:w-[53vw] xl:w-[45vw]"></div>
+                    <div className="grid-overlay-left -top-12 z-0 hidden h-[350px] w-full sm:h-[500px] md:block md:h-[700px] lg:-top-12 lg:h-[43.9rem] lg:w-[55vw] 2xl:w-[45vw]"></div>
                 </div>
 
                 <div className="flex w-full flex-col gap-2 px-8 md:px-10 lg:px-8">

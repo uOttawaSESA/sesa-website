@@ -4,13 +4,13 @@ import Image from "next/image";
 import { useRef } from "react";
 import ResourceCard from "@/app/[locale]/resources/components/ResourceCard/ResourceCard";
 import { Button } from "@/components/ui/button";
-import { useResources } from "@/lib/query";
+import { api } from "@/trpc/react";
 
 const RESOURCE_WIDTH = 350;
 
 const OtherResources = () => {
     const items = useRef<HTMLDivElement>(null);
-    const { data: otherResources } = useResources();
+    const { data: otherResources } = api.resource.getAll.useQuery();
 
     const scrollItems = (direction: "left" | "right") => {
         const scrollAmount = RESOURCE_WIDTH + 8;

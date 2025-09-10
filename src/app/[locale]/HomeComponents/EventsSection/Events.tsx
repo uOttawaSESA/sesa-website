@@ -9,12 +9,12 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Link } from "@/i18n/navigation";
-import { useEvents } from "@/lib/query";
+import { api } from "@/trpc/react";
 import EventCard from "./EventCard";
 
 export default function Events() {
     const t = useTranslations("homepage");
-    const { data: events } = useEvents();
+    const { data: events } = api.event.getAll.useQuery();
 
     return (
         <section className="space-y-4 ps-8 md:ps-20 xl:ps-32">

@@ -2,7 +2,7 @@ import Image from "next/image";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
 import FadeInSection from "@/components/FadeInSection";
-import Providers from "../providers";
+import { api, HydrateClient } from "@/trpc/server";
 import FooterSection from "./components/FooterSection";
 import Header from "./components/Header";
 import ResourceSection from "./components/ResourceSection";
@@ -26,43 +26,43 @@ export const metadata: Metadata = {
     },
 };
 
-const Resources = () => {
+export default async function Resources() {
+    void api.resource.getAll.prefetch();
+
     return (
-        <div className="min-h-screen text-white">
-            {/* Decorations */}
-            <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
-                {/* Warm gradient */}
-                <div className="fade-from-top-right-bg absolute right-0 h-[120rem] w-full bg-[#B1219D] bg-opacity-15 blur-3xl md:w-[80vw]" />
+        <HydrateClient>
+            <div className="min-h-screen text-white">
+                {/* Decorations */}
+                <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
+                    {/* Warm gradient */}
+                    <div className="fade-from-top-right-bg absolute right-0 h-[120rem] w-full bg-[#B1219D] bg-opacity-15 blur-3xl md:w-[80vw]" />
 
-                <Image
-                    src="/decoration/waves.svg"
-                    className="fade-from-top-bg absolute left-1/2 top-[26rem] hidden w-11/12 -translate-x-1/2 transform md:top-[10rem] md:block md:w-max"
-                    width={1200}
-                    height={280}
-                    alt=""
-                />
-            </div>
+                    <Image
+                        src="/decoration/waves.svg"
+                        className="fade-from-top-bg absolute left-1/2 top-[26rem] hidden w-11/12 -translate-x-1/2 transform md:top-[10rem] md:block md:w-max"
+                        width={1200}
+                        height={280}
+                        alt=""
+                    />
+                </div>
 
-            {/* Main Content Container */}
-            <div className="container relative z-30 mx-auto w-full px-4 py-8 md:max-w-7xl">
-                <FadeInSection>
-                    <Header />
-                </FadeInSection>
-                <FadeInSection>
-                    <Providers>
+                {/* Main Content Container */}
+                <div className="container relative z-30 mx-auto w-full px-4 py-8 md:max-w-7xl">
+                    <FadeInSection>
+                        <Header />
+                    </FadeInSection>
+                    <FadeInSection>
                         <ResourceSection />
-                    </Providers>
-                </FadeInSection>
-            </div>
+                    </FadeInSection>
+                </div>
 
-            {/* Footer Section (CTA and Ange quote) */}
-            <div className="relative z-10">
-                <FadeInSection>
-                    <FooterSection />
-                </FadeInSection>
+                {/* Footer Section (CTA and Ange quote) */}
+                <div className="relative z-10">
+                    <FadeInSection>
+                        <FooterSection />
+                    </FadeInSection>
+                </div>
             </div>
-        </div>
+        </HydrateClient>
     );
-};
-
-export default Resources;
+}

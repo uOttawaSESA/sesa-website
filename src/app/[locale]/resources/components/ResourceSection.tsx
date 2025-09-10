@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 import { parseAsInteger, useQueryState } from "nuqs";
 import { useEffect, useMemo, useState } from "react";
 import Pagination from "@/components/Pagination";
-import { useResources } from "@/lib/query";
+import { api } from "@/trpc/react";
 import ResourceList from "./ResourceList";
 import SearchFilterBar from "./SearchFilterBar";
 import type { Resource } from "@/schemas/resources";
@@ -27,7 +27,7 @@ const ResourceSection = () => {
     const [sortOption, setSortOption] = useState<string>("relevance");
     const [isMobile, setIsMobile] = useState(false);
 
-    const { isPending, error, data: resources } = useResources();
+    const { isPending, error, data: resources } = api.resource.getAll.useQuery();
 
     // Extract unique courses from resources for the course filter
     const availableCourses = useMemo(() => {

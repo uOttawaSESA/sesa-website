@@ -4,7 +4,6 @@ import { marked } from "marked";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
-import Providers from "../../providers";
 import OtherResources from "./OtherResources";
 
 export interface Resource {
@@ -118,9 +117,7 @@ export default async function ResourcePage({ params }: { params: Promise<{ id: s
                 </div>
             </div>
             {/* Other Resources */}
-            <Providers>
-                <OtherResources />
-            </Providers>
+            <OtherResources />
         </>
     );
 }

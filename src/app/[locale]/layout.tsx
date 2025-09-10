@@ -7,6 +7,7 @@ import { NuqsAdapter } from "nuqs/adapters/next/app";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { routing } from "@/i18n/routing";
+import { TRPCReactProvider } from "@/trpc/react";
 
 // Load fonts
 const geistSans = Geist({
@@ -72,13 +73,15 @@ export default async function RootLayout({
                 }}
             >
                 <NextIntlClientProvider>
-                    <NuqsAdapter>
-                        <div className="overflow-x-hidden">
-                            <Navbar />
-                            <main>{children}</main>
-                            <Footer />
-                        </div>
-                    </NuqsAdapter>
+                    <TRPCReactProvider>
+                        <NuqsAdapter>
+                            <div className="overflow-x-hidden">
+                                <Navbar />
+                                <main>{children}</main>
+                                <Footer />
+                            </div>
+                        </NuqsAdapter>
+                    </TRPCReactProvider>
                 </NextIntlClientProvider>
             </body>
         </html>
