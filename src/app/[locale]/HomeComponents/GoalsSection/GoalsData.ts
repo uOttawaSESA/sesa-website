@@ -8,7 +8,7 @@ export const goalsData: Goal[] = [
         },
         title: {
             en: "WE PROVIDE",
-            fr: "NOUS FOURNISSONS",
+            fr: "NOUS FOURNISSONS UNE",
         },
         highlightTitle: {
             en: "ACADEMIC HELP",
