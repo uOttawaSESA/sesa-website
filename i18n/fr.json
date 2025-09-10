@@ -209,7 +209,7 @@
         },
         "open": "OUVRIR",
         "tooltip": {
-            "s_tier": "Niveau S : La meilleur (la seule ressource dont vous avez vraiment besoin).",
+            "s_tier": "Niveau S : La meilleure (la seule ressource dont vous avez vraiment besoin).",
             "a_tier": "Niveau A : Excellente (votre ressource principale, mais à comparer avec d'autres).",
             "b_tier": "Niveau B : Bonne (une ressource de comparaison/de référence pour plus d'idées).",
             "c_tier": "Niveau C : Limitée (vous aurez besoin de plusieurs autres ressources en complément).",
