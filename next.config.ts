@@ -10,6 +10,12 @@ const nextConfig: NextConfig = {
                 port: "",
                 pathname: "/**",
             },
+            {
+                protocol: "https",
+                hostname: "dkfgekwffkyxixrsgaml.supabase.co",
+                port: "",
+                pathname: "/**",
+            },
         ],
     },
     // Biome is used for linting, not ESLint

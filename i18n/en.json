@@ -5,6 +5,26 @@
         "lang_bilingual": "Bilingual"
     },
 
+    "meta": {
+        "title_suffix": "Software Engineering Students’ Association",
+        "default_description": "The official website for the University of Ottawa’s SESA.",
+        "homepage_title": "Home",
+        "about_title": "About",
+        "about_description": "About the team at SESA.",
+        "contact_title": "Contact",
+        "contact_description": "Get in touch with the SESA team.",
+        "events_title": "Events",
+        "events_description": "Stay up to date on SESA’s events at the University of Ottawa.",
+        "policies_title": "Policies",
+        "policies_description": "Terms and conditions for the use of the SESA website.",
+        "resources_title": "Resources",
+        "resources_description": "Prepare for exams with SESA’s resources.",
+        "sponsors_title": "Sponsors",
+        "sponsors_description": "A list of our club’s sponsors.",
+        "thank_you_title": "Thank You!",
+        "thank_you_description": "Thank you for contacting us!"
+    },
+
     "homepage": {
         "we_are_sesa": "Software Engineering Students' Association",
         "bridging_the_gap_hl": "Bridging the gap",

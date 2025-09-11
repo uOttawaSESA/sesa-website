@@ -5,6 +5,26 @@
         "lang_bilingual": "Bilingue"
     },
 
+    "meta": {
+        "title_suffix": "Association des étudiants en génie logiciel",
+        "default_description": "Le site web officiel de l’Association des étudiants en génie logiciel.",
+        "homepage_title": "Accueil",
+        "about_title": "À propos",
+        "about_description": "À propos de l’équipe de l’AÉGL.",
+        "contact_title": "Contact",
+        "contact_description": "Communiquez avec l’équipe de l’AÉGL.",
+        "events_title": "Événements",
+        "events_description": "Restez à jour sur les événements de l’AÉGL à l’Université d’Ottawa.",
+        "policies_title": "Politiques",
+        "policies_description": "Conditions d’utilisation du site web de l’AÉGL.",
+        "resources_title": "Ressources",
+        "resources_description": "Préparez vos examens avec les ressources de l’AÉGL.",
+        "sponsors_title": "Commanditaires",
+        "sponsors_description": "Une liste des commanditaires de notre club.",
+        "thank_you_title": "Merci!",
+        "thank_you_description": "Merci de nous avoir contactés!"
+    },
+
     "homepage": {
         "we_are_sesa": "Association des Étudiants en Génie Logiciel",
         "bridging_the_gap_hl": "Réduire l'écart",

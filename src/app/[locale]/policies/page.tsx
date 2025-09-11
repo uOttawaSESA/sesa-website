@@ -1,27 +1,36 @@
 // biome-ignore-all lint: lint/correctness/useUniqueElementIds: IDs are only used once and should be human-readable
 
 import { useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
 import type { Metadata } from "next";
 export const generateStaticParams = localeParams;
 
-export const metadata: Metadata = {
-    title: "Policies | Software Engineering Students' Association",
-    description: "Policies for our website.",
-    alternates: {
-        canonical: "/policies",
-        languages: {
-            en: "/en/policies",
-            fr: "/fr/policies",
+export async function generateMetadata(): Promise<Metadata> {
+    const locale = await getLocale();
+    const t = await getTranslations("meta");
+
+    const title = `${t("policies_title")} | ${t("title_suffix")}`;
+    const description = t("policies_description");
+
+    return {
+        title,
+        description,
+        alternates: {
+            canonical: `/${locale}/policies`,
+            languages: {
+                en: "/en/policies",
+                fr: "/fr/policies",
+            },
         },
-    },
-    openGraph: {
-        title: "Policies | Software Engineering Students' Association",
-        description: "Policies for our website.",
-        url: new URL("https://sesa-aegl.ca/policies"),
-    },
-};
+        openGraph: {
+            title,
+            description,
+            url: new URL("https://sesa-aegl.ca/policies"),
+        },
+    };
+}
 
 export default function Policies() {
     const t = useTranslations("terms");

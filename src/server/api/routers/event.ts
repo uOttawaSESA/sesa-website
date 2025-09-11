@@ -1,4 +1,4 @@
-import { and, eq } from "drizzle-orm";
+import { and, desc, eq } from "drizzle-orm";
 import * as z from "zod";
 import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
 import { events, eventsI18n, type LocalizedEvent } from "@/server/db/schema";
@@ -30,7 +30,7 @@ export const eventRouter = createTRPCRouter({
                     eventsI18n,
                     and(eq(events.id, eventsI18n.eventId), eq(eventsI18n.locale, input.locale)),
                 )
-                .orderBy(events.startTime);
+                .orderBy(desc(events.startTime));
 
             return rows satisfies LocalizedEvent[];
         }),

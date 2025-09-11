@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getLocale } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import localeParams from "@/app/data/locales";
 import FadeInSection from "@/components/FadeInSection";
 import { api, HydrateClient } from "@/trpc/server";
@@ -15,16 +15,21 @@ import Team from "./HomeComponents/TeamSection/Team";
 import type { Metadata } from "next";
 export const generateStaticParams = localeParams;
 
-export const metadata: Metadata = {
-    title: "Home | Software Engineering Students' Association",
-    alternates: {
-        canonical: "/",
-        languages: {
-            en: "/en",
-            fr: "/fr",
+export async function generateMetadata(): Promise<Metadata> {
+    const locale = await getLocale();
+    const t = await getTranslations("meta");
+
+    return {
+        title: `${t("homepage_title")} | ${t("title_suffix")}`,
+        alternates: {
+            canonical: `/${locale}`,
+            languages: {
+                en: "/en",
+                fr: "/fr",
+            },
         },
-    },
-};
+    };
+}
 
 export default async function Home() {
     const locale = await getLocale();

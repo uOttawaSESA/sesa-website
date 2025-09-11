@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { getLocale, getTranslations } from "next-intl/server";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
 import { Button } from "@/components/ui/button";
@@ -7,22 +8,30 @@ import { Link } from "@/i18n/navigation";
 import type { Metadata } from "next";
 export const generateStaticParams = localeParams;
 
-export const metadata: Metadata = {
-    title: "Thank You | Software Engineering Students' Association",
-    description: "Thank you for contacting the Software Engineering Students' Association!",
-    alternates: {
-        canonical: "/thank_you",
-        languages: {
-            en: "/en/thank_you",
-            fr: "/fr/thank_you",
+export async function generateMetadata(): Promise<Metadata> {
+    const locale = await getLocale();
+    const t = await getTranslations("meta");
+
+    const title = `${t("thank_you_title")} | ${t("title_suffix")}`;
+    const description = t("thank_you_description");
+
+    return {
+        title,
+        description,
+        alternates: {
+            canonical: `/${locale}/thank_you`,
+            languages: {
+                en: "/en/thank_you",
+                fr: "/fr/thank_you",
+            },
         },
-    },
-    openGraph: {
-        title: "Thank You | Software Engineering Students' Association",
-        description: "Thank you for contacting the Software Engineering Students' Association!",
-        url: new URL("https://sesa-aegl.ca/thank_you"),
-    },
-};
+        openGraph: {
+            title,
+            description,
+            url: new URL("https://sesa-aegl.ca/thank_you"),
+        },
+    };
+}
 
 const ThankYou = () => {
     return (

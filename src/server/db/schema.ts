@@ -17,7 +17,7 @@ export const events = pgTable(
         location: text("location").notNull(),
         imageUrl: text("image_url").notNull(),
         detailsUrl: text("details_url").notNull(),
-        registrationUrl: text("details_url").notNull(),
+        registrationUrl: text("registration_url"),
     },
     t => [
         index("events_start_time_idx").on(t.startTime),
