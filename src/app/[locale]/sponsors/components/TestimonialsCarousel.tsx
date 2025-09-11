@@ -31,7 +31,7 @@ const sponsorsData = [
         logoAlt: "BiteSite logo",
         testimonial:
             "SESA has always been an amazing organization. I've always been impressed with their work and what they provide to students. In fact, my first two hires at BiteSite were SESA members. Their continued efforts to help out not only students, but the software community in general is admirable and I hope their work grows for years to come.",
-        highlights: ["In fact, my first two hires at BiteSite were SESA members."],
+        highlights: ["first two hires at BiteSite were SESA members."],
         person: {
             name: "Casey Li",
             title: "CEO at BiteSite",
@@ -43,33 +43,14 @@ const sponsorsData = [
         logoAlt: "uOttawa logo",
         testimonial:
             "SESA is an essential contributor to the software engineering program, providing new students with the opportunity to integrate smoothly into their studies while fostering a sense of belonging within the program, school, faculty, and university. By promoting socialization among its members and organizing enriching activities such as conferences and hackathons, SESA not only builds community but also supports the personal and professional growth of students, helping them flourish both academically and socially.",
-        highlights: [
-            "essential contributor to the software engineering program",
-            "integrate smoothly into their studies",
-            "sense of belonging",
-            "enriching activities such as conferences and hackathons",
-            "personal and professional growth",
-        ],
+        highlights: ["essential contributor", "integrate smoothly", "enriching activities"],
         person: {
             name: "Stéphane Sotèg Somé",
             title: "Associate Professor & SEG Co-op Coordinator at uOttawa",
-            image: "/imgs/people/professors/stephane-some.webp",
+            image: "/imgs/people/uottawa/stephane-some.webp",
         },
     },
-
-    // Add more sponsor testimonials here
-    // {
-    //     logo: "/sponsors/example-company.webp",
-    //     logoAlt: "Example Company logo",
-    //     testimonial:
-    //         "SESA exceeded our expectations with their innovative approach and dedication to excellence. The event was flawlessly executed.",
-    //     highlights: ["exceeded our expectations", "innovative approach"],
-    //     person: {
-    //         name: "John Smith",
-    //         title: "CTO at Example Company",
-    //         image: "/imgs/people/example/john-smith.webp",
-    //     },
-    // },
+    // ...other testimonials...
 ];
 
 const TestimonialsCarousel = () => {
@@ -101,11 +82,13 @@ const TestimonialsCarousel = () => {
                                     <Image
                                         src={sponsor.logo}
                                         alt={sponsor.logoAlt}
-                                        width={100}
-                                        height={20}
-                                        className="mb-4"
+                                        width={160}
+                                        height={40}
+                                        className={
+                                            sponsor.logo.includes("uottawa") ? "-mb-6" : "mb-2"
+                                        }
                                     />
-                                    <div className="mt-3 font-heading text-xl uppercase text-white md:text-2xl">
+                                    <div className="mt-2 font-heading text-xl uppercase text-white md:text-2xl">
                                         &ldquo;
                                         {sponsor.testimonial
                                             .split(new RegExp(`(${sponsor.highlights.join("|")})`))
