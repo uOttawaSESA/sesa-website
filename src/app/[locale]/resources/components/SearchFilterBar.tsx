@@ -360,28 +360,28 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                             <SelectContent>
                                                 <SelectGroup>
                                                     <SelectItem value="created_asc">
-                                                        {t("created_asc")}
+                                                        {t("sort_created_asc")}
                                                     </SelectItem>
                                                     <SelectItem value="created_desc">
-                                                        {t("created_desc")}
+                                                        {t("sort_created_desc")}
                                                     </SelectItem>
                                                     <SelectItem value="updated_asc">
-                                                        {t("updated_asc")}
+                                                        {t("sort_updated_asc")}
                                                     </SelectItem>
                                                     <SelectItem value="updated_desc">
-                                                        {t("updated_desc")}
+                                                        {t("sort_updated_desc")}
                                                     </SelectItem>
                                                     <SelectItem value="tier_asc">
-                                                        {t("tier_asc")}
+                                                        {t("sort_tier_asc")}
                                                     </SelectItem>
                                                     <SelectItem value="tier_desc">
-                                                        {t("tier_desc")}
+                                                        {t("sort_tier_desc")}
                                                     </SelectItem>
                                                     <SelectItem value="alphabetical_asc">
-                                                        {t("alphabetical_asc")}
+                                                        {t("sort_alphabetical_asc")}
                                                     </SelectItem>
                                                     <SelectItem value="alphabetical_desc">
-                                                        {t("alphabetical_desc")}
+                                                        {t("sort_alphabetical_desc")}
                                                     </SelectItem>
                                                 </SelectGroup>
                                             </SelectContent>

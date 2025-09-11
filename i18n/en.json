@@ -328,11 +328,14 @@
         "clear_all": "Clear All",
 
         "sort_label": "Sort",
-        "sort_item_relevance": "Relevance",
-        "sort_item_alphabetical": "Alphabetical",
-        "sort_tier_worst_best": "Tier (Worst to Best)",
-        "sort_tier_best_worst": "Tier (Best to Worst)",
-        "sort_last_updated": "Last Updated"
+        "sort_created_asc": "Date Created (Old to New)",
+        "sort_created_desc": "Date Created (New to Old)",
+        "sort_updated_asc": "Date Updated (Old to New)",
+        "sort_updated_desc": "Date Updated (New to Old)",
+        "sort_tier_asc": "Tier (Worst to Best)",
+        "sort_tier_desc": "Tier (Best to Worst)",
+        "sort_alphabetical_asc": "Alphabetical (A-Z)",
+        "sort_alphabetical_desc": "Alphabetical (Z-A)"
     },
     "sponsorships": {
         "header_top": "Sponsors & partners",
