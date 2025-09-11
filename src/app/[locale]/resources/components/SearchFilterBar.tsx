@@ -10,21 +10,13 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
-import type { ResourceSorts } from "@/server/api/routers/resource";
+import type { ResourceFilters, ResourceSorts } from "@/server/api/routers/resource";
 
 const gradientBorderClass = `
     border-[1px]
     border-solid
     [border-image:linear-gradient(55deg,rgba(136,36,220,0.7)_41.93%,rgba(177,33,157,0.7)_81.89%)_1]
 `;
-
-interface FilterOptions {
-    course: string;
-    category: string;
-    format: string;
-    language: string;
-    tier: string;
-}
 
 interface SearchFilterBarProps {
     isGridMode: boolean;
@@ -33,10 +25,10 @@ interface SearchFilterBarProps {
     setRowsToShow: (rows: number) => void;
     searchTerm: string;
     setSearchTerm: (term: string) => void;
-    filterOptions: FilterOptions;
-    setFilterOptions: (options: FilterOptions) => void;
-    sortOption: ResourceSorts | undefined;
-    setSortOption: (option: ResourceSorts | undefined) => void;
+    filterOptions: ResourceFilters;
+    setFilterOptions: (options: ResourceFilters) => void;
+    sortOption: ResourceSorts;
+    setSortOption: (option: ResourceSorts) => void;
     isMobile: boolean;
     availableCourses: readonly string[];
 }
@@ -75,14 +67,14 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
     );
 
     const filterDropdownOptions: Record<
-        keyof FilterOptions,
-        Array<{ label: string; value: string }>
+        keyof ResourceFilters,
+        Array<{ label: string; value: string | number }>
     > = {
         course: availableCoursesMapped,
         category: [
-            { label: t("filter_academic"), value: "Academic" },
-            { label: t("filter_career"), value: "Career" },
-            { label: t("filter_technical"), value: "Technical" },
+            { label: t("filter_academic"), value: "academic" },
+            { label: t("filter_career"), value: "career" },
+            { label: t("filter_technical"), value: "technical" },
         ],
         format: [
             { label: t("filter_video"), value: "video" },
@@ -91,24 +83,23 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
             { label: t("filter_blog"), value: "blog" },
             { label: t("filter_article"), value: "article" },
         ],
-        language: [
-            { label: t("filter_english"), value: "english" },
-            { label: t("filter_french"), value: "french" },
-            { label: t("filter_bilingual"), value: "bilingual" },
+        locale: [
+            { label: t("filter_english"), value: "en" },
+            { label: t("filter_french"), value: "fr" },
         ],
         tier: [
-            { label: t("filter_tier_s"), value: "S" },
-            { label: t("filter_tier_a"), value: "A" },
-            { label: t("filter_tier_b"), value: "B" },
-            { label: t("filter_tier_c"), value: "C" },
+            { label: t("filter_tier_s"), value: 0 },
+            { label: t("filter_tier_a"), value: 1 },
+            { label: t("filter_tier_b"), value: 2 },
+            { label: t("filter_tier_c"), value: 3 },
         ],
     };
 
-    const filterPlaceholders: Record<keyof FilterOptions, string> = {
+    const filterPlaceholders: Record<keyof ResourceFilters, string> = {
         course: t("filter_placeholder_course"),
         category: t("filter_placeholder_category"),
         format: t("filter_placeholder_format"),
-        language: t("filter_placeholder_language"),
+        locale: t("filter_placeholder_language"),
         tier: t("filter_placeholder_tier"),
     };
 
@@ -119,26 +110,22 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
         setOpenDropdown(null);
     };
 
-    const handleSortChange = (value: ResourceSorts | undefined) => {
+    const handleSortChange = (value: ResourceSorts) => {
         setSortOption(value);
         setOpenDropdown(null);
     };
 
-    const handleFilterChange = (key: keyof FilterOptions, value: string) => {
+    const handleFilterChange = (key: keyof ResourceFilters, value: string) => {
+        let realValue: string | number = value;
+        if (key === "tier") realValue = parseInt(value, 10);
         setFilterOptions({
             ...filterOptions,
-            [key]: value === "$none" ? "" : value,
+            [key]: realValue === "$none" ? undefined : realValue,
         });
     };
 
     const clearAllFilters = () => {
-        setFilterOptions({
-            course: "",
-            category: "",
-            format: "",
-            language: "",
-            tier: "",
-        });
+        setFilterOptions({});
     };
 
     return (
@@ -281,7 +268,13 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                         className={`${gradientBorderClass} animate-dropdown bg-[rgba(27,27,27,0.3)] p-4 backdrop-blur-3xl backdrop-saturate-150`}
                                     >
                                         {(
-                                            Object.keys(filterOptions) as Array<keyof FilterOptions>
+                                            [
+                                                "course",
+                                                "category",
+                                                "format",
+                                                "locale",
+                                                "tier",
+                                            ] as Array<keyof ResourceFilters>
                                         ).map(key => (
                                             <div className="mb-4 last:mb-0" key={key}>
                                                 <label
@@ -291,7 +284,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                                     {filterPlaceholders[key]}
                                                 </label>
                                                 <Select
-                                                    value={filterOptions[key]}
+                                                    value={filterOptions[key]?.toString()}
                                                     onValueChange={value =>
                                                         handleFilterChange(key, value)
                                                     }
@@ -307,7 +300,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                                                 option => (
                                                                     <SelectItem
                                                                         key={option.value}
-                                                                        value={option.value}
+                                                                        value={option.value.toString()}
                                                                     >
                                                                         {option.label}
                                                                     </SelectItem>
@@ -461,7 +454,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                 <p className="mb-2 font-sans text-sm uppercase text-white">
                                     {t("filter_label")}
                                 </p>
-                                {(Object.keys(filterOptions) as Array<keyof FilterOptions>).map(
+                                {(Object.keys(filterOptions) as Array<keyof ResourceFilters>).map(
                                     key => (
                                         <div className="mb-3 last:mb-0" key={key}>
                                             <label
@@ -471,7 +464,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                                 {filterPlaceholders[key]}
                                             </label>
                                             <Select
-                                                value={filterOptions[key]}
+                                                value={filterOptions[key]?.toString()}
                                                 onValueChange={value =>
                                                     handleFilterChange(key, value)
                                                 }
@@ -486,7 +479,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                                         {filterDropdownOptions[key].map(option => (
                                                             <SelectItem
                                                                 key={option.value}
-                                                                value={option.value}
+                                                                value={option.value.toString()}
                                                             >
                                                                 {option.label}
                                                             </SelectItem>

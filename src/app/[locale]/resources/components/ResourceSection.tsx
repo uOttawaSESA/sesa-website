@@ -1,13 +1,12 @@
 "use client";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { parseAsInteger, useQueryState } from "nuqs";
 import { useEffect, useMemo, useState } from "react";
 import Pagination from "@/components/Pagination";
 import { api } from "@/trpc/react";
 import ResourceList from "./ResourceList";
 import SearchFilterBar from "./SearchFilterBar";
-import type { ResourceSorts } from "@/server/api/routers/resource";
-import type { MappedResource } from "@/server/db/schema";
+import type { ResourceFilters, ResourceSorts } from "@/server/api/routers/resource";
 
 const ResourceSection = () => {
     // URL-based state
@@ -18,17 +17,11 @@ const ResourceSection = () => {
     const [rowsToShow, setRowsToShow] = useState(2);
     const [isGridMode, setIsGridMode] = useState(true);
     const [searchTerm, setSearchTerm] = useState("");
-    const [filterOptions, setFilterOptions] = useState({
-        course: "",
-        category: "",
-        format: "",
-        language: "",
-        tier: "",
-    });
-    const [sortOption, setSortOption] = useState<ResourceSorts | undefined>();
+    const [filterOptions, setFilterOptions] = useState<ResourceFilters>({});
+    const [sortOption, setSortOption] = useState<ResourceSorts>("created_desc");
     const [isMobile, setIsMobile] = useState(false);
 
-    const locale = useLocale() as "en" | "fr";
+    useEffect(() => console.log(filterOptions), [filterOptions]);
 
     const itemsPerRow = isGridMode ? (isMobile ? 1 : 3) : 1;
     const itemsPerPage = itemsPerRow * rowsToShow;
@@ -36,9 +29,10 @@ const ResourceSection = () => {
     const getPageBase = useMemo(
         () => ({
             pageSize: itemsPerPage,
+            filters: filterOptions,
             sort: sortOption,
         }),
-        [itemsPerPage, sortOption],
+        [itemsPerPage, sortOption, filterOptions],
     );
 
     const {
@@ -75,31 +69,6 @@ const ResourceSection = () => {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    // Filter resources based on search term and filter options
-    const filteredResources = useMemo(() => {
-        if (!resources) return [];
-        return resources;
-
-        return resources.filter(resource => {
-            const matchesSearchTerm =
-                resource.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                resource.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                resource.course?.toLowerCase().includes(searchTerm.toLowerCase());
-
-            const matchesFilters = Object.entries(filterOptions).every(([key, value]) => {
-                if (!value) return true;
-
-                const resourceValue = resource[key as keyof MappedResource];
-                return (
-                    typeof resourceValue === "string" &&
-                    resourceValue.toLowerCase() === value.toLowerCase()
-                );
-            });
-
-            return matchesSearchTerm && matchesFilters;
-        });
-    }, [resources, searchTerm, filterOptions]);
-
     return (
         <>
             {/* Pass state and handlers to SearchFilterBar */}
@@ -134,12 +103,8 @@ const ResourceSection = () => {
             ) : (
                 <>
                     {/* Resources Grid or Row */}
-                    {filteredResources.length > 0 ? (
-                        <ResourceList
-                            allResources={resources}
-                            currentResources={resources}
-                            isGridMode={isGridMode}
-                        />
+                    {resources.length > 0 ? (
+                        <ResourceList currentResources={resources} isGridMode={isGridMode} />
                     ) : (
                         <div className="flex justify-center items-center h-16">
                             <h1 className="font-heading text-xl text-white font-bold">
