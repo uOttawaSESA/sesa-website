@@ -1,6 +1,6 @@
 "use client";
 import { useTranslations } from "next-intl";
-import { parseAsInteger, useQueryState } from "nuqs";
+import { parseAsInteger, parseAsStringEnum, useQueryState } from "nuqs";
 import { useEffect, useMemo, useState } from "react";
 import Pagination from "@/components/Pagination";
 import { useDebounce } from "@/hooks";
@@ -20,7 +20,19 @@ const ResourceSection = () => {
     const [searchTerm, setSearchTerm] = useState<string | null>(null);
     const debouncedSearchTerm = useDebounce(searchTerm || null, 300);
     const [filterOptions, setFilterOptions] = useState<ResourceFilters>({});
-    const [sortOption, setSortOption] = useState<ResourceSorts>("created_desc");
+    const [sortOption, setSortOption] = useQueryState<ResourceSorts>(
+        "sort",
+        parseAsStringEnum([
+            "created_asc",
+            "created_desc",
+            "updated_asc",
+            "updated_desc",
+            "tier_asc",
+            "tier_desc",
+            "alphabetical_asc",
+            "alphabetical_desc",
+        ]).withDefault("created_desc"),
+    );
     const [isMobile, setIsMobile] = useState(false);
 
     const itemsPerRow = isGridMode ? (isMobile ? 1 : 3) : 1;
