@@ -15,3 +15,7 @@ next.config.*  @uOttawaSESA/devops
 package.json   @uOttawaSESA/devops
 pnpm-lock.yaml @uOttawaSESA/devops
 tsconfig.json  @uOttawaSESA/devops
+
+# Database
+drizzle/          @uOttawaSESA/devops
+drizzle.config.ts @uOttawaSESA/devops
