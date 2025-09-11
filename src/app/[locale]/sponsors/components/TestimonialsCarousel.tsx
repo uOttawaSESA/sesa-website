@@ -38,6 +38,24 @@ const sponsorsData = [
             image: "/imgs/people/bitesite/casey-li.webp",
         },
     },
+    {
+        logo: "/sponsors/uottawa.svg",
+        logoAlt: "uOttawa logo",
+        testimonial:
+            "SESA is an essential contributor to the software engineering program, providing new students with the opportunity to integrate smoothly into their studies while fostering a sense of belonging within the program, school, faculty, and university. By promoting socialization among its members and organizing enriching activities such as conferences and hackathons, SESA not only builds community but also supports the personal and professional growth of students, helping them flourish both academically and socially.",
+        highlights: [
+            "essential contributor to the software engineering program",
+            "integrate smoothly into their studies",
+            "sense of belonging",
+            "enriching activities such as conferences and hackathons",
+            "personal and professional growth",
+        ],
+        person: {
+            name: "Stéphane Sotèg Somé",
+            title: "Associate Professor & SEG Co-op Coordinator at uOttawa",
+            image: "/imgs/people/professors/stephane-some.webp",
+        },
+    },
 
     // Add more sponsor testimonials here
     // {
