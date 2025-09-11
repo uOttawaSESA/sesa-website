@@ -23,8 +23,8 @@ interface SearchFilterBarProps {
     setIsGridMode: (mode: boolean) => void;
     rowsToShow: number;
     setRowsToShow: (rows: number) => void;
-    searchTerm: string;
-    setSearchTerm: (term: string) => void;
+    searchTerm: string | null;
+    setSearchTerm: (term: string | null) => void;
     filterOptions: ResourceFilters;
     setFilterOptions: (options: ResourceFilters) => void;
     sortOption: ResourceSorts;
@@ -142,8 +142,11 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                     />
                     <input
                         type="text"
-                        value={searchTerm}
+                        value={searchTerm || ""}
                         onChange={e => setSearchTerm(e.target.value)}
+                        // onKeyDown={e => {
+                        //     if (e.key === 'Enter') setSearchTerm(pendingSearch || null)
+                        // }}
                         placeholder={t("search_placeholder")}
                         className="w-full bg-transparent font-sans md:text-base placeholder-white focus:outline-none"
                     />

@@ -39,7 +39,7 @@ function unreachable(_x: never, message: string): never {
     });
 }
 
-function buildFilteredQuery(filters: ResourceFilters) {
+function buildFilteredQuery(filters: ResourceFilters, search: string | null) {
     const queryFilters: SQL[] = [];
     // Simple equality
     if (filters.category != null) queryFilters.push(eq(resources.category, filters.category));
@@ -49,6 +49,8 @@ function buildFilteredQuery(filters: ResourceFilters) {
     // Array containment
     if (filters.locale != null)
         queryFilters.push(sql`${resources.locale} @> ARRAY[${filters.locale}]::text[]`);
+    // Full-text search
+    if (search != null) queryFilters.push(sql`${resources.title} ILIKE ${`%${search}%`}`);
 
     return queryFilters;
 }
@@ -95,12 +97,13 @@ export const resourceRouter = createTRPCRouter({
             z.object({
                 page: z.uint32().min(1),
                 pageSize: z.uint32().min(1),
+                search: z.string().nullable(),
                 filters: ResourceFilters,
                 sort: ResourceSorts,
             }),
         )
         .query(async ({ ctx, input }) => {
-            const { page, pageSize, filters, sort } = input;
+            const { page, pageSize, search, filters, sort } = input;
             const offset = (page - 1) * input.pageSize;
             /** The order query to use based on input parameters. */
             const order = (() => {
@@ -129,7 +132,7 @@ export const resourceRouter = createTRPCRouter({
                 }
             })();
 
-            const queryFilters = buildFilteredQuery(filters);
+            const queryFilters = buildFilteredQuery(filters, search);
 
             const rows = queryFilters.length
                 ? // Apply filters as WHERE clauses, if there are any filters
@@ -159,9 +162,9 @@ export const resourceRouter = createTRPCRouter({
      * Optionally, a filter can be provided to find the number of resources matching that filter.
      */
     getCount: publicProcedure
-        .input(z.object({ filters: ResourceFilters }).optional())
+        .input(z.object({ search: z.string().nullable(), filters: ResourceFilters }).optional())
         .query(async ({ ctx, input }) => {
-            const queryFilters = input ? buildFilteredQuery(input.filters) : [];
+            const queryFilters = input ? buildFilteredQuery(input.filters, input.search) : [];
 
             const base = ctx.db.select({ count: sql<number>`count(*)` }).from(resources);
             const [{ count }] = queryFilters.length

@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 import { parseAsInteger, useQueryState } from "nuqs";
 import { useEffect, useMemo, useState } from "react";
 import Pagination from "@/components/Pagination";
+import { useDebounce } from "@/hooks";
 import { api } from "@/trpc/react";
 import ResourceList from "./ResourceList";
 import SearchFilterBar from "./SearchFilterBar";
@@ -16,12 +17,11 @@ const ResourceSection = () => {
 
     const [rowsToShow, setRowsToShow] = useState(2);
     const [isGridMode, setIsGridMode] = useState(true);
-    const [searchTerm, setSearchTerm] = useState("");
+    const [searchTerm, setSearchTerm] = useState<string | null>(null);
+    const debouncedSearchTerm = useDebounce(searchTerm || null, 300);
     const [filterOptions, setFilterOptions] = useState<ResourceFilters>({});
     const [sortOption, setSortOption] = useState<ResourceSorts>("created_desc");
     const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => console.log(filterOptions), [filterOptions]);
 
     const itemsPerRow = isGridMode ? (isMobile ? 1 : 3) : 1;
     const itemsPerPage = itemsPerRow * rowsToShow;
@@ -29,10 +29,11 @@ const ResourceSection = () => {
     const getPageBase = useMemo(
         () => ({
             pageSize: itemsPerPage,
+            search: debouncedSearchTerm,
             filters: filterOptions,
             sort: sortOption,
         }),
-        [itemsPerPage, sortOption, filterOptions],
+        [itemsPerPage, debouncedSearchTerm, filterOptions, sortOption],
     );
 
     const {
@@ -45,7 +46,10 @@ const ResourceSection = () => {
     });
 
     const { data: availableCoursesData } = api.resource.getUniqueCourses.useQuery();
-    const { data: countData } = api.resource.getCount.useQuery({ filters: filterOptions });
+    const { data: countData } = api.resource.getCount.useQuery({
+        search: debouncedSearchTerm,
+        filters: filterOptions,
+    });
 
     const utils = api.useUtils();
 
