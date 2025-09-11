@@ -1,7 +1,7 @@
 import { Trash } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
     Select,
     SelectContent,
@@ -10,6 +10,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
+import type { ResourceSorts } from "@/server/api/routers/resource";
 
 const gradientBorderClass = `
     border-[1px]
@@ -34,10 +35,10 @@ interface SearchFilterBarProps {
     setSearchTerm: (term: string) => void;
     filterOptions: FilterOptions;
     setFilterOptions: (options: FilterOptions) => void;
-    sortOption: string;
-    setSortOption: (option: string) => void;
+    sortOption: ResourceSorts | undefined;
+    setSortOption: (option: ResourceSorts | undefined) => void;
     isMobile: boolean;
-    availableCourses: { label: string; value: string }[];
+    availableCourses: readonly string[];
 }
 
 export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
@@ -68,8 +69,16 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
         }
     }, [isGridMode, isMobile, setRowsToShow]);
 
-    const filterDropdownOptions: Record<keyof FilterOptions, { label: string; value: string }[]> = {
-        course: availableCourses,
+    const availableCoursesMapped = useMemo(
+        () => availableCourses.map(course => ({ label: course, value: course })),
+        [availableCourses],
+    );
+
+    const filterDropdownOptions: Record<
+        keyof FilterOptions,
+        Array<{ label: string; value: string }>
+    > = {
+        course: availableCoursesMapped,
         category: [
             { label: t("filter_academic"), value: "Academic" },
             { label: t("filter_career"), value: "Career" },
@@ -110,7 +119,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
         setOpenDropdown(null);
     };
 
-    const handleSortChange = (value: string) => {
+    const handleSortChange = (value: ResourceSorts | undefined) => {
         setSortOption(value);
         setOpenDropdown(null);
     };
@@ -343,26 +352,40 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                     <div
                                         className={`${gradientBorderClass} animate-dropdown bg-[rgba(27,27,27,0.3)] p-4 backdrop-blur-md backdrop-saturate-150`}
                                     >
-                                        <Select value={sortOption} onValueChange={handleSortChange}>
+                                        <Select
+                                            value={sortOption}
+                                            onValueChange={(value: ResourceSorts) =>
+                                                handleSortChange(value)
+                                            }
+                                        >
                                             <SelectTrigger className="w-full text-thistle">
                                                 <SelectValue placeholder="Sort" />
                                             </SelectTrigger>
                                             <SelectContent>
                                                 <SelectGroup>
-                                                    <SelectItem value="relevance">
-                                                        {t("sort_item_relevance")}
+                                                    <SelectItem value="created_asc">
+                                                        {t("created_asc")}
                                                     </SelectItem>
-                                                    <SelectItem value="alphabetical">
-                                                        {t("sort_item_alphabetical")}
+                                                    <SelectItem value="created_desc">
+                                                        {t("created_desc")}
                                                     </SelectItem>
-                                                    <SelectItem value="tier (worst to best)">
-                                                        {t("sort_tier_worst_best")}
+                                                    <SelectItem value="updated_asc">
+                                                        {t("updated_asc")}
                                                     </SelectItem>
-                                                    <SelectItem value="tier (best to worst)">
-                                                        {t("sort_tier_best_worst")}
+                                                    <SelectItem value="updated_desc">
+                                                        {t("updated_desc")}
                                                     </SelectItem>
-                                                    <SelectItem value="last updated">
-                                                        {t("sort_last_updated")}
+                                                    <SelectItem value="tier_asc">
+                                                        {t("tier_asc")}
+                                                    </SelectItem>
+                                                    <SelectItem value="tier_desc">
+                                                        {t("tier_desc")}
+                                                    </SelectItem>
+                                                    <SelectItem value="alphabetical_asc">
+                                                        {t("alphabetical_asc")}
+                                                    </SelectItem>
+                                                    <SelectItem value="alphabetical_desc">
+                                                        {t("alphabetical_desc")}
                                                     </SelectItem>
                                                 </SelectGroup>
                                             </SelectContent>
@@ -402,7 +425,12 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                 <p className="mb-2 font-sans text-sm uppercase text-white">
                                     {t("sort_label")}
                                 </p>
-                                <Select value={sortOption} onValueChange={handleSortChange}>
+                                <Select
+                                    value={sortOption}
+                                    onValueChange={(value: ResourceSorts) =>
+                                        handleSortChange(value)
+                                    }
+                                >
                                     <SelectTrigger className="w-full text-thistle">
                                         <SelectValue placeholder="Sort" />
                                     </SelectTrigger>

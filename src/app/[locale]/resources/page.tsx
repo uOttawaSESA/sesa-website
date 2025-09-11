@@ -42,6 +42,7 @@ export default async function Resources() {
         return NextResponse.json({ message: "Invalid locale" }, { status: 400 });
 
     void api.resource.getAll.prefetch({ locale });
+    void api.resource.getPage.prefetch({ page: 1, pageSize: 6 });
 
     return (
         <HydrateClient>

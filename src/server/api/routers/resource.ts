@@ -6,6 +6,21 @@ import { type MappedResource, resources } from "@/server/db/schema";
 
 const TIER_MAP = ["S", "A", "B", "C", "D", "E", "F"];
 
+const ResourceSorts = z
+    .enum([
+        "created_asc",
+        "created_desc",
+        "updated_asc",
+        "updated_desc",
+        "tier_asc",
+        "tier_desc",
+        "alphabetical_asc",
+        "alphabetical_desc",
+    ])
+    .default("created_desc");
+
+export type ResourceSorts = z.infer<typeof ResourceSorts>;
+
 function unreachable(_x: never, message: string): never {
     throw new TRPCError({
         code: "UNPROCESSABLE_CONTENT",
@@ -17,6 +32,7 @@ export const resourceRouter = createTRPCRouter({
     /**
      * Get all of the resources in the remote DB.
      * In general, it will be preferred to paginate data instead of using this.
+     * @see {@link resourceRouter.getPage}
      */
     getAll: publicProcedure
         .input(z.object({ locale: z.enum(["en", "fr"]) }))
@@ -48,22 +64,18 @@ export const resourceRouter = createTRPCRouter({
     /**
      * Get a particular page of the resources.
      * Takes the page and page size as arguments, as well as any sorts and filters to apply.
+     *
+     * This procedure uses offsets rather than cursors to get pages.
+     * This allows for jumping to arbitrary pages, but means that new data being added mid-pagination
+     * can lead to weird results while paginating, such as resources appearing on multiple pages.
+     * Since data is updated infrequently, this should be an acceptable tradeoff.
      */
     getPage: publicProcedure
         .input(
             z.object({
-                page: z.uint32(),
-                pageSize: z.uint32(),
-                sort: z.enum([
-                    "created_asc",
-                    "created_desc",
-                    "updated_asc",
-                    "updated_desc",
-                    "tier_asc",
-                    "tier_desc",
-                    "alphabetical_asc",
-                    "alphabetical_desc",
-                ]),
+                page: z.uint32().min(1),
+                pageSize: z.uint32().min(1),
+                sort: ResourceSorts,
             }),
         )
         .query(async ({ ctx, input }) => {
@@ -122,6 +134,6 @@ export const resourceRouter = createTRPCRouter({
      */
     getUniqueCourses: publicProcedure.query(async ({ ctx }) => {
         const rows = await ctx.db.selectDistinct({ course: resources.course }).from(resources);
-        return rows.map(row => row.course);
+        return rows.map(row => row.course).filter(course => typeof course === "string");
     }),
 });
