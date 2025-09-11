@@ -134,7 +134,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
 
     return (
         <div className="z-40 mb-8 p-px">
-            <div className="flex flex-col outline-gradient bg-gray-100 p-4 md:flex-row md:items-center md:justify-between">
+            <div className="flex flex-col outline-gradient bg-[rgba(27,27,27,0.3)] backdrop-blur-super p-4 md:flex-row md:items-center md:justify-between">
                 {/* Search */}
                 <div className="flex w-full flex-1 items-center gap-4 text-white">
                     <Image
