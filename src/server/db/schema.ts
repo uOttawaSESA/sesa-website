@@ -90,7 +90,9 @@ export const resources = pgTable(
         index("resources_tier_idx").on(t.tier),
         index("resources_created_at_idx").on(t.createdAt),
         index("resources_updated_at_idx").on(t.updatedAt),
+        // For full-text search
         index("resources_title_trgm_idx").using("gin", sql`${t.title} gin_trgm_ops`),
+        index("resources_course_trgm_idx").using("gin", sql`${t.course} gin_trgm_ops`),
     ],
 );
 

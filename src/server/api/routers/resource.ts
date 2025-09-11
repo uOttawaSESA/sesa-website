@@ -1,5 +1,5 @@
 import { TRPCError } from "@trpc/server";
-import { and, asc, desc, eq, type SQL, sql } from "drizzle-orm";
+import { and, asc, desc, eq, ilike, or, type SQL, sql } from "drizzle-orm";
 import * as z from "zod";
 import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
 import { type MappedResource, resources } from "@/server/db/schema";
@@ -40,7 +40,7 @@ function unreachable(_x: never, message: string): never {
 }
 
 function buildFilteredQuery(filters: ResourceFilters, search: string | null) {
-    const queryFilters: SQL[] = [];
+    const queryFilters: Array<SQL | undefined> = [];
     // Simple equality
     if (filters.category != null) queryFilters.push(eq(resources.category, filters.category));
     if (filters.course != null) queryFilters.push(eq(resources.course, filters.course));
@@ -50,7 +50,10 @@ function buildFilteredQuery(filters: ResourceFilters, search: string | null) {
     if (filters.locale != null)
         queryFilters.push(sql`${resources.locale} @> ARRAY[${filters.locale}]::text[]`);
     // Full-text search
-    if (search != null) queryFilters.push(sql`${resources.title} ILIKE ${`%${search}%`}`);
+    if (search != null) {
+        const term = `%${search}%`;
+        queryFilters.push(or(ilike(resources.title, term), ilike(resources.course, term)));
+    }
 
     return queryFilters;
 }

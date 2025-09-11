@@ -15,6 +15,13 @@
             "when": 1757548913567,
             "tag": "0001_curious_bedlam",
             "breakpoints": true
+        },
+        {
+            "idx": 2,
+            "version": "7",
+            "when": 1757561135741,
+            "tag": "0002_wise_wolverine",
+            "breakpoints": true
         }
     ]
 }
