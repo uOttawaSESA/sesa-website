@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import Marquee from "react-fast-marquee";
 import { Button } from "@/components/ui/button";
 import Star from "@/components/ui/decorations/star";
@@ -11,10 +11,15 @@ import ResourceCard from "../../resources/components/ResourceCard/ResourceCard";
 
 const Resources = () => {
     const t = useTranslations("homepage");
-    const locale = useLocale() as "en" | "fr";
-
-    const { data: resources } = api.resource.getAll.useQuery({ locale });
     const router = useRouter();
+
+    const { data: resources } = api.resource.getPage.useQuery({
+        page: 1,
+        pageSize: 30,
+        search: null,
+        filters: {},
+        sort: "created_desc",
+    });
 
     return (
         <section className="relative my-10 mb-0 flex w-full flex-col gap-4 text-white md:mb-20">

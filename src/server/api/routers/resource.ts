@@ -74,6 +74,7 @@ export const resourceRouter = createTRPCRouter({
      * Get all of the resources in the remote DB.
      * In general, it will be preferred to paginate data instead of using this.
      * @see {@link resourceRouter.getPage}
+     * @deprecated Use `getPage` unless there is a specific reason not to.
      */
     getAll: publicProcedure
         .input(z.object({ locale: z.enum(["en", "fr"]) }))
