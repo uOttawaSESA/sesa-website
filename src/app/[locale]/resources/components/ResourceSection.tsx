@@ -45,7 +45,7 @@ const ResourceSection = () => {
     });
 
     const { data: availableCoursesData } = api.resource.getUniqueCourses.useQuery();
-    const { data: countData } = api.resource.getCount.useQuery();
+    const { data: countData } = api.resource.getCount.useQuery({ filters: filterOptions });
 
     const utils = api.useUtils();
 

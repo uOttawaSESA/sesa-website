@@ -39,6 +39,20 @@ function unreachable(_x: never, message: string): never {
     });
 }
 
+function buildFilteredQuery(filters: ResourceFilters) {
+    const queryFilters: SQL[] = [];
+    // Simple equality
+    if (filters.category != null) queryFilters.push(eq(resources.category, filters.category));
+    if (filters.course != null) queryFilters.push(eq(resources.course, filters.course));
+    if (filters.format != null) queryFilters.push(eq(resources.format, filters.format));
+    if (filters.tier != null) queryFilters.push(eq(resources.tier, filters.tier));
+    // Array containment
+    if (filters.locale != null)
+        queryFilters.push(sql`${resources.locale} @> ARRAY[${filters.locale}]::text[]`);
+
+    return queryFilters;
+}
+
 export const resourceRouter = createTRPCRouter({
     /**
      * Get a single resource by ID.
@@ -115,16 +129,7 @@ export const resourceRouter = createTRPCRouter({
                 }
             })();
 
-            const queryFilters: SQL[] = [];
-            // Simple equality
-            if (filters.category != null)
-                queryFilters.push(eq(resources.category, filters.category));
-            if (filters.course != null) queryFilters.push(eq(resources.course, filters.course));
-            if (filters.format != null) queryFilters.push(eq(resources.format, filters.format));
-            if (filters.tier != null) queryFilters.push(eq(resources.tier, filters.tier));
-            // Array containment
-            if (filters.locale != null)
-                queryFilters.push(sql`${resources.locale} @> ARRAY[${filters.locale}]::text[]`);
+            const queryFilters = buildFilteredQuery(filters);
 
             const rows = queryFilters.length
                 ? // Apply filters as WHERE clauses, if there are any filters
@@ -151,11 +156,20 @@ export const resourceRouter = createTRPCRouter({
 
     /**
      * Get the total number of resources in the DB.
+     * Optionally, a filter can be provided to find the number of resources matching that filter.
      */
-    getCount: publicProcedure.query(async ({ ctx }) => {
-        const [{ count }] = await ctx.db.select({ count: sql<number>`count(*)` }).from(resources);
-        return count;
-    }),
+    getCount: publicProcedure
+        .input(z.object({ filters: ResourceFilters }).optional())
+        .query(async ({ ctx, input }) => {
+            const queryFilters = input ? buildFilteredQuery(input.filters) : [];
+
+            const base = ctx.db.select({ count: sql<number>`count(*)` }).from(resources);
+            const [{ count }] = queryFilters.length
+                ? await base.where(and(...queryFilters))
+                : await base;
+
+            return count;
+        }),
 
     /**
      * Get a list of all the unique courses in the resource list.
