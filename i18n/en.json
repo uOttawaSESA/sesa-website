@@ -335,7 +335,7 @@
         "sort_tier_best_worst": "Tier (Best to Worst)",
         "sort_last_updated": "Last Updated",
 
-        "pagination_go": "Go"
+        "pagination_go": "Go",
 
         "sort_created_asc": "Date Created (Old to New)",
         "sort_created_desc": "Date Created (New to Old)",
@@ -345,7 +345,6 @@
         "sort_tier_desc": "Tier (Best to Worst)",
         "sort_alphabetical_asc": "Alphabetical (A-Z)",
         "sort_alphabetical_desc": "Alphabetical (Z-A)"
-
     },
     "sponsorships": {
         "header_top": "Sponsors & partners",

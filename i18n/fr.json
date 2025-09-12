@@ -307,8 +307,7 @@
         "sort_tier_worst_best": "Niveau (Du pire au meilleur)",
         "sort_tier_best_worst": "Niveau (Du meilleur au pire)",
         "sort_last_updated": "Dernière mise à jour",
-        "pagination_go": "Aller"
-
+        "pagination_go": "Aller",
 
         "sort_created_asc": "Date de création (Ancienne à récente)",
         "sort_created_desc": "Date de création (Récente à ancienne)",
@@ -318,7 +317,6 @@
         "sort_tier_desc": "Niveau (Meilleure à pire)",
         "sort_alphabetical_asc": "Alphabétique (A-Z)",
         "sort_alphabetical_desc": "Alphabétique (Z-A)"
-
     },
     "sponsorships": {
         "header_top": "Commanditaires et partenaires",
