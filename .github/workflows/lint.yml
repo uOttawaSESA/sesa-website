@@ -33,3 +33,6 @@ jobs:
 
             - name: Lint project
               run: pnpm exec biome ci
+
+            - name: Check types
+              run: pnpm exec tsc
