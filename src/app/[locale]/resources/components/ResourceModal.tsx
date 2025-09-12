@@ -419,7 +419,7 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                                 </div>
 
                                 {/* Accessibility Feature */}
-                                {resource.accessibility && (
+                                {resource.accessibility.length > 0 && (
                                     <>
                                         <div className="h-[14px] w-px border-r border-thistle opacity-35" />
 
