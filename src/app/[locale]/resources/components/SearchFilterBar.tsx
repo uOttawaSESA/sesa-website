@@ -95,13 +95,33 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
         ],
     };
 
-    const filterPlaceholders: Record<keyof ResourceFilters, string> = {
-        course: t("filter_placeholder_course"),
-        category: t("filter_placeholder_category"),
-        format: t("filter_placeholder_format"),
-        locale: t("filter_placeholder_language"),
-        tier: t("filter_placeholder_tier"),
-    };
+    /** Mapping of sort keys to their display values. */
+    const sorts = useMemo(
+        () =>
+            ({
+                created_asc: t("sort_created_asc"),
+                created_desc: t("sort_created_desc"),
+                updated_asc: t("sort_updated_asc"),
+                updated_desc: t("sort_updated_desc"),
+                tier_asc: t("sort_tier_asc"),
+                tier_desc: t("sort_tier_desc"),
+                alphabetical_asc: t("sort_alphabetical_asc"),
+                alphabetical_desc: t("sort_alphabetical_desc"),
+            }) as const satisfies Record<ResourceSorts, string>,
+        [t],
+    );
+
+    const filterPlaceholders = useMemo(
+        () =>
+            ({
+                course: t("filter_placeholder_course"),
+                category: t("filter_placeholder_category"),
+                format: t("filter_placeholder_format"),
+                locale: t("filter_placeholder_language"),
+                tier: t("filter_placeholder_tier"),
+            }) as const satisfies Record<keyof ResourceFilters, string>,
+        [t],
+    );
 
     const hasActiveFilters = Object.values(filterOptions).some(value => value !== "");
 
@@ -359,30 +379,13 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                             </SelectTrigger>
                                             <SelectContent>
                                                 <SelectGroup>
-                                                    <SelectItem value="created_asc">
-                                                        {t("sort_created_asc")}
-                                                    </SelectItem>
-                                                    <SelectItem value="created_desc">
-                                                        {t("sort_created_desc")}
-                                                    </SelectItem>
-                                                    <SelectItem value="updated_asc">
-                                                        {t("sort_updated_asc")}
-                                                    </SelectItem>
-                                                    <SelectItem value="updated_desc">
-                                                        {t("sort_updated_desc")}
-                                                    </SelectItem>
-                                                    <SelectItem value="tier_asc">
-                                                        {t("sort_tier_asc")}
-                                                    </SelectItem>
-                                                    <SelectItem value="tier_desc">
-                                                        {t("sort_tier_desc")}
-                                                    </SelectItem>
-                                                    <SelectItem value="alphabetical_asc">
-                                                        {t("sort_alphabetical_asc")}
-                                                    </SelectItem>
-                                                    <SelectItem value="alphabetical_desc">
-                                                        {t("sort_alphabetical_desc")}
-                                                    </SelectItem>
+                                                    {Object.entries(sorts).map(
+                                                        ([sort, display]) => (
+                                                            <SelectItem key={sort} value={sort}>
+                                                                {display}
+                                                            </SelectItem>
+                                                        ),
+                                                    )}
                                                 </SelectGroup>
                                             </SelectContent>
                                         </Select>
@@ -432,21 +435,13 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                     </SelectTrigger>
                                     <SelectContent>
                                         <SelectGroup>
-                                            <SelectItem value="relevance">
-                                                {t("sort_item_relevance")}
-                                            </SelectItem>
-                                            <SelectItem value="alphabetical">
-                                                {t("sort_item_alphabetical")}
-                                            </SelectItem>
-                                            <SelectItem value="tier (worst to best)">
-                                                {t("sort_tier_worst_best")}
-                                            </SelectItem>
-                                            <SelectItem value="tier (best to worst)">
-                                                {t("sort_tier_best_worst")}
-                                            </SelectItem>
-                                            <SelectItem value="last updated">
-                                                {t("sort_last_updated")}
-                                            </SelectItem>
+                                            <SelectGroup>
+                                                {Object.entries(sorts).map(([sort, display]) => (
+                                                    <SelectItem key={sort} value={sort}>
+                                                        {display}
+                                                    </SelectItem>
+                                                ))}
+                                            </SelectGroup>
                                         </SelectGroup>
                                     </SelectContent>
                                 </Select>
@@ -457,42 +452,42 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                 <p className="mb-2 font-sans text-sm uppercase text-white">
                                     {t("filter_label")}
                                 </p>
-                                {(Object.keys(filterOptions) as Array<keyof ResourceFilters>).map(
-                                    key => (
-                                        <div className="mb-3 last:mb-0" key={key}>
-                                            <label
-                                                className="mb-1 block text-xs font-heading uppercase text-thistle"
-                                                htmlFor={key}
-                                            >
-                                                {filterPlaceholders[key]}
-                                            </label>
-                                            <Select
-                                                value={filterOptions[key]?.toString()}
-                                                onValueChange={value =>
-                                                    handleFilterChange(key, value)
-                                                }
-                                            >
-                                                <SelectTrigger className="w-full text-white">
-                                                    <SelectValue
-                                                        placeholder={filterPlaceholders[key]}
-                                                    />
-                                                </SelectTrigger>
-                                                <SelectContent>
-                                                    <SelectGroup>
-                                                        {filterDropdownOptions[key].map(option => (
-                                                            <SelectItem
-                                                                key={option.value}
-                                                                value={option.value.toString()}
-                                                            >
-                                                                {option.label}
-                                                            </SelectItem>
-                                                        ))}
-                                                    </SelectGroup>
-                                                </SelectContent>
-                                            </Select>
-                                        </div>
-                                    ),
-                                )}
+                                {(
+                                    Object.keys(filterDropdownOptions) as Array<
+                                        keyof ResourceFilters
+                                    >
+                                ).map(key => (
+                                    <div className="mb-3 last:mb-0" key={key}>
+                                        <label
+                                            className="mb-1 block text-xs font-heading uppercase text-thistle"
+                                            htmlFor={key}
+                                        >
+                                            {filterPlaceholders[key]}
+                                        </label>
+                                        <Select
+                                            value={filterOptions[key]?.toString()}
+                                            onValueChange={value => handleFilterChange(key, value)}
+                                        >
+                                            <SelectTrigger className="w-full text-white">
+                                                <SelectValue
+                                                    placeholder={filterPlaceholders[key]}
+                                                />
+                                            </SelectTrigger>
+                                            <SelectContent>
+                                                <SelectGroup>
+                                                    {filterDropdownOptions[key].map(option => (
+                                                        <SelectItem
+                                                            key={option.value}
+                                                            value={option.value.toString()}
+                                                        >
+                                                            {option.label}
+                                                        </SelectItem>
+                                                    ))}
+                                                </SelectGroup>
+                                            </SelectContent>
+                                        </Select>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     )}
