@@ -1,6 +1,12 @@
 "use client";
 import { useTranslations } from "next-intl";
-import { parseAsInteger, parseAsStringEnum, useQueryState } from "nuqs";
+import {
+    parseAsInteger,
+    parseAsString,
+    parseAsStringEnum,
+    useQueryState,
+    useQueryStates,
+} from "nuqs";
 import { useEffect, useMemo, useState } from "react";
 import Pagination from "@/components/Pagination";
 import { useDebounce } from "@/hooks";
@@ -19,7 +25,15 @@ const ResourceSection = () => {
     const [isGridMode, setIsGridMode] = useState(true);
     const [searchTerm, setSearchTerm] = useState<string | null>(null);
     const debouncedSearchTerm = useDebounce(searchTerm || null, 300);
-    const [filterOptions, setFilterOptions] = useState<ResourceFilters>({});
+
+    const [filterOptions, setFilterOptions] = useQueryStates({
+        course: parseAsString,
+        category: parseAsString,
+        format: parseAsString,
+        locale: parseAsStringEnum(["en", "fr"] as const),
+        tier: parseAsInteger,
+    }) satisfies [ResourceFilters, unknown];
+
     const [sortOption, setSortOption] = useQueryState<ResourceSorts>(
         "sort",
         parseAsStringEnum([

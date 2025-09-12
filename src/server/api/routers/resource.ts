@@ -18,15 +18,15 @@ const ResourceSorts = z.enum([
 ]);
 
 const ResourceFilters = z.object({
-    course: z.string().optional(),
-    category: z.string().optional(),
-    format: z.string().optional(),
-    locale: z.enum(["en", "fr"]).optional(),
+    course: z.string().nullish(),
+    category: z.string().nullish(),
+    format: z.string().nullish(),
+    locale: z.enum(["en", "fr"]).nullish(),
     tier: z
         .int()
         .min(0)
         .max(TIER_MAP.length - 1)
-        .optional(),
+        .nullish(),
 });
 
 export type ResourceSorts = z.infer<typeof ResourceSorts>;
