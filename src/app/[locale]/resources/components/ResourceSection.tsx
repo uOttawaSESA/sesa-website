@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 import {
     parseAsInteger,
     parseAsString,
-    parseAsStringEnum,
+    parseAsStringLiteral,
     useQueryState,
     useQueryStates,
 } from "nuqs";
@@ -30,13 +30,13 @@ const ResourceSection = () => {
         course: parseAsString,
         category: parseAsString,
         format: parseAsString,
-        locale: parseAsStringEnum(["en", "fr"] as const),
+        locale: parseAsStringLiteral(["en", "fr"] as const),
         tier: parseAsInteger,
     }) satisfies [ResourceFilters, unknown];
 
     const [sortOption, setSortOption] = useQueryState<ResourceSorts>(
         "sort",
-        parseAsStringEnum([
+        parseAsStringLiteral([
             "created_asc",
             "created_desc",
             "updated_asc",
