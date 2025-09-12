@@ -144,7 +144,13 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
     };
 
     const clearAllFilters = () => {
-        setFilterOptions({});
+        // Explicitly set all active filters to null
+        setFilterOptions(
+            Object.keys(filterOptions).reduce((acc, key) => {
+                acc[key as keyof ResourceFilters] = null;
+                return acc;
+            }, {} as ResourceFilters),
+        );
     };
 
     return (
