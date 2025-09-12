@@ -305,7 +305,8 @@
         "sort_item_alphabetical": "Alphabétique",
         "sort_tier_worst_best": "Niveau (Du pire au meilleur)",
         "sort_tier_best_worst": "Niveau (Du meilleur au pire)",
-        "sort_last_updated": "Dernière mise à jour"
+        "sort_last_updated": "Dernière mise à jour",
+        "pagination_go": "Aller"
     },
     "sponsorships": {
         "header_top": "Commanditaires et partenaires",

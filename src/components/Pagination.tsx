@@ -1,4 +1,5 @@
 "use client";
+import { useTranslations } from "next-intl";
 import { type FC, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,6 +12,7 @@ import {
     Pagination as ShadcnPagination,
 } from "@/components/ui/pagination";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Input } from "./ui/input";
 
 interface PaginationProps {
     currentPage: number;
@@ -21,6 +23,7 @@ interface PaginationProps {
 
 const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange, isMobile }) => {
     const inputRef = useRef<HTMLInputElement>(null);
+    const t = useTranslations("resources");
 
     const handlePrev = () => {
         if (currentPage > 1) onPageChange(currentPage - 1);
@@ -115,24 +118,24 @@ const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange
                                         className="w-auto rounded-lg p-3 shadow-lg backdrop-blur-lg bg-[rgba(27,27,27,0.3)]"
                                     >
                                         <div className="flex items-center gap-2">
-                                            <input
+                                            <Input
                                                 ref={inputRef}
                                                 type="number"
                                                 min={1}
                                                 max={totalPages}
                                                 defaultValue={currentPage}
-                                                className="w-16 rounded border px-2 py-1 text-center text-black"
+                                                className="w-16 text-lg text-center"
                                                 onKeyDown={e => {
                                                     if (e.key === "Enter") handleJump();
                                                 }}
                                             />
                                             <Button
+                                                variant="ghost"
                                                 size="sm"
-                                                className="px-2 py-1 text-xs text-white"
-                                                style={{ background: "transparent" }}
+                                                className="px-2 py-1 text-xs text-white bg-transparent"
                                                 onClick={handleJump}
                                             >
-                                                Go
+                                                {t("pagination_go")}
                                             </Button>
                                         </div>
                                     </PopoverContent>
