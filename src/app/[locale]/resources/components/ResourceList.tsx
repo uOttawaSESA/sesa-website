@@ -1,29 +1,29 @@
 "use client";
 import Image from "next/image";
 import { useQueryState } from "nuqs";
-import { useMemo } from "react";
+import { api } from "@/trpc/react";
 import { ResourceCard } from "./ResourceCard/ResourceCard";
 import { ResourceModal } from "./ResourceModal";
 import type React from "react";
 import type { MappedResource } from "@/server/db/schema";
 
 interface ResourceListProps {
-    allResources: MappedResource[];
     currentResources: MappedResource[];
     isGridMode: boolean;
 }
 
-const ResourceList: React.FC<ResourceListProps> = ({
-    allResources,
-    currentResources,
-    isGridMode,
-}) => {
+const ResourceList: React.FC<ResourceListProps> = ({ currentResources, isGridMode }) => {
     // URL-based state
     const [openResource, setOpenResource] = useQueryState("id");
 
-    const selectedResource = useMemo(
-        () => allResources.find(resource => resource.id === openResource) ?? null,
-        [openResource, allResources.find],
+    const { data: selectedResource } = api.resource.get.useQuery(
+        // biome-ignore lint/style/noNonNullAssertion: The `enabled` field ensures this is non-null
+        { id: openResource! },
+        {
+            enabled: !!openResource,
+            // If the resource is part of the current page, just use that
+            initialData: () => currentResources.find(resource => resource.id === openResource),
+        },
     );
 
     const openModal = (resource: MappedResource) => {

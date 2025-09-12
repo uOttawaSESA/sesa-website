@@ -261,7 +261,7 @@
         "resources_heading": "Ressources",
         "resources_heading_hl": "pour les étudiants, par les étudiants",
         "resources_blurb": "Notre équipe académique sélectionne activement des ressources gratuites pour soutenir les étudiants en génie logiciel dans leurs études.",
-        "search_placeholder": "Rechercher par titre, catégorie ou cours",
+        "search_placeholder": "Rechercher par titre ou cours",
         "contributing_heading": "Intéressé à contribuer ou à demander des ressources ?",
         "btn_join_discord": "Rejoignez notre Discord",
         "education_quote_1": "La véritable éducation naît là où",
@@ -301,12 +301,24 @@
         "clear_filters": "Effacer les filtres",
         "clear_all": "Tout effacer",
         "sort_label": "Trier",
+
         "sort_item_relevance": "Pertinence",
         "sort_item_alphabetical": "Alphabétique",
         "sort_tier_worst_best": "Niveau (Du pire au meilleur)",
         "sort_tier_best_worst": "Niveau (Du meilleur au pire)",
         "sort_last_updated": "Dernière mise à jour",
         "pagination_go": "Aller"
+
+
+        "sort_created_asc": "Date de création (Ancienne à récente)",
+        "sort_created_desc": "Date de création (Récente à ancienne)",
+        "sort_updated_asc": "Date de mise à jour (Ancienne à récente)",
+        "sort_updated_desc": "Date de mise à jour (Récente à ancienne)",
+        "sort_tier_asc": "Niveau (Pire à meilleure)",
+        "sort_tier_desc": "Niveau (Meilleure à pire)",
+        "sort_alphabetical_asc": "Alphabétique (A-Z)",
+        "sort_alphabetical_desc": "Alphabétique (Z-A)"
+
     },
     "sponsorships": {
         "header_top": "Commanditaires et partenaires",

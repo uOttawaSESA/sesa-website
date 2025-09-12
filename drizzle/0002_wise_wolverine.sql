@@ -1,0 +1,1 @@
+CREATE INDEX "resources_course_trgm_idx" ON "resources" USING gin ("course" gin_trgm_ops);
