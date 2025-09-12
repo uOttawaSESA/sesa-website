@@ -328,13 +328,6 @@
         "clear_all": "Clear All",
 
         "sort_label": "Sort",
-
-        "sort_item_relevance": "Relevance",
-        "sort_item_alphabetical": "Alphabetical",
-        "sort_tier_worst_best": "Tier (Worst to Best)",
-        "sort_tier_best_worst": "Tier (Best to Worst)",
-        "sort_last_updated": "Last Updated",
-
         "pagination_go": "Go",
 
         "sort_created_asc": "Date Created (Old to New)",
