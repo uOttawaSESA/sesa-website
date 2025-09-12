@@ -1,6 +1,7 @@
 "use client";
 import { useTranslations } from "next-intl";
 import {
+    createParser,
     parseAsInteger,
     parseAsString,
     parseAsStringLiteral,
@@ -14,6 +15,29 @@ import { api } from "@/trpc/react";
 import ResourceList from "./ResourceList";
 import SearchFilterBar from "./SearchFilterBar";
 import type { ResourceFilters, ResourceSorts } from "@/server/api/routers/resource";
+
+const TIER_MAP = ["S", "A", "B", "C", "D", "E", "F"] as const;
+const REVERSE_TIER_MAP = {
+    S: 0,
+    A: 1,
+    B: 2,
+    C: 3,
+    D: 4,
+    E: 5,
+    F: 6,
+} as const;
+
+const parseAsTier = createParser<0 | 1 | 2 | 3 | 4 | 5 | 6>({
+    parse(value) {
+        if (value in REVERSE_TIER_MAP)
+            return REVERSE_TIER_MAP[value as keyof typeof REVERSE_TIER_MAP];
+        return null;
+    },
+
+    serialize(value) {
+        return TIER_MAP[value];
+    },
+});
 
 const ResourceSection = () => {
     // URL-based state
@@ -31,7 +55,7 @@ const ResourceSection = () => {
         category: parseAsString,
         format: parseAsString,
         locale: parseAsStringLiteral(["en", "fr"] as const),
-        tier: parseAsInteger,
+        tier: parseAsTier,
     }) satisfies [ResourceFilters, unknown];
 
     const [sortOption, setSortOption] = useQueryState<ResourceSorts>(
