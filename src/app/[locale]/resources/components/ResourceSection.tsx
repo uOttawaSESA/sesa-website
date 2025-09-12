@@ -134,7 +134,7 @@ const ResourceSection = () => {
                 searchTerm={searchTerm}
                 setSearchTerm={setSearchTerm}
                 filterOptions={filterOptions}
-                setFilterOptions={setFilterOptions}
+                setFilterOptions={setFilterOptions as (options: ResourceFilters) => void}
                 sortOption={sortOption}
                 setSortOption={setSortOption}
                 isMobile={isMobile}
