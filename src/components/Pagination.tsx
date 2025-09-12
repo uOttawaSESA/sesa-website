@@ -112,12 +112,7 @@ const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange
                                     <PopoverContent
                                         align="center"
                                         side="top"
-                                        className="w-auto rounded-lg p-3 shadow-lg"
-                                        style={{
-                                            background:
-                                                "linear-gradient(90deg, #8824dc 41.93%, #b1219d 81.89%)",
-                                            color: "white",
-                                        }}
+                                        className="w-auto rounded-lg p-3 shadow-lg backdrop-blur-lg bg-[rgba(27,27,27,0.3)]"
                                     >
                                         <div className="flex items-center gap-2">
                                             <input
