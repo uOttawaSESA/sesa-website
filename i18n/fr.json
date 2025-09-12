@@ -302,11 +302,6 @@
         "clear_all": "Tout effacer",
         "sort_label": "Trier",
 
-        "sort_item_relevance": "Pertinence",
-        "sort_item_alphabetical": "Alphabétique",
-        "sort_tier_worst_best": "Niveau (Du pire au meilleur)",
-        "sort_tier_best_worst": "Niveau (Du meilleur au pire)",
-        "sort_last_updated": "Dernière mise à jour",
         "pagination_go": "Aller",
 
         "sort_created_asc": "Date de création (Ancienne à récente)",
