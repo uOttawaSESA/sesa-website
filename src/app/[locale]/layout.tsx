@@ -54,13 +54,7 @@ export async function generateMetadata(): Promise<Metadata> {
         },
         icons: [
             {
-                media: "(prefers-color-scheme: light)",
                 url: "/logo-filled.svg",
-                type: "image/svg+xml",
-            },
-            {
-                media: "(prefers-color-scheme: dark)",
-                url: "/sesa-logo.svg",
                 type: "image/svg+xml",
             },
         ],
