@@ -1,5 +1,5 @@
 import { TRPCError } from "@trpc/server";
-import { and, asc, desc, eq, ilike, or, type SQL, sql } from "drizzle-orm";
+import { and, asc, desc, eq, gt, ilike, lt, or, type SQL, sql } from "drizzle-orm";
 import * as z from "zod";
 import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
 import { type MappedResource, resources } from "@/server/db/schema";
@@ -58,6 +58,34 @@ function buildFilteredQuery(filters: ResourceFilters, search: string | null) {
     return queryFilters;
 }
 
+function buildSortedQuery(
+    sort: ResourceSorts,
+): [sort: SQL, cursorCompare: "gt" | "lt", cursorField: keyof MappedResource] {
+    switch (sort) {
+        case "created_asc":
+            return [asc(resources.createdAt), "gt", "createdAt"];
+        case "created_desc":
+            return [desc(resources.createdAt), "lt", "createdAt"];
+        case "updated_asc":
+            return [asc(resources.updatedAt), "gt", "updatedAt"];
+        case "updated_desc":
+            return [desc(resources.updatedAt), "lt", "updatedAt"];
+        // Note for tier queries: since S tier is 0, A is 1, etc.,
+        // the meaning of ascending/descending is flipped.
+        case "tier_asc":
+            return [desc(resources.tier), "lt", "tier"];
+        case "tier_desc":
+            return [asc(resources.tier), "gt", "tier"];
+        case "alphabetical_asc":
+            return [asc(resources.title), "gt", "title"];
+        case "alphabetical_desc":
+            return [desc(resources.title), "lt", "title"];
+        default:
+            // This line should give a type error if there are unhandled sorts
+            unreachable(sort, `Unknown sort ${sort}.`);
+    }
+}
+
 export const resourceRouter = createTRPCRouter({
     /**
      * Get a single resource by ID.
@@ -88,7 +116,78 @@ export const resourceRouter = createTRPCRouter({
         }),
 
     /**
-     * Get a particular page of the resources.
+     * Get a particular page of the resources using cursor-based pagination.
+     * Takes the cursor and page size as arguments, as well as any sorts and filters to apply.
+     */
+    getCursorPage: publicProcedure
+        .input(
+            z.object({
+                cursor: z.object({ id: z.uuidv4(), value: z.unknown() }).nullish(),
+                pageSize: z.number(),
+                search: z.string().nullable(),
+                filters: ResourceFilters,
+                sort: ResourceSorts,
+            }),
+        )
+        .query(async ({ ctx, input }) => {
+            const { cursor, pageSize, search, filters, sort } = input;
+            /** The order query to use based on input parameters. */
+            const [order, direction, field] = buildSortedQuery(sort);
+            const idOrder = direction === "gt" ? asc(resources.id) : desc(resources.id);
+
+            const queryFilters = buildFilteredQuery(filters, search);
+
+            if (cursor != null) {
+                // Compare the main field
+                // biome-ignore-start lint/suspicious/noExplicitAny: cursor.value is based on the target field
+                const primaryCompare =
+                    direction === "gt"
+                        ? gt(resources[field], cursor.value as any)
+                        : lt(resources[field], cursor.value as any);
+
+                // If the main field equals the cursor value, compare IDs as the tiebreaker.
+                // The id comparator must match the direction.
+                const idCompare =
+                    direction === "gt" ? gt(resources.id, cursor.id) : lt(resources.id, cursor.id);
+
+                // Lexicographic cursor predicate: field > cursor.value OR (field = cursor.value AND id >|< cursor.id)
+                const cursorPredicate = or(
+                    primaryCompare,
+                    and(eq(resources[field], cursor.value as any), idCompare),
+                );
+                // biome-ignore-end lint/suspicious/noExplicitAny: cursor.value is based on the target field
+
+                queryFilters.push(cursorPredicate);
+            }
+
+            const rows = queryFilters.length
+                ? // Apply filters as WHERE clauses, if there are any filters
+                  await ctx.db
+                      .select()
+                      .from(resources)
+                      .where(and(...queryFilters))
+                      .orderBy(order, idOrder)
+                      .limit(pageSize)
+                : // Otherwise, omit the WHERE
+                  await ctx.db.select().from(resources).orderBy(order, idOrder).limit(pageSize);
+
+            // Determine the new cursor
+            const lastRow = rows.at(-1);
+            let nextCursor: typeof cursor = null;
+            if (lastRow != null) {
+                nextCursor = { id: lastRow.id, value: lastRow[field] };
+            }
+
+            const mappedRows = rows.map(resource => ({
+                ...resource,
+                tier: TIER_MAP[resource.tier] ?? "F",
+            })) satisfies MappedResource[];
+
+            return { data: mappedRows, prevCursor: cursor, nextCursor: nextCursor };
+        }),
+
+    /**
+     * Get a particular page of the resources using offset-based pagination.
      * Takes the page and page size as arguments, as well as any sorts and filters to apply.
      *
      * This procedure uses offsets rather than cursors to get pages.
@@ -110,31 +209,7 @@ export const resourceRouter = createTRPCRouter({
             const { page, pageSize, search, filters, sort } = input;
             const offset = (page - 1) * input.pageSize;
             /** The order query to use based on input parameters. */
-            const order = (() => {
-                switch (sort) {
-                    case "created_asc":
-                        return asc(resources.createdAt);
-                    case "created_desc":
-                        return desc(resources.createdAt);
-                    case "updated_asc":
-                        return asc(resources.updatedAt);
-                    case "updated_desc":
-                        return desc(resources.updatedAt);
-                    // Note for tier queries: since S tier is 0, A is 1, etc.,
-                    // the meaning of ascending/descending is flipped.
-                    case "tier_asc":
-                        return desc(resources.tier);
-                    case "tier_desc":
-                        return asc(resources.tier);
-                    case "alphabetical_asc":
-                        return asc(resources.title);
-                    case "alphabetical_desc":
-                        return desc(resources.title);
-                    default:
-                        // This line should give a type error if there are unhandled sorts
-                        unreachable(sort, `Unknown sort ${sort}.`);
-                }
-            })();
+            const [order] = buildSortedQuery(sort);
 
             const queryFilters = buildFilteredQuery(filters, search);
 
@@ -144,14 +219,14 @@ export const resourceRouter = createTRPCRouter({
                       .select()
                       .from(resources)
                       .where(and(...queryFilters))
-                      .orderBy(order)
+                      .orderBy(order, asc(resources.id))
                       .offset(offset)
                       .limit(pageSize)
                 : // Otherwise, omit the WHERE
                   await ctx.db
                       .select()
                       .from(resources)
-                      .orderBy(order)
+                      .orderBy(order, asc(resources.id))
                       .offset(offset)
                       .limit(pageSize);
 
