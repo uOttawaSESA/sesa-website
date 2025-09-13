@@ -342,7 +342,9 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                                                 };
                                                             }[]
                                                         }
-                                                        value={filterOptions.accessibility ?? []}
+                                                        defaultValue={
+                                                            filterOptions.accessibility ?? []
+                                                        }
                                                         onValueChange={(values: string[]) => {
                                                             setFilterOptions({
                                                                 ...filterOptions,
