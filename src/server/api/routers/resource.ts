@@ -169,22 +169,25 @@ export const resourceRouter = createTRPCRouter({
                       .from(resources)
                       .where(and(...queryFilters))
                       .orderBy(order, idOrder)
-                      .limit(RESOURCE_PAGE_SIZE)
+                      .limit(RESOURCE_PAGE_SIZE + 1)
                 : // Otherwise, omit the WHERE
                   await ctx.db
                       .select()
                       .from(resources)
                       .orderBy(order, idOrder)
-                      .limit(RESOURCE_PAGE_SIZE);
+                      .limit(RESOURCE_PAGE_SIZE + 1);
+
+            const hasMore = rows.length === RESOURCE_PAGE_SIZE + 1;
 
             // Determine the new cursor
-            const lastRow = rows.at(-1);
             let nextCursor: typeof cursor = null;
-            if (lastRow != null) {
+            if (hasMore) {
+                // biome-ignore lint/style/noNonNullAssertion: hasMore implies that the list is not empty
+                const lastRow = rows.at(-1)!;
                 nextCursor = { id: lastRow.id, value: lastRow[field] };
             }
 
-            const mappedRows = rows.map(resource => ({
+            const mappedRows = rows.slice(0, RESOURCE_PAGE_SIZE).map(resource => ({
                 ...resource,
                 tier: TIER_MAP[resource.tier] ?? "F",
             })) satisfies MappedResource[];
