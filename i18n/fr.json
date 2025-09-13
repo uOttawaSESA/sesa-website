@@ -303,6 +303,11 @@
         "sort_label": "Trier",
 
         "pagination_go": "Aller",
+        "pagination_previous": "Précédent",
+        "pagination_next": "Suivant",
+        "pagination_aria_previous": "Aller à la page précédente",
+        "pagination_aria_next": "Aller à la page suivante",
+        "pagination_ellipsis": "Plus de pages",
 
         "sort_created_asc": "Date de création (Ancienne à récente)",
         "sort_created_desc": "Date de création (Récente à ancienne)",

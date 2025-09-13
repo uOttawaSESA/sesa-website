@@ -329,6 +329,11 @@
 
         "sort_label": "Sort",
         "pagination_go": "Go",
+        "pagination_previous": "Previous",
+        "pagination_next": "Next",
+        "pagination_aria_previous": "Go to previous page",
+        "pagination_aria_next": "Go to next page",
+        "pagination_ellipsis": "More pages",
 
         "sort_created_asc": "Date Created (Old to New)",
         "sort_created_desc": "Date Created (New to Old)",
