@@ -42,7 +42,6 @@ export default async function Resources() {
         return NextResponse.json({ message: "Invalid locale" }, { status: 400 });
 
     void api.resource.getCursorPage.prefetchInfinite({
-        pageSize: 12,
         search: null,
         filters: {},
         sort: "created_desc",

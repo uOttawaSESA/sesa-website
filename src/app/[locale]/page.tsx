@@ -38,7 +38,6 @@ export default async function Home() {
 
     void api.event.getAll.prefetch({ locale });
     void api.resource.getCursorPage.prefetchInfinite({
-        pageSize: 12,
         search: null,
         filters: {},
         sort: "created_desc",

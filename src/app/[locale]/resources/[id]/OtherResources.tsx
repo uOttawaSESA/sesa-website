@@ -11,7 +11,6 @@ const RESOURCE_WIDTH = 350;
 const OtherResources = () => {
     const items = useRef<HTMLDivElement>(null);
     const { data } = api.resource.getCursorPage.useInfiniteQuery({
-        pageSize: 12,
         search: null,
         filters: {},
         sort: "created_desc",

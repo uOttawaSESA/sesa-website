@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { useMemo } from "react";
 import Marquee from "react-fast-marquee";
 import { Button } from "@/components/ui/button";
 import Star from "@/components/ui/decorations/star";
@@ -13,13 +14,15 @@ const Resources = () => {
     const t = useTranslations("homepage");
     const router = useRouter();
 
-    const { data: resources } = api.resource.getOffsetPage.useQuery({
-        page: 1,
-        pageSize: 12,
+    const { data } = api.resource.getCursorPage.useInfiniteQuery({
         search: null,
         filters: {},
         sort: "created_desc",
     });
+    const resources = useMemo(() => {
+        if (!data) return [];
+        return data.pages.flatMap(page => page.data);
+    }, [data]);
 
     return (
         <section className="relative my-10 mb-0 flex w-full flex-col gap-4 text-white md:mb-20">

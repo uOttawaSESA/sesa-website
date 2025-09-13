@@ -32,6 +32,8 @@ const ResourceFilters = z.object({
 export type ResourceSorts = z.infer<typeof ResourceSorts>;
 export type ResourceFilters = z.infer<typeof ResourceFilters>;
 
+const RESOURCE_PAGE_SIZE = 12;
+
 function unreachable(_x: never, message: string): never {
     throw new TRPCError({
         code: "UNPROCESSABLE_CONTENT",
@@ -101,8 +103,9 @@ export const resourceRouter = createTRPCRouter({
     /**
      * Get all of the resources in the remote DB.
      * In general, it will be preferred to paginate data instead of using this.
+     * @see {@link resourceRouter.getCursorPage}
      * @see {@link resourceRouter.getOffsetPage}
-     * @deprecated Use `getPage` unless there is a specific reason not to.
+     * @deprecated Use page-based procedures unless there is a specific reason not to.
      */
     getAll: publicProcedure
         .input(z.object({ locale: z.enum(["en", "fr"]) }))
@@ -123,14 +126,13 @@ export const resourceRouter = createTRPCRouter({
         .input(
             z.object({
                 cursor: z.object({ id: z.uuidv4(), value: z.unknown() }).nullish(),
-                pageSize: z.number(),
                 search: z.string().nullable(),
                 filters: ResourceFilters,
                 sort: ResourceSorts,
             }),
         )
         .query(async ({ ctx, input }) => {
-            const { cursor, pageSize, search, filters, sort } = input;
+            const { cursor, search, filters, sort } = input;
             /** The order query to use based on input parameters. */
             const [order, direction, field] = buildSortedQuery(sort);
             const idOrder = direction === "gt" ? asc(resources.id) : desc(resources.id);
@@ -167,9 +169,13 @@ export const resourceRouter = createTRPCRouter({
                       .from(resources)
                       .where(and(...queryFilters))
                       .orderBy(order, idOrder)
-                      .limit(pageSize)
+                      .limit(RESOURCE_PAGE_SIZE)
                 : // Otherwise, omit the WHERE
-                  await ctx.db.select().from(resources).orderBy(order, idOrder).limit(pageSize);
+                  await ctx.db
+                      .select()
+                      .from(resources)
+                      .orderBy(order, idOrder)
+                      .limit(RESOURCE_PAGE_SIZE);
 
             // Determine the new cursor
             const lastRow = rows.at(-1);

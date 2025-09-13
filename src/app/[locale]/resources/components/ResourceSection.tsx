@@ -73,7 +73,6 @@ const ResourceSection = () => {
 
     const getPageBase = useMemo(
         () => ({
-            pageSize: 12,
             search: debouncedSearchTerm,
             filters: filterOptions,
             sort: sortOption,
