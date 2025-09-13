@@ -2,6 +2,7 @@ import { Trash } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useEffect, useMemo, useState } from "react";
+import { MultiSelect } from "@/components/ui/multi-select";
 import {
     Select,
     SelectContent,
@@ -93,6 +94,10 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
             { label: t("filter_tier_b"), value: 2 },
             { label: t("filter_tier_c"), value: 3 },
         ],
+        accessibility: [
+            { label: t("filter_accessibility_cc"), value: "closed captions [cc]" },
+            { label: t("filter_accessibility_screenreader"), value: "screen reader compatible" },
+        ],
     };
 
     /** Mapping of sort keys to their display values. */
@@ -119,6 +124,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                 format: t("filter_placeholder_format"),
                 locale: t("filter_placeholder_language"),
                 tier: t("filter_placeholder_tier"),
+                accessibility: t("filter_placeholder_accessibility"),
             }) as const satisfies Record<keyof ResourceFilters, string>,
         [t],
     );
@@ -334,6 +340,35 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                                 </Select>
                                             </div>
                                         ))}
+                                        {/* Accessibility Multi-Select */}
+                                        <div className="mb-4 last:mb-0">
+                                            <label
+                                                className="mb-2 block font-heading text-sm uppercase text-white"
+                                                htmlFor="accessibility"
+                                            >
+                                                {filterPlaceholders.accessibility}
+                                            </label>
+
+                                            <MultiSelect
+                                                options={
+                                                    filterDropdownOptions.accessibility as {
+                                                        label: string;
+                                                        value: string;
+                                                    }[]
+                                                }
+                                                value={filterOptions.accessibility ?? []}
+                                                onValueChange={(values: string[]) => {
+                                                    setFilterOptions({
+                                                        ...filterOptions,
+                                                        accessibility:
+                                                            values.length > 0 ? values : undefined,
+                                                    });
+                                                }}
+                                                placeholder={filterPlaceholders.accessibility}
+                                                className="w-full text-white"
+                                                variant="default"
+                                            />
+                                        </div>
                                     </div>
                                 </div>
                             )}

@@ -317,12 +317,15 @@
         "filter_tier_a": "Tier A",
         "filter_tier_b": "Tier B",
         "filter_tier_c": "Tier C",
+        "filter_accessibility_cc": "Closed Captions",
+        "filter_accessibility_screenreader": "Screen Reader Compatible",
 
         "filter_placeholder_course": "Select Course",
         "filter_placeholder_category": "Select Category",
         "filter_placeholder_format": "Select Format",
         "filter_placeholder_language": "Select Language",
         "filter_placeholder_tier": "Select Tier",
+        "filter_placeholder_accessibility": "Select Accessibility Feature",
 
         "clear_filters": "Clear Filters",
         "clear_all": "Clear All",

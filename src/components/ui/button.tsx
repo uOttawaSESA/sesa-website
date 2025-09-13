@@ -4,17 +4,19 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-    "group relative inline-flex place-items-center justify-center overflow-hidden text-center font-heading text-sm uppercase transition-all duration-300 ease-in-out md:text-lg disabled:pointer-events-none disabled:opacity-50",
+    "group relative inline-flex place-items-center justify-center overflow-hidden text-center font-heading text-sm transition-all duration-300 ease-in-out md:text-lg disabled:pointer-events-none disabled:opacity-50",
     {
         variants: {
             variant: {
                 default:
-                    "fill-gradient hover:-translate-y-0.5 hover:shadow-lg hover:shadow-purple-500/25 active:translate-y-0",
+                    "fill-gradient hover:-translate-y-0.5 hover:shadow-lg hover:shadow-purple-500/25 active:translate-y-0 uppercase",
                 outline:
-                    "outline-gradient hover:fill-gradient backdrop-blur-lg hover:-translate-y-0.5 hover:shadow-lg hover:shadow-purple-500/25 active:translate-y-0",
-                ghost: "color-gradient hover:bg-gradient-to-r hover:from-purple-600/10 hover:to-pink-600/10 hover:backdrop-blur-sm",
-                "ghost-plain": "hover:bg-white/5 hover:backdrop-blur-sm",
-                link: "color-gradient hover:underline hover:decoration-2 hover:underline-offset-4",
+                    "outline-gradient hover:fill-gradient backdrop-blur-lg hover:-translate-y-0.5 uppercase hover:shadow-lg hover:shadow-purple-500/25 active:translate-y-0",
+                ghost: "color-gradient hover:bg-gradient-to-r hover:from-purple-600/10 hover:to-pink-600/10 hover:backdrop-blur-sm uppercase",
+                "ghost-plain": "hover:bg-white/5 hover:backdrop-blur-sm uppercase",
+                link: "color-gradient hover:underline hover:decoration-2 hover:underline-offset-4 uppercase",
+                multiselect: "font-sans text-thistle text-base", // for multi-select
+                unstyled: "",
             },
             size: {
                 default: "px-6 py-3",

@@ -27,6 +27,7 @@ const ResourceFilters = z.object({
         .min(0)
         .max(TIER_MAP.length - 1)
         .optional(),
+    accessibility: z.array(z.string()).optional(),
 });
 
 export type ResourceSorts = z.infer<typeof ResourceSorts>;
@@ -49,6 +50,15 @@ function buildFilteredQuery(filters: ResourceFilters, search: string | null) {
     // Array containment
     if (filters.locale != null)
         queryFilters.push(sql`${resources.locale} @> ARRAY[${filters.locale}]::text[]`);
+    if (filters.accessibility && filters.accessibility.length > 0) {
+        queryFilters.push(
+            sql`${resources.accessibility} @> ARRAY[${sql.join(
+                filters.accessibility.map(v => sql`${v}`),
+                sql`,`,
+            )}]::text[]`,
+        );
+    }
+
     // Full-text search
     if (search != null) {
         const term = `%${search}%`;
