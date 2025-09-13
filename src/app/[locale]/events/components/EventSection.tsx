@@ -16,10 +16,6 @@ const EventSection = () => {
     const locale = useLocale() as "en" | "fr";
 
     const { isPending, error, data } = api.event.getAll.useQuery({ locale });
-    useMemo(
-        () => data && console.log(JSON.stringify(JSON.parse(SuperJSON.stringify(data)).json)),
-        [data],
-    );
 
     const [isMobile, setIsMobile] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
