@@ -5,14 +5,16 @@ import { api } from "@/trpc/react";
 import { ResourceCard } from "./ResourceCard/ResourceCard";
 import { ResourceModal } from "./ResourceModal";
 import type React from "react";
+import type { Ref } from "react";
 import type { MappedResource } from "@/server/db/schema";
 
 interface ResourceListProps {
     currentResources: MappedResource[];
     isGridMode: boolean;
+    endRef: Ref<HTMLDivElement>;
 }
 
-const ResourceList: React.FC<ResourceListProps> = ({ currentResources, isGridMode }) => {
+const ResourceList: React.FC<ResourceListProps> = ({ currentResources, isGridMode, endRef }) => {
     // URL-based state
     const [openResource, setOpenResource] = useQueryState("id");
 
@@ -61,6 +63,7 @@ const ResourceList: React.FC<ResourceListProps> = ({ currentResources, isGridMod
                         onOpen={() => openModal(resource)}
                     />
                 ))}
+                <div ref={endRef} />
             </div>
 
             {selectedResource && (
