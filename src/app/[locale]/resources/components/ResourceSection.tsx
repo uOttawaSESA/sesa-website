@@ -47,7 +47,7 @@ const ResourceSection = () => {
 
     const [rowsToShow, setRowsToShow] = useState(2);
     const [isGridMode, setIsGridMode] = useState(true);
-    const [searchTerm, setSearchTerm] = useState<string | null>(null);
+    const [searchTerm, setSearchTerm] = useQueryState("search");
     const debouncedSearchTerm = useDebounce(searchTerm || null, 300);
 
     const [filterOptions, setFilterOptions] = useQueryStates({
