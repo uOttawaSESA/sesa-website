@@ -39,7 +39,7 @@ export interface AnimationConfig {
 const multiSelectVariants = cva("m-1 transition-all duration-300 ease-in-out", {
     variants: {
         variant: {
-            default: "border-foreground/10 text-foreground bg-card hover:bg-card/80",
+            default: "border-foreground/10 text-white bg-card hover:bg-card/80",
             secondary:
                 "border-foreground/10 bg-secondary text-secondary-foreground hover:bg-secondary/80",
             destructive:
@@ -57,7 +57,7 @@ const multiSelectVariants = cva("m-1 transition-all duration-300 ease-in-out", {
     },
     defaultVariants: {
         variant: "default",
-        badgeAnimation: "bounce",
+        badgeAnimation: "none",
     },
 });
 
@@ -767,7 +767,7 @@ export const MultiSelect = React.forwardRef<MultiSelectRef, MultiSelectProps>(
                                 getAllOptions().length
                             } options selected. ${placeholder}`}
                             className={cn(
-                                "flex p-1 min-h-10 h-auto items-center outline-gradient text-base text-thistle justify-between bg-inherit hover:bg-inherit [&_svg]:pointer-events-auto",
+                                "flex p-1 min-h-10 h-auto items-center outline-gradient text-base text-thistle justify-between [&_svg]:pointer-events-auto",
                                 autoSize ? "w-auto" : "w-full",
                                 responsiveSettings.compactMode && "min-h-8 text-sm",
                                 screenSize === "mobile" && "min-h-12 text-base",
@@ -821,10 +821,11 @@ export const MultiSelect = React.forwardRef<MultiSelectRef, MultiSelectProps>(
                                                     <Badge
                                                         key={value}
                                                         className={cn(
+                                                            "inline-flex items-center gap-1",
                                                             getBadgeAnimationClass(),
                                                             multiSelectVariants({ variant }),
                                                             customStyle?.gradient &&
-                                                                "text-white border-transparent",
+                                                                "!text-white border-transparent",
                                                             responsiveSettings.compactMode &&
                                                                 "text-xs px-1.5 py-0.5",
                                                             screenSize === "mobile" &&
@@ -951,7 +952,7 @@ export const MultiSelect = React.forwardRef<MultiSelectRef, MultiSelectProps>(
                                                 }
                                             }}
                                             aria-label={`Clear all ${selectedValues.length} selected options`}
-                                            className="flex items-center justify-center h-4 w-4 mx-2 cursor-pointer text-thistle hover:text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-1 rounded-sm"
+                                            className="flex items-center justify-center h-4 w-4 mx-2 cursor-pointer text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-1 rounded-sm"
                                         >
                                             <XIcon className="h-4 w-4" />
                                         </Button>
@@ -960,15 +961,17 @@ export const MultiSelect = React.forwardRef<MultiSelectRef, MultiSelectProps>(
                                             className="flex min-h-6 h-full"
                                         />
                                         <ChevronDown
-                                            className="h-4 mx-2 cursor-pointer text-thistle"
+                                            className="h-4 mx-2 cursor-pointer text-white"
                                             aria-hidden="true"
                                         />
                                     </div>
                                 </div>
                             ) : (
                                 <div className="flex items-center justify-between w-full mx-auto">
-                                    <span className="text-sm text-thistle mx-3">{placeholder}</span>
-                                    <ChevronDown className="h-4 cursor-pointer text-thistle mx-2" />
+                                    <span className="text-base text-thistle mx-3">
+                                        {placeholder}
+                                    </span>
+                                    <ChevronDown className="h-4 cursor-pointer text-thistle opacity-30 mx-2" />
                                 </div>
                             )}
                         </Button>
@@ -1086,9 +1089,9 @@ export const MultiSelect = React.forwardRef<MultiSelectRef, MultiSelectProps>(
                                                     >
                                                         <div
                                                             className={cn(
-                                                                "mr-2 flex h-4 w-4 items-center justify-center rounded-sm border border-primary",
+                                                                "mr-2 flex h-4 w-4 items-center text-thistle justify-center rounded-sm border border-thistle",
                                                                 isSelected
-                                                                    ? "bg-primary text-primary-foreground"
+                                                                    ? "bg-white"
                                                                     : "opacity-50 [&_svg]:invisible",
                                                             )}
                                                             aria-hidden="true"
@@ -1132,9 +1135,9 @@ export const MultiSelect = React.forwardRef<MultiSelectRef, MultiSelectProps>(
                                                 >
                                                     <div
                                                         className={cn(
-                                                            "mr-2 flex h-4 w-4 items-center justify-center rounded-sm border border-primary",
+                                                            "mr-2 flex h-4 w-4 text-thistle items-center justify-center rounded-sm border border-thistle",
                                                             isSelected
-                                                                ? "bg-primary text-primary-foreground"
+                                                                ? "bg-white"
                                                                 : "opacity-50 [&_svg]:invisible",
                                                         )}
                                                         aria-hidden="true"
