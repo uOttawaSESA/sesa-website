@@ -215,7 +215,8 @@ export const resourceRouter = createTRPCRouter({
             const { page, pageSize, search, filters, sort } = input;
             const offset = (page - 1) * input.pageSize;
             /** The order query to use based on input parameters. */
-            const [order] = buildSortedQuery(sort);
+            const [order, direction] = buildSortedQuery(sort);
+            const idOrder = direction === "gt" ? asc(resources.id) : desc(resources.id);
 
             const queryFilters = buildFilteredQuery(filters, search);
 
@@ -225,14 +226,14 @@ export const resourceRouter = createTRPCRouter({
                       .select()
                       .from(resources)
                       .where(and(...queryFilters))
-                      .orderBy(order, asc(resources.id))
+                      .orderBy(order, idOrder)
                       .offset(offset)
                       .limit(pageSize)
                 : // Otherwise, omit the WHERE
                   await ctx.db
                       .select()
                       .from(resources)
-                      .orderBy(order, asc(resources.id))
+                      .orderBy(order, idOrder)
                       .offset(offset)
                       .limit(pageSize);
 
