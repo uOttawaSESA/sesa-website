@@ -91,7 +91,7 @@ const ResourceSection = () => {
 
     // Fetch the next page when we near the end of the list
     const { ref: endRef, inView: endInView } = useInView({
-        rootMargin: isMobile ? "100% 0%" : "50% 0%",
+        rootMargin: isMobile ? "100% 0%" : "25% 0%",
         threshold: 0,
     });
 
