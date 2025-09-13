@@ -2,7 +2,6 @@
 import { useTranslations } from "next-intl";
 import {
     createParser,
-    parseAsInteger,
     parseAsString,
     parseAsStringLiteral,
     useQueryState,
@@ -40,8 +39,7 @@ const parseAsTier = createParser<0 | 1 | 2 | 3 | 4 | 5 | 6>({
 });
 
 const ResourceSection = () => {
-    // URL-based state
-    const [currentPage, setCurrentPage] = useQueryState("page", parseAsInteger.withDefault(1));
+    const [currentPage, setCurrentPage] = useState(1);
 
     const t = useTranslations("resources");
 
