@@ -1,5 +1,5 @@
 import { cva, type VariantProps } from "class-variance-authority";
-import { CheckIcon, ChevronDown, WandSparkles, XCircle, XIcon } from "lucide-react";
+import { CheckIcon, ChevronDown, WandSparkles, XCircle } from "lucide-react";
 import * as React from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -936,32 +936,9 @@ export const MultiSelect = React.forwardRef<MultiSelectRef, MultiSelectProps>(
                                             </Badge>
                                         )}
                                     </div>
-                                    <div className="flex items-center justify-between">
-                                        <Button
-                                            variant="unstyled"
-                                            tabIndex={0}
-                                            onClick={event => {
-                                                event.stopPropagation();
-                                                handleClear();
-                                            }}
-                                            onKeyDown={event => {
-                                                if (event.key === "Enter" || event.key === " ") {
-                                                    event.preventDefault();
-                                                    event.stopPropagation();
-                                                    handleClear();
-                                                }
-                                            }}
-                                            aria-label={`Clear all ${selectedValues.length} selected options`}
-                                            className="flex items-center justify-center h-4 w-4 mx-2 cursor-pointer text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-1 rounded-sm"
-                                        >
-                                            <XIcon className="h-4 w-4" />
-                                        </Button>
-                                        <Separator
-                                            orientation="vertical"
-                                            className="flex min-h-6 h-full"
-                                        />
+                                    <div className="flex items-center">
                                         <ChevronDown
-                                            className="h-4 mx-2 cursor-pointer text-white"
+                                            className="h-4 mx-2 cursor-pointer text-thistle opacity-40"
                                             aria-hidden="true"
                                         />
                                     </div>
