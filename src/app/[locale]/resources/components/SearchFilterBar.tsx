@@ -356,7 +356,6 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                                             filterPlaceholders.accessibility
                                                         }
                                                         className="w-full text-thistle"
-                                                        badgeAnimation="none"
                                                         hideSelectAll
                                                     />
                                                 ) : (
