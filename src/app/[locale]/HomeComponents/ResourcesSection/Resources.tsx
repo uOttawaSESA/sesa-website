@@ -15,7 +15,7 @@ const Resources = () => {
 
     const { data: resources } = api.resource.getOffsetPage.useQuery({
         page: 1,
-        pageSize: 30,
+        pageSize: 12,
         search: null,
         filters: {},
         sort: "created_desc",

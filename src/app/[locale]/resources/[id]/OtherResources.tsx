@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef } from "react";
+import { useMemo, useRef } from "react";
 import ResourceCard from "@/app/[locale]/resources/components/ResourceCard/ResourceCard";
 import { Button } from "@/components/ui/button";
 import { api } from "@/trpc/react";
@@ -10,13 +10,16 @@ const RESOURCE_WIDTH = 350;
 
 const OtherResources = () => {
     const items = useRef<HTMLDivElement>(null);
-    const { data: otherResources } = api.resource.getOffsetPage.useQuery({
-        page: 1,
-        pageSize: 30,
+    const { data } = api.resource.getCursorPage.useInfiniteQuery({
+        pageSize: 12,
         search: null,
         filters: {},
         sort: "created_desc",
     });
+    const otherResources = useMemo(() => {
+        if (!data) return [];
+        return data.pages.flatMap(page => page.data);
+    }, [data]);
 
     const scrollItems = (direction: "left" | "right") => {
         const scrollAmount = RESOURCE_WIDTH + 8;
