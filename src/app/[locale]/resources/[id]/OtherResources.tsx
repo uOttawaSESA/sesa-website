@@ -13,7 +13,13 @@ const OtherResources = () => {
     const { data } = api.resource.getCursorPage.useInfiniteQuery(
         {
             search: null,
-            filters: {},
+            filters: {
+                course: null,
+                category: null,
+                format: null,
+                locale: null,
+                tier: null,
+            },
             sort: "created_desc",
         },
         {

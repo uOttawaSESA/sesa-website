@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import Marquee from "react-fast-marquee";
 import { Button } from "@/components/ui/button";
 import Star from "@/components/ui/decorations/star";
@@ -14,18 +14,34 @@ const Resources = () => {
     const t = useTranslations("homepage");
     const router = useRouter();
 
-    const { data } = api.resource.getCursorPage.useInfiniteQuery(
+    const { isFetching, data, fetchNextPage } = api.resource.getCursorPage.useInfiniteQuery(
         {
             search: null,
-            filters: {},
+            filters: {
+                course: null,
+                category: null,
+                format: null,
+                locale: null,
+                tier: null,
+            },
             sort: "created_desc",
         },
-
         {
             getPreviousPageParam: lastPage => lastPage.prevCursor,
             getNextPageParam: lastPage => lastPage.nextCursor,
         },
     );
+
+    // Fetch the next page so that we have more resources to show
+    // biome-ignore-start lint/correctness/useExhaustiveDependencies: The dependencies are deliberate to only trigger the effect once
+    const fetchedNext = useRef(false);
+    useEffect(() => {
+        if (fetchedNext.current) return;
+        fetchNextPage();
+        fetchedNext.current = true;
+    }, [!isFetching && data && data.pages.length !== 0]);
+    // biome-ignore-end lint/correctness/useExhaustiveDependencies: The dependencies are deliberate to only trigger the effect once
+
     const resources = useMemo(() => {
         if (!data) return [];
         return data.pages.flatMap(page => page.data);

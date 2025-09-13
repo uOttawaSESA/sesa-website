@@ -43,7 +43,13 @@ export default async function Resources() {
 
     void api.resource.getCursorPage.prefetchInfinite({
         search: null,
-        filters: {},
+        filters: {
+            course: null,
+            category: null,
+            format: null,
+            locale: null,
+            tier: null,
+        },
         sort: "created_desc",
     });
 

@@ -92,14 +92,12 @@ const ResourceSection = () => {
 
     // Fetch the next page when we near the end of the list
     const { ref: endRef, inView: endInView } = useInView({
-        // The height of 3 cards
         rootMargin: "20% 0%",
         threshold: 0,
     });
 
     useEffect(() => {
         if (endInView && !isFetching && hasNextPage) fetchNextPage();
-        console.log("end", endInView, "fetch", isFetching, "hasnext", hasNextPage);
     }, [endInView, isFetching, hasNextPage, fetchNextPage]);
 
     // Detect mobile

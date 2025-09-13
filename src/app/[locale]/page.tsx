@@ -39,7 +39,13 @@ export default async function Home() {
     void api.event.getAll.prefetch({ locale });
     void api.resource.getCursorPage.prefetchInfinite({
         search: null,
-        filters: {},
+        filters: {
+            course: null,
+            category: null,
+            format: null,
+            locale: null,
+            tier: null,
+        },
         sort: "created_desc",
     });
 
