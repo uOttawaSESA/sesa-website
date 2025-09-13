@@ -1017,7 +1017,7 @@ export const MultiSelect = React.forwardRef<MultiSelectRef, MultiSelectProps>(
                                         >
                                             <div
                                                 className={cn(
-                                                    "mr-2 flex h-4 w-4 items-center justify-center rounded-sm border border-primary",
+                                                    "mr-2 flex h-4 w-4 items-center justify-center rounded-sm",
                                                     selectedValues.length ===
                                                         getAllOptions().filter(opt => !opt.disabled)
                                                             .length
@@ -1133,7 +1133,7 @@ export const MultiSelect = React.forwardRef<MultiSelectRef, MultiSelectProps>(
                                         })}
                                     </CommandGroup>
                                 )}
-                                <CommandSeparator />
+                                <CommandSeparator className="outline-gradient" />
                                 <CommandGroup>
                                     <div className="flex items-center justify-between">
                                         {selectedValues.length > 0 && (
