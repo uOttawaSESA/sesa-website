@@ -41,7 +41,6 @@ const parseAsTier = createParser<0 | 1 | 2 | 3 | 4 | 5 | 6>({
 const ResourceSection = () => {
     const t = useTranslations("resources");
 
-    const [rowsToShow, setRowsToShow] = useState(2);
     const [isGridMode, setIsGridMode] = useState(true);
     const [searchTerm, setSearchTerm] = useQueryState("search");
     const debouncedSearchTerm = useDebounce(searchTerm || null, 300);
@@ -116,8 +115,6 @@ const ResourceSection = () => {
             <SearchFilterBar
                 isGridMode={isGridMode}
                 setIsGridMode={setIsGridMode}
-                rowsToShow={rowsToShow}
-                setRowsToShow={setRowsToShow}
                 searchTerm={searchTerm}
                 setSearchTerm={setSearchTerm}
                 filterOptions={filterOptions}

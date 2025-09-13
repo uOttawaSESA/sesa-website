@@ -2,7 +2,6 @@
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import SuperJSON from "superjson";
 import Pagination from "@/components/Pagination";
 import Star from "@/components/ui/decorations/star";
 import { api } from "@/trpc/react";

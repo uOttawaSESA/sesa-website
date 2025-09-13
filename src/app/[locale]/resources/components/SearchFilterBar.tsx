@@ -1,7 +1,7 @@
 import { Trash } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import {
     Select,
     SelectContent,
@@ -21,8 +21,6 @@ const gradientBorderClass = `
 interface SearchFilterBarProps {
     isGridMode: boolean;
     setIsGridMode: (mode: boolean) => void;
-    rowsToShow: number;
-    setRowsToShow: (rows: number) => void;
     searchTerm: string | null;
     setSearchTerm: (term: string | null) => void;
     filterOptions: ResourceFilters;
@@ -36,8 +34,6 @@ interface SearchFilterBarProps {
 export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
     isGridMode = true,
     setIsGridMode,
-    rowsToShow,
-    setRowsToShow,
     searchTerm,
     setSearchTerm,
     filterOptions,
@@ -52,14 +48,6 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
     const [openDropdown, setOpenDropdown] = useState<null | "view" | "filter" | "sort" | "mobile">(
         null,
     );
-
-    useEffect(() => {
-        if (isGridMode) {
-            setRowsToShow(isMobile ? 3 : 2);
-        } else {
-            setRowsToShow(6);
-        }
-    }, [isGridMode, isMobile, setRowsToShow]);
 
     const availableCoursesMapped = useMemo(
         () => availableCourses.map(course => ({ label: course, value: course })),
@@ -227,28 +215,6 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                                 </SelectGroup>
                                             </SelectContent>
                                         </Select>
-                                        {isGridMode && (
-                                            <Select
-                                                value={rowsToShow?.toString()}
-                                                onValueChange={value =>
-                                                    setRowsToShow(parseInt(value, 10))
-                                                }
-                                            >
-                                                <SelectTrigger className="mt-2 w-full text-thistle">
-                                                    <SelectValue placeholder="Rows" />
-                                                </SelectTrigger>
-                                                <SelectContent>
-                                                    <SelectGroup>
-                                                        {[1, 2, 3, 4, 5].map(rows => (
-                                                            <SelectItem
-                                                                key={rows}
-                                                                value={rows.toString()}
-                                                            >{`${rows} ${rows === 1 ? t("view_row") : t("n_rows")}`}</SelectItem>
-                                                        ))}
-                                                    </SelectGroup>
-                                                </SelectContent>
-                                            </Select>
-                                        )}
                                     </div>
                                 </div>
                             )}
