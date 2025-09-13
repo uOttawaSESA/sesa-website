@@ -10,11 +10,17 @@ const RESOURCE_WIDTH = 350;
 
 const OtherResources = () => {
     const items = useRef<HTMLDivElement>(null);
-    const { data } = api.resource.getCursorPage.useInfiniteQuery({
-        search: null,
-        filters: {},
-        sort: "created_desc",
-    });
+    const { data } = api.resource.getCursorPage.useInfiniteQuery(
+        {
+            search: null,
+            filters: {},
+            sort: "created_desc",
+        },
+        {
+            getPreviousPageParam: lastPage => lastPage.prevCursor,
+            getNextPageParam: lastPage => lastPage.nextCursor,
+        },
+    );
     const otherResources = useMemo(() => {
         if (!data) return [];
         return data.pages.flatMap(page => page.data);

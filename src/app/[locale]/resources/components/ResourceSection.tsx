@@ -69,21 +69,12 @@ const ResourceSection = () => {
     );
     const [isMobile, setIsMobile] = useState(false);
 
-    const _itemsPerRow = isGridMode ? (isMobile ? 1 : 3) : 1;
-
-    const getPageBase = useMemo(
-        () => ({
-            search: debouncedSearchTerm,
-            filters: filterOptions,
-            sort: sortOption,
-        }),
-        [debouncedSearchTerm, filterOptions, sortOption],
-    );
-
     const { isPending, isFetching, hasNextPage, error, data, fetchNextPage } =
         api.resource.getCursorPage.useInfiniteQuery(
             {
-                ...getPageBase,
+                search: debouncedSearchTerm,
+                filters: filterOptions,
+                sort: sortOption,
             },
             {
                 getPreviousPageParam: lastPage => lastPage.prevCursor,

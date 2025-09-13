@@ -14,11 +14,18 @@ const Resources = () => {
     const t = useTranslations("homepage");
     const router = useRouter();
 
-    const { data } = api.resource.getCursorPage.useInfiniteQuery({
-        search: null,
-        filters: {},
-        sort: "created_desc",
-    });
+    const { data } = api.resource.getCursorPage.useInfiniteQuery(
+        {
+            search: null,
+            filters: {},
+            sort: "created_desc",
+        },
+
+        {
+            getPreviousPageParam: lastPage => lastPage.prevCursor,
+            getNextPageParam: lastPage => lastPage.nextCursor,
+        },
+    );
     const resources = useMemo(() => {
         if (!data) return [];
         return data.pages.flatMap(page => page.data);
