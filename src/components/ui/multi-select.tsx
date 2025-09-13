@@ -951,7 +951,7 @@ export const MultiSelect = React.forwardRef<MultiSelectRef, MultiSelectProps>(
                                                 }
                                             }}
                                             aria-label={`Clear all ${selectedValues.length} selected options`}
-                                            className="flex items-center justify-center h-4 w-4 mx-2 cursor-pointer text-muted-foreground hover:text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-1 rounded-sm"
+                                            className="flex items-center justify-center h-4 w-4 mx-2 cursor-pointer text-thistle hover:text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-1 rounded-sm"
                                         >
                                             <XIcon className="h-4 w-4" />
                                         </Button>
@@ -960,17 +960,15 @@ export const MultiSelect = React.forwardRef<MultiSelectRef, MultiSelectProps>(
                                             className="flex min-h-6 h-full"
                                         />
                                         <ChevronDown
-                                            className="h-4 mx-2 cursor-pointer text-muted-foreground"
+                                            className="h-4 mx-2 cursor-pointer text-thistle"
                                             aria-hidden="true"
                                         />
                                     </div>
                                 </div>
                             ) : (
                                 <div className="flex items-center justify-between w-full mx-auto">
-                                    <span className="text-sm text-muted-foreground mx-3">
-                                        {placeholder}
-                                    </span>
-                                    <ChevronDown className="h-4 cursor-pointer text-muted-foreground mx-2" />
+                                    <span className="text-sm text-thistle mx-3">{placeholder}</span>
+                                    <ChevronDown className="h-4 cursor-pointer text-thistle mx-2" />
                                 </div>
                             )}
                         </Button>
@@ -1099,7 +1097,7 @@ export const MultiSelect = React.forwardRef<MultiSelectRef, MultiSelectProps>(
                                                         </div>
                                                         {option.icon && (
                                                             <option.icon
-                                                                className="mr-2 h-4 w-4 text-muted-foreground"
+                                                                className="mr-2 h-4 w-4 text-thistle"
                                                                 aria-hidden="true"
                                                             />
                                                         )}
@@ -1145,7 +1143,7 @@ export const MultiSelect = React.forwardRef<MultiSelectRef, MultiSelectProps>(
                                                     </div>
                                                     {option.icon && (
                                                         <option.icon
-                                                            className="mr-2 h-4 w-4 text-muted-foreground"
+                                                            className="mr-2 h-4 w-4 text-thistle"
                                                             aria-hidden="true"
                                                         />
                                                     )}
@@ -1187,7 +1185,7 @@ export const MultiSelect = React.forwardRef<MultiSelectRef, MultiSelectProps>(
                         <WandSparkles
                             className={cn(
                                 "cursor-pointer my-2 text-foreground bg-background w-3 h-3",
-                                isAnimating ? "" : "text-muted-foreground",
+                                isAnimating ? "" : "text-thistle",
                             )}
                             onClick={() => setIsAnimating(!isAnimating)}
                         />

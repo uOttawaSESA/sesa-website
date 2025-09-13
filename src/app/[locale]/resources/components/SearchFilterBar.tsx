@@ -365,8 +365,8 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                                     });
                                                 }}
                                                 placeholder={filterPlaceholders.accessibility}
-                                                className="w-full text-white"
-                                                variant="default"
+                                                className="w-full text-thistle"
+                                                badgeAnimation="none"
                                             />
                                         </div>
                                     </div>
