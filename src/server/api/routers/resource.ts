@@ -73,7 +73,7 @@ export const resourceRouter = createTRPCRouter({
     /**
      * Get all of the resources in the remote DB.
      * In general, it will be preferred to paginate data instead of using this.
-     * @see {@link resourceRouter.getPage}
+     * @see {@link resourceRouter.getOffsetPage}
      * @deprecated Use `getPage` unless there is a specific reason not to.
      */
     getAll: publicProcedure
@@ -96,7 +96,7 @@ export const resourceRouter = createTRPCRouter({
      * can lead to weird results while paginating, such as resources appearing on multiple pages.
      * Since data is updated infrequently, this should be an acceptable tradeoff.
      */
-    getPage: publicProcedure
+    getOffsetPage: publicProcedure
         .input(
             z.object({
                 page: z.uint32().min(1),

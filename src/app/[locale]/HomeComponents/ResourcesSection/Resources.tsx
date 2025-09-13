@@ -13,7 +13,7 @@ const Resources = () => {
     const t = useTranslations("homepage");
     const router = useRouter();
 
-    const { data: resources } = api.resource.getPage.useQuery({
+    const { data: resources } = api.resource.getOffsetPage.useQuery({
         page: 1,
         pageSize: 30,
         search: null,

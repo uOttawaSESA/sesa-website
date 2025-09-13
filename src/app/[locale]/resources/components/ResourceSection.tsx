@@ -88,7 +88,7 @@ const ResourceSection = () => {
         isPending,
         error,
         data: resources,
-    } = api.resource.getPage.useQuery({
+    } = api.resource.getOffsetPage.useQuery({
         ...getPageBase,
         page: currentPage,
     });
@@ -108,7 +108,7 @@ const ResourceSection = () => {
     // Prefetch next page, if it exists
     useEffect(() => {
         if (currentPage < totalPages)
-            utils.resource.getPage.prefetch({ ...getPageBase, page: currentPage + 1 });
+            utils.resource.getOffsetPage.prefetch({ ...getPageBase, page: currentPage + 1 });
     }, [currentPage, totalPages, getPageBase, utils]);
 
     // Detect mobile

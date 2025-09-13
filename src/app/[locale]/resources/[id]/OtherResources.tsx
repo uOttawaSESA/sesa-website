@@ -10,7 +10,7 @@ const RESOURCE_WIDTH = 350;
 
 const OtherResources = () => {
     const items = useRef<HTMLDivElement>(null);
-    const { data: otherResources } = api.resource.getPage.useQuery({
+    const { data: otherResources } = api.resource.getOffsetPage.useQuery({
         page: 1,
         pageSize: 30,
         search: null,

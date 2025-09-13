@@ -37,7 +37,7 @@ export default async function Home() {
         return NextResponse.json({ message: "Invalid locale" }, { status: 400 });
 
     void api.event.getAll.prefetch({ locale });
-    void api.resource.getPage.prefetch({
+    void api.resource.getOffsetPage.prefetch({
         page: 1,
         pageSize: 30,
         search: null,

@@ -41,7 +41,7 @@ export default async function Resources() {
     if (locale !== "en" && locale !== "fr")
         return NextResponse.json({ message: "Invalid locale" }, { status: 400 });
 
-    void api.resource.getPage.prefetch({
+    void api.resource.getOffsetPage.prefetch({
         page: 1,
         pageSize: 6,
         search: null,
