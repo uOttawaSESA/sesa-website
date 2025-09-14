@@ -5,6 +5,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@reference "tailwindcss";
+
 body {
     @apply m-0 leading-[normal];
 }
