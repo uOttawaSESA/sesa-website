@@ -246,7 +246,7 @@ export const EventCard = ({ event }: EventCardProps) => {
                                 <button
                                     type="button"
                                     onClick={toggleDescription}
-                                    className="ml-2 text-blueviolet-100 hover:underline focus:outline-none"
+                                    className="ml-2 text-blueviolet-100 hover:underline focus:outline-hidden"
                                 >
                                     {showFullDescription ? "Show Less" : "Show More"}
                                 </button>

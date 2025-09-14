@@ -18,7 +18,7 @@ const SelectTrigger = React.forwardRef<
     <SelectPrimitive.Trigger
         ref={ref}
         className={cn(
-            "aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive shadow-xs outline-gradient flex place-items-center justify-between gap-2 whitespace-nowrap rounded-md border border-input bg-transparent px-6 py-3 text-base text-white outline-none transition-[color,box-shadow] focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 data-[size=default]:h-9 data-[size=sm]:h-8 data-placeholder:text-thistle *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 dark:bg-input/30 dark:hover:bg-input/50 [&_svg:not([class*='size-'])]:size-4 [&_svg:not([class*='text-'])]:text-muted-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 backdrop-blur-lg",
+            "aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive shadow-xs outline-gradient flex place-items-center justify-between gap-2 whitespace-nowrap rounded-md border border-input bg-transparent px-6 py-3 text-base text-white outline-hidden transition-[color,box-shadow] focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 data-[size=default]:h-9 data-[size=sm]:h-8 data-placeholder:text-thistle *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2 dark:bg-input/30 dark:hover:bg-input/50 [&_svg:not([class*='size-'])]:size-4 [&_svg:not([class*='text-'])]:text-muted-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 backdrop-blur-lg",
             className,
         )}
         {...props}
@@ -111,7 +111,7 @@ const SelectItem = React.forwardRef<
     <SelectPrimitive.Item
         ref={ref}
         className={cn(
-            "relative flex w-full cursor-default select-none items-center py-3 pl-6 pr-8 font-heading text-base text-white outline-none transition-colors duration-200 hover:bg-[rgba(200,200,200,0.4)] data-disabled:pointer-events-none data-disabled:opacity-50",
+            "relative flex w-full cursor-default select-none items-center py-3 pl-6 pr-8 font-heading text-base text-white outline-hidden transition-colors duration-200 hover:bg-[rgba(200,200,200,0.4)] data-disabled:pointer-events-none data-disabled:opacity-50",
             className,
         )}
         {...props}

@@ -173,7 +173,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                         //     if (e.key === 'Enter') setSearchTerm(pendingSearch || null)
                         // }}
                         placeholder={t("search_placeholder")}
-                        className="w-full bg-transparent font-sans md:text-base placeholder-white focus:outline-none"
+                        className="w-full bg-transparent font-sans md:text-base placeholder-white focus:outline-hidden"
                     />
                 </div>
 
