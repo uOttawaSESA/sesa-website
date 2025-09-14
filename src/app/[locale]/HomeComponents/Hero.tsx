@@ -12,10 +12,10 @@ export default function Hero() {
             {/* Decorations */}
             <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
                 {/* Warm gradient */}
-                <div className="fade-from-top-left-bg absolute top-[-13rem] h-[70rem] w-full bg-[#B1219D] bg-opacity-20 blur-sm md:w-[60vw]" />
+                <div className="fade-from-top-left-bg absolute top-[-13rem] h-[70rem] w-full bg-[#B1219D]/20 blur-sm md:w-[60vw]" />
 
                 {/* Light gradient */}
-                <div className="fade-from-left-bg absolute top-[48rem] h-[140rem] w-[25vw] bg-blueviolet-100 bg-opacity-25 blur-sm" />
+                <div className="fade-from-left-bg absolute top-[48rem] h-[140rem] w-[25vw] bg-blueviolet-100/25 blur-sm" />
 
                 {/* Stars */}
                 <Star

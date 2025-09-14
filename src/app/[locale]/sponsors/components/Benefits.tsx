@@ -94,7 +94,7 @@ export default function Benefits() {
             {/* Decorations */}
             <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
                 {/* Warm gradient */}
-                <div className="fade-from-left-bg absolute left-0 h-[70rem] w-full bg-[#B1219D] bg-opacity-15 blur-3xl md:w-[80vw]" />
+                <div className="fade-from-left-bg absolute left-0 h-[70rem] w-full bg-[#B1219D]/15 blur-3xl md:w-[80vw]" />
 
                 <Image
                     src="/decoration/waves.svg"

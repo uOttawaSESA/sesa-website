@@ -13,7 +13,7 @@ const FooterSection: React.FC = () => {
             {/* Decorations */}
             <div className="pointer-events-none select-none">
                 {/* Light gradient */}
-                <div className="fade-from-center-bg absolute right-[5rem] top-[6rem] hidden h-[80rem] w-screen bg-blueviolet-100 bg-opacity-25 blur-3xl backdrop-blur-2xl md:block" />
+                <div className="fade-from-center-bg absolute right-[5rem] top-[6rem] hidden h-[80rem] w-screen bg-blueviolet-100/25 blur-3xl backdrop-blur-2xl md:block" />
 
                 <Star
                     variant="star"

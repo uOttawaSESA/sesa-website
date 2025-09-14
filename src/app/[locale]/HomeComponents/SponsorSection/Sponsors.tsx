@@ -13,7 +13,7 @@ const Sponsors = () => {
             {/* Decorations */}
             <div className="pointer-events-none z-0 select-none">
                 {/* Light gradient */}
-                <div className="fade-from-center-bg absolute left-1/2 top-1/2 h-[120rem] w-full -translate-x-1/2 -translate-y-1/2 bg-blueviolet-100 bg-opacity-35 blur-xl md:w-[90vw]" />
+                <div className="fade-from-center-bg absolute left-1/2 top-1/2 h-[120rem] w-full -translate-x-1/2 -translate-y-1/2 bg-blueviolet-100/35 blur-xl md:w-[90vw]" />
 
                 <Image
                     src="/decoration/large-wavy-grid.svg"
