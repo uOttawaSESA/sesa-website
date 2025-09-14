@@ -4,7 +4,7 @@ import * as z from "zod";
 import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
 import { type MappedResource, resources } from "@/server/db/schema";
 
-const TIER_MAP = ["S", "A", "B", "C", "D", "E", "F"];
+const TIER_MAP = ["S", "A", "B", "C", "D", "E", "F"] as const;
 
 const ResourceSorts = z.enum([
     "created_asc",
@@ -178,6 +178,8 @@ export const resourceRouter = createTRPCRouter({
                       .limit(RESOURCE_PAGE_SIZE + 1);
 
             const hasMore = rows.length === RESOURCE_PAGE_SIZE + 1;
+            // Remove the last element (we don't need it, just needed to know if there exists one)
+            if (hasMore) rows.splice(rows.length - 1);
 
             // Determine the new cursor
             let nextCursor: typeof cursor = null;
