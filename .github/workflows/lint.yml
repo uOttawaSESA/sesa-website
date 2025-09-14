@@ -32,7 +32,7 @@ jobs:
               run: pnpm install
 
             - name: Lint project
-              run: pnpm exec biome ci
+              run: pnpm exec biome ci --error-on-warnings
 
             - name: Check types
               run: pnpm exec tsc
