@@ -73,7 +73,7 @@
 
     /* === Fonts === */
     --font-heading: "VCR OSD Mono", ui-monospace, "Courier New", Courier, monospace;
-    --font-sans: var(--font-raleway), Arial, sans-serif;
+    --font-sans: Raleway, Arial, sans-serif;
     --font-mono: Monocode, "Courier New", Courier, monospace;
 
     /* === Animations === */
@@ -453,7 +453,7 @@
 
     body {
         @apply m-0 leading-[normal] bg-background text-foreground;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: Raleway, sans-serif;
     }
 
     input::placeholder,
