@@ -3,6 +3,7 @@
     layer(base);
 
 @import "tailwindcss";
+@reference "tailwindcss";
 
 @theme {
     /* === Colors === */
@@ -115,65 +116,16 @@
     --backdrop-blur-super: 500px;
 }
 
-@utility outline-gradient {
-    border: 1px solid;
-    border-image: linear-gradient(55deg, #8824dc 41.93%, #b1219d 81.89%) 1;
-}
-
 @layer utilities {
-    @reference "tailwindcss";
-}
-
-@layer utilities {
-    body {
-        @apply m-0 leading-[normal];
-    }
-
-    *,
-    ::before,
-    ::after {
-        border-width: 0;
-    }
-
-    @font-face {
-        font-family: "VCR OSD Mono";
-        font-display: swap;
-        src: url(/fonts/VCR_OSD_MONO_1.001.ttf);
-    }
-
-    @font-face {
-        font-family: "Monocode";
-        font-display: swap;
-        src: url(/fonts/monocode-regular.ttf);
-    }
-
-    /*** Scrollbar styling ***/
-    /* Firefox */
-    * {
-        scrollbar-color: #9a1ebf #381e4b; /* thumb, track */
-    }
-
     .bg-gradient {
         background:
             radial-gradient(ellipse 150% 300% at center top, #381e4b 0%, #1b1b1b 90%),
             linear-gradient(to bottom, #381e4b 0%, #1b1b1b 100%);
     }
 
-    ::-webkit-scrollbar-track {
-        background: #381e4b;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background: linear-gradient(55deg, #8824dc 41.93%, #b1219d 81.89%);
-        border-radius: 10px;
-    }
-
     .sponsor {
         @apply outline-gradient mx-4 flex h-40 w-64 items-center justify-center;
     }
-}
-
-@layer utilities {
     .outline-gradient {
         border: 1px solid;
         border-image: linear-gradient(55deg, #8824dc 41.93%, #b1219d 81.89%) 1;
@@ -250,20 +202,6 @@
         );
     }
 
-    body {
-        color: var(--foreground);
-        background: var(--background);
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
-    input::placeholder,
-    textarea::placeholder,
-    select::placeholder {
-        font-family: Raleway, sans-serif;
-        color: rgba(255, 255, 255, 0.7);
-        font-size: 16px;
-    }
-
     .grid-overlay-right {
         position: absolute;
         right: 0;
@@ -305,6 +243,17 @@
 
         100% {
             transform: translateX(-50%);
+        }
+    }
+
+    @keyframes dropdown-fade-in {
+        0% {
+            opacity: 0;
+            transform: scaleY(0.96) translateY(-8px);
+        }
+        100% {
+            opacity: 1;
+            transform: scaleY(1) translateY(0);
         }
     }
 
@@ -443,6 +392,7 @@
         --chart-5: 27 87% 67%;
         --radius: 0.5rem;
     }
+
     .dark {
         --background: 0 0% 3.9%;
         --foreground: 0 0% 98%;
@@ -469,27 +419,58 @@
         --chart-4: 280 65% 60%;
         --chart-5: 340 75% 55%;
     }
-}
 
-@layer base {
     * {
         @apply border-border;
     }
+
+    /*** Scrollbar styling ***/
+    /* Firefox */
+    * {
+        scrollbar-color: #9a1ebf #381e4b; /* thumb, track */
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #381e4b;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(55deg, #8824dc 41.93%, #b1219d 81.89%);
+        border-radius: 10px;
+    }
+
+    *,
+    ::before,
+    ::after {
+        border-width: 0;
+    }
+
     body {
-        @apply bg-background text-foreground;
+        @apply m-0 leading-[normal] bg-background text-foreground;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    input::placeholder,
+    textarea::placeholder,
+    select::placeholder {
+        font-family: Raleway, sans-serif;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 16px;
+    }
+
+    @font-face {
+        font-family: "VCR OSD Mono";
+        font-display: swap;
+        src: url(/fonts/VCR_OSD_MONO_1.001.ttf);
+    }
+
+    @font-face {
+        font-family: "Monocode";
+        font-display: swap;
+        src: url(/fonts/monocode-regular.ttf);
     }
 }
 
-@keyframes dropdown-fade-in {
-    0% {
-        opacity: 0;
-        transform: scaleY(0.96) translateY(-8px);
-    }
-    100% {
-        opacity: 1;
-        transform: scaleY(1) translateY(0);
-    }
-}
 .animate-dropdown {
     animation: dropdown-fade-in 0.22s cubic-bezier(0.4, 0, 0.2, 1);
     transform-origin: top;
