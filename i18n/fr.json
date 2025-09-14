@@ -234,6 +234,7 @@
             "error": "Échec du chargement des ressources."
         },
         "open": "OUVRIR",
+        "load_more": "Voir plus",
         "tooltip": {
             "s_tier": "Niveau S : La meilleure (la seule ressource dont vous avez vraiment besoin).",
             "a_tier": "Niveau A : Excellente (votre ressource principale, mais à comparer avec d'autres).",

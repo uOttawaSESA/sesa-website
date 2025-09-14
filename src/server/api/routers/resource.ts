@@ -97,7 +97,7 @@ export const resourceRouter = createTRPCRouter({
             where: eq(resources.id, input.id),
         });
 
-        if (row) return { ...row, tier: TIER_MAP[row.tier] ?? "F" };
+        if (row) return { ...row, tier: TIER_MAP[row.tier] ?? "F" } as MappedResource;
     }),
 
     /**

@@ -89,16 +89,6 @@ const ResourceSection = () => {
 
     const availableCourses = availableCoursesData ?? [];
 
-    // Fetch the next page when we near the end of the list
-    const { ref: endRef, inView: endInView } = useInView({
-        rootMargin: isMobile ? "100% 0%" : "25% 0%",
-        threshold: 0,
-    });
-
-    useEffect(() => {
-        if (endInView && !isFetching && hasNextPage) fetchNextPage();
-    }, [endInView, isFetching, hasNextPage, fetchNextPage]);
-
     // Detect mobile
     useEffect(() => {
         const handleResize = () => {
@@ -145,7 +135,9 @@ const ResourceSection = () => {
                         <ResourceList
                             currentResources={resources}
                             isGridMode={isGridMode}
-                            endRef={endRef}
+                            isFetching={isFetching}
+                            hasNextPage={hasNextPage}
+                            fetchNextPage={fetchNextPage}
                         />
                     ) : (
                         <div className="flex justify-center items-center h-16">

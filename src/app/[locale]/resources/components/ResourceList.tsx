@@ -1,6 +1,8 @@
 "use client";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { useQueryState } from "nuqs";
+import { Button } from "@/components/ui/button";
 import { api } from "@/trpc/react";
 import { ResourceCard } from "./ResourceCard/ResourceCard";
 import { ResourceModal } from "./ResourceModal";
@@ -11,10 +13,20 @@ import type { MappedResource } from "@/server/db/schema";
 interface ResourceListProps {
     currentResources: MappedResource[];
     isGridMode: boolean;
-    endRef: Ref<HTMLDivElement>;
+    isFetching: boolean;
+    hasNextPage: boolean;
+    fetchNextPage: () => void;
 }
 
-const ResourceList: React.FC<ResourceListProps> = ({ currentResources, isGridMode, endRef }) => {
+const ResourceList: React.FC<ResourceListProps> = ({
+    currentResources,
+    isGridMode,
+    isFetching,
+    hasNextPage,
+    fetchNextPage,
+}) => {
+    const t = useTranslations("resources");
+
     // URL-based state
     const [openResource, setOpenResource] = useQueryState("id");
 
@@ -63,7 +75,16 @@ const ResourceList: React.FC<ResourceListProps> = ({ currentResources, isGridMod
                         onOpen={() => openModal(resource)}
                     />
                 ))}
-                <div ref={endRef} />
+            </div>
+
+            <div className="flex justify-center mt-8">
+                {isFetching ? (
+                    <p className="rounded-md px-4 py-2 font-sans text-violet-400">
+                        {t("query_state.pending")}
+                    </p>
+                ) : (
+                    <Button onClick={() => fetchNextPage()}>{t("load_more")}</Button>
+                )}
             </div>
 
             {selectedResource && (
