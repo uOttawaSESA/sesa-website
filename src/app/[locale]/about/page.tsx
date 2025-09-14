@@ -403,7 +403,7 @@ export default function About() {
                     </FadeInSection>
                     {/* TODO: Add the `sticky` class once a way to make it not super ugly is found */}
                     <FadeInSection>
-                        <div className="top-[5.6rem] z-10 mt-4 grid grid-flow-col grid-rows-4 text-center font-heading uppercase backdrop-blur-sm md:grid-rows-1">
+                        <div className="top-[5.6rem] z-10 mt-4 grid grid-flow-col grid-rows-4 text-center font-heading uppercase backdrop-blur-xs md:grid-rows-1">
                             <Button className="!inline px-2!" variant="outline" asChild>
                                 <Link href="#co-directors">{tOurTeam("codirectors")}</Link>
                             </Button>
