@@ -235,6 +235,7 @@
         },
         "open": "OUVRIR",
         "load_more": "Voir plus",
+        "end_of_resources": "Fin des ressources!",
         "tooltip": {
             "s_tier": "Niveau S : La meilleure (la seule ressource dont vous avez vraiment besoin).",
             "a_tier": "Niveau A : Excellente (votre ressource principale, mais à comparer avec d'autres).",

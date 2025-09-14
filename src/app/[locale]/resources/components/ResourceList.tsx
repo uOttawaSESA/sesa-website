@@ -82,8 +82,12 @@ const ResourceList: React.FC<ResourceListProps> = ({
                     <p className="rounded-md px-4 py-2 font-sans text-violet-400">
                         {t("query_state.pending")}
                     </p>
-                ) : (
+                ) : hasNextPage ? (
                     <Button onClick={() => fetchNextPage()}>{t("load_more")}</Button>
+                ) : (
+                    <p className="rounded-md px-4 py-2 font-sans text-violet-400">
+                        {t("end_of_resources")}
+                    </p>
                 )}
             </div>
 

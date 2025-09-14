@@ -254,6 +254,7 @@
         },
         "open": "OPEN",
         "load_more": "Load More",
+        "end_of_resources": "End of resources!",
         "tooltip": {
             "s_tier": "S Tier: The absolute best (only resource you need realistically).",
             "a_tier": "A Tier: Still great (your main resource, but benefits from comparison).",
