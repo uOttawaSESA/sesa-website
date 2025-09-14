@@ -39,7 +39,7 @@ const ThankYou = () => {
             {/* Decorations */}
             <div className="pointer-events-none absolute inset-0">
                 {/* Light gradient */}
-                <div className="fade-from-left-bg absolute -top-10 hidden h-[110vh] w-[90vw] bg-blueviolet-100/20 blur-sm md:block" />
+                <div className="fade-from-left-bg absolute -top-10 hidden h-[110vh] w-[90vw] bg-blueviolet-100/20 blur-xs md:block" />
 
                 <Star
                     variant="star-faded"

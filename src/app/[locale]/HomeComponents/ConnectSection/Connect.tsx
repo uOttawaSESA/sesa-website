@@ -10,7 +10,7 @@ const Connect = () => {
             {/* Decorations */}
             <div className="pointer-events-none z-0 select-none">
                 {/* Light gradient */}
-                <div className="fade-from-left-bg absolute top-1/2 hidden h-[70rem] w-[50vw] -translate-y-1/2 bg-blueviolet-100/30 blur-sm md:block" />
+                <div className="fade-from-left-bg absolute top-1/2 hidden h-[70rem] w-[50vw] -translate-y-1/2 bg-blueviolet-100/30 blur-xs md:block" />
             </div>
             <div className="my-8 flex flex-col gap-4 lg:my-20 lg:flex-row lg:items-center lg:gap-20 2xl:gap-52">
                 {/* Left Image */}

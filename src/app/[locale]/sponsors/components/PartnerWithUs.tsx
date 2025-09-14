@@ -22,7 +22,7 @@ const PartnerWithUs = () => {
             {/* Decorations */}
             <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
                 {/* Light gradient */}
-                <div className="fade-from-left-bg absolute h-[70rem] w-[60vw] bg-blueviolet-100 opacity-15 blur-sm md:bottom-[-20rem] md:h-[100rem]" />
+                <div className="fade-from-left-bg absolute h-[70rem] w-[60vw] bg-blueviolet-100 opacity-15 blur-xs md:bottom-[-20rem] md:h-[100rem]" />
 
                 <Star
                     variant="star-faded"
