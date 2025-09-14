@@ -7,7 +7,6 @@ import { api } from "@/trpc/react";
 import { ResourceCard } from "./ResourceCard/ResourceCard";
 import { ResourceModal } from "./ResourceModal";
 import type React from "react";
-import type { Ref } from "react";
 import type { MappedResource } from "@/server/db/schema";
 
 interface ResourceListProps {

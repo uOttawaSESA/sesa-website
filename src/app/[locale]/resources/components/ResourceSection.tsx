@@ -8,7 +8,6 @@ import {
     useQueryStates,
 } from "nuqs";
 import { useEffect, useMemo, useState } from "react";
-import { useInView } from "react-intersection-observer";
 import { useDebounce } from "@/hooks";
 import { api } from "@/trpc/react";
 import ResourceList from "./ResourceList";
