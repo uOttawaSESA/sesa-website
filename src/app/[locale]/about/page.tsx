@@ -218,25 +218,25 @@ export default function About() {
                         <div className="flex justify-center md:mb-28">
                             <div className="grid w-fit grid-cols-1 place-items-center gap-4 md:gap-20 md:grid-cols-4">
                                 <Metric
-                                    className="!w-64 backdrop-blur-lg"
+                                    className="w-64! backdrop-blur-lg"
                                     figure="3500+"
                                     caption={t("figure_eecs_students")}
                                     border
                                 />
                                 <Metric
-                                    className="!w-64 backdrop-blur-lg"
+                                    className="w-64! backdrop-blur-lg"
                                     figure="21"
                                     caption={t("figure_previous_partners")}
                                     border
                                 />
                                 <Metric
-                                    className="!w-64 backdrop-blur-lg"
+                                    className="w-64! backdrop-blur-lg"
                                     figure="2300+"
                                     caption={t("figure_event_attendees")}
                                     border
                                 />
                                 <Metric
-                                    className="!w-64 backdrop-blur-lg"
+                                    className="w-64! backdrop-blur-lg"
                                     figure="34"
                                     caption={t("figure_events")}
                                     border
@@ -349,13 +349,13 @@ export default function About() {
                         <div className="fade-from-left-bg absolute top-[10rem] left-[-10rem] h-[100rem] w-[80vw] bg-blueviolet-100 bg-opacity-20 blur-sm 2xl:left-[-45rem]" />
 
                         {/* Warm gradient */}
-                        <div className="fade-from-center-bg absolute left-1/2 top-[100rem] h-[100rem] w-full -translate-x-1/2 bg-[#B1219D] bg-opacity-25 blur-sm md:w-[100vw] 2xl:left-[-45rem]" />
+                        <div className="fade-from-center-bg absolute left-1/2 top-[100rem] h-[100rem] w-full -translate-x-1/2 bg-[#B1219D] bg-opacity-25 blur-sm md:w-screen 2xl:left-[-45rem]" />
 
                         {/* Light gradient */}
                         <div className="fade-from-right-bg absolute top-[130rem] right-[-6rem] h-[100rem] w-[50vw] bg-blueviolet-100 bg-opacity-20 blur-sm 2xl:right-[-45rem]" />
 
                         {/* Warm gradient */}
-                        <div className="fade-from-center-bg absolute left-1/2 top-[190rem] h-[100rem] w-full -translate-x-1/2 bg-[#B1219D] bg-opacity-25 blur-sm md:w-[100vw]" />
+                        <div className="fade-from-center-bg absolute left-1/2 top-[190rem] h-[100rem] w-full -translate-x-1/2 bg-[#B1219D] bg-opacity-25 blur-sm md:w-screen" />
 
                         <Star
                             variant="star"
@@ -404,7 +404,7 @@ export default function About() {
                     {/* TODO: Add the `sticky` class once a way to make it not super ugly is found */}
                     <FadeInSection>
                         <div className="top-[5.6rem] z-10 mt-4 grid grid-flow-col grid-rows-4 text-center font-heading uppercase backdrop-blur-sm md:grid-rows-1">
-                            <Button className="!inline !px-2" variant="outline" asChild>
+                            <Button className="!inline px-2!" variant="outline" asChild>
                                 <Link href="#co-directors">{tOurTeam("codirectors")}</Link>
                             </Button>
                             <Button className="!inline" variant="outline" asChild>
@@ -530,7 +530,7 @@ export default function About() {
                         <div className="fade-from-left-bg absolute left-[-6rem] top-[-100rem] h-[200rem] w-[80vw] bg-blueviolet-100 bg-opacity-20 blur-sm 2xl:left-[-45rem]" />
 
                         {/* Warm gradient */}
-                        <div className="fade-from-center-bg absolute left-1/2 top-[-25rem] h-[100rem]  w-full -translate-x-1/2 bg-[#B1219D] bg-opacity-25 blur-sm md:w-[100vw]" />
+                        <div className="fade-from-center-bg absolute left-1/2 top-[-25rem] h-[100rem]  w-full -translate-x-1/2 bg-[#B1219D] bg-opacity-25 blur-sm md:w-screen" />
 
                         <Star
                             variant="star"

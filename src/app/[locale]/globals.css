@@ -1,11 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap") layer(base);
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap")
+    layer(base);
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@reference "tailwindcss";
+@import "tailwindcss";
 
 @theme {
     /* === Colors === */
@@ -118,296 +115,304 @@
     --backdrop-blur-super: 500px;
 }
 
-body {
-    @apply m-0 leading-[normal];
-}
-
-*,
-::before,
-::after {
-    border-width: 0;
-}
-
-@font-face {
-    font-family: "VCR OSD Mono";
-    font-display: swap;
-    src: url(/fonts/VCR_OSD_MONO_1.001.ttf);
-}
-
-@font-face {
-    font-family: "Monocode";
-    font-display: swap;
-    src: url(/fonts/monocode-regular.ttf);
-}
-
-/*** Scrollbar styling ***/
-/* Firefox */
-* {
-    scrollbar-color: #9a1ebf #381e4b; /* thumb, track */
-}
-
-.bg-gradient {
-    background:
-        radial-gradient(ellipse 150% 300% at center top, #381e4b 0%, #1b1b1b 90%),
-        linear-gradient(to bottom, #381e4b 0%, #1b1b1b 100%);
-}
-
-::-webkit-scrollbar-track {
-    background: #381e4b;
-}
-
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(55deg, #8824dc 41.93%, #b1219d 81.89%);
-    border-radius: 10px;
-}
-
-.sponsor {
-    @apply outline-gradient mx-4 flex h-40 w-64 items-center justify-center;
-}
-
 @utility outline-gradient {
     border: 1px solid;
     border-image: linear-gradient(55deg, #8824dc 41.93%, #b1219d 81.89%) 1;
 }
 
-.outline-gradient {
-    border: 1px solid;
-    border-image: linear-gradient(55deg, #8824dc 41.93%, #b1219d 81.89%) 1;
+@layer utilities {
+    @reference "tailwindcss";
 }
 
-.outline-gradient-rounded {
-    position: relative;
-    border: 1px solid transparent;
-    border-radius: 0.5rem;
-
-    background:
-        linear-gradient(rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.8)) padding-box,
-        linear-gradient(55deg, #8824dc 41.93%, #b1219d 81.89%) border-box; /* gradient border */
-
-    background-clip: padding-box, border-box;
-    background-origin: border-box;
-
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-}
-
-.fill-gradient {
-    background: linear-gradient(55deg, #8824dc 41.93%, #b1219d 81.89%);
-}
-
-.color-gradient {
-    background-color: #8824dc;
-    background-image: linear-gradient(55deg, #8824dc 41.93%, #b1219d 81.89%);
-    background-size: 100%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
-    transition: background-position 0.5s ease;
-}
-
-.color-gradient-clickable {
-    background-color: #8824dc;
-    background-image: linear-gradient(55deg, #8824dc 20%, #b1219d 75%);
-    background-size: 200% 100%; /* Double the size for animation */
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
-    transition: background-position 0.3s ease;
-}
-
-.color-gradient-clickable:hover {
-    background-position: 100% 0; /* Move gradient to the right */
-}
-
-.highlight-text {
-    @apply relative z-0 inline-block;
-}
-
-.highlight-text::before {
-    content: "";
-    @apply absolute right-0 top-0 z-[-1] h-full w-0 animate-highlight;
-    background: linear-gradient(55.37deg, rgba(136, 36, 220, 0.5), rgba(177, 33, 97, 0.5));
-}
-
-.clip-corner {
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
-}
-
-.clip-corner-inner {
-    clip-path: polygon(
-        2px 2px,
-        calc(100% - 2px) 2px,
-        calc(100% - 2px) calc(100% - 17px),
-        calc(100% - 17px) calc(100% - 2px),
-        2px calc(100% - 2px)
-    );
-}
-
-body {
-    color: var(--foreground);
-    background: var(--background);
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-input::placeholder,
-textarea::placeholder,
-select::placeholder {
-    font-family: Raleway, sans-serif;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 16px;
-}
-
-.grid-overlay-right {
-    position: absolute;
-    right: 0;
-    background-size: 50px 50px;
-    background-image:
-        linear-gradient(to right, #a122af 3px, transparent 3px),
-        linear-gradient(to bottom, #a122af 3px, transparent 3px);
-    mask-image: linear-gradient(
-        to right,
-        transparent,
-        rgba(0, 0, 0, 0.05) 10%,
-        rgba(0, 0, 0, 0.3) 40%,
-        rgba(0, 0, 0, 0.7) 70%,
-        black 100%
-    );
-}
-
-.grid-overlay-left {
-    position: absolute;
-    left: 0;
-    background-size: 50px 50px;
-    background-image:
-        linear-gradient(to right, #a122af 3px, transparent 3px),
-        linear-gradient(to bottom, #a122af 3px, transparent 3px);
-    mask-image: linear-gradient(
-        to right,
-        black 0%,
-        rgba(0, 0, 0, 0.7) 30%,
-        rgba(0, 0, 0, 0.3) 60%,
-        rgba(0, 0, 0, 0.05) 90%,
-        transparent 100%
-    );
-}
-
-@keyframes infinite-scroll {
-    0% {
-        transform: translateX(0);
+@layer utilities {
+    body {
+        @apply m-0 leading-[normal];
     }
 
-    100% {
-        transform: translateX(-50%);
+    *,
+    ::before,
+    ::after {
+        border-width: 0;
+    }
+
+    @font-face {
+        font-family: "VCR OSD Mono";
+        font-display: swap;
+        src: url(/fonts/VCR_OSD_MONO_1.001.ttf);
+    }
+
+    @font-face {
+        font-family: "Monocode";
+        font-display: swap;
+        src: url(/fonts/monocode-regular.ttf);
+    }
+
+    /*** Scrollbar styling ***/
+    /* Firefox */
+    * {
+        scrollbar-color: #9a1ebf #381e4b; /* thumb, track */
+    }
+
+    .bg-gradient {
+        background:
+            radial-gradient(ellipse 150% 300% at center top, #381e4b 0%, #1b1b1b 90%),
+            linear-gradient(to bottom, #381e4b 0%, #1b1b1b 100%);
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #381e4b;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(55deg, #8824dc 41.93%, #b1219d 81.89%);
+        border-radius: 10px;
+    }
+
+    .sponsor {
+        @apply outline-gradient mx-4 flex h-40 w-64 items-center justify-center;
     }
 }
 
-.animate-infinite-scroll {
-    animation: infinite-scroll 25s linear infinite;
-}
+@layer utilities {
+    .outline-gradient {
+        border: 1px solid;
+        border-image: linear-gradient(55deg, #8824dc 41.93%, #b1219d 81.89%) 1;
+    }
 
-.animation-paused {
-    animation-play-state: paused;
-}
+    .outline-gradient-rounded {
+        position: relative;
+        border: 1px solid transparent;
+        border-radius: 0.5rem;
 
-.other-resources-container::before {
-    content: "";
-    z-index: 99;
-    width: 10%;
-    height: 100%;
-    position: absolute;
-    left: 4rem;
-    top: 0;
-    background: linear-gradient(to left, transparent, #301d3f);
-}
+        background:
+            linear-gradient(rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.8)) padding-box,
+            linear-gradient(55deg, #8824dc 41.93%, #b1219d 81.89%) border-box; /* gradient border */
 
-.other-resources-container::after {
-    content: "";
-    width: 10%;
-    height: 100%;
-    position: absolute;
-    right: 4rem;
-    top: 0;
-    background: linear-gradient(to right, transparent, #301d3f);
-}
+        background-clip: padding-box, border-box;
+        background-origin: border-box;
 
-/*** MARKDOWN STYLING ***/
-/* Headings */
-.markdown h1 {
-    @apply mb-4 mt-8 font-heading text-3xl uppercase;
-}
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+    }
 
-.markdown h2 {
-    @apply mb-3 mt-6 font-heading text-2xl uppercase;
-}
+    .fill-gradient {
+        background: linear-gradient(55deg, #8824dc 41.93%, #b1219d 81.89%);
+    }
 
-.markdown h3 {
-    @apply mb-2 mt-4 font-heading text-xl uppercase;
-}
+    .color-gradient {
+        background-color: #8824dc;
+        background-image: linear-gradient(55deg, #8824dc 41.93%, #b1219d 81.89%);
+        background-size: 100%;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -moz-text-fill-color: transparent;
+        transition: background-position 0.5s ease;
+    }
 
-.markdown h4 {
-    @apply mb-2 mt-4 font-heading text-lg uppercase;
-}
+    .color-gradient-clickable {
+        background-color: #8824dc;
+        background-image: linear-gradient(55deg, #8824dc 20%, #b1219d 75%);
+        background-size: 200% 100%; /* Double the size for animation */
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -moz-text-fill-color: transparent;
+        transition: background-position 0.3s ease;
+    }
 
-.markdown h5 {
-    @apply mb-2 mt-4 font-heading text-base uppercase;
-}
+    .color-gradient-clickable:hover {
+        background-position: 100% 0; /* Move gradient to the right */
+    }
 
-.markdown h6 {
-    @apply mb-2 mt-4 font-heading text-sm uppercase;
-}
+    .highlight-text {
+        @apply relative z-0 inline-block;
+    }
 
-/* Paragraphs and links */
-.markdown p {
-    @apply mb-4 leading-relaxed;
-}
+    .highlight-text::before {
+        content: "";
+        @apply absolute right-0 top-0 z-[-1] h-full w-0 animate-highlight;
+        background: linear-gradient(55.37deg, rgba(136, 36, 220, 0.5), rgba(177, 33, 97, 0.5));
+    }
 
-.markdown a {
-    @apply text-blue-500 hover:underline;
-}
+    .clip-corner {
+        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
+    }
 
-/* Lists */
-.markdown ul {
-    @apply ml-6 list-disc;
-}
+    .clip-corner-inner {
+        clip-path: polygon(
+            2px 2px,
+            calc(100% - 2px) 2px,
+            calc(100% - 2px) calc(100% - 17px),
+            calc(100% - 17px) calc(100% - 2px),
+            2px calc(100% - 2px)
+        );
+    }
 
-.markdown ol {
-    @apply ml-6 list-decimal;
-}
+    body {
+        color: var(--foreground);
+        background: var(--background);
+        font-family: Arial, Helvetica, sans-serif;
+    }
 
-.markdown li {
-    @apply mb-1;
-}
+    input::placeholder,
+    textarea::placeholder,
+    select::placeholder {
+        font-family: Raleway, sans-serif;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 16px;
+    }
 
-/* Blockquote */
-.markdown blockquote {
-    @apply my-4 border-l-4 border-gray-400 pl-4 italic;
-}
+    .grid-overlay-right {
+        position: absolute;
+        right: 0;
+        background-size: 50px 50px;
+        background-image:
+            linear-gradient(to right, #a122af 3px, transparent 3px),
+            linear-gradient(to bottom, #a122af 3px, transparent 3px);
+        mask-image: linear-gradient(
+            to right,
+            transparent,
+            rgba(0, 0, 0, 0.05) 10%,
+            rgba(0, 0, 0, 0.3) 40%,
+            rgba(0, 0, 0, 0.7) 70%,
+            black 100%
+        );
+    }
 
-/* Inline code and code blocks */
-.markdown code {
-    @apply rounded bg-gray-100 px-1 py-0.5 font-mono text-sm;
-}
+    .grid-overlay-left {
+        position: absolute;
+        left: 0;
+        background-size: 50px 50px;
+        background-image:
+            linear-gradient(to right, #a122af 3px, transparent 3px),
+            linear-gradient(to bottom, #a122af 3px, transparent 3px);
+        mask-image: linear-gradient(
+            to right,
+            black 0%,
+            rgba(0, 0, 0, 0.7) 30%,
+            rgba(0, 0, 0, 0.3) 60%,
+            rgba(0, 0, 0, 0.05) 90%,
+            transparent 100%
+        );
+    }
 
-.markdown pre {
-    @apply my-4 overflow-auto rounded bg-gray-100 p-4;
-}
+    @keyframes infinite-scroll {
+        0% {
+            transform: translateX(0);
+        }
 
-/* Horizontal rule */
-.markdown hr {
-    @apply my-8 border-t border-gray-200;
-}
+        100% {
+            transform: translateX(-50%);
+        }
+    }
 
-/* (Optional) Tables */
-.markdown table {
-    @apply mb-4 w-full border-collapse;
-}
+    .animate-infinite-scroll {
+        animation: infinite-scroll 25s linear infinite;
+    }
 
-.markdown th,
-.markdown td {
-    @apply border border-gray-300 px-4 py-2;
+    .animation-paused {
+        animation-play-state: paused;
+    }
+
+    .other-resources-container::before {
+        content: "";
+        z-index: 99;
+        width: 10%;
+        height: 100%;
+        position: absolute;
+        left: 4rem;
+        top: 0;
+        background: linear-gradient(to left, transparent, #301d3f);
+    }
+
+    .other-resources-container::after {
+        content: "";
+        width: 10%;
+        height: 100%;
+        position: absolute;
+        right: 4rem;
+        top: 0;
+        background: linear-gradient(to right, transparent, #301d3f);
+    }
+
+    /*** MARKDOWN STYLING ***/
+    /* Headings */
+    .markdown h1 {
+        @apply mb-4 mt-8 font-heading text-3xl uppercase;
+    }
+
+    .markdown h2 {
+        @apply mb-3 mt-6 font-heading text-2xl uppercase;
+    }
+
+    .markdown h3 {
+        @apply mb-2 mt-4 font-heading text-xl uppercase;
+    }
+
+    .markdown h4 {
+        @apply mb-2 mt-4 font-heading text-lg uppercase;
+    }
+
+    .markdown h5 {
+        @apply mb-2 mt-4 font-heading text-base uppercase;
+    }
+
+    .markdown h6 {
+        @apply mb-2 mt-4 font-heading text-sm uppercase;
+    }
+
+    /* Paragraphs and links */
+    .markdown p {
+        @apply mb-4 leading-relaxed;
+    }
+
+    .markdown a {
+        @apply text-blue-500 hover:underline;
+    }
+
+    /* Lists */
+    .markdown ul {
+        @apply ml-6 list-disc;
+    }
+
+    .markdown ol {
+        @apply ml-6 list-decimal;
+    }
+
+    .markdown li {
+        @apply mb-1;
+    }
+
+    /* Blockquote */
+    .markdown blockquote {
+        @apply my-4 border-l-4 border-gray-400 pl-4 italic;
+    }
+
+    /* Inline code and code blocks */
+    .markdown code {
+        @apply rounded bg-gray-100 px-1 py-0.5 font-mono text-sm;
+    }
+
+    .markdown pre {
+        @apply my-4 overflow-auto rounded bg-gray-100 p-4;
+    }
+
+    /* Horizontal rule */
+    .markdown hr {
+        @apply my-8 border-t border-gray-200;
+    }
+
+    /* (Optional) Tables */
+    .markdown table {
+        @apply mb-4 w-full border-collapse;
+    }
+
+    .markdown th,
+    .markdown td {
+        @apply border border-gray-300 px-4 py-2;
+    }
 }
 
 @layer base {

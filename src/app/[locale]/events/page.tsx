@@ -99,7 +99,7 @@ export default async function Events() {
                         />
                         <Star
                             variant="star-faded"
-                            className="absolute bottom-[-6rem] right-[9rem] rotate-[30deg] transform md:block"
+                            className="absolute bottom-[-6rem] right-[9rem] rotate-30 transform md:block"
                             delay={0.5}
                         />
 

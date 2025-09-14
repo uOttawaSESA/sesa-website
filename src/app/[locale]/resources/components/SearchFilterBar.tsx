@@ -13,7 +13,7 @@ import {
 import type { ResourceFilters, ResourceSorts } from "@/server/api/routers/resource";
 
 const gradientBorderClass = `
-    border-[1px]
+    border
     border-solid
     [border-image:linear-gradient(55deg,rgba(136,36,220,0.7)_41.93%,rgba(177,33,157,0.7)_81.89%)_1]
 `;

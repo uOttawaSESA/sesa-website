@@ -71,7 +71,7 @@ const ThankYou = () => {
             </div>
 
             <div className="mb-6 flex flex-col items-center gap-4 md:flex-row">
-                <span className="bg-gradient-to-r from-[#8824dc] to-[#b1219d] px-3 py-1 font-heading text-base uppercase text-white">
+                <span className="bg-linear-to-r from-blueviolet-100 to-[#b1219d] px-3 py-1 font-heading text-base uppercase text-white">
                     Success
                 </span>
                 <span className="font-heading text-base uppercase tracking-widest text-white">

@@ -42,7 +42,7 @@ const TooltipPortal = ({
     return createPortal(
         <div
             id={id}
-            className="outline-gradient fixed z-[9999] px-3 py-1.5 text-sm text-white shadow-lg shadow-purple-500/20 backdrop-blur-xl"
+            className="outline-gradient fixed z-9999 px-3 py-1.5 text-sm text-white shadow-lg shadow-purple-500/20 backdrop-blur-xl"
             style={{ top: position.top, left: position.left }}
         >
             {children}
@@ -317,11 +317,11 @@ export const ResourceModal = ({ resource, isOpen, onClose }: ResourceModalProps)
                             <div>
                                 {/* Category Badges */}
                                 <div className="mb-4 flex gap-2 font-heading text-white">
-                                    <span className="cursor-pointer bg-gradient-to-r from-blueviolet-100 to-darkmagenta p-2 text-sm uppercase">
+                                    <span className="cursor-pointer bg-linear-to-r from-blueviolet-100 to-darkmagenta p-2 text-sm uppercase">
                                         {getLocalizedCategory(resource.category)}
                                     </span>
                                     {resource.course && (
-                                        <span className="cursor-pointer bg-gradient-to-r from-blueviolet-100 to-darkmagenta p-2 text-sm uppercase">
+                                        <span className="cursor-pointer bg-linear-to-r from-blueviolet-100 to-darkmagenta p-2 text-sm uppercase">
                                             {resource.course}
                                         </span>
                                     )}

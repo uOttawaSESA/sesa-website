@@ -33,7 +33,7 @@ const Connect = () => {
                 </div>
 
                 <div className="flex w-full flex-col gap-2 px-8 md:px-10 lg:px-8">
-                    <p className="font-monocode relative inline-block !bg-clip-text text-left text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)] md:text-base">
+                    <p className="font-monocode relative inline-block bg-clip-text! text-left text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,#8824dc,#b1219d)] md:text-base">
                         {t("connect_subtitle")}
                     </p>
                     <h1 className="font-heading text-2xl uppercase leading-tight md:text-4xl">

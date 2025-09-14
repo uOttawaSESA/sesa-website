@@ -112,7 +112,7 @@ export default function TeamMembers({ title, description, people }: Props) {
                                 height={256}
                                 className="h-64 w-64 object-cover"
                             />
-                            <div className="flex flex-grow flex-col gap-2 p-4">
+                            <div className="flex grow flex-col gap-2 p-4">
                                 <h3 className="font-sans text-lg font-bold md:text-xl">
                                     {person.name}
                                 </h3>

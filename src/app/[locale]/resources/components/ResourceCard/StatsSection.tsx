@@ -17,7 +17,7 @@ const TooltipPortal = ({
     return createPortal(
         <div
             id={id}
-            className="outline-gradient fixed z-[9999] px-3 py-1.5 text-sm text-white shadow-lg shadow-purple-500/20 backdrop-blur-xl"
+            className="outline-gradient fixed z-9999 px-3 py-1.5 text-sm text-white shadow-lg shadow-purple-500/20 backdrop-blur-xl"
             style={{ top: position.top, left: position.left }}
         >
             {children}

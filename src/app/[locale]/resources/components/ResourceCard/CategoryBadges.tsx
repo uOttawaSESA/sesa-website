@@ -12,13 +12,13 @@ export const CategoryBadges = ({
     return (
         <div className="flex gap-2 font-thin">
             <span
-                className={`cursor-pointer bg-gradient-to-r from-blueviolet-100 to-darkmagenta uppercase ${sizeClasses}`}
+                className={`cursor-pointer bg-linear-to-r from-blueviolet-100 to-darkmagenta uppercase ${sizeClasses}`}
             >
                 {category}
             </span>
             {course && (
                 <span
-                    className={`cursor-pointer bg-gradient-to-r from-blueviolet-100 to-darkmagenta uppercase ${sizeClasses}`}
+                    className={`cursor-pointer bg-linear-to-r from-blueviolet-100 to-darkmagenta uppercase ${sizeClasses}`}
                 >
                     {course}
                 </span>
