@@ -188,101 +188,98 @@ export const EventCard = ({ event }: EventCardProps) => {
                     </DialogHeader>
                 </DialogContent>
             </Dialog>
-            <div className="w-min border outline-gradient backdrop-blur-2xl p-px font-heading transition-all md:w-auto">
-                <div className="flex w-min flex-col justify-start md:w-auto md:flex-row">
-                    {/* Left Side: Full-Height Image */}
+
+            <div className="w-full flex flex-col justify-start border outline-gradient backdrop-blur-2xl font-heading transition-all">
+                {/* Left Side: Full-Height Image */}
+                <Image
+                    src={event.imageUrl}
+                    alt={event.imageAlt}
+                    width={350}
+                    height={350}
+                    className="aspect-square w-full object-cover"
+                />
+
+                {/* Right Side: Event Details */}
+                <div className="flex flex-col justify-between gap-4 p-6">
+                    {/* Event Type Badge */}
                     <div>
-                        <Image
-                            src={event.imageUrl}
-                            alt={event.imageAlt}
-                            width={350}
-                            height={350}
-                            className="aspect-square h-full max-w-none object-cover"
-                        />
+                        <span className="cursor-pointer bg-linear-to-r from-blueviolet-100 to-darkmagenta px-3 py-1 text-xs md:text-base uppercase">
+                            {type}
+                        </span>
                     </div>
 
-                    {/* Right Side: Event Details */}
-                    <div className="flex flex-col justify-between p-6">
-                        {/* Event Type Badge */}
-                        <div>
-                            <span className="cursor-pointer bg-linear-to-r from-blueviolet-100 to-darkmagenta px-3 py-1 text-sm uppercase">
-                                {type}
-                            </span>
+                    {/* Event Title */}
+                    <h3 className="text-xl md:text-3xl uppercase leading-tight">{title}</h3>
+
+                    {/* Date and Location */}
+                    <div className="flex items-center gap-4 font-mono text-white">
+                        {/* Date Box */}
+                        <div className="outline-gradient flex flex-col items-center justify-center border aspect-square px-4">
+                            <div className="font-heading text-xs uppercase">{dayOfWeek}</div>
+                            <div className="font-heading text-xl">{day}</div>
                         </div>
 
-                        {/* Event Title */}
-                        <h3 className="mt-4 text-2xl uppercase leading-tight">{title}</h3>
-
-                        {/* Date and Location */}
-                        <div className="mt-4 flex items-start gap-4 font-mono text-white">
-                            {/* Date Box */}
-                            <div className="outline-gradient -mt-2 flex flex-col items-center justify-center border px-4 py-3">
-                                <div className="font-heading text-xs uppercase">{dayOfWeek}</div>
-                                <div className="font-heading text-xl">{day}</div>
+                        {/* Date and Location Text with Icons */}
+                        <div className="flex flex-col gap-2 text-thistle">
+                            {/* Date and Time with Icons */}
+                            <div className="flex text-nowrap text-xs md:text-base items-center gap-2 text-white">
+                                <CalendarClock className="h-4 w-4" />
+                                <span>
+                                    {formattedDate}, {timeRange}
+                                </span>
                             </div>
 
-                            {/* Date and Location Text with Icons */}
-                            <div className="flex flex-col gap-2 text-thistle">
-                                {/* Date and Time with Icons */}
-                                <div className="flex items-center gap-2 text-white">
-                                    <CalendarClock className="h-4 w-4" />
-                                    <span>
-                                        {formattedDate}, {timeRange}
-                                    </span>
-                                </div>
-
-                                {/* Location with Icon */}
-                                <div className="flex items-center gap-2">
-                                    <MapPin className="h-4 w-4" />
-                                    <span>{event.location}</span>
-                                </div>
+                            {/* Location with Icon */}
+                            <div className="flex text-xs md:text-base items-center gap-2">
+                                <MapPin className="h-4 w-4" />
+                                <span>{event.location}</span>
                             </div>
                         </div>
+                    </div>
 
-                        {/* Event Description */}
-                        <p className="mt-4 w-full font-mono text-base text-thistle">
-                            {truncatedDescription}
-                            {description.length > maxDescriptionLength && (
-                                <button
-                                    type="button"
-                                    onClick={toggleDescription}
-                                    className="ml-2 text-blueviolet-100 hover:underline focus:outline-hidden"
-                                >
-                                    {showFullDescription ? "Show Less" : "Show More"}
-                                </button>
-                            )}
-                        </p>
-
-                        {/* Buttons */}
-                        <div className="mt-6 flex w-full justify-end gap-4">
-                            {/* Details Button */}
-                            <Button
-                                className="flex items-center gap-2 font-heading uppercase"
-                                onClick={handleDetails}
+                    {/* Event Description */}
+                    <p className="w-full font-mono text-sm md:text-xl text-thistle">
+                        {truncatedDescription}
+                        {description.length > maxDescriptionLength && (
+                            <button
+                                type="button"
+                                onClick={toggleDescription}
+                                className="cursor-pointer text-blueviolet-100 hover:underline focus:outline-hidden"
                             >
-                                {t("btn_details")}
-                            </Button>
+                                {showFullDescription ? "Show Less" : "Show More"}
+                            </button>
+                        )}
+                    </p>
 
-                            {/* Register Button (only for events that require registration) */}
-                            {event.registrationUrl && !isRegistered && !isPastEvent && (
-                                <Button
-                                    className="flex items-center gap-2 font-heading uppercase"
-                                    onClick={handleRegister}
-                                >
-                                    {t("btn_register")}
-                                </Button>
-                            )}
+                    {/* Buttons */}
+                    <div className="flex w-full justify-start gap-2 flex-wrap">
+                        {/* Details Button */}
+                        <Button
+                            className="px-4 flex-grow text-base md:text-lg font-heading uppercase"
+                            onClick={handleDetails}
+                        >
+                            {t("btn_details")}
+                        </Button>
 
-                            {/* Add to Calendar Button */}
+                        {/* Register Button (only for events that require registration) */}
+                        {event.registrationUrl && !isRegistered && !isPastEvent && (
                             <Button
-                                className="flex items-center gap-2 font-heading uppercase"
-                                onClick={handleAddToCalendar}
-                                variant="outline"
-                                disabled={isPastEvent}
+                                className="flex-grow font-heading uppercase text-base md:text-lg"
+                                onClick={handleRegister}
                             >
-                                {t("btn_calendar")}
+                                {t("btn_register")}
                             </Button>
-                        </div>
+                        )}
+
+                        {/* Add to Calendar Button */}
+                        <Button
+                            className="flex-grow font-heading uppercase text-base md:text-lg"
+                            onClick={handleAddToCalendar}
+                            variant="outline"
+                            disabled={isPastEvent}
+                        >
+                            {t("btn_calendar")}
+                        </Button>
                     </div>
                 </div>
             </div>

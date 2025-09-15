@@ -107,7 +107,7 @@ const EventSection = () => {
     const totalPages = Math.ceil(filteredEvents.length / eventsPerPage);
 
     return (
-        <div className="relative mx-auto flex max-w-7xl flex-col justify-center">
+        <div className="relative flex flex-col justify-center">
             <Header />
             <EventFilters onFilterChange={setTypeFilter} onTimeFilterChange={setTimeFilter} />
             <div className="pointer-events-none select-none">
@@ -149,11 +149,13 @@ const EventSection = () => {
                     <EventsList events={currentEvents} />
 
                     {filteredEvents.length > eventsPerPage && (
-                        <Pagination
-                            currentPage={currentPage}
-                            totalPages={totalPages}
-                            onPageChange={setCurrentPage}
-                        />
+                        <div className="mt-4 mb-8 px-8">
+                            <Pagination
+                                currentPage={currentPage}
+                                totalPages={totalPages}
+                                onPageChange={setCurrentPage}
+                            />
+                        </div>
                     )}
                 </div>
             )}
