@@ -231,7 +231,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                             <button
                                 type="button"
                                 onClick={clearAllFilters}
-                                className="flex items-center gap-2 uppercase text-white transition-colors hover:text-white"
+                                className="cursor-pointer flex items-center gap-2 uppercase text-white transition-colors hover:text-white"
                             >
                                 {t("clear_filters")}
                                 <Trash size={14} />
