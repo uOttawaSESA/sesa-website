@@ -242,7 +242,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                         <div className="relative">
                             <button
                                 type="button"
-                                className="flex items-center gap-2 uppercase text-white"
+                                className="flex items-center gap-2 cursor-pointer uppercase text-white"
                                 onClick={() =>
                                     setOpenDropdown(openDropdown === "filter" ? null : "filter")
                                 }
@@ -289,7 +289,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                                         handleFilterChange(key, value)
                                                     }
                                                 >
-                                                    <SelectTrigger className="w-full text-white">
+                                                    <SelectTrigger className="bg-transparent! cursor-pointer w-full text-white">
                                                         <SelectValue
                                                             placeholder={filterPlaceholders[key]}
                                                         />
@@ -299,6 +299,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                                             {filterDropdownOptions[key].map(
                                                                 option => (
                                                                     <SelectItem
+                                                                        className="cursor-pointer"
                                                                         key={option.value}
                                                                         value={option.value.toString()}
                                                                     >
