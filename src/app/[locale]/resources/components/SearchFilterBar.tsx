@@ -412,7 +412,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                         handleSortChange(value)
                                     }
                                 >
-                                    <SelectTrigger className="w-full text-thistle">
+                                    <SelectTrigger className="bg-transparent! w-full text-thistle">
                                         <SelectValue placeholder="Sort" />
                                     </SelectTrigger>
                                     <SelectContent>
