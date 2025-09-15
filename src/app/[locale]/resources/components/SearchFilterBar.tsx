@@ -321,7 +321,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                         <div className="relative">
                             <button
                                 type="button"
-                                className="flex items-center gap-2 uppercase text-white"
+                                className="flex items-center gap-2 uppercase text-white cursor-pointer"
                                 onClick={() =>
                                     setOpenDropdown(openDropdown === "sort" ? null : "sort")
                                 }
@@ -352,14 +352,18 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                                 handleSortChange(value)
                                             }
                                         >
-                                            <SelectTrigger className="w-full text-thistle">
+                                            <SelectTrigger className="w-full text-thistle bg-transparent! cursor-pointer">
                                                 <SelectValue placeholder="Sort" />
                                             </SelectTrigger>
                                             <SelectContent>
                                                 <SelectGroup>
                                                     {Object.entries(sorts).map(
                                                         ([sort, display]) => (
-                                                            <SelectItem key={sort} value={sort}>
+                                                            <SelectItem
+                                                                className="cursor-pointer"
+                                                                key={sort}
+                                                                value={sort}
+                                                            >
                                                                 {display}
                                                             </SelectItem>
                                                         ),
