@@ -9,14 +9,14 @@ const TeamUpSection: React.FC = () => {
     const t = useTranslations("events");
 
     return (
-        <div className="mx-4 mb-24 flex h-[45rem] flex-col items-center justify-start gap-12 sm:mx-0 sm:flex-row md:my-36 2xl:gap-24">
+        <div className="px-8 flex h-[45rem] flex-col items-center justify-start gap-4 md:gap-12 sm:flex-row md:my-36 2xl:gap-24">
             <div className="grid-overlay-left md:h-[43.93rem] md:w-[50vw] 2xl:w-[37vw]"></div>
 
-            <div className="relative z-10 lg:block">
+            <div className="">
                 <Image
                     src="/imgs/Events/team-up.webp"
                     alt="SESA Group Photo"
-                    className="aspect-7/5 object-cover max-h-[400px] sm:max-h-[500px]"
+                    className="relative z-10 lg:block aspect-7/5 object-cover max-h-[400px] sm:max-h-[500px]"
                     width={700}
                     height={700}
                 />
@@ -33,16 +33,12 @@ const TeamUpSection: React.FC = () => {
                     {t("teamup_blurb")}
                 </p>
 
-                <div className="mt-6 flex flex-wrap gap-4">
-                    <Button className="relative z-10 font-heading text-xl uppercase" asChild>
+                <div className="mt-4 flex gap-4 text-base md:text-lg">
+                    <Button className="flex-grow font-heading uppercase" asChild>
                         <Link href="/contact">{t("btn_talk")}</Link>
                     </Button>
 
-                    <Button
-                        variant="outline"
-                        className="relative z-10 font-heading text-xl uppercase"
-                        asChild
-                    >
+                    <Button variant="outline" className="flex-grow font-heading uppercase" asChild>
                         <Link href="/about">{t("btn_meet_team")}</Link>
                     </Button>
                 </div>
