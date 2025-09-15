@@ -450,7 +450,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                             value={filterOptions[key]?.toString()}
                                             onValueChange={value => handleFilterChange(key, value)}
                                         >
-                                            <SelectTrigger className="w-full text-white">
+                                            <SelectTrigger className="bg-transparent! w-full text-white">
                                                 <SelectValue
                                                     placeholder={filterPlaceholders[key]}
                                                 />
