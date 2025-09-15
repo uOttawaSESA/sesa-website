@@ -36,7 +36,7 @@ const ConnectSESA = () => {
                     <span> {t("stay_updated_hl")}</span>
                 </h1>
 
-                <p className="mt-4 max-w-[558px] font-mono text-base md:text-lg text-thistle">
+                <p className="mt-4 max-w-[558px] font-mono text-sm md:text-lg text-thistle">
                     {t("stay_updated_blurb")}
                 </p>
 
