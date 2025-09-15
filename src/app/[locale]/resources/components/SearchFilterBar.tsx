@@ -172,7 +172,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                         <div className="relative">
                             <button
                                 type="button"
-                                className="flex items-center gap-2 uppercase text-white"
+                                className="flex items-center cursor-pointer gap-2 uppercase text-white"
                                 onClick={() =>
                                     setOpenDropdown(openDropdown === "view" ? null : "view")
                                 }
@@ -201,15 +201,21 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                             value={isGridMode ? "grid" : "row"}
                                             onValueChange={changeView}
                                         >
-                                            <SelectTrigger className="w-full text-thistle">
+                                            <SelectTrigger className="bg-transparent! hover:cursor-pointer w-full text-thistle">
                                                 <SelectValue placeholder="Grid" />
                                             </SelectTrigger>
                                             <SelectContent>
                                                 <SelectGroup>
-                                                    <SelectItem value="grid">
+                                                    <SelectItem
+                                                        className="cursor-pointer"
+                                                        value="grid"
+                                                    >
                                                         {t("view_grid")}
                                                     </SelectItem>
-                                                    <SelectItem value="row">
+                                                    <SelectItem
+                                                        className="cursor-pointer"
+                                                        value="row"
+                                                    >
                                                         {t("view_row")}
                                                     </SelectItem>
                                                 </SelectGroup>
