@@ -41,8 +41,18 @@ const ResourceSection = () => {
     const t = useTranslations("resources");
 
     const [isGridMode, setIsGridMode] = useState(true);
-    const [searchTerm, setSearchTerm] = useQueryState("search");
+    // The query search term is dependent on the debounced search term,
+    // but is still used at first to set the initial value of the base search term
+    const [querySearchTerm, setQuerySearchTerm] = useQueryState("search");
+    const [searchTerm, setSearchTerm] = useState<string | null>(querySearchTerm);
+
     const debouncedSearchTerm = useDebounce(searchTerm || null, 300);
+    // This is likely to cause a double-rerender when the search term changes,
+    // but it's most straightforward way I could find to keep the values in sync
+    useEffect(
+        () => void setQuerySearchTerm(debouncedSearchTerm),
+        [debouncedSearchTerm, setQuerySearchTerm],
+    );
 
     const [filterOptions, setFilterOptions] = useQueryStates({
         course: parseAsString,
