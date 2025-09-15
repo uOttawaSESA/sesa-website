@@ -4,19 +4,18 @@ const Header = () => {
     const t = useTranslations("events");
 
     return (
-        <div className="mx-4 pt-8">
-            <div className="mx-auto max-w-7xl md:text-center">
-                <p className="color-gradient font-mono text-xs md:text-base">{t("our_events")}</p>
-                <h1 className="mt-4 text-3xl uppercase md:text-4xl">
-                    <span className="highlight-text">{t("stay_up_to_date_hl")}</span>
-                    <span className="ml-4 md:ml-7">{t("stay_up_to_date")}</span>
-                </h1>
+        <div className="px-8 pt-4">
+            <p className="color-gradient font-mono text-xs md:text-base">{t("our_events")}</p>
+            <h1 className="my-2 text-3xl uppercase md:text-5xl">
+                <span className="highlight-text">{t("stay_up_to_date_hl")}</span>
+                <span className="ml-4 md:ml-7">{t("stay_up_to_date")}</span>
+            </h1>
 
-                <p className="my-6 max-w-[558px] font-sans text-base text-thistle md:mx-auto md:text-lg">
-                    {t("stay_up_to_date_blurb")}
-                </p>
+            <p className="font-sans text-base md:text-lg text-thistle">
+                {t("stay_up_to_date_blurb")}
+            </p>
 
-                {/*
+            {/*
                 <Button
                     className="font-heading uppercase md:mx-8"
                     onClick={() => {
@@ -31,7 +30,6 @@ const Header = () => {
                     <p>{t("subscribe_info_line2")}</p>
                 </div>
                 */}
-            </div>
         </div>
     );
 };
