@@ -451,8 +451,12 @@
         border-width: 0;
     }
 
+    html {
+        @apply bg-gray-100;
+    }
+
     body {
-        @apply m-0 leading-[normal] bg-background text-foreground;
+        @apply m-0 leading-[normal] bg-gray-100 text-foreground;
         font-family: Raleway, sans-serif;
     }
 
