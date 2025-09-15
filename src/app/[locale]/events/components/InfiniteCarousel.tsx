@@ -41,7 +41,7 @@ const InfiniteCarousel = () => {
     ];
 
     return (
-        <div className="my-8 overflow-hidden">
+        <div className="overflow-hidden">
             <Marquee pauseOnHover autoFill>
                 {socialMediaPosts.map((post, index) => (
                     <div key={index} className="mx-6">

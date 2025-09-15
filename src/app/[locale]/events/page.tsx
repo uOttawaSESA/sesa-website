@@ -84,7 +84,7 @@ export default async function Events() {
                         <ConnectSESA />
                     </FadeInSection>
 
-                    <div className="pointer-events relative mb-52 select-none">
+                    <div className="pointer-events relative my-16 md:mb-52 select-none">
                         {/* Bottom Star Decoration */}
                         <Star
                             variant="star"
