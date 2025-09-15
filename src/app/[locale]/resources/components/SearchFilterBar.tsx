@@ -1,7 +1,7 @@
 import { Trash } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { MultiSelect, type MultiSelectRef } from "@/components/ui/multi-select";
 import {
     Select,
