@@ -16,9 +16,9 @@ interface NavLinkItemProps {
 function NavLinkItem({ href, label, isActive, onClick }: NavLinkItemProps) {
     const navLinkClass = "font-heading text-lg uppercase transition-all hover:opacity-80";
     const activeNavLinkClass = `
-      bg-gradient-to-r from-[#8824DC] to-[#B1219D] bg-clip-text text-transparent 
+      bg-linear-to-r from-[#8824DC] to-[#B1219D] bg-clip-text text-transparent 
       relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full 
-      after:bg-gradient-to-r after:from-[#8824DC] after:to-[#B1219D]
+      after:bg-linear-to-r after:from-[#8824DC] after:to-[#B1219D]
     `;
 
     return (
@@ -72,7 +72,7 @@ export default function Navbar() {
 
     return (
         <>
-            <header className="fixed left-0 right-0 top-0 z-50 flex w-screen items-center justify-between bg-transparent px-8 py-6 backdrop-blur-2xl md:px-12 2xl:px-64">
+            <header className="fixed left-0 right-0 top-0 z-50 flex w-screen items-center justify-between bg-transparent px-8 py-6 backdrop-blur-2xl lg:px-10 2xl:px-64">
                 <div className="flex items-center gap-3">
                     <Link href="/">
                         <Image width={40} height={40} src="/sesa-logo.svg" alt="SESA Logo" />
@@ -96,7 +96,7 @@ export default function Navbar() {
                     <LanguageSelect />
 
                     <Button
-                        className="hidden h-12 items-center text-center font-heading text-base uppercase !leading-none text-white lg:flex"
+                        className="hidden h-12 items-center text-center font-heading text-base uppercase leading-none! text-white lg:flex"
                         asChild
                     >
                         <Link href="/sponsors">{t("sponsor_us")}</Link>

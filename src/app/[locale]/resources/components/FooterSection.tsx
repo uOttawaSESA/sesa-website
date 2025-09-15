@@ -13,7 +13,7 @@ const FooterSection: React.FC = () => {
             {/* Decorations */}
             <div className="pointer-events-none select-none">
                 {/* Light gradient */}
-                <div className="fade-from-center-bg absolute right-[5rem] top-[6rem] hidden h-[80rem] w-[100vw] bg-blueviolet-100 bg-opacity-25 blur-3xl backdrop-blur-2xl md:block" />
+                <div className="fade-from-center-bg absolute right-[5rem] top-[6rem] hidden h-[80rem] w-screen bg-blueviolet-100/25 blur-3xl backdrop-blur-2xl md:block" />
 
                 <Star
                     variant="star"
@@ -83,7 +83,7 @@ const FooterSection: React.FC = () => {
                         “{t("education_quote_1")}{" "}
                         <span className="relative inline-block">
                             {t("education_quote_1_hl")}
-                            <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                            <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,rgba(136,36,220,0.25),rgba(177,33,97,0.25))]"></div>
                         </span>
                         {t("education_quote_2")}.”
                     </div>

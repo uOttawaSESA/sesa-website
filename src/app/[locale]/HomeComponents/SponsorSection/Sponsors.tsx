@@ -13,7 +13,7 @@ const Sponsors = () => {
             {/* Decorations */}
             <div className="pointer-events-none z-0 select-none">
                 {/* Light gradient */}
-                <div className="fade-from-center-bg absolute left-1/2 top-1/2 h-[120rem] w-full -translate-x-1/2 -translate-y-1/2 bg-blueviolet-100 bg-opacity-35 blur-xl md:w-[90vw]" />
+                <div className="fade-from-center-bg absolute left-1/2 top-1/2 h-[120rem] w-full -translate-x-1/2 -translate-y-1/2 bg-blueviolet-100/35 blur-xl md:w-[90vw]" />
 
                 <Image
                     src="/decoration/large-wavy-grid.svg"
@@ -59,7 +59,7 @@ const Sponsors = () => {
                 <div className="flex w-full justify-center px-6">
                     {/* Content Container */}
                     <div className="relative z-10 text-center">
-                        <p className="relative inline-block !bg-clip-text font-mono text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)] md:text-base">
+                        <p className="relative inline-block bg-clip-text! font-mono text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,#8824dc,#b1219d)] md:text-base">
                             {t("sponsors_partners")}
                         </p>
                         <h1 className="mx-auto mt-2 max-w-[30ch] font-heading text-2xl uppercase leading-tight text-white md:text-4xl">

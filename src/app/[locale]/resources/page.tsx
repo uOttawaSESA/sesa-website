@@ -41,11 +41,15 @@ export default async function Resources() {
     if (locale !== "en" && locale !== "fr")
         return NextResponse.json({ message: "Invalid locale" }, { status: 400 });
 
-    void api.resource.getPage.prefetch({
-        page: 1,
-        pageSize: 6,
+    void api.resource.getCursorPage.prefetchInfinite({
         search: null,
-        filters: {},
+        filters: {
+            course: null,
+            category: null,
+            format: null,
+            locale: null,
+            tier: null,
+        },
         sort: "created_desc",
     });
 
@@ -55,7 +59,7 @@ export default async function Resources() {
                 {/* Decorations */}
                 <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
                     {/* Warm gradient */}
-                    <div className="fade-from-top-right-bg absolute right-0 h-[120rem] w-full bg-[#B1219D] bg-opacity-15 blur-3xl md:w-[80vw]" />
+                    <div className="fade-from-top-right-bg absolute right-0 h-[120rem] w-full bg-[#B1219D]/15 blur-3xl md:w-[80vw]" />
 
                     <Image
                         src="/decoration/waves.svg"

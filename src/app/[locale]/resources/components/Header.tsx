@@ -5,7 +5,7 @@ const Header = () => {
 
     return (
         <div className="mb-7 text-white md:mb-5">
-            <span className="bg-gradient-to-r from-blueviolet-100 to-darkmagenta bg-clip-text font-mono text-xs text-transparent md:text-base">
+            <span className="bg-linear-to-r from-blueviolet-100 to-darkmagenta bg-clip-text font-mono text-xs text-transparent md:text-base">
                 {t("resources_heading")}
             </span>
             <h1 className="mt-4 font-heading text-2xl uppercase md:text-4xl">

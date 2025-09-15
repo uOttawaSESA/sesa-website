@@ -14,7 +14,7 @@ import {
 import type { ResourceFilters, ResourceSorts } from "@/server/api/routers/resource";
 
 const gradientBorderClass = `
-    border-[1px]
+    border
     border-solid
     [border-image:linear-gradient(55deg,rgba(136,36,220,0.7)_41.93%,rgba(177,33,157,0.7)_81.89%)_1]
 `;
@@ -22,8 +22,6 @@ const gradientBorderClass = `
 interface SearchFilterBarProps {
     isGridMode: boolean;
     setIsGridMode: (mode: boolean) => void;
-    rowsToShow: number;
-    setRowsToShow: (rows: number) => void;
     searchTerm: string | null;
     setSearchTerm: (term: string | null) => void;
     filterOptions: ResourceFilters;
@@ -37,8 +35,6 @@ interface SearchFilterBarProps {
 export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
     isGridMode = true,
     setIsGridMode,
-    rowsToShow,
-    setRowsToShow,
     searchTerm,
     setSearchTerm,
     filterOptions,
@@ -55,14 +51,6 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
     );
 
     const accessibilityMultiSelectRef = useRef<MultiSelectRef>(null);
-
-    useEffect(() => {
-        if (isGridMode) {
-            setRowsToShow(isMobile ? 3 : 2);
-        } else {
-            setRowsToShow(6);
-        }
-    }, [isGridMode, isMobile, setRowsToShow]);
 
     const availableCoursesMapped = useMemo(
         () => availableCourses.map(course => ({ label: course, value: course })),
@@ -145,7 +133,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
         [t],
     );
 
-    const hasActiveFilters = Object.values(filterOptions).some(value => value !== "");
+    const hasActiveFilters = Object.values(filterOptions).some(value => value != null);
 
     const changeView = (value: "grid" | "row") => {
         setIsGridMode(value === "grid");
@@ -161,13 +149,18 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
         let realValue: string | number = value;
         if (key === "tier") realValue = parseInt(value, 10);
         setFilterOptions({
-            ...filterOptions,
             [key]: realValue === "$none" ? undefined : realValue,
         });
     };
 
     const clearAllFilters = () => {
-        setFilterOptions({});
+        // Explicitly set all active filters to null
+        setFilterOptions(
+            Object.keys(filterOptions).reduce((acc, key) => {
+                acc[key as keyof ResourceFilters] = null;
+                return acc;
+            }, {} as ResourceFilters),
+        );
 
         // Clear the MultiSelect component
         accessibilityMultiSelectRef.current?.clear();
@@ -193,7 +186,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                         //     if (e.key === 'Enter') setSearchTerm(pendingSearch || null)
                         // }}
                         placeholder={t("search_placeholder")}
-                        className="w-full bg-transparent font-sans md:text-base placeholder-white focus:outline-none"
+                        className="w-full bg-transparent font-sans md:text-base placeholder-white focus:outline-hidden"
                     />
                 </div>
 
@@ -247,28 +240,6 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                                 </SelectGroup>
                                             </SelectContent>
                                         </Select>
-                                        {isGridMode && (
-                                            <Select
-                                                value={rowsToShow?.toString()}
-                                                onValueChange={value =>
-                                                    setRowsToShow(parseInt(value, 10))
-                                                }
-                                            >
-                                                <SelectTrigger className="mt-2 w-full text-thistle">
-                                                    <SelectValue placeholder="Rows" />
-                                                </SelectTrigger>
-                                                <SelectContent>
-                                                    <SelectGroup>
-                                                        {[1, 2, 3, 4, 5].map(rows => (
-                                                            <SelectItem
-                                                                key={rows}
-                                                                value={rows.toString()}
-                                                            >{`${rows} ${rows === 1 ? t("view_row") : t("n_rows")}`}</SelectItem>
-                                                        ))}
-                                                    </SelectGroup>
-                                                </SelectContent>
-                                            </Select>
-                                        )}
                                     </div>
                                 </div>
                             )}

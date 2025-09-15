@@ -205,7 +205,7 @@ export const EventCard = ({ event }: EventCardProps) => {
                     <div className="flex flex-col justify-between p-6">
                         {/* Event Type Badge */}
                         <div>
-                            <span className="cursor-pointer bg-gradient-to-r from-blueviolet-100 to-darkmagenta px-3 py-1 text-sm uppercase">
+                            <span className="cursor-pointer bg-linear-to-r from-blueviolet-100 to-darkmagenta px-3 py-1 text-sm uppercase">
                                 {type}
                             </span>
                         </div>
@@ -246,7 +246,7 @@ export const EventCard = ({ event }: EventCardProps) => {
                                 <button
                                     type="button"
                                     onClick={toggleDescription}
-                                    className="ml-2 text-blueviolet-100 hover:underline focus:outline-none"
+                                    className="ml-2 text-blueviolet-100 hover:underline focus:outline-hidden"
                                 >
                                     {showFullDescription ? "Show Less" : "Show More"}
                                 </button>

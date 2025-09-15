@@ -253,6 +253,8 @@
             "error": "Failed to load resources."
         },
         "open": "OPEN",
+        "load_more": "Load More",
+        "end_of_resources": "End of resources!",
         "tooltip": {
             "s_tier": "S Tier: The absolute best (only resource you need realistically).",
             "a_tier": "A Tier: Still great (your main resource, but benefits from comparison).",
@@ -331,6 +333,13 @@
         "clear_all": "Clear All",
 
         "sort_label": "Sort",
+        "pagination_go": "Go",
+        "pagination_previous": "Previous",
+        "pagination_next": "Next",
+        "pagination_aria_previous": "Go to previous page",
+        "pagination_aria_next": "Go to next page",
+        "pagination_ellipsis": "More pages",
+
         "sort_created_asc": "Date Created (Old to New)",
         "sort_created_desc": "Date Created (New to Old)",
         "sort_updated_asc": "Date Updated (Old to New)",

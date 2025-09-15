@@ -118,13 +118,13 @@ const ContactForm: React.FC = () => {
                     value={formData.topic}
                     onValueChange={topic => setFormData(prev => ({ ...prev, topic }))}
                 >
-                    <SelectTrigger className="min-h-[3.5rem] w-full font-sans text-thistle">
+                    <SelectTrigger className="bg-transparent! cursor-pointer min-h-[3.5rem] w-full font-sans text-thistle">
                         <SelectValue placeholder={t("form_subject")} />
                     </SelectTrigger>
                     <SelectContent>
                         <SelectGroup>
                             {topicItems.map(({ label, value }) => (
-                                <SelectItem key={value} value={value}>
+                                <SelectItem className="cursor-pointer" key={value} value={value}>
                                     {label}
                                 </SelectItem>
                             ))}

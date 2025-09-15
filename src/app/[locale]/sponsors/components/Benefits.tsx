@@ -94,7 +94,7 @@ export default function Benefits() {
             {/* Decorations */}
             <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
                 {/* Warm gradient */}
-                <div className="fade-from-left-bg absolute left-0 h-[70rem] w-full bg-[#B1219D] bg-opacity-15 blur-3xl md:w-[80vw]" />
+                <div className="fade-from-left-bg absolute left-0 h-[70rem] w-full bg-[#B1219D]/15 blur-3xl md:w-[80vw]" />
 
                 <Image
                     src="/decoration/waves.svg"
@@ -113,7 +113,7 @@ export default function Benefits() {
                         <span className="block md:inline">{t("benefits_title_part1")}</span>{" "}
                         <span className="relative inline-block">
                             {t("benefits_title_highlight")}
-                            <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                            <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,rgba(136,36,220,0.25),rgba(177,33,97,0.25))]"></div>
                         </span>{" "}
                         <span className="block md:inline">{t("benefits_title_part3")}</span>
                     </h2>
@@ -153,12 +153,12 @@ export default function Benefits() {
                     {cards.map((card, index) => (
                         <div
                             key={index}
-                            className="flex-shrink-0"
+                            className="shrink-0"
                             style={{
                                 width: `${cardWidthVW}vw`,
                             }}
                         >
-                            <div className="flex h-full flex-col overflow-hidden border-[1px] border-solid text-left text-white backdrop-blur-super [border-image:linear-gradient(55deg,rgba(136,36,220,0.3)_41.93%,rgba(177,33,157,0.3)_81.89%)_1]">
+                            <div className="flex h-full flex-col overflow-hidden border border-solid text-left text-white backdrop-blur-super [border-image:linear-gradient(55deg,rgba(136,36,220,0.3)_41.93%,rgba(177,33,157,0.3)_81.89%)_1]">
                                 <Image
                                     src={card.image}
                                     alt={locale === "fr" ? card.title.fr : card.title.en}
@@ -168,7 +168,7 @@ export default function Benefits() {
                                 />
                                 <div className="flex grow flex-col justify-between p-4">
                                     <div>
-                                        <div className="my-3 inline-block border-[1px] border-solid [border-image:linear-gradient(55deg,rgba(136,36,220,0.3)_41.93%,rgba(177,33,157,0.3)_81.89%)_1]">
+                                        <div className="my-3 inline-block border border-solid [border-image:linear-gradient(55deg,rgba(136,36,220,0.3)_41.93%,rgba(177,33,157,0.3)_81.89%)_1]">
                                             <Image
                                                 src={card.icon}
                                                 alt={`${locale === "fr" ? card.title.fr : card.title.en} icon`}

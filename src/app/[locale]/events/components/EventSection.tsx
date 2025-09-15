@@ -2,7 +2,6 @@
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import SuperJSON from "superjson";
 import Pagination from "@/components/Pagination";
 import Star from "@/components/ui/decorations/star";
 import { api } from "@/trpc/react";
@@ -16,10 +15,6 @@ const EventSection = () => {
     const locale = useLocale() as "en" | "fr";
 
     const { isPending, error, data } = api.event.getAll.useQuery({ locale });
-    useMemo(
-        () => data && console.log(JSON.stringify(JSON.parse(SuperJSON.stringify(data)).json)),
-        [data],
-    );
 
     const [isMobile, setIsMobile] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
@@ -131,14 +126,14 @@ const EventSection = () => {
                 />
                 <Star
                     variant="star-faded"
-                    className="bottom-[-6rem] right-[9rem] rotate-[30deg] transform md:block"
+                    className="bottom-[-6rem] right-[9rem] rotate-30 transform md:block"
                     delay={0.5}
                 />
             </div>
 
             {errorElement ? (
                 <div className="z-10 mt-10 flex h-[calc(100vh-200px)] items-start justify-center md:items-center">
-                    <div className="flex h-[60%] w-[100%] max-w-7xl flex-col items-center justify-center gap-9 rounded-none border-2 border-blueviolet-100/70 p-20 text-center font-heading text-2xl text-white backdrop-blur-lg md:h-[85%]">
+                    <div className="flex h-[60%] w-full max-w-7xl flex-col items-center justify-center gap-9 rounded-none border-2 border-blueviolet-100/70 p-20 text-center font-heading text-2xl text-white backdrop-blur-lg md:h-[85%]">
                         <Image
                             src="/icons/calendar-empty.svg"
                             alt="Coming Soon Icon"

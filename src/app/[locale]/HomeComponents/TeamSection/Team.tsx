@@ -16,8 +16,8 @@ const Team = () => {
     return (
         <section className="relative mb-12 flex flex-col gap-16 md:mb-36 2xl:mb-52 2xl:mt-44">
             <div className="pointer-events-none z-0 select-none">
-                <div className="fade-from-center-bg absolute left-1/2 top-[-29rem] h-[112rem] w-full -translate-x-1/2 bg-blueviolet-100 bg-opacity-25 blur-xl md:top-[-59rem] md:w-[130rem] 2xl:top-[-55rem]" />
-                <div className="fade-from-center-bg absolute bottom-[-15rem] 2xl:bottom-[-8rem] left-1/2 h-[55rem] w-full -translate-x-1/2 bg-[#B1219D] bg-opacity-30 blur-xl md:w-[80vw]" />
+                <div className="fade-from-center-bg absolute left-1/2 top-[-29rem] h-[112rem] w-full -translate-x-1/2 bg-blueviolet-100/25 blur-xl md:top-[-59rem] md:w-[130rem] 2xl:top-[-55rem]" />
+                <div className="fade-from-center-bg absolute bottom-[-15rem] 2xl:bottom-[-8rem] left-1/2 h-[55rem] w-full -translate-x-1/2 bg-[#B1219D]/30 blur-xl md:w-[80vw]" />
 
                 <Star
                     variant="star"

@@ -58,14 +58,14 @@ const EventFilters: React.FC<{
 
             {/* Right Side: Event Type Dropdown */}
             <Select onValueChange={value => handleEventFilterChange(value as EventType)}>
-                <SelectTrigger className="!border-none px-5 py-4 uppercase text-white transition-colors data-[placeholder]:text-white">
+                <SelectTrigger className="bg-transparent! cursor-pointer border-none! px-5 py-4 uppercase text-white transition-colors data-placeholder:text-white">
                     <SelectValue placeholder={t("filter_type_placeholder")} />
                 </SelectTrigger>
                 <SelectContent>
                     <SelectGroup>
                         <SelectLabel>{t("filter_type_placeholder")}</SelectLabel>
                         {eventTypes.map(type => (
-                            <SelectItem key={type} value={type}>
+                            <SelectItem className="cursor-pointer" key={type} value={type}>
                                 {tType(type)}
                             </SelectItem>
                         ))}

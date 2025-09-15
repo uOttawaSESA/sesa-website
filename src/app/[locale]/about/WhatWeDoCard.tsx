@@ -27,7 +27,7 @@ export default function WhatWeDoCard({
                 src={imageHref}
                 width={400}
                 height={200}
-                className="w-22 h-[200px] object-cover"
+                className="w-full h-[200px] object-cover"
                 alt={`${heading} image`}
             />
             <div className="flex w-[25rem] flex-col gap-4 p-8">

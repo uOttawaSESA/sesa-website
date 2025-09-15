@@ -40,7 +40,7 @@ const Contact: React.FC = () => {
             {/* Decorations */}
             <div className="absolute pointer-events-none">
                 {/* Light gradient */}
-                <div className="fade-from-left-bg absolute -top-10 hidden h-[110vh] w-[90vw] bg-blueviolet-100 bg-opacity-20 blur-sm md:block" />
+                <div className="fade-from-left-bg absolute -top-10 hidden h-[110vh] w-[90vw] bg-blueviolet-100/20 blur-xs md:block" />
 
                 <Star
                     variant="star"

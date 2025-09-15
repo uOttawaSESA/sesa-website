@@ -6,7 +6,7 @@ import Marquee from "react-fast-marquee";
 import Star from "@/components/ui/decorations/star";
 
 const gradientBorderClass = `
-  border-[1px] border-solid
+  border border-solid
   [border-image:linear-gradient(55deg,rgba(136,36,220,0.3)_41.93%,rgba(177,33,157,0.3)_81.89%)_1]
 `;
 
@@ -52,13 +52,13 @@ const PastCollaboratorsCarousel = () => {
 
             {/* Header content */}
             <div className="z-20 flex flex-col items-center space-y-3 px-5">
-                <p className="relative inline-block !bg-clip-text font-mono text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)] md:text-base">
+                <p className="relative inline-block bg-clip-text! font-mono text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,#8824dc,#b1219d)] md:text-base">
                     {t("past_collaborators_top")}
                 </p>
                 <h2 className="font-heading text-2xl uppercase text-white md:text-3xl">
                     <span className="relative inline-block">
                         {t("past_collaborators_highlight")}
-                        <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,_rgba(136,_36,_220,_0.25),_rgba(177,_33,_97,_0.25))]"></div>
+                        <div className="absolute right-0 top-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,rgba(136,36,220,0.25),rgba(177,33,97,0.25))]"></div>
                     </span>{" "}
                     {t("past_collaborators_title_rest")}
                 </h2>

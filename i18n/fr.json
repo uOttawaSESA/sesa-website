@@ -234,6 +234,8 @@
             "error": "Échec du chargement des ressources."
         },
         "open": "OUVRIR",
+        "load_more": "Voir plus",
+        "end_of_resources": "Fin des ressources!",
         "tooltip": {
             "s_tier": "Niveau S : La meilleure (la seule ressource dont vous avez vraiment besoin).",
             "a_tier": "Niveau A : Excellente (votre ressource principale, mais à comparer avec d'autres).",
@@ -304,6 +306,13 @@
         "sort_label": "Trier",
         "filter_accessibility_cc": "Sous-titres",
         "filter_accessibility_screenreader": "Compatible avec lecteur d'écran",
+
+        "pagination_go": "Aller",
+        "pagination_previous": "Précédent",
+        "pagination_next": "Suivant",
+        "pagination_aria_previous": "Aller à la page précédente",
+        "pagination_aria_next": "Aller à la page suivante",
+        "pagination_ellipsis": "Plus de pages",
 
         "sort_created_asc": "Date de création (Ancienne à récente)",
         "sort_created_desc": "Date de création (Récente à ancienne)",

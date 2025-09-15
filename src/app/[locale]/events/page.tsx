@@ -51,10 +51,10 @@ export default async function Events() {
                 {/* Decorations */}
                 <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
                     {/* Warm gradient */}
-                    <div className="fade-from-top-left-bg absolute h-[70rem] w-full bg-[#B1219D] bg-opacity-15 blur-sm md:w-[60vw]" />
+                    <div className="fade-from-top-left-bg absolute h-[70rem] w-full bg-[#B1219D]/15 blur-xs md:w-[60vw]" />
 
                     {/* Light gradient */}
-                    <div className="fade-from-left-bg absolute top-[75rem] h-[70rem] w-[30vw] bg-blueviolet-100 bg-opacity-25 blur-sm" />
+                    <div className="fade-from-left-bg absolute top-[75rem] h-[70rem] w-[30vw] bg-blueviolet-100/25 blur-xs" />
 
                     <Image
                         src="/decoration/waves.svg"
@@ -99,7 +99,7 @@ export default async function Events() {
                         />
                         <Star
                             variant="star-faded"
-                            className="absolute bottom-[-6rem] right-[9rem] rotate-[30deg] transform md:block"
+                            className="absolute bottom-[-6rem] right-[9rem] rotate-30 transform md:block"
                             delay={0.5}
                         />
 

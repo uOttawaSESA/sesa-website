@@ -22,7 +22,7 @@ const PartnerWithUs = () => {
             {/* Decorations */}
             <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
                 {/* Light gradient */}
-                <div className="fade-from-left-bg absolute h-[70rem] w-[60vw] bg-blueviolet-100 opacity-15 blur-sm md:bottom-[-20rem] md:h-[100rem]" />
+                <div className="fade-from-left-bg absolute h-[70rem] w-[60vw] bg-blueviolet-100 opacity-15 blur-xs md:bottom-[-20rem] md:h-[100rem]" />
 
                 <Star
                     variant="star-faded"
@@ -58,7 +58,7 @@ const PartnerWithUs = () => {
             <div className="relative z-10 flex w-full flex-col-reverse items-start justify-between gap-8 md:flex-row md:gap-12">
                 {/* Text Section */}
                 <div className="max-w-xl text-left 2xl:max-w-2xl">
-                    <p className="font-monocode relative inline-block !bg-clip-text text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)] md:text-base">
+                    <p className="font-monocode relative inline-block bg-clip-text! text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,#8824dc,#b1219d)] md:text-base">
                         {t("partner_with_us_top")}
                     </p>
                     <h2 className="mb-4 mt-2 font-heading text-2xl uppercase leading-tight text-white md:mt-4 md:text-3xl">

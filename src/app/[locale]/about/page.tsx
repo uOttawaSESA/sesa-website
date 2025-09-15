@@ -83,9 +83,9 @@ export default function About() {
             {/* Gradient */}
             <div className="pointer-events-none absolute left-0 top-0 h-full w-full select-none">
                 {/* Light gradient */}
-                <div className="fade-from-left-bg absolute top-[-20rem] left-0 h-[70rem] w-[80vw] bg-blueviolet-100 bg-opacity-20 blur-sm" />
+                <div className="fade-from-left-bg absolute top-[-20rem] left-0 h-[70rem] w-[80vw] bg-blueviolet-100/20 blur-xs" />
                 {/* Warm gradient */}
-                <div className="fade-from-left-bg absolute h-[90rem] top-[70rem] w-full bg-[#B1219D] bg-opacity-15 blur-sm md:w-[60vw]" />
+                <div className="fade-from-left-bg absolute h-[90rem] top-[70rem] w-full bg-[#B1219D]/15 blur-xs md:w-[60vw]" />
             </div>
 
             <div className="container relative mx-auto max-w-7xl px-4 py-8">
@@ -218,25 +218,25 @@ export default function About() {
                         <div className="flex justify-center md:mb-28">
                             <div className="grid w-fit grid-cols-1 place-items-center gap-4 md:gap-20 md:grid-cols-4">
                                 <Metric
-                                    className="!w-64 backdrop-blur-lg"
+                                    className="w-64! backdrop-blur-lg"
                                     figure="3500+"
                                     caption={t("figure_eecs_students")}
                                     border
                                 />
                                 <Metric
-                                    className="!w-64 backdrop-blur-lg"
+                                    className="w-64! backdrop-blur-lg"
                                     figure="21"
                                     caption={t("figure_previous_partners")}
                                     border
                                 />
                                 <Metric
-                                    className="!w-64 backdrop-blur-lg"
+                                    className="w-64! backdrop-blur-lg"
                                     figure="2300+"
                                     caption={t("figure_event_attendees")}
                                     border
                                 />
                                 <Metric
-                                    className="!w-64 backdrop-blur-lg"
+                                    className="w-64! backdrop-blur-lg"
                                     figure="34"
                                     caption={t("figure_events")}
                                     border
@@ -340,22 +340,22 @@ export default function About() {
                     {/* Decorations */}
                     <div className="pointer-events-none absolute left-0 top-0 h-full w-full select-none">
                         {/* Light gradient */}
-                        <div className="fade-from-center-bg absolute top-[-10rem] left-[-10rem] h-[70rem] w-[70vw] bg-blueviolet-100 bg-opacity-15 blur-sm 2xl:left-[-45rem]" />
+                        <div className="fade-from-center-bg absolute top-[-10rem] left-[-10rem] h-[70rem] w-[70vw] bg-blueviolet-100/15 blur-xs 2xl:left-[-45rem]" />
 
                         {/* Warm gradient */}
-                        <div className="fade-from-left-bg absolute left-[-10rem] top-[-20rem] h-[90rem] w-full bg-[#B1219D] bg-opacity-15 blur-sm md:w-[60vw] 2xl:left-[-45rem]" />
+                        <div className="fade-from-left-bg absolute left-[-10rem] top-[-20rem] h-[90rem] w-full bg-[#B1219D]/15 blur-xs md:w-[60vw] 2xl:left-[-45rem]" />
 
                         {/* Light gradient */}
-                        <div className="fade-from-left-bg absolute top-[10rem] left-[-10rem] h-[100rem] w-[80vw] bg-blueviolet-100 bg-opacity-20 blur-sm 2xl:left-[-45rem]" />
+                        <div className="fade-from-left-bg absolute top-[10rem] left-[-10rem] h-[100rem] w-[80vw] bg-blueviolet-100/20 blur-xs 2xl:left-[-45rem]" />
 
                         {/* Warm gradient */}
-                        <div className="fade-from-center-bg absolute left-1/2 top-[100rem] h-[100rem] w-full -translate-x-1/2 bg-[#B1219D] bg-opacity-25 blur-sm md:w-[100vw] 2xl:left-[-45rem]" />
+                        <div className="fade-from-center-bg absolute left-1/2 top-[100rem] h-[100rem] w-full -translate-x-1/2 bg-[#B1219D]/25 blur-xs md:w-screen 2xl:left-[-45rem]" />
 
                         {/* Light gradient */}
-                        <div className="fade-from-right-bg absolute top-[130rem] right-[-6rem] h-[100rem] w-[50vw] bg-blueviolet-100 bg-opacity-20 blur-sm 2xl:right-[-45rem]" />
+                        <div className="fade-from-right-bg absolute top-[130rem] right-[-6rem] h-[100rem] w-[50vw] bg-blueviolet-100/20 blur-xs 2xl:right-[-45rem]" />
 
                         {/* Warm gradient */}
-                        <div className="fade-from-center-bg absolute left-1/2 top-[190rem] h-[100rem] w-full -translate-x-1/2 bg-[#B1219D] bg-opacity-25 blur-sm md:w-[100vw]" />
+                        <div className="fade-from-center-bg absolute left-1/2 top-[190rem] h-[100rem] w-full -translate-x-1/2 bg-[#B1219D]/25 blur-xs md:w-screen" />
 
                         <Star
                             variant="star"
@@ -403,8 +403,8 @@ export default function About() {
                     </FadeInSection>
                     {/* TODO: Add the `sticky` class once a way to make it not super ugly is found */}
                     <FadeInSection>
-                        <div className="top-[5.6rem] z-10 mt-4 grid grid-flow-col grid-rows-4 text-center font-heading uppercase backdrop-blur-sm md:grid-rows-1">
-                            <Button className="!inline !px-2" variant="outline" asChild>
+                        <div className="top-[5.6rem] z-10 mt-4 grid grid-flow-col grid-rows-4 text-center font-heading uppercase backdrop-blur-xs md:grid-rows-1">
+                            <Button className="!inline px-2!" variant="outline" asChild>
                                 <Link href="#co-directors">{tOurTeam("codirectors")}</Link>
                             </Button>
                             <Button className="!inline" variant="outline" asChild>
@@ -527,10 +527,10 @@ export default function About() {
                             alt=""
                         />
                         {/* Light gradient */}
-                        <div className="fade-from-left-bg absolute left-[-6rem] top-[-100rem] h-[200rem] w-[80vw] bg-blueviolet-100 bg-opacity-20 blur-sm 2xl:left-[-45rem]" />
+                        <div className="fade-from-left-bg absolute left-[-6rem] top-[-100rem] h-[200rem] w-[80vw] bg-blueviolet-100/20 blur-xs 2xl:left-[-45rem]" />
 
                         {/* Warm gradient */}
-                        <div className="fade-from-center-bg absolute left-1/2 top-[-25rem] h-[100rem]  w-full -translate-x-1/2 bg-[#B1219D] bg-opacity-25 blur-sm md:w-[100vw]" />
+                        <div className="fade-from-center-bg absolute left-1/2 top-[-25rem] h-[100rem]  w-full -translate-x-1/2 bg-[#B1219D]/25 blur-xs md:w-screen" />
 
                         <Star
                             variant="star"
@@ -596,7 +596,7 @@ export default function About() {
                 {/* Decorations */}
                 <div className="pointer-events-none absolute left-0 top-0 h-full w-full select-none">
                     {/* Light gradient */}
-                    <div className="fade-from-center-bg relative top-0 left-[10rem] h-[50rem] w-[70vw] bg-blueviolet-100 bg-opacity-10 blur-sm" />
+                    <div className="fade-from-center-bg relative top-0 left-[10rem] h-[50rem] w-[70vw] bg-blueviolet-100/10 blur-xs" />
                     <Star
                         variant="star"
                         className="absolute bottom-[-5rem] left-[35rem] hidden lg:block"

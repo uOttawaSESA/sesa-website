@@ -46,7 +46,7 @@ export const LanguageSelect = () => {
 
     return (
         <Select value={locale} onValueChange={changeLocale}>
-            <SelectTrigger className="h-12 font-heading text-sm md:text-lg">
+            <SelectTrigger className="h-12 font-heading cursor-pointer !bg-transparent text-sm md:text-lg">
                 <SelectValue placeholder="Language" />
             </SelectTrigger>
             <SelectContent>

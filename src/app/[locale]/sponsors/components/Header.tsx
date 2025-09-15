@@ -13,7 +13,7 @@ const Header = ({ topText, title, bottomText, btn1, btn2 }: HeaderProps) => {
         <div className="mt-16 flex w-full justify-center px-4 md:mt-24 md:px-6">
             {/* Content Container */}
             <div className="relative z-10 max-w-2xl text-center">
-                <p className="font-monocode relative inline-block !bg-clip-text text-sm text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)] md:text-base">
+                <p className="font-monocode relative inline-block bg-clip-text! text-sm text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,#8824dc,#b1219d)] md:text-base">
                     {topText}
                 </p>
 

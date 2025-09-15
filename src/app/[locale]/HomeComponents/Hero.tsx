@@ -12,10 +12,10 @@ export default function Hero() {
             {/* Decorations */}
             <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
                 {/* Warm gradient */}
-                <div className="fade-from-top-left-bg absolute top-[-13rem] h-[70rem] w-full bg-[#B1219D] bg-opacity-20 blur-sm md:w-[60vw]" />
+                <div className="fade-from-top-left-bg absolute top-[-13rem] h-[70rem] w-full bg-[#B1219D]/20 blur-xs md:w-[60vw]" />
 
                 {/* Light gradient */}
-                <div className="fade-from-left-bg absolute top-[48rem] h-[140rem] w-[25vw] bg-blueviolet-100 bg-opacity-25 blur-sm" />
+                <div className="fade-from-left-bg absolute top-[48rem] h-[140rem] w-[25vw] bg-blueviolet-100/25 blur-xs" />
 
                 {/* Stars */}
                 <Star
@@ -63,7 +63,7 @@ export default function Hero() {
 
             {/* Content Container */}
             <div className="relative max-w-80 ps-8 sm:max-w-md md:max-w-2xl md:ps-20 xl:ps-32">
-                <p className="font-monocode relative inline-block !bg-clip-text text-left text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)] md:text-base">
+                <p className="font-monocode relative inline-block bg-clip-text! text-left text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,#8824dc,#b1219d)] md:text-base">
                     {t("we_are_sesa")}
                 </p>
                 <h1 className="my-2 font-heading text-3xl uppercase leading-tight md:text-5xl">

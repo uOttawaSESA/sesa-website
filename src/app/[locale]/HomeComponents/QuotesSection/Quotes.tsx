@@ -14,9 +14,9 @@ const Quotes = () => {
             {/* Decorations */}
             <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
                 {/* Warm gradient */}
-                <div className="fade-from-center-bg absolute right-[15rem] top-1/2 h-[120rem] w-full -translate-y-1/2 bg-[#B1219D] bg-opacity-25 blur-xl md:w-[100vw]" />
+                <div className="fade-from-center-bg absolute right-[15rem] top-1/2 h-[120rem] w-full -translate-y-1/2 bg-[#B1219D]/25 blur-xl md:w-screen" />
                 {/* Light gradient */}
-                <div className="fade-from-center-bg absolute right-[0rem] top-1/2 h-[120rem] w-full -translate-y-1/2 bg-blueviolet-100 bg-opacity-10 blur-xl md:w-[80vw] lg:bg-opacity-20" />
+                <div className="fade-from-center-bg absolute right-[0rem] top-1/2 h-[120rem] w-full -translate-y-1/2 bg-blueviolet-100/10 blur-xl md:w-[80vw] lg:bg-blueviolet-100/20" />
             </div>
             <div className="grid-overlay-right absolute -top-24 lg:h-[43.93rem] xl:w-[55vw] 2xl:h-[50.1rem] 2xl:w-[43vw]"></div>
             <div className="flex flex-col xl:flex-row xl:gap-1 xl:items-center xl:justify-between">

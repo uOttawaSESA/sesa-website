@@ -25,7 +25,7 @@ const SponsorsHeader = ({
             {/* Decorations */}
             <div className="pointer-events-none select-none">
                 {/* Warm gradient */}
-                <div className="fade-from-center-bg absolute right-0 top-0 h-[120rem] w-full bg-[#B1219D] bg-opacity-15 blur-3xl md:w-[80vw]" />
+                <div className="fade-from-center-bg absolute right-0 top-0 h-[120rem] w-full bg-[#B1219D]/15 blur-3xl md:w-[80vw]" />
 
                 <Star
                     variant="star-faded"
@@ -65,7 +65,7 @@ const SponsorsHeader = ({
 
             {/* Content Container */}
             <div className="relative z-10 text-center">
-                <p className="relative inline-block !bg-clip-text font-mono text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,_#8824dc,_#b1219d)] md:text-base">
+                <p className="relative inline-block bg-clip-text! font-mono text-xs text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(55.37deg,#8824dc,#b1219d)] md:text-base">
                     {topText}
                 </p>
 

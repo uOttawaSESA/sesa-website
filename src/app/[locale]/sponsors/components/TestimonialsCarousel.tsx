@@ -63,7 +63,7 @@ const TestimonialsCarousel = () => {
                 <div className="grid-overlay-left hidden md:block md:h-[43.93rem] md:w-[53vw] 2xl:w-[36vw]"></div>
 
                 {/* Sponsor Image - STATIC */}
-                <div className="relative z-10 flex-shrink-0">
+                <div className="relative z-10 shrink-0">
                     <Image
                         src="/imgs/Home/heroImage.webp"
                         alt="Warp Event Photo"

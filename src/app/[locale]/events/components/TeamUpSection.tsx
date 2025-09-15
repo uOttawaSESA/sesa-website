@@ -16,14 +16,14 @@ const TeamUpSection: React.FC = () => {
                 <Image
                     src="/imgs/Events/team-up.webp"
                     alt="SESA Group Photo"
-                    className="aspect-[7/5] object-cover max-h-[400px] sm:max-h-[500px]"
+                    className="aspect-7/5 object-cover max-h-[400px] sm:max-h-[500px]"
                     width={700}
                     height={700}
                 />
             </div>
 
             <div className="z-10 max-w-lg text-left text-white">
-                <p className="bg-gradient-to-r from-blueviolet-100 to-darkmagenta bg-clip-text font-mono text-xs text-transparent md:text-base">
+                <p className="bg-linear-to-r from-blueviolet-100 to-darkmagenta bg-clip-text font-mono text-xs text-transparent md:text-base">
                     {t("work_with_us")}
                 </p>
                 <h2 className="mt-3 font-heading text-2xl uppercase md:text-4xl">
