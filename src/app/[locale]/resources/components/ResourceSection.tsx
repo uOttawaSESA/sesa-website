@@ -137,6 +137,10 @@ const ResourceSection = () => {
                             isFetching={isFetching}
                             hasNextPage={hasNextPage}
                             fetchNextPage={fetchNextPage}
+                            setFilterOptions={
+                                setFilterOptions as (options: ResourceFilters) => void
+                            }
+                            filterOptions={filterOptions}
                         />
                     ) : (
                         <div className="flex justify-center items-center h-16">

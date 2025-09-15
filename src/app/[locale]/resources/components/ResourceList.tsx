@@ -7,6 +7,7 @@ import { api } from "@/trpc/react";
 import { ResourceCard } from "./ResourceCard/ResourceCard";
 import { ResourceModal } from "./ResourceModal";
 import type React from "react";
+import type { ResourceFilters } from "@/server/api/routers/resource";
 import type { MappedResource } from "@/server/db/schema";
 
 interface ResourceListProps {
@@ -15,6 +16,8 @@ interface ResourceListProps {
     isFetching: boolean;
     hasNextPage: boolean;
     fetchNextPage: () => void;
+    setFilterOptions: (options: ResourceFilters) => void;
+    filterOptions: ResourceFilters;
 }
 
 const ResourceList: React.FC<ResourceListProps> = ({
@@ -23,6 +26,8 @@ const ResourceList: React.FC<ResourceListProps> = ({
     isFetching,
     hasNextPage,
     fetchNextPage,
+    setFilterOptions,
+    filterOptions,
 }) => {
     const t = useTranslations("resources");
 
@@ -45,6 +50,13 @@ const ResourceList: React.FC<ResourceListProps> = ({
 
     const closeModal = () => {
         setOpenResource(null);
+    };
+
+    const handleBadgeClick = (type: "category" | "course", value: string) => {
+        setFilterOptions({
+            ...filterOptions,
+            [type]: value,
+        });
     };
 
     return (
@@ -73,6 +85,7 @@ const ResourceList: React.FC<ResourceListProps> = ({
                             {...resource}
                             mode={isGridMode ? "grid" : "row"}
                             onOpen={() => openModal(resource)}
+                            onBadgeClick={handleBadgeClick}
                         />
                     ))}
                 </div>
