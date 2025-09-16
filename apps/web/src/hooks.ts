@@ -1,5 +1,10 @@
 "use client";
+import { createFormHook, createFormHookContexts } from "@tanstack/react-form";
 import { useEffect, useState } from "react";
+import { TextInput } from "@/components/form/input";
+import { Select } from "@/components/form/select";
+import { Textarea } from "@/components/form/textarea";
+import { Button } from "@/components/ui/button";
 
 /**
  * Debounce an arbitrary value.
@@ -18,3 +23,18 @@ export function useDebounce<T>(value: T, delay: number): T {
 
     return debouncedValue;
 }
+
+export const { fieldContext, formContext, useFieldContext } = createFormHookContexts();
+
+export const { useAppForm } = createFormHook({
+    fieldComponents: {
+        TextInput,
+        Select,
+        Textarea,
+    },
+    formComponents: {
+        SubmitButton: Button,
+    },
+    fieldContext,
+    formContext,
+});
