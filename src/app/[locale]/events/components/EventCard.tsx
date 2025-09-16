@@ -189,14 +189,14 @@ export const EventCard = ({ event }: EventCardProps) => {
                 </DialogContent>
             </Dialog>
 
-            <div className="md:mb-4 w-full flex flex-col md:max-w-72 justify-start border outline-gradient backdrop-blur-2xl font-heading transition-all">
+            <div className="lg:flex-row lg:max-w-none md:mb-4 w-full flex flex-col md:max-w-72 justify-start border outline-gradient backdrop-blur-2xl font-heading transition-all">
                 {/* Left Side: Full-Height Image */}
                 <Image
                     src={event.imageUrl}
                     alt={event.imageAlt}
                     width={350}
                     height={350}
-                    className="aspect-square w-full object-cover"
+                    className="aspect-square w-full lg:size-96 object-cover"
                 />
 
                 {/* Right Side: Event Details */}
