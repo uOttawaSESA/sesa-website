@@ -4,11 +4,11 @@ const Header = () => {
     const t = useTranslations("events");
 
     return (
-        <div className="px-8 pt-4">
+        <div className="px-8 pt-4 md:px-20">
             <p className="color-gradient font-mono text-xs md:text-base">{t("our_events")}</p>
             <h1 className="my-2 text-3xl uppercase md:text-5xl">
                 <span className="highlight-text">{t("stay_up_to_date_hl")}</span>
-                <span className="ml-4 md:ml-7">{t("stay_up_to_date")}</span>
+                <span> {t("stay_up_to_date")}</span>
             </h1>
 
             <p className="font-sans text-base md:text-lg text-thistle">
