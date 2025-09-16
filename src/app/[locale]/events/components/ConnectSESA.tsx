@@ -40,7 +40,7 @@ const ConnectSESA = () => {
                     {t("stay_updated_blurb")}
                 </p>
 
-                <div className="mt-4 flex justify-start gap-4">
+                <div className="mt-4 flex justify-start md:justify-center gap-4">
                     <Button size="icon" variant="outline" asChild>
                         <a
                             href="https://www.instagram.com/uottawasesa/"
