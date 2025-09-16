@@ -4,7 +4,7 @@ const Header = () => {
     const t = useTranslations("events");
 
     return (
-        <div className="px-8 pt-4 md:px-20">
+        <div className="px-8 mt-4 md:px-20 lg:mt-16 lg:text-center">
             <p className="color-gradient font-mono text-xs md:text-base">{t("our_events")}</p>
             <h1 className="my-2 text-3xl uppercase md:text-5xl">
                 <span className="highlight-text">{t("stay_up_to_date_hl")}</span>
