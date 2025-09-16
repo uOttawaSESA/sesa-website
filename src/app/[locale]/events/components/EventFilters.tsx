@@ -44,7 +44,7 @@ const EventFilters: React.FC<{
                 <Button
                     key={filter}
                     variant="outline"
-                    className={`cursor-pointer flex-grow text-base p-2 md:px-8 font-heading uppercase text-white backdrop-blur-lg ${
+                    className={`cursor-pointer flex-grow xl:flex-grow-0 text-base p-2 md:px-8 font-heading uppercase text-white backdrop-blur-lg ${
                         activeTimeFilter === filter ? "fill-gradient" : ""
                     }`}
                     onClick={() => handleTimeFilterClick(filter)}
