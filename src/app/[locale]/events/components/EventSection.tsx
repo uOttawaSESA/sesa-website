@@ -149,7 +149,7 @@ const EventSection = () => {
                     <EventsList events={currentEvents} />
 
                     {filteredEvents.length > eventsPerPage && (
-                        <div className="mt-4 mb-8 px-8">
+                        <div className="flex mt-4 mb-8 px-8">
                             <Pagination
                                 currentPage={currentPage}
                                 totalPages={totalPages}

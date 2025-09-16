@@ -189,7 +189,7 @@ export const EventCard = ({ event }: EventCardProps) => {
                 </DialogContent>
             </Dialog>
 
-            <div className="w-full flex flex-col justify-start border outline-gradient backdrop-blur-2xl font-heading transition-all">
+            <div className="md:mb-4 w-full flex flex-col md:max-w-72 justify-start border outline-gradient backdrop-blur-2xl font-heading transition-all">
                 {/* Left Side: Full-Height Image */}
                 <Image
                     src={event.imageUrl}
@@ -200,7 +200,7 @@ export const EventCard = ({ event }: EventCardProps) => {
                 />
 
                 {/* Right Side: Event Details */}
-                <div className="flex flex-col justify-between gap-4 p-6">
+                <div className="flex flex-col justify-between h-full gap-4 p-6">
                     {/* Event Type Badge */}
                     <div>
                         <span className="cursor-pointer bg-linear-to-r from-blueviolet-100 to-darkmagenta px-3 py-1 text-xs md:text-base uppercase">
@@ -209,7 +209,7 @@ export const EventCard = ({ event }: EventCardProps) => {
                     </div>
 
                     {/* Event Title */}
-                    <h3 className="text-xl md:text-3xl uppercase leading-tight">{title}</h3>
+                    <h3 className="text-xl md:text-2xl uppercase leading-tight">{title}</h3>
 
                     {/* Date and Location */}
                     <div className="flex items-center gap-4 font-mono text-white">
@@ -222,23 +222,23 @@ export const EventCard = ({ event }: EventCardProps) => {
                         {/* Date and Location Text with Icons */}
                         <div className="flex flex-col gap-2 text-thistle">
                             {/* Date and Time with Icons */}
-                            <div className="flex text-nowrap text-xs md:text-base items-center gap-2 text-white">
-                                <CalendarClock className="h-4 w-4" />
+                            <div className="flex md:text-wrap text-nowrap text-xs xl:text-base items-center gap-2 text-white">
+                                <CalendarClock className="size-4" />
                                 <span>
                                     {formattedDate}, {timeRange}
                                 </span>
                             </div>
 
                             {/* Location with Icon */}
-                            <div className="flex text-xs md:text-base items-center gap-2">
-                                <MapPin className="h-4 w-4" />
+                            <div className="flex text-xs xl:text-base items-center gap-2">
+                                <MapPin className="size-4" />
                                 <span>{event.location}</span>
                             </div>
                         </div>
                     </div>
 
                     {/* Event Description */}
-                    <p className="w-full font-mono text-sm md:text-xl text-thistle">
+                    <p className="w-full font-mono text-sm xl:text-base text-thistle">
                         {truncatedDescription}
                         {description.length > maxDescriptionLength && (
                             <button
@@ -252,10 +252,10 @@ export const EventCard = ({ event }: EventCardProps) => {
                     </p>
 
                     {/* Buttons */}
-                    <div className="flex w-full justify-start gap-2 flex-wrap">
+                    <div className="flex w-full justify-start gap-2 mt-auto flex-wrap">
                         {/* Details Button */}
                         <Button
-                            className="px-4 flex-grow text-base md:text-lg font-heading uppercase"
+                            className="px-4 flex-grow text-sm md:text-base font-heading uppercase"
                             onClick={handleDetails}
                         >
                             {t("btn_details")}
@@ -264,7 +264,7 @@ export const EventCard = ({ event }: EventCardProps) => {
                         {/* Register Button (only for events that require registration) */}
                         {event.registrationUrl && !isRegistered && !isPastEvent && (
                             <Button
-                                className="flex-grow font-heading uppercase text-base md:text-lg"
+                                className="flex-grow font-heading uppercase text-sm md:text-base"
                                 onClick={handleRegister}
                             >
                                 {t("btn_register")}
@@ -273,7 +273,7 @@ export const EventCard = ({ event }: EventCardProps) => {
 
                         {/* Add to Calendar Button */}
                         <Button
-                            className="flex-grow font-heading uppercase text-base md:text-lg"
+                            className="flex-grow font-heading uppercase text-sm md:text-base"
                             onClick={handleAddToCalendar}
                             variant="outline"
                             disabled={isPastEvent}

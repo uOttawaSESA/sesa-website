@@ -11,9 +11,9 @@ interface EventsListProps {
 
 const EventsList: React.FC<EventsListProps> = ({ events }) => {
     return (
-        <div className="flex justify-center mx-8 md:block">
+        <div className="flex justify-start gap-4 md:mt-8 md:mx-20 mx-8 flex-wrap">
             {events.map(event => (
-                <FadeInSection className="w-full" key={event.id}>
+                <FadeInSection className="flex justify-center" key={event.id}>
                     <EventCard event={event} />
                 </FadeInSection>
             ))}
