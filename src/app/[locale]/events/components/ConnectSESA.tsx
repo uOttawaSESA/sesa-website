@@ -27,7 +27,7 @@ const ConnectSESA = () => {
                     delay={2}
                 />
             </div>
-            <div className="px-8 max-w-7xl md:text-center ">
+            <div className="mx-auto lg:max-w-3xl lg:my-36 px-8 max-w-7xl md:text-center">
                 <div className="text-sm md:text-base color-gradient font-mono">
                     {t("connect_with_sesa")}
                 </div>
