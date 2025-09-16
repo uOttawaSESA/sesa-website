@@ -197,7 +197,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                         <div className="relative">
                             <button
                                 type="button"
-                                className="flex items-center gap-2 uppercase text-white"
+                                className="flex items-center cursor-pointer gap-2 uppercase text-white"
                                 onClick={() =>
                                     setOpenDropdown(openDropdown === "view" ? null : "view")
                                 }
@@ -226,15 +226,21 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                             value={isGridMode ? "grid" : "row"}
                                             onValueChange={changeView}
                                         >
-                                            <SelectTrigger className="w-full text-thistle">
+                                            <SelectTrigger className="bg-transparent! hover:cursor-pointer w-full text-thistle">
                                                 <SelectValue placeholder="Grid" />
                                             </SelectTrigger>
                                             <SelectContent>
                                                 <SelectGroup>
-                                                    <SelectItem value="grid">
+                                                    <SelectItem
+                                                        className="cursor-pointer"
+                                                        value="grid"
+                                                    >
                                                         {t("view_grid")}
                                                     </SelectItem>
-                                                    <SelectItem value="row">
+                                                    <SelectItem
+                                                        className="cursor-pointer"
+                                                        value="row"
+                                                    >
                                                         {t("view_row")}
                                                     </SelectItem>
                                                 </SelectGroup>
@@ -250,7 +256,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                             <button
                                 type="button"
                                 onClick={clearAllFilters}
-                                className="flex items-center gap-2 uppercase text-white transition-colors hover:text-white"
+                                className="cursor-pointer flex items-center gap-2 uppercase text-white transition-colors hover:text-white"
                             >
                                 {t("clear_filters")}
                                 <Trash size={14} />
@@ -261,7 +267,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                         <div className="relative">
                             <button
                                 type="button"
-                                className="flex items-center gap-2 uppercase text-white"
+                                className="flex items-center gap-2 cursor-pointer uppercase text-white"
                                 onClick={() =>
                                     setOpenDropdown(openDropdown === "filter" ? null : "filter")
                                 }
@@ -338,7 +344,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                                             handleFilterChange(key, value)
                                                         }
                                                     >
-                                                        <SelectTrigger className="w-full text-white">
+                                                        <SelectTrigger className="bg-transparent! w-full text-white">
                                                             <SelectValue
                                                                 placeholder={
                                                                     filterPlaceholders[key]
@@ -372,7 +378,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                         <div className="relative">
                             <button
                                 type="button"
-                                className="flex items-center gap-2 uppercase text-white"
+                                className="flex items-center gap-2 uppercase text-white cursor-pointer"
                                 onClick={() =>
                                     setOpenDropdown(openDropdown === "sort" ? null : "sort")
                                 }
@@ -403,14 +409,18 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                                 handleSortChange(value)
                                             }
                                         >
-                                            <SelectTrigger className="w-full text-thistle">
+                                            <SelectTrigger className="w-full text-thistle bg-transparent! cursor-pointer">
                                                 <SelectValue placeholder="Sort" />
                                             </SelectTrigger>
                                             <SelectContent>
                                                 <SelectGroup>
                                                     {Object.entries(sorts).map(
                                                         ([sort, display]) => (
-                                                            <SelectItem key={sort} value={sort}>
+                                                            <SelectItem
+                                                                className="cursor-pointer"
+                                                                key={sort}
+                                                                value={sort}
+                                                            >
                                                                 {display}
                                                             </SelectItem>
                                                         ),
@@ -459,7 +469,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                         handleSortChange(value)
                                     }
                                 >
-                                    <SelectTrigger className="w-full text-thistle">
+                                    <SelectTrigger className="bg-transparent! w-full text-thistle">
                                         <SelectValue placeholder="Sort" />
                                     </SelectTrigger>
                                     <SelectContent>
@@ -527,7 +537,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                                     handleFilterChange(key, value)
                                                 }
                                             >
-                                                <SelectTrigger className="w-full text-white">
+                                                <SelectTrigger className="bg-transparent! w-full text-white">
                                                     <SelectValue
                                                         placeholder={filterPlaceholders[key]}
                                                     />

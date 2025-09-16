@@ -10,6 +10,7 @@ export const ResourceCard = ({
     format,
     mode = "grid",
     onOpen,
+    onBadgeClick,
 }: {
     title: string;
     category: string;
@@ -18,6 +19,7 @@ export const ResourceCard = ({
     format: string;
     mode?: "grid" | "row";
     onOpen?: () => void;
+    onBadgeClick?: (type: "category" | "course", value: string) => void;
 }) => {
     // Row mode layout
     if (mode === "row") {
@@ -29,7 +31,12 @@ export const ResourceCard = ({
             >
                 {/* Left side - Category badges */}
                 <div className="flex min-w-fit">
-                    <CategoryBadges category={category} course={course} size="sm" />
+                    <CategoryBadges
+                        category={category}
+                        course={course}
+                        size="sm"
+                        onBadgeClick={onBadgeClick}
+                    />
                 </div>
 
                 {/* Center - Title */}
@@ -57,7 +64,12 @@ export const ResourceCard = ({
             <div className="relative flex h-full flex-col">
                 {/* Category Badges */}
                 <div className="mb-3">
-                    <CategoryBadges category={category} course={course} size="base" />
+                    <CategoryBadges
+                        category={category}
+                        course={course}
+                        size="base"
+                        onBadgeClick={onBadgeClick}
+                    />
                 </div>
 
                 {/* Title */}

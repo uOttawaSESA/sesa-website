@@ -219,25 +219,27 @@ export default function About() {
                             <div className="grid w-fit grid-cols-1 place-items-center gap-4 md:gap-20 md:grid-cols-4">
                                 <Metric
                                     className="w-64! backdrop-blur-lg"
-                                    figure="3500+"
+                                    figure={3500}
+                                    suffix="+"
                                     caption={t("figure_eecs_students")}
                                     border
                                 />
                                 <Metric
                                     className="w-64! backdrop-blur-lg"
-                                    figure="21"
+                                    figure={21}
                                     caption={t("figure_previous_partners")}
                                     border
                                 />
                                 <Metric
                                     className="w-64! backdrop-blur-lg"
-                                    figure="2300+"
+                                    figure={2300}
+                                    suffix="+"
                                     caption={t("figure_event_attendees")}
                                     border
                                 />
                                 <Metric
                                     className="w-64! backdrop-blur-lg"
-                                    figure="34"
+                                    figure={34}
                                     caption={t("figure_events")}
                                     border
                                 />

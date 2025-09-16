@@ -15,7 +15,7 @@ import { Link } from "@/i18n/navigation";
 
 const sponsorsData = [
     {
-        logo: "/sponsors/warp.webp",
+        logo: "/sponsors/warp.svg",
         logoAlt: "Warp logo",
         testimonial:
             "The folks at SESA were professional, communicative, and friendly leading up to the talk, and provided some great photos and videos afterwards. I really enjoyed my collaboration with them.",
@@ -48,6 +48,23 @@ const sponsorsData = [
             name: "Stéphane Sotèg Somé",
             title: "Associate Professor & SEG Co-op Coordinator at uOttawa",
             image: "/imgs/people/uottawa/stephane-some.webp",
+        },
+    },
+    {
+        logo: "/sponsors/nationalbank.svg",
+        logoAlt: "NBC logo",
+        testimonial:
+            "Working with SESA has been an absolute pleasure. Their proactive approach, clear communication, and genuine commitment to collaboration make them an exceptional partner. From the very beginning, they’ve demonstrated a strong sense of initiative and responsiveness, which has made our interactions smooth and productive. We’re truly excited about the opportunities this partnership brings and look forward to participating to their events this year.",
+        highlights: [
+            "exceptional partner",
+            "strong sense of initiative",
+            "responsiveness",
+            "productive",
+        ],
+        person: {
+            name: "Anabelle Latour",
+            title: "Coordinator – University Recruitment at National Bank",
+            image: "/imgs/people/nbc/anabelle-latour.webp",
         },
     },
     // ...other testimonials...
