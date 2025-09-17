@@ -9,7 +9,7 @@ import {
     SelectValue,
 } from "@repo/ui/components/select";
 import { useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import * as z from "zod";
 import { useAppForm } from "@/hooks";
@@ -66,10 +66,6 @@ const ContactForm: React.FC = () => {
         },
         onSubmitInvalid: args => console.error(args),
     });
-
-    useEffect(() => {
-        setInterval(() => console.log(form.state.values), 1000);
-    }, [form.state.values]);
 
     const topicItems = [
         { label: t("topic_general"), value: "General Inquiry" },
