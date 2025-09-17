@@ -96,7 +96,11 @@ const ResourceSection = () => {
 
     const { data: availableCoursesData } = api.resource.getUniqueCourses.useQuery();
 
-    const availableCourses = availableCoursesData ?? [];
+    /** The available courses as a sorted list, or an empty list if data is unavailable. */
+    const availableCourses = useMemo(
+        () => availableCoursesData?.sort() ?? [],
+        [availableCoursesData],
+    );
 
     // Detect mobile
     useEffect(() => {
