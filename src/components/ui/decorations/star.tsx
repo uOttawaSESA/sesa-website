@@ -20,7 +20,6 @@ const STAR_CONFIG: Record<StarVariant, { src: string; width: number; height: num
 const Star = ({
     variant,
     className = "",
-    delay = 0,
     width,
     height,
     rotate = 0,
