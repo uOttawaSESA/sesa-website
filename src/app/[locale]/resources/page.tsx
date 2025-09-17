@@ -53,6 +53,8 @@ export default async function Resources() {
         sort: "created_desc",
     });
 
+    void api.resource.getUniqueCourses.prefetch();
+
     return (
         <HydrateClient>
             <div className="min-h-screen text-white">
