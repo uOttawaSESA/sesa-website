@@ -8,6 +8,7 @@ export const Textarea = (props: Props) => {
     return (
         <BaseTextarea
             value={field.state.value}
+            onBlur={field.handleBlur}
             onChange={e => field.handleChange(e.target.value)}
             {...props}
         />

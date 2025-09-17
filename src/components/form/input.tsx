@@ -9,6 +9,7 @@ export const TextInput = (props: Props) => {
         <Input
             type="text"
             value={field.state.value}
+            onBlur={field.handleBlur}
             onChange={e => field.handleChange(e.target.value)}
             {...props}
         />
@@ -21,6 +22,7 @@ export const NumberInput = (props: Props) => {
         <Input
             type="number"
             value={field.state.value}
+            onBlur={field.handleBlur}
             onChange={e => field.handleChange(e.target.valueAsNumber)}
             {...props}
         />
