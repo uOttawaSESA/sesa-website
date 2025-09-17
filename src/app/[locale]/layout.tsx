@@ -2,6 +2,7 @@ import { Geist, Geist_Mono, Raleway } from "next/font/google";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
@@ -92,7 +93,10 @@ export default async function RootLayout({
                         <NuqsAdapter>
                             <div className="overflow-x-hidden">
                                 <Navbar />
-                                <main>{children}</main>
+                                <main>
+                                    {children}
+                                    <Analytics />
+                                </main>
                                 <Footer />
                             </div>
                         </NuqsAdapter>
