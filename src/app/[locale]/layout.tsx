@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
@@ -96,6 +97,7 @@ export default async function RootLayout({
                                 <main>
                                     {children}
                                     <Analytics />
+                                    <SpeedInsights />
                                 </main>
                                 <Footer />
                             </div>
