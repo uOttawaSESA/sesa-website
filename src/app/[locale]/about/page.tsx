@@ -92,7 +92,7 @@ export default function About() {
                 {/* Decorations */}
                 <div className="pointer-events-none absolute top-0 left-0 h-full w-full select-none">
                     <Image
-                        className="fade-left-bottom absolute top-[-10rem] right-[-12rem] z-[-1] h-[60rem] w-[60rem]"
+                        className="fade-left-bottom absolute top-[-10rem] right-[-12rem] h-[60rem] w-[60rem]"
                         src="/decoration/double-tunnel.svg"
                         width={913}
                         height={909}
@@ -160,7 +160,7 @@ export default function About() {
                 <FadeInSection>
                     <div className="mt-12 flex justify-center">
                         <Image
-                            className="h-[600px] w-[1250px] object-cover outline-gradient"
+                            className="z-10 h-[600px] w-[1250px] object-cover outline-gradient"
                             src="/imgs/about/team-1.webp"
                             width={1200}
                             height={600}
@@ -173,7 +173,7 @@ export default function About() {
                     {/* Decorations */}
                     <div className="pointer-events-none absolute top-0 left-0 h-full w-full select-none">
                         <Image
-                            className="fade-right-bottom absolute top-[20rem] left-[6rem] z-[-1] h-[55rem] w-[55rem] opacity-60 md:top-[-14rem] md:left-[-16rem] md:opacity-100"
+                            className="fade-right-bottom absolute top-[20rem] left-[6rem] h-[55rem] w-[55rem] opacity-60 md:top-[-14rem] md:left-[-16rem] md:opacity-100"
                             src="/decoration/disc.svg"
                             width={911}
                             height={822}
@@ -520,9 +520,9 @@ export default function About() {
                 {/* Beyond SESA */}
                 <div className="relative mt-56">
                     {/* Decorations */}
-                    <div className="pointer-events-none absolute top-0 left-0 z-[-1] h-full w-full select-none">
+                    <div className="pointer-events-none absolute top-0 left-0 h-full w-full select-none">
                         <Image
-                            className="fade-from-center-bg absolute right-0 left-0 z-0 ms-auto me-auto w-auto opacity-60"
+                            className="fade-from-center-bg absolute right-0 left-0 ms-auto me-auto w-auto opacity-60"
                             src="/decoration/globe-sponsor-page.svg"
                             width={740}
                             height={741}
