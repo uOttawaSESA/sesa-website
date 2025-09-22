@@ -45,13 +45,13 @@ export async function generateMetadata(): Promise<Metadata> {
         title,
         description,
         keywords: keywords[locale as "en" | "fr"],
-        metadataBase: new URL("https://sesa-aegl.ca"),
+        metadataBase: new URL("https://www.sesa-aegl.ca"),
         openGraph: {
             title,
             siteName: title,
             description,
             type: "website",
-            url: new URL("https://sesa-aegl.ca"),
+            url: new URL("https://www.sesa-aegl.ca"),
             images: "/imgs/about/team-1.webp",
         },
         icons: [

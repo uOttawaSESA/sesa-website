@@ -28,7 +28,7 @@ export async function generateMetadata(): Promise<Metadata> {
         openGraph: {
             title,
             description,
-            url: new URL("https://sesa-aegl.ca/thank_you"),
+            url: new URL("https://www.sesa-aegl.ca/thank_you"),
         },
     };
 }
