@@ -46,7 +46,7 @@ const TeamUpSection: React.FC = () => {
                 <div className="ms-4 mt-6 flex">
                     <CircleImage
                         size={55}
-                        src="/imgs/team/peter.webp"
+                        src="/imgs/team/peter.jpeg"
                         alt="Peter Bou-Farah"
                         className="ml-[-0.75rem]"
                     />

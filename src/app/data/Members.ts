@@ -245,7 +245,7 @@ export const membersData: Member[] = [
         name: "Peter Bou-Farah",
         team: "Advisors",
         role: "Advisor",
-        imgPath: "/imgs/team/peter.webp",
+        imgPath: "/imgs/team/peter.jpeg",
         linkedin: "//www.linkedin.com/in/peter-bou-farah/",
         github: "//github.com/peter-bf",
     },
