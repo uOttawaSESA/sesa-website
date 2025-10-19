@@ -7,8 +7,7 @@
         "build": "next build",
         "start": "next start",
         "lint": "biome check",
-        "format": "biome check --write",
-        "prepare": "husky"
+        "format": "biome check --write"
     },
     "dependencies": {
         "@radix-ui/react-accordion": "^1.2.12",
@@ -33,7 +32,6 @@
         "drizzle-orm": "^0.44.7",
         "embla-carousel-react": "^8.6.0",
         "framer-motion": "^12.34.0",
-        "husky": "^9.1.7",
         "lucide-react": "^0.482.0",
         "marked": "^15.0.12",
         "next": "^15.5.12",
@@ -64,7 +62,6 @@
         "drizzle-kit": "^0.31.9",
         "husky": "^9.1.7",
         "jsdom": "^26.0.0",
-        "lint-staged": "^15.5.2",
         "next-intl": "^4.8.2",
         "postcss": "^8.5.6",
         "tailwindcss": "^4.1.18",
