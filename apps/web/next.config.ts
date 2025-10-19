@@ -1,7 +1,8 @@
-import createNextIntlPlugin from "next-intl/plugin";
 import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
 
 const nextConfig: NextConfig = {
+    transpilePackages: ["@repo/ui"],
     images: {
         remotePatterns: [
             {
