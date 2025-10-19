@@ -17,6 +17,9 @@ importers:
 
   .:
     devDependencies:
+      '@biomejs/biome':
+        specifier: 2.2.2
+        version: 2.2.2
       eslint:
         specifier: 'catalog:'
         version: 9.39.2(jiti@2.6.1)
@@ -156,9 +159,12 @@ importers:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@4.1.18)
     devDependencies:
+<<<<<<< HEAD
       '@biomejs/biome':
         specifier: 2.3.8
         version: 2.3.8
+=======
+>>>>>>> 641871e (feat: move biome dep to root)
       '@tailwindcss/postcss':
         specifier: ^4.1.18
         version: 4.1.18
