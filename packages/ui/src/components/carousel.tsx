@@ -1,11 +1,11 @@
 // biome-ignore-all lint: Unmodified shadcn/ui element
 "use client";
 
+import { Button } from "@repo/ui/components/button";
+import { cn } from "@repo/ui/lib/utils";
 import useEmblaCarousel, { type UseEmblaCarouselType } from "embla-carousel-react";
 import Image from "next/image";
 import * as React from "react";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 type CarouselApi = UseEmblaCarouselType[1];
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;

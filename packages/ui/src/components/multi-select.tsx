@@ -1,8 +1,5 @@
-import { cva, type VariantProps } from "class-variance-authority";
-import { CheckIcon, ChevronDown, WandSparkles, XCircle } from "lucide-react";
-import * as React from "react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { Badge } from "@repo/ui/components/badge";
+import { Button } from "@repo/ui/components/button";
 import {
     Command,
     CommandEmpty,
@@ -11,10 +8,13 @@ import {
     CommandItem,
     CommandList,
     CommandSeparator,
-} from "@/components/ui/command";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Separator } from "@/components/ui/separator";
-import { cn } from "@/lib/utils";
+} from "@repo/ui/components/command";
+import { Popover, PopoverContent, PopoverTrigger } from "@repo/ui/components/popover";
+import { Separator } from "@repo/ui/components/separator";
+import { cn } from "@repo/ui/lib/utils";
+import { cva, type VariantProps } from "class-variance-authority";
+import { CheckIcon, ChevronDown, WandSparkles, XCircle } from "lucide-react";
+import * as React from "react";
 
 /**
  * Animation types and configurations
