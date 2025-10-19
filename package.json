@@ -5,10 +5,10 @@
     "author": "SESA",
     "scripts": {
         "build": "turbo run build",
-        "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+        "format": "biome format --write .",
+        "ci:format": "biome format .",
         "lint": "turbo run lint",
         "check-types": "turbo run check-types",
-        "ci:format": "prettier --check \"**/*.{js,jsx,ts,tsx,md}\"",
         "dev": "turbo run dev",
         "prepare": "husky"
     },
