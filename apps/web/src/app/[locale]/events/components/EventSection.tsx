@@ -1,14 +1,14 @@
 "use client";
+import Star from "@repo/ui/components/decorations/star";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Pagination from "@/components/Pagination";
-import Star from "@/components/ui/decorations/star";
+import type { Event } from "@/server/db/schema";
 import { api } from "@/trpc/react";
 import EventFilters from "./EventFilters";
 import EventsList from "./EventsList";
 import Header from "./Header";
-import type { Event } from "@/server/db/schema";
 
 const EventSection = () => {
     const t = useTranslations("events");

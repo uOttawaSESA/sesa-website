@@ -1,8 +1,4 @@
-import { Trash } from "lucide-react";
-import Image from "next/image";
-import { useTranslations } from "next-intl";
-import { useMemo, useRef, useState } from "react";
-import { MultiSelect, type MultiSelectRef } from "@/components/ui/multi-select";
+import { MultiSelect, type MultiSelectRef } from "@repo/ui/components/multi-select";
 import {
     Select,
     SelectContent,
@@ -10,7 +6,11 @@ import {
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from "@/components/ui/select";
+} from "@repo/ui/components/select";
+import { Trash } from "lucide-react";
+import Image from "next/image";
+import { useTranslations } from "next-intl";
+import { useMemo, useRef, useState } from "react";
 import type { ResourceFilters, ResourceSorts } from "@/server/api/routers/resource";
 
 const gradientBorderClass = `

@@ -1,10 +1,10 @@
 "use client";
+import { Button } from "@repo/ui/components/button";
+import { Toaster } from "@repo/ui/components/sonner";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 import AnimateOnView from "@/components/AnimateOnView";
-import { Button } from "@/components/ui/button";
-import { Toaster } from "@/components/ui/sonner";
 
 const ContactDetails = () => {
     const t = useTranslations("contact_us");

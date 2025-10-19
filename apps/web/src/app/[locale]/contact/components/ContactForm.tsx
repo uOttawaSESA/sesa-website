@@ -1,9 +1,6 @@
 "use client";
-import { useTranslations } from "next-intl";
-import { useState } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from "@repo/ui/components/button";
+import { Input } from "@repo/ui/components/input";
 import {
     Select,
     SelectContent,
@@ -11,8 +8,11 @@ import {
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
+} from "@repo/ui/components/select";
+import { Textarea } from "@repo/ui/components/textarea";
+import { useTranslations } from "next-intl";
+import { useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 import { Link, useRouter } from "@/i18n/navigation";
 import { api } from "@/trpc/react";
 

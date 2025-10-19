@@ -1,5 +1,13 @@
 "use client";
 
+import { Button } from "@repo/ui/components/button";
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+} from "@repo/ui/components/dialog";
 import { format } from "date-fns";
 import createDOMPurify from "dompurify";
 import { CalendarClock, MapPin } from "lucide-react";
@@ -7,14 +15,6 @@ import { marked } from "marked";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
-import { Button } from "@/components/ui/button";
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogHeader,
-    DialogTitle,
-} from "@/components/ui/dialog";
 import type { LocalizedEvent } from "@/server/db/schema";
 
 interface EventCardProps {

@@ -1,16 +1,16 @@
+import Star from "@repo/ui/components/decorations/star";
+import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
 import FadeInSection from "@/components/FadeInSection";
-import Star from "@/components/ui/decorations/star";
 import { api, HydrateClient } from "@/trpc/server";
 import ConnectSESA from "./components/ConnectSESA";
 import EventSection from "./components/EventSection";
 import InfiniteCarousel from "./components/InfiniteCarousel";
 import TeamUpSection from "./components/TeamUpSection";
-import type { Metadata } from "next";
 export const generateStaticParams = localeParams;
 
 export async function generateMetadata(): Promise<Metadata> {

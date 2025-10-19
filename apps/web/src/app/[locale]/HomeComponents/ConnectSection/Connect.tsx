@@ -1,7 +1,7 @@
+import { Button } from "@repo/ui/components/button";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import AnimateOnView from "@/components/AnimateOnView";
-import { Button } from "@/components/ui/button";
 
 const Connect = () => {
     const t = useTranslations("homepage");

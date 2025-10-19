@@ -1,6 +1,4 @@
 "use client";
-import { useLocale } from "next-intl";
-import { useState } from "react";
 import {
     Select,
     SelectContent,
@@ -8,7 +6,9 @@ import {
     SelectItem,
     SelectTrigger,
     SelectValue,
-} from "@/components/ui/select";
+} from "@repo/ui/components/select";
+import { useLocale } from "next-intl";
+import { useState } from "react";
 import { usePathname, useRouter } from "@/i18n/navigation";
 
 /**

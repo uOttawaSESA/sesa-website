@@ -1,7 +1,6 @@
 "use client";
-import { useTranslations } from "next-intl";
-import { type FC, useRef } from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@repo/ui/components/button";
+import { Input } from "@repo/ui/components/input";
 import {
     PaginationContent,
     PaginationEllipsis,
@@ -10,9 +9,10 @@ import {
     PaginationNext,
     PaginationPrevious,
     Pagination as ShadcnPagination,
-} from "@/components/ui/pagination";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Input } from "./ui/input";
+} from "@repo/ui/components/pagination";
+import { Popover, PopoverContent, PopoverTrigger } from "@repo/ui/components/popover";
+import { useTranslations } from "next-intl";
+import { type FC, useRef } from "react";
 
 interface PaginationProps {
     currentPage: number;

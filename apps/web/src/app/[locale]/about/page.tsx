@@ -1,3 +1,6 @@
+import { Button } from "@repo/ui/components/button";
+import Star from "@repo/ui/components/decorations/star";
+import type { Metadata } from "next";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
@@ -9,12 +12,9 @@ import AnimateOnView from "@/components/AnimateOnView";
 import FadeInSection from "@/components/FadeInSection";
 import Metric from "@/components/Metric";
 import { TeamBadgeStack } from "@/components/TeamBadgeStack";
-import { Button } from "@/components/ui/button";
-import Star from "@/components/ui/decorations/star";
 import { Link } from "@/i18n/navigation";
 import TeamMembers from "./TeamMembers";
 import WhatWeDoCard from "./WhatWeDoCard";
-import type { Metadata } from "next";
 export const generateStaticParams = localeParams;
 
 export async function generateMetadata(): Promise<Metadata> {

@@ -1,8 +1,8 @@
+import { Button } from "@repo/ui/components/button";
 import DOMPurify from "dompurify";
 import { JSDOM } from "jsdom";
 import { marked } from "marked";
 import { notFound } from "next/navigation";
-import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import OtherResources from "./OtherResources";
 

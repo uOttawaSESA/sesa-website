@@ -1,10 +1,10 @@
-import Image from "next/image";
 import {
     Carousel,
     CarouselContent,
     CarouselNext,
     CarouselPrevious,
-} from "@/components/ui/carousel";
+} from "@repo/ui/components/carousel";
+import Image from "next/image";
 import { QuoteCard } from "./QuoteCard";
 import { quotesData } from "./QuotesData";
 

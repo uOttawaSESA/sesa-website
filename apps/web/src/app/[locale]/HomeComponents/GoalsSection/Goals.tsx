@@ -4,8 +4,8 @@ import {
     CarouselItem,
     CarouselNext,
     CarouselPrevious,
-} from "@/components/ui/carousel";
-import Star from "@/components/ui/decorations/star";
+} from "@repo/ui/components/carousel";
+import Star from "@repo/ui/components/decorations/star";
 import { GoalCard } from "./GoalCard";
 import { goalsData } from "./GoalsData";
 

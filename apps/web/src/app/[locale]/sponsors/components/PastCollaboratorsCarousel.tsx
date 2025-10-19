@@ -1,10 +1,10 @@
 "use client";
 
+import Star from "@repo/ui/components/decorations/star";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import Marquee from "react-fast-marquee";
 import AnimateOnView from "@/components/AnimateOnView";
-import Star from "@/components/ui/decorations/star";
 
 const gradientBorderClass = `
   border border-solid

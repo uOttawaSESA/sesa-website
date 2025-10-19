@@ -1,8 +1,8 @@
+import { Button } from "@repo/ui/components/button";
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { LanguageSelect } from "@/components/LanguageSelect";
-import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 
 // === Removed sponsor marquee, in case we want it again: ===

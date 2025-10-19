@@ -1,8 +1,8 @@
 "use client";
+import { cn } from "@repo/ui/lib/utils";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
-import { cn } from "@/lib/utils";
 
 export interface MetricProps {
     /** The figure to display. */

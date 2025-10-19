@@ -1,9 +1,9 @@
 "use client";
+import { Button } from "@repo/ui/components/button";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
 import { LanguageSelect } from "@/components/LanguageSelect";
-import { Button } from "@/components/ui/button";
 import { Link, usePathname } from "@/i18n/navigation";
 
 interface NavLinkItemProps {

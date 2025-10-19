@@ -1,9 +1,9 @@
 "use client";
 
+import { Button } from "@repo/ui/components/button";
 import Image from "next/image";
 import { useMemo, useRef } from "react";
 import ResourceCard from "@/app/[locale]/resources/components/ResourceCard/ResourceCard";
-import { Button } from "@/components/ui/button";
 import { api } from "@/trpc/react";
 
 const RESOURCE_WIDTH = 350;
