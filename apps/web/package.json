@@ -49,6 +49,7 @@
         "tailwindcss-animate": "^1.0.7"
     },
     "devDependencies": {
+        "@repo/typescript-config": "workspace:*",
         "@tailwindcss/postcss": "^4.1.18",
         "@types/jsdom": "^27.0.0",
         "@types/node": "^20.19.33",
