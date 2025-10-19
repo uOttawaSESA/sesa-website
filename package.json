@@ -1,0 +1,26 @@
+{
+  "name": "Sesa",
+  "private": true,
+  "license": "AGPL",
+  "author": "SESA",
+  "scripts": {
+    "build": "turbo run build",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "lint": "turbo run lint",
+    "check-types": "turbo run check-types",
+    "ci:format": "prettier --check \"**/*.{js,jsx,ts,tsx,md}\"",
+    "dev": "turbo run dev"
+  },
+  "devDependencies": {
+    "eslint": "catalog:",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "tsup": "^8.5.0",
+    "turbo": "^2.5.6",
+    "typescript": "catalog:"
+  },
+  "packageManager": "pnpm@10.11.0",
+  "engines": {
+    "node": ">=22"
+  }
+}
