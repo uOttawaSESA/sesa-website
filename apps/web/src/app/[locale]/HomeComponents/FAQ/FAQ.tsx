@@ -11,7 +11,7 @@ import {
     AccordionTrigger,
 } from "@repo/ui/components/accordion";
 import { Button } from "@repo/ui/components/button";
-import Star from "@repo/ui/components/decorations/star";
+import Star from "@/components/decorations/star";
 import { Link } from "@/i18n/navigation";
 
 const FAQ = () => {

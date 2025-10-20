@@ -1,10 +1,10 @@
-import Star from "@repo/ui/components/decorations/star";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
+import Star from "@/components/decorations/star";
 import FadeInSection from "@/components/FadeInSection";
 import { api, HydrateClient } from "@/trpc/server";
 import ConnectSESA from "./components/ConnectSESA";

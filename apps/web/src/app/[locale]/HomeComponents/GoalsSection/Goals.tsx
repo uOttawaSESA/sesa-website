@@ -5,7 +5,7 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@repo/ui/components/carousel";
-import Star from "@repo/ui/components/decorations/star";
+import Star from "@/components/decorations/star";
 import { GoalCard } from "./GoalCard";
 import { goalsData } from "./GoalsData";
 

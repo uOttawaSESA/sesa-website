@@ -1,8 +1,8 @@
 import { Button } from "@repo/ui/components/button";
-import Star from "@repo/ui/components/decorations/star";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import AnimateOnView from "@/components/AnimateOnView";
+import Star from "@/components/decorations/star";
 
 const ConnectSESA = () => {
     const t = useTranslations("events");
