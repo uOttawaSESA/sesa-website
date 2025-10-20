@@ -1,7 +1,8 @@
+import type { Metadata } from "next";
 import { Geist, Geist_Mono, Raleway } from "next/font/google";
 import { notFound } from "next/navigation";
-import type { Metadata } from "next";
 import "./globals.css";
+import "@repo/ui/shadcn.css";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
