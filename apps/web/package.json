@@ -38,6 +38,7 @@
     "devDependencies": {
         "@repo/typescript-config": "workspace:*",
         "@repo/ui": "workspace:*",
+        "@repo/env": "workspace:*",
         "@tailwindcss/postcss": "^4.1.18",
         "@types/jsdom": "^27.0.0",
         "@types/node": "^20.19.33",

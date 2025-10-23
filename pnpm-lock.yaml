@@ -120,6 +120,9 @@ importers:
         specifier: ^2.2.6
         version: 2.2.6
     devDependencies:
+      '@repo/env':
+        specifier: workspace:*
+        version: link:../../packages/env
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
