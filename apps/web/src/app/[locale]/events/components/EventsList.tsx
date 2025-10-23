@@ -1,9 +1,9 @@
 "use client";
 
+import type { LocalizedEvent } from "@repo/db/types";
+import type React from "react";
 import FadeInSection from "@/components/FadeInSection";
 import EventCard from "./EventCard";
-import type React from "react";
-import type { LocalizedEvent } from "@/server/db/schema";
 
 interface EventsListProps {
     events: LocalizedEvent[];

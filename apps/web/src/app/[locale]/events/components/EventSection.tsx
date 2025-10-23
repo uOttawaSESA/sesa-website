@@ -1,10 +1,10 @@
 "use client";
+import type { Event } from "@repo/db/types";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Star from "@/components/decorations/star";
 import Pagination from "@/components/Pagination";
-import type { Event } from "@/server/db/schema";
 import { api } from "@/trpc/react";
 import EventFilters from "./EventFilters";
 import EventsList from "./EventsList";

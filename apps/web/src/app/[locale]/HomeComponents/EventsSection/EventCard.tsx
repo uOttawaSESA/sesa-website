@@ -1,8 +1,8 @@
+import type { LocalizedEvent } from "@repo/db/types";
 import { format } from "date-fns";
 import { CalendarDays, Clock, MapPin } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import type { LocalizedEvent } from "@/server/db/schema";
 
 const EventCard: React.FC<{ event: LocalizedEvent }> = ({ event }) => {
     const formattedDate = format(event.startTime, "MMM dd, yyyy"); // e.g., "Mar 25, 2024"

@@ -1,4 +1,5 @@
 import * as DialogPrimitive from "@radix-ui/react-dialog";
+import type { MappedResource } from "@repo/db/types";
 import { Button } from "@repo/ui/components/button";
 import { formatDate } from "date-fns";
 import { X } from "lucide-react";
@@ -6,7 +7,6 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useEffect, useId, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import type { MappedResource } from "@/server/db/schema";
 
 interface ResourceModalProps {
     resource: MappedResource;
