@@ -269,11 +269,11 @@ export const resourceRouter = createTRPCRouter({
             const queryFilters = input ? buildFilteredQuery(input.filters, input.search) : [];
 
             const base = ctx.db.select({ count: sql<number>`count(*)` }).from(resources);
-            const [{ count }] = queryFilters.length
+            const result = queryFilters.length
                 ? await base.where(and(...queryFilters))
                 : await base;
 
-            return count;
+            return result[0]?.count;
         }),
 
     /**
