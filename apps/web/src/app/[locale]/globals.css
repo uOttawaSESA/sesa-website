@@ -3,7 +3,10 @@
     layer(base);
 
 @import "tailwindcss";
-@reference "tailwindcss";
+
+@source "./**/*.tsx";
+@source "../../components/**/*.tsx";
+@source "../../../../../packages/ui/src/**/*.tsx";
 
 @theme {
     /* === Colors === */
