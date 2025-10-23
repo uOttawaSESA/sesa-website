@@ -10,9 +10,9 @@ on:
 
 env:
   NEXT_PUBLIC_RECAPTCHA_SITE_KEY: fake-key
-  POSTGRES_URL: fake-url,
+  POSTGRES_URL: https://fakeurl.com,
   RECAPTCHA_SECRET_KEY: fake-key,
-  EMAIL_USER: fake-email,
+  EMAIL_USER: fake@email.com,
   EMAIL_PASS: fake-pass,
 
 jobs:
