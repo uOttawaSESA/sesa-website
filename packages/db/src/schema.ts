@@ -1,4 +1,4 @@
-import { type InferInsertModel, type InferSelectModel, sql } from "drizzle-orm";
+import { sql } from "drizzle-orm";
 import { index, pgTable, smallint, text, timestamp, unique, uuid } from "drizzle-orm/pg-core";
 
 export const events = pgTable(
@@ -28,10 +28,6 @@ export const events = pgTable(
     ],
 );
 
-export type Event = InferSelectModel<typeof events>;
-export type NewEvent = InferInsertModel<typeof events>;
-export type LocalizedEvent = Event & { title: string; description: string; imageAlt: string };
-
 export const eventsI18n = pgTable(
     "events_i18n",
     {
@@ -56,9 +52,6 @@ export const eventsI18n = pgTable(
         index("events_i18n_locale_idx").on(t.locale),
     ],
 );
-
-export type EventI18n = InferSelectModel<typeof eventsI18n>;
-export type NewEventI18n = InferInsertModel<typeof eventsI18n>;
 
 export const resources = pgTable(
     "resources",
@@ -101,7 +94,3 @@ export const resources = pgTable(
         index("resources_course_trgm_idx").using("gin", sql`${t.course} gin_trgm_ops`),
     ],
 );
-
-export type Resource = InferSelectModel<typeof resources>;
-export type NewResource = InferInsertModel<typeof resources>;
-export type MappedResource = Omit<Resource, "tier"> & { tier: string };
