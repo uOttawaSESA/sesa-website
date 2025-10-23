@@ -36,4 +36,4 @@ jobs:
               run: pnpm exec biome ci --error-on-warnings
 
             - name: Check types
-              run: pnpm exec tsc
+              run: pnpm check-types
