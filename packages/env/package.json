@@ -14,8 +14,7 @@
     "types": "./dist/index.d.ts",
     "scripts": {
         "build": "tsup",
-        "check-types": "tsc --noEmit",
-        "lint": "eslint ."
+        "check-types": "tsc --noEmit"
     },
     "dependencies": {
         "@t3-oss/env-core": "^0.13.8",
