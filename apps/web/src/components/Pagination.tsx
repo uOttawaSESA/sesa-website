@@ -98,6 +98,8 @@ const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange
                             e.preventDefault();
                             handlePrev();
                         }}
+                        ariaLabel={t("pagination_aria_previous")}
+                        label={t("pagination_previous")}
                         aria-disabled={currentPage === 1}
                         className={`ml-12 px-0 md:px-6 ${currentPage === 1 ? "pointer-events-none opacity-50" : ""}`}
                     />
@@ -173,6 +175,8 @@ const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange
                             }
                         }}
                         aria-disabled={currentPage === totalPages}
+                        ariaLabel={t("pagination_aria_next")}
+                        label={t("pagination_next")}
                         className={`px-0 md:px-6 ${
                             currentPage === totalPages ? "pointer-events-none opacity-50" : ""
                         }`}
