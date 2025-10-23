@@ -3,7 +3,6 @@ import { z } from "zod";
 
 export const envServer = createEnv({
     server: {
-        NODE_ENV: z.string().default("development"),
         POSTGRES_URL: z.url(),
         RECAPTCHA_SECRET_KEY: z.string(),
         EMAIL_USER: z.email(),
@@ -13,7 +12,6 @@ export const envServer = createEnv({
     },
     runtimeEnvStrict: {
         POSTGRES_URL: process.env.POSTGRES_URL,
-        NODE_ENV: process.env.NODE_ENV,
         RECAPTCHA_SECRET_KEY: process.env.RECAPTCHA_SECRET_KEY,
         EMAIL_USER: process.env.EMAIL_USER,
         EMAIL_PASS: process.env.EMAIL_PASS,

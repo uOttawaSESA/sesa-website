@@ -13,7 +13,7 @@ const globalForDb = globalThis as unknown as {
 };
 
 const connection = globalForDb.connection ?? postgres(envServer.POSTGRES_URL, { prepare: false });
-if (envServer.NODE_ENV !== "production") globalForDb.connection = connection;
+if (process.env.NODE_ENV !== "production") globalForDb.connection = connection;
 
 export const db = drizzle(connection, { schema, casing: "snake_case" });
 export type Database = typeof db;
