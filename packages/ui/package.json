@@ -7,8 +7,7 @@
         "./shadcn.css": "./src/styles/shadcn.css",
         "./postcss.config": "./postcss.config.mjs",
         "./lib/*": "./src/lib/*.ts",
-        "./components/*": "./src/components/*.tsx",
-        "./hooks/*": "./src/hooks/*.ts"
+        "./components/*": "./src/components/*.tsx"
     },
     "dependencies": {
         "@radix-ui/react-accordion": "^1.2.3",
@@ -27,17 +26,14 @@
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
         "sonner": "^2.0.7",
-        "tailwind-merge": "^3.0.2",
-        "tailwindcss-animate": "^1.0.7"
+        "tailwind-merge": "^3.0.2"
     },
     "devDependencies": {
         "@repo/typescript-config": "workspace:*",
-        "@tailwindcss/postcss": "^4.1.13",
         "@turbo/gen": "^2.5.4",
         "@types/node": "^24.0.13",
         "@types/react": "^19.1.8",
         "@types/react-dom": "^19.1.6",
-        "tailwindcss": "^4.1.13",
         "typescript": "catalog:"
     }
 }
