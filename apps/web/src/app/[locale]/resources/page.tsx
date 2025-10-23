@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
@@ -8,7 +9,6 @@ import { api, HydrateClient } from "@/trpc/server";
 import FooterSection from "./components/FooterSection";
 import Header from "./components/Header";
 import ResourceSection from "./components/ResourceSection";
-import type { Metadata } from "next";
 export const generateStaticParams = localeParams;
 
 export async function generateMetadata(): Promise<Metadata> {

@@ -9,10 +9,10 @@ import {
 } from "nuqs";
 import { useEffect, useMemo, useState } from "react";
 import { useDebounce } from "@/hooks";
+import type { ResourceFilters, ResourceSorts } from "@/server/api/routers/resource";
 import { api } from "@/trpc/react";
 import ResourceList from "./ResourceList";
 import SearchFilterBar from "./SearchFilterBar";
-import type { ResourceFilters, ResourceSorts } from "@/server/api/routers/resource";
 
 const TIER_MAP = ["S", "A", "B", "C", "D", "E", "F"] as const;
 const REVERSE_TIER_MAP = {

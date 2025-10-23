@@ -1,9 +1,11 @@
+// biome-ignore-all lint: lint/correctness/useUniqueElementIds: IDs are only used once and should be human-readable
+
+import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
 import AnimateOnView from "@/components/AnimateOnView";
-import type { Metadata } from "next";
 export const generateStaticParams = localeParams;
 
 export async function generateMetadata(): Promise<Metadata> {

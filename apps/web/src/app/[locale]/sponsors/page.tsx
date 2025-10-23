@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
 // Precompile i18n
@@ -10,7 +11,6 @@ import PastCollaboratorsCarousel from "./components/PastCollaboratorsCarousel";
 import SponsorsGrid from "./components/SponsorsGrid";
 import SponsorsHeader from "./components/SponsorsHeader";
 import TestimonialsCarousel from "./components/TestimonialsCarousel";
-import type { Metadata } from "next";
 export const generateStaticParams = localeParams;
 
 export async function generateMetadata(): Promise<Metadata> {

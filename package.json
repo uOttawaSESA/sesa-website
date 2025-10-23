@@ -7,7 +7,8 @@
         "build": "turbo run build",
         "format": "biome format --write .",
         "ci:format": "biome format .",
-        "lint": "biome check",
+        "ci:lint": "biome lint",
+        "lint": "biome check --write",
         "check-types": "turbo run check-types",
         "dev": "turbo run dev",
         "prepare": "husky"
