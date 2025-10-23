@@ -66,6 +66,10 @@ const gradientBorderClass = `
   [border-image:linear-gradient(55deg,rgba(136,36,220,0.3)_41.93%,rgba(177,33,157,0.3)_81.89%)_1]
 `;
 
+type Sponsor = (typeof sponsors)[0];
+const firstSponsor = sponsors[0] as Sponsor;
+const lastSponsor = sponsors[5] as Sponsor;
+
 const SponsorsGrid = () => {
     return (
         <div className="mt-10 flex justify-center px-6 md:mt-16">
@@ -73,17 +77,17 @@ const SponsorsGrid = () => {
                 {/* Large sponsor on top */}
                 <div className="flex justify-center gap-8 md:flex">
                     <a
-                        href={sponsors[0].link}
+                        href={firstSponsor.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`flex items-center justify-center rounded-lg p-10 ${sponsors[0].size} ${gradientBorderClass} w-full backdrop-blur-lg transition hover:scale-105`}
-                        title={sponsors[0].name}
+                        className={`flex items-center justify-center rounded-lg p-10 ${firstSponsor.size} ${gradientBorderClass} w-full backdrop-blur-lg transition hover:scale-105`}
+                        title={firstSponsor.name}
                     >
                         <Image
-                            src={sponsors[0].src}
-                            alt={sponsors[0].alt}
-                            width={sponsors[0].width}
-                            height={sponsors[0].height}
+                            src={firstSponsor.src}
+                            alt={firstSponsor.alt}
+                            width={firstSponsor.width}
+                            height={firstSponsor.height}
                             className="object-contain"
                         />
                     </a>
@@ -156,17 +160,17 @@ const SponsorsGrid = () => {
                 {/* Desktop: Bank of Canada centered as its own row */}
                 <div className="hidden w-full justify-center md:flex">
                     <a
-                        href={sponsors[5].link}
+                        href={lastSponsor.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`flex items-center justify-center rounded-lg p-10 ${sponsors[5].size} ${gradientBorderClass} w-3/5 backdrop-blur-lg transition hover:scale-105`}
-                        title={sponsors[5].name}
+                        className={`flex items-center justify-center rounded-lg p-10 ${lastSponsor.size} ${gradientBorderClass} w-3/5 backdrop-blur-lg transition hover:scale-105`}
+                        title={lastSponsor.name}
                     >
                         <Image
-                            src={sponsors[5].src}
-                            alt={sponsors[5].alt}
-                            width={sponsors[5].width}
-                            height={sponsors[5].height}
+                            src={lastSponsor.src}
+                            alt={lastSponsor.alt}
+                            width={lastSponsor.width}
+                            height={lastSponsor.height}
                             className="object-contain"
                         />
                     </a>
