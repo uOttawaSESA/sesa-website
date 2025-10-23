@@ -3,6 +3,9 @@
     "version": "0.1.0",
     "private": true,
     "type": "module",
+    "scripts": {
+        "check-types": "tsc --noEmit"
+    },
     "exports": {
         "./shadcn.css": "./src/styles/shadcn.css",
         "./postcss.config": "./postcss.config.mjs",
