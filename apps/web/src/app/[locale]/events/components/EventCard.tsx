@@ -1,5 +1,6 @@
 "use client";
 
+import type { LocalizedEvent } from "@repo/db/types";
 import { Button } from "@repo/ui/components/button";
 import {
     Dialog,
@@ -15,7 +16,6 @@ import { marked } from "marked";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
-import type { LocalizedEvent } from "@/server/db/schema";
 
 interface EventCardProps {
     event: LocalizedEvent;
