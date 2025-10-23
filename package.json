@@ -6,9 +6,9 @@
     "scripts": {
         "build": "turbo run build",
         "format": "biome format --write .",
+        "lint": "biome check --write",
         "ci:format": "biome format .",
         "ci:lint": "biome lint",
-        "lint": "biome check --write",
         "check-types": "turbo run check-types",
         "dev": "turbo run dev",
         "prepare": "husky"
