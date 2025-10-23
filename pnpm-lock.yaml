@@ -120,6 +120,9 @@ importers:
         specifier: ^2.2.6
         version: 2.2.6
     devDependencies:
+      '@repo/db':
+        specifier: workspace:*
+        version: link:../../packages/db
       '@repo/env':
         specifier: workspace:*
         version: link:../../packages/env
