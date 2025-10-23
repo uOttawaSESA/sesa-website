@@ -1,6 +1,7 @@
 "use client";
 import { useLocale, useTranslations } from "next-intl";
 import AnimateOnView from "@/components/AnimateOnView";
+
 import { Button } from "@repo/ui/components/button";
 import {
     Carousel,
@@ -9,6 +10,7 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@repo/ui/components/carousel";
+import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { api } from "@/trpc/react";
 import EventCard from "./EventCard";
@@ -57,8 +59,28 @@ export default function Events() {
                     </CarouselContent>
 
                     <div className="mt-8 flex justify-center gap-4">
-                        <CarouselPrevious className="relative top-0 left-0 translate-y-0" />
-                        <CarouselNext className="relative top-0 right-0 translate-y-0" />
+                        <CarouselPrevious
+                            className="relative top-0 left-0 translate-y-0"
+                            image={
+                                <Image
+                                    src="/resources-page/arrow_backword.svg"
+                                    width={25}
+                                    height={25}
+                                    alt="Left"
+                                />
+                            }
+                        />
+                        <CarouselNext
+                            className="relative top-0 right-0 translate-y-0"
+                            image={
+                                <Image
+                                    src="/resources-page/arrow_forward.svg"
+                                    width={25}
+                                    height={25}
+                                    alt="Right"
+                                />
+                            }
+                        />
                     </div>
                 </Carousel>
             )}

@@ -5,6 +5,7 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@repo/ui/components/carousel";
+import Image from "next/image";
 import Star from "@/components/decorations/star";
 import { GoalCard } from "./GoalCard";
 import { goalsData } from "./GoalsData";
@@ -32,8 +33,28 @@ const Goals = () => {
                     ))}
                 </CarouselContent>
                 <div className="mt-8 flex justify-center gap-4">
-                    <CarouselPrevious className="relative top-0 left-0 translate-y-0" />
-                    <CarouselNext className="relative top-0 right-0 translate-y-0" />
+                    <CarouselPrevious
+                        className="relative top-0 left-0 translate-y-0"
+                        image={
+                            <Image
+                                src="/resources-page/arrow_backword.svg"
+                                width={25}
+                                height={25}
+                                alt="Left"
+                            />
+                        }
+                    />
+                    <CarouselNext
+                        className="relative top-0 right-0 translate-y-0"
+                        image={
+                            <Image
+                                src="/resources-page/arrow_forward.svg"
+                                width={25}
+                                height={25}
+                                alt="Right"
+                            />
+                        }
+                    />
                 </div>
             </Carousel>
         </section>

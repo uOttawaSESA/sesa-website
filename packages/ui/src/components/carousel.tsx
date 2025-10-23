@@ -4,7 +4,7 @@
 import { Button } from "@repo/ui/components/button";
 import { cn } from "@repo/ui/lib/utils";
 import useEmblaCarousel, { type UseEmblaCarouselType } from "embla-carousel-react";
-import Image from "next/image";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import * as React from "react";
 
 type CarouselApi = UseEmblaCarouselType[1];
@@ -176,8 +176,12 @@ const CarouselItem = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLD
 );
 CarouselItem.displayName = "CarouselItem";
 
-const CarouselPrevious = React.forwardRef<HTMLButtonElement, React.ComponentProps<typeof Button>>(
-    ({ className, variant = "outline", size = "icon", ...props }, ref) => {
+interface CarouselNavigationButtonProps extends React.ComponentProps<typeof Button> {
+    image?: React.ReactNode;
+}
+
+const CarouselPrevious = React.forwardRef<HTMLButtonElement, CarouselNavigationButtonProps>(
+    ({ className, variant = "outline", size = "icon", image, ...props }, ref) => {
         const { orientation, scrollPrev, canScrollPrev } = useCarousel();
 
         return (
@@ -196,7 +200,7 @@ const CarouselPrevious = React.forwardRef<HTMLButtonElement, React.ComponentProp
                 onClick={scrollPrev}
                 {...props}
             >
-                <Image src="/resources-page/arrow_backword.svg" width={25} height={25} alt="Left" />
+                {image ?? <ChevronLeft />}
                 <span className="sr-only">Previous slide</span>
             </Button>
         );
@@ -204,8 +208,8 @@ const CarouselPrevious = React.forwardRef<HTMLButtonElement, React.ComponentProp
 );
 CarouselPrevious.displayName = "CarouselPrevious";
 
-const CarouselNext = React.forwardRef<HTMLButtonElement, React.ComponentProps<typeof Button>>(
-    ({ className, variant = "outline", size = "icon", ...props }, ref) => {
+const CarouselNext = React.forwardRef<HTMLButtonElement, CarouselNavigationButtonProps>(
+    ({ className, variant = "outline", size = "icon", image, ...props }, ref) => {
         const { orientation, scrollNext, canScrollNext } = useCarousel();
 
         return (
@@ -224,7 +228,7 @@ const CarouselNext = React.forwardRef<HTMLButtonElement, React.ComponentProps<ty
                 onClick={scrollNext}
                 {...props}
             >
-                <Image src="/resources-page/arrow_forward.svg" width={25} height={25} alt="Right" />
+                {image ?? <ChevronRight />}
                 <span className="sr-only">Next slide</span>
             </Button>
         );
