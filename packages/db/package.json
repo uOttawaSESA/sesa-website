@@ -32,8 +32,7 @@
         "check-types": "tsc --noEmit",
         "db:generate": "drizzle-kit generate",
         "db:migrate": "drizzle-kit migrate",
-        "db:studio": "drizzle-kit studio",
-        "lint": "eslint ."
+        "db:studio": "drizzle-kit studio"
     },
     "dependencies": {
         "dotenv": "^17.2.0",
