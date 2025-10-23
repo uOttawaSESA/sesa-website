@@ -1,8 +1,8 @@
+import { type MappedResource, resources } from "@repo/db/schema";
 import { TRPCError } from "@trpc/server";
 import { and, asc, desc, eq, gt, ilike, lt, or, type SQL, sql } from "drizzle-orm";
 import * as z from "zod";
 import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
-import { type MappedResource, resources } from "@/server/db/schema";
 
 const TIER_MAP = ["S", "A", "B", "C", "D", "E", "F"] as const;
 
