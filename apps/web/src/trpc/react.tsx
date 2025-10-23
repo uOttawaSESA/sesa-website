@@ -1,13 +1,14 @@
 "use client";
 
+import { envServer } from "@repo/env";
 import { type QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { httpBatchStreamLink, loggerLink } from "@trpc/client";
 import { createTRPCReact } from "@trpc/react-query";
+import type { inferRouterInputs, inferRouterOutputs } from "@trpc/server";
 import { useState } from "react";
 import SuperJSON from "superjson";
-import { createQueryClient } from "./query-client";
-import type { inferRouterInputs, inferRouterOutputs } from "@trpc/server";
 import type { AppRouter } from "@/server/api/root";
+import { createQueryClient } from "./query-client";
 
 let clientQueryClientSingleton: QueryClient | undefined;
 const getQueryClient = () => {
@@ -45,7 +46,7 @@ export function TRPCReactProvider(props: { children: React.ReactNode }) {
             links: [
                 loggerLink({
                     enabled: op =>
-                        process.env.NODE_ENV === "development" ||
+                        envServer.NODE_ENV === "development" ||
                         (op.direction === "down" && op.result instanceof Error),
                 }),
                 httpBatchStreamLink({
@@ -72,6 +73,6 @@ export function TRPCReactProvider(props: { children: React.ReactNode }) {
 
 function getBaseUrl() {
     if (typeof window !== "undefined") return window.location.origin;
-    if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
-    return `http://localhost:${process.env.PORT ?? 3000}`;
+    if (envServer.VERCEL_URL) return `https://${envServer.VERCEL_URL}`;
+    return `http://localhost:${envServer.PORT}`;
 }
