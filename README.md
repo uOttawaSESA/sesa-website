@@ -2,6 +2,11 @@
 
 This is the repository for the main SESA website.
 
+## Prerequisites
+
+- Node.js 20+ (Corepack included)
+- pnpm (activated via Corepack)
+
 ## Getting Started
 
 First, make sure that Corepack (included with Node.js) is enabled (if you're on Windows, run this command in a terminal as admin):
