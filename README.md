@@ -6,7 +6,8 @@ This is the repository for the main SESA website.
 
 - Node.js 20+
 - pnpm (activated via Corepack)
-> [!NOTE]Node 25 and newer no longer include Corepack by default. If you are using Node >= 25, install Corepack manually with
+> [!NOTE]
+> Node 25 and newer no longer include Corepack by default. If you are using Node >= 25, install Corepack manually with
 >```
 >npm install -g corepack
 >```
