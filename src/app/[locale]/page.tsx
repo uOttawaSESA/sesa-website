@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { notFound } from "next/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 import localeParams from "@/app/data/locales";
 import FadeInSection from "@/components/FadeInSection";
@@ -33,8 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function Home() {
     const locale = await getLocale();
-    if (locale !== "en" && locale !== "fr")
-        return NextResponse.json({ message: "Invalid locale" }, { status: 400 });
+    if (locale !== "en" && locale !== "fr") notFound();
 
     void api.event.getAll.prefetch({ locale });
     void api.resource.getCursorPage.prefetchInfinite({

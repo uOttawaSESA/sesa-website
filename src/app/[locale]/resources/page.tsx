@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { NextResponse } from "next/server";
+import { notFound } from "next/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
@@ -38,8 +38,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function Resources() {
     const locale = await getLocale();
-    if (locale !== "en" && locale !== "fr")
-        return NextResponse.json({ message: "Invalid locale" }, { status: 400 });
+    if (locale !== "en" && locale !== "fr") notFound();
 
     void api.resource.getCursorPage.prefetchInfinite({
         search: null,
