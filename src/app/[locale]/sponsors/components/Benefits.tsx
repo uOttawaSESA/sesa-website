@@ -86,7 +86,6 @@ export default function Benefits() {
     };
 
     return (
-        // biome-ignore lint/correctness/useUniqueElementIds: Should be human-readable
         <div
             id="benefits"
             className="relative flex min-h-screen flex-col justify-center space-y-5 py-10 md:mb-24 md:py-20"

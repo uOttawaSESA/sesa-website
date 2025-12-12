@@ -384,7 +384,6 @@ export default function About() {
                         />
                     </div>
                     <FadeInSection>
-                        {/* biome-ignore lint/correctness/useUniqueElementIds: Should be human-readable */}
                         <div
                             id="introducing-our-team"
                             className="flex scroll-mt-28 flex-col items-center gap-2 text-center align-center md:mt-28"
