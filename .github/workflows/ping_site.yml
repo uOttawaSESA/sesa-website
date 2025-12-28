@@ -1,0 +1,21 @@
+name: Ping Website
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  ping-website:
+    name: Ping Website
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Ping Website
+        run: |
+          status=$(curl -so /dev/null -w "%{http_code}" https://www.sesa-aegl.ca/en)
+          if [ "$status" -eq "200" ]; then
+            exit 0
+          else
+            exit 1
+          fi
