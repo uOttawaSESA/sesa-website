@@ -81,16 +81,22 @@ export const resources = pgTable(
         format: text("format").notNull(),
     },
     t => [
-        index("resources_locale_idx").on(t.locale),
-        index("resources_locale_gin_idx").using("gin", t.locale),
+        // Basic filtering
         index("resources_category_idx").on(t.category),
-        index("resources_course_idx").on(t.course),
-        index("resources_pricing_idx").on(t.pricing),
         index("resources_format_idx").on(t.format),
-        index("resources_tier_idx").on(t.tier),
-        index("resources_created_at_idx").on(t.createdAt),
-        index("resources_updated_at_idx").on(t.updatedAt),
-        // For full-text search
+        index("resources_course_idx").on(t.course),
+
+        // Array containment searching
+        index("resources_locale_gin_idx").using("gin", t.locale),
+        index("resources_accessibility_gin_idx").using("gin", t.accessibility),
+
+        // Sorting with ID as tiebreaker
+        index("resources_tier_id_idx").on(t.tier, t.id),
+        index("resources_created_at_id_idx").on(t.createdAt, t.id),
+        index("resources_updated_at_id_idx").on(t.updatedAt, t.id),
+        index("resources_title_id_idx").on(t.title, t.id),
+
+        // Full-text search
         index("resources_title_trgm_idx").using("gin", sql`${t.title} gin_trgm_ops`),
         index("resources_course_trgm_idx").using("gin", sql`${t.course} gin_trgm_ops`),
     ],
