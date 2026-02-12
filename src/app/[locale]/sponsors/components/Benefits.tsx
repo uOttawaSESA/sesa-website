@@ -110,10 +110,7 @@ export default function Benefits() {
                     </p>
                     <h2 className="mb-4 font-heading text-2xl text-white uppercase md:text-3xl">
                         <span className="block md:inline">{t("benefits_title_part1")}</span>{" "}
-                        <span className="relative inline-block">
-                            {t("benefits_title_highlight")}
-                            <div className="absolute top-0 right-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,rgba(136,36,220,0.25),rgba(177,33,97,0.25))]"></div>
-                        </span>{" "}
+                        <span className="highlight-text">{t("benefits_title_highlight")}</span>{" "}
                         <span className="block md:inline">{t("benefits_title_part3")}</span>
                     </h2>
 

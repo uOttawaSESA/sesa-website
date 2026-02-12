@@ -11,9 +11,24 @@ const gradientBorderClass = `
 `;
 
 const logos = [
-    { src: "/sponsors-page/kinaxis.webp", alt: "Kinaxis", width: 120, height: 60 },
-    { src: "/sponsors-page/microsoft.webp", alt: "Microsoft", width: 120, height: 60 },
-    { src: "/sponsors-page/google.webp", alt: "Google", width: 160, height: 80 },
+    {
+        src: "/sponsors-page/kinaxis.webp",
+        alt: "Kinaxis",
+        width: 120,
+        height: 60,
+    },
+    {
+        src: "/sponsors-page/microsoft.webp",
+        alt: "Microsoft",
+        width: 120,
+        height: 60,
+    },
+    {
+        src: "/sponsors-page/google.webp",
+        alt: "Google",
+        width: 160,
+        height: 80,
+    },
     { src: "/sponsors-page/ibm.webp", alt: "IBM", width: 80, height: 40 },
 ];
 
@@ -56,10 +71,7 @@ const PastCollaboratorsCarousel = () => {
                     {t("past_collaborators_top")}
                 </p>
                 <h2 className="font-heading text-2xl text-white uppercase md:text-3xl">
-                    <span className="relative inline-block">
-                        {t("past_collaborators_highlight")}
-                        <div className="absolute top-0 right-0 h-full w-0 animate-highlight [background:linear-gradient(55.37deg,rgba(136,36,220,0.25),rgba(177,33,97,0.25))]"></div>
-                    </span>{" "}
+                    <span className="highlight-text">{t("past_collaborators_highlight")}</span>{" "}
                     {t("past_collaborators_title_rest")}
                 </h2>
                 <p className="max-w-xl text-base text-thistle md:text-lg">
