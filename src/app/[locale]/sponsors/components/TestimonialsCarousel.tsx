@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import AnimateOnView from "@/components/AnimateOnView";
 import CircleImage from "@/components/CircleImage";
 import { Button } from "@/components/ui/button";
 import {
@@ -12,7 +13,6 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Link } from "@/i18n/navigation";
-import AnimateOnView from "@/components/AnimateOnView";
 
 const sponsorsData = [
     {

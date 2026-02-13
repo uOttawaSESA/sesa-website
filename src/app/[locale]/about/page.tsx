@@ -5,6 +5,7 @@ import { useMemo } from "react";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
 import { membersData } from "@/app/data/Members";
+import AnimateOnView from "@/components/AnimateOnView";
 import FadeInSection from "@/components/FadeInSection";
 import Metric from "@/components/Metric";
 import { TeamBadgeStack } from "@/components/TeamBadgeStack";
@@ -14,8 +15,6 @@ import { Link } from "@/i18n/navigation";
 import TeamMembers from "./TeamMembers";
 import WhatWeDoCard from "./WhatWeDoCard";
 import type { Metadata } from "next";
-import HighlightOnView from "@/components/AnimateOnView";
-import AnimateOnView from "@/components/AnimateOnView";
 export const generateStaticParams = localeParams;
 
 export async function generateMetadata(): Promise<Metadata> {

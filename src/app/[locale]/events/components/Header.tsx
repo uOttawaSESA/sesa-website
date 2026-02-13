@@ -1,5 +1,5 @@
-import AnimateOnView from "@/components/AnimateOnView";
 import { useTranslations } from "next-intl";
+import AnimateOnView from "@/components/AnimateOnView";
 
 const Header = () => {
     const t = useTranslations("events");

@@ -3,6 +3,7 @@ import createDOMPurify from "dompurify";
 import { marked } from "marked";
 import { useTranslations } from "next-intl";
 import { useMemo } from "react";
+import AnimateOnView from "@/components/AnimateOnView";
 import {
     Accordion,
     AccordionContent,
@@ -12,7 +13,6 @@ import {
 import { Button } from "@/components/ui/button";
 import Star from "@/components/ui/decorations/star";
 import { Link } from "@/i18n/navigation";
-import AnimateOnView from "@/components/AnimateOnView";
 
 const FAQ = () => {
     const t = useTranslations("homepage");

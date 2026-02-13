@@ -2,11 +2,11 @@ import Image from "next/image";
 import { getLocale, getTranslations } from "next-intl/server";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
+import AnimateOnView from "@/components/AnimateOnView";
 import { Button } from "@/components/ui/button";
 import Star from "@/components/ui/decorations/star";
 import { Link } from "@/i18n/navigation";
 import type { Metadata } from "next";
-import AnimateOnView from "@/components/AnimateOnView";
 export const generateStaticParams = localeParams;
 
 export async function generateMetadata(): Promise<Metadata> {

@@ -1,5 +1,6 @@
 "use client";
 import { useLocale, useTranslations } from "next-intl";
+import AnimateOnView from "@/components/AnimateOnView";
 import { Button } from "@/components/ui/button";
 import {
     Carousel,
@@ -11,7 +12,6 @@ import {
 import { Link } from "@/i18n/navigation";
 import { api } from "@/trpc/react";
 import EventCard from "./EventCard";
-import AnimateOnView from "@/components/AnimateOnView";
 
 export default function Events() {
     const t = useTranslations("homepage");

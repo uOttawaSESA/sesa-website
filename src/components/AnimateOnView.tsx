@@ -1,7 +1,7 @@
 "use client";
+import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import type React from "react";
-import { useEffect, useState } from "react";
 
 type AnimateOnView = React.PropsWithChildren<{
     className?: string;

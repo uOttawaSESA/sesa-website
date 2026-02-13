@@ -1,10 +1,10 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import AnimateOnView from "@/components/AnimateOnView";
 import { Button } from "@/components/ui/button";
 import Star from "@/components/ui/decorations/star";
 import { Link } from "@/i18n/navigation";
 import SponsorsGrid from "../../sponsors/components/SponsorsGrid";
-import AnimateOnView from "@/components/AnimateOnView";
 
 const Sponsors = () => {
     const t = useTranslations("homepage");

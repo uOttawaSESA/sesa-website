@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import { useLocale } from "next-intl";
+import AnimateOnView from "@/components/AnimateOnView";
 import { TeamBadgeStack } from "@/components/TeamBadgeStack";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import type Goal from "./types/Goal";
-import AnimateOnView from "@/components/AnimateOnView";
 
 export const GoalCard: React.FC<{ goal: Goal }> = ({ goal }) => {
     const locale = useLocale();

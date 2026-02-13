@@ -4,11 +4,11 @@ import { useTranslations } from "next-intl";
 import { useState } from "react";
 import Marquee from "react-fast-marquee";
 import { membersData } from "@/app/data/Members";
+import AnimateOnView from "@/components/AnimateOnView";
 import CircleImage from "@/components/CircleImage";
 import { Button } from "@/components/ui/button";
 import Star from "@/components/ui/decorations/star";
 import { Link } from "@/i18n/navigation";
-import AnimateOnView from "@/components/AnimateOnView";
 
 const Team = () => {
     const t = useTranslations("homepage");

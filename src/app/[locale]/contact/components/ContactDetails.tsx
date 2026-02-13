@@ -2,9 +2,9 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { toast } from "sonner";
+import AnimateOnView from "@/components/AnimateOnView";
 import { Button } from "@/components/ui/button";
 import { Toaster } from "@/components/ui/sonner";
-import AnimateOnView from "@/components/AnimateOnView";
 
 const ContactDetails = () => {
     const t = useTranslations("contact_us");
