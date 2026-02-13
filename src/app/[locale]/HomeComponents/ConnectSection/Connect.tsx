@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
+import AnimateOnView from "@/components/AnimateOnView";
 
 const Connect = () => {
     const t = useTranslations("homepage");
@@ -37,9 +38,9 @@ const Connect = () => {
                         {t("connect_subtitle")}
                     </p>
                     <h1 className="font-heading text-2xl uppercase leading-tight md:text-4xl">
-                        <span className="highlight-text">
+                        <AnimateOnView animationClass="highlight-text">
                             {t("connect_heading_h1_highlighted")}
-                        </span>{" "}
+                        </AnimateOnView>{" "}
                         <br />
                         {t("connect_heading_h1")}
                     </h1>

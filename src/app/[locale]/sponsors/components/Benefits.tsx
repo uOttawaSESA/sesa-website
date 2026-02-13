@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import AnimateOnView from "@/components/AnimateOnView";
 
 export default function Benefits() {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -110,7 +111,9 @@ export default function Benefits() {
                     </p>
                     <h2 className="mb-4 font-heading text-2xl text-white uppercase md:text-3xl">
                         <span className="block md:inline">{t("benefits_title_part1")}</span>{" "}
-                        <span className="highlight-text">{t("benefits_title_highlight")}</span>{" "}
+                        <AnimateOnView animationClass="highlight-text">
+                            {t("benefits_title_highlight")}
+                        </AnimateOnView>{" "}
                         <span className="block md:inline">{t("benefits_title_part3")}</span>
                     </h2>
 

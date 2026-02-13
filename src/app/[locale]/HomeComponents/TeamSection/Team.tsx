@@ -8,6 +8,7 @@ import CircleImage from "@/components/CircleImage";
 import { Button } from "@/components/ui/button";
 import Star from "@/components/ui/decorations/star";
 import { Link } from "@/i18n/navigation";
+import AnimateOnView from "@/components/AnimateOnView";
 
 const Team = () => {
     const t = useTranslations("homepage");
@@ -70,7 +71,9 @@ const Team = () => {
                 <h1 className="text-center font-heading text-2xl uppercase leading-tight md:text-5xl">
                     <span className="block">
                         {t("team_heading_line1_part1")}{" "}
-                        <span className="highlight-text">{t("team_heading_line1_highlight")}</span>{" "}
+                        <AnimateOnView animationClass="highlight-text">
+                            {t("team_heading_line1_highlight")}
+                        </AnimateOnView>{" "}
                         {t("team_heading_line1_part2")}
                     </span>
                     <span className="block">{t("team_heading_line2")}</span>

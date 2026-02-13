@@ -11,6 +11,7 @@ import {
 import { Link } from "@/i18n/navigation";
 import { api } from "@/trpc/react";
 import EventCard from "./EventCard";
+import AnimateOnView from "@/components/AnimateOnView";
 
 export default function Events() {
     const t = useTranslations("homepage");
@@ -25,7 +26,9 @@ export default function Events() {
                     {t("events")}
                 </p>
                 <h2 className="my-2 font-heading text-2xl uppercase leading-tight md:text-4xl">
-                    <span className="highlight-text">{t("events_heading_hl")}</span>{" "}
+                    <AnimateOnView animationClass="highlight-text">
+                        {t("events_heading_hl")}
+                    </AnimateOnView>{" "}
                     {t("events_heading")}
                 </h2>
                 <p className="relative flex items-center text-left font-sans text-base text-thistle md:text-lg">

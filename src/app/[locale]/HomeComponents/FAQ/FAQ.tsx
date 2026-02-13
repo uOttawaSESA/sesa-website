@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import Star from "@/components/ui/decorations/star";
 import { Link } from "@/i18n/navigation";
+import AnimateOnView from "@/components/AnimateOnView";
 
 const FAQ = () => {
     const t = useTranslations("homepage");
@@ -82,7 +83,9 @@ const FAQ = () => {
                 </p>
                 <h1 className="text-center font-heading text-2xl uppercase leading-tight md:text-4xl">
                     {t("faq_heading_h1")}&nbsp;
-                    <span className="highlight-text">{t("faq_heading_h1_highlighted")}</span>
+                    <AnimateOnView animationClass="highlight-text">
+                        {t("faq_heading_h1_highlighted")}
+                    </AnimateOnView>
                 </h1>
                 <p className="max-w-sm text-center font-sans text-base text-thistle md:max-w-lg md:text-lg xl:max-w-xl">
                     {t("faq_description")}

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Star from "@/components/ui/decorations/star";
 import { Link } from "@/i18n/navigation";
 import SponsorsGrid from "../../sponsors/components/SponsorsGrid";
+import AnimateOnView from "@/components/AnimateOnView";
 
 const Sponsors = () => {
     const t = useTranslations("homepage");
@@ -72,9 +73,9 @@ const Sponsors = () => {
                         </p>
                         <h1 className="mx-auto mt-2 max-w-[30ch] font-heading text-2xl text-white uppercase leading-tight md:text-4xl">
                             <span className="relative inline-block">
-                                <span className="highlight-text">
+                                <AnimateOnView animationClass="highlight-text">
                                     {t("sponsors_heading_h1_highlighted")}
-                                </span>{" "}
+                                </AnimateOnView>{" "}
                                 {t("sponsors_heading_h1")}
                             </span>
                             <br />

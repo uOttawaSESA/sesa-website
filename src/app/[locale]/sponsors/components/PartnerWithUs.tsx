@@ -6,6 +6,7 @@ import { TeamBadgeStack } from "@/components/TeamBadgeStack";
 import { Button } from "@/components/ui/button";
 import Star from "@/components/ui/decorations/star";
 import { Link } from "@/i18n/navigation";
+import AnimateOnView from "@/components/AnimateOnView";
 
 const PartnerWithUs = () => {
     const teamImgs = [
@@ -63,7 +64,9 @@ const PartnerWithUs = () => {
                     </p>
                     <h2 className="mt-2 mb-4 font-heading text-2xl text-white uppercase leading-tight md:mt-4 md:text-3xl">
                         {t("partner_with_us_title")}{" "}
-                        <span className="highlight-text">{t("partner_with_us_highlight")}</span>{" "}
+                        <AnimateOnView animationClass="highlight-text">
+                            {t("partner_with_us_highlight")}
+                        </AnimateOnView>{" "}
                         {t("partner_with_us_title_rest")}
                     </h2>
                     <p className="mt-2 mb-4 text-base text-thistle leading-tight md:text-lg">

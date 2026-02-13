@@ -1,3 +1,4 @@
+import AnimateOnView from "@/components/AnimateOnView";
 import { Button } from "@/components/ui/button";
 
 interface HeaderProps {
@@ -19,7 +20,7 @@ const Header = ({ topText, title, bottomText, btn1, btn2 }: HeaderProps) => {
 
                 <h1 className="mx-auto mt-4 max-w-[18ch] font-heading text-3xl text-white uppercase leading-snug md:text-5xl md:leading-tight">
                     <span className="relative inline-block">
-                        <span className="highlight-text">huge thanks</span>
+                        <AnimateOnView animationClass="highlight-text">huge thanks</AnimateOnView>
                         <span> {title.replace(/huge thanks/i, "")}</span>
                     </span>
                 </h1>

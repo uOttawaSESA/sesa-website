@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Toaster } from "@/components/ui/sonner";
+import AnimateOnView from "@/components/AnimateOnView";
 
 const ContactDetails = () => {
     const t = useTranslations("contact_us");
@@ -29,7 +30,9 @@ const ContactDetails = () => {
 
                 <h1 className="mt-2 font-heading text-3xl uppercase leading-tight md:mt-4 md:text-5xl">
                     {t("get_in_touch")}{" "}
-                    <span className="highlight-text">{t("get_in_touch_hl")}</span>
+                    <AnimateOnView animationClass="highlight-text">
+                        {t("get_in_touch_hl")}
+                    </AnimateOnView>
                 </h1>
 
                 <p className="mt-4 mb-5 max-w-[558px] font-sans text-thistle md:mb-7 md:text-xl">

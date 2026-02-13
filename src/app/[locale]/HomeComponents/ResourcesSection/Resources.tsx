@@ -9,6 +9,7 @@ import Star from "@/components/ui/decorations/star";
 import { Link, useRouter } from "@/i18n/navigation";
 import { api } from "@/trpc/react";
 import ResourceCard from "../../resources/components/ResourceCard/ResourceCard";
+import AnimateOnView from "@/components/AnimateOnView";
 
 const Resources = () => {
     const t = useTranslations("homepage");
@@ -98,7 +99,9 @@ const Resources = () => {
                 </p>
                 <h1 className="font-heading text-2xl uppercase leading-tight md:text-4xl">
                     {t("resources_heading_h1")}&nbsp;
-                    <span className="highlight-text">{t("resources_heading_h1_highlighted")}</span>
+                    <AnimateOnView animationClass="highlight-text">
+                        {t("resources_heading_h1_highlighted")}
+                    </AnimateOnView>
                 </h1>
                 <p className="font-sans text-base text-thistle md:text-lg">
                     {t("resources_subheading")}

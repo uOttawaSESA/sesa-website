@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import Star from "@/components/ui/decorations/star";
 import { Link } from "@/i18n/navigation";
 import type { Metadata } from "next";
+import AnimateOnView from "@/components/AnimateOnView";
 export const generateStaticParams = localeParams;
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -79,7 +80,8 @@ const ThankYou = () => {
                 </span>
             </div>
             <h1 className="mb-4 font-heading text-4xl text-white uppercase">
-                <span className="highlight-text">Thank you</span> for reaching out!
+                <AnimateOnView animationClass="highlight-text">Thank you</AnimateOnView> for
+                reaching out!
             </h1>
             <p className="mb-8 max-w-xl font-raleway text-base text-thistle md:text-lg">
                 We’ll get back to you within 48 hours. In the meantime, check out our amazing

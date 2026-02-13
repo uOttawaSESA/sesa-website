@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Star from "@/components/ui/decorations/star";
 import { Link } from "@/i18n/navigation";
+import AnimateOnView from "@/components/AnimateOnView";
 
 interface SponsorsHeaderProps {
     topText: string;
@@ -71,7 +72,9 @@ const SponsorsHeader = ({
 
                 <h1 className="mx-auto mt-4 max-w-[18ch] font-heading text-3xl text-white uppercase leading-snug md:text-4xl md:leading-tight">
                     <span className="relative inline-block">
-                        <span className="highlight-text">{titleHighlighted}</span>
+                        <AnimateOnView animationClass="highlight-text">
+                            {titleHighlighted}
+                        </AnimateOnView>
                     </span>
                     <span> {title}</span>
                 </h1>

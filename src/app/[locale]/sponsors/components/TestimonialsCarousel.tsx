@@ -12,6 +12,7 @@ import {
     CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Link } from "@/i18n/navigation";
+import AnimateOnView from "@/components/AnimateOnView";
 
 const sponsorsData = [
     {
@@ -111,9 +112,12 @@ const TestimonialsCarousel = () => {
                                             .split(new RegExp(`(${sponsor.highlights.join("|")})`))
                                             .map((part, i) =>
                                                 sponsor.highlights.includes(part) ? (
-                                                    <span key={i} className="highlight-text">
+                                                    <AnimateOnView
+                                                        key={i}
+                                                        animationClass="highlight-text"
+                                                    >
                                                         {part}
-                                                    </span>
+                                                    </AnimateOnView>
                                                 ) : (
                                                     part
                                                 ),
