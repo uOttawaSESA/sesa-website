@@ -276,7 +276,7 @@ export default function About() {
                             <h2 className="font-heading text-2xl uppercase md:text-3xl">
                                 {t("what_do_we_do_heading")}{" "}
                                 <AnimateOnView animationClass="highlight-text">
-                                    <span className="">{t("what_do_we_do_heading_hl")}</span>
+                                    {t("what_do_we_do_heading_hl")}
                                 </AnimateOnView>
                             </h2>
                             <div>

@@ -10,13 +10,13 @@ type AnimateOnView = React.PropsWithChildren<{
     threshold?: number;
 }>;
 
-const AnimateOnView: React.FC<AnimateOnView> = ({
+const AnimateOnView = ({
     children,
     className = "",
     animationClass,
     triggerOnce = true,
     threshold = 0.15,
-}) => {
+}: AnimateOnView) => {
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
