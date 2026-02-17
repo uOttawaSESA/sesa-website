@@ -27,6 +27,9 @@ out/
 build
 dist
 
+# Nix
+.direnv
+result
 
 # Debug
 npm-debug.log*
