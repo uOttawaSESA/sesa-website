@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import AnimateOnView from "@/components/AnimateOnView";
 
 const Header = () => {
     const t = useTranslations("events");
@@ -7,7 +8,9 @@ const Header = () => {
         <div className="mt-4 px-8 md:px-20 lg:mt-16 lg:text-center">
             <p className="color-gradient font-mono text-xs md:text-base">{t("our_events")}</p>
             <h1 className="my-2 text-3xl uppercase md:text-5xl">
-                <span className="highlight-text">{t("stay_up_to_date_hl")}</span>
+                <AnimateOnView animationClass="highlight-text">
+                    {t("stay_up_to_date_hl")}
+                </AnimateOnView>
                 <span> {t("stay_up_to_date")}</span>
             </h1>
 

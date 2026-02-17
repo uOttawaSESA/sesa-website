@@ -1,5 +1,6 @@
 "use client";
 import { useLocale, useTranslations } from "next-intl";
+import AnimateOnView from "@/components/AnimateOnView";
 import { Button } from "@/components/ui/button";
 import {
     Carousel,
@@ -25,7 +26,9 @@ export default function Events() {
                     {t("events")}
                 </p>
                 <h2 className="my-2 font-heading text-2xl uppercase leading-tight md:text-4xl">
-                    <span className="highlight-text">{t("events_heading_hl")}</span>{" "}
+                    <AnimateOnView animationClass="highlight-text">
+                        {t("events_heading_hl")}
+                    </AnimateOnView>{" "}
                     {t("events_heading")}
                 </h2>
                 <p className="relative flex items-center text-left font-sans text-base text-thistle md:text-lg">

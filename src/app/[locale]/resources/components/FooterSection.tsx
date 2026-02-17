@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import AnimateOnView from "@/components/AnimateOnView";
 import { Button } from "@/components/ui/button";
 import Star from "@/components/ui/decorations/star";
 import { Link } from "@/i18n/navigation";
@@ -81,7 +82,9 @@ const FooterSection: React.FC = () => {
                 <div className="z-10 mx-5 max-w-lg text-left text-white">
                     <div className="font-heading text-2xl uppercase">
                         “{t("education_quote_1")}{" "}
-                        <span className="highlight-text">{t("education_quote_1_hl")}</span>{" "}
+                        <AnimateOnView animationClass="highlight-text">
+                            {t("education_quote_1_hl")}
+                        </AnimateOnView>{" "}
                         {t("education_quote_2")}.”
                     </div>
                     <div className="my-3 flex items-center gap-4">

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import AnimateOnView from "@/components/AnimateOnView";
 import { Button } from "@/components/ui/button";
 import Star from "@/components/ui/decorations/star";
 
@@ -32,7 +33,9 @@ const ConnectSESA = () => {
                     {t("connect_with_sesa")}
                 </div>
                 <h1 className="mt-1 text-3xl uppercase md:text-5xl">
-                    <span className="highlight-text">{t("stay_updated")}</span>
+                    <AnimateOnView animationClass="highlight-text">
+                        {t("stay_updated")}
+                    </AnimateOnView>
                     <span> {t("stay_updated_hl")}</span>
                 </h1>
 

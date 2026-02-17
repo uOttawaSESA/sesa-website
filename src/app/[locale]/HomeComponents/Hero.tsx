@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import AnimateOnView from "@/components/AnimateOnView";
 import { Button } from "@/components/ui/button";
 import Star from "@/components/ui/decorations/star";
 import { Link } from "@/i18n/navigation";
@@ -67,7 +68,9 @@ export default function Hero() {
                     {t("we_are_sesa")}
                 </p>
                 <h1 className="my-2 font-heading text-3xl uppercase leading-tight md:text-5xl">
-                    <span className="highlight-text">{t("bridging_the_gap_hl")}</span>
+                    <AnimateOnView animationClass="highlight-text">
+                        {t("bridging_the_gap_hl")}
+                    </AnimateOnView>
                     <br />
                     {t("bridging_the_gap")}
                 </h1>

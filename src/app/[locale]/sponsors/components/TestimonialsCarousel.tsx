@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import AnimateOnView from "@/components/AnimateOnView";
 import CircleImage from "@/components/CircleImage";
 import { Button } from "@/components/ui/button";
 import {
@@ -111,9 +112,12 @@ const TestimonialsCarousel = () => {
                                             .split(new RegExp(`(${sponsor.highlights.join("|")})`))
                                             .map((part, i) =>
                                                 sponsor.highlights.includes(part) ? (
-                                                    <span key={i} className="highlight-text">
+                                                    <AnimateOnView
+                                                        key={i}
+                                                        animationClass="highlight-text"
+                                                    >
                                                         {part}
-                                                    </span>
+                                                    </AnimateOnView>
                                                 ) : (
                                                     part
                                                 ),

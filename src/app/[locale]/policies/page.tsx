@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
+import AnimateOnView from "@/components/AnimateOnView";
 import type { Metadata } from "next";
 export const generateStaticParams = localeParams;
 
@@ -36,7 +37,10 @@ export default function Policies() {
     return (
         <div className="container mx-auto mt-8 mb-16 flex min-h-96 max-w-5xl flex-col gap-4 text-white">
             <h1 className="mb-8 font-heading text-3xl uppercase md:text-5xl">
-                {t("our_policies")} <span className="highlight-text">{t("our_policies_hl")}</span>
+                {t("our_policies")}{" "}
+                <AnimateOnView animationClass="highlight-text">
+                    {t("our_policies_hl")}
+                </AnimateOnView>
             </h1>
             <section className="mb-8">
                 <h2 id="terms" className="mb-4 font-heading text-2xl uppercase md:text-4xl">

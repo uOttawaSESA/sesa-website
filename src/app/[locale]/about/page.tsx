@@ -5,6 +5,7 @@ import { useMemo } from "react";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
 import { membersData } from "@/app/data/Members";
+import AnimateOnView from "@/components/AnimateOnView";
 import FadeInSection from "@/components/FadeInSection";
 import Metric from "@/components/Metric";
 import { TeamBadgeStack } from "@/components/TeamBadgeStack";
@@ -200,7 +201,9 @@ export default function About() {
                             <p className="color-gradient font-mono">{t("who_are_we")}</p>
                             <h2 className="font-heading text-2xl uppercase md:text-3xl">
                                 {t("who_are_we_heading")}{" "}
-                                <span className="highlight-text">{t("who_are_we_heading_hl")}</span>
+                                <AnimateOnView animationClass="highlight-text">
+                                    {t("who_are_we_heading_hl")}
+                                </AnimateOnView>
                             </h2>
                             <p className="text-base text-thistle">
                                 <b>{t("who_are_we_p1_bold")}</b>, {t("who_are_we_p1")}{" "}
@@ -272,9 +275,9 @@ export default function About() {
                             </p>
                             <h2 className="font-heading text-2xl uppercase md:text-3xl">
                                 {t("what_do_we_do_heading")}{" "}
-                                <span className="highlight-text">
+                                <AnimateOnView animationClass="highlight-text">
                                     {t("what_do_we_do_heading_hl")}
-                                </span>
+                                </AnimateOnView>
                             </h2>
                             <div>
                                 <p className="mb-2 text-base text-thistle md:text-lg">
@@ -392,9 +395,9 @@ export default function About() {
                                 {t("introducing_our_team")}
                             </p>
                             <h2 className="font-heading text-2xl uppercase md:text-3xl">
-                                <span className="highlight-text">
+                                <AnimateOnView animationClass="highlight-text">
                                     {t("introducing_our_team_heading_hl")}
-                                </span>{" "}
+                                </AnimateOnView>{" "}
                                 {t("introducing_our_team_heading")}
                             </h2>
                             <p className="max-w-[32rem] text-base text-thistle leading-tight md:text-lg">
@@ -562,9 +565,9 @@ export default function About() {
                                 {t("our_previous_partners")}
                             </p>
                             <h2 className="font-heading text-2xl uppercase md:text-3xl">
-                                <span className="highlight-text">
+                                <AnimateOnView animationClass="highlight-text">
                                     {t("our_previous_partners_heading_hl")}
-                                </span>
+                                </AnimateOnView>
                             </h2>
                             <p className="max-w-[32rem] text-base text-thistle leading-snug md:text-lg">
                                 <b>{t("our_previous_partners_p_bold")}</b>,{" "}
@@ -627,7 +630,9 @@ export default function About() {
                             </p>
                             <h2 className="mt-4 max-w-[28rem] font-heading text-2xl uppercase leading-tight md:text-3xl">
                                 {t("our_family_heading")}{" "}
-                                <span className="highlight-text">{t("our_family_heading_hl")}</span>
+                                <AnimateOnView animationClass="highlight-text">
+                                    {t("our_family_heading_hl")}
+                                </AnimateOnView>
                             </h2>
                             <p className="mt-4 max-w-[28rem] font-sans text-base text-thistle md:text-lg">
                                 <b>{t("our_family_p_bold")}</b>. {t("our_family_p")}

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useEffect, useMemo, useRef } from "react";
 import Marquee from "react-fast-marquee";
+import AnimateOnView from "@/components/AnimateOnView";
 import { Button } from "@/components/ui/button";
 import Star from "@/components/ui/decorations/star";
 import { Link, useRouter } from "@/i18n/navigation";
@@ -98,7 +99,9 @@ const Resources = () => {
                 </p>
                 <h1 className="font-heading text-2xl uppercase leading-tight md:text-4xl">
                     {t("resources_heading_h1")}&nbsp;
-                    <span className="highlight-text">{t("resources_heading_h1_highlighted")}</span>
+                    <AnimateOnView animationClass="highlight-text">
+                        {t("resources_heading_h1_highlighted")}
+                    </AnimateOnView>
                 </h1>
                 <p className="font-sans text-base text-thistle md:text-lg">
                     {t("resources_subheading")}

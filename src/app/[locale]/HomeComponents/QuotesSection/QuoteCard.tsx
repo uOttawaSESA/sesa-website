@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
+import AnimateOnView from "@/components/AnimateOnView";
 import { Button } from "@/components/ui/button";
 import { CarouselItem } from "@/components/ui/carousel";
 import { Link } from "@/i18n/navigation";
@@ -22,7 +23,9 @@ export const QuoteCard: React.FC<{ quote: Quote }> = ({ quote }) => {
                 <h1 className="my-2 font-heading text-2xl uppercase leading-tight md:text-4xl">
                     <q>
                         {quote.quote_part1[lang]}&nbsp;
-                        <span className="highlight-text">{quote.highlightQuote[lang]}</span>{" "}
+                        <AnimateOnView animationClass="highlight-text">
+                            {quote.highlightQuote[lang]}
+                        </AnimateOnView>{" "}
                         {quote.quote_part2[lang]}
                     </q>
                 </h1>

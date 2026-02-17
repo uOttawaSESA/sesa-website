@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import AnimateOnView from "@/components/AnimateOnView";
 
 const Header = () => {
     const t = useTranslations("resources");
@@ -10,7 +11,9 @@ const Header = () => {
             </span>
             <h1 className="mt-4 font-heading text-2xl uppercase md:text-4xl">
                 {t("resources_heading")}{" "}
-                <span className="highlight-text">{t("resources_heading_hl")}</span>
+                <AnimateOnView animationClass="highlight-text">
+                    {t("resources_heading_hl")}
+                </AnimateOnView>
             </h1>
             <p className="mt-2 max-w-10xl font-sans text-base text-thistle md:text-lg">
                 {t("resources_blurb")}

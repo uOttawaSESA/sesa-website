@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useLocale } from "next-intl";
+import AnimateOnView from "@/components/AnimateOnView";
 import { TeamBadgeStack } from "@/components/TeamBadgeStack";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
@@ -37,7 +38,9 @@ export const GoalCard: React.FC<{ goal: Goal }> = ({ goal }) => {
                 </p>
                 <h1 className="font-heading text-2xl uppercase leading-tight md:text-4xl">
                     {goal.title[lang]}&nbsp;
-                    <span className="highlight-text">{goal.highlightTitle[lang]}</span>
+                    <AnimateOnView animationClass="highlight-text">
+                        {goal.highlightTitle[lang]}
+                    </AnimateOnView>
                 </h1>
 
                 <p className="w-full text-left font-sans text-base text-thistle md:text-xl">

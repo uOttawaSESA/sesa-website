@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import Marquee from "react-fast-marquee";
+import AnimateOnView from "@/components/AnimateOnView";
 import Star from "@/components/ui/decorations/star";
 
 const gradientBorderClass = `
@@ -71,7 +72,9 @@ const PastCollaboratorsCarousel = () => {
                     {t("past_collaborators_top")}
                 </p>
                 <h2 className="font-heading text-2xl text-white uppercase md:text-3xl">
-                    <span className="highlight-text">{t("past_collaborators_highlight")}</span>{" "}
+                    <AnimateOnView animationClass="highlight-text">
+                        {t("past_collaborators_highlight")}
+                    </AnimateOnView>{" "}
                     {t("past_collaborators_title_rest")}
                 </h2>
                 <p className="max-w-xl text-base text-thistle md:text-lg">
