@@ -1,9 +1,4 @@
 "use client";
-import createDOMPurify from "dompurify";
-import { marked } from "marked";
-import { useTranslations } from "next-intl";
-import { useMemo } from "react";
-import AnimateOnView from "@/components/AnimateOnView";
 import {
     Accordion,
     AccordionContent,
@@ -11,6 +6,11 @@ import {
     AccordionTrigger,
 } from "@repo/ui/components/accordion";
 import { Button } from "@repo/ui/components/button";
+import createDOMPurify from "dompurify";
+import { marked } from "marked";
+import { useTranslations } from "next-intl";
+import { useMemo } from "react";
+import AnimateOnView from "@/components/AnimateOnView";
 import Star from "@/components/decorations/star";
 import { Link } from "@/i18n/navigation";
 

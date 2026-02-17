@@ -1,8 +1,8 @@
 import { Button } from "@repo/ui/components/button";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import AnimateOnView from "@/components/AnimateOnView";
 import type React from "react";
+import AnimateOnView from "@/components/AnimateOnView";
 import Star from "@/components/decorations/star";
 import { Link } from "@/i18n/navigation";
 

@@ -1,5 +1,5 @@
-import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 import localeParams from "@/app/data/locales";
 import FadeInSection from "@/components/FadeInSection";

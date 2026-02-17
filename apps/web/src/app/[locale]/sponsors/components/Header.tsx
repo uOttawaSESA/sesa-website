@@ -1,5 +1,5 @@
-import AnimateOnView from "@/components/AnimateOnView";
 import { Button } from "@repo/ui/components/button";
+import AnimateOnView from "@/components/AnimateOnView";
 
 interface HeaderProps {
     topText: string;

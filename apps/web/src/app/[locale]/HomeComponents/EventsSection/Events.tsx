@@ -1,7 +1,4 @@
 "use client";
-import { useLocale, useTranslations } from "next-intl";
-import AnimateOnView from "@/components/AnimateOnView";
-
 import { Button } from "@repo/ui/components/button";
 import {
     Carousel,
@@ -11,6 +8,8 @@ import {
     CarouselPrevious,
 } from "@repo/ui/components/carousel";
 import Image from "next/image";
+import { useLocale, useTranslations } from "next-intl";
+import AnimateOnView from "@/components/AnimateOnView";
 import { Link } from "@/i18n/navigation";
 import { api } from "@/trpc/react";
 import EventCard from "./EventCard";
