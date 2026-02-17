@@ -75,7 +75,7 @@
             "source": {
                 "organizeImports": {
                     "level": "on",
-                    "options": { "groups": [{ "type": false }] }
+                    "options": { "groups": ["@repo/ui"] }
                 }
             }
         }

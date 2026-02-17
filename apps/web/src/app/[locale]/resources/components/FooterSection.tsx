@@ -1,0 +1,117 @@
+import { Button } from "@repo/ui/components/button";
+import Image from "next/image";
+import { useTranslations } from "next-intl";
+import type React from "react";
+import AnimateOnView from "@/components/AnimateOnView";
+import Star from "@/components/decorations/star";
+import { Link } from "@/i18n/navigation";
+
+const FooterSection: React.FC = () => {
+    const t = useTranslations("resources");
+
+    return (
+        <div className="relative">
+            {/* Decorations */}
+            <div className="pointer-events-none select-none">
+                {/* Light gradient */}
+                <div className="fade-from-center-bg absolute top-[6rem] right-[5rem] hidden h-[80rem] w-screen bg-blueviolet-100/25 blur-3xl backdrop-blur-2xl md:block" />
+
+                <Star
+                    variant="star"
+                    className="absolute left-[14rem] md:top-[58rem] md:left-[25rem]"
+                    rotate={-110}
+                    width={100}
+                    height={100}
+                    delay={1}
+                />
+
+                <Star
+                    variant="star"
+                    className="absolute right-[14rem] md:top-[14rem] md:right-[10rem]"
+                    width={120}
+                    height={120}
+                    delay={1}
+                />
+
+                <Star
+                    variant="star-faded"
+                    className="absolute top-[29rem] right-[2rem] md:top-[19rem] md:right-[9rem]"
+                    rotate={30}
+                    width={63}
+                    height={63}
+                    delay={0.5}
+                    showMobile={true}
+                />
+            </div>
+
+            {/* CTA Section */}
+            <div className="mt-5 flex flex-col items-center justify-center md:mt-16 md:flex-row md:gap-6">
+                <div className="flex flex-col items-center text-center">
+                    <h2 className="mb-8 font-heading text-lg uppercase">
+                        {t("contributing_heading")}
+                    </h2>
+                </div>
+                <div className="-translate-y-4 flex transform items-center justify-center">
+                    <Button asChild>
+                        <a
+                            href="https://discord.com/invite/atYdx5HHCs"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            {t("btn_join_discord")}
+                        </a>
+                    </Button>
+                </div>
+            </div>
+
+            {/* Ange quote section */}
+            <div className="my-20 flex flex-col-reverse items-center justify-start gap-12 align-middle md:my-36 md:h-[45rem] md:flex-row 2xl:gap-32">
+                {/* Grid Gradient Back */}
+                <div className="grid-overlay-left md:h-[43.93rem] md:w-[53vw] 2xl:w-[45vw]"></div>
+
+                <div className="relative z-10 lg:block">
+                    <Image
+                        src="/resources-page/ange-quote.webp"
+                        alt="SESA Group Photo"
+                        className="h-auto w-auto object-contain"
+                        width={703}
+                        height={700}
+                    />
+                </div>
+
+                <div className="z-10 mx-5 max-w-lg text-left text-white">
+                    <div className="font-heading text-2xl uppercase">
+                        “{t("education_quote_1")}{" "}
+                        <AnimateOnView animationClass="highlight-text">
+                            {t("education_quote_1_hl")}
+                        </AnimateOnView>{" "}
+                        {t("education_quote_2")}.”
+                    </div>
+                    <div className="my-3 flex items-center gap-4">
+                        <Image
+                            src="/imgs/team/ange.webp"
+                            alt="Ange Emmanuel"
+                            className="z-10 h-14 w-14 rounded-full object-cover"
+                            width={50}
+                            height={50}
+                        />
+                        <div>
+                            <p className="z-20 mt-4 font-heading text-xl">ANGE EMMANUEL</p>
+                            <p className="text-sm opacity-70">{t("academic_lead")}</p>
+                        </div>
+                    </div>
+                    {/* Call To Action Button */}
+                    <div className="mt-6">
+                        <Button asChild className="relative z-10 font-heading text-lg uppercase">
+                            <Link href="/about" className="block text-inherit">
+                                {t("btn_meet_the_team")}
+                            </Link>
+                        </Button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default FooterSection;

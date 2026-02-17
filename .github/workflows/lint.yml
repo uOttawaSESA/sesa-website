@@ -8,6 +8,13 @@ on:
             - main
     merge_group:
 
+env:
+  NEXT_PUBLIC_RECAPTCHA_SITE_KEY: fake-key
+  POSTGRES_URL: https://fakeurl.com
+  RECAPTCHA_SECRET_KEY: fake-key
+  EMAIL_USER: uottawa.sesa@gmail.com
+  EMAIL_PASS: fake-pass
+
 jobs:
     lint:
         name: Lint Project
@@ -32,8 +39,11 @@ jobs:
             - name: Install dependencies
               run: pnpm install
 
+            - name: Build Packages
+              run: pnpm build
+
             - name: Lint project
               run: pnpm exec biome ci --error-on-warnings
 
             - name: Check types
-              run: pnpm exec tsc
+              run: pnpm check-types

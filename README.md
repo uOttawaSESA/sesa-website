@@ -24,12 +24,26 @@ corepack enable
 corepack prepare pnpm@latest --activate
 ```
 
-Then, install the dependencies and start the development server:
+Then, install the dependencies:
 
 ```sh
 pnpm install
-pnpm dev
 ```
+
+Then build packages:
+
+```sh
+pnpm build
+```
+
+Then start development server:
+
+```sh
+pnpm dev --filter web
+```
+
+> [!NOTE]
+> You will need to store your environment variables under `apps/web/.env`
 
 Open [http://localhost:3000](http://localhost:3000) to see the website.
 
