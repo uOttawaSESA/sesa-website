@@ -37,7 +37,6 @@
     "dependencies": {
         "dotenv": "^17.2.0",
         "drizzle-orm": "^0.44.5",
-        "neverthrow": "^8.2.0",
         "postgres": "^3.4.7"
     },
     "devDependencies": {
