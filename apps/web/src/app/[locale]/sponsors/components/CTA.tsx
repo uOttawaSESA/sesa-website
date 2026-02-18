@@ -14,7 +14,7 @@ export default function CTA() {
             <div className="pointer-events-none inset-0 select-none">
                 <Image
                     src="/decoration/floor-grid.svg"
-                    className="fade-from-center-bg md:-bottom-18 -translate-x-1/2 absolute bottom-10 left-1/2 h-[196px] transform object-cover object-bottom"
+                    className="fade-from-center-bg absolute bottom-10 left-1/2 h-[196px] -translate-x-1/2 transform object-cover object-bottom md:-bottom-18"
                     width={1200}
                     height={430}
                     alt=""

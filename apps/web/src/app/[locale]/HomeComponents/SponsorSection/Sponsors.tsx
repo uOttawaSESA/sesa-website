@@ -14,11 +14,11 @@ const Sponsors = () => {
             {/* Decorations */}
             <div className="pointer-events-none z-0 select-none">
                 {/* Light gradient */}
-                <div className="fade-from-center-bg -translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 h-[120rem] w-full bg-blueviolet-100/35 blur-xl md:w-[90vw]" />
+                <div className="fade-from-center-bg absolute top-1/2 left-1/2 h-[120rem] w-full -translate-x-1/2 -translate-y-1/2 bg-blueviolet-100/35 blur-xl md:w-[90vw]" />
 
                 <Image
                     src="/decoration/sponsorships-floor-grid.svg"
-                    className="fade-from-center-sponsorship-floor -translate-x-1/2 absolute left-1/2 z-0 hidden transform opacity-60 md:top-44 md:block"
+                    className="fade-from-center-sponsorship-floor absolute left-1/2 z-0 hidden -translate-x-1/2 transform opacity-60 md:top-44 md:block"
                     width={1200}
                     height={1000}
                     alt=""
@@ -26,7 +26,7 @@ const Sponsors = () => {
 
                 <Image
                     src="/decoration/floor-grid.svg"
-                    className="fade-from-center-bg md:-bottom-18 -translate-x-1/2 absolute bottom-10 left-1/2 h-[235px] transform object-cover object-bottom"
+                    className="fade-from-center-bg absolute bottom-10 left-1/2 h-[235px] -translate-x-1/2 transform object-cover object-bottom md:-bottom-18"
                     width={1200}
                     height={430}
                     alt=""

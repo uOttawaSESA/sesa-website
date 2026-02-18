@@ -354,13 +354,13 @@ export default function About() {
                         <div className="fade-from-left-bg absolute top-[10rem] left-[-10rem] h-[100rem] w-[80vw] bg-blueviolet-100/20 blur-xs 2xl:left-[-45rem]" />
 
                         {/* Warm gradient */}
-                        <div className="fade-from-center-bg -translate-x-1/2 absolute top-[100rem] left-1/2 h-[100rem] w-full bg-[#B1219D]/25 blur-xs md:w-screen 2xl:left-[-45rem]" />
+                        <div className="fade-from-center-bg absolute top-[100rem] left-1/2 h-[100rem] w-full -translate-x-1/2 bg-[#B1219D]/25 blur-xs md:w-screen 2xl:left-[-45rem]" />
 
                         {/* Light gradient */}
                         <div className="fade-from-right-bg absolute top-[130rem] right-[-6rem] h-[100rem] w-[50vw] bg-blueviolet-100/20 blur-xs 2xl:right-[-45rem]" />
 
                         {/* Warm gradient */}
-                        <div className="fade-from-center-bg -translate-x-1/2 absolute top-[190rem] left-1/2 h-[100rem] w-full bg-[#B1219D]/25 blur-xs md:w-screen" />
+                        <div className="fade-from-center-bg absolute top-[190rem] left-1/2 h-[100rem] w-full -translate-x-1/2 bg-[#B1219D]/25 blur-xs md:w-screen" />
 
                         <Star
                             variant="star"
@@ -534,7 +534,7 @@ export default function About() {
                         <div className="fade-from-left-bg absolute top-[-100rem] left-[-6rem] h-[200rem] w-[80vw] bg-blueviolet-100/20 blur-xs 2xl:left-[-45rem]" />
 
                         {/* Warm gradient */}
-                        <div className="fade-from-center-bg -translate-x-1/2 absolute top-[-25rem] left-1/2 h-[100rem] w-full bg-[#B1219D]/25 blur-xs md:w-screen" />
+                        <div className="fade-from-center-bg absolute top-[-25rem] left-1/2 h-[100rem] w-full -translate-x-1/2 bg-[#B1219D]/25 blur-xs md:w-screen" />
 
                         <Star
                             variant="star"

@@ -17,8 +17,8 @@ const Team = () => {
     return (
         <section className="relative mb-12 flex flex-col gap-16 md:mb-36 2xl:mt-44 2xl:mb-52">
             <div className="pointer-events-none z-0 select-none">
-                <div className="fade-from-center-bg -translate-x-1/2 absolute top-[-29rem] left-1/2 h-[112rem] w-full bg-blueviolet-100/25 blur-xl md:top-[-59rem] md:w-[130rem] 2xl:top-[-55rem]" />
-                <div className="fade-from-center-bg -translate-x-1/2 absolute bottom-[-15rem] left-1/2 h-[55rem] w-full bg-[#B1219D]/30 blur-xl md:w-[80vw] 2xl:bottom-[-8rem]" />
+                <div className="fade-from-center-bg absolute top-[-29rem] left-1/2 h-[112rem] w-full -translate-x-1/2 bg-blueviolet-100/25 blur-xl md:top-[-59rem] md:w-[130rem] 2xl:top-[-55rem]" />
+                <div className="fade-from-center-bg absolute bottom-[-15rem] left-1/2 h-[55rem] w-full -translate-x-1/2 bg-[#B1219D]/30 blur-xl md:w-[80vw] 2xl:bottom-[-8rem]" />
 
                 <Star
                     variant="star"
@@ -44,10 +44,10 @@ const Team = () => {
                     delay={0.5}
                 />
 
-                <div className="fade-from-center-tunnel-home -translate-x-1/2 absolute bottom-[5rem] left-1/2 z-0 hidden h-[580px] w-[1500px] transform overflow-hidden md:block">
+                <div className="fade-from-center-tunnel-home absolute bottom-[5rem] left-1/2 z-0 hidden h-[580px] w-[1500px] -translate-x-1/2 transform overflow-hidden md:block">
                     <Image
                         src="/decoration/tunnel.svg"
-                        className="-translate-x-1/2 relative left-1/2 object-cover opacity-85"
+                        className="relative left-1/2 -translate-x-1/2 object-cover opacity-85"
                         width={1500}
                         height={300}
                         alt=""
@@ -85,7 +85,7 @@ const Team = () => {
                 </p>
             </div>
 
-            <div className="-mt-8 md:-mt-10 z-20 flex flex-col items-center gap-4 px-8 sm:flex-row md:flex-row md:justify-center">
+            <div className="z-20 -mt-8 flex flex-col items-center gap-4 px-8 sm:flex-row md:-mt-10 md:flex-row md:justify-center">
                 <Button className="w-full font-heading uppercase sm:w-max" asChild>
                     <Link href="/sponsors">{t("team_become_sponsor_btn")}</Link>
                 </Button>
@@ -99,7 +99,7 @@ const Team = () => {
                 </Button>
             </div>
 
-            <div className="-mt-5 md:-mt-7 relative bg-transparent">
+            <div className="relative -mt-5 bg-transparent md:-mt-7">
                 <Marquee pauseOnHover speed={40} autoFill={true}>
                     <div className="mb-16 flex flex-row pt-2">
                         {membersData.map((member, index) => (
@@ -108,7 +108,7 @@ const Team = () => {
                                     size={50}
                                     src={member.imgPath}
                                     alt={member.name}
-                                    className="hover:-translate-y-2 mx-5 transition-all ease-in-out"
+                                    className="mx-5 transition-all ease-in-out hover:-translate-y-2"
                                     onMouseEnter={() => setHovered(member.name)}
                                     onMouseLeave={() => setHovered("")}
                                 />
@@ -118,7 +118,7 @@ const Team = () => {
                 </Marquee>
 
                 {hovered && (
-                    <div className="-translate-x-1/2 absolute top-16 left-1/2 z-10 mt-7 px-4 py-2 text-center 2xl:top-20">
+                    <div className="absolute top-16 left-1/2 z-10 mt-7 -translate-x-1/2 px-4 py-2 text-center 2xl:top-20">
                         <h1 className="mb-2 font-heading text-xl">{hovered}</h1>
                         <p className="font-sans text-thistle">
                             {membersData.find(m => m.name === hovered)?.role}

@@ -40,7 +40,7 @@ const Contact: React.FC = () => {
             {/* Decorations */}
             <div className="pointer-events-none absolute">
                 {/* Light gradient */}
-                <div className="fade-from-left-bg -top-10 absolute hidden h-[110vh] w-[90vw] bg-blueviolet-100/20 blur-xs md:block" />
+                <div className="fade-from-left-bg absolute -top-10 hidden h-[110vh] w-[90vw] bg-blueviolet-100/20 blur-xs md:block" />
 
                 <Star
                     variant="star"
@@ -59,7 +59,7 @@ const Contact: React.FC = () => {
                     delay={1}
                 />
 
-                <div className="-bottom-[58rem] md:-bottom-[30rem] relative h-[60%] overflow-hidden md:left-0 md:block">
+                <div className="relative -bottom-[58rem] h-[60%] overflow-hidden md:-bottom-[30rem] md:left-0 md:block">
                     <Image
                         src="/decoration/globe.svg"
                         className="fade-from-top-bottom-bg-globe opacity-30 md:opacity-80"

@@ -57,7 +57,7 @@ const SponsorsHeader = ({
 
                 <Image
                     src="/decoration/sponsorships-floor-grid.svg"
-                    className="fade-from-center-sponsorship-floor -translate-x-1/2 absolute left-1/2 z-0 hidden transform opacity-60 md:bottom-[-10rem] md:block"
+                    className="fade-from-center-sponsorship-floor absolute left-1/2 z-0 hidden -translate-x-1/2 transform opacity-60 md:bottom-[-10rem] md:block"
                     width={1200}
                     height={1000}
                     alt=""

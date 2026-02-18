@@ -29,7 +29,7 @@ export const GoalCard: React.FC<{ goal: Goal }> = ({ goal }) => {
                     width={700}
                     height={700}
                 />
-                <div className="grid-overlay-left -top-12 lg:-top-12 z-0 hidden h-[350px] w-full sm:h-[500px] md:block md:h-[700px] lg:h-[43.9rem] xl:w-[45vw]"></div>
+                <div className="grid-overlay-left -top-12 z-0 hidden h-[350px] w-full sm:h-[500px] md:block md:h-[700px] lg:-top-12 lg:h-[43.9rem] xl:w-[45vw]"></div>
             </div>
 
             <div className="order-1 flex h-full w-full max-w-lg flex-col justify-center gap-4 px-8 lg:order-2 lg:max-w-md xl:px-0 2xl:max-w-2xl">

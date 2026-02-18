@@ -72,7 +72,7 @@ const Resources = () => {
 
                 <Image
                     src="/decoration/waves.svg"
-                    className={`fade-from-top-bottom-bg -translate-x-1/2 absolute left-1/2 hidden w-11/12 transform md:bottom-[4rem] md:block md:w-max ${resources && resources.length === 0 ? "hidden" : ""}`}
+                    className={`fade-from-top-bottom-bg absolute left-1/2 hidden w-11/12 -translate-x-1/2 transform md:bottom-[4rem] md:block md:w-max ${resources && resources.length === 0 ? "hidden" : ""}`}
                     width={1200}
                     height={280}
                     alt=""
