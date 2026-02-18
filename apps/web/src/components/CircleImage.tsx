@@ -15,7 +15,6 @@ const CircleImage = ({ className, innerClassName, size, ...rest }: CircleImagePr
             className={`flex h-min items-center justify-center rounded-full fill-gradient p-0.5 ${className || ""}`}
             {...rest}
         >
-            {/* eslint-disable-next-line jsx-a11y/alt-text */}
             <Image
                 style={{ width: `${size}px`, height: `${size}px` }}
                 className={`rounded-full object-cover ${innerClassName || ""}`}
