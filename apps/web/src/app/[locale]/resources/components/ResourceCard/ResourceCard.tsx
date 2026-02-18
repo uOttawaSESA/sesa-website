@@ -72,7 +72,7 @@ export const ResourceCard = ({
                 </button>
 
                 {/* Bottom Section */}
-                <div className="-bottom-2 absolute flex flex-row items-center">
+                <div className="absolute -bottom-2 flex flex-row items-center">
                     <StatsSection tier={tier} format={format} size="base" layout="horizontal" />
                 </div>
             </div>

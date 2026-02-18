@@ -40,7 +40,7 @@ const ThankYou = () => {
             {/* Decorations */}
             <div className="pointer-events-none absolute inset-0">
                 {/* Light gradient */}
-                <div className="fade-from-left-bg -top-10 absolute hidden h-[110vh] w-[90vw] bg-blueviolet-100/20 blur-xs md:block" />
+                <div className="fade-from-left-bg absolute -top-10 hidden h-[110vh] w-[90vw] bg-blueviolet-100/20 blur-xs md:block" />
 
                 <Star
                     variant="star-faded"
@@ -60,7 +60,7 @@ const ThankYou = () => {
                     delay={1}
                 />
 
-                <div className="-bottom-[35rem] md:-bottom-[30rem] relative h-[60%] overflow-hidden md:left-0 md:block">
+                <div className="relative -bottom-[35rem] h-[60%] overflow-hidden md:-bottom-[30rem] md:left-0 md:block">
                     <Image
                         src="/decoration/globe.svg"
                         className="fade-from-top-bottom-bg-globe opacity-50 md:opacity-80"

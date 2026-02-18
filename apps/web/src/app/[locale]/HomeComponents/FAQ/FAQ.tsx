@@ -44,7 +44,7 @@ const FAQ = () => {
             {/* Decorations */}
             <div className="pointer-events-none select-none">
                 {/* Warm gradient */}
-                <div className="fade-from-center-bg -translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 h-[120rem] w-full bg-[#B1219D]/20 blur-xl md:w-[100rem]" />
+                <div className="fade-from-center-bg absolute top-1/2 left-1/2 h-[120rem] w-full -translate-x-1/2 -translate-y-1/2 bg-[#B1219D]/20 blur-xl md:w-[100rem]" />
 
                 <Star
                     variant="star"

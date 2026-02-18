@@ -59,7 +59,7 @@ const PastCollaboratorsCarousel = () => {
                 />
                 <Image
                     src="/decoration/globe-sponsor-page.svg"
-                    className="fade-from-center-sponsorship-floor -translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 transform opacity-40 md:opacity-60"
+                    className="fade-from-center-sponsorship-floor absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform opacity-40 md:opacity-60"
                     width={520}
                     height={520}
                     alt="Globe Decoration"

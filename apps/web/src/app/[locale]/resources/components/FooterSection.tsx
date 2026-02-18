@@ -51,7 +51,7 @@ const FooterSection: React.FC = () => {
                         {t("contributing_heading")}
                     </h2>
                 </div>
-                <div className="-translate-y-4 flex transform items-center justify-center">
+                <div className="flex -translate-y-4 transform items-center justify-center">
                     <Button asChild>
                         <a
                             href="https://discord.com/invite/atYdx5HHCs"

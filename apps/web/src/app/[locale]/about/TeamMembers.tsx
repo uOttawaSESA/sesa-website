@@ -87,7 +87,7 @@ export default function TeamMembers({ title, description, people }: Props) {
             {/* Decorations */}
             <div className="pointer-events-none absolute top-0 left-0 h-full w-full select-none">
                 <Image
-                    className="fade-from-center-sponsorship-floor 2xl:-left-20 absolute bottom-[-4rem] left-0 w-[100rem] opacity-70"
+                    className="fade-from-center-sponsorship-floor absolute bottom-[-4rem] left-0 w-[100rem] opacity-70 2xl:-left-20"
                     src="/decoration/waves.svg"
                     width={1258}
                     height={1872}

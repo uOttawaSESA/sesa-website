@@ -113,7 +113,7 @@ const EventSection = () => {
             <div className="pointer-events-none select-none">
                 <Image
                     src="/decoration/floor-grid.svg"
-                    className="fade-from-bottom-bg -translate-x-1/2 md:-bottom-16 absolute bottom-48 left-1/2 z-0 transform"
+                    className="fade-from-bottom-bg absolute bottom-48 left-1/2 z-0 -translate-x-1/2 transform md:-bottom-16"
                     width={1200}
                     height={430}
                     alt=""

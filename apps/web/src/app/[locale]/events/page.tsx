@@ -57,7 +57,7 @@ export default async function Events() {
 
                     <Image
                         src="/decoration/waves.svg"
-                        className="fade-from-top-bg -translate-x-1/2 absolute top-[26.5rem] left-1/2 transform md:top-[10rem]"
+                        className="fade-from-top-bg absolute top-[26.5rem] left-1/2 -translate-x-1/2 transform md:top-[10rem]"
                         width={1200}
                         height={280}
                         alt=""

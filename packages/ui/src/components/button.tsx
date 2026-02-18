@@ -9,9 +9,9 @@ const buttonVariants = cva(
         variants: {
             variant: {
                 default:
-                    "hover:-translate-y-0.5 fill-gradient uppercase hover:shadow-lg hover:shadow-purple-500/25 active:translate-y-0",
+                    "fill-gradient uppercase hover:-translate-y-0.5 hover:shadow-lg hover:shadow-purple-500/25 active:translate-y-0",
                 outline:
-                    "hover:-translate-y-0.5 uppercase outline-gradient backdrop-blur-lg hover:fill-gradient hover:shadow-lg hover:shadow-purple-500/25 active:translate-y-0",
+                    "uppercase outline-gradient backdrop-blur-lg hover:-translate-y-0.5 hover:fill-gradient hover:shadow-lg hover:shadow-purple-500/25 active:translate-y-0",
                 ghost: "color-gradient uppercase hover:bg-linear-to-r hover:from-purple-600/10 hover:to-pink-600/10 hover:backdrop-blur-xs",
                 "ghost-plain": "uppercase hover:bg-white/5 hover:backdrop-blur-xs",
                 link: "color-gradient uppercase hover:underline hover:decoration-2 hover:underline-offset-4",
