@@ -15,7 +15,6 @@
     },
     "devDependencies": {
         "@biomejs/biome": "2.4.2",
-        "eslint": "catalog:",
         "husky": "^9.1.7",
         "lint-staged": "^15.4.3",
         "tsup": "^8.5.0",
