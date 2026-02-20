@@ -116,7 +116,7 @@ export default function TeamMembers({ title, description, people }: Props) {
                                 <h3 className="font-bold font-sans text-lg md:text-xl">
                                     {person.name}
                                 </h3>
-                                <p className="text-thistle">{person.role}</p>
+                                <p className="text-thistle">{person.roleLabel ?? person.roleKey}</p>
                                 <div className="mt-auto flex gap-2">{memberToIcons(person)}</div>
                             </div>
                         </div>

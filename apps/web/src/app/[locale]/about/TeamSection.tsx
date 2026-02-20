@@ -15,33 +15,46 @@ export default function TeamSection() {
 
     const { data: membersData } = api.member.getAll.useQuery({ locale: "en" });
 
-    const codirectors = useMemo(
-        () => membersData?.filter(member => member.teamKey === "Co-directors") ?? [],
-        [membersData],
-    );
-    const development = useMemo(
-        () => membersData?.filter(member => member.teamKey === "Development") ?? [],
-        [membersData],
-    );
-    const communications = useMemo(
-        () => membersData?.filter(member => member.teamKey === "Communications") ?? [],
-        [membersData],
-    );
-    const partnership = useMemo(
-        () => membersData?.filter(member => member.teamKey === "Partnership") ?? [],
-        [membersData],
-    );
-    const events = useMemo(
-        () => membersData?.filter(member => member.teamKey === "Events") ?? [],
-        [membersData],
-    );
-    const academic = useMemo(
-        () => membersData?.filter(member => member.teamKey === "Academic") ?? [],
-        [membersData],
-    );
     const advisors = useMemo(
         () => membersData?.filter(member => member.isAdvisor) ?? [],
         [membersData],
+    );
+
+    //TODO: previous Members section
+    const previousMembers = useMemo(
+        () => membersData?.filter(member => member.isRetired) ?? [],
+        [membersData],
+    );
+
+    const activeMembers =
+        membersData?.filter(member => !member.isRetired && !member.isAdvisor) ?? [];
+
+    const codirectors = useMemo(
+        () =>
+            activeMembers?.filter(
+                member => member.teamKey === "Co-directors" && !member.isAdvisor,
+            ) ?? [],
+        [activeMembers],
+    );
+    const development = useMemo(
+        () => activeMembers?.filter(member => member.teamKey === "Development") ?? [],
+        [activeMembers],
+    );
+    const communications = useMemo(
+        () => activeMembers?.filter(member => member.teamKey === "Communications") ?? [],
+        [activeMembers],
+    );
+    const partnership = useMemo(
+        () => activeMembers?.filter(member => member.teamKey === "Partnership") ?? [],
+        [activeMembers],
+    );
+    const events = useMemo(
+        () => activeMembers?.filter(member => member.teamKey === "Events") ?? [],
+        [activeMembers],
+    );
+    const academic = useMemo(
+        () => activeMembers?.filter(member => member.teamKey === "Academic") ?? [],
+        [activeMembers],
     );
 
     return (

@@ -1,4 +1,4 @@
-import { members, membersI18n } from "@repo/db/schema";
+import { members, roleTranslations } from "@repo/db/schema";
 import { and, eq } from "drizzle-orm";
 import * as z from "zod";
 import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
@@ -11,9 +11,12 @@ export const memberRouter = createTRPCRouter({
                 .select({
                     id: members.id,
                     name: members.name,
-                    role: members.role,
-                    teamKey: members.team,
-                    teamLabel: membersI18n.label,
+
+                    roleKey: members.roleKey,
+                    roleLabel: roleTranslations.label,
+
+                    teamKey: members.teamKey,
+
                     imagePath: members.imagePath,
                     email: members.email,
                     linkedinUrl: members.linkedinUrl,
@@ -25,9 +28,12 @@ export const memberRouter = createTRPCRouter({
                     retiredAt: members.retiredAt,
                 })
                 .from(members)
-                .innerJoin(
-                    membersI18n,
-                    and(eq(membersI18n.memberId, members.id), eq(membersI18n.locale, input.locale)),
+                .leftJoin(
+                    roleTranslations,
+                    and(
+                        eq(roleTranslations.roleKey, members.roleKey),
+                        eq(roleTranslations.locale, input.locale),
+                    ),
                 );
             return rows;
         }),

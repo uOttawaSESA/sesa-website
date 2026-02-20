@@ -123,10 +123,8 @@ export const members = pgTable(
         id: uuid("id").defaultRandom().primaryKey().notNull(),
         name: text("name").notNull(),
 
-        // Which team we want to member in
-        team: teamRoleEnum("team").notNull(),
-        // Role (e.g. Team Lead)
-        role: text("role").notNull(),
+        teamKey: teamRoleEnum("team_key").notNull(),
+        roleKey: text("role_key").notNull(),
 
         // Supabase profile img path
         imagePath: text("image_path").notNull(),
@@ -154,9 +152,10 @@ export const members = pgTable(
             mode: "date",
         }),
     },
+    //if necessary
     t => [
-        index("members_team_idx").on(t.team),
-        index("members_role_idx").on(t.role),
+        index("members_team_idx").on(t.teamKey),
+        index("members_role_idx").on(t.roleKey),
         index("members_is_advisor_idx").on(t.isAdvisor),
         index("members_is_retired_idx").on(t.isRetired),
 
@@ -165,27 +164,26 @@ export const members = pgTable(
     ],
 );
 
-export const membersI18n = pgTable(
-    "members_i18n",
+export const roleTranslations = pgTable(
+    "role_translations",
     {
         id: uuid("id").defaultRandom().primaryKey().notNull(),
-        createdAt: timestamp("created_at", { withTimezone: true, mode: "date" })
-            .defaultNow()
-            .notNull(),
-        updatedAt: timestamp("updated_at", { withTimezone: true, mode: "date" })
-            .defaultNow()
-            .notNull(),
-        memberId: uuid("member_id")
-            .notNull()
-            .references(() => members.id, { onDelete: "cascade" }),
 
-        role: teamRoleEnum("role").notNull(),
+        roleKey: text("role_key").notNull(),
         locale: text("locale").notNull(),
+
         label: text("label").notNull(),
+
+        createdAt: timestamp("created_at", {
+            withTimezone: true,
+            mode: "date",
+        })
+            .defaultNow()
+            .notNull(),
     },
     t => [
-        unique("members_i18n_locale_member_id_unique").on(t.locale, t.memberId),
-        index("members_i18n_member_id_idx").on(t.memberId),
-        index("members_i18n_locale_idx").on(t.locale),
+        unique("role_translations_unique").on(t.roleKey, t.locale),
+        index("role_translations_role_key_idx").on(t.roleKey),
+        index("role_translations_locale_idx").on(t.locale),
     ],
 );
