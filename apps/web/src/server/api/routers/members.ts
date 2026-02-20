@@ -26,10 +26,9 @@ export const memberRouter = createTRPCRouter({
                 })
                 .from(members)
                 .innerJoin(
-                    members,
-                    and(eq(members.team, members.role), eq(members.locale, input.locale)),
+                    membersI18n,
+                    and(eq(membersI18n.memberId, members.id), eq(membersI18n.locale, input.locale)),
                 );
-
             return rows;
         }),
 });

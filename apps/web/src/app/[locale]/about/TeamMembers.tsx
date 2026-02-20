@@ -1,21 +1,21 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
-import type Member from "@/app/types/Member";
+import type { Members } from "@/app/types/Member";
 
 export interface Props {
     title: string;
     description: string;
-    people: readonly Member[];
+    people: readonly Members[];
 }
 
-function memberToIcons(member: Member) {
+function memberToIcons(member: Members) {
     const icons: ReactNode[] = [];
 
-    if (member.linkedin)
+    if (member.linkedinUrl)
         icons.push(
             <a
                 key={`linkedin:${member.name}`}
-                href={member.linkedin}
+                href={member.linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
             >
@@ -29,11 +29,11 @@ function memberToIcons(member: Member) {
             </a>,
         );
 
-    if (member.github)
+    if (member.githubUrl)
         icons.push(
             <a
                 key={`github:${member.name}`}
-                href={member.github}
+                href={member.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
             >
@@ -60,11 +60,11 @@ function memberToIcons(member: Member) {
             </a>,
         );
 
-    if (member.portfolio)
+    if (member.portfolioUrl)
         icons.push(
             <a
                 key={`portfolio:${member.name}`}
-                href={member.portfolio}
+                href={member.portfolioUrl}
                 target="_blank"
                 rel="noopener noreferrer"
             >
@@ -106,7 +106,7 @@ export default function TeamMembers({ title, description, people }: Props) {
                             key={`member:${title}:${person.name}`}
                         >
                             <Image
-                                src={person.imgPath}
+                                src={person.imagePath}
                                 alt={`Picture of ${person.name}`}
                                 width={256}
                                 height={256}
