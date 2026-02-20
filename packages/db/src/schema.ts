@@ -1,5 +1,15 @@
 import { sql } from "drizzle-orm";
-import { index, pgTable, smallint, text, timestamp, unique, uuid } from "drizzle-orm/pg-core";
+import {
+    boolean,
+    index,
+    pgEnum,
+    pgTable,
+    smallint,
+    text,
+    timestamp,
+    unique,
+    uuid,
+} from "drizzle-orm/pg-core";
 
 export const events = pgTable(
     "events",
@@ -92,5 +102,90 @@ export const resources = pgTable(
         // Full-text search
         index("resources_title_trgm_idx").using("gin", sql`${t.title} gin_trgm_ops`),
         index("resources_course_trgm_idx").using("gin", sql`${t.course} gin_trgm_ops`),
+    ],
+);
+
+// *** Members *** //
+
+export const teamRoleEnum = pgEnum("team_role", [
+    "Co-directors",
+    "Academic",
+    "Communications",
+    "Development",
+    "Events",
+    "Partnership",
+    "Logistic",
+]);
+
+export const members = pgTable(
+    "members",
+    {
+        id: uuid("id").defaultRandom().primaryKey().notNull(),
+        name: text("name").notNull(),
+
+        // Which team we want to member in
+        team: teamRoleEnum("team").notNull(),
+        // Role (e.g. Team Lead)
+        role: text("role").notNull(),
+
+        // Supabase profile img path
+        imagePath: text("image_path").notNull(),
+
+        email: text("email").unique(),
+        linkedinUrl: text("linkedin_url"),
+        githubUrl: text("github_url"),
+        portfolioUrl: text("portfolio_url"),
+
+        // Displays in advisor team (To keep track of previous role to put in previous member list)
+        isAdvisor: boolean("is_advisor").default(false).notNull(),
+        // Display member in previous member list (If we want to add that)
+        isRetired: boolean("is_retired").default(false).notNull(),
+
+        createdAt: timestamp("created_at", {
+            withTimezone: true,
+            mode: "date",
+        })
+            .defaultNow()
+            .notNull(),
+
+        // For retired members, we can show something like: "Member from 2025-08 to 2026-02"
+        retiredAt: timestamp("retired_at", {
+            withTimezone: true,
+            mode: "date",
+        }),
+    },
+    t => [
+        index("members_team_idx").on(t.team),
+        index("members_role_idx").on(t.role),
+        index("members_is_advisor_idx").on(t.isAdvisor),
+        index("members_is_retired_idx").on(t.isRetired),
+
+        index("members_created_at_id_idx").on(t.createdAt, t.id),
+        index("members_name_id_idx").on(t.name, t.id),
+    ],
+);
+
+export const membersI18n = pgTable(
+    "members_i18n",
+    {
+        id: uuid("id").defaultRandom().primaryKey().notNull(),
+        createdAt: timestamp("created_at", { withTimezone: true, mode: "date" })
+            .defaultNow()
+            .notNull(),
+        updatedAt: timestamp("updated_at", { withTimezone: true, mode: "date" })
+            .defaultNow()
+            .notNull(),
+        memberId: uuid("member_id")
+            .notNull()
+            .references(() => members.id, { onDelete: "cascade" }),
+
+        role: teamRoleEnum("role").notNull(),
+        locale: text("locale").notNull(),
+        label: text("label").notNull(),
+    },
+    t => [
+        unique("members_i18n_locale_member_id_unique").on(t.locale, t.memberId),
+        index("members_i18n_member_id_idx").on(t.memberId),
+        index("members_i18n_locale_idx").on(t.locale),
     ],
 );
