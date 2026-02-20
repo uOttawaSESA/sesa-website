@@ -11,7 +11,7 @@ const ContactDetails = () => {
 
     const copyEmail = () => {
         navigator.clipboard.writeText("uottawa.sesa@gmail.com");
-        toast("Email copied!", {
+        toast(t("email_copied"), {
             unstyled: true,
             classNames: {
                 toast: `backdrop-blur-2xl bg-blueviolet/30 

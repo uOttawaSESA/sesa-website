@@ -183,6 +183,7 @@
         "get_in_touch": "Get in",
         "get_in_touch_hl": "touch",
         "questions_blurb": "Questions about our organization? Interest in collaborating with us? Send a message to our email, or complete the inquiry form, and we'll respond as soon as possible.",
+        "email_copied": "Email copied!",
         "form_name_label": "Tell us about yourself",
         "form_firstname": "First name",
         "form_lastname": "Last name",
