@@ -1,6 +1,5 @@
 import { sql } from "drizzle-orm";
 import {
-    boolean,
     index,
     pgEnum,
     pgTable,
@@ -127,17 +126,12 @@ export const members = pgTable(
         roleKey: text("role_key").notNull(),
 
         // Supabase profile img path
-        imagePath: text("image_path").notNull(),
+        imageUrl: text("image_url").notNull(),
 
         email: text("email").unique(),
         linkedinUrl: text("linkedin_url"),
         githubUrl: text("github_url"),
         portfolioUrl: text("portfolio_url"),
-
-        // Displays in advisor team (To keep track of previous role to put in previous member list)
-        isAdvisor: boolean("is_advisor").default(false).notNull(),
-        // Display member in previous member list (If we want to add that)
-        isRetired: boolean("is_retired").default(false).notNull(),
 
         createdAt: timestamp("created_at", {
             withTimezone: true,
@@ -146,8 +140,17 @@ export const members = pgTable(
             .defaultNow()
             .notNull(),
 
+        updatedAt: timestamp("updated_at", { withTimezone: true, mode: "date" })
+            .defaultNow()
+            .notNull(),
+
         // For retired members, we can show something like: "Member from 2025-08 to 2026-02"
         retiredAt: timestamp("retired_at", {
+            withTimezone: true,
+            mode: "date",
+        }),
+
+        becameAdvisorAt: timestamp("became_advisor_at", {
             withTimezone: true,
             mode: "date",
         }),
@@ -156,8 +159,6 @@ export const members = pgTable(
     t => [
         index("members_team_idx").on(t.teamKey),
         index("members_role_idx").on(t.roleKey),
-        index("members_is_advisor_idx").on(t.isAdvisor),
-        index("members_is_retired_idx").on(t.isRetired),
 
         index("members_created_at_id_idx").on(t.createdAt, t.id),
         index("members_name_id_idx").on(t.name, t.id),

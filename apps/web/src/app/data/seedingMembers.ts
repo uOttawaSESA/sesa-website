@@ -1,4 +1,3 @@
-// Temporary script to see the current Members
 import { db } from "@repo/db";
 import { members, teamRoleEnum } from "@repo/db/schema";
 import { membersData } from "./Members";
@@ -15,25 +14,26 @@ function normalizeTeam(team: string): TeamRole {
     throw new Error(`Invalid team value: ${team}`);
 }
 
-function isAdvisor(team: string): boolean {
-    return team === "Advisors";
+function advisorTimestamp(team: string): Date | null {
+    return team === "Advisors" ? new Date() : null;
 }
 
 async function main() {
     await db.insert(members).values(
         membersData.map(m => ({
             name: m.name,
-            team: normalizeTeam(m.team),
-            role: m.role,
-            imagePath: m.imgPath,
+            teamKey: normalizeTeam(m.team),
+            roleKey: m.role,
+
+            imageUrl: m.imgPath ?? "",
 
             email: m.email ?? null,
             linkedinUrl: m.linkedin ?? null,
             githubUrl: m.github ?? null,
             portfolioUrl: m.portfolio ?? null,
 
-            isAdvisor: isAdvisor(m.team),
-            isRetired: false,
+            becameAdvisorAt: advisorTimestamp(m.team),
+            retiredAt: null,
         })),
     );
 

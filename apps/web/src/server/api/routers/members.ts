@@ -1,5 +1,5 @@
 import { members, roleTranslations } from "@repo/db/schema";
-import { and, eq } from "drizzle-orm";
+import { and, eq, isNull } from "drizzle-orm";
 import * as z from "zod";
 import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
 
@@ -17,17 +17,18 @@ export const memberRouter = createTRPCRouter({
 
                     teamKey: members.teamKey,
 
-                    imagePath: members.imagePath,
+                    imagePath: members.imageUrl,
                     email: members.email,
                     linkedinUrl: members.linkedinUrl,
                     githubUrl: members.githubUrl,
                     portfolioUrl: members.portfolioUrl,
-                    isAdvisor: members.isAdvisor,
-                    isRetired: members.isRetired,
                     createdAt: members.createdAt,
+                    updatedAt: members.updatedAt,
+                    becameAdvisorAt: members.becameAdvisorAt,
                     retiredAt: members.retiredAt,
                 })
                 .from(members)
+                .where(isNull(members.retiredAt))
                 .leftJoin(
                     roleTranslations,
                     and(

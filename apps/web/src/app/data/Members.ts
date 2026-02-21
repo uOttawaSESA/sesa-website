@@ -1,4 +1,4 @@
-export const membersData: Member[] = [
+export const membersData: any[] = [
     // Co-directors
     {
         name: "Rolf Addoumie",
