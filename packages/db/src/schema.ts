@@ -114,6 +114,7 @@ export const teamRoleEnum = pgEnum("team_role", [
     "Events",
     "Partnership",
     "Logistic",
+    "Advisor",
 ]);
 
 export const members = pgTable(
@@ -146,11 +147,6 @@ export const members = pgTable(
 
         // For retired members, we can show something like: "Member from 2025-08 to 2026-02"
         retiredAt: timestamp("retired_at", {
-            withTimezone: true,
-            mode: "date",
-        }),
-
-        becameAdvisorAt: timestamp("became_advisor_at", {
             withTimezone: true,
             mode: "date",
         }),

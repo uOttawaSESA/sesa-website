@@ -24,7 +24,6 @@ export const memberRouter = createTRPCRouter({
                     portfolioUrl: members.portfolioUrl,
                     createdAt: members.createdAt,
                     updatedAt: members.updatedAt,
-                    becameAdvisorAt: members.becameAdvisorAt,
                     retiredAt: members.retiredAt,
                 })
                 .from(members)

@@ -17,16 +17,10 @@ export default function TeamSection({ membersData }: Props) {
     const t = useTranslations("about");
     const tOurTeam = useTranslations("about.introducing_our_team_section");
 
-    const { advisors, teams } = useMemo(() => {
-        const advisors: typeof membersData = [];
+    const { teams } = useMemo(() => {
         const teams: Record<string, typeof membersData> = {};
 
         for (const member of membersData ?? []) {
-            if (member.becameAdvisorAt) {
-                advisors.push(member);
-                continue;
-            }
-
             if (!teams[member.teamKey]) {
                 teams[member.teamKey] = [];
             }
@@ -34,7 +28,7 @@ export default function TeamSection({ membersData }: Props) {
             teams[member.teamKey]!.push(member);
         }
 
-        return { advisors, teams };
+        return { teams };
     }, [membersData]);
 
     const codirectors = teams["Co-directors"] ?? [];
@@ -43,6 +37,7 @@ export default function TeamSection({ membersData }: Props) {
     const partnership = teams.Partnership ?? [];
     const events = teams.Events ?? [];
     const academic = teams.Academic ?? [];
+    const advisors = teams.Advisor ?? [];
 
     return (
         <section>
