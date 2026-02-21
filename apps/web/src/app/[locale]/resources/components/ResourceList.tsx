@@ -106,7 +106,7 @@ const ResourceList: React.FC<ResourceListProps> = ({
                 ) : hasNextPage ? (
                     <Button onClick={() => fetchNextPage()}>{t("load_more")}</Button>
                 ) : (
-                    <p className="rounded-md px-4 py-2 font-sans text-violet-400">
+                    <p className="z-3 rounded-md px-4 py-2 font-sans text-violet-400">
                         {t("end_of_resources")}
                     </p>
                 )}
