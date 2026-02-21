@@ -6,7 +6,6 @@ import { getLocale, getTranslations } from "next-intl/server";
 import localeParams from "@/app/data/locales";
 import AnimateOnView from "@/components/AnimateOnView";
 import Star from "@/components/decorations/star";
-import FadeInSection from "@/components/FadeInSection";
 import Metric from "@/components/Metric";
 import { TeamBadgeStack } from "@/components/TeamBadgeStack";
 import { Link } from "@/i18n/navigation";
@@ -103,55 +102,51 @@ export default async function About() {
                     />
                 </div>
                 {/* Upper area */}
-                <FadeInSection>
-                    <div className="flex flex-col gap-2">
-                        <div className="flex items-center gap-2 font-heading text-base uppercase md:text-lg">
-                            <p className="fill-gradient px-2 py-0.5">{t("partner")}</p>
-                            <p>{t("faculty_of_eng")}</p>
-                        </div>
-                        <h1 className="max-w-96 font-heading text-3xl uppercase md:text-4xl">
-                            {t("inspiring_heading")}
-                        </h1>
-                        <p className="max-w-[28rem] text-base text-thistle md:text-lg">
-                            {t("inspiring_blurb")}
-                        </p>
-                        <div className="my-2 flex flex-col items-start gap-2 font-heading uppercase">
-                            <div>
-                                <Button className="font-heading uppercase" asChild>
-                                    <a href="#introducing-our-team">{t("meet_the_team")}</a>
-                                </Button>
-                                <Button
-                                    className="ml-2 font-heading uppercase"
-                                    variant="outline"
-                                    asChild
+                <div className="flex flex-col gap-2">
+                    <div className="flex items-center gap-2 font-heading text-base uppercase md:text-lg">
+                        <p className="fill-gradient px-2 py-0.5">{t("partner")}</p>
+                        <p>{t("faculty_of_eng")}</p>
+                    </div>
+                    <h1 className="max-w-96 font-heading text-3xl uppercase md:text-4xl">
+                        {t("inspiring_heading")}
+                    </h1>
+                    <p className="max-w-[28rem] text-base text-thistle md:text-lg">
+                        {t("inspiring_blurb")}
+                    </p>
+                    <div className="my-2 flex flex-col items-start gap-2 font-heading uppercase">
+                        <div>
+                            <Button className="font-heading uppercase" asChild>
+                                <a href="#introducing-our-team">{t("meet_the_team")}</a>
+                            </Button>
+                            <Button
+                                className="ml-2 font-heading uppercase"
+                                variant="outline"
+                                asChild
+                            >
+                                <a
+                                    href="https://linktr.ee/uottawa.sesa"
+                                    target="_blank"
+                                    rel="noopener"
                                 >
-                                    <a
-                                        href="https://linktr.ee/uottawa.sesa"
-                                        target="_blank"
-                                        rel="noopener"
-                                    >
-                                        {t("join_our_family")}
-                                    </a>
-                                </Button>
-                            </div>
-                            <div className="mt-2 flex flex-nowrap items-center">
-                                <TeamBadgeStack imgs={memberImages} />
-                            </div>
+                                    {t("join_our_family")}
+                                </a>
+                            </Button>
+                        </div>
+                        <div className="mt-2 flex flex-nowrap items-center">
+                            <TeamBadgeStack imgs={memberImages} />
                         </div>
                     </div>
-                </FadeInSection>
+                </div>
                 {/* Images (TODO) */}
-                <FadeInSection>
-                    <div className="mt-12 flex justify-center">
-                        <Image
-                            className="z-10 h-[600px] w-[1250px] object-cover outline-gradient"
-                            src="/imgs/about/team-1.webp"
-                            width={1200}
-                            height={600}
-                            alt="Team picture"
-                        />
-                    </div>
-                </FadeInSection>
+                <div className="mt-12 flex justify-center">
+                    <Image
+                        className="z-10 h-[600px] w-[1250px] object-cover outline-gradient"
+                        src="/imgs/about/team-1.webp"
+                        width={1200}
+                        height={600}
+                        alt="Team picture"
+                    />
+                </div>
                 {/* "Who are we" */}
                 <div className="relative">
                     {/* Decorations */}
@@ -179,59 +174,55 @@ export default async function About() {
                             delay={0.5}
                         />
                     </div>
-                    <FadeInSection>
-                        <div className="my-8 flex max-w-[28rem] flex-col gap-2 md:mt-28 md:ml-[53%]">
-                            <p className="color-gradient font-mono">{t("who_are_we")}</p>
-                            <h2 className="font-heading text-2xl uppercase md:text-3xl">
-                                {t("who_are_we_heading")}{" "}
-                                <AnimateOnView animationClass="highlight-text">
-                                    {t("who_are_we_heading_hl")}
-                                </AnimateOnView>
-                            </h2>
-                            <p className="text-base text-thistle">
-                                <b>{t("who_are_we_p1_bold")}</b>, {t("who_are_we_p1")}{" "}
-                            </p>
-                            <p className="my-2 text-thistle">
-                                <b>{t("who_are_we_p2_bold")}</b> {t("who_are_we_p2")}
-                            </p>
-                            <Button className="w-fit font-heading uppercase" asChild>
-                                <a href="#introducing-our-team">{t("meet_the_team")}</a>
-                            </Button>
-                        </div>
-                    </FadeInSection>
+                    <div className="my-8 flex max-w-[28rem] flex-col gap-2 md:mt-28 md:ml-[53%]">
+                        <p className="color-gradient font-mono">{t("who_are_we")}</p>
+                        <h2 className="font-heading text-2xl uppercase md:text-3xl">
+                            {t("who_are_we_heading")}{" "}
+                            <AnimateOnView animationClass="highlight-text">
+                                {t("who_are_we_heading_hl")}
+                            </AnimateOnView>
+                        </h2>
+                        <p className="text-base text-thistle">
+                            <b>{t("who_are_we_p1_bold")}</b>, {t("who_are_we_p1")}{" "}
+                        </p>
+                        <p className="my-2 text-thistle">
+                            <b>{t("who_are_we_p2_bold")}</b> {t("who_are_we_p2")}
+                        </p>
+                        <Button className="w-fit font-heading uppercase" asChild>
+                            <a href="#introducing-our-team">{t("meet_the_team")}</a>
+                        </Button>
+                    </div>
                     {/* Figures */}
-                    <FadeInSection>
-                        <div className="flex justify-center md:mb-28">
-                            <div className="grid w-fit grid-cols-1 place-items-center gap-4 md:grid-cols-4 md:gap-20">
-                                <Metric
-                                    className="w-64! backdrop-blur-lg"
-                                    figure={3500}
-                                    suffix="+"
-                                    caption={t("figure_eecs_students")}
-                                    border
-                                />
-                                <Metric
-                                    className="w-64! backdrop-blur-lg"
-                                    figure={21}
-                                    caption={t("figure_previous_partners")}
-                                    border
-                                />
-                                <Metric
-                                    className="w-64! backdrop-blur-lg"
-                                    figure={2300}
-                                    suffix="+"
-                                    caption={t("figure_event_attendees")}
-                                    border
-                                />
-                                <Metric
-                                    className="w-64! backdrop-blur-lg"
-                                    figure={34}
-                                    caption={t("figure_events")}
-                                    border
-                                />
-                            </div>
+                    <div className="flex justify-center md:mb-28">
+                        <div className="grid w-fit grid-cols-1 place-items-center gap-4 md:grid-cols-4 md:gap-20">
+                            <Metric
+                                className="w-64! backdrop-blur-lg"
+                                figure={3500}
+                                suffix="+"
+                                caption={t("figure_eecs_students")}
+                                border
+                            />
+                            <Metric
+                                className="w-64! backdrop-blur-lg"
+                                figure={21}
+                                caption={t("figure_previous_partners")}
+                                border
+                            />
+                            <Metric
+                                className="w-64! backdrop-blur-lg"
+                                figure={2300}
+                                suffix="+"
+                                caption={t("figure_event_attendees")}
+                                border
+                            />
+                            <Metric
+                                className="w-64! backdrop-blur-lg"
+                                figure={34}
+                                caption={t("figure_events")}
+                                border
+                            />
                         </div>
-                    </FadeInSection>
+                    </div>
                 </div>
                 {/* "What do we do" */}
                 <div className="relative">
@@ -251,77 +242,73 @@ export default async function About() {
                             delay={0.5}
                         />
                     </div>
-                    <FadeInSection>
-                        <div className="my-8 flex max-w-[28rem] flex-col gap-2">
-                            <p className="color-gradient font-mono text-xs md:text-base">
-                                {t("what_do_we_do")}
+                    <div className="my-8 flex max-w-[28rem] flex-col gap-2">
+                        <p className="color-gradient font-mono text-xs md:text-base">
+                            {t("what_do_we_do")}
+                        </p>
+                        <h2 className="font-heading text-2xl uppercase md:text-3xl">
+                            {t("what_do_we_do_heading")}{" "}
+                            <AnimateOnView animationClass="highlight-text">
+                                {t("what_do_we_do_heading_hl")}
+                            </AnimateOnView>
+                        </h2>
+                        <div>
+                            <p className="mb-2 text-base text-thistle md:text-lg">
+                                <b>{t("what_do_we_do_p_bold")}</b> {t("what_do_we_do_p")}
                             </p>
-                            <h2 className="font-heading text-2xl uppercase md:text-3xl">
-                                {t("what_do_we_do_heading")}{" "}
-                                <AnimateOnView animationClass="highlight-text">
-                                    {t("what_do_we_do_heading_hl")}
-                                </AnimateOnView>
-                            </h2>
-                            <div>
-                                <p className="mb-2 text-base text-thistle md:text-lg">
-                                    <b>{t("what_do_we_do_p_bold")}</b> {t("what_do_we_do_p")}
-                                </p>
-                            </div>
-                            <Button className="w-fit font-heading uppercase" asChild>
-                                <Link href="/sponsors">{t("become_a_sponsor")} &gt;</Link>
-                            </Button>
                         </div>
-                    </FadeInSection>
+                        <Button className="w-fit font-heading uppercase" asChild>
+                            <Link href="/sponsors">{t("become_a_sponsor")} &gt;</Link>
+                        </Button>
+                    </div>
                     {/* Cards for "What do we do" */}
-                    <FadeInSection>
-                        <div className="mx-0 mb-8 flex w-max max-w-[28rem] gap-3 overflow-x-auto md:max-w-max md:justify-start md:gap-6">
-                            <WhatWeDoCard
-                                imageHref="/imgs/about/social-events.webp"
-                                icon={
-                                    <Image
-                                        src="/icons/rocket-plain.svg"
-                                        width={24}
-                                        height={24}
-                                        alt="Rocket icon"
-                                    />
-                                }
-                                heading={tWhatWeDo("social_events_heading")}
-                                description={tWhatWeDo("social_events_desc")}
-                                linkLabel={tWhatWeDo("social_events_btn")}
-                                linkHref="/events"
-                            />
-                            <WhatWeDoCard
-                                imageHref="/imgs/about/academic-support.webp"
-                                icon={
-                                    <Image
-                                        src="/icons/school-plain.svg"
-                                        width={24}
-                                        height={24}
-                                        alt="School icon"
-                                    />
-                                }
-                                heading={tWhatWeDo("academic_support_heading")}
-                                description={tWhatWeDo("academic_support_desc")}
-                                linkLabel={tWhatWeDo("academic_support_btn")}
-                                linkHref="/resources"
-                            />
-                            <WhatWeDoCard
-                                imageHref="/imgs/about/professional-development.webp"
-                                icon={
-                                    <Image
-                                        src="/icons/briefcase-plain.svg"
-                                        width={24}
-                                        height={24}
-                                        alt="Briefcase icon"
-                                    />
-                                }
-                                heading={tWhatWeDo("professional_development_heading")}
-                                description={tWhatWeDo("professional_development_desc")}
-                                linkLabel={tWhatWeDo("professional_development_btn")}
-                                linkHref="/contact"
-                            />
-                        </div>
-                    </FadeInSection>
+                    <div className="mx-0 mb-8 flex w-max max-w-[28rem] gap-3 overflow-x-auto md:max-w-max md:justify-start md:gap-6">
+                        <WhatWeDoCard
+                            imageHref="/imgs/about/social-events.webp"
+                            icon={
+                                <Image
+                                    src="/icons/rocket-plain.svg"
+                                    width={24}
+                                    height={24}
+                                    alt="Rocket icon"
+                                />
+                            }
+                            heading={tWhatWeDo("social_events_heading")}
+                            description={tWhatWeDo("social_events_desc")}
+                            linkLabel={tWhatWeDo("social_events_btn")}
+                            linkHref="/events"
+                        />
+                        <WhatWeDoCard
+                            imageHref="/imgs/about/academic-support.webp"
+                            icon={
+                                <Image
+                                    src="/icons/school-plain.svg"
+                                    width={24}
+                                    height={24}
+                                    alt="School icon"
+                                />
+                            }
+                            heading={tWhatWeDo("academic_support_heading")}
+                            description={tWhatWeDo("academic_support_desc")}
+                            linkLabel={tWhatWeDo("academic_support_btn")}
+                            linkHref="/resources"
+                        />
+                        <WhatWeDoCard
+                            imageHref="/imgs/about/professional-development.webp"
+                            icon={
+                                <Image
+                                    src="/icons/briefcase-plain.svg"
+                                    width={24}
+                                    height={24}
+                                    alt="Briefcase icon"
+                                />
+                            }
+                            heading={tWhatWeDo("professional_development_heading")}
+                            description={tWhatWeDo("professional_development_desc")}
+                            linkLabel={tWhatWeDo("professional_development_btn")}
+                            linkHref="/contact"
+                        />
+                    </div>
                 </div>
                 {/* Introducing our team */}
                 <TeamSection membersData={members} />
@@ -366,40 +353,38 @@ export default async function About() {
                             delay={0.5}
                         />
                     </div>
-                    <FadeInSection>
-                        <div className="mt-24 flex flex-col items-center gap-3 text-center align-center">
-                            <p className="color-gradient font-mono text-xs md:text-base">
-                                {t("our_previous_partners")}
-                            </p>
-                            <h2 className="font-heading text-2xl uppercase md:text-3xl">
-                                <AnimateOnView animationClass="highlight-text">
-                                    {t("our_previous_partners_heading_hl")}
-                                </AnimateOnView>
-                            </h2>
-                            <p className="max-w-[32rem] text-base text-thistle leading-snug md:text-lg">
-                                <b>{t("our_previous_partners_p_bold")}</b>,{" "}
-                                {t("our_previous_partners_p")}{" "}
-                            </p>
-                            <div className="mt-10 flex items-center justify-center text-center">
-                                <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
-                                    {beyonSesaCompanies.map((company, i) => (
-                                        <div
-                                            className="flex h-36 w-64 items-center justify-center outline-gradient backdrop-blur-lg"
-                                            key={`partners:${i}`}
-                                        >
-                                            <Image
-                                                src={company.src}
-                                                width={company.width}
-                                                height={company.height}
-                                                alt={company.alt}
-                                                className="max-w-[150px] brightness-0 invert filter"
-                                            />
-                                        </div>
-                                    ))}
-                                </div>
+                    <div className="mt-24 flex flex-col items-center gap-3 text-center align-center">
+                        <p className="color-gradient font-mono text-xs md:text-base">
+                            {t("our_previous_partners")}
+                        </p>
+                        <h2 className="font-heading text-2xl uppercase md:text-3xl">
+                            <AnimateOnView animationClass="highlight-text">
+                                {t("our_previous_partners_heading_hl")}
+                            </AnimateOnView>
+                        </h2>
+                        <p className="max-w-[32rem] text-base text-thistle leading-snug md:text-lg">
+                            <b>{t("our_previous_partners_p_bold")}</b>,{" "}
+                            {t("our_previous_partners_p")}{" "}
+                        </p>
+                        <div className="mt-10 flex items-center justify-center text-center">
+                            <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+                                {beyonSesaCompanies.map((company, i) => (
+                                    <div
+                                        className="flex h-36 w-64 items-center justify-center outline-gradient backdrop-blur-lg"
+                                        key={`partners:${i}`}
+                                    >
+                                        <Image
+                                            src={company.src}
+                                            width={company.width}
+                                            height={company.height}
+                                            alt={company.alt}
+                                            className="max-w-[150px] brightness-0 invert filter"
+                                        />
+                                    </div>
+                                ))}
                             </div>
                         </div>
-                    </FadeInSection>
+                    </div>
                 </div>
             </div>
             {/* Be a part of our family */}
@@ -425,51 +410,49 @@ export default async function About() {
                         delay={0.5}
                     />
                 </div>
-                <FadeInSection>
-                    <section className="relative my-10 flex min-h-[60vh] w-full flex-col items-center justify-center gap-8 text-white md:my-32 md:flex-row md:justify-between md:ps-32 2xl:ps-96">
-                        {/* Grid Gradient Back */}
-                        <div className="grid-overlay-right md:h-[43.93rem] md:w-[53vw]"></div>
+                <section className="relative my-10 flex min-h-[60vh] w-full flex-col items-center justify-center gap-8 text-white md:my-32 md:flex-row md:justify-between md:ps-32 2xl:ps-96">
+                    {/* Grid Gradient Back */}
+                    <div className="grid-overlay-right md:h-[43.93rem] md:w-[53vw]"></div>
 
-                        {/* Content Container */}
-                        <div className="relative z-10 max-w-2xl px-4 md:px-0">
-                            <p className="color-gradient font-mono text-xs md:text-base">
-                                {t("our_family")}
+                    {/* Content Container */}
+                    <div className="relative z-10 max-w-2xl px-4 md:px-0">
+                        <p className="color-gradient font-mono text-xs md:text-base">
+                            {t("our_family")}
+                        </p>
+                        <h2 className="mt-4 max-w-[28rem] font-heading text-2xl uppercase leading-tight md:text-3xl">
+                            {t("our_family_heading")}{" "}
+                            <AnimateOnView animationClass="highlight-text">
+                                {t("our_family_heading_hl")}
+                            </AnimateOnView>
+                        </h2>
+                        <p className="mt-4 max-w-[28rem] font-sans text-base text-thistle md:text-lg">
+                            <b>{t("our_family_p_bold")}</b>. {t("our_family_p")}
+                        </p>
+                        <div className="mt-6 flex flex-col space-y-2 font-heading">
+                            <Button
+                                className="pointer-events-none my-4 w-fit cursor-not-allowed font-heading uppercase opacity-50"
+                                disabled
+                                asChild
+                            >
+                                <Link href="/contact">{t("apply_now")}</Link>
+                            </Button>
+                            <p className="max-w-[28rem] font-mono text-sm text-thistle">
+                                {t("no_more_apps")}
                             </p>
-                            <h2 className="mt-4 max-w-[28rem] font-heading text-2xl uppercase leading-tight md:text-3xl">
-                                {t("our_family_heading")}{" "}
-                                <AnimateOnView animationClass="highlight-text">
-                                    {t("our_family_heading_hl")}
-                                </AnimateOnView>
-                            </h2>
-                            <p className="mt-4 max-w-[28rem] font-sans text-base text-thistle md:text-lg">
-                                <b>{t("our_family_p_bold")}</b>. {t("our_family_p")}
-                            </p>
-                            <div className="mt-6 flex flex-col space-y-2 font-heading">
-                                <Button
-                                    className="pointer-events-none my-4 w-fit cursor-not-allowed font-heading uppercase opacity-50"
-                                    disabled
-                                    asChild
-                                >
-                                    <Link href="/contact">{t("apply_now")}</Link>
-                                </Button>
-                                <p className="max-w-[28rem] font-mono text-sm text-thistle">
-                                    {t("no_more_apps")}
-                                </p>
-                            </div>
                         </div>
+                    </div>
 
-                        {/* Right Side Image - Centered on mobile, touches right edge on desktop */}
-                        <div className="relative z-10">
-                            <Image
-                                src="/imgs/about/team-1.webp"
-                                alt="Team picture"
-                                className="h-[400px] w-auto object-cover outline-gradient md:h-[500px]"
-                                width={700}
-                                height={500}
-                            />
-                        </div>
-                    </section>
-                </FadeInSection>
+                    {/* Right Side Image - Centered on mobile, touches right edge on desktop */}
+                    <div className="relative z-10">
+                        <Image
+                            src="/imgs/about/team-1.webp"
+                            alt="Team picture"
+                            className="h-[400px] w-auto object-cover outline-gradient md:h-[500px]"
+                            width={700}
+                            height={500}
+                        />
+                    </div>
+                </section>
             </div>
         </div>
     );

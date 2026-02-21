@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
-import FadeInSection from "@/components/FadeInSection";
 import { api, HydrateClient } from "@/trpc/server";
 import FooterSection from "./components/FooterSection";
 import Header from "./components/Header";
@@ -73,19 +72,13 @@ export default async function Resources() {
 
                 {/* Main Content Container */}
                 <div className="container relative z-30 mx-auto w-full px-4 py-8 md:max-w-7xl">
-                    <FadeInSection>
-                        <Header />
-                    </FadeInSection>
-                    <FadeInSection>
-                        <ResourceSection />
-                    </FadeInSection>
+                    <Header />
+                    <ResourceSection />
                 </div>
 
                 {/* Footer Section (CTA and Ange quote) */}
                 <div className="relative z-10">
-                    <FadeInSection>
-                        <FooterSection />
-                    </FadeInSection>
+                    <FooterSection />
                 </div>
             </div>
         </HydrateClient>

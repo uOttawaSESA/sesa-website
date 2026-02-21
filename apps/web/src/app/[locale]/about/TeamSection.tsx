@@ -5,7 +5,6 @@ import { useMemo } from "react";
 import type { Members } from "@/app/types/Member";
 import AnimateOnView from "@/components/AnimateOnView";
 import Star from "@/components/decorations/star";
-import FadeInSection from "@/components/FadeInSection";
 import { Link } from "@/i18n/navigation";
 import TeamMembers from "./TeamMembers";
 
@@ -86,54 +85,49 @@ export default function TeamSection({ membersData }: Props) {
                         delay={0.5}
                     />
                 </div>
-                <FadeInSection>
-                    <div
-                        id="introducing-our-team"
-                        className="flex scroll-mt-28 flex-col items-center gap-2 text-center align-center md:mt-28"
-                    >
-                        <p className="color-gradient font-mono text-xs md:text-base">
-                            {t("introducing_our_team")}
-                        </p>
-                        <h2 className="font-heading text-2xl uppercase md:text-3xl">
-                            <AnimateOnView animationClass="highlight-text">
-                                {t("introducing_our_team_heading_hl")}
-                            </AnimateOnView>{" "}
-                            {t("introducing_our_team_heading")}
-                        </h2>
-                        <p className="max-w-[32rem] text-base text-thistle leading-tight md:text-lg">
-                            {t("introducing_our_team_blurb")}
-                        </p>
-                    </div>
-                </FadeInSection>
+                <div
+                    id="introducing-our-team"
+                    className="flex scroll-mt-28 flex-col items-center gap-2 text-center align-center md:mt-28"
+                >
+                    <p className="color-gradient font-mono text-xs md:text-base">
+                        {t("introducing_our_team")}
+                    </p>
+                    <h2 className="font-heading text-2xl uppercase md:text-3xl">
+                        <AnimateOnView animationClass="highlight-text">
+                            {t("introducing_our_team_heading_hl")}
+                        </AnimateOnView>{" "}
+                        {t("introducing_our_team_heading")}
+                    </h2>
+                    <p className="max-w-[32rem] text-base text-thistle leading-tight md:text-lg">
+                        {t("introducing_our_team_blurb")}
+                    </p>
+                </div>
                 {/* TODO: Add the `sticky` class once a way to make it not super ugly is found */}
-                <FadeInSection>
-                    <div className="top-[5.6rem] z-10 mt-4 grid grid-flow-col grid-rows-4 text-center font-heading uppercase backdrop-blur-xs md:grid-rows-1">
-                        <Button className="!inline px-2!" variant="outline" asChild>
-                            <Link href="#co-directors">{tOurTeam("codirectors")}</Link>
-                        </Button>
-                        <Button className="!inline" variant="outline" asChild>
-                            <Link href="#partnerships">{tOurTeam("partnerships")}</Link>
-                        </Button>
-                        <Button className="!inline" variant="outline" asChild>
-                            <Link href="#events">{tOurTeam("events")}</Link>
-                        </Button>
-                        <Button className="!inline" variant="outline" asChild>
-                            <Link href="#communications">{tOurTeam("communications")}</Link>
-                        </Button>
-                        <Button className="!inline" variant="outline" asChild>
-                            <Link href="#development">{tOurTeam("development")}</Link>
-                        </Button>
-                        <Button className="!inline" variant="outline" asChild>
-                            <Link href="#academic">{tOurTeam("academic")}</Link>
-                        </Button>
-                        <Button className="!inline" variant="outline" asChild>
-                            <Link href="#advisors">{tOurTeam("advisors")}</Link>
-                        </Button>
-                    </div>
-                    <br />
-                </FadeInSection>
+                <div className="top-[5.6rem] z-10 mt-4 grid grid-flow-col grid-rows-4 text-center font-heading uppercase backdrop-blur-xs md:grid-rows-1">
+                    <Button className="!inline px-2!" variant="outline" asChild>
+                        <Link href="#co-directors">{tOurTeam("codirectors")}</Link>
+                    </Button>
+                    <Button className="!inline" variant="outline" asChild>
+                        <Link href="#partnerships">{tOurTeam("partnerships")}</Link>
+                    </Button>
+                    <Button className="!inline" variant="outline" asChild>
+                        <Link href="#events">{tOurTeam("events")}</Link>
+                    </Button>
+                    <Button className="!inline" variant="outline" asChild>
+                        <Link href="#communications">{tOurTeam("communications")}</Link>
+                    </Button>
+                    <Button className="!inline" variant="outline" asChild>
+                        <Link href="#development">{tOurTeam("development")}</Link>
+                    </Button>
+                    <Button className="!inline" variant="outline" asChild>
+                        <Link href="#academic">{tOurTeam("academic")}</Link>
+                    </Button>
+                    <Button className="!inline" variant="outline" asChild>
+                        <Link href="#advisors">{tOurTeam("advisors")}</Link>
+                    </Button>
+                </div>
+                <br />
             </div>
-            {/* TODO: Add horizontal scrolling if the members don't all fit onscreen. */}
             <div className="mt-16 flex flex-col gap-24">
                 {/* Stars */}
                 <div className="absolute w-full">
@@ -169,56 +163,50 @@ export default function TeamSection({ membersData }: Props) {
                         rotate={10}
                     />
                 </div>
-                <FadeInSection>
-                    <TeamMembers
-                        title={tOurTeam("codirectors")}
-                        description={tOurTeam("codirectors_desc")}
-                        people={codirectors}
-                    />
-                </FadeInSection>
-                <FadeInSection>
-                    <TeamMembers
-                        title={tOurTeam("partnerships")}
-                        description={tOurTeam("partnerships_desc")}
-                        people={partnership}
-                    />
-                </FadeInSection>
-                <FadeInSection>
-                    <TeamMembers
-                        title={tOurTeam("events")}
-                        description={tOurTeam("events_desc")}
-                        people={events}
-                    />
-                </FadeInSection>
-                <FadeInSection>
-                    <TeamMembers
-                        title={tOurTeam("communications")}
-                        description={tOurTeam("communications_desc")}
-                        people={communications}
-                    />
-                </FadeInSection>
-                <FadeInSection>
-                    <TeamMembers
-                        title={tOurTeam("development")}
-                        description={tOurTeam("development_desc")}
-                        people={development}
-                    />
-                </FadeInSection>
-                <FadeInSection>
-                    <TeamMembers
-                        title={tOurTeam("academic")}
-                        description={tOurTeam("academic_desc")}
-                        people={academic}
-                    />
-                </FadeInSection>
-                <FadeInSection>
-                    <TeamMembers
-                        title={tOurTeam("advisors")}
-                        description={tOurTeam("advisors_desc")}
-                        people={advisors}
-                    />
-                </FadeInSection>
+
+                <TeamMembers
+                    title={tOurTeam("codirectors")}
+                    description={tOurTeam("codirectors_desc")}
+                    people={codirectors}
+                />
+
+                <TeamMembers
+                    title={tOurTeam("partnerships")}
+                    description={tOurTeam("partnerships_desc")}
+                    people={partnership}
+                />
+
+                <TeamMembers
+                    title={tOurTeam("events")}
+                    description={tOurTeam("events_desc")}
+                    people={events}
+                />
+
+                <TeamMembers
+                    title={tOurTeam("communications")}
+                    description={tOurTeam("communications_desc")}
+                    people={communications}
+                />
+
+                <TeamMembers
+                    title={tOurTeam("development")}
+                    description={tOurTeam("development_desc")}
+                    people={development}
+                />
+
+                <TeamMembers
+                    title={tOurTeam("academic")}
+                    description={tOurTeam("academic_desc")}
+                    people={academic}
+                />
+
+                <TeamMembers
+                    title={tOurTeam("advisors")}
+                    description={tOurTeam("advisors_desc")}
+                    people={advisors}
+                />
             </div>
+            ;
         </section>
     );
 }

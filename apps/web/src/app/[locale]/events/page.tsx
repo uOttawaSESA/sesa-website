@@ -6,7 +6,6 @@ import { getLocale, getTranslations } from "next-intl/server";
 import localeParams from "@/app/data/locales";
 import type { Members } from "@/app/types/Member";
 import Star from "@/components/decorations/star";
-import FadeInSection from "@/components/FadeInSection";
 import { api, HydrateClient } from "@/trpc/server";
 import ConnectSESA from "./components/ConnectSESA";
 import EventSection from "./components/EventSection";
@@ -76,15 +75,9 @@ export default async function Events() {
                 </div>
 
                 <div className="relative z-10">
-                    <FadeInSection>
-                        <EventSection />
-                    </FadeInSection>
-                    <FadeInSection>
-                        <TeamUpSection membersData={eventMembers} />
-                    </FadeInSection>
-                    <FadeInSection>
-                        <ConnectSESA />
-                    </FadeInSection>
+                    <EventSection />
+                    <TeamUpSection membersData={eventMembers} />
+                    <ConnectSESA />
 
                     <div className="pointer-events relative my-16 select-none md:mb-52">
                         {/* Bottom Star Decoration */}
@@ -105,9 +98,7 @@ export default async function Events() {
                             delay={0.5}
                         />
 
-                        <FadeInSection>
-                            <InfiniteCarousel />
-                        </FadeInSection>
+                        <InfiniteCarousel />
                     </div>
                 </div>
             </div>
