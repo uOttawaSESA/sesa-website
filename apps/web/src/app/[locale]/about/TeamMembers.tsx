@@ -106,7 +106,7 @@ export default function TeamMembers({ title, description, people }: Props) {
                             key={`member:${title}:${person.name}`}
                         >
                             <Image
-                                src={person.imagePath}
+                                src={person.imageUrl}
                                 alt={`Picture of ${person.name}`}
                                 width={256}
                                 height={256}

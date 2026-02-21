@@ -6,11 +6,12 @@ import {
     CarouselPrevious,
 } from "@repo/ui/components/carousel";
 import Image from "next/image";
+import type { Members } from "@/app/types/Member";
 import Star from "@/components/decorations/star";
 import { GoalCard } from "./GoalCard";
 import { goalsData } from "./GoalsData";
 
-const Goals = () => {
+const Goals = ({ membersData }: { membersData: Members[] }) => {
     return (
         <section className="relative">
             {/* Decorations */}
@@ -28,7 +29,7 @@ const Goals = () => {
                 <CarouselContent>
                     {goalsData.map((goal, index) => (
                         <CarouselItem key={`goal:${index}`}>
-                            <GoalCard key={`goal:${index}`} goal={goal} />
+                            <GoalCard key={`goal:${index}`} goal={goal} membersData={membersData} />
                         </CarouselItem>
                     ))}
                 </CarouselContent>

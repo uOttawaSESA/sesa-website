@@ -3,18 +3,20 @@
 import { Button } from "@repo/ui/components/button";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import type { Members } from "@/app/types/Member";
 import AnimateOnView from "@/components/AnimateOnView";
 import Star from "@/components/decorations/star";
 import { TeamBadgeStack } from "@/components/TeamBadgeStack";
 import { Link } from "@/i18n/navigation";
 
-const PartnerWithUs = () => {
-    const teamImgs = [
-        "/imgs/team/dragos.webp",
-        "/imgs/team/ayushi.webp",
-        "/imgs/team/bilal.jpeg",
-        "/imgs/team/whitney.webp",
-    ];
+interface Props {
+    membersData: Members[];
+}
+
+export default function PartnerWithUs({ membersData }: Props) {
+    const partnershipImgs = membersData
+        .filter(member => member.teamKey === "Partnership")
+        .map(member => member.imageUrl);
 
     const t = useTranslations("sponsorships");
 
@@ -94,7 +96,7 @@ const PartnerWithUs = () => {
                     </div>
 
                     <div className="-ml-2 md:-ml-1">
-                        <TeamBadgeStack imgs={teamImgs} />
+                        <TeamBadgeStack imgs={partnershipImgs} />
                     </div>
                 </div>
 
@@ -111,6 +113,4 @@ const PartnerWithUs = () => {
             </div>
         </div>
     );
-};
-
-export default PartnerWithUs;
+}

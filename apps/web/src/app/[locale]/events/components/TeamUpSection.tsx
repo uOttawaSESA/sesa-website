@@ -1,11 +1,15 @@
 import { Button } from "@repo/ui/components/button";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import type React from "react";
-import CircleImage from "@/components/CircleImage"; // Import the CircleImage component
+import type { Members } from "@/app/types/Member";
+import CircleImage from "@/components/CircleImage";
 import { Link } from "@/i18n/navigation";
 
-const TeamUpSection: React.FC = () => {
+export interface Props {
+    membersData: Members[];
+}
+
+export default function TeamUpSection({ membersData }: Props) {
     const t = useTranslations("events");
 
     return (
@@ -44,40 +48,17 @@ const TeamUpSection: React.FC = () => {
                 </div>
 
                 <div className="ms-4 mt-6 flex">
-                    <CircleImage
-                        size={55}
-                        src="/imgs/team/peter.jpeg"
-                        alt="Peter Bou-Farah"
-                        className="ml-[-0.75rem]"
-                    />
-                    <CircleImage
-                        size={55}
-                        src="/imgs/team/ayushi.webp"
-                        alt="Ayushi Dosieah"
-                        className="ml-[-0.75rem]"
-                    />
-                    <CircleImage
-                        size={55}
-                        src="/imgs/team/darren.webp"
-                        alt="Darren Rakos"
-                        className="ml-[-0.75rem]"
-                    />
-                    <CircleImage
-                        size={55}
-                        src="/imgs/team/thomas.webp"
-                        alt="Thomas Boyle"
-                        className="ml-[-0.75rem]"
-                    />
-                    <CircleImage
-                        size={55}
-                        src="/imgs/team/ichrak.webp"
-                        alt="Ichrak El Hatimi"
-                        className="ml-[-0.75rem]"
-                    />
+                    {membersData.map(member => (
+                        <CircleImage
+                            key={member.id}
+                            size={55}
+                            src={member.imageUrl}
+                            alt={member.name}
+                            className="ml-[-0.75rem]"
+                        />
+                    ))}
                 </div>
             </div>
         </div>
     );
-};
-
-export default TeamUpSection;
+}

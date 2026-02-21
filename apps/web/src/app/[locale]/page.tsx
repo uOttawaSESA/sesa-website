@@ -4,6 +4,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import localeParams from "@/app/data/locales";
 import FadeInSection from "@/components/FadeInSection";
 import { api, HydrateClient } from "@/trpc/server";
+import type { Members } from "../types/Member";
 import Connect from "./HomeComponents/ConnectSection/Connect";
 import Events from "./HomeComponents/EventsSection/Events";
 import FAQ from "./HomeComponents/FAQ/FAQ";
@@ -48,7 +49,7 @@ export default async function Home() {
         sort: "created_desc",
     });
 
-    const membersData = await api.member.getAll({ locale });
+    const membersData: Members[] = (await api.member.getAll({ locale })) ?? [];
 
     return (
         <HydrateClient>
@@ -60,7 +61,7 @@ export default async function Home() {
                     <Events />
                 </FadeInSection>
                 <FadeInSection>
-                    <Goals />
+                    <Goals membersData={membersData} />
                 </FadeInSection>
                 <FadeInSection>
                     <Resources />

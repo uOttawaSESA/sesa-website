@@ -41,7 +41,6 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function About() {
-    const memberImages = ["/imgs/team/rolf.webp", "/imgs/team/asad.webp", "/imgs/team/rayen.webp"];
     const beyonSesaCompanies = [
         { src: "/imgs/about/beyond-sesa/dropbox.webp", alt: "Dropbox", width: 75, height: 75 },
         { src: "/imgs/about/beyond-sesa/meta.webp", alt: "Meta", width: 150, height: 75 },
@@ -58,6 +57,10 @@ export default async function About() {
 
     const locale = (await getLocale()) as "en" | "fr";
     const members = await api.member.getAll({ locale });
+
+    const memberImages = members
+        .filter(member => member.teamKey === "Co-directors")
+        .map(member => member.imageUrl);
 
     return (
         <div className="relative min-h-screen text-white">

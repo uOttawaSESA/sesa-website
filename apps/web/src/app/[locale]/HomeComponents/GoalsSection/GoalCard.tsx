@@ -3,14 +3,22 @@
 import { Button } from "@repo/ui/components/button";
 import Image from "next/image";
 import { useLocale } from "next-intl";
+import type { Members } from "@/app/types/Member";
 import AnimateOnView from "@/components/AnimateOnView";
 import { TeamBadgeStack } from "@/components/TeamBadgeStack";
 import { Link } from "@/i18n/navigation";
 import type Goal from "./types/Goal";
 
-export const GoalCard: React.FC<{ goal: Goal }> = ({ goal }) => {
+export const GoalCard: React.FC<{ goal: Goal; membersData: Members[] }> = ({
+    goal,
+    membersData,
+}) => {
     const locale = useLocale();
     const lang = locale === "fr" ? "fr" : "en";
+
+    const eventMembers: string[] = membersData
+        .filter(member => member.teamKey === goal.memberTeamKey)
+        .map(member => member.imageUrl);
 
     return (
         <div className="flex h-full w-full flex-col items-start justify-between gap-16 lg:flex-row lg:items-center lg:justify-start lg:gap-10 xl:h-[45rem] 2xl:gap-32">
@@ -52,7 +60,7 @@ export const GoalCard: React.FC<{ goal: Goal }> = ({ goal }) => {
                         <Link href={goal.buttonLink}>{goal.buttonText[lang]}</Link>
                     </Button>
                 </div>
-                <TeamBadgeStack imgs={goal.memberImgLinks} />
+                <TeamBadgeStack imgs={eventMembers} />
             </div>
         </div>
     );

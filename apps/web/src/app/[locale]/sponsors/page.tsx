@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { useTranslations } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
 import FadeInSection from "@/components/FadeInSection";
+import { api } from "@/trpc/server";
 import Benefits from "./components/Benefits";
 import CTA from "./components/CTA";
 import PartnerWithUs from "./components/PartnerWithUs";
@@ -37,9 +37,10 @@ export async function generateMetadata(): Promise<Metadata> {
         },
     };
 }
-
-const Sponsors = () => {
-    const t = useTranslations("sponsorships");
+const Sponsors = async () => {
+    const t = await getTranslations("sponsorships");
+    const locale = (await getLocale()) as "fr" | "en";
+    const membersData = (await api.member.getAll({ locale })) ?? [];
 
     return (
         <div className="relative">
@@ -73,7 +74,7 @@ const Sponsors = () => {
                 <Benefits />
             </FadeInSection>
             <FadeInSection>
-                <PartnerWithUs />
+                <PartnerWithUs membersData={membersData} />
             </FadeInSection>
         </div>
     );

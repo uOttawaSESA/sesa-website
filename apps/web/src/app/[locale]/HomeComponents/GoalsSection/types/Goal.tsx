@@ -5,6 +5,6 @@ export default interface Goal {
     description: { en: string; fr: string };
     buttonLink: string;
     buttonText: { en: string; fr: string };
-    memberImgLinks: string[];
+    memberTeamKey: string;
     mainImg: string;
 }

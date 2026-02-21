@@ -17,7 +17,7 @@ export const memberRouter = createTRPCRouter({
 
                     teamKey: members.teamKey,
 
-                    imagePath: members.imageUrl,
+                    imageUrl: members.imageUrl,
                     email: members.email,
                     linkedinUrl: members.linkedinUrl,
                     githubUrl: members.githubUrl,

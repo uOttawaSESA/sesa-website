@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
+import type { Members } from "@/app/types/Member";
 import Star from "@/components/decorations/star";
 import FadeInSection from "@/components/FadeInSection";
 import { api, HydrateClient } from "@/trpc/server";
@@ -14,7 +15,7 @@ import TeamUpSection from "./components/TeamUpSection";
 export const generateStaticParams = localeParams;
 
 export async function generateMetadata(): Promise<Metadata> {
-    const locale = await getLocale();
+    const locale = (await getLocale()) as "fr" | "en";
     const t = await getTranslations("meta");
 
     const title = `${t("events_title")} | ${t("title_suffix")}`;
@@ -39,10 +40,12 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Events() {
-    const locale = await getLocale();
+    const locale = (await getLocale()) as "fr" | "en";
     if (locale !== "en" && locale !== "fr") notFound();
 
     void api.event.getAll.prefetch({ locale });
+    const membersData = (await api.member.getAll({ locale })) ?? [];
+    const eventMembers: Members[] = membersData.filter(member => member.teamKey === "Academic");
 
     return (
         <HydrateClient>
@@ -77,7 +80,7 @@ export default async function Events() {
                         <EventSection />
                     </FadeInSection>
                     <FadeInSection>
-                        <TeamUpSection />
+                        <TeamUpSection membersData={eventMembers} />
                     </FadeInSection>
                     <FadeInSection>
                         <ConnectSESA />
