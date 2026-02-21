@@ -82,7 +82,7 @@ const EventSection = () => {
     /** If there is some form of issue with the page, this will be the element to display. */
     const errorElement = useMemo(() => {
         if (isPending) {
-            return <p>{t("query_state.pending")}</p>;
+            return <p className="z-3">{t("query_state.pending")}</p>;
         } else if (error) {
             return (
                 <>
