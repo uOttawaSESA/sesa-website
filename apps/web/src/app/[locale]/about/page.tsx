@@ -4,6 +4,7 @@ import Image from "next/image";
 import { getLocale, getTranslations } from "next-intl/server";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
+import type { Members } from "@/app/types/Member";
 import AnimateOnView from "@/components/AnimateOnView";
 import Star from "@/components/decorations/star";
 import Metric from "@/components/Metric";
@@ -55,9 +56,9 @@ export default async function About() {
     const tWhatWeDo = await getTranslations("about.what_do_we_do_cards");
 
     const locale = (await getLocale()) as "en" | "fr";
-    const members = await api.member.getAll({ locale });
+    const membersData: Members[] = (await api.member.getAll({ locale })) ?? [];
 
-    const memberImages = members
+    const memberImages = membersData
         .filter(member => member.teamKey === "Co-directors")
         .map(member => member.imageUrl);
 
@@ -311,7 +312,7 @@ export default async function About() {
                     </div>
                 </div>
                 {/* Introducing our team */}
-                <TeamSection membersData={members} />
+                <TeamSection membersData={membersData} />
 
                 {/* Beyond SESA */}
                 <div className="relative mt-56">

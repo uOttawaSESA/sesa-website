@@ -125,7 +125,8 @@ const Team = ({ membersData }: TeamProps) => {
                     <div className="absolute top-16 left-1/2 z-10 mt-7 -translate-x-1/2 px-4 py-2 text-center 2xl:top-20">
                         <h1 className="mb-2 font-heading text-xl">{hovered}</h1>
                         <p className="font-sans text-thistle">
-                            {membersData.find(m => m.name === hovered)?.roleLabel}
+                            {membersData.find(m => m.name === hovered)?.roleLabel ??
+                                membersData.find(m => m.name === hovered)?.roleKey}
                         </p>
                     </div>
                 )}

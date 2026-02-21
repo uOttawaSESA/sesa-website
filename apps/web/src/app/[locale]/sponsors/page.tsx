@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
+import type { Members } from "@/app/types/Member";
 import { api } from "@/trpc/server";
 import Benefits from "./components/Benefits";
 import CTA from "./components/CTA";
@@ -39,7 +40,7 @@ export async function generateMetadata(): Promise<Metadata> {
 const Sponsors = async () => {
     const t = await getTranslations("sponsorships");
     const locale = (await getLocale()) as "fr" | "en";
-    const membersData = (await api.member.getAll({ locale })) ?? [];
+    const membersData: Members[] = (await api.member.getAll({ locale })) ?? [];
 
     return (
         <div className="relative">

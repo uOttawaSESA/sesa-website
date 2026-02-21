@@ -5,7 +5,7 @@ import { membersData } from "./Members";
 type TeamRole = (typeof teamRoleEnum.enumValues)[number];
 
 function normalizeTeam(team: string): TeamRole {
-    if (team === "Advisors") return "Partnership"; //Temporary (while we reput their actual previous role)
+    if (team === "Advisors") return "Advisor";
 
     if (teamRoleEnum.enumValues.includes(team as TeamRole)) {
         return team as TeamRole;
