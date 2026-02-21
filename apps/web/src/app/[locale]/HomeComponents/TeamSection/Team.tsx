@@ -4,13 +4,17 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import Marquee from "react-fast-marquee";
-import { membersData } from "@/app/data/Members";
+import type { Members } from "@/app/types/Member";
 import AnimateOnView from "@/components/AnimateOnView";
 import CircleImage from "@/components/CircleImage";
 import Star from "@/components/decorations/star";
 import { Link } from "@/i18n/navigation";
 
-const Team = () => {
+interface TeamProps {
+    membersData: Members[];
+}
+
+const Team = ({ membersData }: TeamProps) => {
     const t = useTranslations("homepage");
     const [hovered, setHovered] = useState<string>("");
 

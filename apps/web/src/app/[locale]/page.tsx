@@ -48,6 +48,8 @@ export default async function Home() {
         sort: "created_desc",
     });
 
+    const membersData = await api.member.getAll({ locale });
+
     return (
         <HydrateClient>
             <div className="flex h-full flex-col gap-24 bg-gray-300 font-mono text-white lg:gap-20 xl:gap-32">
@@ -76,7 +78,7 @@ export default async function Home() {
                     <Connect />
                 </FadeInSection>
                 <FadeInSection>
-                    <Team />
+                    <Team membersData={membersData} />
                 </FadeInSection>
             </div>
         </HydrateClient>
