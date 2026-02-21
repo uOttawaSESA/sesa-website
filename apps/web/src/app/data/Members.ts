@@ -1,5 +1,3 @@
-import type Member from "../types/Member";
-
 export const membersData: Member[] = [
     // Co-directors
     {

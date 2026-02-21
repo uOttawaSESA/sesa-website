@@ -1,7 +1,6 @@
 import { Button } from "@repo/ui/components/button";
 import type { Metadata } from "next";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
@@ -11,6 +10,7 @@ import FadeInSection from "@/components/FadeInSection";
 import Metric from "@/components/Metric";
 import { TeamBadgeStack } from "@/components/TeamBadgeStack";
 import { Link } from "@/i18n/navigation";
+import { api } from "@/trpc/server";
 import TeamSection from "./TeamSection";
 import WhatWeDoCard from "./WhatWeDoCard";
 export const generateStaticParams = localeParams;
@@ -40,7 +40,7 @@ export async function generateMetadata(): Promise<Metadata> {
     };
 }
 
-export default function About() {
+export default async function About() {
     const memberImages = ["/imgs/team/rolf.webp", "/imgs/team/asad.webp", "/imgs/team/rayen.webp"];
     const beyonSesaCompanies = [
         { src: "/imgs/about/beyond-sesa/dropbox.webp", alt: "Dropbox", width: 75, height: 75 },
@@ -53,8 +53,11 @@ export default function About() {
         { src: "/imgs/about/beyond-sesa/ibm.webp", alt: "IBM", width: 100, height: 75 },
     ];
 
-    const t = useTranslations("about");
-    const tWhatWeDo = useTranslations("about.what_do_we_do_cards");
+    const t = await getTranslations("about");
+    const tWhatWeDo = await getTranslations("about.what_do_we_do_cards");
+
+    const locale = (await getLocale()) as "en" | "fr";
+    const members = await api.member.getAll({ locale });
 
     return (
         <div className="relative min-h-screen text-white">
@@ -318,7 +321,7 @@ export default function About() {
                     </FadeInSection>
                 </div>
                 {/* Introducing our team */}
-                <TeamSection />
+                <TeamSection membersData={members} />
 
                 {/* Beyond SESA */}
                 <div className="relative mt-56">

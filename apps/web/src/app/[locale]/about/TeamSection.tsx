@@ -2,18 +2,20 @@
 import { Button } from "@repo/ui/components/button";
 import { useTranslations } from "next-intl";
 import { useMemo } from "react";
+import type { Members } from "@/app/types/Member";
 import AnimateOnView from "@/components/AnimateOnView";
 import Star from "@/components/decorations/star";
 import FadeInSection from "@/components/FadeInSection";
 import { Link } from "@/i18n/navigation";
-import { api } from "@/trpc/react";
 import TeamMembers from "./TeamMembers";
 
-export default function TeamSection() {
+export interface Props {
+    membersData: Members[];
+}
+
+export default function TeamSection({ membersData }: Props) {
     const t = useTranslations("about");
     const tOurTeam = useTranslations("about.introducing_our_team_section");
-
-    const { data: membersData } = api.member.getAll.useQuery({ locale: "en" });
 
     const advisors = useMemo(
         () => membersData?.filter(member => member.isAdvisor) ?? [],
