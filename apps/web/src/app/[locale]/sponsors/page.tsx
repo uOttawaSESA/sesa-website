@@ -3,7 +3,6 @@ import { useTranslations } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
-import FadeInSection from "@/components/FadeInSection";
 import Benefits from "./components/Benefits";
 import CTA from "./components/CTA";
 import PartnerWithUs from "./components/PartnerWithUs";
@@ -43,38 +42,24 @@ const Sponsors = () => {
 
     return (
         <div className="relative">
-            <FadeInSection>
-                <SponsorsHeader
-                    titleHighlighted={t("header_highlight")}
-                    title={t("header_title_rest")}
-                    topText={t("header_top")}
-                    bottomText={t("header_bottom")}
-                    btn1={t("header_btn1")}
-                    btn2={t("header_btn2")}
-                />
-            </FadeInSection>
+            <SponsorsHeader
+                titleHighlighted={t("header_highlight")}
+                title={t("header_title_rest")}
+                topText={t("header_top")}
+                bottomText={t("header_bottom")}
+                btn1={t("header_btn1")}
+                btn2={t("header_btn2")}
+            />
             <div className="relative z-20">
-                <FadeInSection>
-                    <SponsorsGrid />
-                </FadeInSection>
+                <SponsorsGrid />
             </div>
             <div className="relative z-10">
-                <FadeInSection>
-                    <CTA />
-                </FadeInSection>
+                <CTA />
             </div>
-            <FadeInSection>
-                <TestimonialsCarousel />
-            </FadeInSection>
-            <FadeInSection>
-                <PastCollaboratorsCarousel />
-            </FadeInSection>
-            <FadeInSection>
-                <Benefits />
-            </FadeInSection>
-            <FadeInSection>
-                <PartnerWithUs />
-            </FadeInSection>
+            <TestimonialsCarousel />
+            <PastCollaboratorsCarousel />
+            <Benefits />
+            <PartnerWithUs />
         </div>
     );
 };
