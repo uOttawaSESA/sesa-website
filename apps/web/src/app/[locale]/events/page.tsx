@@ -44,7 +44,7 @@ export default async function Events() {
 
     void api.event.getAll.prefetch({ locale });
     const membersData: Members[] = (await api.member.getAll({ locale })) ?? [];
-    const eventMembers: Members[] = membersData.filter(member => member.teamKey === "Academic");
+    const eventMembers: Members[] = membersData.filter(member => member.teamKey === "academic");
 
     return (
         <HydrateClient>

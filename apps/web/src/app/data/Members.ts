@@ -10,7 +10,7 @@ interface OldMemberType {
 }
 export const membersData: OldMemberType[] = [];
 
-// export const membersData: unknown[] = [
+// export const membersData: OldMemberType[] = [
 //     // Co-directors
 //     {
 //         name: "Rolf Addoumie",

@@ -59,7 +59,7 @@ export default async function About() {
     const membersData: Members[] = (await api.member.getAll({ locale })) ?? [];
 
     const memberImages = membersData
-        .filter(member => member.teamKey === "Co-directors")
+        .filter(member => member.teamKey === "codirector")
         .map(member => member.imageUrl);
 
     return (

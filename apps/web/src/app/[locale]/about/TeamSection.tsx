@@ -16,27 +16,24 @@ export default function TeamSection({ membersData }: Props) {
     const t = useTranslations("about");
     const tOurTeam = useTranslations("about.introducing_our_team_section");
 
-    const { teams } = useMemo(() => {
+    const teams = useMemo(() => {
         const teams: Record<string, typeof membersData> = {};
 
         for (const member of membersData ?? []) {
-            if (!teams[member.teamKey]) {
-                teams[member.teamKey] = [];
-            }
+            teams[member.teamKey] ??= [];
             // biome-ignore lint/style/noNonNullAssertion: <We check the null just before this line>
             teams[member.teamKey]!.push(member);
         }
-
-        return { teams };
+        return teams;
     }, [membersData]);
 
-    const codirectors = teams["Co-directors"] ?? [];
-    const development = teams.Development ?? [];
-    const communications = teams.Communications ?? [];
-    const partnership = teams.Partnership ?? [];
-    const events = teams.Events ?? [];
-    const academic = teams.Academic ?? [];
-    const advisors = teams.Advisor ?? [];
+    const codirectors = teams.codirector ?? [];
+    const development = teams.development ?? [];
+    const communications = teams.communications ?? [];
+    const partnership = teams.partnerships ?? [];
+    const events = teams.logistics ?? [];
+    const academic = teams.academic ?? [];
+    const advisors = teams.advisor ?? [];
 
     return (
         <section>
@@ -206,7 +203,6 @@ export default function TeamSection({ membersData }: Props) {
                     people={advisors}
                 />
             </div>
-            ;
         </section>
     );
 }

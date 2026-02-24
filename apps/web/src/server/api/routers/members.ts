@@ -1,20 +1,18 @@
-import { members, roleTranslations } from "@repo/db/schema";
-import { and, eq, isNull } from "drizzle-orm";
+import { members } from "@repo/db/schema";
+import { isNull } from "drizzle-orm";
 import * as z from "zod";
 import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
 
 export const memberRouter = createTRPCRouter({
     getAll: publicProcedure
         .input(z.object({ locale: z.enum(["en", "fr"]) }))
-        .query(async ({ ctx, input }) => {
+        .query(async ({ ctx }) => {
             const rows = await ctx.db
                 .select({
                     id: members.id,
                     name: members.name,
 
                     roleKey: members.roleKey,
-                    roleLabel: roleTranslations.label,
-
                     teamKey: members.teamKey,
 
                     imageUrl: members.imageUrl,
@@ -27,14 +25,7 @@ export const memberRouter = createTRPCRouter({
                     retiredAt: members.retiredAt,
                 })
                 .from(members)
-                .where(isNull(members.retiredAt))
-                .leftJoin(
-                    roleTranslations,
-                    and(
-                        eq(roleTranslations.roleKey, members.roleKey),
-                        eq(roleTranslations.locale, input.locale),
-                    ),
-                );
+                .where(isNull(members.retiredAt));
             return rows;
         }),
 });

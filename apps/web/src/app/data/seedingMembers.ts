@@ -1,37 +1,44 @@
 import { db } from "@repo/db";
-import { members, teamRoleEnum } from "@repo/db/schema";
+import { members, type teamKeyEnum } from "@repo/db/schema";
 import { membersData } from "./Members";
 
-type TeamRole = (typeof teamRoleEnum.enumValues)[number];
+type TeamEnum = (typeof teamKeyEnum.enumValues)[number];
+type RoleEnum = "lead" | "member";
 
-function normalizeTeam(team: string): TeamRole {
-    if (team === "Advisors") return "Advisor";
+const teamNameMap: Record<string, TeamEnum> = {
+    "Co-directors": "codirector",
+    Academic: "academic",
+    Communications: "communications",
+    Development: "development",
+    Partnership: "partnerships",
+    Events: "logistics",
+    Advisors: "advisor",
+};
 
-    if (teamRoleEnum.enumValues.includes(team as TeamRole)) {
-        return team as TeamRole;
-    }
-
-    throw new Error(`Invalid team value: ${team}`);
+function normalizeTeam(team: string): TeamEnum {
+    const normalized = teamNameMap[team];
+    if (!normalized) throw new Error(`Invalid team value: ${team}`);
+    return normalized;
 }
 
 function advisorTimestamp(team: string): Date | null {
     return team === "Advisors" ? new Date() : null;
 }
 
+function normalizeRole(role: string): RoleEnum {
+    return role.toLowerCase().includes("lead") ? "lead" : "member";
+}
 async function main() {
     await db.insert(members).values(
         membersData.map(m => ({
             name: m.name,
             teamKey: normalizeTeam(m.team),
-            roleKey: m.role,
-
+            roleKey: normalizeRole(m.role),
             imageUrl: m.imgPath ?? "",
-
             email: m.email ?? null,
             linkedinUrl: m.linkedin ?? null,
             githubUrl: m.github ?? null,
             portfolioUrl: m.portfolio ?? null,
-
             becameAdvisorAt: advisorTimestamp(m.team),
             retiredAt: null,
         })),

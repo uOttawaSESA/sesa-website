@@ -106,16 +106,17 @@ export const resources = pgTable(
 
 // *** Members *** //
 
-export const teamRoleEnum = pgEnum("team_role", [
-    "Co-directors",
-    "Academic",
-    "Communications",
-    "Development",
-    "Events",
-    "Partnership",
-    "Logistic",
-    "Advisor",
+export const teamKeyEnum = pgEnum("team_key_enum", [
+    "codirector",
+    "academic",
+    "communications",
+    "development",
+    "partnerships",
+    "logistics",
+    "advisor",
 ]);
+
+export const roleKeyEnum = pgEnum("role_key_enum", ["lead", "member"]);
 
 export const members = pgTable(
     "members",
@@ -123,8 +124,8 @@ export const members = pgTable(
         id: uuid("id").defaultRandom().primaryKey().notNull(),
         name: text("name").notNull(),
 
-        teamKey: teamRoleEnum("team_key").notNull(),
-        roleKey: text("role_key").notNull(),
+        teamKey: teamKeyEnum("team_key").notNull(),
+        roleKey: roleKeyEnum("role_key").notNull(),
 
         // Supabase profile img path
         imageUrl: text("image_url").notNull(),
@@ -158,29 +159,5 @@ export const members = pgTable(
 
         index("members_created_at_id_idx").on(t.createdAt, t.id),
         index("members_name_id_idx").on(t.name, t.id),
-    ],
-);
-
-export const roleTranslations = pgTable(
-    "role_translations",
-    {
-        id: uuid("id").defaultRandom().primaryKey().notNull(),
-
-        roleKey: text("role_key").notNull(),
-        locale: text("locale").notNull(),
-
-        label: text("label").notNull(),
-
-        createdAt: timestamp("created_at", {
-            withTimezone: true,
-            mode: "date",
-        })
-            .defaultNow()
-            .notNull(),
-    },
-    t => [
-        unique("role_translations_unique").on(t.roleKey, t.locale),
-        index("role_translations_role_key_idx").on(t.roleKey),
-        index("role_translations_locale_idx").on(t.locale),
     ],
 );

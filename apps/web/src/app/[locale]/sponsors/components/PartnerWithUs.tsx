@@ -15,7 +15,7 @@ interface Props {
 
 export default function PartnerWithUs({ membersData }: Props) {
     const partnershipImgs = membersData
-        .filter(member => member.teamKey === "Partnership")
+        .filter(member => member.teamKey === "partnerships")
         .map(member => member.imageUrl);
 
     const t = useTranslations("sponsorships");
