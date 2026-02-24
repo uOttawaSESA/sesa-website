@@ -163,7 +163,25 @@
             "academic": "Academic",
             "academic_desc": "Experts in research and knowledge sharing, supporting educational initiatives and ensuring the quality of academic outputs.",
             "advisors": "Advisors",
-            "advisors_desc": "Our trusted mentors provide guidance and insights to help the team navigate challenges and achieve success."
+            "advisors_desc": "Our trusted mentors provide guidance and insights to help the team navigate challenges and achieve success.",
+
+            "academic_lead": "Academic Lead",
+            "academic_member": "Academic Coordinator",
+
+            "communications_lead": "Communications Lead",
+            "communications_member": "Communications Coordinator",
+
+            "development_lead": "Development Lead",
+            "development_member": "Developer",
+
+            "partnerships_lead": "Partnerships Lead",
+            "partnerships_member": "Partnerships Coordinator",
+
+            "logistics_lead": "Evemts Lead",
+            "logistics_member": "Events Coordinator",
+
+            "advisor": "Advisor",
+            "codirector": "Co-Director"
         },
         "our_previous_partners": "Where our alumni are now",
         "our_previous_partners_heading_hl": "Beyond SESA",

@@ -3,6 +3,7 @@
 import { Button } from "@repo/ui/components/button";
 import Image from "next/image";
 import { useLocale } from "next-intl";
+import { useMemo } from "react";
 import type { Members } from "@/app/types/Member";
 import AnimateOnView from "@/components/AnimateOnView";
 import { TeamBadgeStack } from "@/components/TeamBadgeStack";
@@ -16,9 +17,11 @@ export const GoalCard: React.FC<{ goal: Goal; membersData: Members[] }> = ({
     const locale = useLocale();
     const lang = locale === "fr" ? "fr" : "en";
 
-    const eventMembers: string[] = membersData
-        .filter(member => member.teamKey === goal.memberTeamKey)
-        .map(member => member.imageUrl);
+    const eventMembers = useMemo(() => {
+        return membersData
+            .filter(member => member.teamKey === goal.memberTeamKey)
+            .map(member => member.imageUrl);
+    }, [membersData, goal.memberTeamKey]);
 
     return (
         <div className="flex h-full w-full flex-col items-start justify-between gap-16 lg:flex-row lg:items-center lg:justify-start lg:gap-10 xl:h-[45rem] 2xl:gap-32">

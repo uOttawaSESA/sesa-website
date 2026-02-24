@@ -16,7 +16,18 @@ interface TeamProps {
 
 const Team = ({ membersData }: TeamProps) => {
     const t = useTranslations("homepage");
+    const tMember = useTranslations("about.introducing_our_team_section");
     const [hovered, setHovered] = useState<string>("");
+
+    let hoveredMember = "";
+    if (hovered) {
+        const member = membersData.find(m => m.name === hovered);
+        if (member?.teamKey === "codirector" || member?.teamKey === "advisor") {
+            hoveredMember = member.teamKey;
+        } else {
+            hoveredMember = `${member?.teamKey}_${member?.roleKey}`;
+        }
+    }
 
     return (
         <section className="relative mb-12 flex flex-col gap-16 md:mb-36 2xl:mt-44 2xl:mb-52">
@@ -124,9 +135,7 @@ const Team = ({ membersData }: TeamProps) => {
                 {hovered && (
                     <div className="absolute top-16 left-1/2 z-10 mt-7 -translate-x-1/2 px-4 py-2 text-center 2xl:top-20">
                         <h1 className="mb-2 font-heading text-xl">{hovered}</h1>
-                        <p className="font-sans text-thistle">
-                            {t(membersData.find(m => m.name === hovered)?.roleKey ?? "")}
-                        </p>
+                        <p className="font-sans text-thistle">{tMember(hoveredMember)}</p>
                     </div>
                 )}
             </div>

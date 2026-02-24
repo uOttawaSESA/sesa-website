@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import type { ReactNode } from "react";
 import type { Members } from "@/app/types/Member";
 
@@ -83,7 +83,7 @@ function memberToIcons(member: Members) {
 }
 
 export default function TeamMembers({ title, description, people }: Props) {
-    const t = useTranslations(useLocale());
+    const t = useTranslations("about.introducing_our_team_section");
 
     return (
         <div className="relative">
@@ -119,7 +119,11 @@ export default function TeamMembers({ title, description, people }: Props) {
                                 <h3 className="font-bold font-sans text-lg md:text-xl">
                                     {person.name}
                                 </h3>
-                                <p className="text-thistle">{t(person.roleKey)}</p>
+                                <p className="text-thistle">
+                                    {person.teamKey === "codirector" || person.teamKey === "advisor"
+                                        ? t(person.teamKey)
+                                        : `${t(`${person.teamKey}_${person.roleKey}`)}`}
+                                </p>
                                 <div className="mt-auto flex gap-2">{memberToIcons(person)}</div>
                             </div>
                         </div>

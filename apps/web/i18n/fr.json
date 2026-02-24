@@ -137,7 +137,7 @@
         "introducing_our_team_heading": "qui font l'AÉGL",
         "introducing_our_team_blurb": "Rencontrez l'incroyable équipe de back-end qui alimente notre succès front-end et rend tout possible.",
         "introducing_our_team_section": {
-            "codirectors": "Co-Directeurs",
+            "codirectors": "Co-Directeurs·rices",
             "codirectors_desc": "Rencontrez nos Co-Directeurs, qui s'assurent que tout fonctionne bien. Ils supervisent les projets, soutiennent l'équipe et veillent à ce que les objectifs soient atteints avec une vision claire et une forte collaboration.",
             "partnerships": "Partenariats",
             "partnerships_desc": "Créateurs de relations, collaborant avec les commanditaires, partenaires et intervenants pour stimuler une croissance mutuelle et des opportunités.",
@@ -150,7 +150,25 @@
             "academic": "Académique",
             "academic_desc": "Experts en recherche et en partage de connaissances, soutenant les initiatives éducatives et assurant la qualité des résultats académiques.",
             "advisors": "Conseillers",
-            "advisors_desc": "Nos mentors de confiance fournissent des conseils et des perspectives pour aider l'équipe à relever les défis et à réussir."
+            "advisors_desc": "Nos mentors de confiance fournissent des conseils et des perspectives pour aider l'équipe à relever les défis et à réussir.",
+
+            "development_lead": "Responsable du développement",
+            "development_member": "Développeur·euse",
+
+            "academic_lead": "Responsable académique",
+            "academic_member": "Coordinateur·rice académique",
+
+            "communications_lead": "Responsable des communications",
+            "communications_member": "Coordinateur·rice des communications",
+
+            "partnerships_lead": "Responsable des partenariats",
+            "partnerships_member": "Coordinateur·rice des partenariats",
+
+            "logistics_lead": "Responsable des évenements",
+            "logistics_member": "Coordinateur·rice des évenements",
+
+            "advisor": "Conseiller·ère",
+            "codirector": "Co-Directeur·rice"
         },
         "our_previous_partners": "Où sont nos anciens maintenant",
         "our_previous_partners_heading_hl": "Au-delà de l'AÉGL",
