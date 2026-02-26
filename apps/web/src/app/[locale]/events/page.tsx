@@ -8,7 +8,6 @@ import Star from "@/components/decorations/star";
 import { api, HydrateClient } from "@/trpc/server";
 import ConnectSESA from "./components/ConnectSESA";
 import EventSection from "./components/EventSection";
-import InfiniteCarousel from "./components/InfiniteCarousel";
 import TeamUpSection from "./components/TeamUpSection";
 export const generateStaticParams = localeParams;
 
@@ -95,7 +94,7 @@ export default async function Events() {
                             delay={0.5}
                         />
 
-                        <InfiniteCarousel />
+                        {/* <InfiniteCarousel /> */}
                     </div>
                 </div>
             </div>
