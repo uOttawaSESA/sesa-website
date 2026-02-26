@@ -5,6 +5,13 @@ export default interface Goal {
     description: { en: string; fr: string };
     buttonLink: string;
     buttonText: { en: string; fr: string };
-    memberTeamKey: string;
+    memberTeamKey:
+        | "codirector"
+        | "academic"
+        | "communications"
+        | "development"
+        | "partnerships"
+        | "logistics"
+        | "advisor";
     mainImg: string;
 }
