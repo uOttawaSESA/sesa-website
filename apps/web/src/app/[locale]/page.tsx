@@ -35,7 +35,7 @@ export default async function Home() {
     if (locale !== "en" && locale !== "fr") notFound();
 
     void api.event.getAll.prefetch({ locale });
-    void api.member.getAll.prefetch({ locale });
+    void api.member.getAll.prefetch();
     void api.resource.getCursorPage.prefetchInfinite({
         search: null,
         filters: {

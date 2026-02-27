@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@repo/ui/components/button";
 import Image from "next/image";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import Marquee from "react-fast-marquee";
 import AnimateOnView from "@/components/AnimateOnView";
@@ -15,8 +15,7 @@ const Team = () => {
     const tMember = useTranslations("about.introducing_our_team_section");
     const [hovered, setHovered] = useState<string>("");
 
-    const locale = useLocale() as "en" | "fr";
-    const { data: membersData = [] } = api.member.getAll.useQuery({ locale });
+    const { data: membersData = [] } = api.member.getAll.useQuery();
 
     let hoveredMember = "";
     if (hovered) {

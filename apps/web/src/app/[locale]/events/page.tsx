@@ -43,7 +43,7 @@ export default async function Events() {
     if (locale !== "en" && locale !== "fr") notFound();
 
     void api.event.getAll.prefetch({ locale });
-    const membersData: Members[] = (await api.member.getAll({ locale })) ?? [];
+    const membersData: Members[] = (await api.member.getAll()) ?? [];
     const eventMembers: Members[] = membersData.filter(member => member.teamKey === "academics");
 
     return (

@@ -39,8 +39,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 const Sponsors = async () => {
     const t = await getTranslations("sponsorships");
-    const locale = (await getLocale()) as "fr" | "en";
-    const membersData: Members[] = (await api.member.getAll({ locale })) ?? [];
+    const membersData: Members[] = (await api.member.getAll()) ?? [];
 
     return (
         <div className="relative">

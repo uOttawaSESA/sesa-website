@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@repo/ui/components/button";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { useMemo } from "react";
 import AnimateOnView from "@/components/AnimateOnView";
 import Star from "@/components/decorations/star";
@@ -12,8 +12,7 @@ export default function TeamSection() {
     const t = useTranslations("about");
     const tOurTeam = useTranslations("about.introducing_our_team_section");
 
-    const locale = useLocale() as "en" | "fr";
-    const { data: membersData = [] } = api.member.getAll.useQuery({ locale });
+    const { data: membersData = [] } = api.member.getAll.useQuery();
 
     const teams = useMemo(() => {
         const teams: Record<string, typeof membersData> = {};
