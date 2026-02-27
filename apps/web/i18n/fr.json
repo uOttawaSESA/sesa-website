@@ -155,8 +155,8 @@
             "development_lead": "Responsable du développement",
             "development_member": "Développeur·euse",
 
-            "academic_lead": "Responsable académique",
-            "academic_member": "Coordinateur·rice académique",
+            "academics_lead": "Responsable académique",
+            "academics_member": "Coordinateur·rice académique",
 
             "communications_lead": "Responsable des communications",
             "communications_member": "Coordinateur·rice des communications",
@@ -165,10 +165,7 @@
             "partnerships_member": "Coordinateur·rice des partenariats",
 
             "logistics_lead": "Responsable des évenements",
-            "logistics_member": "Coordinateur·rice des évenements",
-
-            "advisor": "Conseiller·ère",
-            "codirector": "Co-Directeur·rice"
+            "logistics_member": "Coordinateur·rice des évenements"
         },
         "our_previous_partners": "Où sont nos anciens maintenant",
         "our_previous_partners_heading_hl": "Au-delà de l'AÉGL",

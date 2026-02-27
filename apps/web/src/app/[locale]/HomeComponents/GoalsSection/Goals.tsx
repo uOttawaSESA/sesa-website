@@ -1,3 +1,4 @@
+"use client";
 import {
     Carousel,
     CarouselContent,
@@ -6,12 +7,15 @@ import {
     CarouselPrevious,
 } from "@repo/ui/components/carousel";
 import Image from "next/image";
-import type { Members } from "@/app/types/Member";
+import { useLocale } from "next-intl";
 import Star from "@/components/decorations/star";
+import { api } from "@/trpc/react";
 import { GoalCard } from "./GoalCard";
 import { goalsData } from "./GoalsData";
 
-const Goals = ({ membersData }: { membersData: Members[] }) => {
+const Goals = () => {
+    const locale = useLocale() as "en" | "fr";
+    const { data: membersData = [] } = api.member.getAll.useQuery({ locale });
     return (
         <section className="relative">
             {/* Decorations */}

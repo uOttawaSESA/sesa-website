@@ -1,20 +1,19 @@
 "use client";
 import { Button } from "@repo/ui/components/button";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useMemo } from "react";
-import type { Members } from "@/app/types/Member";
 import AnimateOnView from "@/components/AnimateOnView";
 import Star from "@/components/decorations/star";
 import { Link } from "@/i18n/navigation";
+import { api } from "@/trpc/react";
 import TeamMembers from "./TeamMembers";
 
-export interface Props {
-    membersData: Members[];
-}
-
-export default function TeamSection({ membersData }: Props) {
+export default function TeamSection() {
     const t = useTranslations("about");
     const tOurTeam = useTranslations("about.introducing_our_team_section");
+
+    const locale = useLocale() as "en" | "fr";
+    const { data: membersData = [] } = api.member.getAll.useQuery({ locale });
 
     const teams = useMemo(() => {
         const teams: Record<string, typeof membersData> = {};
@@ -27,13 +26,13 @@ export default function TeamSection({ membersData }: Props) {
         return teams;
     }, [membersData]);
 
-    const codirectors = teams.codirector ?? [];
+    const codirectors = teams.codirectors ?? [];
     const development = teams.development ?? [];
     const communications = teams.communications ?? [];
     const partnership = teams.partnerships ?? [];
     const events = teams.logistics ?? [];
-    const academic = teams.academic ?? [];
-    const advisors = teams.advisor ?? [];
+    const academic = teams.academics ?? [];
+    const advisors = teams.advisors ?? [];
 
     return (
         <section>

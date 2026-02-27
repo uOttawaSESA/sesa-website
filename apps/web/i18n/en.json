@@ -165,8 +165,8 @@
             "advisors": "Advisors",
             "advisors_desc": "Our trusted mentors provide guidance and insights to help the team navigate challenges and achieve success.",
 
-            "academic_lead": "Academic Lead",
-            "academic_member": "Academic Coordinator",
+            "academics_lead": "Academic Lead",
+            "academics_member": "Academic Coordinator",
 
             "communications_lead": "Communications Lead",
             "communications_member": "Communications Coordinator",
@@ -178,10 +178,7 @@
             "partnerships_member": "Partnerships Coordinator",
 
             "logistics_lead": "Evemts Lead",
-            "logistics_member": "Events Coordinator",
-
-            "advisor": "Advisor",
-            "codirector": "Co-Director"
+            "logistics_member": "Events Coordinator"
         },
         "our_previous_partners": "Where our alumni are now",
         "our_previous_partners_heading_hl": "Beyond SESA",

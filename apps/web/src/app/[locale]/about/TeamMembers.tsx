@@ -15,7 +15,7 @@ function memberToIcons(member: Members) {
     if (member.linkedinUrl)
         icons.push(
             <a
-                key={`linkedin:${member.name}`}
+                key={`linkedin:${member.id}`}
                 href={member.linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -33,7 +33,7 @@ function memberToIcons(member: Members) {
     if (member.githubUrl)
         icons.push(
             <a
-                key={`github:${member.name}`}
+                key={`github:${member.id}`}
                 href={member.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -50,7 +50,7 @@ function memberToIcons(member: Members) {
 
     if (member.email)
         icons.push(
-            <a key={`email:${member.name}`} href={`mailto:${member.email}`} target="_blank">
+            <a key={`email:${member.id}`} href={`mailto:${member.email}`} target="_blank">
                 <Image
                     src="/icons/mail-plain.svg"
                     alt="Email"
@@ -64,7 +64,7 @@ function memberToIcons(member: Members) {
     if (member.portfolioUrl)
         icons.push(
             <a
-                key={`portfolio:${member.name}`}
+                key={`portfolio:${member.id}`}
                 href={member.portfolioUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -120,7 +120,8 @@ export default function TeamMembers({ title, description, people }: Props) {
                                     {person.name}
                                 </h3>
                                 <p className="text-thistle">
-                                    {person.teamKey === "codirector" || person.teamKey === "advisor"
+                                    {person.teamKey === "codirectors" ||
+                                    person.teamKey === "advisors"
                                         ? t(person.teamKey)
                                         : `${t(`${person.teamKey}_${person.roleKey}`)}`}
                                 </p>

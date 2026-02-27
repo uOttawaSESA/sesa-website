@@ -26,7 +26,7 @@ export const goalsData: Goal[] = [
             en: "BROWSE RESOURCES",
             fr: "PARCOURIR LES RESSOURCES",
         },
-        memberTeamKey: "academic",
+        memberTeamKey: "academics",
         mainImg: "/imgs/Home/goals/academic.webp",
     },
     {

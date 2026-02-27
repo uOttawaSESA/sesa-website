@@ -1,7 +1,5 @@
-DROP TABLE IF EXISTS members CASCADE;
-
 CREATE TYPE "public"."role_key_enum" AS ENUM('lead', 'member');--> statement-breakpoint
-CREATE TYPE "public"."team_key_enum" AS ENUM('codirector', 'academic', 'communications', 'development', 'partnerships', 'logistics', 'advisor');--> statement-breakpoint
+CREATE TYPE "public"."team_key_enum" AS ENUM('codirectors', 'academics', 'communications', 'development', 'partnerships', 'logistics', 'advisors');--> statement-breakpoint
 CREATE TABLE "members" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"name" text NOT NULL,

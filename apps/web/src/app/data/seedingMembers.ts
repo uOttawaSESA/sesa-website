@@ -6,13 +6,13 @@ type TeamEnum = (typeof teamKeyEnum.enumValues)[number];
 type RoleEnum = "lead" | "member";
 
 const teamNameMap: Record<string, TeamEnum> = {
-    "Co-directors": "codirector",
-    Academic: "academic",
+    "Co-directors": "codirectors",
+    Academic: "academics",
     Communications: "communications",
     Development: "development",
     Partnership: "partnerships",
     Events: "logistics",
-    Advisors: "advisor",
+    Advisors: "advisors",
 };
 
 function normalizeTeam(team: string): TeamEnum {

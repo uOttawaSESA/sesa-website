@@ -56,10 +56,11 @@ export default async function About() {
     const tWhatWeDo = await getTranslations("about.what_do_we_do_cards");
 
     const locale = (await getLocale()) as "en" | "fr";
+    void api.member.getAll.prefetch({ locale });
     const membersData: Members[] = (await api.member.getAll({ locale })) ?? [];
 
-    const memberImages = membersData
-        .filter(member => member.teamKey === "codirector")
+    const directorsImg = membersData
+        .filter(member => member.teamKey === "codirectors")
         .map(member => member.imageUrl);
 
     return (
@@ -134,7 +135,7 @@ export default async function About() {
                             </Button>
                         </div>
                         <div className="mt-2 flex flex-nowrap items-center">
-                            <TeamBadgeStack imgs={memberImages} />
+                            <TeamBadgeStack imgs={directorsImg} />
                         </div>
                     </div>
                 </div>
@@ -312,7 +313,7 @@ export default async function About() {
                     </div>
                 </div>
                 {/* Introducing our team */}
-                <TeamSection membersData={membersData} />
+                <TeamSection />
 
                 {/* Beyond SESA */}
                 <div className="relative mt-56">

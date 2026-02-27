@@ -1,5 +1,5 @@
 import type { InferInsertModel, InferSelectModel } from "drizzle-orm";
-import type { events, eventsI18n, resources } from "./schema.js";
+import type { events, eventsI18n, members, resources } from "./schema.js";
 
 export type Event = InferSelectModel<typeof events>;
 export type NewEvent = InferInsertModel<typeof events>;
@@ -11,3 +11,5 @@ export type NewEventI18n = InferInsertModel<typeof eventsI18n>;
 export type Resource = InferSelectModel<typeof resources>;
 export type NewResource = InferInsertModel<typeof resources>;
 export type MappedResource = Omit<Resource, "tier"> & { tier: string };
+
+export type Members = InferInsertModel<typeof members>;

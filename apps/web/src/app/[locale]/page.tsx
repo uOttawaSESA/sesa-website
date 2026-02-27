@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 import localeParams from "@/app/data/locales";
 import { api, HydrateClient } from "@/trpc/server";
-import type { Members } from "../types/Member";
 import Connect from "./HomeComponents/ConnectSection/Connect";
 import Events from "./HomeComponents/EventsSection/Events";
 import FAQ from "./HomeComponents/FAQ/FAQ";
@@ -36,6 +35,7 @@ export default async function Home() {
     if (locale !== "en" && locale !== "fr") notFound();
 
     void api.event.getAll.prefetch({ locale });
+    void api.member.getAll.prefetch({ locale });
     void api.resource.getCursorPage.prefetchInfinite({
         search: null,
         filters: {
@@ -48,20 +48,18 @@ export default async function Home() {
         sort: "created_desc",
     });
 
-    const membersData: Members[] = (await api.member.getAll({ locale })) ?? [];
-
     return (
         <HydrateClient>
             <div className="flex h-full flex-col gap-24 bg-gray-300 font-mono text-white lg:gap-20 xl:gap-32">
                 <Hero />
                 <Events />
-                <Goals membersData={membersData} />
+                <Goals />
                 <Resources />
                 <Quotes />
                 <Sponsors />
                 <FAQ />
                 <Connect />
-                <Team membersData={membersData} />
+                <Team />
             </div>
         </HydrateClient>
     );

@@ -1,5 +1,5 @@
 {
-    "id": "bfd680f6-eeb7-4c26-87ce-38d889230856",
+    "id": "d56d3b40-446f-4282-b48f-e11b31329b04",
     "prevId": "72b8276e-64cf-46bb-8a2f-60980798a26a",
     "version": "7",
     "dialect": "postgresql",
@@ -725,13 +725,13 @@
             "name": "team_key_enum",
             "schema": "public",
             "values": [
-                "codirector",
-                "academic",
+                "codirectors",
+                "academics",
                 "communications",
                 "development",
                 "partnerships",
                 "logistics",
-                "advisor"
+                "advisors"
             ]
         }
     },

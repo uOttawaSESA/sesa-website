@@ -1,28 +1,27 @@
 "use client";
 import { Button } from "@repo/ui/components/button";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
 import Marquee from "react-fast-marquee";
-import type { Members } from "@/app/types/Member";
 import AnimateOnView from "@/components/AnimateOnView";
 import CircleImage from "@/components/CircleImage";
 import Star from "@/components/decorations/star";
 import { Link } from "@/i18n/navigation";
+import { api } from "@/trpc/react";
 
-interface TeamProps {
-    membersData: Members[];
-}
-
-const Team = ({ membersData }: TeamProps) => {
+const Team = () => {
     const t = useTranslations("homepage");
     const tMember = useTranslations("about.introducing_our_team_section");
     const [hovered, setHovered] = useState<string>("");
 
+    const locale = useLocale() as "en" | "fr";
+    const { data: membersData = [] } = api.member.getAll.useQuery({ locale });
+
     let hoveredMember = "";
     if (hovered) {
         const member = membersData.find(m => m.name === hovered);
-        if (member?.teamKey === "codirector" || member?.teamKey === "advisor") {
+        if (member?.teamKey === "codirectors" || member?.teamKey === "advisors") {
             hoveredMember = member.teamKey;
         } else {
             hoveredMember = `${member?.teamKey}_${member?.roleKey}`;

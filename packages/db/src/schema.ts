@@ -107,13 +107,13 @@ export const resources = pgTable(
 // *** Members *** //
 
 export const teamKeyEnum = pgEnum("team_key_enum", [
-    "codirector",
-    "academic",
+    "codirectors",
+    "academics",
     "communications",
     "development",
     "partnerships",
     "logistics",
-    "advisor",
+    "advisors",
 ]);
 
 export const roleKeyEnum = pgEnum("role_key_enum", ["lead", "member"]);
