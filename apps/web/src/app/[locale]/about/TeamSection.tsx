@@ -21,7 +21,7 @@ export default function TeamSection() {
         [members],
     );
 
-    const orderedTeamKeys = useMemo(() => [...new Set(members.map(m => m.teamKey))], [members]);
+    const orderedTeamKeys = Object.keys(teams) as TeamKey[];
 
     return (
         <section>
