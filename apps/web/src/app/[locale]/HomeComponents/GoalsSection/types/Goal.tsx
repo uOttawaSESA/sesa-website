@@ -1,4 +1,4 @@
-import type { Members } from "@/app/types/Member";
+import type { TeamKey } from "@/app/types/Member";
 
 export default interface Goal {
     goalType: { en: string; fr: string };
@@ -7,6 +7,6 @@ export default interface Goal {
     description: { en: string; fr: string };
     buttonLink: string;
     buttonText: { en: string; fr: string };
-    memberTeamKey: Members["teamKey"];
+    teamKey: TeamKey;
     mainImg: string;
 }

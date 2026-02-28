@@ -1,16 +1,16 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import type { ReactNode } from "react";
-import type { Members } from "@/app/types/Member";
+import type { Member, TeamKey } from "@/app/types/Member";
 
 export interface Props {
     title: string;
     description: string;
-    people: readonly Members[];
-    teamKey: Members["teamKey"];
+    people: readonly Member[];
+    teamKey: TeamKey;
 }
 
-function memberToIcons(member: Members) {
+function memberToIcons(member: Member) {
     const icons: ReactNode[] = [];
 
     if (member.linkedinUrl)

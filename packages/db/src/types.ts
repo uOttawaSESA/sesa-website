@@ -12,4 +12,4 @@ export type Resource = InferSelectModel<typeof resources>;
 export type NewResource = InferInsertModel<typeof resources>;
 export type MappedResource = Omit<Resource, "tier"> & { tier: string };
 
-export type Members = InferInsertModel<typeof members>;
+export type Member = InferInsertModel<typeof members>;

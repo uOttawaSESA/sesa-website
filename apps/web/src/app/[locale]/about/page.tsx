@@ -4,7 +4,7 @@ import Image from "next/image";
 import { getLocale, getTranslations } from "next-intl/server";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
-import type { Members } from "@/app/types/Member";
+import type { Member } from "@/app/types/Member";
 import AnimateOnView from "@/components/AnimateOnView";
 import Star from "@/components/decorations/star";
 import Metric from "@/components/Metric";
@@ -56,7 +56,7 @@ export default async function About() {
     const tWhatWeDo = await getTranslations("about.what_do_we_do_cards");
 
     void api.member.getAll.prefetch();
-    const membersData: Members[] = (await api.member.getAll()) ?? [];
+    const membersData: Member[] = (await api.member.getAll()) ?? [];
 
     const directorsImg = membersData
         .filter(member => member.teamKey === "codirectors")

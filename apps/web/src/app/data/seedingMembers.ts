@@ -1,11 +1,11 @@
 import { db } from "@repo/db";
-import { members, type teamKeyEnum } from "@repo/db/schema";
+import { members } from "@repo/db/schema";
+import type { TeamKey } from "../types/Member";
 import { membersData } from "./Members";
 
-type TeamEnum = (typeof teamKeyEnum.enumValues)[number];
 type RoleEnum = "lead" | "member";
 
-const teamNameMap: Record<string, TeamEnum> = {
+const teamNameMap: Record<string, TeamKey> = {
     "Co-directors": "codirectors",
     Academic: "academics",
     Communications: "communications",
@@ -15,7 +15,7 @@ const teamNameMap: Record<string, TeamEnum> = {
     Advisors: "advisors",
 };
 
-function normalizeTeam(team: string): TeamEnum {
+function normalizeTeam(team: string): TeamKey {
     const normalized = teamNameMap[team];
     if (!normalized) throw new Error(`Invalid team value: ${team}`);
     return normalized;

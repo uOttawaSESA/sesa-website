@@ -2,14 +2,12 @@
 import { Button } from "@repo/ui/components/button";
 import { useTranslations } from "next-intl";
 import { useMemo } from "react";
-import type { Members } from "@/app/types/Member";
+import type { Member, TeamKey } from "@/app/types/Member";
 import AnimateOnView from "@/components/AnimateOnView";
 import Star from "@/components/decorations/star";
 import { Link } from "@/i18n/navigation";
 import { api } from "@/trpc/react";
 import TeamMembers from "./TeamMembers";
-
-type TeamKey = Members["teamKey"];
 
 export default function TeamSection() {
     const t = useTranslations("about");
@@ -17,25 +15,13 @@ export default function TeamSection() {
 
     const { data: membersData = [] } = api.member.getAll.useQuery();
 
-    const teams = useMemo(() => {
-        const grouped = Object.fromEntries(
-            Object.values(
-                membersData.reduce((acc, m) => {
-                    acc.add(m.teamKey);
-                    return acc;
-                }, new Set<TeamKey>()),
-            ).map(key => [key, []]),
-        ) as Record<TeamKey, Members[]>;
-
-        for (const member of membersData) {
-            if (!grouped[member.teamKey]) {
-                grouped[member.teamKey] = [];
-            }
-            grouped[member.teamKey].push(member);
-        }
-
-        return grouped;
-    }, [membersData]);
+    const teams = useMemo(
+        () =>
+            Object.groupBy(membersData, member => member.teamKey) as Partial<
+                Record<TeamKey, Member[]>
+            >,
+        [membersData],
+    );
 
     const orderedTeamKeys = useMemo(
         () => [...new Set(membersData.map(m => m.teamKey))],
@@ -158,7 +144,7 @@ export default function TeamSection() {
                         teamKey={teamKey}
                         title={tOurTeam(teamKey)}
                         description={tOurTeam(`${teamKey}_desc`)}
-                        people={teams[teamKey]}
+                        people={teams[teamKey] ?? []}
                     />
                 ))}
             </div>
