@@ -1,27 +1,25 @@
-// import {Button} from "@/components/ui/button";
-
+"use client";
 import { Button } from "@repo/ui/components/button";
 import Image from "next/image";
 import { useLocale } from "next-intl";
 import { useMemo } from "react";
-import type { Member } from "@/app/types/Member";
 import AnimateOnView from "@/components/AnimateOnView";
 import { TeamBadgeStack } from "@/components/TeamBadgeStack";
 import { Link } from "@/i18n/navigation";
+import { api } from "@/trpc/react";
 import type Goal from "./types/Goal";
 
-export const GoalCard: React.FC<{ goal: Goal; membersData: Member[] }> = ({
-    goal,
-    membersData,
-}) => {
+export const GoalCard: React.FC<{ goal: Goal }> = ({ goal }) => {
     const locale = useLocale();
     const lang = locale === "fr" ? "fr" : "en";
 
-    const members = useMemo(() => {
-        return membersData
+    const { data: members = [] } = api.member.getAll.useQuery();
+
+    const filteredMembers = useMemo(() => {
+        return members
             .filter(member => member.teamKey === goal.teamKey)
             .map(member => member.imageUrl);
-    }, [membersData, goal.teamKey]);
+    }, [members, goal.teamKey]);
 
     return (
         <div className="flex h-full w-full flex-col items-start justify-between gap-16 lg:flex-row lg:items-center lg:justify-start lg:gap-10 xl:h-[45rem] 2xl:gap-32">
@@ -63,7 +61,7 @@ export const GoalCard: React.FC<{ goal: Goal; membersData: Member[] }> = ({
                         <Link href={goal.buttonLink}>{goal.buttonText[lang]}</Link>
                     </Button>
                 </div>
-                <TeamBadgeStack imgs={members} />
+                <TeamBadgeStack imgs={filteredMembers} />
             </div>
         </div>
     );

@@ -56,9 +56,9 @@ export default async function About() {
     const tWhatWeDo = await getTranslations("about.what_do_we_do_cards");
 
     void api.member.getAll.prefetch();
-    const membersData: Member[] = (await api.member.getAll()) ?? [];
+    const members: Member[] = (await api.member.getAll()) ?? [];
 
-    const directorsImg = membersData
+    const directorsImg = members
         .filter(member => member.teamKey === "codirectors")
         .map(member => member.imageUrl);
 

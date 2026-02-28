@@ -13,20 +13,15 @@ export default function TeamSection() {
     const t = useTranslations("about");
     const tOurTeam = useTranslations("about.introducing_our_team_section");
 
-    const { data: membersData = [] } = api.member.getAll.useQuery();
+    const { data: members = [] } = api.member.getAll.useQuery();
 
     const teams = useMemo(
         () =>
-            Object.groupBy(membersData, member => member.teamKey) as Partial<
-                Record<TeamKey, Member[]>
-            >,
-        [membersData],
+            Object.groupBy(members, member => member.teamKey) as Partial<Record<TeamKey, Member[]>>,
+        [members],
     );
 
-    const orderedTeamKeys = useMemo(
-        () => [...new Set(membersData.map(m => m.teamKey))],
-        [membersData],
-    );
+    const orderedTeamKeys = useMemo(() => [...new Set(members.map(m => m.teamKey))], [members]);
 
     return (
         <section>

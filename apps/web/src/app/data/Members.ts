@@ -8,9 +8,9 @@ interface OldMemberType {
     portfolio?: string;
     github?: string;
 }
-export const membersData: OldMemberType[] = [];
+export const members: OldMemberType[] = [];
 
-// export const membersData: OldMemberType[] = [
+// export const members: OldMemberType[] = [
 //     // Co-directors
 //     {
 //         name: "Rolf Addoumie",

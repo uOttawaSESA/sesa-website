@@ -1,4 +1,3 @@
-"use client";
 import {
     Carousel,
     CarouselContent,
@@ -8,12 +7,10 @@ import {
 } from "@repo/ui/components/carousel";
 import Image from "next/image";
 import Star from "@/components/decorations/star";
-import { api } from "@/trpc/react";
 import { GoalCard } from "./GoalCard";
 import { goalsData } from "./GoalsData";
 
 const Goals = () => {
-    const { data: membersData = [] } = api.member.getAll.useQuery();
     return (
         <section className="relative">
             {/* Decorations */}
@@ -31,7 +28,7 @@ const Goals = () => {
                 <CarouselContent>
                     {goalsData.map((goal, index) => (
                         <CarouselItem key={`goal:${index}`}>
-                            <GoalCard key={`goal:${index}`} goal={goal} membersData={membersData} />
+                            <GoalCard key={`goal:${index}`} goal={goal} />
                         </CarouselItem>
                     ))}
                 </CarouselContent>

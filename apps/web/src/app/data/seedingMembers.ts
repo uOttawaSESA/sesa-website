@@ -1,8 +1,9 @@
 import { db } from "@repo/db";
 import { members } from "@repo/db/schema";
 import type { TeamKey } from "../types/Member";
-import { membersData } from "./Members";
+import { members as membersData } from "./Members";
 
+// type TeamEnum = (typeof teamKeyEnum.enumValues)[number];
 type RoleEnum = "lead" | "member";
 
 const teamNameMap: Record<string, TeamKey> = {

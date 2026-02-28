@@ -11,14 +11,14 @@ import { Link } from "@/i18n/navigation";
 import { api } from "@/trpc/react";
 
 export default function PartnerWithUs() {
-    const { data: membersData = [] } = api.member.getAll.useQuery();
+    const { data: members = [] } = api.member.getAll.useQuery();
 
     const partnershipImgs = useMemo(
         () =>
-            membersData
+            members
                 .filter(member => member.teamKey === "partnerships")
                 .map(member => member.imageUrl),
-        [membersData],
+        [members],
     );
 
     const t = useTranslations("sponsorships");

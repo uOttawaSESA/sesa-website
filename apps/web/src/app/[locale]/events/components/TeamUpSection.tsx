@@ -9,8 +9,8 @@ import { api } from "@/trpc/react";
 export default function TeamUpSection() {
     const t = useTranslations("events");
 
-    const { data: membersData = [] } = api.member.getAll.useQuery();
-    const partnershipMembers = membersData.filter(member => member.teamKey === "partnerships");
+    const { data: members = [] } = api.member.getAll.useQuery();
+    const partnershipMembers = members.filter(member => member.teamKey === "partnerships");
 
     return (
         <div className="my-8 flex flex-col items-center justify-start gap-4 px-8 sm:flex-row md:my-24 md:gap-12 md:ps-0 lg:my-56 2xl:gap-24">

@@ -14,24 +14,21 @@ const Team = () => {
     const t = useTranslations("homepage");
     const tMember = useTranslations("about.introducing_our_team_section");
     const [hoveredId, setHoveredId] = useState<string | null>(null);
-    const { data: membersData = [] } = api.member.getAll.useQuery();
+    const { data: members = [] } = api.member.getAll.useQuery();
 
     const hoveredMember = useMemo(() => {
         if (!hoveredId) return null;
 
-        const member = membersData.find(m => m.id === hoveredId);
+        const member = members.find(m => m.id === hoveredId);
         if (!member) return null;
 
-        const translationKey =
-            member.teamKey === "codirectors" || member.teamKey === "advisors"
-                ? member.teamKey
-                : `${member.teamKey}_${member.roleKey}`;
+        const translationKey = `${member.teamKey}_${member.roleKey}`;
 
         return {
             ...member,
             translationKey,
         };
-    }, [hoveredId, membersData]);
+    }, [hoveredId, members]);
 
     return (
         <section className="relative mb-12 flex flex-col gap-16 md:mb-36 2xl:mt-44 2xl:mb-52">
@@ -121,7 +118,7 @@ const Team = () => {
             <div className="relative -mt-5 bg-transparent md:-mt-7">
                 <Marquee pauseOnHover speed={40} autoFill={true}>
                     <div className="mb-16 flex flex-row pt-2">
-                        {membersData.map(member => (
+                        {members.map(member => (
                             <div key={member.id} className="relative">
                                 <CircleImage
                                     size={50}
