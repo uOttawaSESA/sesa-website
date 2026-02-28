@@ -2,11 +2,14 @@
 import { Button } from "@repo/ui/components/button";
 import { useTranslations } from "next-intl";
 import { useMemo } from "react";
+import type { Members } from "@/app/types/Member";
 import AnimateOnView from "@/components/AnimateOnView";
 import Star from "@/components/decorations/star";
 import { Link } from "@/i18n/navigation";
 import { api } from "@/trpc/react";
 import TeamMembers from "./TeamMembers";
+
+type TeamKey = Members["teamKey"];
 
 export default function TeamSection() {
     const t = useTranslations("about");
@@ -14,16 +17,13 @@ export default function TeamSection() {
 
     const { data: membersData = [] } = api.member.getAll.useQuery();
 
-    const teams = useMemo(() => {
-        const teams: Record<string, typeof membersData> = {};
-
-        for (const member of membersData ?? []) {
-            teams[member.teamKey] ??= [];
-            // biome-ignore lint/style/noNonNullAssertion: <We check the null just before this line>
-            teams[member.teamKey]!.push(member);
-        }
-        return teams;
-    }, [membersData]);
+    const teams = useMemo(
+        () =>
+            Object.groupBy(membersData, member => member.teamKey) as Partial<
+                Record<TeamKey, Members[]>
+            >,
+        [membersData],
+    );
 
     const codirectors = teams.codirectors ?? [];
     const development = teams.development ?? [];

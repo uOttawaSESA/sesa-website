@@ -3,20 +3,23 @@
 import { Button } from "@repo/ui/components/button";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import type { Members } from "@/app/types/Member";
+import { useMemo } from "react";
 import AnimateOnView from "@/components/AnimateOnView";
 import Star from "@/components/decorations/star";
 import { TeamBadgeStack } from "@/components/TeamBadgeStack";
 import { Link } from "@/i18n/navigation";
+import { api } from "@/trpc/react";
 
-interface Props {
-    membersData: Members[];
-}
+export default function PartnerWithUs() {
+    const { data: membersData = [] } = api.member.getAll.useQuery();
 
-export default function PartnerWithUs({ membersData }: Props) {
-    const partnershipImgs = membersData
-        .filter(member => member.teamKey === "partnerships")
-        .map(member => member.imageUrl);
+    const partnershipImgs = useMemo(
+        () =>
+            membersData
+                .filter(member => member.teamKey === "partnerships")
+                .map(member => member.imageUrl),
+        [membersData],
+    );
 
     const t = useTranslations("sponsorships");
 

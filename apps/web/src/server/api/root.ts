@@ -12,8 +12,8 @@ import { resourceRouter } from "./routers/resource";
 export const appRouter = createTRPCRouter({
     contact: contactRouter,
     event: eventRouter,
-    resource: resourceRouter,
     member: memberRouter,
+    resource: resourceRouter,
 });
 
 // export type definition of API

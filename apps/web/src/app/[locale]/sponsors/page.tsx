@@ -16,6 +16,7 @@ export const generateStaticParams = localeParams;
 export async function generateMetadata(): Promise<Metadata> {
     const locale = await getLocale();
     const t = await getTranslations("meta");
+    void api.member.getAll.prefetch();
 
     const title = `${t("sponsors_title")} | ${t("title_suffix")}`;
     const description = t("sponsors_description");
@@ -60,7 +61,7 @@ const Sponsors = async () => {
             <TestimonialsCarousel />
             <PastCollaboratorsCarousel />
             <Benefits />
-            <PartnerWithUs membersData={membersData} />
+            <PartnerWithUs />
         </div>
     );
 };

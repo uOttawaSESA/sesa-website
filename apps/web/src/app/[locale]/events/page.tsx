@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
-import type { Members } from "@/app/types/Member";
 import Star from "@/components/decorations/star";
 import { api, HydrateClient } from "@/trpc/server";
 import ConnectSESA from "./components/ConnectSESA";
@@ -43,8 +42,7 @@ export default async function Events() {
     if (locale !== "en" && locale !== "fr") notFound();
 
     void api.event.getAll.prefetch({ locale });
-    const membersData: Members[] = (await api.member.getAll()) ?? [];
-    const eventMembers: Members[] = membersData.filter(member => member.teamKey === "academics");
+    void api.member.getAll.prefetch();
 
     return (
         <HydrateClient>
@@ -76,7 +74,7 @@ export default async function Events() {
 
                 <div className="relative z-10">
                     <EventSection />
-                    <TeamUpSection membersData={eventMembers} />
+                    <TeamUpSection />
                     <ConnectSESA />
 
                     <div className="pointer-events relative my-16 select-none md:mb-52">

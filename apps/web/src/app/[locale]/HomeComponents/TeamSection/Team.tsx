@@ -2,7 +2,7 @@
 import { Button } from "@repo/ui/components/button";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Marquee from "react-fast-marquee";
 import AnimateOnView from "@/components/AnimateOnView";
 import CircleImage from "@/components/CircleImage";
@@ -13,19 +13,25 @@ import { api } from "@/trpc/react";
 const Team = () => {
     const t = useTranslations("homepage");
     const tMember = useTranslations("about.introducing_our_team_section");
-    const [hovered, setHovered] = useState<string>("");
-
+    const [hoveredId, setHoveredId] = useState<string | null>(null);
     const { data: membersData = [] } = api.member.getAll.useQuery();
 
-    let hoveredMember = "";
-    if (hovered) {
-        const member = membersData.find(m => m.name === hovered);
-        if (member?.teamKey === "codirectors" || member?.teamKey === "advisors") {
-            hoveredMember = member.teamKey;
-        } else {
-            hoveredMember = `${member?.teamKey}_${member?.roleKey}`;
-        }
-    }
+    const hoveredMember = useMemo(() => {
+        if (!hoveredId) return null;
+
+        const member = membersData.find(m => m.id === hoveredId);
+        if (!member) return null;
+
+        const translationKey =
+            member.teamKey === "codirectors" || member.teamKey === "advisors"
+                ? member.teamKey
+                : `${member.teamKey}_${member.roleKey}`;
+
+        return {
+            ...member,
+            translationKey,
+        };
+    }, [hoveredId, membersData]);
 
     return (
         <section className="relative mb-12 flex flex-col gap-16 md:mb-36 2xl:mt-44 2xl:mb-52">
@@ -115,25 +121,27 @@ const Team = () => {
             <div className="relative -mt-5 bg-transparent md:-mt-7">
                 <Marquee pauseOnHover speed={40} autoFill={true}>
                     <div className="mb-16 flex flex-row pt-2">
-                        {membersData.map((member, index) => (
-                            <div key={index} className="relative">
+                        {membersData.map(member => (
+                            <div key={member.id} className="relative">
                                 <CircleImage
                                     size={50}
                                     src={member.imageUrl}
                                     alt={member.name}
                                     className="mx-5 transition-all ease-in-out hover:-translate-y-2"
-                                    onMouseEnter={() => setHovered(member.name)}
-                                    onMouseLeave={() => setHovered("")}
+                                    onMouseEnter={() => setHoveredId(member.id)}
+                                    onMouseLeave={() => setHoveredId(null)}
                                 />
                             </div>
                         ))}
                     </div>
                 </Marquee>
 
-                {hovered && (
+                {hoveredMember && (
                     <div className="absolute top-16 left-1/2 z-10 mt-7 -translate-x-1/2 px-4 py-2 text-center 2xl:top-20">
-                        <h1 className="mb-2 font-heading text-xl">{hovered}</h1>
-                        <p className="font-sans text-thistle">{tMember(hoveredMember)}</p>
+                        <h1 className="mb-2 font-heading text-xl">{hoveredMember.name}</h1>
+                        <p className="font-sans text-thistle">
+                            {tMember(hoveredMember.translationKey)}
+                        </p>
                     </div>
                 )}
             </div>
