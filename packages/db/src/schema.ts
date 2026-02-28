@@ -106,13 +106,14 @@ export const resources = pgTable(
 
 // *** Members *** //
 
+// Order defines which is showed first in the about page
 export const teamKeyEnum = pgEnum("team_key_enum", [
     "codirectors",
-    "academics",
-    "communications",
-    "development",
     "partnerships",
     "logistics",
+    "communications",
+    "development",
+    "academics",
     "advisors",
 ]);
 

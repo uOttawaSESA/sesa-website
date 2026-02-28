@@ -137,18 +137,18 @@
         "introducing_our_team_heading": "qui font l'AÉGL",
         "introducing_our_team_blurb": "Rencontrez l'incroyable équipe de back-end qui alimente notre succès front-end et rend tout possible.",
         "introducing_our_team_section": {
-            "codirectors": "Co-Directeurs·rices",
+            "codirectors": "Co-Directeurs",
             "codirectors_desc": "Rencontrez nos Co-Directeurs, qui s'assurent que tout fonctionne bien. Ils supervisent les projets, soutiennent l'équipe et veillent à ce que les objectifs soient atteints avec une vision claire et une forte collaboration.",
             "partnerships": "Partenariats",
             "partnerships_desc": "Créateurs de relations, collaborant avec les commanditaires, partenaires et intervenants pour stimuler une croissance mutuelle et des opportunités.",
-            "events": "Événements",
-            "events_desc": "Les organisateurs et planificateurs, qui rassemblent notre communauté grâce à des ateliers, séminaires et conférences marquants.",
+            "logistics": "Événements",
+            "logistics_desc": "Les organisateurs et planificateurs, qui rassemblent notre communauté grâce à des ateliers, séminaires et conférences marquants.",
             "communications": "Communications",
             "communications_desc": "Esprits créatifs gérant les réseaux sociaux, la conception du site web et la communication numérique avec style et impact.",
             "development": "Développement",
             "development_desc": "La puissance technologique derrière nos projets, développant des solutions innovantes et assurant la maintenance de notre site web.",
-            "academic": "Académique",
-            "academic_desc": "Experts en recherche et en partage de connaissances, soutenant les initiatives éducatives et assurant la qualité des résultats académiques.",
+            "academics": "Académique",
+            "academics_desc": "Experts en recherche et en partage de connaissances, soutenant les initiatives éducatives et assurant la qualité des résultats académiques.",
             "advisors": "Conseillers",
             "advisors_desc": "Nos mentors de confiance fournissent des conseils et des perspectives pour aider l'équipe à relever les défis et à réussir.",
 
@@ -165,7 +165,13 @@
             "partnerships_member": "Coordinateur·rice des partenariats",
 
             "logistics_lead": "Responsable des évenements",
-            "logistics_member": "Coordinateur·rice des évenements"
+            "logistics_member": "Coordinateur·rice des évenements",
+
+            "advisors_lead": "Conseiller·ère",
+            "advisors_member": "Conseiller·ère",
+
+            "codirectors_lead": "Co-Directeur·rice",
+            "codirectors_member": "Co-Directeur·rice"
         },
         "our_previous_partners": "Où sont nos anciens maintenant",
         "our_previous_partners_heading_hl": "Au-delà de l'AÉGL",

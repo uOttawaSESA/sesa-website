@@ -17,21 +17,30 @@ export default function TeamSection() {
 
     const { data: membersData = [] } = api.member.getAll.useQuery();
 
-    const teams = useMemo(
-        () =>
-            Object.groupBy(membersData, member => member.teamKey) as Partial<
-                Record<TeamKey, Members[]>
-            >,
+    const teams = useMemo(() => {
+        const grouped = Object.fromEntries(
+            Object.values(
+                membersData.reduce((acc, m) => {
+                    acc.add(m.teamKey);
+                    return acc;
+                }, new Set<TeamKey>()),
+            ).map(key => [key, []]),
+        ) as Record<TeamKey, Members[]>;
+
+        for (const member of membersData) {
+            if (!grouped[member.teamKey]) {
+                grouped[member.teamKey] = [];
+            }
+            grouped[member.teamKey].push(member);
+        }
+
+        return grouped;
+    }, [membersData]);
+
+    const orderedTeamKeys = useMemo(
+        () => [...new Set(membersData.map(m => m.teamKey))],
         [membersData],
     );
-
-    const codirectors = teams.codirectors ?? [];
-    const development = teams.development ?? [];
-    const communications = teams.communications ?? [];
-    const partnership = teams.partnerships ?? [];
-    const events = teams.logistics ?? [];
-    const academic = teams.academics ?? [];
-    const advisors = teams.advisors ?? [];
 
     return (
         <section>
@@ -99,27 +108,11 @@ export default function TeamSection() {
                 </div>
                 {/* TODO: Add the `sticky` class once a way to make it not super ugly is found */}
                 <div className="top-[5.6rem] z-10 mt-4 grid grid-flow-col grid-rows-4 text-center font-heading uppercase backdrop-blur-xs md:grid-rows-1">
-                    <Button className="!inline px-2!" variant="outline" asChild>
-                        <Link href="#co-directors">{tOurTeam("codirectors")}</Link>
-                    </Button>
-                    <Button className="!inline" variant="outline" asChild>
-                        <Link href="#partnerships">{tOurTeam("partnerships")}</Link>
-                    </Button>
-                    <Button className="!inline" variant="outline" asChild>
-                        <Link href="#events">{tOurTeam("events")}</Link>
-                    </Button>
-                    <Button className="!inline" variant="outline" asChild>
-                        <Link href="#communications">{tOurTeam("communications")}</Link>
-                    </Button>
-                    <Button className="!inline" variant="outline" asChild>
-                        <Link href="#development">{tOurTeam("development")}</Link>
-                    </Button>
-                    <Button className="!inline" variant="outline" asChild>
-                        <Link href="#academic">{tOurTeam("academic")}</Link>
-                    </Button>
-                    <Button className="!inline" variant="outline" asChild>
-                        <Link href="#advisors">{tOurTeam("advisors")}</Link>
-                    </Button>
+                    {orderedTeamKeys.map(teamKey => (
+                        <Button key={teamKey} className="!inline" variant="outline" asChild>
+                            <Link href={`#${teamKey}`}>{tOurTeam(teamKey)}</Link>
+                        </Button>
+                    ))}
                 </div>
                 <br />
             </div>
@@ -159,47 +152,15 @@ export default function TeamSection() {
                     />
                 </div>
 
-                <TeamMembers
-                    title={tOurTeam("codirectors")}
-                    description={tOurTeam("codirectors_desc")}
-                    people={codirectors}
-                />
-
-                <TeamMembers
-                    title={tOurTeam("partnerships")}
-                    description={tOurTeam("partnerships_desc")}
-                    people={partnership}
-                />
-
-                <TeamMembers
-                    title={tOurTeam("events")}
-                    description={tOurTeam("events_desc")}
-                    people={events}
-                />
-
-                <TeamMembers
-                    title={tOurTeam("communications")}
-                    description={tOurTeam("communications_desc")}
-                    people={communications}
-                />
-
-                <TeamMembers
-                    title={tOurTeam("development")}
-                    description={tOurTeam("development_desc")}
-                    people={development}
-                />
-
-                <TeamMembers
-                    title={tOurTeam("academic")}
-                    description={tOurTeam("academic_desc")}
-                    people={academic}
-                />
-
-                <TeamMembers
-                    title={tOurTeam("advisors")}
-                    description={tOurTeam("advisors_desc")}
-                    people={advisors}
-                />
+                {orderedTeamKeys.map(teamKey => (
+                    <TeamMembers
+                        key={teamKey}
+                        teamKey={teamKey}
+                        title={tOurTeam(teamKey)}
+                        description={tOurTeam(`${teamKey}_desc`)}
+                        people={teams[teamKey]}
+                    />
+                ))}
             </div>
         </section>
     );

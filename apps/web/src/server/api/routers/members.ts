@@ -22,7 +22,8 @@ export const memberRouter = createTRPCRouter({
                 retiredAt: members.retiredAt,
             })
             .from(members)
-            .where(isNull(members.retiredAt));
+            .where(isNull(members.retiredAt))
+            .orderBy(members.teamKey, members.roleKey, members.createdAt);
         return rows;
     }),
 });

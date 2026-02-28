@@ -7,6 +7,7 @@ export interface Props {
     title: string;
     description: string;
     people: readonly Members[];
+    teamKey: Members["teamKey"];
 }
 
 function memberToIcons(member: Members) {
@@ -82,7 +83,7 @@ function memberToIcons(member: Members) {
     return icons;
 }
 
-export default function TeamMembers({ title, description, people }: Props) {
+export default function TeamMembers({ title, description, people, teamKey }: Props) {
     const t = useTranslations("about.introducing_our_team_section");
 
     return (
@@ -97,7 +98,7 @@ export default function TeamMembers({ title, description, people }: Props) {
                     alt=""
                 />
             </div>
-            <div id={title.toLowerCase()} className="scroll-mt-[100px]">
+            <div id={teamKey} className="scroll-mt-[100px]">
                 <h2 className="mb-3 font-heading text-lg uppercase md:text-xl">{title}</h2>
                 <p className="mb-4 max-w-md text-base text-thistle leading-tight md:text-lg">
                     {description}{" "}
@@ -120,10 +121,7 @@ export default function TeamMembers({ title, description, people }: Props) {
                                     {person.name}
                                 </h3>
                                 <p className="text-thistle">
-                                    {person.teamKey === "codirectors" ||
-                                    person.teamKey === "advisors"
-                                        ? t(person.teamKey)
-                                        : `${t(`${person.teamKey}_${person.roleKey}`)}`}
+                                    {t(`${person.teamKey}_${person.roleKey}`)}
                                 </p>
                                 <div className="mt-auto flex gap-2">{memberToIcons(person)}</div>
                             </div>
