@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import type { ReactNode } from "react";
+import { type ReactNode, useState } from "react";
 import type { Member, TeamKey } from "@/app/types/Member";
 
 export interface Props {
@@ -86,6 +86,17 @@ function memberToIcons(member: Member) {
 export default function TeamMembers({ title, description, people, teamKey }: Props) {
     const t = useTranslations("about.introducing_our_team_section");
 
+    const fallbackImage = "/imgs/team/backup.png";
+    const [imgSrcs, setImgSrcs] = useState<string[]>(people.map(person => person.imageUrl));
+
+    const handleError = (index: number) => {
+        setImgSrcs(prev => {
+            const next = [...prev];
+            next[index] = fallbackImage;
+            return next;
+        });
+    };
+
     return (
         <div className="relative">
             {/* Decorations */}
@@ -104,17 +115,18 @@ export default function TeamMembers({ title, description, people, teamKey }: Pro
                     {description}{" "}
                 </p>
                 <div className="flex gap-5 overflow-x-auto md:mt-7">
-                    {people.map(person => (
+                    {people.map((person, index) => (
                         <div
                             className="flex h-[405px] w-64 min-w-64 flex-col outline-gradient backdrop-blur-lg"
                             key={`member:${title}:${person.name}`}
                         >
                             <Image
-                                src={person.imageUrl}
+                                src={imgSrcs[index] ?? fallbackImage}
                                 alt={`Picture of ${person.name}`}
                                 width={256}
                                 height={256}
                                 className="h-64 w-64 object-cover"
+                                onError={() => handleError(index)}
                             />
                             <div className="flex grow flex-col gap-2 p-4">
                                 <h3 className="font-bold font-sans text-lg md:text-xl">
