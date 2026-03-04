@@ -5,11 +5,9 @@ import { getLocale, getTranslations } from "next-intl/server";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
 import Star from "@/components/decorations/star";
-import FadeInSection from "@/components/FadeInSection";
 import { api, HydrateClient } from "@/trpc/server";
 import ConnectSESA from "./components/ConnectSESA";
 import EventSection from "./components/EventSection";
-import InfiniteCarousel from "./components/InfiniteCarousel";
 import TeamUpSection from "./components/TeamUpSection";
 export const generateStaticParams = localeParams;
 
@@ -73,15 +71,9 @@ export default async function Events() {
                 </div>
 
                 <div className="relative z-10">
-                    <FadeInSection>
-                        <EventSection />
-                    </FadeInSection>
-                    <FadeInSection>
-                        <TeamUpSection />
-                    </FadeInSection>
-                    <FadeInSection>
-                        <ConnectSESA />
-                    </FadeInSection>
+                    <EventSection />
+                    <TeamUpSection />
+                    <ConnectSESA />
 
                     <div className="pointer-events relative my-16 select-none md:mb-52">
                         {/* Bottom Star Decoration */}
@@ -102,9 +94,7 @@ export default async function Events() {
                             delay={0.5}
                         />
 
-                        <FadeInSection>
-                            <InfiniteCarousel />
-                        </FadeInSection>
+                        {/* <InfiniteCarousel /> */}
                     </div>
                 </div>
             </div>

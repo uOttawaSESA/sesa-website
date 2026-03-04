@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 import localeParams from "@/app/data/locales";
-import FadeInSection from "@/components/FadeInSection";
 import { api, HydrateClient } from "@/trpc/server";
 import Connect from "./HomeComponents/ConnectSection/Connect";
 import Events from "./HomeComponents/EventsSection/Events";
@@ -51,33 +50,15 @@ export default async function Home() {
     return (
         <HydrateClient>
             <div className="flex h-full flex-col gap-24 bg-gray-300 font-mono text-white lg:gap-20 xl:gap-32">
-                <FadeInSection>
-                    <Hero />
-                </FadeInSection>
-                <FadeInSection>
-                    <Events />
-                </FadeInSection>
-                <FadeInSection>
-                    <Goals />
-                </FadeInSection>
-                <FadeInSection>
-                    <Resources />
-                </FadeInSection>
-                <FadeInSection>
-                    <Quotes />
-                </FadeInSection>
-                <FadeInSection>
-                    <Sponsors />
-                </FadeInSection>
-                <FadeInSection>
-                    <FAQ />
-                </FadeInSection>
-                <FadeInSection>
-                    <Connect />
-                </FadeInSection>
-                <FadeInSection>
-                    <Team />
-                </FadeInSection>
+                <Hero />
+                <Events />
+                <Goals />
+                <Resources />
+                <Quotes />
+                <Sponsors />
+                <FAQ />
+                <Connect />
+                <Team />
             </div>
         </HydrateClient>
     );

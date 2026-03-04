@@ -8,14 +8,19 @@ CODEOWNERS @uOttawaSESA/co-directors
 .lintstagedrc.*      @uOttawaSESA/devops
 lint-staged.config.* @uOttawaSESA/devops
 
-# Build-related
-flake.lock     @uOttawaSESA/devops
-flake.nix      @uOttawaSESA/devops
-next.config.*  @uOttawaSESA/devops
-package.json   @uOttawaSESA/devops
-pnpm-lock.yaml @uOttawaSESA/devops
-tsconfig.json  @uOttawaSESA/devops
+# Monorepo tooling / build
+flake.lock          @uOttawaSESA/devops
+flake.nix           @uOttawaSESA/devops
+turbo.json          @uOttawaSESA/devops
+pnpm-workspace.yaml @uOttawaSESA/devops
+pnpm-lock.yaml      @uOttawaSESA/devops
+biome.json          @uOttawaSESA/devops
 
-# Database
-drizzle/          @uOttawaSESA/devops
-drizzle.config.ts @uOttawaSESA/devops
+# Per-package config (apps/*, packages/*)
+package.json      @uOttawaSESA/devops
+tsconfig.json     @uOttawaSESA/devops
+next.config.*     @uOttawaSESA/devops
+
+# Database (packages/db)
+packages/db/drizzle/ @uOttawaSESA/devops
+drizzle.config.*     @uOttawaSESA/devops
