@@ -8,18 +8,13 @@ export const memberRouter = createTRPCRouter({
             .select({
                 id: members.id,
                 name: members.name,
-
                 roleKey: members.roleKey,
                 teamKey: members.teamKey,
-
                 imageUrl: members.imageUrl,
                 email: members.email,
                 linkedinUrl: members.linkedinUrl,
                 githubUrl: members.githubUrl,
                 portfolioUrl: members.portfolioUrl,
-                createdAt: members.createdAt,
-                updatedAt: members.updatedAt,
-                retiredAt: members.retiredAt,
             })
             .from(members)
             .where(isNull(members.retiredAt))

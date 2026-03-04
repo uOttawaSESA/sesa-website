@@ -87,7 +87,7 @@ export default function TeamMembers({ title, description, people, teamKey }: Pro
     const t = useTranslations("about.introducing_our_team_section");
 
     const fallbackImage = "/imgs/team/backup.png";
-    const [imgSrcs, setImgSrcs] = useState<string[]>(people.map(person => person.imageUrl));
+    const [imgSrcs, setImgSrcs] = useState<string[]>(() => people.map(person => person.imageUrl));
 
     const handleError = (index: number) => {
         setImgSrcs(prev => {
