@@ -638,21 +638,11 @@ export default function About() {
                                 <b>{t("our_family_p_bold")}</b>. {t("our_family_p")}
                             </p>
                             <div className="mt-6 flex flex-col space-y-2 font-heading">
-                                {/* <Button
-                                    className="pointer-events-none my-4 w-fit cursor-not-allowed font-heading uppercase opacity-50"
-                                    disabled
-                                    asChild
-                                >
-                                    <Link href="/contact">{t("apply_now")}</Link>
-                                </Button> */}
-                                <a
-                                    href="https://linktr.ee/uottawa.sesa"
-                                    className="highlight-text w-fit font-heading uppercase"
-                                    target="_blank"
-                                    rel="noopener"
-                                >
-                                    https://linktr.ee/uottawa.sesa
-                                </a>
+                                <Button className="my-4 w-fit font-heading uppercase" asChild>
+                                    <Link href="https://linktr.ee/uottawa.sesa">
+                                        {t("get_involved")}
+                                    </Link>
+                                </Button>
                                 <p className="max-w-[28rem] font-mono text-sm text-thistle">
                                     {t("no_more_apps")}
                                 </p>
