@@ -614,7 +614,7 @@ export default function About() {
                             <p className="max-w-[28rem] font-mono text-sm text-thistle">
                                 {t("no_more_apps")}
                             </p>
-<<<<<<< replace-apply-button
+
                             <div className="mt-6 flex flex-col space-y-2 font-heading">
                                 <Button className="my-4 w-fit font-heading uppercase" asChild>
                                     <Link href="https://linktr.ee/uottawa.sesa">
@@ -625,8 +625,6 @@ export default function About() {
                                     {t("no_more_apps")}
                                 </p>
                             </div>
-=======
->>>>>>> main
                         </div>
                     </div>
 
