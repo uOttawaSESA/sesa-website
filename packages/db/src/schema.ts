@@ -1,4 +1,4 @@
-import { sql } from "drizzle-orm";
+import { isNull, sql } from "drizzle-orm";
 import {
     index,
     pgEnum,
@@ -147,18 +147,14 @@ export const members = pgTable(
             .defaultNow()
             .notNull(),
 
-        // For retired members, we can show something like: "Member from 2025-08 to 2026-02"
         retiredAt: timestamp("retired_at", {
             withTimezone: true,
             mode: "date",
         }),
     },
-    //if necessary
-    t => [
-        index("members_team_idx").on(t.teamKey),
-        index("members_role_idx").on(t.roleKey),
-
-        index("members_created_at_id_idx").on(t.createdAt, t.id),
-        index("members_name_id_idx").on(t.name, t.id),
+    table => [
+        index("active_members_sort_idx")
+            .on(table.teamKey, table.roleKey, table.createdAt)
+            .where(isNull(table.retiredAt)),
     ],
 );

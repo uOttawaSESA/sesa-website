@@ -90,11 +90,7 @@ export default function TeamMembers({ title, description, people, teamKey }: Pro
     const [imgSrcs, setImgSrcs] = useState<string[]>(() => people.map(person => person.imageUrl));
 
     const handleError = (index: number) => {
-        setImgSrcs(prev => {
-            const next = [...prev];
-            next[index] = fallbackImage;
-            return next;
-        });
+        setImgSrcs(prev => prev.with(index, fallbackImage));
     };
 
     return (
