@@ -14,6 +14,16 @@ const sponsors = [
     },
 
     {
+        name: "Microsoft",
+        src: "/sponsors-page/microsoft.webp",
+        alt: "Microsoft",
+        width: 550,
+        height: 150,
+        size: "h-72 md:h-80",
+        link: "https://www.microsoft.com",
+    },
+
+    {
         name: "Ciena",
         src: "/sponsors/ciena.webp",
         alt: "Ciena",
@@ -59,6 +69,25 @@ const sponsors = [
         size: "h-72 md:h-80",
         link: "https://www.bankofcanada.ca/",
     },
+
+    {
+        name: "Deloitte",
+        src: "/sponsors/deloitte.svg",
+        alt: "Deloitte",
+        width: 300,
+        height: 150,
+        size: "h-72 md:h-80",
+        link: "https://www.deloitte.com/",
+    },
+    {
+        name: "Noibu",
+        src: "/sponsors/noibu.svg",
+        alt: "Noibu",
+        width: 300,
+        height: 150,
+        size: "h-72 md:h-80",
+        link: "https://www.noibu.com/",
+    },
 ];
 
 const gradientBorderClass = `
@@ -68,7 +97,6 @@ const gradientBorderClass = `
 
 type Sponsor = (typeof sponsors)[0];
 const firstSponsor = sponsors[0] as Sponsor;
-const lastSponsor = sponsors[5] as Sponsor;
 
 const SponsorsGrid = () => {
     return (
@@ -108,12 +136,12 @@ const SponsorsGrid = () => {
                                 alt={sponsor.alt}
                                 width={sponsor.width}
                                 height={sponsor.height}
-                                className="object-contain"
+                                className="object-contain brightness-0 invert"
                             />
                         </a>
                     ))}
                 </div>
-                {/* Desktop: row 2 (Ciena + Warp) */}
+                {/* Desktop: row 2 (Microsoft + Ciena) */}
                 <div className="hidden w-full flex-row gap-8 md:flex">
                     {sponsors.slice(1, 3).map((sponsor, index) => (
                         <a
@@ -129,13 +157,13 @@ const SponsorsGrid = () => {
                                 alt={sponsor.alt}
                                 width={sponsor.width}
                                 height={sponsor.height}
-                                className="object-contain"
+                                className="object-contain brightness-0 invert"
                             />
                         </a>
                     ))}
                 </div>
 
-                {/* Desktop: row 3 (CSE + Amazon) */}
+                {/* Desktop: row 3 (Warp + CSE) */}
                 <div className="hidden w-full flex-row gap-8 md:flex">
                     {sponsors.slice(3, 5).map((sponsor, index) => (
                         <a
@@ -157,8 +185,52 @@ const SponsorsGrid = () => {
                     ))}
                 </div>
 
-                {/* Desktop: Bank of Canada centered as its own row */}
-                <div className="hidden w-full justify-center md:flex">
+                {/* Desktop: row (Amazon + Bank of Canada) */}
+                <div className="hidden w-full flex-row gap-8 md:flex">
+                    {sponsors.slice(5, 7).map((sponsor, index) => (
+                        <a
+                            key={index}
+                            href={sponsor.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`flex flex-1 items-center justify-center rounded-lg p-10 ${sponsor.size} ${gradientBorderClass} backdrop-blur-lg transition hover:scale-105`}
+                            title={sponsor.name}
+                        >
+                            <Image
+                                src={sponsor.src}
+                                alt={sponsor.alt}
+                                width={sponsor.width}
+                                height={sponsor.height}
+                                className="object-contain"
+                            />
+                        </a>
+                    ))}
+                </div>
+
+                {/* Desktop: row (Deloitte + Noibu) */}
+                <div className="hidden w-full flex-row gap-8 md:flex">
+                    {sponsors.slice(7, 9).map((sponsor, index) => (
+                        <a
+                            key={index}
+                            href={sponsor.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`flex flex-1 items-center justify-center rounded-lg p-10 ${sponsor.size} ${gradientBorderClass} backdrop-blur-lg transition hover:scale-105`}
+                            title={sponsor.name}
+                        >
+                            <Image
+                                src={sponsor.src}
+                                alt={sponsor.alt}
+                                width={sponsor.width}
+                                height={sponsor.height}
+                                className="object-contain brightness-0 invert"
+                            />
+                        </a>
+                    ))}
+                </div>
+
+                {/* Desktop: Last sponsor centered as its own row  (Used when odd amount of sponsors) */}
+                {/* <div className="hidden w-full justify-center md:flex">
                     <a
                         href={lastSponsor.link}
                         target="_blank"
@@ -174,7 +246,7 @@ const SponsorsGrid = () => {
                             className="object-contain"
                         />
                     </a>
-                </div>
+                </div> */}
             </div>
         </div>
     );

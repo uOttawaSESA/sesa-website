@@ -52,6 +52,12 @@ export default function About() {
         { src: "/imgs/about/beyond-sesa/apple.webp", alt: "Apple", width: 120, height: 75 },
         { src: "/imgs/about/beyond-sesa/shopify.webp", alt: "Shopify", width: 140, height: 75 },
         { src: "/imgs/about/beyond-sesa/ibm.webp", alt: "IBM", width: 100, height: 75 },
+        {
+            src: "/imgs/about/beyond-sesa/ycombinator.svg",
+            alt: "Y Combinator",
+            width: 200,
+            height: 75,
+        },
     ];
 
     const codirectors = useMemo(
@@ -542,7 +548,7 @@ export default function About() {
                             {t("our_previous_partners_p")}{" "}
                         </p>
                         <div className="mt-10 flex items-center justify-center text-center">
-                            <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+                            <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
                                 {beyonSesaCompanies.map((company, i) => (
                                     <div
                                         className="flex h-36 w-64 items-center justify-center outline-gradient backdrop-blur-lg"
