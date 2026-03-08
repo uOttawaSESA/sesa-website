@@ -18,12 +18,13 @@ const logos = [
         width: 120,
         height: 60,
     },
-    {
-        src: "/sponsors-page/microsoft.webp",
-        alt: "Microsoft",
-        width: 120,
-        height: 60,
-    },
+    // Commenting for now as Microsoft is currently Sponsor of SESA
+    // {
+    //     src: "/sponsors-page/microsoft.webp",
+    //     alt: "Microsoft",
+    //     width: 120,
+    //     height: 60,
+    // },
     {
         src: "/sponsors-page/google.webp",
         alt: "Google",
