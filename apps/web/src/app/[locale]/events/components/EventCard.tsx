@@ -255,7 +255,7 @@ export const EventCard = ({ event }: EventCardProps) => {
                     <div className="mt-auto flex w-full flex-wrap justify-start gap-2">
                         {/* Details Button */}
                         <Button
-                            className="flex-grow px-4 font-heading text-sm uppercase md:text-base xl:flex-grow-0"
+                            className="grow px-4 font-heading text-sm uppercase md:text-base xl:grow-0"
                             onClick={handleDetails}
                         >
                             {t("btn_details")}
@@ -264,7 +264,7 @@ export const EventCard = ({ event }: EventCardProps) => {
                         {/* Register Button (only for events that require registration) */}
                         {event.registrationUrl && !isRegistered && !isPastEvent && (
                             <Button
-                                className="flex-grow font-heading text-sm uppercase md:text-base xl:flex-grow-0"
+                                className="grow font-heading text-sm uppercase md:text-base xl:grow-0"
                                 onClick={handleRegister}
                             >
                                 {t("btn_register")}
@@ -273,7 +273,7 @@ export const EventCard = ({ event }: EventCardProps) => {
 
                         {/* Add to Calendar Button */}
                         <Button
-                            className="flex-grow font-heading text-sm uppercase md:text-base xl:flex-grow-0"
+                            className="grow font-heading text-sm uppercase md:text-base xl:grow-0"
                             onClick={handleAddToCalendar}
                             variant="outline"
                             disabled={isPastEvent}

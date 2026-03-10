@@ -73,16 +73,16 @@ export default async function About() {
             {/* Gradient */}
             <div className="pointer-events-none absolute top-0 left-0 h-full w-full select-none">
                 {/* Light gradient */}
-                <div className="fade-from-left-bg absolute top-[-20rem] left-0 h-[70rem] w-[80vw] bg-blueviolet-100/20 blur-xs" />
+                <div className="fade-from-left-bg absolute -top-80 left-0 h-280 w-[80vw] bg-blueviolet-100/20 blur-xs" />
                 {/* Warm gradient */}
-                <div className="fade-from-left-bg absolute top-[70rem] h-[90rem] w-full bg-[#B1219D]/15 blur-xs md:w-[60vw]" />
+                <div className="fade-from-left-bg absolute top-280 h-360 w-full bg-[#B1219D]/15 blur-xs md:w-[60vw]" />
             </div>
 
             <div className="container relative mx-auto max-w-7xl px-4 py-8">
                 {/* Decorations */}
                 <div className="pointer-events-none absolute top-0 left-0 h-full w-full select-none">
                     <Image
-                        className="fade-left-bottom absolute top-[-10rem] right-[-12rem] h-[60rem] w-[60rem]"
+                        className="fade-left-bottom absolute -top-40 -right-48 h-240 w-240"
                         src="/decoration/double-tunnel.svg"
                         width={913}
                         height={909}
@@ -90,20 +90,20 @@ export default async function About() {
                     />
                     <Star
                         variant="star"
-                        className="absolute top-[12rem] right-[1rem] hidden md:block"
+                        className="absolute top-48 right-4 hidden md:block"
                         width={130}
                         height={130}
                         delay={1}
                     />
                     <Star
                         variant="star-faded"
-                        className="absolute top-[17rem] right-[0rem]"
+                        className="absolute top-68 right-0"
                         rotate={33}
                         delay={0.5}
                     />
                     <Star
                         variant="star"
-                        className="absolute top-[23rem] right-[24rem]"
+                        className="absolute top-92 right-96"
                         rotate={-15}
                         delay={1}
                     />
@@ -117,7 +117,7 @@ export default async function About() {
                     <h1 className="max-w-96 font-heading text-3xl uppercase md:text-4xl">
                         {t("inspiring_heading")}
                     </h1>
-                    <p className="max-w-[28rem] text-base text-thistle md:text-lg">
+                    <p className="max-w-md text-base text-thistle md:text-lg">
                         {t("inspiring_blurb")}
                     </p>
                     <div className="my-2 flex flex-col items-start gap-2 font-heading uppercase">
@@ -159,7 +159,7 @@ export default async function About() {
                     {/* Decorations */}
                     <div className="pointer-events-none absolute top-0 left-0 h-full w-full select-none">
                         <Image
-                            className="fade-right-bottom absolute top-[20rem] left-[6rem] h-[55rem] w-[55rem] opacity-60 md:top-[-14rem] md:left-[-16rem] md:opacity-100"
+                            className="fade-right-bottom absolute top-80 left-24 h-220 w-220 opacity-60 md:-top-56 md:-left-64 md:opacity-100"
                             src="/decoration/disc.svg"
                             width={911}
                             height={822}
@@ -167,21 +167,21 @@ export default async function About() {
                         />
                         <Star
                             variant="star"
-                            className="absolute top-[3rem] left-[12rem] hidden md:block lg:left-[24rem]"
+                            className="absolute top-12 left-48 hidden md:block lg:left-96"
                             width={150}
                             height={150}
                             delay={1}
                         />
                         <Star
                             variant="star-faded"
-                            className="absolute top-[16rem] left-[4rem]"
+                            className="absolute top-64 left-16"
                             rotate={5}
                             width={79}
                             height={80}
                             delay={0.5}
                         />
                     </div>
-                    <div className="my-8 flex max-w-[28rem] flex-col gap-2 md:mt-28 md:ml-[53%]">
+                    <div className="my-8 flex max-w-md flex-col gap-2 md:mt-28 md:ml-[53%]">
                         <p className="color-gradient font-mono">{t("who_are_we")}</p>
                         <h2 className="font-heading text-2xl uppercase md:text-3xl">
                             {t("who_are_we_heading")}{" "}
@@ -237,19 +237,19 @@ export default async function About() {
                     <div className="pointer-events-none absolute top-0 left-0 h-full w-full select-none">
                         <Star
                             variant="star"
-                            className="absolute top-[8rem] right-0 md:top-[3rem] md:right-[10rem]"
+                            className="absolute top-32 right-0 md:top-12 md:right-40"
                             width={130}
                             height={130}
                             delay={1}
                         />
                         <Star
                             variant="star-faded"
-                            className="absolute top-[8rem] right-[10rem]"
+                            className="absolute top-32 right-40"
                             rotate={30}
                             delay={0.5}
                         />
                     </div>
-                    <div className="my-8 flex max-w-[28rem] flex-col gap-2">
+                    <div className="my-8 flex max-w-md flex-col gap-2">
                         <p className="color-gradient font-mono text-xs md:text-base">
                             {t("what_do_we_do")}
                         </p>
@@ -269,7 +269,7 @@ export default async function About() {
                         </Button>
                     </div>
                     {/* Cards for "What do we do" */}
-                    <div className="mx-0 mb-8 flex w-max max-w-[28rem] gap-3 overflow-x-auto md:max-w-max md:justify-start md:gap-6">
+                    <div className="mx-0 mb-8 flex w-max max-w-md gap-3 overflow-x-auto md:max-w-max md:justify-start md:gap-6">
                         <WhatWeDoCard
                             imageHref="/imgs/about/social-events.webp"
                             icon={
@@ -332,14 +332,14 @@ export default async function About() {
                             alt=""
                         />
                         {/* Light gradient */}
-                        <div className="fade-from-left-bg absolute top-[-100rem] left-[-6rem] h-[200rem] w-[80vw] bg-blueviolet-100/20 blur-xs 2xl:left-[-45rem]" />
+                        <div className="fade-from-left-bg absolute -top-400 -left-24 h-800 w-[80vw] bg-blueviolet-100/20 blur-xs 2xl:-left-180" />
 
                         {/* Warm gradient */}
-                        <div className="fade-from-center-bg absolute top-[-25rem] left-1/2 h-[100rem] w-full -translate-x-1/2 bg-[#B1219D]/25 blur-xs md:w-screen" />
+                        <div className="fade-from-center-bg absolute -top-100 left-1/2 h-400 w-full -translate-x-1/2 bg-[#B1219D]/25 blur-xs md:w-screen" />
 
                         <Star
                             variant="star"
-                            className="absolute top-[4rem] left-[4rem] hidden lg:block"
+                            className="absolute top-16 left-16 hidden lg:block"
                             rotate={-15}
                             width={130}
                             height={130}
@@ -347,13 +347,13 @@ export default async function About() {
                         />
                         <Star
                             variant="star-faded"
-                            className="absolute top-[3rem] left-[10rem]"
+                            className="absolute top-12 left-40"
                             rotate={15}
                             delay={0.5}
                         />
                         <Star
                             variant="star-faded"
-                            className="absolute top-[6.5rem] right-[15rem]"
+                            className="absolute top-26 right-60"
                             rotate={25}
                             width={79}
                             height={80}
@@ -369,7 +369,7 @@ export default async function About() {
                                 {t("our_previous_partners_heading_hl")}
                             </AnimateOnView>
                         </h2>
-                        <p className="max-w-[32rem] text-base text-thistle leading-snug md:text-lg">
+                        <p className="max-w-lg text-base text-thistle leading-snug md:text-lg">
                             <b>{t("our_previous_partners_p_bold")}</b>,{" "}
                             {t("our_previous_partners_p")}{" "}
                         </p>
@@ -399,10 +399,10 @@ export default async function About() {
                 {/* Decorations */}
                 <div className="pointer-events-none absolute top-0 left-0 h-full w-full select-none">
                     {/* Light gradient */}
-                    <div className="fade-from-center-bg relative top-0 left-[10rem] h-[50rem] w-[70vw] bg-blueviolet-100/10 blur-xs" />
+                    <div className="fade-from-center-bg relative top-0 left-40 h-200 w-[70vw] bg-blueviolet-100/10 blur-xs" />
                     <Star
                         variant="star"
-                        className="absolute bottom-[-5rem] left-[35rem] hidden lg:block"
+                        className="absolute -bottom-20 left-140 hidden lg:block"
                         rotate={-15}
                         width={130}
                         height={130}
@@ -410,7 +410,7 @@ export default async function About() {
                     />
                     <Star
                         variant="star-faded"
-                        className="absolute bottom-[-7rem] left-[42rem] hidden lg:block"
+                        className="absolute -bottom-28 left-168 hidden lg:block"
                         rotate={20}
                         width={60}
                         height={60}
@@ -426,13 +426,13 @@ export default async function About() {
                         <p className="color-gradient font-mono text-xs md:text-base">
                             {t("our_family")}
                         </p>
-                        <h2 className="mt-4 max-w-[28rem] font-heading text-2xl uppercase leading-tight md:text-3xl">
+                        <h2 className="mt-4 max-w-md font-heading text-2xl uppercase leading-tight md:text-3xl">
                             {t("our_family_heading")}{" "}
                             <AnimateOnView animationClass="highlight-text">
                                 {t("our_family_heading_hl")}
                             </AnimateOnView>
                         </h2>
-                        <p className="mt-4 max-w-[28rem] font-sans text-base text-thistle md:text-lg">
+                        <p className="mt-4 max-w-md font-sans text-base text-thistle md:text-lg">
                             <b>{t("our_family_p_bold")}</b>. {t("our_family_p")}
                         </p>
                         <div className="mt-6 flex flex-col space-y-2 font-heading">
@@ -445,7 +445,7 @@ export default async function About() {
                                     {t("get_involved")}
                                 </a>
                             </Button>
-                            <p className="max-w-[28rem] font-mono text-sm text-thistle">
+                            <p className="max-w-md font-mono text-sm text-thistle">
                                 {t("no_more_apps")}
                             </p>
                         </div>

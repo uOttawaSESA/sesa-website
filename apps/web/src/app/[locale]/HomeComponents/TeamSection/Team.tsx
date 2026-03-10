@@ -33,12 +33,12 @@ const Team = () => {
     return (
         <section className="relative mb-12 flex flex-col gap-16 md:mb-36 2xl:mt-44 2xl:mb-52">
             <div className="pointer-events-none z-0 select-none">
-                <div className="fade-from-center-bg absolute top-[-29rem] left-1/2 h-[112rem] w-full -translate-x-1/2 bg-blueviolet-100/25 blur-xl md:top-[-59rem] md:w-[130rem] 2xl:top-[-55rem]" />
-                <div className="fade-from-center-bg absolute bottom-[-15rem] left-1/2 h-[55rem] w-full -translate-x-1/2 bg-[#B1219D]/30 blur-xl md:w-[80vw] 2xl:bottom-[-8rem]" />
+                <div className="fade-from-center-bg absolute -top-116 left-1/2 h-448 w-full -translate-x-1/2 bg-blueviolet-100/25 blur-xl md:-top-236 md:w-520 2xl:-top-220" />
+                <div className="fade-from-center-bg absolute -bottom-60 left-1/2 h-220 w-full -translate-x-1/2 bg-[#B1219D]/30 blur-xl md:w-[80vw] 2xl:-bottom-32" />
 
                 <Star
                     variant="star"
-                    className="hidden md:top-[1rem] md:left-[8rem] md:block"
+                    className="hidden md:top-4 md:left-32 md:block"
                     rotate={-110}
                     width={77}
                     height={77}
@@ -47,20 +47,20 @@ const Team = () => {
 
                 <Star
                     variant="star"
-                    className="hidden opacity-60 md:top-[-5rem] md:right-[5rem] md:block"
+                    className="hidden opacity-60 md:-top-20 md:right-20 md:block"
                     delay={1}
                 />
 
                 <Star
                     variant="star-faded"
-                    className="absolute top-[1rem] right-[2rem] md:top-[-1rem] md:right-[10rem]"
+                    className="absolute top-4 right-8 md:-top-4 md:right-40"
                     rotate={30}
                     width={60}
                     height={60}
                     delay={0.5}
                 />
 
-                <div className="fade-from-center-tunnel-home absolute bottom-[5rem] left-1/2 z-0 hidden h-[580px] w-[1500px] -translate-x-1/2 transform overflow-hidden md:block">
+                <div className="fade-from-center-tunnel-home absolute bottom-20 left-1/2 z-0 hidden h-[580px] w-[1500px] -translate-x-1/2 transform overflow-hidden md:block">
                     <Image
                         src="/decoration/tunnel.svg"
                         className="relative left-1/2 -translate-x-1/2 object-cover opacity-85"

@@ -22,7 +22,7 @@ export default function CTA() {
 
                 <Star
                     variant="star-faded"
-                    className="absolute top-[10rem] right-[4rem] md:top-[12rem] md:right-[10rem]"
+                    className="absolute top-40 right-16 md:top-48 md:right-40"
                     rotate={30}
                     width={55}
                     height={55}
@@ -31,7 +31,7 @@ export default function CTA() {
 
                 <Star
                     variant="star"
-                    className="absolute top-[7rem] right-[11rem] hidden md:block"
+                    className="absolute top-28 right-44 hidden md:block"
                     width={125}
                     height={128}
                     delay={1}

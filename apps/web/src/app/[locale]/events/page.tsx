@@ -49,23 +49,23 @@ export default async function Events() {
                 {/* Decorations */}
                 <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
                     {/* Warm gradient */}
-                    <div className="fade-from-top-left-bg absolute h-[70rem] w-full bg-[#B1219D]/15 blur-xs md:w-[60vw]" />
+                    <div className="fade-from-top-left-bg absolute h-280 w-full bg-[#B1219D]/15 blur-xs md:w-[60vw]" />
 
                     {/* Light gradient */}
-                    <div className="fade-from-left-bg absolute top-[75rem] h-[70rem] w-[30vw] bg-blueviolet-100/25 blur-xs" />
+                    <div className="fade-from-left-bg absolute top-300 h-280 w-[30vw] bg-blueviolet-100/25 blur-xs" />
 
                     <Image
                         src="/decoration/waves.svg"
-                        className="fade-from-top-bg absolute top-[26.5rem] left-1/2 -translate-x-1/2 transform md:top-[10rem]"
+                        className="fade-from-top-bg absolute top-106 left-1/2 -translate-x-1/2 transform md:top-40"
                         width={1200}
                         height={280}
                         alt=""
                     />
 
-                    <Star variant="star" className="top-[13rem] right-[11rem]" delay={1} />
+                    <Star variant="star" className="top-52 right-44" delay={1} />
                     <Star
                         variant="star-faded"
-                        className="top-[8rem] left-[20rem] md:top-[16rem] md:left-[16rem]"
+                        className="top-32 left-80 md:top-64 md:left-64"
                         delay={0.5}
                         showMobile={true}
                     />
@@ -80,18 +80,18 @@ export default async function Events() {
                         {/* Bottom Star Decoration */}
                         <Star
                             variant="star"
-                            className="absolute bottom-[-9rem] left-[4rem] rotate-[-110deg] transform md:bottom-[-8rem] md:left-[10rem]"
+                            className="absolute -bottom-36 left-16 rotate-[-110deg] transform md:-bottom-32 md:left-40"
                             delay={1}
                             rotate={-110}
                         />
                         <Star
                             variant="star"
-                            className="absolute right-[14rem] bottom-[-9rem] md:right-[10rem] md:bottom-[-10rem]"
+                            className="absolute right-56 -bottom-36 md:right-40 md:-bottom-40"
                             delay={1}
                         />
                         <Star
                             variant="star-faded"
-                            className="absolute right-[9rem] bottom-[-6rem] rotate-30 transform md:block"
+                            className="absolute right-36 -bottom-24 rotate-30 transform md:block"
                             delay={0.5}
                         />
 

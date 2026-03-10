@@ -59,11 +59,11 @@ export default async function Resources() {
                 {/* Decorations */}
                 <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
                     {/* Warm gradient */}
-                    <div className="fade-from-top-right-bg absolute right-0 h-[120rem] w-full bg-[#B1219D]/15 blur-3xl md:w-[80vw]" />
+                    <div className="fade-from-top-right-bg absolute right-0 h-480 w-full bg-[#B1219D]/15 blur-3xl md:w-[80vw]" />
 
                     <Image
                         src="/decoration/waves.svg"
-                        className="fade-from-top-bg absolute top-[26rem] left-1/2 hidden w-11/12 -translate-x-1/2 transform md:top-[10rem] md:block md:w-max"
+                        className="fade-from-top-bg absolute top-104 left-1/2 hidden w-11/12 -translate-x-1/2 transform md:top-40 md:block md:w-max"
                         width={1200}
                         height={280}
                         alt=""

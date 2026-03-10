@@ -43,7 +43,7 @@ const PastCollaboratorsCarousel = () => {
             <div className="pointer-events-none absolute inset-0 z-0">
                 <Star
                     variant="star"
-                    className="absolute md:top-0 md:left-[15rem]"
+                    className="absolute md:top-0 md:left-60"
                     rotate={-110}
                     width={125}
                     height={128}
@@ -51,7 +51,7 @@ const PastCollaboratorsCarousel = () => {
                 />
                 <Star
                     variant="star-faded"
-                    className="absolute right-[18rem] md:right-[16rem] md:bottom-0"
+                    className="absolute right-72 md:right-64 md:bottom-0"
                     rotate={30}
                     width={75}
                     height={75}

@@ -28,11 +28,11 @@ export default function PartnerWithUs() {
             {/* Decorations */}
             <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
                 {/* Light gradient */}
-                <div className="fade-from-left-bg absolute h-[70rem] w-[60vw] bg-blueviolet-100 opacity-15 blur-xs md:bottom-[-20rem] md:h-[100rem]" />
+                <div className="fade-from-left-bg absolute h-280 w-[60vw] bg-blueviolet-100 opacity-15 blur-xs md:-bottom-80 md:h-400" />
 
                 <Star
                     variant="star-faded"
-                    className="absolute md:top-[-5rem] md:left-[10rem]"
+                    className="absolute md:-top-20 md:left-40"
                     rotate={30}
                     width={75}
                     height={75}
@@ -48,7 +48,7 @@ export default function PartnerWithUs() {
                 />
                 <Star
                     variant="star-faded"
-                    className="absolute top-[45rem] left-[17rem] md:top-[30rem] md:left-[30rem] 2xl:top-[40rem] 2xl:left-[40rem]"
+                    className="absolute top-180 left-68 md:top-120 md:left-120 2xl:top-160 2xl:left-160"
                     rotate={30}
                     width={75}
                     height={75}
@@ -80,7 +80,7 @@ export default function PartnerWithUs() {
 
                     <div className="mb-6 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
                         <Button
-                            className="w-fit min-w-[12rem] whitespace-nowrap font-heading text-sm text-white uppercase md:text-lg"
+                            className="w-fit min-w-48 whitespace-nowrap font-heading text-sm text-white uppercase md:text-lg"
                             asChild
                         >
                             <Link href="/contact" className="block h-full text-inherit">
@@ -89,7 +89,7 @@ export default function PartnerWithUs() {
                         </Button>
                         <Button
                             variant="outline"
-                            className="w-fit min-w-[12rem] whitespace-nowrap font-heading text-sm text-white md:text-lg"
+                            className="w-fit min-w-48 whitespace-nowrap font-heading text-sm text-white md:text-lg"
                             asChild
                         >
                             <Link href="/about" className="block h-full text-inherit">

@@ -29,26 +29,26 @@ export default function TeamSection() {
                 {/* Decorations */}
                 <div className="pointer-events-none absolute top-0 left-0 h-full w-full select-none">
                     {/* Light gradient */}
-                    <div className="fade-from-center-bg absolute top-[-10rem] left-[-10rem] h-[70rem] w-[70vw] bg-blueviolet-100/15 blur-xs 2xl:left-[-45rem]" />
+                    <div className="fade-from-center-bg absolute -top-40 -left-40 h-280 w-[70vw] bg-blueviolet-100/15 blur-xs 2xl:-left-180" />
 
                     {/* Warm gradient */}
-                    <div className="fade-from-left-bg absolute top-[-20rem] left-[-10rem] h-[90rem] w-full bg-[#B1219D]/15 blur-xs md:w-[60vw] 2xl:left-[-45rem]" />
+                    <div className="fade-from-left-bg absolute -top-80 -left-40 h-360 w-full bg-[#B1219D]/15 blur-xs md:w-[60vw] 2xl:-left-180" />
 
                     {/* Light gradient */}
-                    <div className="fade-from-left-bg absolute top-[10rem] left-[-10rem] h-[100rem] w-[80vw] bg-blueviolet-100/20 blur-xs 2xl:left-[-45rem]" />
+                    <div className="fade-from-left-bg absolute top-40 -left-40 h-400 w-[80vw] bg-blueviolet-100/20 blur-xs 2xl:-left-180" />
 
                     {/* Warm gradient */}
-                    <div className="fade-from-center-bg absolute top-[100rem] left-1/2 h-[100rem] w-full -translate-x-1/2 bg-[#B1219D]/25 blur-xs md:w-screen 2xl:left-[-45rem]" />
+                    <div className="fade-from-center-bg absolute top-400 left-1/2 h-400 w-full -translate-x-1/2 bg-[#B1219D]/25 blur-xs md:w-screen 2xl:-left-180" />
 
                     {/* Light gradient */}
-                    <div className="fade-from-right-bg absolute top-[130rem] right-[-6rem] h-[100rem] w-[50vw] bg-blueviolet-100/20 blur-xs 2xl:right-[-45rem]" />
+                    <div className="fade-from-right-bg absolute top-520 -right-24 h-400 w-[50vw] bg-blueviolet-100/20 blur-xs 2xl:-right-180" />
 
                     {/* Warm gradient */}
-                    <div className="fade-from-center-bg absolute top-[190rem] left-1/2 h-[100rem] w-full -translate-x-1/2 bg-[#B1219D]/25 blur-xs md:w-screen" />
+                    <div className="fade-from-center-bg absolute top-760 left-1/2 h-400 w-full -translate-x-1/2 bg-[#B1219D]/25 blur-xs md:w-screen" />
 
                     <Star
                         variant="star"
-                        className="absolute top-[-4rem] left-[4rem] hidden lg:block"
+                        className="absolute -top-16 left-16 hidden lg:block"
                         rotate={-15}
                         width={130}
                         height={130}
@@ -56,14 +56,14 @@ export default function TeamSection() {
                     />
                     <Star
                         variant="star-faded"
-                        className="absolute top-[3.5rem] left-[5rem]"
+                        className="absolute top-14 left-20"
                         width={60}
                         height={60}
                         delay={0.5}
                     />
                     <Star
                         variant="star-faded"
-                        className="absolute top-[1rem] right-[2rem]"
+                        className="absolute top-4 right-8"
                         rotate={30}
                         width={79}
                         height={80}
@@ -83,14 +83,14 @@ export default function TeamSection() {
                         </AnimateOnView>{" "}
                         {t("introducing_our_team_heading")}
                     </h2>
-                    <p className="max-w-[32rem] text-base text-thistle leading-tight md:text-lg">
+                    <p className="max-w-lg text-base text-thistle leading-tight md:text-lg">
                         {t("introducing_our_team_blurb")}
                     </p>
                 </div>
                 {/* TODO: Add the `sticky` class once a way to make it not super ugly is found */}
                 <div className="top-[5.6rem] z-10 mt-4 grid grid-flow-col grid-rows-4 text-center font-heading uppercase backdrop-blur-xs md:grid-rows-1">
                     {orderedTeamKeys.map(teamKey => (
-                        <Button key={teamKey} className="!inline" variant="outline" asChild>
+                        <Button key={teamKey} className="inline!" variant="outline" asChild>
                             <Link href={`#${teamKey}`}>{tOurTeam(teamKey)}</Link>
                         </Button>
                     ))}
@@ -103,7 +103,7 @@ export default function TeamSection() {
                     {/* Between Co-Directors and Partnerships */}
                     <Star
                         variant="star"
-                        className="absolute top-[40rem] right-[0rem] hidden lg:block"
+                        className="absolute top-160 right-0 hidden lg:block"
                         delay={1}
                         width={90}
                         height={90}
@@ -112,7 +112,7 @@ export default function TeamSection() {
                     {/* Next to Events text */}
                     <Star
                         variant="star"
-                        className="absolute top-[85rem] right-1/2 hidden lg:block"
+                        className="absolute top-340 right-1/2 hidden lg:block"
                         delay={1}
                         width={90}
                         height={90}
@@ -122,12 +122,12 @@ export default function TeamSection() {
                     {/* Next to Development */}
                     <Star
                         variant="star"
-                        className="absolute top-[160rem] right-[5rem] hidden lg:block"
+                        className="absolute top-640 right-20 hidden lg:block"
                         delay={1}
                     />
                     <Star
                         variant="star-faded"
-                        className="absolute top-[165rem] right-[10rem] hidden lg:block"
+                        className="absolute top-660 right-40 hidden lg:block"
                         delay={1}
                         rotate={10}
                     />

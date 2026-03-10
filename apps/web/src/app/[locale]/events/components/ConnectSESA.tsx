@@ -13,20 +13,16 @@ const ConnectSESA = () => {
                 {/* Decorations */}
                 <Star
                     variant="star"
-                    className="top-[-6rem] left-[14rem] md:top-[-3rem]"
+                    className="-top-24 left-56 md:-top-12"
                     delay={1}
                     width={82}
                     height={82}
                     rotate={-110}
                 />
 
-                <Star variant="star" className="top-[-5rem] right-[14rem]" delay={1.5} />
+                <Star variant="star" className="-top-20 right-56" delay={1.5} />
 
-                <Star
-                    variant="star-faded"
-                    className="top-[-3rem] left-[18rem] md:top-0"
-                    delay={2}
-                />
+                <Star variant="star-faded" className="-top-12 left-72 md:top-0" delay={2} />
             </div>
             <div className="mx-auto max-w-7xl px-8 md:text-center lg:my-36 lg:max-w-3xl">
                 <div className="color-gradient font-mono text-sm md:text-base">

@@ -14,11 +14,11 @@ const FooterSection: React.FC = () => {
             {/* Decorations */}
             <div className="pointer-events-none select-none">
                 {/* Light gradient */}
-                <div className="fade-from-center-bg absolute top-[6rem] right-[5rem] hidden h-[80rem] w-screen bg-blueviolet-100/25 blur-3xl backdrop-blur-2xl md:block" />
+                <div className="fade-from-center-bg absolute top-24 right-20 hidden h-320 w-screen bg-blueviolet-100/25 blur-3xl backdrop-blur-2xl md:block" />
 
                 <Star
                     variant="star"
-                    className="absolute left-[14rem] md:top-[58rem] md:left-[25rem]"
+                    className="absolute left-56 md:top-232 md:left-100"
                     rotate={-110}
                     width={100}
                     height={100}
@@ -27,7 +27,7 @@ const FooterSection: React.FC = () => {
 
                 <Star
                     variant="star"
-                    className="absolute right-[14rem] md:top-[14rem] md:right-[10rem]"
+                    className="absolute right-56 md:top-56 md:right-40"
                     width={120}
                     height={120}
                     delay={1}
@@ -35,7 +35,7 @@ const FooterSection: React.FC = () => {
 
                 <Star
                     variant="star-faded"
-                    className="absolute top-[29rem] right-[2rem] md:top-[19rem] md:right-[9rem]"
+                    className="absolute top-116 right-8 md:top-76 md:right-36"
                     rotate={30}
                     width={63}
                     height={63}
@@ -65,7 +65,7 @@ const FooterSection: React.FC = () => {
             </div>
 
             {/* Ange quote section */}
-            <div className="my-20 flex flex-col-reverse items-center justify-start gap-12 align-middle md:my-36 md:h-[45rem] md:flex-row 2xl:gap-32">
+            <div className="my-20 flex flex-col-reverse items-center justify-start gap-12 align-middle md:my-36 md:h-180 md:flex-row 2xl:gap-32">
                 {/* Grid Gradient Back */}
                 <div className="grid-overlay-left md:h-[43.93rem] md:w-[53vw] 2xl:w-[45vw]"></div>
 

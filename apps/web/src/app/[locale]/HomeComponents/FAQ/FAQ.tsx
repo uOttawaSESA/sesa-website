@@ -44,18 +44,18 @@ const FAQ = () => {
             {/* Decorations */}
             <div className="pointer-events-none select-none">
                 {/* Warm gradient */}
-                <div className="fade-from-center-bg absolute top-1/2 left-1/2 h-[120rem] w-full -translate-x-1/2 -translate-y-1/2 bg-[#B1219D]/20 blur-xl md:w-[100rem]" />
+                <div className="fade-from-center-bg absolute top-1/2 left-1/2 h-480 w-full -translate-x-1/2 -translate-y-1/2 bg-[#B1219D]/20 blur-xl md:w-400" />
 
                 <Star
                     variant="star"
-                    className="hidden md:top-[1rem] md:left-[8rem] md:block"
+                    className="hidden md:top-4 md:left-32 md:block"
                     rotate={-110}
                     delay={1}
                 />
 
                 <Star
                     variant="star-faded"
-                    className="absolute top-[8rem] right-[2rem] hidden md:top-[7rem] md:right-[10rem] md:block"
+                    className="absolute top-32 right-8 hidden md:top-28 md:right-40 md:block"
                     rotate={30}
                     width={60}
                     height={60}
@@ -64,13 +64,13 @@ const FAQ = () => {
 
                 <Star
                     variant="star"
-                    className="hidden md:right-[5rem] md:bottom-[-8rem] md:block"
+                    className="hidden md:right-20 md:-bottom-32 md:block"
                     delay={1}
                 />
 
                 <Star
                     variant="star-faded"
-                    className="hidden md:right-[10rem] md:bottom-[-8rem] md:block"
+                    className="hidden md:right-40 md:-bottom-32 md:block"
                     width={63}
                     height={63}
                     delay={0.5}
