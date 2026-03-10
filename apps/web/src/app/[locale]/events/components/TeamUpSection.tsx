@@ -1,12 +1,16 @@
+"use client";
 import { Button } from "@repo/ui/components/button";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import type React from "react";
-import CircleImage from "@/components/CircleImage"; // Import the CircleImage component
+import CircleImage from "@/components/CircleImage";
 import { Link } from "@/i18n/navigation";
+import { api } from "@/trpc/react";
 
-const TeamUpSection: React.FC = () => {
+export default function TeamUpSection() {
     const t = useTranslations("events");
+
+    const { data: members = [] } = api.member.getAll.useQuery();
+    const partnershipMembers = members.filter(member => member.teamKey === "partnerships");
 
     return (
         <div className="my-8 flex flex-col items-center justify-start gap-4 px-8 sm:flex-row md:my-24 md:gap-12 md:ps-0 lg:my-56 2xl:gap-24">
@@ -44,40 +48,17 @@ const TeamUpSection: React.FC = () => {
                 </div>
 
                 <div className="ms-4 mt-6 flex">
-                    <CircleImage
-                        size={55}
-                        src="/imgs/team/peter.jpeg"
-                        alt="Peter Bou-Farah"
-                        className="ml-[-0.75rem]"
-                    />
-                    <CircleImage
-                        size={55}
-                        src="/imgs/team/ayushi.webp"
-                        alt="Ayushi Dosieah"
-                        className="ml-[-0.75rem]"
-                    />
-                    <CircleImage
-                        size={55}
-                        src="/imgs/team/darren.webp"
-                        alt="Darren Rakos"
-                        className="ml-[-0.75rem]"
-                    />
-                    <CircleImage
-                        size={55}
-                        src="/imgs/team/thomas.webp"
-                        alt="Thomas Boyle"
-                        className="ml-[-0.75rem]"
-                    />
-                    <CircleImage
-                        size={55}
-                        src="/imgs/team/ichrak.webp"
-                        alt="Ichrak El Hatimi"
-                        className="ml-[-0.75rem]"
-                    />
+                    {partnershipMembers.map(member => (
+                        <CircleImage
+                            key={member.id}
+                            size={55}
+                            src={member.imageUrl}
+                            alt={member.name}
+                            className="ml-[-0.75rem]"
+                        />
+                    ))}
                 </div>
             </div>
         </div>
     );
-};
-
-export default TeamUpSection;
+}

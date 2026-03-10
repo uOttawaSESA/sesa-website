@@ -1,5 +1,14 @@
-import { sql } from "drizzle-orm";
-import { index, pgTable, smallint, text, timestamp, unique, uuid } from "drizzle-orm/pg-core";
+import { isNull, sql } from "drizzle-orm";
+import {
+    index,
+    pgEnum,
+    pgTable,
+    smallint,
+    text,
+    timestamp,
+    unique,
+    uuid,
+} from "drizzle-orm/pg-core";
 
 export const events = pgTable(
     "events",
@@ -92,5 +101,60 @@ export const resources = pgTable(
         // Full-text search
         index("resources_title_trgm_idx").using("gin", sql`${t.title} gin_trgm_ops`),
         index("resources_course_trgm_idx").using("gin", sql`${t.course} gin_trgm_ops`),
+    ],
+);
+
+// *** Members *** //
+
+// Order defines which is showed first in the about page
+export const teamKeyEnum = pgEnum("team_key_enum", [
+    "codirectors",
+    "partnerships",
+    "logistics",
+    "communications",
+    "development",
+    "academics",
+    "advisors",
+]);
+
+export const roleKeyEnum = pgEnum("role_key_enum", ["lead", "member"]);
+
+export const members = pgTable(
+    "members",
+    {
+        id: uuid("id").defaultRandom().primaryKey().notNull(),
+        name: text("name").notNull(),
+
+        teamKey: teamKeyEnum("team_key").notNull(),
+        roleKey: roleKeyEnum("role_key").notNull(),
+
+        // Supabase profile img path
+        imageUrl: text("image_url").notNull(),
+
+        email: text("email").unique(),
+        linkedinUrl: text("linkedin_url"),
+        githubUrl: text("github_url"),
+        portfolioUrl: text("portfolio_url"),
+
+        createdAt: timestamp("created_at", {
+            withTimezone: true,
+            mode: "date",
+        })
+            .defaultNow()
+            .notNull(),
+
+        updatedAt: timestamp("updated_at", { withTimezone: true, mode: "date" })
+            .defaultNow()
+            .notNull(),
+
+        retiredAt: timestamp("retired_at", {
+            withTimezone: true,
+            mode: "date",
+        }),
+    },
+    table => [
+        index("active_members_sort_idx")
+            .on(table.teamKey, table.roleKey, table.createdAt)
+            .where(isNull(table.retiredAt)),
     ],
 );

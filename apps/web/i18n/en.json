@@ -154,16 +154,37 @@
             "codirectors_desc": "Meet our Co-Directors, who keep everything running smoothly. They oversee projects, support the team, and make sure goals are met with a clear vision and strong collaboration.",
             "partnerships": "Partnerships",
             "partnerships_desc": "Relationship builders, collaborating with sponsors, partners, and stakeholders to drive mutual growth and opportunities.",
-            "events": "Events",
-            "events_desc": "The organizers and planners, bringing our community together through impactful workshops, seminars, and conferences.",
+            "logistics": "Events",
+            "logistics_desc": "The organizers and planners, bringing our community together through impactful workshops, seminars, and conferences.",
             "communications": "Communications",
             "communications_desc": "Creative minds driving social media, website design, and digital outreach with style and impact.",
             "development": "Development",
             "development_desc": "The tech powerhouse behind our projects, building innovative solutions and maintaining our website.",
-            "academic": "Academic",
-            "academic_desc": "Experts in research and knowledge sharing, supporting educational initiatives and ensuring the quality of academic outputs.",
+            "academics": "Academic",
+            "academics_desc": "Experts in research and knowledge sharing, supporting educational initiatives and ensuring the quality of academic outputs.",
             "advisors": "Advisors",
-            "advisors_desc": "Our trusted mentors provide guidance and insights to help the team navigate challenges and achieve success."
+            "advisors_desc": "Our trusted mentors provide guidance and insights to help the team navigate challenges and achieve success.",
+
+            "academics_lead": "Academic Lead",
+            "academics_member": "Academic Coordinator",
+
+            "communications_lead": "Communications Lead",
+            "communications_member": "Communications Coordinator",
+
+            "development_lead": "Development Lead",
+            "development_member": "Developer",
+
+            "partnerships_lead": "Partnerships Lead",
+            "partnerships_member": "Partnerships Coordinator",
+
+            "logistics_lead": "Events Lead",
+            "logistics_member": "Events Coordinator",
+
+            "advisors_lead": "Advisor",
+            "advisors_member": "Advisor",
+
+            "codirectors_lead": "Co-Director",
+            "codirectors_member": "Co-Director"
         },
         "our_previous_partners": "Where our alumni are now",
         "our_previous_partners_heading_hl": "Beyond SESA",

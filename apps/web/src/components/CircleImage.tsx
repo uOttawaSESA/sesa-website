@@ -1,4 +1,6 @@
+"use client";
 import Image from "next/image";
+import { useState } from "react";
 
 export interface CircleImageProps
     extends Omit<React.ComponentProps<typeof Image>, "width" | "height"> {
@@ -9,18 +11,23 @@ export interface CircleImageProps
 }
 
 /** A circular image with a gradient border. */
-const CircleImage = ({ className, innerClassName, size, ...rest }: CircleImageProps) => {
+const CircleImage = ({ className, innerClassName, size, src, ...rest }: CircleImageProps) => {
+    const [imgSrc, setImgSrc] = useState(src);
+
+    const fallbackImage = "/imgs/team/backup.png";
+
     return (
         <div
             className={`flex h-min items-center justify-center rounded-full fill-gradient p-0.5 ${className || ""}`}
-            {...rest}
         >
             <Image
                 style={{ width: `${size}px`, height: `${size}px` }}
                 className={`rounded-full object-cover ${innerClassName || ""}`}
-                {...rest}
+                src={imgSrc}
+                onError={() => fallbackImage && setImgSrc(fallbackImage)}
                 width={size}
                 height={size}
+                {...rest}
             />
         </div>
     );

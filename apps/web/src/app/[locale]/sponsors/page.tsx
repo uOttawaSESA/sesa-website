@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { useTranslations } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
 // Precompile i18n
 import localeParams from "@/app/data/locales";
+import { api } from "@/trpc/server";
 import Benefits from "./components/Benefits";
 import CTA from "./components/CTA";
 import PartnerWithUs from "./components/PartnerWithUs";
@@ -36,9 +36,9 @@ export async function generateMetadata(): Promise<Metadata> {
         },
     };
 }
-
-const Sponsors = () => {
-    const t = useTranslations("sponsorships");
+const Sponsors = async () => {
+    const t = await getTranslations("sponsorships");
+    void api.member.getAll.prefetch();
 
     return (
         <div className="relative">

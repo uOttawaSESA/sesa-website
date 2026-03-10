@@ -1,21 +1,23 @@
 import Image from "next/image";
-import type { ReactNode } from "react";
-import type Member from "@/app/types/Member";
+import { useTranslations } from "next-intl";
+import { type ReactNode, useState } from "react";
+import type { Member, TeamKey } from "@/app/types/Member";
 
 export interface Props {
     title: string;
     description: string;
     people: readonly Member[];
+    teamKey: TeamKey;
 }
 
 function memberToIcons(member: Member) {
     const icons: ReactNode[] = [];
 
-    if (member.linkedin)
+    if (member.linkedinUrl)
         icons.push(
             <a
-                key={`linkedin:${member.name}`}
-                href={member.linkedin}
+                key={`linkedin:${member.id}`}
+                href={member.linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
             >
@@ -29,11 +31,11 @@ function memberToIcons(member: Member) {
             </a>,
         );
 
-    if (member.github)
+    if (member.githubUrl)
         icons.push(
             <a
-                key={`github:${member.name}`}
-                href={member.github}
+                key={`github:${member.id}`}
+                href={member.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
             >
@@ -49,7 +51,7 @@ function memberToIcons(member: Member) {
 
     if (member.email)
         icons.push(
-            <a key={`email:${member.name}`} href={`mailto:${member.email}`} target="_blank">
+            <a key={`email:${member.id}`} href={`mailto:${member.email}`} target="_blank">
                 <Image
                     src="/icons/mail-plain.svg"
                     alt="Email"
@@ -60,11 +62,11 @@ function memberToIcons(member: Member) {
             </a>,
         );
 
-    if (member.portfolio)
+    if (member.portfolioUrl)
         icons.push(
             <a
-                key={`portfolio:${member.name}`}
-                href={member.portfolio}
+                key={`portfolio:${member.id}`}
+                href={member.portfolioUrl}
                 target="_blank"
                 rel="noopener noreferrer"
             >
@@ -81,7 +83,16 @@ function memberToIcons(member: Member) {
     return icons;
 }
 
-export default function TeamMembers({ title, description, people }: Props) {
+export default function TeamMembers({ title, description, people, teamKey }: Props) {
+    const t = useTranslations("about.introducing_our_team_section");
+
+    const fallbackImage = "/imgs/team/backup.png";
+    const [imgSrcs, setImgSrcs] = useState<string[]>(() => people.map(person => person.imageUrl));
+
+    const handleError = (index: number) => {
+        setImgSrcs(prev => prev.with(index, fallbackImage));
+    };
+
     return (
         <div className="relative">
             {/* Decorations */}
@@ -94,29 +105,32 @@ export default function TeamMembers({ title, description, people }: Props) {
                     alt=""
                 />
             </div>
-            <div id={title.toLowerCase()} className="scroll-mt-[100px]">
+            <div id={teamKey} className="scroll-mt-[100px]">
                 <h2 className="mb-3 font-heading text-lg uppercase md:text-xl">{title}</h2>
                 <p className="mb-4 max-w-md text-base text-thistle leading-tight md:text-lg">
                     {description}{" "}
                 </p>
                 <div className="flex gap-5 overflow-x-auto md:mt-7">
-                    {people.map(person => (
+                    {people.map((person, index) => (
                         <div
                             className="flex h-[405px] w-64 min-w-64 flex-col outline-gradient backdrop-blur-lg"
                             key={`member:${title}:${person.name}`}
                         >
                             <Image
-                                src={person.imgPath}
+                                src={imgSrcs[index] ?? fallbackImage}
                                 alt={`Picture of ${person.name}`}
                                 width={256}
                                 height={256}
                                 className="h-64 w-64 object-cover"
+                                onError={() => handleError(index)}
                             />
                             <div className="flex grow flex-col gap-2 p-4">
                                 <h3 className="font-bold font-sans text-lg md:text-xl">
                                     {person.name}
                                 </h3>
-                                <p className="text-thistle">{person.role}</p>
+                                <p className="text-thistle">
+                                    {t(`${person.teamKey}_${person.roleKey}`)}
+                                </p>
                                 <div className="mt-auto flex gap-2">{memberToIcons(person)}</div>
                             </div>
                         </div>

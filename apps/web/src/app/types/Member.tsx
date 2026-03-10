@@ -1,10 +1,7 @@
-export default interface Member {
-    name: string;
-    team: string;
-    role: string;
-    imgPath: string;
-    linkedin?: string;
-    github?: string;
-    email?: string;
-    portfolio?: string;
-}
+import type { inferRouterOutputs } from "@trpc/server";
+import type { AppRouter } from "@/server/api/root";
+
+type RouterOutputs = inferRouterOutputs<AppRouter>;
+
+export type Member = RouterOutputs["member"]["getAll"][0];
+export type TeamKey = Member["teamKey"];

@@ -12,7 +12,7 @@ import TeamUpSection from "./components/TeamUpSection";
 export const generateStaticParams = localeParams;
 
 export async function generateMetadata(): Promise<Metadata> {
-    const locale = await getLocale();
+    const locale = (await getLocale()) as "fr" | "en";
     const t = await getTranslations("meta");
 
     const title = `${t("events_title")} | ${t("title_suffix")}`;
@@ -37,10 +37,11 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Events() {
-    const locale = await getLocale();
+    const locale = (await getLocale()) as "fr" | "en";
     if (locale !== "en" && locale !== "fr") notFound();
 
     void api.event.getAll.prefetch({ locale });
+    void api.member.getAll.prefetch();
 
     return (
         <HydrateClient>

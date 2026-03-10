@@ -1,6 +1,14 @@
-import type Member from "../types/Member";
-
-export const membersData: Member[] = [
+interface OldMemberType {
+    name: string;
+    team: string;
+    role: string;
+    imgPath: string;
+    linkedin?: string;
+    email?: string;
+    portfolio?: string;
+    github?: string;
+}
+export const members: OldMemberType[] = [
     // Co-directors
     {
         name: "Rolf Addoumie",

@@ -26,13 +26,7 @@ export const goalsData: Goal[] = [
             en: "BROWSE RESOURCES",
             fr: "PARCOURIR LES RESSOURCES",
         },
-        memberImgLinks: [
-            "/imgs/team/jack.webp",
-            "/imgs/team/shirina.webp",
-            "/imgs/team/thomas-li.webp",
-            "/imgs/team/ange.webp",
-            "/imgs/team/aryan.webp",
-        ],
+        teamKey: "academics",
         mainImg: "/imgs/Home/goals/academic.webp",
     },
     {
@@ -59,11 +53,7 @@ export const goalsData: Goal[] = [
             en: "Learn More",
             fr: "En savoir plus",
         },
-        memberImgLinks: [
-            "/imgs/team/mehdi.webp",
-            "/imgs/team/taha.jpg",
-            "/imgs/team/nodshley.webp",
-        ],
+        teamKey: "logistics",
         mainImg: "/imgs/Home/goals/social.webp",
     },
 ];

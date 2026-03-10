@@ -3,18 +3,23 @@
 import { Button } from "@repo/ui/components/button";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { useMemo } from "react";
 import AnimateOnView from "@/components/AnimateOnView";
 import Star from "@/components/decorations/star";
 import { TeamBadgeStack } from "@/components/TeamBadgeStack";
 import { Link } from "@/i18n/navigation";
+import { api } from "@/trpc/react";
 
-const PartnerWithUs = () => {
-    const teamImgs = [
-        "/imgs/team/dragos.webp",
-        "/imgs/team/ayushi.webp",
-        "/imgs/team/bilal.jpeg",
-        "/imgs/team/whitney.webp",
-    ];
+export default function PartnerWithUs() {
+    const { data: members = [] } = api.member.getAll.useQuery();
+
+    const partnershipImgs = useMemo(
+        () =>
+            members
+                .filter(member => member.teamKey === "partnerships")
+                .map(member => member.imageUrl),
+        [members],
+    );
 
     const t = useTranslations("sponsorships");
 
@@ -94,7 +99,7 @@ const PartnerWithUs = () => {
                     </div>
 
                     <div className="-ml-2 md:-ml-1">
-                        <TeamBadgeStack imgs={teamImgs} />
+                        <TeamBadgeStack imgs={partnershipImgs} />
                     </div>
                 </div>
 
@@ -111,6 +116,4 @@ const PartnerWithUs = () => {
             </div>
         </div>
     );
-};
-
-export default PartnerWithUs;
+}

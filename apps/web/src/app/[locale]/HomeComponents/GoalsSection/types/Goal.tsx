@@ -1,3 +1,5 @@
+import type { TeamKey } from "@/app/types/Member";
+
 export default interface Goal {
     goalType: { en: string; fr: string };
     title: { en: string; fr: string };
@@ -5,6 +7,6 @@ export default interface Goal {
     description: { en: string; fr: string };
     buttonLink: string;
     buttonText: { en: string; fr: string };
-    memberImgLinks: string[];
+    teamKey: TeamKey;
     mainImg: string;
 }
