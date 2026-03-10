@@ -218,7 +218,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                 />
                             </button>
                             {openDropdown === "view" && (
-                                <div className="absolute right-0 z-50 mt-2 min-w-[14rem]">
+                                <div className="absolute right-0 z-50 mt-2 min-w-56">
                                     <div
                                         className={`${gradientBorderClass} animate-dropdown bg-[rgba(27,27,27,0.3)] p-4 backdrop-blur-md backdrop-saturate-150`}
                                     >
@@ -288,7 +288,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                 />
                             </button>
                             {openDropdown === "filter" && (
-                                <div className="absolute right-0 z-30 mt-2 min-w-[22rem]">
+                                <div className="absolute right-0 z-30 mt-2 min-w-88">
                                     <div
                                         className={`${gradientBorderClass} animate-dropdown bg-[rgba(27,27,27,0.3)] p-4 backdrop-blur-3xl backdrop-saturate-150`}
                                     >
@@ -399,7 +399,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                 />
                             </button>
                             {openDropdown === "sort" && (
-                                <div className="absolute right-0 z-50 mt-2 min-w-[14rem]">
+                                <div className="absolute right-0 z-50 mt-2 min-w-56">
                                     <div
                                         className={`${gradientBorderClass} animate-dropdown bg-[rgba(27,27,27,0.3)] p-4 backdrop-blur-md backdrop-saturate-150`}
                                     >

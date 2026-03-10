@@ -43,7 +43,7 @@ const Contact: React.FC = () => {
 
                 <Star
                     variant="star"
-                    className="absolute bottom-[60rem] md:bottom-[32vh] md:left-[33vw] 2xl:bottom-[40vh] 2xl:left-[20vw]"
+                    className="absolute bottom-240 md:bottom-[32vh] md:left-[33vw] 2xl:bottom-[40vh] 2xl:left-[20vw]"
                     width={55}
                     height={55}
                     delay={0.5}
@@ -51,14 +51,14 @@ const Contact: React.FC = () => {
 
                 <Star
                     variant="star"
-                    className="absolute md:top-[35rem] md:left-[25rem] md:h-max"
+                    className="absolute md:top-140 md:left-100 md:h-max"
                     rotate={-10}
                     width={120}
                     height={120}
                     delay={1}
                 />
 
-                <div className="relative -bottom-[58rem] h-[60%] overflow-hidden md:-bottom-[30rem] md:left-0 md:block">
+                <div className="relative -bottom-232 h-[60%] overflow-hidden md:-bottom-120 md:left-0 md:block">
                     <Image
                         src="/decoration/globe.svg"
                         className="fade-from-top-bottom-bg-globe opacity-30 md:opacity-80"

@@ -14,7 +14,7 @@ export default function TeamUpSection() {
 
     return (
         <div className="my-8 flex flex-col items-center justify-start gap-4 px-8 sm:flex-row md:my-24 md:gap-12 md:ps-0 lg:my-56 2xl:gap-24">
-            <div className="grid-overlay-left md:h-[25rem] md:w-[50vw] xl:h-[43.93rem] 2xl:w-[37vw]"></div>
+            <div className="grid-overlay-left md:h-100 md:w-[50vw] xl:h-[43.93rem] 2xl:w-[37vw]"></div>
 
             <div className="">
                 <Image
@@ -38,11 +38,11 @@ export default function TeamUpSection() {
                 </p>
 
                 <div className="mt-4 flex gap-4 text-base md:text-lg">
-                    <Button className="flex-grow font-heading uppercase" asChild>
+                    <Button className="grow font-heading uppercase" asChild>
                         <Link href="/contact">{t("btn_talk")}</Link>
                     </Button>
 
-                    <Button variant="outline" className="flex-grow font-heading uppercase" asChild>
+                    <Button variant="outline" className="grow font-heading uppercase" asChild>
                         <Link href="/about">{t("btn_meet_team")}</Link>
                     </Button>
                 </div>
@@ -54,7 +54,7 @@ export default function TeamUpSection() {
                             size={55}
                             src={member.imageUrl}
                             alt={member.name}
-                            className="ml-[-0.75rem]"
+                            className="-ml-3"
                         />
                     ))}
                 </div>

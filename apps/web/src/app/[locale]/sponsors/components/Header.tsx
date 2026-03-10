@@ -25,7 +25,7 @@ const Header = ({ topText, title, bottomText, btn1, btn2 }: HeaderProps) => {
                     </span>
                 </h1>
 
-                <p className="relative mx-auto mt-4 w-full max-w-[40rem] font-sans text-base text-thistle md:text-xl">
+                <p className="relative mx-auto mt-4 w-full max-w-160 font-sans text-base text-thistle md:text-xl">
                     {bottomText}
                 </p>
 

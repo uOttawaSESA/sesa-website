@@ -26,11 +26,11 @@ const SponsorsHeader = ({
             {/* Decorations */}
             <div className="pointer-events-none select-none">
                 {/* Warm gradient */}
-                <div className="fade-from-center-bg absolute top-0 right-0 h-[120rem] w-full bg-[#B1219D]/15 blur-3xl md:w-[80vw]" />
+                <div className="fade-from-center-bg absolute top-0 right-0 h-480 w-full bg-[#B1219D]/15 blur-3xl md:w-[80vw]" />
 
                 <Star
                     variant="star-faded"
-                    className="absolute top-[-2rem] right-[20rem] md:top-[21rem] md:right-[13rem]"
+                    className="absolute -top-8 right-80 md:top-84 md:right-52"
                     rotate={30}
                     width={55}
                     height={55}
@@ -40,7 +40,7 @@ const SponsorsHeader = ({
 
                 <Star
                     variant="star"
-                    className="absolute top-[22rem] right-[8rem] hidden md:block"
+                    className="absolute top-88 right-32 hidden md:block"
                     width={125}
                     height={128}
                     delay={1}
@@ -48,7 +48,7 @@ const SponsorsHeader = ({
 
                 <Star
                     variant="star"
-                    className="absolute top-0 left-[15rem] hidden md:block"
+                    className="absolute top-0 left-60 hidden md:block"
                     rotate={-110}
                     width={125}
                     height={128}
@@ -57,7 +57,7 @@ const SponsorsHeader = ({
 
                 <Image
                     src="/decoration/sponsorships-floor-grid.svg"
-                    className="fade-from-center-sponsorship-floor absolute left-1/2 z-0 hidden -translate-x-1/2 transform opacity-60 md:bottom-[-10rem] md:block"
+                    className="fade-from-center-sponsorship-floor absolute left-1/2 z-0 hidden -translate-x-1/2 transform opacity-60 md:-bottom-40 md:block"
                     width={1200}
                     height={1000}
                     alt=""
@@ -84,14 +84,11 @@ const SponsorsHeader = ({
                 </p>
 
                 <div className="mt-6 flex flex-col items-center gap-3 text-center font-heading text-white md:flex-row md:justify-center md:gap-4 md:text-left">
-                    <Button
-                        className="w-fit min-w-[12rem] justify-center text-center uppercase"
-                        asChild
-                    >
+                    <Button className="w-fit min-w-48 justify-center text-center uppercase" asChild>
                         <Link href="/contact">{btn1}</Link>
                     </Button>
                     <Button
-                        className="w-fit min-w-[12rem] justify-center text-center uppercase"
+                        className="w-fit min-w-48 justify-center text-center uppercase"
                         variant="outline"
                         asChild
                     >

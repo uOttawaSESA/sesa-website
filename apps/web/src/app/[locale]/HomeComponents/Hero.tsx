@@ -13,15 +13,15 @@ export default function Hero() {
             {/* Decorations */}
             <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
                 {/* Warm gradient */}
-                <div className="fade-from-top-left-bg absolute top-[-13rem] h-[70rem] w-full bg-[#B1219D]/20 blur-xs md:w-[60vw]" />
+                <div className="fade-from-top-left-bg absolute -top-52 h-280 w-full bg-[#B1219D]/20 blur-xs md:w-[60vw]" />
 
                 {/* Light gradient */}
-                <div className="fade-from-left-bg absolute top-[48rem] h-[140rem] w-[25vw] bg-blueviolet-100/25 blur-xs" />
+                <div className="fade-from-left-bg absolute top-192 h-560 w-[25vw] bg-blueviolet-100/25 blur-xs" />
 
                 {/* Stars */}
                 <Star
                     variant="star-faded"
-                    className="hidden opacity-60 md:top-[-3rem] md:left-[40vw] md:block"
+                    className="hidden opacity-60 md:-top-12 md:left-[40vw] md:block"
                     width={55}
                     height={55}
                     rotate={30}
@@ -47,7 +47,7 @@ export default function Hero() {
                 {/* Bottom Right Group */}
                 <Star
                     variant="star"
-                    className="hidden md:top-[41rem] md:right-[15rem] md:block"
+                    className="hidden md:top-164 md:right-60 md:block"
                     width={120}
                     height={120}
                     delay={1}
@@ -55,7 +55,7 @@ export default function Hero() {
 
                 <Star
                     variant="star-faded"
-                    className="hidden md:top-[46rem] md:right-[20rem] md:block"
+                    className="hidden md:top-184 md:right-80 md:block"
                     width={63}
                     height={63}
                     delay={0.5}
@@ -104,7 +104,7 @@ export default function Hero() {
                 <Image
                     src="/decoration/grid-mobile.svg"
                     alt=""
-                    className="fade-from-top-grid-mobile absolute top-[-6.5rem] block md:hidden"
+                    className="fade-from-top-grid-mobile absolute -top-26 block md:hidden"
                     width={700}
                     height={700}
                 />

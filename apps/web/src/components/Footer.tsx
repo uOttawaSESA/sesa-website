@@ -135,7 +135,7 @@ export default function Footer() {
                         </div>
                         <div className="flex flex-col gap-4">
                             <h3 className="font-heading text-white uppercase">{t("contact")}</h3>
-                            <p className="break-words text-thistle">
+                            <p className="wrap-break-word text-thistle">
                                 <span>800 King Edward Ave,</span>
                                 <br />
                                 <span>Ottawa, ON, K1N 1A2,</span>

@@ -825,13 +825,13 @@ export const MultiSelect = React.forwardRef<MultiSelectRef, MultiSelectProps>(
                                                             getBadgeAnimationClass(),
                                                             multiSelectVariants({ variant }),
                                                             customStyle?.gradient &&
-                                                                "!text-white border-transparent",
+                                                                "border-transparent text-white!",
                                                             responsiveSettings.compactMode &&
                                                                 "px-1.5 py-0.5 text-xs",
                                                             screenSize === "mobile" &&
                                                                 "max-w-[120px] truncate",
                                                             singleLine &&
-                                                                "flex-shrink-0 whitespace-nowrap",
+                                                                "shrink-0 whitespace-nowrap",
                                                             "[&>svg]:pointer-events-auto",
                                                         )}
                                                         style={{
@@ -908,7 +908,7 @@ export const MultiSelect = React.forwardRef<MultiSelectRef, MultiSelectProps>(
                                                     multiSelectVariants({ variant }),
                                                     responsiveSettings.compactMode &&
                                                         "px-1.5 py-0.5 text-xs",
-                                                    singleLine && "flex-shrink-0 whitespace-nowrap",
+                                                    singleLine && "shrink-0 whitespace-nowrap",
                                                     "[&>svg]:pointer-events-auto",
                                                 )}
                                                 style={{

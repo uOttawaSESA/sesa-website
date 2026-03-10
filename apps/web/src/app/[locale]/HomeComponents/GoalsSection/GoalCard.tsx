@@ -22,7 +22,7 @@ export const GoalCard: React.FC<{ goal: Goal }> = ({ goal }) => {
     }, [members, goal.teamKey]);
 
     return (
-        <div className="flex h-full w-full flex-col items-start justify-between gap-16 lg:flex-row lg:items-center lg:justify-start lg:gap-10 xl:h-[45rem] 2xl:gap-32">
+        <div className="flex h-full w-full flex-col items-start justify-between gap-16 lg:flex-row lg:items-center lg:justify-start lg:gap-10 xl:h-180 2xl:gap-32">
             <div className="relative order-2 w-full max-w-2xl lg:max-w-2xl 2xl:max-w-4xl">
                 <Image
                     src={goal.mainImg}
@@ -34,7 +34,7 @@ export const GoalCard: React.FC<{ goal: Goal }> = ({ goal }) => {
                 <Image
                     src="/decoration/grid-mobile.svg"
                     alt=""
-                    className="fade-from-top-grid-mobile absolute top-[-7.5rem] block md:hidden"
+                    className="fade-from-top-grid-mobile absolute -top-30 block md:hidden"
                     width={700}
                     height={700}
                 />

@@ -11,7 +11,7 @@ const Connect = () => {
             {/* Decorations */}
             <div className="pointer-events-none z-0 select-none">
                 {/* Light gradient */}
-                <div className="fade-from-left-bg absolute top-1/2 hidden h-[70rem] w-[50vw] -translate-y-1/2 bg-blueviolet-100/30 blur-xs md:block" />
+                <div className="fade-from-left-bg absolute top-1/2 hidden h-280 w-[50vw] -translate-y-1/2 bg-blueviolet-100/30 blur-xs md:block" />
             </div>
             <div className="my-8 flex flex-col gap-4 lg:my-20 lg:flex-row lg:items-center lg:gap-20 2xl:gap-52">
                 {/* Left Image */}
@@ -26,7 +26,7 @@ const Connect = () => {
                     <Image
                         src="/decoration/grid-mobile.svg"
                         alt=""
-                        className="fade-from-top-grid-mobile absolute top-[-6.5rem] block md:hidden"
+                        className="fade-from-top-grid-mobile absolute -top-26 block md:hidden"
                         width={700}
                         height={700}
                     />
@@ -44,7 +44,7 @@ const Connect = () => {
                         <br />
                         {t("connect_heading_h1")}
                     </h1>
-                    <p className="relative text-left font-sans text-base text-thistle md:text-lg 2xl:w-[40rem]">
+                    <p className="relative text-left font-sans text-base text-thistle md:text-lg 2xl:w-160">
                         {t("connect_description")}
                     </p>
 

@@ -121,12 +121,12 @@ const EventSection = () => {
 
                 <Star
                     variant="star"
-                    className="right-[14rem] bottom-[-9rem] md:right-[10rem] md:bottom-[-5rem]"
+                    className="right-56 -bottom-36 md:right-40 md:-bottom-20"
                     delay={1}
                 />
                 <Star
                     variant="star-faded"
-                    className="right-[9rem] bottom-[-6rem] rotate-30 transform md:block"
+                    className="right-36 -bottom-24 rotate-30 transform md:block"
                     delay={0.5}
                 />
             </div>

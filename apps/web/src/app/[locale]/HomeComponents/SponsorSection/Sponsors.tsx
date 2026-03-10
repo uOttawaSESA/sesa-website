@@ -14,7 +14,7 @@ const Sponsors = () => {
             {/* Decorations */}
             <div className="pointer-events-none z-0 select-none">
                 {/* Light gradient */}
-                <div className="fade-from-center-bg absolute top-1/2 left-1/2 h-[120rem] w-full -translate-x-1/2 -translate-y-1/2 bg-blueviolet-100/35 blur-xl md:w-[90vw]" />
+                <div className="fade-from-center-bg absolute top-1/2 left-1/2 h-480 w-full -translate-x-1/2 -translate-y-1/2 bg-blueviolet-100/35 blur-xl md:w-[90vw]" />
 
                 <Image
                     src="/decoration/sponsorships-floor-grid.svg"
@@ -34,14 +34,14 @@ const Sponsors = () => {
 
                 <Star
                     variant="star"
-                    className="hidden md:top-[3rem] md:left-[5rem] md:block"
+                    className="hidden md:top-12 md:left-20 md:block"
                     rotate={-110}
                     delay={1}
                 />
 
                 <Star
                     variant="star-faded"
-                    className="hidden md:top-[7rem] md:left-[10rem] md:block"
+                    className="hidden md:top-28 md:left-40 md:block"
                     rotate={30}
                     width={63}
                     height={63}
@@ -50,13 +50,13 @@ const Sponsors = () => {
 
                 <Star
                     variant="star"
-                    className="right-[14rem] hidden md:top-[14rem] md:right-[10rem] md:block"
+                    className="right-56 hidden md:top-56 md:right-40 md:block"
                     delay={1}
                 />
 
                 <Star
                     variant="star-faded"
-                    className="top-[8rem] right-[2rem] md:top-[13rem] md:right-[14rem]"
+                    className="top-32 right-8 md:top-52 md:right-56"
                     rotate={30}
                     width={60}
                     height={60}
@@ -81,7 +81,7 @@ const Sponsors = () => {
                             <br />
                         </h1>
 
-                        <p className="relative mx-auto mt-4 w-full max-w-[40rem] font-sans text-base text-thistle md:text-lg">
+                        <p className="relative mx-auto mt-4 w-full max-w-160 font-sans text-base text-thistle md:text-lg">
                             {t("sponsors_subheading")}
                         </p>
                         <div className="mt-6 flex justify-center space-x-4 font-heading text-white">

@@ -54,25 +54,25 @@ const Resources = () => {
             <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
                 <Star
                     variant="star"
-                    className="hidden opacity-60 md:top-[3rem] md:left-[5rem] md:block"
+                    className="hidden opacity-60 md:top-12 md:left-20 md:block"
                     rotate={-110}
                     delay={1}
                 />
 
                 <Star
                     variant="star"
-                    className="hidden md:top-[7rem] md:left-[10rem] md:block"
+                    className="hidden md:top-28 md:left-40 md:block"
                     width={63}
                     height={63}
                     delay={0.5}
                 />
 
                 {/* Light gradient */}
-                <div className="fade-from-right-bg absolute top-[20rem] right-0 h-[100rem] w-[30vw] bg-blueviolet-100/20 blur-xs" />
+                <div className="fade-from-right-bg absolute top-80 right-0 h-400 w-[30vw] bg-blueviolet-100/20 blur-xs" />
 
                 <Image
                     src="/decoration/waves.svg"
-                    className={`fade-from-top-bottom-bg absolute left-1/2 hidden w-11/12 -translate-x-1/2 transform md:bottom-[4rem] md:block md:w-max ${resources && resources.length === 0 ? "hidden" : ""}`}
+                    className={`fade-from-top-bottom-bg absolute left-1/2 hidden w-11/12 -translate-x-1/2 transform md:bottom-16 md:block md:w-max ${resources && resources.length === 0 ? "hidden" : ""}`}
                     width={1200}
                     height={280}
                     alt=""
@@ -80,13 +80,13 @@ const Resources = () => {
 
                 <Star
                     variant="star"
-                    className="hidden md:right-[15rem] md:bottom-[-4rem] md:block"
+                    className="hidden md:right-60 md:-bottom-16 md:block"
                     delay={1}
                 />
 
                 <Star
                     variant="star-faded"
-                    className="hidden md:right-[14rem] md:bottom-[-5rem] md:block"
+                    className="hidden md:right-56 md:-bottom-20 md:block"
                     rotate={30}
                     width={63}
                     height={63}

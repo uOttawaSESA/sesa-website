@@ -44,7 +44,7 @@ const ThankYou = () => {
 
                 <Star
                     variant="star-faded"
-                    className="absolute bottom-[60rem] md:bottom-[20vh] md:left-[33vw] 2xl:bottom-[40vh] 2xl:left-[20vw]"
+                    className="absolute bottom-240 md:bottom-[20vh] md:left-[33vw] 2xl:bottom-[40vh] 2xl:left-[20vw]"
                     rotate={22}
                     width={55}
                     height={55}
@@ -53,14 +53,14 @@ const ThankYou = () => {
 
                 <Star
                     variant="star"
-                    className="absolute hidden md:top-[35rem] md:left-[25rem] md:block md:h-max"
+                    className="absolute hidden md:top-140 md:left-100 md:block md:h-max"
                     rotate={-10}
                     width={120}
                     height={120}
                     delay={1}
                 />
 
-                <div className="relative -bottom-[35rem] h-[60%] overflow-hidden md:-bottom-[30rem] md:left-0 md:block">
+                <div className="relative -bottom-140 h-[60%] overflow-hidden md:-bottom-120 md:left-0 md:block">
                     <Image
                         src="/decoration/globe.svg"
                         className="fade-from-top-bottom-bg-globe opacity-50 md:opacity-80"

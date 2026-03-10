@@ -16,13 +16,9 @@ const Goals = () => {
             {/* Decorations */}
             <div className="pointer-events-none absolute inset-0 z-0 h-full w-full select-none">
                 {/* Warm gradient */}
-                <div className="fade-from-center-bg absolute top-1/2 left-1/2 h-[70rem] w-full -translate-x-1/2 -translate-y-1/2 bg-[#B1219D]/15 blur-xs md:w-[60vw]" />
+                <div className="fade-from-center-bg absolute top-1/2 left-1/2 h-280 w-full -translate-x-1/2 -translate-y-1/2 bg-[#B1219D]/15 blur-xs md:w-[60vw]" />
 
-                <Star
-                    variant="star"
-                    className="hidden md:top-[5rem] md:right-[10rem] md:block"
-                    delay={1}
-                />
+                <Star variant="star" className="hidden md:top-20 md:right-40 md:block" delay={1} />
             </div>
             <Carousel className="w-full">
                 <CarouselContent>
