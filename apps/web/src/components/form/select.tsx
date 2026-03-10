@@ -1,5 +1,5 @@
+import { Select as BaseSelect } from "@repo/ui/components/select";
 import { useFieldContext } from "@/hooks";
-import { Select as BaseSelect } from "../ui/select";
 
 export type Props = Omit<Parameters<typeof BaseSelect>[0], "onChange" | "value">;
 

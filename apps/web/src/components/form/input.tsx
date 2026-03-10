@@ -1,5 +1,5 @@
+import { Input } from "@repo/ui/components/input";
 import { useFieldContext } from "@/hooks";
-import { Input } from "../ui/input";
 
 export type Props = Omit<Parameters<typeof Input>[0], "onChange" | "value">;
 

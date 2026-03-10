@@ -1,5 +1,5 @@
+import { Textarea as BaseTextarea } from "@repo/ui/components/textarea";
 import { useFieldContext } from "@/hooks";
-import { Textarea as BaseTextarea } from "../ui/textarea";
 
 export type Props = Omit<Parameters<typeof BaseTextarea>[0], "onChange" | "value">;
 

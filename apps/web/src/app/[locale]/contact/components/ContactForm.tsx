@@ -19,7 +19,7 @@ import { api } from "@/trpc/react";
 const FormData = z.object({
     firstName: z.string(),
     lastName: z.string(),
-    email: z.string(),
+    email: z.email(),
     topic: z.string().optional(),
     message: z.string(),
 });
@@ -27,7 +27,7 @@ const FormData = z.object({
 const FormDataRequired = z.object({
     firstName: z.string().nonempty(),
     lastName: z.string().nonempty(),
-    email: z.string().nonempty(),
+    email: z.email().nonempty(),
     topic: z.string().nonempty(),
     message: z.string().nonempty(),
 });
@@ -54,17 +54,16 @@ const ContactForm: React.FC = () => {
         } as z.infer<typeof FormData>,
         validators: {
             onChange: FormData,
-            // onSubmit: FormDataRequired,
+            onSubmit: FormDataRequired,
         },
         onSubmit: ({ value }) => {
-            console.log(value, recaptchaToken);
             if (!recaptchaToken) return;
             emailMutation.mutate({
                 ...(value as z.infer<typeof FormDataRequired>),
                 recaptchaToken,
             });
         },
-        onSubmitInvalid: args => console.error(args),
+        onSubmitInvalid: args => console.error(args.formApi.getAllErrors()),
     });
 
     const topicItems = [
@@ -76,7 +75,6 @@ const ContactForm: React.FC = () => {
     return (
         <form
             onSubmit={e => {
-                console.log("doing it");
                 e.preventDefault();
                 form.handleSubmit();
             }}
