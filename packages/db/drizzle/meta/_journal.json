@@ -43,6 +43,13 @@
             "when": 1772246424297,
             "tag": "0005_lovely_bushwacker",
             "breakpoints": true
+        },
+        {
+            "idx": 6,
+            "version": "7",
+            "when": 1773169485606,
+            "tag": "0006_happy_puma",
+            "breakpoints": true
         }
     ]
 }
