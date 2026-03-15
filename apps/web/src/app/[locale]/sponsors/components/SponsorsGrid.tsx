@@ -16,7 +16,7 @@ for (let i = 0; i < normalSponsors.length; i += 2) {
 const SponsorsGrid = () => {
     return (
         <div className="mt-10 flex justify-center px-6 md:mt-16">
-            <div className="flex w-full max-w-4xl flex-col gap-8">
+            <div className="flex w-full max-w-6xl flex-col gap-8">
                 {/* Mobile: stack all sponsors vertically */}
                 <div className="flex flex-col gap-8 md:hidden">
                     {sponsors.map((sponsor, index) => (
@@ -42,30 +42,29 @@ const SponsorsGrid = () => {
                 {/* Desktop rows */}
                 <div className="hidden w-full flex-col gap-8 md:flex">
                     {/* Hero Sponsors */}
-                    <div className="flex w-full flex-row gap-8">
+                    <div className="flex flex-col gap-8 md:flex-row">
                         {heroSponsors.map((sponsor, i) => (
                             <SponsorCard key={i} sponsor={sponsor} className="flex-1" />
                         ))}
                     </div>
 
-                    {/* Features Sponsors */}
-                    <div className="flex w-4/5 flex-row gap-8 self-center">
-                        {featuredSponsors.map((sponsor, i) => (
-                            <SponsorCard key={i} sponsor={sponsor} className="flex-1" />
-                        ))}
-                    </div>
-
-                    {/* Normal Sponsors */}
-                    {desktopRows.map((row, rowIndex) => (
-                        <div
-                            key={rowIndex}
-                            className={`flex flex-row gap-8 self-center ${row.length === 1 ? "w-3/4" : "w-full"}`}
-                        >
-                            {row.map((sponsor, i) => (
-                                <SponsorCard key={i} sponsor={sponsor} className="flex-1" />
+                    {/* Featured Sponsors */}
+                    {featuredSponsors.length > 0 && (
+                        <div className="flex w-full flex-wrap gap-8">
+                            {featuredSponsors.map((sponsor, i) => (
+                                <SponsorCard key={i} sponsor={sponsor} className="min-w-0 flex-1" />
                             ))}
                         </div>
-                    ))}
+                    )}
+
+                    {/* Normal Sponsors */}
+                    {normalSponsors.length > 0 && (
+                        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
+                            {normalSponsors.map((sponsor, i) => (
+                                <SponsorCard key={i} sponsor={sponsor} className="w-full" />
+                            ))}
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

@@ -13,7 +13,7 @@ export default function SponsorCard({ sponsor, className }: SponsorCardProps) {
             target="_blank"
             rel="noopener noreferrer"
             title={sponsor.name}
-            className={`flex items-center justify-center rounded-lg p-10 ${sponsor.size} ${gradientBorderClass} ${sponsor.featureLevel} backdrop-blur-lg transition hover:scale-105 ${className}`}
+            className={`flex items-center justify-center rounded-lg p-10 ${sponsor.size} ${gradientBorderClass} backdrop-blur-lg transition hover:scale-105 ${className}`}
         >
             <Image
                 src={sponsor.src}
