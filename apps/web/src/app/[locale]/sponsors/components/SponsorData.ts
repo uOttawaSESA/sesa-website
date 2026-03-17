@@ -60,7 +60,7 @@ export const sponsors: Sponsor[] = [
     {
         name: "Amazon",
         src: "/sponsors/amazon.svg",
-        featureLevel: "featured",
+        featureLevel: "normal",
         width: 300,
         height: 150,
         size: "h-72 md:h-80",
