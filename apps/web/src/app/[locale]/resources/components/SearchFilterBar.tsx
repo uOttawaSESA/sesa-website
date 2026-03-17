@@ -1,4 +1,5 @@
 import { MultiSelect, type MultiSelectRef } from "@repo/ui/components/multi-select";
+import { Popover, PopoverContent, PopoverTrigger } from "@repo/ui/components/popover";
 import {
     Select,
     SelectContent,
@@ -194,62 +195,53 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                 {!isMobile && (
                     <div className="mt-4 ml-4 flex gap-8 md:mt-0">
                         {/* View Dropdown */}
-                        <div className="relative">
-                            <button
-                                type="button"
-                                className="flex cursor-pointer items-center gap-2 text-white uppercase"
-                                onClick={() =>
-                                    setOpenDropdown(openDropdown === "view" ? null : "view")
-                                }
-                            >
-                                <Image
-                                    src="/resources-page/view.svg"
-                                    alt="View"
-                                    width={18}
-                                    height={18}
-                                />
-                                {t("view_label")}
-                                <Image
-                                    src="/contact-page/arrows.svg"
-                                    alt="Dropdown Arrow"
-                                    width={16}
-                                    height={16}
-                                    className={`transition-transform duration-200 ${openDropdown === "view" ? "rotate-180" : ""}`}
-                                />
-                            </button>
-                            {openDropdown === "view" && (
-                                <div className="absolute right-0 z-50 mt-2 min-w-56">
-                                    <div
-                                        className={`${gradientBorderClass} animate-dropdown bg-[rgba(27,27,27,0.3)] p-4 backdrop-blur-md backdrop-saturate-150`}
+
+                        <Popover>
+                            <div className="relative">
+                                <PopoverTrigger asChild>
+                                    <button
+                                        type="button"
+                                        className="flex cursor-pointer items-center gap-2 text-white uppercase"
                                     >
-                                        <Select
-                                            value={isGridMode ? "grid" : "row"}
-                                            onValueChange={changeView}
-                                        >
-                                            <SelectTrigger className="w-full bg-transparent! text-thistle hover:cursor-pointer">
-                                                <SelectValue placeholder="Grid" />
-                                            </SelectTrigger>
-                                            <SelectContent>
-                                                <SelectGroup>
-                                                    <SelectItem
-                                                        className="cursor-pointer"
-                                                        value="grid"
-                                                    >
-                                                        {t("view_grid")}
-                                                    </SelectItem>
-                                                    <SelectItem
-                                                        className="cursor-pointer"
-                                                        value="row"
-                                                    >
-                                                        {t("view_row")}
-                                                    </SelectItem>
-                                                </SelectGroup>
-                                            </SelectContent>
-                                        </Select>
-                                    </div>
-                                </div>
-                            )}
-                        </div>
+                                        <Image
+                                            src="/resources-page/view.svg"
+                                            alt="View"
+                                            width={18}
+                                            height={18}
+                                        />
+                                        {t("view_label")}
+                                        <Image
+                                            src="/contact-page/arrows.svg"
+                                            alt="Dropdown Arrow"
+                                            width={16}
+                                            height={16}
+                                            className={`transition-transform duration-200 ${openDropdown === "view" ? "rotate-180" : ""}`}
+                                        />
+                                    </button>
+                                </PopoverTrigger>
+
+                                <PopoverContent className="absolute right-0 z-50 mt-2 min-w-56 bg-[rgba(27,27,27,0.3)] p-4 backdrop-blur-md backdrop-saturate-150">
+                                    <Select
+                                        value={isGridMode ? "grid" : "row"}
+                                        onValueChange={changeView}
+                                    >
+                                        <SelectTrigger className="w-full bg-transparent! text-thistle hover:cursor-pointer">
+                                            <SelectValue placeholder="Grid" />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            <SelectGroup>
+                                                <SelectItem className="cursor-pointer" value="grid">
+                                                    {t("view_grid")}
+                                                </SelectItem>
+                                                <SelectItem className="cursor-pointer" value="row">
+                                                    {t("view_row")}
+                                                </SelectItem>
+                                            </SelectGroup>
+                                        </SelectContent>
+                                    </Select>
+                                </PopoverContent>
+                            </div>
+                        </Popover>
 
                         {/* Clear Filters */}
                         {hasActiveFilters && (
@@ -264,304 +256,284 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                         )}
 
                         {/* Filter Dropdown */}
-                        <div className="relative">
-                            <button
-                                type="button"
-                                className="flex cursor-pointer items-center gap-2 text-white uppercase"
-                                onClick={() =>
-                                    setOpenDropdown(openDropdown === "filter" ? null : "filter")
-                                }
-                            >
-                                <Image
-                                    src="/resources-page/filter.svg"
-                                    alt="Filter"
-                                    width={18}
-                                    height={18}
-                                />
-                                {hasActiveFilters ? t("filters_active_label") : t("filter_label")}
-                                <Image
-                                    src="/contact-page/arrows.svg"
-                                    alt="Dropdown Arrow"
-                                    width={16}
-                                    height={16}
-                                    className={`transition-transform duration-200 ${openDropdown === "filter" ? "rotate-180" : ""}`}
-                                />
-                            </button>
-                            {openDropdown === "filter" && (
-                                <div className="absolute right-0 z-30 mt-2 min-w-88">
-                                    <div
-                                        className={`${gradientBorderClass} animate-dropdown bg-[rgba(27,27,27,0.3)] p-4 backdrop-blur-3xl backdrop-saturate-150`}
+                        <Popover>
+                            <div className="relative">
+                                <PopoverTrigger asChild>
+                                    <button
+                                        type="button"
+                                        className="flex cursor-pointer items-center gap-2 text-white uppercase"
                                     >
-                                        {(
-                                            Object.keys(filterDropdownOptions) as Array<
-                                                keyof ResourceFilters
+                                        <Image
+                                            src="/resources-page/filter.svg"
+                                            alt="Filter"
+                                            width={18}
+                                            height={18}
+                                        />
+                                        {hasActiveFilters
+                                            ? t("filters_active_label")
+                                            : t("filter_label")}
+                                        <Image
+                                            src="/contact-page/arrows.svg"
+                                            alt="Dropdown Arrow"
+                                            width={16}
+                                            height={16}
+                                            className={`transition-transform duration-200 ${openDropdown === "filter" ? "rotate-180" : ""}`}
+                                        />
+                                    </button>
+                                </PopoverTrigger>
+                                <PopoverContent className="absolute right-0 z-30 mt-2 min-w-88 animate-dropdown bg-[rgba(27,27,27,0.3)] p-4 backdrop-blur-3xl backdrop-saturate-150">
+                                    {(
+                                        Object.keys(filterDropdownOptions) as Array<
+                                            keyof ResourceFilters
+                                        >
+                                    ).map(key => (
+                                        <div className="mb-4 last:mb-0" key={key}>
+                                            <label
+                                                className="mb-2 block font-heading text-sm text-white uppercase"
+                                                htmlFor={key}
                                             >
-                                        ).map(key => (
-                                            <div className="mb-4 last:mb-0" key={key}>
-                                                <label
-                                                    className="mb-2 block font-heading text-sm text-white uppercase"
-                                                    htmlFor={key}
-                                                >
-                                                    {filterPlaceholders[key]}
-                                                </label>
+                                                {filterPlaceholders[key]}
+                                            </label>
 
-                                                {key === "accessibility" ? (
-                                                    <MultiSelect
-                                                        ref={accessibilityMultiSelectRef}
-                                                        options={
-                                                            filterDropdownOptions.accessibility as {
-                                                                label: string;
-                                                                value: string;
-                                                                style?: {
-                                                                    badgeColor?: string;
-                                                                    iconColor?: string;
-                                                                    gradient?: string;
-                                                                };
-                                                            }[]
-                                                        }
-                                                        defaultValue={
-                                                            filterOptions.accessibility ?? []
-                                                        }
-                                                        onValueChange={(values: string[]) => {
-                                                            setFilterOptions({
-                                                                ...filterOptions,
-                                                                accessibility:
-                                                                    values.length > 0
-                                                                        ? values
-                                                                        : undefined,
-                                                            });
-                                                        }}
-                                                        placeholder={
-                                                            filterPlaceholders.accessibility
-                                                        }
-                                                        className="w-full text-thistle"
-                                                        hideSelectAll
-                                                    />
-                                                ) : (
-                                                    <Select
-                                                        value={filterOptions[key]?.toString()}
-                                                        onValueChange={value =>
-                                                            handleFilterChange(key, value)
-                                                        }
-                                                    >
-                                                        <SelectTrigger className="w-full bg-transparent! text-white">
-                                                            <SelectValue
-                                                                placeholder={
-                                                                    filterPlaceholders[key]
-                                                                }
-                                                            />
-                                                        </SelectTrigger>
-                                                        <SelectContent>
-                                                            <SelectGroup>
-                                                                {filterDropdownOptions[key].map(
-                                                                    option => (
-                                                                        <SelectItem
-                                                                            key={option.value}
-                                                                            value={option.value.toString()}
-                                                                        >
-                                                                            {option.label}
-                                                                        </SelectItem>
-                                                                    ),
-                                                                )}
-                                                            </SelectGroup>
-                                                        </SelectContent>
-                                                    </Select>
-                                                )}
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            )}
-                        </div>
+                                            {key === "accessibility" ? (
+                                                <MultiSelect
+                                                    ref={accessibilityMultiSelectRef}
+                                                    options={
+                                                        filterDropdownOptions.accessibility as {
+                                                            label: string;
+                                                            value: string;
+                                                            style?: {
+                                                                badgeColor?: string;
+                                                                iconColor?: string;
+                                                                gradient?: string;
+                                                            };
+                                                        }[]
+                                                    }
+                                                    defaultValue={filterOptions.accessibility ?? []}
+                                                    onValueChange={(values: string[]) => {
+                                                        setFilterOptions({
+                                                            ...filterOptions,
+                                                            accessibility:
+                                                                values.length > 0
+                                                                    ? values
+                                                                    : undefined,
+                                                        });
+                                                    }}
+                                                    placeholder={filterPlaceholders.accessibility}
+                                                    className="w-full text-thistle"
+                                                    hideSelectAll
+                                                />
+                                            ) : (
+                                                <Select
+                                                    value={filterOptions[key]?.toString()}
+                                                    onValueChange={value =>
+                                                        handleFilterChange(key, value)
+                                                    }
+                                                >
+                                                    <SelectTrigger className="w-full bg-transparent! text-white">
+                                                        <SelectValue
+                                                            placeholder={filterPlaceholders[key]}
+                                                        />
+                                                    </SelectTrigger>
+                                                    <SelectContent>
+                                                        <SelectGroup>
+                                                            {filterDropdownOptions[key].map(
+                                                                option => (
+                                                                    <SelectItem
+                                                                        key={option.value}
+                                                                        value={option.value.toString()}
+                                                                    >
+                                                                        {option.label}
+                                                                    </SelectItem>
+                                                                ),
+                                                            )}
+                                                        </SelectGroup>
+                                                    </SelectContent>
+                                                </Select>
+                                            )}
+                                        </div>
+                                    ))}
+                                </PopoverContent>
+                            </div>
+                        </Popover>
 
                         {/* Sort Dropdown */}
-                        <div className="relative">
-                            <button
-                                type="button"
-                                className="flex cursor-pointer items-center gap-2 text-white uppercase"
-                                onClick={() =>
-                                    setOpenDropdown(openDropdown === "sort" ? null : "sort")
-                                }
-                            >
-                                <Image
-                                    src="/resources-page/sort-arrows.svg"
-                                    alt="Sort"
-                                    width={18}
-                                    height={18}
-                                />
-                                {t("sort_label")}
-                                <Image
-                                    src="/contact-page/arrows.svg"
-                                    alt="Dropdown Arrow"
-                                    width={16}
-                                    height={16}
-                                    className={`transition-transform duration-200 ${openDropdown === "sort" ? "rotate-180" : ""}`}
-                                />
-                            </button>
-                            {openDropdown === "sort" && (
-                                <div className="absolute right-0 z-50 mt-2 min-w-56">
-                                    <div
-                                        className={`${gradientBorderClass} animate-dropdown bg-[rgba(27,27,27,0.3)] p-4 backdrop-blur-md backdrop-saturate-150`}
+                        <Popover>
+                            <div className="relative">
+                                <PopoverTrigger asChild>
+                                    <button
+                                        type="button"
+                                        className="flex cursor-pointer items-center gap-2 text-white uppercase"
+                                        onClick={() =>
+                                            setOpenDropdown(openDropdown === "sort" ? null : "sort")
+                                        }
                                     >
-                                        <Select
-                                            value={sortOption}
-                                            onValueChange={(value: ResourceSorts) =>
-                                                handleSortChange(value)
-                                            }
-                                        >
-                                            <SelectTrigger className="w-full cursor-pointer bg-transparent! text-thistle">
-                                                <SelectValue placeholder="Sort" />
-                                            </SelectTrigger>
-                                            <SelectContent>
-                                                <SelectGroup>
-                                                    {Object.entries(sorts).map(
-                                                        ([sort, display]) => (
-                                                            <SelectItem
-                                                                className="cursor-pointer"
-                                                                key={sort}
-                                                                value={sort}
-                                                            >
-                                                                {display}
-                                                            </SelectItem>
-                                                        ),
-                                                    )}
-                                                </SelectGroup>
-                                            </SelectContent>
-                                        </Select>
-                                    </div>
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                )}
-            </div>
-
-            {/* Mobile: Unified Dropdown */}
-            {isMobile && (
-                <div className="relative mt-2 w-full">
-                    <button
-                        type="button"
-                        className="flex w-full items-center justify-between rounded-md border bg-black/40 px-4 py-2 text-sm text-white uppercase outline-gradient"
-                        onClick={() => setOpenDropdown(openDropdown === "mobile" ? null : "mobile")}
-                    >
-                        {t("filter_label")} & {t("sort_label")}
-                        <Image
-                            src="/contact-page/arrows.svg"
-                            alt="Dropdown Arrow"
-                            width={16}
-                            height={16}
-                            className={`transition-transform duration-200 ${openDropdown === "mobile" ? "rotate-180" : ""}`}
-                        />
-                    </button>
-
-                    {openDropdown === "mobile" && (
-                        <div
-                            className={`${gradientBorderClass} absolute right-0 left-0 z-50 mt-2 rounded-md p-4 backdrop-blur-3xl`}
-                        >
-                            {/* Sort */}
-                            <div className="mb-6">
-                                <p className="mb-2 font-sans text-sm text-white uppercase">
-                                    {t("sort_label")}
-                                </p>
-                                <Select
-                                    value={sortOption}
-                                    onValueChange={(value: ResourceSorts) =>
-                                        handleSortChange(value)
-                                    }
-                                >
-                                    <SelectTrigger className="w-full bg-transparent! text-thistle">
-                                        <SelectValue placeholder="Sort" />
-                                    </SelectTrigger>
-                                    <SelectContent>
-                                        <SelectGroup>
+                                        <Image
+                                            src="/resources-page/sort-arrows.svg"
+                                            alt="Sort"
+                                            width={18}
+                                            height={18}
+                                        />
+                                        {t("sort_label")}
+                                        <Image
+                                            src="/contact-page/arrows.svg"
+                                            alt="Dropdown Arrow"
+                                            width={16}
+                                            height={16}
+                                            className={`transition-transform duration-200 ${openDropdown === "sort" ? "rotate-180" : ""}`}
+                                        />
+                                    </button>
+                                </PopoverTrigger>
+                                <PopoverContent className="absolute right-0 z-50 mt-2 min-w-56 animate-dropdown bg-[rgba(27,27,27,0.3)] p-4 backdrop-blur-md backdrop-saturate-150">
+                                    <Select
+                                        value={sortOption}
+                                        onValueChange={(value: ResourceSorts) =>
+                                            handleSortChange(value)
+                                        }
+                                    >
+                                        <SelectTrigger className="w-full cursor-pointer bg-transparent! text-thistle">
+                                            <SelectValue placeholder="Sort" />
+                                        </SelectTrigger>
+                                        <SelectContent>
                                             <SelectGroup>
                                                 {Object.entries(sorts).map(([sort, display]) => (
-                                                    <SelectItem key={sort} value={sort}>
+                                                    <SelectItem
+                                                        className="cursor-pointer"
+                                                        key={sort}
+                                                        value={sort}
+                                                    >
                                                         {display}
                                                     </SelectItem>
                                                 ))}
                                             </SelectGroup>
+                                        </SelectContent>
+                                    </Select>
+                                </PopoverContent>
+                            </div>
+                        </Popover>
+                    </div>
+                )}
+            </div>
+            {isMobile && (
+                <Popover>
+                    <div className="relative mt-2 w-full">
+                        <PopoverTrigger asChild>
+                            <button
+                                type="button"
+                                className="flex w-full items-center justify-between rounded-md border bg-black/40 px-4 py-2 text-sm text-white uppercase outline-gradient"
+                                onClick={() =>
+                                    setOpenDropdown(openDropdown === "mobile" ? null : "mobile")
+                                }
+                            >
+                                {t("filter_label")} & {t("sort_label")}
+                                <Image
+                                    src="/contact-page/arrows.svg"
+                                    alt="Dropdown Arrow"
+                                    width={16}
+                                    height={16}
+                                    className={`transition-transform duration-200 ${openDropdown === "mobile" ? "rotate-180" : ""}`}
+                                />
+                            </button>
+                        </PopoverTrigger>
+                    </div>
+                    <PopoverContent className="right-0 left-0 z-50 mt-2 rounded-md p-4 backdrop-blur-3xl">
+                        {/* Sort */}
+                        <div className="mb-6">
+                            <p className="mb-2 font-sans text-sm text-white uppercase">
+                                {t("sort_label")}
+                            </p>
+                            <Select
+                                value={sortOption}
+                                onValueChange={(value: ResourceSorts) => handleSortChange(value)}
+                            >
+                                <SelectTrigger className="w-full bg-transparent! text-thistle">
+                                    <SelectValue placeholder="Sort" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectGroup>
+                                        <SelectGroup>
+                                            {Object.entries(sorts).map(([sort, display]) => (
+                                                <SelectItem key={sort} value={sort}>
+                                                    {display}
+                                                </SelectItem>
+                                            ))}
                                         </SelectGroup>
-                                    </SelectContent>
-                                </Select>
-                            </div>
-
-                            {/* Filters */}
-                            <div>
-                                <p className="mb-2 font-sans text-sm text-white uppercase">
-                                    {t("filter_label")}
-                                </p>
-                                {(
-                                    Object.keys(filterDropdownOptions) as Array<
-                                        keyof ResourceFilters
-                                    >
-                                ).map(key => (
-                                    <div className="mb-3 last:mb-0" key={key}>
-                                        <label
-                                            className="mb-1 block font-heading text-thistle text-xs uppercase"
-                                            htmlFor={key}
-                                        >
-                                            {filterPlaceholders[key]}
-                                        </label>
-
-                                        {key === "accessibility" ? (
-                                            <MultiSelect
-                                                options={
-                                                    filterDropdownOptions.accessibility as {
-                                                        label: string;
-                                                        value: string;
-                                                        style?: {
-                                                            badgeColor?: string;
-                                                            iconColor?: string;
-                                                            gradient?: string;
-                                                        };
-                                                    }[]
-                                                }
-                                                value={filterOptions.accessibility ?? []}
-                                                onValueChange={(values: string[]) => {
-                                                    setFilterOptions({
-                                                        ...filterOptions,
-                                                        accessibility:
-                                                            values.length > 0 ? values : undefined,
-                                                    });
-                                                }}
-                                                placeholder={filterPlaceholders.accessibility}
-                                                className="w-full text-thistle"
-                                                badgeAnimation="none"
-                                                hideSelectAll
-                                            />
-                                        ) : (
-                                            <Select
-                                                value={filterOptions[key]?.toString()}
-                                                onValueChange={value =>
-                                                    handleFilterChange(key, value)
-                                                }
-                                            >
-                                                <SelectTrigger className="w-full bg-transparent! text-white">
-                                                    <SelectValue
-                                                        placeholder={filterPlaceholders[key]}
-                                                    />
-                                                </SelectTrigger>
-                                                <SelectContent>
-                                                    <SelectGroup>
-                                                        {filterDropdownOptions[key].map(option => (
-                                                            <SelectItem
-                                                                key={option.value}
-                                                                value={option.value.toString()}
-                                                            >
-                                                                {option.label}
-                                                            </SelectItem>
-                                                        ))}
-                                                    </SelectGroup>
-                                                </SelectContent>
-                                            </Select>
-                                        )}
-                                    </div>
-                                ))}
-                            </div>
+                                    </SelectGroup>
+                                </SelectContent>
+                            </Select>
                         </div>
-                    )}
-                </div>
+
+                        {/* Filters */}
+                        <div>
+                            <p className="mb-2 font-sans text-sm text-white uppercase">
+                                {t("filter_label")}
+                            </p>
+                            {(
+                                Object.keys(filterDropdownOptions) as Array<keyof ResourceFilters>
+                            ).map(key => (
+                                <div className="mb-3 last:mb-0" key={key}>
+                                    <label
+                                        className="mb-1 block font-heading text-thistle text-xs uppercase"
+                                        htmlFor={key}
+                                    >
+                                        {filterPlaceholders[key]}
+                                    </label>
+
+                                    {key === "accessibility" ? (
+                                        <MultiSelect
+                                            options={
+                                                filterDropdownOptions.accessibility as {
+                                                    label: string;
+                                                    value: string;
+                                                    style?: {
+                                                        badgeColor?: string;
+                                                        iconColor?: string;
+                                                        gradient?: string;
+                                                    };
+                                                }[]
+                                            }
+                                            value={filterOptions.accessibility ?? []}
+                                            onValueChange={(values: string[]) => {
+                                                setFilterOptions({
+                                                    ...filterOptions,
+                                                    accessibility:
+                                                        values.length > 0 ? values : undefined,
+                                                });
+                                            }}
+                                            placeholder={filterPlaceholders.accessibility}
+                                            className="w-full text-thistle"
+                                            badgeAnimation="none"
+                                            hideSelectAll
+                                        />
+                                    ) : (
+                                        <Select
+                                            value={filterOptions[key]?.toString()}
+                                            onValueChange={value => handleFilterChange(key, value)}
+                                        >
+                                            <SelectTrigger className="w-full bg-transparent! text-white">
+                                                <SelectValue
+                                                    placeholder={filterPlaceholders[key]}
+                                                />
+                                            </SelectTrigger>
+                                            <SelectContent>
+                                                <SelectGroup>
+                                                    {filterDropdownOptions[key].map(option => (
+                                                        <SelectItem
+                                                            key={option.value}
+                                                            value={option.value.toString()}
+                                                        >
+                                                            {option.label}
+                                                        </SelectItem>
+                                                    ))}
+                                                </SelectGroup>
+                                            </SelectContent>
+                                        </Select>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    </PopoverContent>
+                </Popover>
             )}
 
             {hasActiveFilters && isMobile && (
