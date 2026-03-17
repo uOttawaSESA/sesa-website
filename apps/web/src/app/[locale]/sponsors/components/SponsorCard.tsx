@@ -1,3 +1,4 @@
+import { cn } from "@repo/ui/lib/utils";
 import Image from "next/image";
 import type { Sponsor } from "./SponsorData";
 
@@ -13,7 +14,11 @@ export default function SponsorCard({ sponsor, className }: SponsorCardProps) {
             target="_blank"
             rel="noopener noreferrer"
             title={sponsor.name}
-            className={`flex items-center justify-center rounded-lg p-10 ${sponsor.size} outline-gradient backdrop-blur-lg transition hover:scale-105 ${className}`}
+            className={cn(
+                "flex items-center justify-center rounded-lg p-10 outline-gradient backdrop-blur-lg transition hover:scale-105",
+                sponsor.size,
+                className,
+            )}
         >
             <Image
                 src={sponsor.src}
