@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import SponsorCard from "./SponsorCard";
-import { gradientBorderClass, type Sponsor, sponsors } from "./SponsorData";
+import { type Sponsor, sponsors } from "./SponsorData";
 
 const heroSponsors = sponsors.filter(sponsor => sponsor.featureLevel === "hero");
 const featuredSponsors = sponsors.filter(sponsor => sponsor.featureLevel === "featured");
@@ -25,7 +25,7 @@ const SponsorsGrid = () => {
                             href={sponsor.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`flex items-center justify-center rounded-lg p-10 ${sponsor.size} ${gradientBorderClass} w-full backdrop-blur-lg transition hover:scale-105`}
+                            className={`flex items-center justify-center rounded-lg p-10 ${sponsor.size} w-full outline-gradient backdrop-blur-lg transition hover:scale-105`}
                             title={sponsor.name}
                         >
                             <Image

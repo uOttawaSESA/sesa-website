@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { gradientBorderClass, type Sponsor } from "./SponsorData";
+import type { Sponsor } from "./SponsorData";
 
 type SponsorCardProps = {
     sponsor: Sponsor;
@@ -13,7 +13,7 @@ export default function SponsorCard({ sponsor, className }: SponsorCardProps) {
             target="_blank"
             rel="noopener noreferrer"
             title={sponsor.name}
-            className={`flex items-center justify-center rounded-lg p-10 ${sponsor.size} ${gradientBorderClass} backdrop-blur-lg transition hover:scale-105 ${className}`}
+            className={`flex items-center justify-center rounded-lg p-10 ${sponsor.size} outline-gradient backdrop-blur-lg transition hover:scale-105 ${className}`}
         >
             <Image
                 src={sponsor.src}
