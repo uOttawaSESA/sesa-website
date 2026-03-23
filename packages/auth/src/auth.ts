@@ -1,6 +1,6 @@
 import { db } from "@repo/db"; //
 import { account, members, session, user, verification } from "@repo/db/schema";
-import { betterAuth } from "better-auth";
+import { APIError, betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { nextCookies } from "better-auth/next-js";
 import { eq } from "drizzle-orm";
@@ -36,11 +36,18 @@ export const auth = betterAuth({
                     .limit(1);
 
                 if (memberRecord.length === 0 || memberRecord[0] === undefined) {
-                    throw new Error("unauthorized_user"); //non club user trying to sign in
+                    throw APIError.from("FORBIDDEN", {
+                        code: "unauthorized_member",
+                        message: "You are not authorized to access this application.",
+                    });
                 }
 
                 if (hasAccess(memberRecord[0]) === false) {
-                    throw new Error("forbidden_member"); //member is part of the club, but doenst have access
+                    throw APIError.from("FORBIDDEN", {
+                        code: "forbidden_member",
+                        message:
+                            "You are not authorized to access this application, please contact the Directors if you believe this is a mistake.",
+                    });
                 }
 
                 return {
