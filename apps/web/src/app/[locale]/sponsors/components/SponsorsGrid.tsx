@@ -30,7 +30,10 @@ const SponsorsGrid = () => {
                             href={sponsor.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`flex items-center justify-center rounded-lg p-10 ${sponsor.size} w-full outline-gradient backdrop-blur-lg transition hover:scale-105`}
+                            className={cn(
+                                "flex w-full items-center justify-center rounded-lg p-10 outline-gradient backdrop-blur-lg transition hover:scale-105",
+                                sponsor.size,
+                            )}
                             title={sponsor.name}
                         >
                             <Image
@@ -38,7 +41,10 @@ const SponsorsGrid = () => {
                                 alt={sponsor.alt ?? sponsor.name}
                                 width={sponsor.width}
                                 height={sponsor.height}
-                                className="object-contain brightness-0 invert"
+                                className={cn(
+                                    "object-contain",
+                                    sponsor.invert && "brightness-0 invert",
+                                )}
                             />
                         </a>
                     ))}

@@ -25,7 +25,7 @@ export default function SponsorCard({ sponsor, className }: SponsorCardProps) {
                 alt={sponsor.alt ?? sponsor.name}
                 width={sponsor.width}
                 height={sponsor.height}
-                className={`object-contain ${sponsor.invert ? "brightness-0 invert" : ""}`}
+                className={cn("object-contain", sponsor.invert && "brightness-0 invert")}
             />
         </a>
     );
