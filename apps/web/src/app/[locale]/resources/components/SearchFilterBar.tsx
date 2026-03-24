@@ -47,10 +47,6 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
 }) => {
     const t = useTranslations("resources");
 
-    const [openDropdown, setOpenDropdown] = useState<null | "view" | "filter" | "sort" | "mobile">(
-        null,
-    );
-
     const accessibilityMultiSelectRef = useRef<MultiSelectRef>(null);
 
     const availableCoursesMapped = useMemo(
@@ -138,12 +134,10 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
 
     const changeView = (value: "grid" | "row") => {
         setIsGridMode(value === "grid");
-        setOpenDropdown(null);
     };
 
     const handleSortChange = (value: ResourceSorts) => {
         setSortOption(value);
-        setOpenDropdown(null);
     };
 
     const handleFilterChange = (key: keyof ResourceFilters, value: string) => {
@@ -201,7 +195,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                 <PopoverTrigger asChild>
                                     <button
                                         type="button"
-                                        className="flex cursor-pointer items-center gap-2 text-white uppercase"
+                                        className="group flex cursor-pointer items-center gap-2 text-white uppercase"
                                     >
                                         <Image
                                             src="/resources-page/view.svg"
@@ -215,7 +209,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                             alt="Dropdown Arrow"
                                             width={16}
                                             height={16}
-                                            className={`transition-transform duration-200 ${openDropdown === "view" ? "rotate-180" : ""}`}
+                                            className={`$ transition-transform duration-200 group-data-[state=open]:rotate-180`}
                                         />
                                     </button>
                                 </PopoverTrigger>
@@ -261,7 +255,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                 <PopoverTrigger asChild>
                                     <button
                                         type="button"
-                                        className="flex cursor-pointer items-center gap-2 text-white uppercase"
+                                        className="group flex cursor-pointer items-center gap-2 text-white uppercase"
                                     >
                                         <Image
                                             src="/resources-page/filter.svg"
@@ -277,7 +271,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                             alt="Dropdown Arrow"
                                             width={16}
                                             height={16}
-                                            className={`transition-transform duration-200 ${openDropdown === "filter" ? "rotate-180" : ""}`}
+                                            className={`transition-transform duration-200 group-data-[state=open]:rotate-180`}
                                         />
                                     </button>
                                 </PopoverTrigger>
@@ -363,10 +357,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                 <PopoverTrigger asChild>
                                     <button
                                         type="button"
-                                        className="flex cursor-pointer items-center gap-2 text-white uppercase"
-                                        onClick={() =>
-                                            setOpenDropdown(openDropdown === "sort" ? null : "sort")
-                                        }
+                                        className="group flex cursor-pointer items-center gap-2 text-white uppercase"
                                     >
                                         <Image
                                             src="/resources-page/sort-arrows.svg"
@@ -380,7 +371,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                             alt="Dropdown Arrow"
                                             width={16}
                                             height={16}
-                                            className={`transition-transform duration-200 ${openDropdown === "sort" ? "rotate-180" : ""}`}
+                                            className={`transition-transform duration-200 group-data-[state=open]:rotate-180`}
                                         />
                                     </button>
                                 </PopoverTrigger>
@@ -420,10 +411,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                         <PopoverTrigger asChild>
                             <button
                                 type="button"
-                                className="flex w-full items-center justify-between rounded-md border bg-black/40 px-4 py-2 text-sm text-white uppercase outline-gradient"
-                                onClick={() =>
-                                    setOpenDropdown(openDropdown === "mobile" ? null : "mobile")
-                                }
+                                className="group flex w-full items-center justify-between rounded-md border bg-black/40 px-4 py-2 text-sm text-white uppercase outline-gradient"
                             >
                                 {t("filter_label")} & {t("sort_label")}
                                 <Image
@@ -431,7 +419,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                     alt="Dropdown Arrow"
                                     width={16}
                                     height={16}
-                                    className={`transition-transform duration-200 ${openDropdown === "mobile" ? "rotate-180" : ""}`}
+                                    className={`transition-transform duration-200 group-data-[state=open]:rotate-180`}
                                 />
                             </button>
                         </PopoverTrigger>
