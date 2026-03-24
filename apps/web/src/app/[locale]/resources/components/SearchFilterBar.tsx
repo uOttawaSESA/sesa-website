@@ -11,14 +11,8 @@ import {
 import { Trash } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { useMemo, useRef, useState } from "react";
+import { useMemo, useRef } from "react";
 import type { ResourceFilters, ResourceSorts } from "@/server/api/routers/resource";
-
-const gradientBorderClass = `
-    border
-    border-solid
-    [border-image:linear-gradient(55deg,rgba(136,36,220,0.7)_41.93%,rgba(177,33,157,0.7)_81.89%)_1]
-`;
 
 interface SearchFilterBarProps {
     isGridMode: boolean;
@@ -214,7 +208,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                                     </button>
                                 </PopoverTrigger>
 
-                                <PopoverContent className="absolute right-0 z-50 mt-2 min-w-56 bg-[rgba(27,27,27,0.3)] p-4 backdrop-blur-md backdrop-saturate-150">
+                                <PopoverContent className="absolute right-0 z-50 mt-2 min-w-56 animate-dropdown bg-[rgba(27,27,27,0.3)] p-4 backdrop-blur-md backdrop-saturate-150">
                                     <Select
                                         value={isGridMode ? "grid" : "row"}
                                         onValueChange={changeView}
@@ -424,7 +418,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                             </button>
                         </PopoverTrigger>
                     </div>
-                    <PopoverContent className="right-0 left-0 z-50 mt-2 rounded-md p-4 backdrop-blur-3xl">
+                    <PopoverContent className="right-0 left-0 z-50 mt-2 animate-dropdown rounded-md p-4 backdrop-blur-3xl">
                         {/* Sort */}
                         <div className="mb-6">
                             <p className="mb-2 font-sans text-sm text-white uppercase">
