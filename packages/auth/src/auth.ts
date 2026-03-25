@@ -18,9 +18,10 @@ export const auth = betterAuth({
     }),
     user: {
         additionalFields: {
-            memberId: {
+            discordId: {
                 type: "string",
                 required: false,
+                unique: true,
             },
         },
     },
@@ -51,10 +52,7 @@ export const auth = betterAuth({
                 }
 
                 return {
-                    email: profile.email,
-                    name: profile.username,
-                    image: profile.image_url,
-                    memberId: memberRecord[0].id,
+                    discordId: profile.id,
                 };
             },
         },
