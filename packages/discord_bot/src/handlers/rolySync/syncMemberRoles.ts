@@ -1,4 +1,5 @@
 import type { Guild, GuildMember } from "discord.js";
+import { serverInfo } from "../..";
 import type { MemberData } from "../../type";
 import { type GuildRoleConfig, getGuildRoleConfig, TEAM_ROLE_MAP } from "./roleConfig";
 
@@ -11,14 +12,21 @@ import { type GuildRoleConfig, getGuildRoleConfig, TEAM_ROLE_MAP } from "./roleC
  * @returns
  */
 export async function syncMemberRoles(memberData: MemberData, guild: Guild) {
-    const member = await guild.members.fetch(memberData.discordId);
+    let member: GuildMember | undefined;
+    try {
+        member = await guild.members.fetch(memberData.discordId);
+    } catch (error) {
+        await serverInfo.internalErrorChannel.send({
+            content: `Failed to fetch member <@${memberData.discordId}> in guild **${guild.name}**. \nError: ${error}`,
+        });
+        return;
+    }
 
     if (!member) {
-        console.error("Discord member fetch failed", {
-            username: memberData.discordId,
-            guild: guild.id,
+        await serverInfo.internalErrorChannel.send({
+            content: `<@${memberData.discordId}> not found in guild **${guild.name}**.`,
         });
-        return Promise.reject();
+        return;
     }
 
     const config = getGuildRoleConfig(guild);

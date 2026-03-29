@@ -27,7 +27,7 @@ async function sendAnnouncement(eventData: any, channel: TextChannel) {
     const message = await channel.send({
         content: getAnnouncementMessage(eventData),
     });
-    await message.react("🔥")
+    await message.react("🔥");
 }
 
 async function createEvent(eventData: any, guild: Guild) {
@@ -53,8 +53,8 @@ ${getAnnouncementMessage(eventData)}
 
 /**
  * Function which will get the correct event Announcement message
- * @param eventData 
- * @returns 
+ * @param eventData
+ * @returns
  */
 function getAnnouncementMessage(eventData: any): string {
     const content = `

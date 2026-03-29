@@ -3,6 +3,7 @@ import { Client, GatewayIntentBits, type TextChannel } from "discord.js";
 import {
     InternalAuditChannelId,
     InternalDiscordId,
+    InternalErrorChannelId,
     InternalEventChannelId,
     PublicDiscordId,
     PublicEventChannelId,
@@ -15,9 +16,10 @@ import type { ServerInfo, TeamKey } from "./type";
 export const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers],
 });
+export let serverInfo = {} as ServerInfo;
 
 client.once("clientReady", async () => {
-    const serverInfo = await createServerInfo();
+    serverInfo = await createServerInfo();
     client.user?.setActivity("Empowering your tech journey!", { type: 0 });
 
     console.log(`Bot online as ${client.user?.tag}`);
@@ -82,45 +84,65 @@ function verifyTextChannel(
  * @returns
  */
 async function createServerInfo(): Promise<ServerInfo> {
-    const [publicEventChannelRaw, internalEventChannelRaw, internalAuditChannelRaw] =
-        await Promise.all([
-            client.channels.fetch(PublicEventChannelId ?? ""),
-            client.channels.fetch(InternalEventChannelId ?? ""),
-            client.channels.fetch(InternalAuditChannelId ?? ""),
-        ]);
+    const channelConfigs = [
+        {
+            key: "publicEventChannel",
+            id: PublicEventChannelId,
+            expectedGuildId: PublicDiscordId,
+            label: "PublicEventChannelId",
+        },
+        {
+            key: "internalEventChannel",
+            id: InternalEventChannelId,
+            expectedGuildId: InternalDiscordId,
+            label: "InternalEventChannelId",
+        },
+        {
+            key: "internalAuditChannel",
+            id: InternalAuditChannelId,
+            expectedGuildId: InternalDiscordId,
+            label: "InternalAuditChannelId",
+        },
+        {
+            key: "internalErrorChannel",
+            id: InternalErrorChannelId,
+            expectedGuildId: InternalDiscordId,
+            label: "InternalErrorChannelId",
+        },
+    ];
 
-    const publicEventChannel = verifyTextChannel(
-        publicEventChannelRaw,
-        PublicDiscordId,
-        "PublicEventChannelId",
-    );
-    const internalEventChannel = verifyTextChannel(
-        internalEventChannelRaw,
-        InternalDiscordId,
-        "InternalEventChannelId",
-    );
-    const internalAuditChannel = verifyTextChannel(
-        internalAuditChannelRaw,
-        InternalDiscordId,
-        "InternalAuditChannelId",
-    );
-
-    const internalGuild = await client.guilds.fetch(InternalDiscordId ?? "");
+    // Fetch guilds
+    const [internalGuild, publicGuild] = await Promise.all([
+        client.guilds.fetch(InternalDiscordId ?? ""),
+        client.guilds.fetch(PublicDiscordId ?? ""),
+    ]);
     if (!internalGuild) {
         throw new Error("Error: internalGuild not found (Invalid ID)");
     }
-
-    const publicGuild = await client.guilds.fetch(PublicDiscordId ?? "");
     if (!publicGuild) {
         throw new Error("Error: publicGuild not found (Invalid ID)");
     }
 
+    const channelFetches = channelConfigs.map(config => client.channels.fetch(config.id ?? ""));
+    const channelRaws = await Promise.all(channelFetches);
+
+    const channels: Record<string, TextChannel> = {};
+    channelConfigs.forEach((config, index) => {
+        channels[config.key] = verifyTextChannel(
+            channelRaws[index],
+            config.expectedGuildId,
+            config.label,
+        );
+    });
+
+    // Build serverInfo object
     const serverInfo: ServerInfo = {
-        publicEventChannel: publicEventChannel,
-        internalEventChannel: internalEventChannel,
+        publicEventChannel: channels.publicEventChannel,
+        internalEventChannel: channels.internalEventChannel,
         internalDiscord: internalGuild,
         publicDiscord: publicGuild,
-        internalAuditChannel: internalAuditChannel,
+        internalAuditChannel: channels.internalAuditChannel,
+        internalErrorChannel: channels.internalErrorChannel,
     };
     return serverInfo;
 }

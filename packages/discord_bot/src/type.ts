@@ -6,6 +6,7 @@ export interface ServerInfo {
     publicEventChannel: TextChannel;
     internalEventChannel: TextChannel;
     internalAuditChannel: TextChannel;
+    internalErrorChannel: TextChannel;
 }
 
 //FIXME: //TODO: Temporary replacement for the type memberData
