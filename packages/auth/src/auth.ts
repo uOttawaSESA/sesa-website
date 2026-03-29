@@ -20,7 +20,7 @@ export const auth = betterAuth({
         additionalFields: {
             discordId: {
                 type: "string",
-                required: false,
+                required: true,
                 unique: true,
             },
         },
