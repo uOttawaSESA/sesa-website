@@ -46,7 +46,7 @@ const ContactForm: React.FC = () => {
             message: "",
         } as Partial<z.infer<typeof FormData>>,
         validators: {
-            onBlur: FormData,
+            onChange: FormData,
         },
         onSubmit: ({ value }) => {
             if (!recaptchaToken) return;
