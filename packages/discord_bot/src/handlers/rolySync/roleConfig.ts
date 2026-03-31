@@ -2,7 +2,7 @@ import "dotenv/config";
 import type { Guild } from "discord.js";
 import type { TeamKey, TeamRoleConfig } from "../../type";
 
-export const INTERNAL_DISCORD_ID = process.env.INTERNAL_DISCORD_ID;
+export const INTERNAL_DISCORD_ID = "1478904660302757938";
 
 export const INTERNAL_REQUIRED_ROLE_ID = "1479280284833677474";
 export const PUBLIC_REQUIRED_ROLE_ID = "1480275276876484741";

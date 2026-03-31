@@ -26,10 +26,23 @@ export async function newEvent(eventData: any, serverInfo: ServerInfo) {
 async function sendAnnouncement(eventData: any, channel: TextChannel) {
     const message = await channel.send({
         content: getAnnouncementMessage(eventData),
+        files: [
+            {
+                attachment: eventData.image,
+                name: "event-image.jpg",
+            },
+        ],
     });
+
     await message.react("🔥");
 }
 
+/**
+ * Creates a new scheduled event in the specified guild based on the provided event data.
+ * @param eventData
+ * @param guild
+ * @returns
+ */
 async function createEvent(eventData: any, guild: Guild) {
     const description = `
 Please see https://discord.com/channels/1011095131144863794/1011095132168257598 for more details.
@@ -52,7 +65,7 @@ ${getAnnouncementMessage(eventData)}
 }
 
 /**
- * Function which will get the correct event Announcement message
+ * Function which will get the correct formatted event Announcement message
  * @param eventData
  * @returns
  */
@@ -75,7 +88,7 @@ ${eventData.description}
 }
 
 /**
- * Send an announcement in the internal server to let members know and see who will be attending the event.
+ * Send a custom announcement in the internal server to verify attendance
  * @param eventData
  * @param channel Internal Announcement Channel
  */

@@ -32,7 +32,7 @@ export async function syncMemberRoles(memberData: MemberData, guild: Guild) {
     const config = getGuildRoleConfig(guild);
 
     await ensureBaseRole(member, config);
-    await syncteamRole(memberData, member, config);
+    await syncTeamRole(memberData, member, config);
     await updateNickname(memberData, member);
 }
 
@@ -44,10 +44,11 @@ export async function syncMemberRoles(memberData: MemberData, guild: Guild) {
  * @returns
  */
 async function ensureBaseRole(member: GuildMember, config: GuildRoleConfig) {
-    const sesaRole = member.roles.cache.find(role => role.id === config.requiredRoleId);
-    if (sesaRole) {
+    const hasSesaRole = member.roles.cache.has(config.requiredRoleId);
+    if (hasSesaRole) {
         return;
     }
+
     const role = await config.guild.roles.fetch(config.requiredRoleId);
     if (role) {
         await member.roles.add(role);
@@ -63,7 +64,7 @@ async function ensureBaseRole(member: GuildMember, config: GuildRoleConfig) {
  * @param member
  * @returns
  */
-async function syncteamRole(memberData: MemberData, member: GuildMember, config: GuildRoleConfig) {
+async function syncTeamRole(memberData: MemberData, member: GuildMember, config: GuildRoleConfig) {
     const currentRoleIds = new Set(member.roles.cache.map(role => role.id));
     const teamRoleId = config.getTeamRoleId(memberData.teamKey);
 
