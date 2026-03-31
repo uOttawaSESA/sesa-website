@@ -12,24 +12,17 @@ import { useTranslations } from "next-intl";
 import { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import * as z from "zod";
+import { ErrorText } from "@/components/form/error-text";
 import { useAppForm } from "@/hooks";
 import { Link, useRouter } from "@/i18n/navigation";
 import { api } from "@/trpc/react";
 
 const FormData = z.object({
-    firstName: z.string(),
-    lastName: z.string(),
+    firstName: z.string().nonempty("Must provide a first name"),
+    lastName: z.string().nonempty("Must provide a last name"),
     email: z.email(),
-    topic: z.string().optional(),
-    message: z.string(),
-});
-
-const FormDataRequired = z.object({
-    firstName: z.string().nonempty(),
-    lastName: z.string().nonempty(),
-    email: z.email().nonempty(),
-    topic: z.string().nonempty(),
-    message: z.string().nonempty(),
+    topic: z.string().nonempty("Must select a topic"),
+    message: z.string().nonempty("Must provide a message"),
 });
 
 // biome-ignore-start lint/correctness/noChildrenProp: Recommended by TanStack docs
@@ -51,15 +44,14 @@ const ContactForm: React.FC = () => {
             email: "",
             topic: undefined,
             message: "",
-        } as z.infer<typeof FormData>,
+        } as Partial<z.infer<typeof FormData>>,
         validators: {
-            onChange: FormData,
-            onSubmit: FormDataRequired,
+            onBlur: FormData,
         },
         onSubmit: ({ value }) => {
             if (!recaptchaToken) return;
             emailMutation.mutate({
-                ...(value as z.infer<typeof FormDataRequired>),
+                ...(value as z.infer<typeof FormData>),
                 recaptchaToken,
             });
         },
@@ -88,23 +80,31 @@ const ContactForm: React.FC = () => {
                     <form.AppField
                         name="firstName"
                         children={field => (
-                            <field.TextInput
-                                type="text"
-                                placeholder={t("form_firstname")}
-                                autoComplete="given-name"
-                                required
-                            />
+                            <div>
+                                <field.TextInput
+                                    type="text"
+                                    placeholder={t("form_firstname")}
+                                    autoComplete="given-name"
+                                    aria-invalid={!field.state.meta.isValid}
+                                    required
+                                />
+                                <ErrorText field={field} />
+                            </div>
                         )}
                     />
                     <form.AppField
                         name="lastName"
                         children={field => (
-                            <field.TextInput
-                                type="text"
-                                placeholder={t("form_lastname")}
-                                autoComplete="family-name"
-                                required
-                            />
+                            <div>
+                                <field.TextInput
+                                    type="text"
+                                    placeholder={t("form_lastname")}
+                                    autoComplete="family-name"
+                                    aria-invalid={!field.state.meta.isValid}
+                                    required
+                                />
+                                <ErrorText field={field} />
+                            </div>
                         )}
                     />
                 </div>
@@ -117,12 +117,16 @@ const ContactForm: React.FC = () => {
                 <form.AppField
                     name="email"
                     children={field => (
-                        <field.TextInput
-                            type="email"
-                            placeholder={t("form_email")}
-                            autoComplete="email"
-                            required
-                        />
+                        <>
+                            <field.TextInput
+                                type="email"
+                                placeholder={t("form_email")}
+                                autoComplete="email"
+                                aria-invalid={!field.state.meta.isValid}
+                                required
+                            />
+                            <ErrorText field={field} />
+                        </>
                     )}
                 />
             </div>
@@ -137,6 +141,7 @@ const ContactForm: React.FC = () => {
                         <field.Select>
                             <SelectTrigger
                                 className="min-h-14 w-full cursor-pointer bg-transparent! font-sans text-thistle"
+                                aria-invalid={!field.state.meta.isValid}
                                 onBlur={field.handleBlur}
                             >
                                 <SelectValue placeholder={t("form_subject")} />
@@ -166,12 +171,15 @@ const ContactForm: React.FC = () => {
                 <form.AppField
                     name="message"
                     children={field => (
-                        <field.Textarea
-                            name="message"
-                            className="h-48"
-                            placeholder={t("form_body_placeholder")}
-                            required
-                        />
+                        <>
+                            <field.Textarea
+                                name="message"
+                                className="h-48"
+                                placeholder={t("form_body_placeholder")}
+                                required
+                            />
+                            <ErrorText field={field} />
+                        </>
                     )}
                 />
             </div>
