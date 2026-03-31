@@ -73,9 +73,12 @@ const ContactForm: React.FC = () => {
             className="space-y-6"
         >
             <div className="mb-8">
-                <h2 className="mb-4 font-vcr-osd-mono text-sm text-white uppercase md:text-sm lg:text-base xl:text-base">
+                <label
+                    htmlFor="firstName"
+                    className="mb-4 font-vcr-osd-mono text-sm text-white uppercase md:text-sm lg:text-base xl:text-base"
+                >
                     {t("form_name_label")}
-                </h2>
+                </label>
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                     <form.AppField
                         name="firstName"
@@ -83,6 +86,8 @@ const ContactForm: React.FC = () => {
                             <div>
                                 <field.TextInput
                                     type="text"
+                                    id={field.name}
+                                    name={field.name}
                                     placeholder={t("form_firstname")}
                                     autoComplete="given-name"
                                     aria-invalid={!field.state.meta.isValid}
@@ -98,6 +103,8 @@ const ContactForm: React.FC = () => {
                             <div>
                                 <field.TextInput
                                     type="text"
+                                    id={field.name}
+                                    name={field.name}
                                     placeholder={t("form_lastname")}
                                     autoComplete="family-name"
                                     aria-invalid={!field.state.meta.isValid}
@@ -111,15 +118,20 @@ const ContactForm: React.FC = () => {
             </div>
 
             <div className="mb-8">
-                <h2 className="mb-4 font-vcr-osd-mono text-sm text-white uppercase md:text-sm lg:text-base xl:text-base">
+                <label
+                    htmlFor="email"
+                    className="mb-4 font-vcr-osd-mono text-sm text-white uppercase md:text-sm lg:text-base xl:text-base"
+                >
                     {t("form_email_label")}
-                </h2>
+                </label>
                 <form.AppField
                     name="email"
                     children={field => (
                         <>
                             <field.TextInput
                                 type="email"
+                                id={field.name}
+                                name={field.name}
                                 placeholder={t("form_email")}
                                 autoComplete="email"
                                 aria-invalid={!field.state.meta.isValid}
@@ -132,14 +144,19 @@ const ContactForm: React.FC = () => {
             </div>
 
             <div className="mb-8">
-                <h2 className="mb-4 font-vcr-osd-mono text-sm text-white uppercase md:text-sm lg:text-base xl:text-base">
+                <label
+                    htmlFor="topic"
+                    className="mb-4 font-vcr-osd-mono text-sm text-white uppercase md:text-sm lg:text-base xl:text-base"
+                >
                     {t("form_subject_label")}
-                </h2>
+                </label>
                 <form.AppField
                     name="topic"
                     children={field => (
                         <field.Select>
                             <SelectTrigger
+                                id={field.name}
+                                name={field.name}
                                 className="min-h-14 w-full cursor-pointer bg-transparent! font-sans text-thistle"
                                 aria-invalid={!field.state.meta.isValid}
                                 onBlur={field.handleBlur}
@@ -165,14 +182,18 @@ const ContactForm: React.FC = () => {
             </div>
 
             <div className="mb-8">
-                <h2 className="mb-4 font-vcr-osd-mono text-sm text-white uppercase md:text-sm lg:text-base xl:text-base">
+                <label
+                    htmlFor="message"
+                    className="mb-4 font-vcr-osd-mono text-sm text-white uppercase md:text-sm lg:text-base xl:text-base"
+                >
                     {t("form_body_label")}
-                </h2>
+                </label>
                 <form.AppField
                     name="message"
                     children={field => (
                         <>
                             <field.Textarea
+                                id={field.name}
                                 name="message"
                                 className="h-48"
                                 placeholder={t("form_body_placeholder")}
