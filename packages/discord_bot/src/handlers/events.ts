@@ -4,7 +4,7 @@ import {
     GuildScheduledEventPrivacyLevel,
     type TextChannel,
 } from "discord.js";
-import type { ServerInfo } from "../type";
+import type { Event, ServerInfo } from "../type";
 import { formatDate } from "../utils/dateFormater";
 
 /**
@@ -16,14 +16,15 @@ import { formatDate } from "../utils/dateFormater";
  * @param serverInfo All validated Discord information (Ids of servers, channels,)
  * @returns
  */
-export async function newEvent(eventData: any, serverInfo: ServerInfo) {
+export async function newEvent(eventData: Event, serverInfo: ServerInfo) {
     await sendAnnouncement(eventData, serverInfo.publicEventChannel);
     await createEvent(eventData, serverInfo.publicDiscord);
+    //TODO: Check if we want to create a scheduled event in the internal server as well
 
     await internalAnnouncement(eventData, serverInfo.internalEventChannel);
 }
 
-async function sendAnnouncement(eventData: any, channel: TextChannel) {
+async function sendAnnouncement(eventData: Event, channel: TextChannel) {
     const message = await channel.send({
         content: getAnnouncementMessage(eventData),
         files: [
@@ -32,6 +33,7 @@ async function sendAnnouncement(eventData: any, channel: TextChannel) {
                 name: "event-image.jpg",
             },
         ],
+        flags: ["SuppressEmbeds"],
     });
 
     await message.react("🔥");
@@ -43,7 +45,7 @@ async function sendAnnouncement(eventData: any, channel: TextChannel) {
  * @param guild
  * @returns
  */
-async function createEvent(eventData: any, guild: Guild) {
+async function createEvent(eventData: Event, guild: Guild) {
     const description = `
 Please see https://discord.com/channels/1011095131144863794/1011095132168257598 for more details.
 
@@ -69,7 +71,7 @@ ${getAnnouncementMessage(eventData)}
  * @param eventData
  * @returns
  */
-function getAnnouncementMessage(eventData: any): string {
+function getAnnouncementMessage(eventData: Event): string {
     const content = `
 @everyone
 
@@ -92,7 +94,7 @@ ${eventData.description}
  * @param eventData
  * @param channel Internal Announcement Channel
  */
-async function internalAnnouncement(eventData: any, channel: TextChannel) {
+async function internalAnnouncement(eventData: Event, channel: TextChannel) {
     const internalAnnouncement = `
 @everyone
 
@@ -106,6 +108,7 @@ Please React ✅ if you will be attending.
     `;
     const message = await channel.send({
         content: internalAnnouncement,
+        flags: ["SuppressEmbeds"],
     });
 
     await message.react("✅");

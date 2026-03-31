@@ -1,12 +1,19 @@
-// Guild Discord ID's
-export const PublicDiscordId = "1480275276876484740";
-export const InternalDiscordId = "1478904660302757938";
+// Guild IDs
+export const INTERNAL_GUILD_ID = "1478904660302757938";
+export const PUBLIC_GUILD_ID = "1480275276876484740";
 
-// Channel ID's
-export const PublicEventChannelId = "1480755250167156786";
-export const InternalEventChannelId = "1480755417536794707";
-export const InternalAuditChannelId = "1485020961077203186";
-export const InternalErrorChannelId = "1487946440436088962";
+// Bot
+export const BOT_ID = "1478852954885849128";
 
-// Discord Bot ID
-export const BotId = "1478852954885849128";
+// Role IDs
+export const INTERNAL_REQUIRED_ROLE_ID = "1479280284833677474";
+export const PUBLIC_REQUIRED_ROLE_ID = "1480275276876484741";
+
+export const INTERNAL_LEAD_ROLE_ID = "1479976773083987968";
+export const PUBLIC_LEAD_ROLE_ID = "1480275276876484742";
+
+// Channel IDs
+export const PUBLIC_EVENT_CHANNEL_ID = "1480755250167156786";
+export const INTERNAL_EVENT_CHANNEL_ID = "1480755417536794707";
+export const INTERNAL_AUDIT_CHANNEL_ID = "1485020961077203186";
+export const INTERNAL_ERROR_CHANNEL_ID = "1487946440436088962";

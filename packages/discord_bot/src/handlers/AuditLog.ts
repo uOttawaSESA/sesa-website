@@ -1,7 +1,8 @@
 import type { TextChannel } from "discord.js";
+import type { Log } from "../type";
 
 //TODO: Verify what kind of log we can get
-export async function newLog(log: any, auditChannel: TextChannel) {
+export async function newLog(log: Log, auditChannel: TextChannel) {
     const message =
         `**${log.action}** by ${log.user} at ${new Date(log.timestamp).toLocaleString()}` +
         `\nDetails:\n

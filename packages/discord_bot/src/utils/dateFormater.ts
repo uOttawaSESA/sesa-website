@@ -1,4 +1,5 @@
 import { format } from "date-fns";
+import type { Event } from "../type";
 //TODO: Merge date formating in a util function from the main app (Since we are using the same code)
 //TODO: When merged, remove date-fns
 
@@ -7,7 +8,7 @@ import { format } from "date-fns";
  * @param event
  * @returns
  */
-export function formatDate(event: any): string {
+export function formatDate(event: Event): string {
     const formattedDate = format(event.startTime, "MMM dd, yyyy"); // e.g., "Mar 25, 2024"
     const timeRange = `${format(event.startTime, "ha")} – ${format(event.endTime, "ha")}`; // "6PM – 8PM"
 

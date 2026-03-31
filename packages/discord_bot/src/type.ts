@@ -9,6 +9,12 @@ export interface ServerInfo {
     internalErrorChannel: TextChannel;
 }
 
+export type TeamRoleConfig = {
+    internalRoleId: string;
+    nicknameLabel: string;
+    publicRoleId: string;
+};
+
 //FIXME: //TODO: Temporary replacement for the type memberData
 export interface MemberData {
     discordId: string;
@@ -25,8 +31,20 @@ export type TeamKey =
     | "academics"
     | "advisors";
 
-export type TeamRoleConfig = {
-    internalId: string;
-    nicknameLabel: string;
-    publicId: string;
+//TODO: Temporary until replacement of official shared type
+export type Event = {
+    title: string;
+    description: string;
+    location: string;
+    registrationUrl: string;
+    startTime: Date;
+    endTime: Date;
+    image: string;
+};
+
+//TODO: Temporary until replacement of official shared type
+export type Log = {
+    action: string;
+    user: string;
+    timestamp: string;
 };

@@ -1,12 +1,12 @@
 import "dotenv/config";
 import { Client, GatewayIntentBits, type TextChannel } from "discord.js";
 import {
-    InternalAuditChannelId,
-    InternalDiscordId,
-    InternalErrorChannelId,
-    InternalEventChannelId,
-    PublicDiscordId,
-    PublicEventChannelId,
+    INTERNAL_AUDIT_CHANNEL_ID,
+    INTERNAL_ERROR_CHANNEL_ID,
+    INTERNAL_EVENT_CHANNEL_ID,
+    INTERNAL_GUILD_ID,
+    PUBLIC_EVENT_CHANNEL_ID,
+    PUBLIC_GUILD_ID,
 } from "./config";
 import { newEvent } from "./handlers/events";
 import { syncMemberRoles } from "./handlers/rolySync/syncMemberRoles";
@@ -26,19 +26,19 @@ client.once("clientReady", async () => {
     startServer(serverInfo);
 
     // Example usage of the handlers (can be removed later)
-    // newEvent(
-    //     {
-    //         title: "Career Panel",
-    //         description:
-    //             "Ever wondered what it’s like to work at Microsoft, Google, Meta, Apple, Amazon, Dropbox, Datadog, DoorDash, Shopify, and more? 👀 We’re bringing together speakers from these leading companies for an exclusive Career Panel covering roles in Software Development, Project Management, and UI/UX Design. 🎤 Special guest: Aidan Ouckama (CS content creator) will be sharing insights on navigating the tech world and growing your career. 💡 This is your chance to ask questions, hear real experiences, and learn what it takes to succeed in top-tier tech roles.",
-    //         location: "STM 117",
-    //         registrationUrl: "https://www.google.com",
-    //         startTime: new Date(Date.now() + 60 * 60 * 1000),
-    //         endTime: new Date(Date.now() + 2 * 60 * 60 * 1000),
-    //         image: "https://www.sesa-aegl.ca/_next/image?url=https%3A%2F%2Fdkfgekwffkyxixrsgaml.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fteam_images%2Fce29bb3f-511b-46dd-ad69-766ac46b398b.jpg&w=640&q=75",
-    //     },
-    //     serverInfo,
-    // );
+    newEvent(
+        {
+            title: "Career Panel",
+            description:
+                "Ever wondered what it’s like to work at Microsoft, Google, Meta, Apple, Amazon, Dropbox, Datadog, DoorDash, Shopify, and more? 👀 We’re bringing together speakers from these leading companies for an exclusive Career Panel covering roles in Software Development, Project Management, and UI/UX Design. 🎤 Special guest: Aidan Ouckama (CS content creator) will be sharing insights on navigating the tech world and growing your career. 💡 This is your chance to ask questions, hear real experiences, and learn what it takes to succeed in top-tier tech roles.",
+            location: "STM 117",
+            registrationUrl: "https://linktr.ee/uottawa.sesa",
+            startTime: new Date(Date.now() + 60 * 60 * 1000),
+            endTime: new Date(Date.now() + 2 * 60 * 60 * 1000),
+            image: "https://www.sesa-aegl.ca/_next/image?url=https%3A%2F%2Fdkfgekwffkyxixrsgaml.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fevents_images%2F2025-10-07%2Fcareer-panel.png&w=750&q=75",
+        },
+        serverInfo,
+    );
 
     const role = "lead"; // lead // member
     const team: TeamKey = "development"; //codirectors //partnerships //communications // development
@@ -89,34 +89,34 @@ async function createServerInfo(): Promise<ServerInfo> {
     const channelConfigs = [
         {
             key: "publicEventChannel",
-            id: PublicEventChannelId,
-            expectedGuildId: PublicDiscordId,
+            id: PUBLIC_EVENT_CHANNEL_ID,
+            expectedGuildId: PUBLIC_GUILD_ID,
             label: "PublicEventChannelId",
         },
         {
             key: "internalEventChannel",
-            id: InternalEventChannelId,
-            expectedGuildId: InternalDiscordId,
+            id: INTERNAL_EVENT_CHANNEL_ID,
+            expectedGuildId: INTERNAL_GUILD_ID,
             label: "InternalEventChannelId",
         },
         {
             key: "internalAuditChannel",
-            id: InternalAuditChannelId,
-            expectedGuildId: InternalDiscordId,
+            id: INTERNAL_AUDIT_CHANNEL_ID,
+            expectedGuildId: INTERNAL_GUILD_ID,
             label: "InternalAuditChannelId",
         },
         {
             key: "internalErrorChannel",
-            id: InternalErrorChannelId,
-            expectedGuildId: InternalDiscordId,
+            id: INTERNAL_ERROR_CHANNEL_ID,
+            expectedGuildId: INTERNAL_GUILD_ID,
             label: "InternalErrorChannelId",
         },
     ];
 
     // Fetch guilds
     const [internalGuild, publicGuild] = await Promise.all([
-        client.guilds.fetch(InternalDiscordId ?? ""),
-        client.guilds.fetch(PublicDiscordId ?? ""),
+        client.guilds.fetch(INTERNAL_GUILD_ID ?? ""),
+        client.guilds.fetch(PUBLIC_GUILD_ID ?? ""),
     ]);
     if (!internalGuild) {
         throw new Error("Error: internalGuild not found (Invalid ID)");
