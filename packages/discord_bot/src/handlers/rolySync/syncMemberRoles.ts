@@ -1,9 +1,11 @@
 import type { Guild, GuildMember } from "discord.js";
-import { serverInfo } from "../..";
 import type { MemberData } from "../../type";
+import { newError } from "../errorHandler";
 import { type GuildRoleConfig, getGuildRoleConfig, TEAM_ROLE_MAP } from "./roleConfig";
 
 /**
+ * Sync Member Roles:
+ * - Fetch the member in the guild
  * - Add base member discord role
  * - Add Team discord role
  * - Change Username to display the team and role
@@ -16,24 +18,32 @@ export async function syncMemberRoles(memberData: MemberData, guild: Guild) {
     try {
         member = await guild.members.fetch(memberData.discordId);
     } catch (error) {
-        await serverInfo.internalErrorChannel.send({
-            content: `Failed to fetch member <@${memberData.discordId}> in guild **${guild.name}**. \nError: ${error}`,
-        });
+        await newError("fetch member", memberData.discordId, guild.name, error);
         return;
     }
 
     if (!member) {
-        await serverInfo.internalErrorChannel.send({
-            content: `<@${memberData.discordId}> not found in guild **${guild.name}**.`,
-        });
+        await newError("fetch member", memberData.discordId, guild.name);
         return;
     }
 
     const config = getGuildRoleConfig(guild);
 
-    await ensureBaseRole(member, config);
-    await syncTeamRole(memberData, member, config);
-    await updateNickname(memberData, member);
+    try {
+        await ensureBaseRole(member, config);
+    } catch (error) {
+        await newError("ensure base role", memberData.discordId, guild.name, error);
+    }
+    try {
+        await syncTeamRole(memberData, member, config);
+    } catch (error) {
+        await newError("sync team role", memberData.discordId, guild.name, error);
+    }
+    try {
+        await updateNickname(memberData, member);
+    } catch (error) {
+        await newError("update nickname", memberData.discordId, guild.name, error);
+    }
 }
 
 /**
@@ -115,5 +125,4 @@ async function updateNickname(memberData: MemberData, member: GuildMember) {
         level = memberData.roleKey === "member" ? " Team" : " Lead";
     }
     await member.setNickname(`${baseName} [${roleUsername}${level}]`);
-    return Promise.resolve();
 }

@@ -8,10 +8,10 @@ import {
     PUBLIC_EVENT_CHANNEL_ID,
     PUBLIC_GUILD_ID,
 } from "./config";
-import { newEvent } from "./handlers/events";
-import { syncMemberRoles } from "./handlers/rolySync/syncMemberRoles";
+// import { newEvent } from "./handlers/events";
+// import { syncMemberRoles } from "./handlers/rolySync/syncMemberRoles";
 import { startServer } from "./server";
-import type { ServerInfo, TeamKey } from "./type";
+import type { ServerInfo } from "./type";
 
 export const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers],
@@ -26,27 +26,27 @@ client.once("clientReady", async () => {
     startServer(serverInfo);
 
     // Example usage of the handlers (can be removed later)
-    newEvent(
-        {
-            title: "Career Panel",
-            description:
-                "Ever wondered what it’s like to work at Microsoft, Google, Meta, Apple, Amazon, Dropbox, Datadog, DoorDash, Shopify, and more? 👀 We’re bringing together speakers from these leading companies for an exclusive Career Panel covering roles in Software Development, Project Management, and UI/UX Design. 🎤 Special guest: Aidan Ouckama (CS content creator) will be sharing insights on navigating the tech world and growing your career. 💡 This is your chance to ask questions, hear real experiences, and learn what it takes to succeed in top-tier tech roles.",
-            location: "STM 117",
-            registrationUrl: "https://linktr.ee/uottawa.sesa",
-            startTime: new Date(Date.now() + 60 * 60 * 1000),
-            endTime: new Date(Date.now() + 2 * 60 * 60 * 1000),
-            image: "https://www.sesa-aegl.ca/_next/image?url=https%3A%2F%2Fdkfgekwffkyxixrsgaml.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fevents_images%2F2025-10-07%2Fcareer-panel.png&w=750&q=75",
-        },
-        serverInfo,
-    );
+    // newEvent(
+    //     {
+    //         title: "Career Panel",
+    //         description:
+    //             "Ever wondered what it’s like to work at Microsoft, Google, Meta, Apple, Amazon, Dropbox, Datadog, DoorDash, Shopify, and more? 👀 We’re bringing together speakers from these leading companies for an exclusive Career Panel covering roles in Software Development, Project Management, and UI/UX Design. 🎤 Special guest: Aidan Ouckama (CS content creator) will be sharing insights on navigating the tech world and growing your career. 💡 This is your chance to ask questions, hear real experiences, and learn what it takes to succeed in top-tier tech roles.",
+    //         location: "STM 117",
+    //         registrationUrl: "https://linktr.ee/uottawa.sesa",
+    //         startTime: new Date(Date.now() + 60 * 60 * 1000),
+    //         endTime: new Date(Date.now() + 2 * 60 * 60 * 1000),
+    //         image: "https://www.sesa-aegl.ca/_next/image?url=https%3A%2F%2Fdkfgekwffkyxixrsgaml.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fevents_images%2F2025-10-07%2Fcareer-panel.png&w=750&q=75",
+    //     },
+    //     serverInfo,
+    // );
 
-    const role = "lead"; // lead // member
-    const team: TeamKey = "development"; //codirectors //partnerships //communications // development
-    console.log(serverInfo.internalDiscord);
-    syncMemberRoles(
-        { discordId: "190594925086244864", teamKey: team, roleKey: role },
-        serverInfo.internalDiscord,
-    );
+    // const role = "lead"; // lead // member
+    // const team: TeamKey = "development"; //codirectors //partnerships //communications // development
+    // console.log(serverInfo.internalDiscord);
+    // syncMemberRoles(
+    //     { discordId: "190594925086244864", teamKey: team, roleKey: role },
+    //     serverInfo.internalDiscord,
+    // );
     // syncMemberRoles(
     //     { discordId: "190594925086244864", teamKey: team, roleKey: role },
     //     serverInfo.publicDiscord,

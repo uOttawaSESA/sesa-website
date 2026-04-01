@@ -6,6 +6,7 @@ import {
 } from "discord.js";
 import type { Event, ServerInfo } from "../type";
 import { formatDate } from "../utils/dateFormater";
+import { newError } from "./errorHandler";
 
 /**
  * New Event Handler:
@@ -17,11 +18,26 @@ import { formatDate } from "../utils/dateFormater";
  * @returns
  */
 export async function newEvent(eventData: Event, serverInfo: ServerInfo) {
-    await sendAnnouncement(eventData, serverInfo.publicEventChannel);
-    await createEvent(eventData, serverInfo.publicDiscord);
-    //TODO: Check if we want to create a scheduled event in the internal server as well
-
-    await internalAnnouncement(eventData, serverInfo.internalEventChannel);
+    try {
+        await sendAnnouncement(eventData, serverInfo.publicEventChannel);
+    } catch (error) {
+        await newError("send announcement", "", serverInfo.publicDiscord.name, error);
+    }
+    try {
+        await createEvent(eventData, serverInfo.publicDiscord);
+    } catch (error) {
+        await newError("create public event", "", serverInfo.publicDiscord.name, error);
+    }
+    try {
+        await createEvent(eventData, serverInfo.internalDiscord);
+    } catch (error) {
+        await newError("create internal event", "", serverInfo.internalDiscord.name, error);
+    }
+    try {
+        await internalAnnouncement(eventData, serverInfo.internalEventChannel);
+    } catch (error) {
+        await newError("internal announcement", "", serverInfo.internalDiscord.name, error);
+    }
 }
 
 async function sendAnnouncement(eventData: Event, channel: TextChannel) {
