@@ -59,6 +59,11 @@ export type GuildRoleConfig = {
     getTeamRoleId: (teamKey: TeamKey) => string | undefined;
 };
 
+/**
+ * Get the role configuration for a given guild. This function determines whether the guild is the internal guild or the public guild and returns the appropriate role IDs accordingly.
+ * @param guild
+ * @returns
+ */
 export function getGuildRoleConfig(guild: Guild): GuildRoleConfig {
     const isInternal = guild.id === INTERNAL_GUILD_ID;
 

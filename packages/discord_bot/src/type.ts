@@ -40,6 +40,7 @@ export type Event = {
     startTime: Date;
     endTime: Date;
     image: string;
+    type: string;
 };
 
 //TODO: Temporary until replacement of official shared type

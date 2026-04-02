@@ -112,7 +112,7 @@ async function syncTeamRole(memberData: MemberData, member: GuildMember, config:
 }
 
 /**
- * Add the role to the server nickname (e.g. 8x5y1a => 8x5y1a [Dev Team])
+ * Add the role to the discord user nickname (e.g. 8x5y1a => 8x5y1a [Dev Team])
  * @param memberData
  * @param member
  * @returns

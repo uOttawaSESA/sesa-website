@@ -23,16 +23,19 @@ export async function newEvent(eventData: Event, serverInfo: ServerInfo) {
     } catch (error) {
         await newError("send announcement", "", serverInfo.publicDiscord.name, error);
     }
+
     try {
         await createEvent(eventData, serverInfo.publicDiscord);
     } catch (error) {
         await newError("create public event", "", serverInfo.publicDiscord.name, error);
     }
+
     try {
         await createEvent(eventData, serverInfo.internalDiscord);
     } catch (error) {
         await newError("create internal event", "", serverInfo.internalDiscord.name, error);
     }
+
     try {
         await internalAnnouncement(eventData, serverInfo.internalEventChannel);
     } catch (error) {
@@ -40,6 +43,11 @@ export async function newEvent(eventData: Event, serverInfo: ServerInfo) {
     }
 }
 
+/**
+ * Send announcement in the public server with the event details and image and react with a 🔥 emoji.
+ * @param eventData
+ * @param channel Channel to send the announcement
+ */
 async function sendAnnouncement(eventData: Event, channel: TextChannel) {
     const message = await channel.send({
         content: getAnnouncementMessage(eventData),
@@ -91,34 +99,39 @@ function getAnnouncementMessage(eventData: Event): string {
     const content = `
 @everyone
 
-## 📣 ${eventData.title}
+# 📣 ${eventData.type}: ${eventData.title}
+
+## 📖 **Details**: 
 
 ${eventData.description}
 
-📅 **When**: ${formatDate(eventData)}
+### 📅 __When__: ${formatDate(eventData)}
 
-📍 **Where**: ${eventData.location}
+### 📍 __Where__: ${eventData.location}
 
-📝 **Register**: ${eventData.registrationUrl}
+### 📝 __Register__: ${eventData.registrationUrl}
 `;
 
     return content;
 }
 
 /**
- * Send a custom announcement in the internal server to verify attendance
+ * Send a custom announcement in the internal server to verify attendance with a ✅ reaction.
  * @param eventData
- * @param channel Internal Announcement Channel
+ * @param channel Channel to send the internal announcement
  */
 async function internalAnnouncement(eventData: Event, channel: TextChannel) {
     const internalAnnouncement = `
 @everyone
 
-We're hosting a new event! 
+## We're hosting a new ${eventData.type}: ${eventData.title}!
 
-When: ${formatDate(eventData)}
+### 📅 __When__: ${formatDate(eventData)}
 
-For more info check the announcement: https://discord.com/channels/1011095131144863794/1011095132168257598
+### 📍 __Where__: ${eventData.location}
+
+-# For more information, please check the announcement: https://discord.com/channels/1011095131144863794/1011095132168257598
+
 
 Please React ✅ if you will be attending.
     `;
