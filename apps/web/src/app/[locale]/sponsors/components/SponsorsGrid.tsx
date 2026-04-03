@@ -1,252 +1,119 @@
-"use client";
-
+import { cn } from "@repo/ui/lib/utils";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
+import AnimateOnView from "@/components/AnimateOnView";
+import { Link } from "@/i18n/navigation";
+import SponsorCard from "./SponsorCard";
+import { type Sponsor, sponsors } from "./SponsorData";
 
-const sponsors = [
-    {
-        name: "National Bank",
-        src: "/sponsors/nationalbank.svg",
-        alt: "National Bank",
-        width: 480,
-        height: 240,
-        size: "h-72 md:h-80",
-        link: "https://www.nbc.ca/",
-    },
-
-    {
-        name: "Microsoft",
-        src: "/sponsors-page/microsoft.webp",
-        alt: "Microsoft",
-        width: 550,
-        height: 150,
-        size: "h-72 md:h-80",
-        link: "https://www.microsoft.com",
-    },
-
-    {
-        name: "Ciena",
-        src: "/sponsors/ciena.webp",
-        alt: "Ciena",
-        width: 300,
-        height: 150,
-        size: "h-72 md:h-80",
-        link: "https://www.ciena.com/",
-    },
-
-    {
-        name: "Warp",
-        src: "/sponsors/warp.svg",
-        alt: "Warp",
-        width: 300,
-        height: 150,
-        size: "h-72 md:h-80",
-        link: "https://warp.dev/?ref=sesa",
-    },
-    {
-        name: "CSE",
-        src: "/sponsors/cse.svg",
-        alt: "CSE",
-        width: 300,
-        height: 150,
-        size: "h-72 md:h-80",
-        link: "https://cse-cst.gc.ca/en",
-    },
-    {
-        name: "Amazon",
-        src: "/sponsors/amazon.svg",
-        alt: "Amazon",
-        width: 300,
-        height: 150,
-        size: "h-72 md:h-80",
-        link: "https://www.amazon.com/",
-    },
-    {
-        name: "Bank of Canada",
-        src: "/sponsors/bankofcanada.svg",
-        alt: "Bank of Canada",
-        width: 500,
-        height: 250,
-        size: "h-72 md:h-80",
-        link: "https://www.bankofcanada.ca/",
-    },
-
-    {
-        name: "Deloitte",
-        src: "/sponsors/deloitte.svg",
-        alt: "Deloitte",
-        width: 300,
-        height: 150,
-        size: "h-72 md:h-80",
-        link: "https://www.deloitte.com/",
-    },
-    {
-        name: "Noibu",
-        src: "/sponsors/noibu.svg",
-        alt: "Noibu",
-        width: 300,
-        height: 150,
-        size: "h-72 md:h-80",
-        link: "https://www.noibu.com/",
-    },
-];
-
-const gradientBorderClass = `
-  border border-solid
-  [border-image:linear-gradient(55deg,rgba(136,36,220,0.3)_41.93%,rgba(177,33,157,0.3)_81.89%)_1]
-`;
-
-type Sponsor = (typeof sponsors)[0];
-const firstSponsor = sponsors[0] as Sponsor;
+const heroSponsors = sponsors.filter(sponsor => sponsor.featureLevel === "hero");
+const featuredSponsors = sponsors.filter(sponsor => sponsor.featureLevel === "featured");
+const normalSponsors = sponsors.filter(sponsor => sponsor.featureLevel === "normal");
+const featuredRows: Sponsor[][] = [];
+for (let i = 0; i < featuredSponsors.length; i += 2) {
+    featuredRows.push(featuredSponsors.slice(i, i + 2));
+}
 
 const SponsorsGrid = () => {
+    const t = useTranslations("sponsorships");
+
     return (
         <div className="mt-10 flex justify-center px-6 md:mt-16">
-            <div className="flex w-full max-w-4xl flex-col gap-8">
-                {/* Large sponsor on top */}
-                <div className="flex justify-center gap-8 md:flex">
-                    <a
-                        href={firstSponsor.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`flex items-center justify-center rounded-lg p-10 ${firstSponsor.size} ${gradientBorderClass} w-full backdrop-blur-lg transition hover:scale-105`}
-                        title={firstSponsor.name}
-                    >
-                        <Image
-                            src={firstSponsor.src}
-                            alt={firstSponsor.alt}
-                            width={firstSponsor.width}
-                            height={firstSponsor.height}
-                            className="object-contain"
-                        />
-                    </a>
-                </div>
+            <div className="flex w-full max-w-6xl flex-col gap-8">
                 {/* Mobile: stack all sponsors vertically */}
                 <div className="flex flex-col gap-8 md:hidden">
-                    {sponsors.slice(1).map((sponsor, index) => (
+                    {sponsors.map((sponsor, index) => (
                         <a
                             key={index}
                             href={sponsor.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`flex items-center justify-center rounded-lg p-10 ${sponsor.size} ${gradientBorderClass} w-full backdrop-blur-lg transition hover:scale-105`}
+                            className={cn(
+                                "flex w-full items-center justify-center rounded-lg p-10 outline-gradient backdrop-blur-lg transition hover:scale-105",
+                                sponsor.size,
+                            )}
                             title={sponsor.name}
                         >
                             <Image
                                 src={sponsor.src}
-                                alt={sponsor.alt}
+                                alt={sponsor.alt ?? sponsor.name}
                                 width={sponsor.width}
                                 height={sponsor.height}
-                                className="object-contain brightness-0 invert"
-                            />
-                        </a>
-                    ))}
-                </div>
-                {/* Desktop: row 2 (Microsoft + Ciena) */}
-                <div className="hidden w-full flex-row gap-8 md:flex">
-                    {sponsors.slice(1, 3).map((sponsor, index) => (
-                        <a
-                            key={index}
-                            href={sponsor.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`flex flex-1 items-center justify-center rounded-lg p-10 ${sponsor.size} ${gradientBorderClass} backdrop-blur-lg transition hover:scale-105`}
-                            title={sponsor.name}
-                        >
-                            <Image
-                                src={sponsor.src}
-                                alt={sponsor.alt}
-                                width={sponsor.width}
-                                height={sponsor.height}
-                                className="object-contain brightness-0 invert"
+                                className={cn(
+                                    "object-contain",
+                                    sponsor.invert && "brightness-0 invert",
+                                )}
                             />
                         </a>
                     ))}
                 </div>
 
-                {/* Desktop: row 3 (Warp + CSE) */}
-                <div className="hidden w-full flex-row gap-8 md:flex">
-                    {sponsors.slice(3, 5).map((sponsor, index) => (
-                        <a
-                            key={index}
-                            href={sponsor.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`flex flex-1 items-center justify-center rounded-lg p-10 ${sponsor.size} ${gradientBorderClass} backdrop-blur-lg transition hover:scale-105`}
-                            title={sponsor.name}
-                        >
-                            <Image
-                                src={sponsor.src}
-                                alt={sponsor.alt}
-                                width={sponsor.width}
-                                height={sponsor.height}
-                                className="object-contain"
-                            />
-                        </a>
-                    ))}
-                </div>
+                {/* Desktop rows */}
+                <div className="hidden w-full flex-col gap-8 md:flex">
+                    {/* Hero Sponsors */}
+                    <div className="flex flex-col gap-8 md:flex-row">
+                        {heroSponsors.map((sponsor, i) => (
+                            <SponsorCard key={i} sponsor={sponsor} className="flex-1" />
+                        ))}
+                    </div>
 
-                {/* Desktop: row (Amazon + Bank of Canada) */}
-                <div className="hidden w-full flex-row gap-8 md:flex">
-                    {sponsors.slice(5, 7).map((sponsor, index) => (
-                        <a
-                            key={index}
-                            href={sponsor.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`flex flex-1 items-center justify-center rounded-lg p-10 ${sponsor.size} ${gradientBorderClass} backdrop-blur-lg transition hover:scale-105`}
-                            title={sponsor.name}
-                        >
-                            <Image
-                                src={sponsor.src}
-                                alt={sponsor.alt}
-                                width={sponsor.width}
-                                height={sponsor.height}
-                                className="object-contain"
-                            />
-                        </a>
-                    ))}
-                </div>
+                    {/* Featured Sponsors */}
+                    {featuredRows.length > 0 &&
+                        featuredRows.map((row, rowIndex) =>
+                            row.length === 1 ? (
+                                <div
+                                    key={`featured-row-${rowIndex}`}
+                                    className="grid w-full grid-cols-1 gap-8 md:grid-cols-2"
+                                >
+                                    {row.map((sponsor, i) => (
+                                        <SponsorCard
+                                            key={`${rowIndex}-${i}`}
+                                            sponsor={sponsor}
+                                            className="w-full max-w-4xl"
+                                        />
+                                    ))}
+                                    <Link
+                                        href="/contact"
+                                        title="Become a Sponsor"
+                                        className={cn(
+                                            "flex items-center justify-center rounded-lg p-10 outline-gradient backdrop-blur-lg transition hover:scale-105",
+                                            "h-72 md:h-80",
+                                            "font-bold text-white",
+                                        )}
+                                    >
+                                        <h1 className="mx-auto max-w-[18ch] text-center font-heading text-3xl text-white uppercase leading-snug md:text-4xl md:leading-tight">
+                                            {t("become")}{" "}
+                                            <AnimateOnView animationClass="highlight-text">
+                                                {t("sponsor")}
+                                            </AnimateOnView>
+                                        </h1>
+                                    </Link>
+                                </div>
+                            ) : (
+                                <div
+                                    key={`featured-row-${rowIndex}`}
+                                    className="grid w-full grid-cols-1 gap-8 md:grid-cols-2"
+                                >
+                                    {row.map((sponsor, i) => (
+                                        <SponsorCard
+                                            key={`${rowIndex}-${i}`}
+                                            sponsor={sponsor}
+                                            className="w-full"
+                                        />
+                                    ))}
+                                </div>
+                            ),
+                        )}
 
-                {/* Desktop: row (Deloitte + Noibu) */}
-                <div className="hidden w-full flex-row gap-8 md:flex">
-                    {sponsors.slice(7, 9).map((sponsor, index) => (
-                        <a
-                            key={index}
-                            href={sponsor.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`flex flex-1 items-center justify-center rounded-lg p-10 ${sponsor.size} ${gradientBorderClass} backdrop-blur-lg transition hover:scale-105`}
-                            title={sponsor.name}
-                        >
-                            <Image
-                                src={sponsor.src}
-                                alt={sponsor.alt}
-                                width={sponsor.width}
-                                height={sponsor.height}
-                                className="object-contain brightness-0 invert"
-                            />
-                        </a>
-                    ))}
+                    {/* Normal Sponsors */}
+                    {normalSponsors.length > 0 && (
+                        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
+                            {normalSponsors.map((sponsor, i) => (
+                                <SponsorCard key={i} sponsor={sponsor} className="w-full" />
+                            ))}
+                        </div>
+                    )}
                 </div>
-
-                {/* Desktop: Last sponsor centered as its own row  (Used when odd amount of sponsors) */}
-                {/* <div className="hidden w-full justify-center md:flex">
-                    <a
-                        href={lastSponsor.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`flex items-center justify-center rounded-lg p-10 ${lastSponsor.size} ${gradientBorderClass} w-3/5 backdrop-blur-lg transition hover:scale-105`}
-                        title={lastSponsor.name}
-                    >
-                        <Image
-                            src={lastSponsor.src}
-                            alt={lastSponsor.alt}
-                            width={lastSponsor.width}
-                            height={lastSponsor.height}
-                            className="object-contain"
-                        />
-                    </a>
-                </div> */}
             </div>
         </div>
     );
