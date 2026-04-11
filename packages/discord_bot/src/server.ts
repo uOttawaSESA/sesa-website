@@ -2,7 +2,7 @@ import express from "express";
 import { newLog } from "./handlers/AuditLog";
 import { newEvent } from "./handlers/events";
 import { syncMemberRoles } from "./handlers/roleSync/syncMemberRoles";
-import type { ServerInfo } from "./types";
+import { EventSchema, LogSchema, MemberSchema, type ServerInfo } from "./types";
 
 export function startServer(serverInfo: ServerInfo) {
     const app = express();
@@ -17,9 +17,14 @@ export function startServer(serverInfo: ServerInfo) {
     });
 
     app.post("/announce-event", async (req, res) => {
+        const eventParser = EventSchema.safeParse(req.body);
+        if (!eventParser.success) {
+            console.error("Invalid event data", eventParser.error);
+            return res.status(400).json({ ok: false, error: "Invalid event data" });
+        }
+
         try {
-            const eventData = req.body;
-            await newEvent(eventData, serverInfo);
+            await newEvent(eventParser.data, serverInfo);
             res.json({ ok: true });
         } catch (error) {
             console.error("Failed to announce event", error);
@@ -28,8 +33,14 @@ export function startServer(serverInfo: ServerInfo) {
     });
 
     app.post("/sync-member", async (req, res) => {
+        const memberParser = MemberSchema.safeParse(req.body);
+        if (!memberParser.success) {
+            console.error("Invalid member data", memberParser.error);
+            return res.status(400).json({ ok: false, error: "Invalid member data" });
+        }
+
         try {
-            const memberData = req.body;
+            const memberData = memberParser.data;
             await syncMemberRoles(memberData, serverInfo.internalDiscord);
             await syncMemberRoles(memberData, serverInfo.publicDiscord);
             res.json({ ok: true });
@@ -40,8 +51,14 @@ export function startServer(serverInfo: ServerInfo) {
     });
 
     app.post("/audit", async (req, res) => {
+        const logParser = LogSchema.safeParse(req.body);
+        if (!logParser.success) {
+            console.error("Invalid log data", logParser.error);
+            return res.status(400).json({ ok: false, error: "Invalid log data" });
+        }
+
         try {
-            const log = req.body;
+            const log = logParser.data;
             await newLog(log, serverInfo.internalAuditChannel);
             res.json({ ok: true });
         } catch (error) {

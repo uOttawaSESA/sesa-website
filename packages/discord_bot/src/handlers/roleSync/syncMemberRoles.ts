@@ -1,5 +1,5 @@
 import type { Guild, GuildMember } from "discord.js";
-import type { MemberData } from "../../types";
+import type { Member } from "../../types";
 import { newError } from "../errorHandler";
 import { type GuildRoleConfig, getGuildRoleConfig, TEAM_ROLE_MAP } from "./roleConfig";
 
@@ -13,7 +13,7 @@ import { type GuildRoleConfig, getGuildRoleConfig, TEAM_ROLE_MAP } from "./roleC
  * @param guild
  * @returns
  */
-export async function syncMemberRoles(memberData: MemberData, guild: Guild) {
+export async function syncMemberRoles(memberData: Member, guild: Guild) {
     let member: GuildMember | undefined;
     try {
         member = await guild.members.fetch(memberData.discordId);
@@ -74,7 +74,7 @@ async function ensureBaseRole(member: GuildMember, config: GuildRoleConfig) {
  * @param member
  * @returns
  */
-async function syncTeamRole(memberData: MemberData, member: GuildMember, config: GuildRoleConfig) {
+async function syncTeamRole(memberData: Member, member: GuildMember, config: GuildRoleConfig) {
     const currentRoleIds = new Set(member.roles.cache.map(role => role.id));
     const teamRoleId = config.getTeamRoleId(memberData.teamKey);
 
@@ -117,7 +117,7 @@ async function syncTeamRole(memberData: MemberData, member: GuildMember, config:
  * @param member
  * @returns
  */
-async function updateNickname(memberData: MemberData, member: GuildMember) {
+async function updateNickname(memberData: Member, member: GuildMember) {
     const baseName = member.displayName.replace(/\s\[[^\]]+\]$/, ""); // removes "[Role Team]" suffix from nickname
     const roleUsername = TEAM_ROLE_MAP[memberData.teamKey].nicknameLabel;
     let level = "";
