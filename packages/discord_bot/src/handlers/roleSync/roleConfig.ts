@@ -1,10 +1,11 @@
 import "dotenv/config";
 import type { Guild } from "discord.js";
-import { INTERNAL_GUILD_ID } from "../../config";
-import type { TeamKey, TeamRoleConfig } from "../../type";
-
-export const INTERNAL_REQUIRED_ROLE_ID = "1479280284833677474";
-export const PUBLIC_REQUIRED_ROLE_ID = "1480275276876484741";
+import {
+    INTERNAL_GUILD_ID,
+    INTERNAL_REQUIRED_ROLE_ID,
+    PUBLIC_REQUIRED_ROLE_ID,
+} from "../../config";
+import type { TeamKey, TeamRoleConfig } from "../../types";
 
 export const INTERNAL_LEAD_ROLE_ID = "1479976773083987968";
 export const PUBLIC_LEAD_ROLE_ID = "1480275276876484742";

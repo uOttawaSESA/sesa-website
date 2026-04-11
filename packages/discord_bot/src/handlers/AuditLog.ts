@@ -1,5 +1,5 @@
 import type { TextChannel } from "discord.js";
-import type { Log } from "../type";
+import type { Log } from "../types";
 
 //TODO: Verify what kind of log we can get
 export async function newLog(log: Log, auditChannel: TextChannel) {

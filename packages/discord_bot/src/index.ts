@@ -8,9 +8,9 @@ import {
     PUBLIC_EVENT_CHANNEL_ID,
     PUBLIC_GUILD_ID,
 } from "./config";
-import { newEvent } from "./handlers/events";
+// import { newEvent } from "./handlers/events";
 import { startServer } from "./server";
-import type { ServerInfo } from "./type";
+import type { ServerInfo } from "./types";
 
 export const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers],
@@ -18,27 +18,33 @@ export const client = new Client({
 export let serverInfo = {} as ServerInfo;
 
 client.once("clientReady", async () => {
-    serverInfo = await createServerInfo();
+    try {
+        serverInfo = await createServerInfo();
+    } catch (error) {
+        console.error("Error during bot setup:", error);
+        process.exit(1);
+    }
+
     client.user?.setActivity("Empowering your tech journey!", { type: 0 });
 
     console.log(`Bot online as ${client.user?.tag}`);
     startServer(serverInfo);
 
     // Example usage of the handlers (can be removed later)
-    newEvent(
-        {
-            title: "Career Panel",
-            type: "Networking Event",
-            description:
-                "Ever wondered what it’s like to work at Microsoft, Google, Meta, Apple, Amazon, Dropbox, Datadog, DoorDash, Shopify, and more?\n\n  👀 We’re bringing together speakers from these leading companies for an exclusive Career Panel covering roles in Software Development, Project Management, and UI/UX Design.\n\n  🎤 Special guest: Aidan Ouckama (CS content creator) will be sharing insights on navigating the tech world and growing your career.\n \n 💡 This is your chance to ask questions, hear real experiences, and learn what it takes to succeed in top-tier tech roles.",
-            location: "STM 117",
-            registrationUrl: "https://linktr.ee/uottawa.sesa",
-            startTime: new Date(Date.now() + 60 * 60 * 1000),
-            endTime: new Date(Date.now() + 2 * 60 * 60 * 1000),
-            image: "https://www.sesa-aegl.ca/_next/image?url=https%3A%2F%2Fdkfgekwffkyxixrsgaml.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fevents_images%2F2025-10-07%2Fcareer-panel.png&w=750&q=75",
-        },
-        serverInfo,
-    );
+    // newEvent(
+    //     {
+    //         title: "Career Panel",
+    //         type: "Networking Event",
+    //         description:
+    //             "Ever wondered what it’s like to work at Microsoft, Google, Meta, Apple, Amazon, Dropbox, Datadog, DoorDash, Shopify, and more?\n\n  👀 We’re bringing together speakers from these leading companies for an exclusive Career Panel covering roles in Software Development, Project Management, and UI/UX Design.\n\n  🎤 Special guest: Aidan Ouckama (CS content creator) will be sharing insights on navigating the tech world and growing your career.\n \n 💡 This is your chance to ask questions, hear real experiences, and learn what it takes to succeed in top-tier tech roles.",
+    //         location: "STM 117",
+    //         registrationUrl: "https://linktr.ee/uottawa.sesa",
+    //         startTime: new Date(Date.now() + 60 * 60 * 1000),
+    //         endTime: new Date(Date.now() + 2 * 60 * 60 * 1000),
+    //         image: "https://www.sesa-aegl.ca/_next/image?url=https%3A%2F%2Fdkfgekwffkyxixrsgaml.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fevents_images%2F2025-10-07%2Fcareer-panel.png&w=750&q=75",
+    //     },
+    //     serverInfo,
+    // );
 
     // const role = "lead"; // lead // member
     // const team: TeamKey = "development"; //codirectors //partnerships //communications // development

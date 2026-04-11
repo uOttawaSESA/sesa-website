@@ -1,5 +1,5 @@
 import type { Guild, GuildMember } from "discord.js";
-import type { MemberData } from "../../type";
+import type { MemberData } from "../../types";
 import { newError } from "../errorHandler";
 import { type GuildRoleConfig, getGuildRoleConfig, TEAM_ROLE_MAP } from "./roleConfig";
 

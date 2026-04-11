@@ -1,6 +1,6 @@
 import { format } from "date-fns";
-import type { Event } from "../type";
-//TODO: Merge date formating in a util function from the main app (Since we are using the same code)
+import type { Event } from "../types";
+//TODO: Merge date formatting in a util function from the main app (Since we are using the same code)
 //TODO: When merged, remove date-fns
 
 /**

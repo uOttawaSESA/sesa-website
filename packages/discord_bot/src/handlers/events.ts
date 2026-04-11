@@ -4,7 +4,7 @@ import {
     GuildScheduledEventPrivacyLevel,
     type TextChannel,
 } from "discord.js";
-import type { Event, ServerInfo } from "../type";
+import type { Event, ServerInfo } from "../types";
 import { formatDate } from "../utils/dateFormater";
 import { newError } from "./errorHandler";
 
