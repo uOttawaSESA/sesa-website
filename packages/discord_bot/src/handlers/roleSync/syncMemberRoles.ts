@@ -9,9 +9,6 @@ import { type GuildRoleConfig, getGuildRoleConfig, TEAM_ROLE_MAP } from "./roleC
  * - Add base member discord role
  * - Add Team discord role
  * - Change Username to display the team and role
- * @param memberData
- * @param guild
- * @returns
  */
 export async function syncMemberRoles(memberData: Member, guild: Guild) {
     let member: GuildMember | undefined;

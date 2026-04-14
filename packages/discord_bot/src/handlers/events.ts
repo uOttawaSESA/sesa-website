@@ -15,7 +15,6 @@ import { newError } from "./errorHandler";
  * - Make announcement in internal server to verify attendance
  * @param eventData Event Data Fetched from the database
  * @param serverInfo All validated Discord information (Ids of servers, channels,)
- * @returns
  */
 export async function newEvent(eventData: Event, serverInfo: ServerInfo) {
     try {
@@ -45,7 +44,7 @@ export async function newEvent(eventData: Event, serverInfo: ServerInfo) {
 
 /**
  * Send announcement in the public server with the event details and image and react with a 🔥 emoji.
- * @param eventData
+ * @param eventData The event data
  * @param channel Channel to send the announcement
  */
 async function sendAnnouncement(eventData: Event, channel: TextChannel) {
@@ -65,9 +64,6 @@ async function sendAnnouncement(eventData: Event, channel: TextChannel) {
 
 /**
  * Creates a new scheduled event in the specified guild based on the provided event data.
- * @param eventData
- * @param guild
- * @returns
  */
 async function createEvent(eventData: Event, guild: Guild) {
     const description = `
@@ -92,8 +88,6 @@ ${getAnnouncementMessage(eventData)}
 
 /**
  * Function which will get the correct formatted event Announcement message
- * @param eventData
- * @returns
  */
 function getAnnouncementMessage(eventData: Event): string {
     const content = `
@@ -117,7 +111,7 @@ ${eventData.description}
 
 /**
  * Send a custom announcement in the internal server to verify attendance with a ✅ reaction.
- * @param eventData
+ * @param eventData The event data
  * @param channel Channel to send the internal announcement
  */
 async function internalAnnouncement(eventData: Event, channel: TextChannel) {

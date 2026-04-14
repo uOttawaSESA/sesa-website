@@ -8,7 +8,6 @@ import {
     PUBLIC_EVENT_CHANNEL_ID,
     PUBLIC_GUILD_ID,
 } from "./config";
-// import { newEvent } from "./handlers/events";
 import { startServer } from "./server";
 import type { ServerInfo } from "./types";
 
@@ -25,9 +24,12 @@ client.once("clientReady", async () => {
         process.exit(1);
     }
 
-    client.user?.setActivity("Empowering your tech journey!", { type: 0 });
+    if (!client.user) {
+        throw new Error("Client user is undefined");
+    }
+    client.user.setActivity("Empowering your tech journey!", { type: 0 });
 
-    console.log(`Bot online as ${client.user?.tag}`);
+    console.log(`Bot online as ${client.user.tag}`);
     startServer(serverInfo);
 
     // Example usage of the handlers (can be removed later)
@@ -63,10 +65,6 @@ client.once("clientReady", async () => {
  * Verifying if the channel is a valid text channel and belongs to the correct guild.
  * If any of the checks fail, an error will be thrown and the bot will not start.
  * This is to prevent any runtime errors when the bot is running.
- * @param channel
- * @param expectedGuildId
- * @param channelName
- * @returns
  */
 function verifyTextChannel(
     channel: unknown,
@@ -89,7 +87,6 @@ function verifyTextChannel(
 /**
  * Verifying all of the setup before letting the bot run.
  * Verifying validity of all the ID's (e.g. if the id can't be found, bot wont start)
- * @returns
  */
 async function createServerInfo(): Promise<ServerInfo> {
     const channelConfigs = [
@@ -117,12 +114,12 @@ async function createServerInfo(): Promise<ServerInfo> {
             expectedGuildId: INTERNAL_GUILD_ID,
             label: "InternalErrorChannelId",
         },
-    ];
+    ] as const;
 
     // Fetch guilds
     const [internalGuild, publicGuild] = await Promise.all([
-        client.guilds.fetch(INTERNAL_GUILD_ID ?? ""),
-        client.guilds.fetch(PUBLIC_GUILD_ID ?? ""),
+        client.guilds.fetch(INTERNAL_GUILD_ID),
+        client.guilds.fetch(PUBLIC_GUILD_ID),
     ]);
     if (!internalGuild) {
         throw new Error("Error: internalGuild not found (Invalid ID)");
@@ -131,7 +128,7 @@ async function createServerInfo(): Promise<ServerInfo> {
         throw new Error("Error: publicGuild not found (Invalid ID)");
     }
 
-    const channelFetches = channelConfigs.map(config => client.channels.fetch(config.id ?? ""));
+    const channelFetches = channelConfigs.map(config => client.channels.fetch(config.id));
     const channelRaws = await Promise.all(channelFetches);
 
     const channels: Record<string, TextChannel> = {};

@@ -3,9 +3,6 @@ import { serverInfo } from "..";
 /**
  * Sends an error message to the internal error channel when an error occurs during the role synchronization process.
  * @param action Action being performed when the error occurred
- * @param discordId
- * @param guildName
- * @param error
  */
 export async function newError(
     action: string,
