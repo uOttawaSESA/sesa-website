@@ -1,0 +1,33 @@
+{
+    "name": "@repo/auth",
+    "version": "0.1.0",
+    "private": true,
+    "type": "module",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js",
+            "require": "./dist/index.cjs"
+        }
+    },
+    "main": "./dist/index.cjs",
+    "types": "./dist/index.d.ts",
+    "scripts": {
+        "build": "tsup",
+        "check-types": "tsc --noEmit",
+        "generate": "pnpm dlx @better-auth/cli@latest generate --config ./script/auth-cli.ts --output ../db/src/auth-schema.ts"
+    },
+    "dependencies": {
+        "@repo/db": "workspace:*",
+        "better-auth": "^1.5.5",
+        "dotenv": "^17.3.1",
+        "drizzle-orm": "^0.44.7"
+    },
+    "devDependencies": {
+        "@repo/typescript-config": "workspace:*",
+        "@types/node": "^25.5.0",
+        "tsup": "^8.5.0",
+        "tsx": "^4.21.0",
+        "typescript": "catalog:"
+    }
+}
