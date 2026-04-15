@@ -1,7 +1,7 @@
 {
     "name": "Sesa",
     "private": true,
-    "license": "AGPL",
+    "license": "AGPL-3.0-only",
     "author": "SESA",
     "scripts": {
         "build": "turbo run build",
