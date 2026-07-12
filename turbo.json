@@ -31,6 +31,10 @@
         "check-types": {
             "dependsOn": ["^check-types"]
         },
+        "test": {
+            "dependsOn": ["^build"],
+            "env": ["NODE_ENV"]
+        },
         "dev": {
             "persistent": true,
             "cache": false,

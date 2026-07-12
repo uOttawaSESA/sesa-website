@@ -11,7 +11,8 @@
         "ci:lint": "biome lint",
         "check-types": "turbo run check-types",
         "dev": "turbo run dev",
-        "prepare": "husky"
+        "prepare": "husky",
+        "test": "turbo run test"
     },
     "devDependencies": {
         "@biomejs/biome": "2.4.2",
