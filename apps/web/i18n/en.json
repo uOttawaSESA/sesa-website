@@ -426,7 +426,8 @@
         "resources": "Resources",
         "contact": "Contact",
         "sponsor": "Sponsor",
-        "sponsor_us": "Sponsor Us"
+        "sponsor_us": "Sponsor Us",
+        "skip_to_content": "Skip to main content"
     },
     "footer": {
         "sitemap": "Sitemap",
