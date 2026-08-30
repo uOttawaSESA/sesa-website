@@ -1,3 +1,4 @@
+import { cn } from "@repo/ui/lib/utils";
 import Image from "next/image";
 
 type StarVariant = "star" | "star-faded";
@@ -29,9 +30,11 @@ const Star = ({
 
     return (
         <div
-            className={`pointer-events-none absolute select-none ${
-                showMobile ? "block" : "hidden md:block"
-            } ${className}`}
+            className={cn(
+                "pointer-events-none absolute select-none",
+                showMobile ? "block" : "hidden md:block",
+                className,
+            )}
             style={{
                 backfaceVisibility: "hidden",
                 transform: `rotate(${rotate}deg)`,

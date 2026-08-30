@@ -1,3 +1,4 @@
+import { cn } from "@repo/ui/lib/utils";
 import { forwardRef, type HTMLAttributes } from "react";
 
 export interface RectGradientProps extends HTMLAttributes<HTMLDivElement> {
@@ -18,7 +19,7 @@ const RectGradient = forwardRef<HTMLDivElement, RectGradientProps>(
         return (
             <div
                 style={{ padding: width || "2px" }}
-                className={`h-min w-min fill-gradient ${className || ""}`}
+                className={cn("h-min w-min fill-gradient", className)}
                 ref={ref}
                 {...rest}
             >
