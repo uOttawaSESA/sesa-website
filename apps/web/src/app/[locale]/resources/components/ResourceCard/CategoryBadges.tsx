@@ -1,3 +1,4 @@
+import { cn } from "@repo/ui/lib/utils";
 export const CategoryBadges = ({
     category,
     course,
@@ -15,7 +16,10 @@ export const CategoryBadges = ({
         <div className="flex gap-2 font-thin">
             <button
                 type="button"
-                className={`cursor-pointer bg-linear-to-r from-blueviolet-100 to-darkmagenta uppercase ${sizeClasses}`}
+                className={cn(
+                    "cursor-pointer bg-linear-to-r from-blueviolet-100 to-darkmagenta uppercase",
+                    sizeClasses,
+                )}
                 onClick={e => {
                     e.stopPropagation();
                     onBadgeClick?.("category", category);
@@ -26,7 +30,10 @@ export const CategoryBadges = ({
             {course && (
                 <button
                     type="button"
-                    className={`cursor-pointer bg-linear-to-r from-blueviolet-100 to-darkmagenta uppercase ${sizeClasses}`}
+                    className={cn(
+                        "cursor-pointer bg-linear-to-r from-blueviolet-100 to-darkmagenta uppercase",
+                        sizeClasses,
+                    )}
                     onClick={e => {
                         e.stopPropagation();
                         onBadgeClick?.("course", course);

@@ -60,7 +60,7 @@ const EventCard: React.FC<{ event: LocalizedEvent }> = ({ event }) => {
 
                 {/* Description */}
                 <div>
-                    <p className={`truncate-multiline font-sans text-base text-thistle`}>
+                    <p className="truncate-multiline font-sans text-base text-thistle">
                         {event.description}
                     </p>
                 </div>

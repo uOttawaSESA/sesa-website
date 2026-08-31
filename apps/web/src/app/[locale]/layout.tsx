@@ -1,3 +1,4 @@
+import { cn } from "@repo/ui/lib/utils";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Raleway } from "next/font/google";
 import { notFound } from "next/navigation";
@@ -83,7 +84,12 @@ export default async function RootLayout({
     return (
         <html lang={locale}>
             <body
-                className={`${geistSans.variable} ${geistMono.variable} ${raleway.variable} bg-linear-to-b from-0% from-gray-100 via-10% via-[#381e4b] to-gray-100 font-sans antialiased`}
+                className={cn(
+                    geistSans.variable,
+                    geistMono.variable,
+                    raleway.variable,
+                    "bg-linear-to-b from-0% from-gray-100 via-10% via-[#381e4b] to-gray-100 font-sans antialiased",
+                )}
                 style={{
                     backgroundImage:
                         "linear-gradient(to bottom, #1b1b1b 0%, #381e4b 10%, #1b1b1b 100%)",

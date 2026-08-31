@@ -1,5 +1,4 @@
 "use client";
-
 import { Button } from "@repo/ui/components/button";
 import {
     Select,
@@ -10,6 +9,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@repo/ui/components/select";
+import { cn } from "@repo/ui/lib/utils";
 import { useTranslations } from "next-intl";
 import type React from "react";
 import { useState } from "react";
@@ -44,9 +44,10 @@ const EventFilters: React.FC<{
                 <Button
                     key={filter}
                     variant="outline"
-                    className={`grow cursor-pointer p-2 font-heading text-base text-white uppercase backdrop-blur-lg md:px-8 xl:grow-0 ${
-                        activeTimeFilter === filter ? "fill-gradient" : ""
-                    }`}
+                    className={cn(
+                        "grow cursor-pointer p-2 font-heading text-base text-white uppercase backdrop-blur-lg md:px-8 xl:grow-0",
+                        activeTimeFilter === filter && "fill-gradient",
+                    )}
                     onClick={() => handleTimeFilterClick(filter)}
                 >
                     {t(`time_filter_${filter}`)}

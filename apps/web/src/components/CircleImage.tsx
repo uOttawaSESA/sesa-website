@@ -1,4 +1,5 @@
 "use client";
+import { cn } from "@repo/ui/lib/utils";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -18,11 +19,14 @@ const CircleImage = ({ className, innerClassName, size, src, ...rest }: CircleIm
 
     return (
         <div
-            className={`flex h-min items-center justify-center rounded-full fill-gradient p-0.5 ${className || ""}`}
+            className={cn(
+                "flex h-min items-center justify-center rounded-full fill-gradient p-0.5",
+                className,
+            )}
         >
             <Image
                 style={{ width: `${size}px`, height: `${size}px` }}
-                className={`rounded-full object-cover ${innerClassName || ""}`}
+                className={cn("rounded-full object-cover", innerClassName)}
                 src={imgSrc}
                 onError={() => fallbackImage && setImgSrc(fallbackImage)}
                 width={size}
