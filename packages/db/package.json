@@ -36,14 +36,14 @@
     },
     "dependencies": {
         "dotenv": "^17.2.0",
-        "drizzle-orm": "^0.44.5",
-        "postgres": "^3.4.7"
+        "drizzle-orm": "^0.45.2",
+        "postgres": "^3.4.9"
     },
     "devDependencies": {
         "@repo/env": "workspace:*",
         "@repo/typescript-config": "workspace:*",
         "@types/node": "^24.0.13",
-        "drizzle-kit": "^0.31.4",
+        "drizzle-kit": "^0.31.10",
         "tsx": "^4.20.3",
         "typescript": "catalog:"
     }
