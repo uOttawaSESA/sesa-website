@@ -4,17 +4,22 @@ packages:
 
 catalog:
   "@radix-ui/react-dialog": ^1.1.15
+  "@trpc/server": ^11.10.0
+  "@types/jsdom": ^27.0.0
   "@types/node": ^24.0.13
   "@types/react": ^19.2.13
   "@types/react-dom": ^19.2.3
+  dompurify: ^3.4.13
   drizzle-kit: ^0.31.10
   drizzle-orm: ^0.45.2
   husky: ^9.1.7
+  jsdom: ^26.0.0
   lucide-react: ^0.482.0
   postgres: ^3.4.9
   react: ^19.2.4
   react-dom: ^19.2.4
   sonner: ^2.0.7
+  superjson: ^2.2.6
   typescript: ^5.9.3
   zod: ^4.3.6
 

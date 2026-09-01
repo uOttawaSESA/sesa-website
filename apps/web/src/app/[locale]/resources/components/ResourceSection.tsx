@@ -1,4 +1,5 @@
 "use client";
+import type { ResourceFilters, ResourceSorts } from "@repo/api/routers/resource";
 import { useTranslations } from "next-intl";
 import {
     createParser,
@@ -9,7 +10,6 @@ import {
 } from "nuqs";
 import { useEffect, useMemo, useState } from "react";
 import { useDebounce } from "@/hooks";
-import type { ResourceFilters, ResourceSorts } from "@/server/api/routers/resource";
 import { api } from "@/trpc/react";
 import ResourceList from "./ResourceList";
 import SearchFilterBar from "./SearchFilterBar";

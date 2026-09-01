@@ -1,6 +1,6 @@
+import { createTRPCRouter, publicProcedure } from "@repo/api/trpc";
 import { members } from "@repo/db/schema";
 import { isNull } from "drizzle-orm";
-import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
 
 export const memberRouter = createTRPCRouter({
     getAll: publicProcedure.query(async ({ ctx }) => {

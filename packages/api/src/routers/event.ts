@@ -1,8 +1,8 @@
+import { createTRPCRouter, publicProcedure } from "@repo/api/trpc";
 import { events, eventsI18n } from "@repo/db/schema";
 import type { LocalizedEvent } from "@repo/db/types";
 import { and, desc, eq } from "drizzle-orm";
 import * as z from "zod";
-import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
 
 export const eventRouter = createTRPCRouter({
     getAll: publicProcedure
