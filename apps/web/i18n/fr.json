@@ -394,7 +394,8 @@
         "resources": "Ressources",
         "contact": "Contact",
         "sponsor": "Partenaire",
-        "sponsor_us": "Devenez commanditaire"
+        "sponsor_us": "Devenez commanditaire",
+        "skip_to_content": "Aller au contenu principal"
     },
     "footer": {
         "sitemap": "Plan du site",

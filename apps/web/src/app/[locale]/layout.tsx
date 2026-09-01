@@ -4,6 +4,7 @@ import { Geist, Geist_Mono, Raleway } from "next/font/google";
 import { notFound } from "next/navigation";
 import "./globals.css";
 import "@repo/ui/shadcn.css";
+import { Button } from "@repo/ui/components/button";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
@@ -81,6 +82,8 @@ export default async function RootLayout({
     const { locale } = await params;
     if (!hasLocale(routing.locales, locale)) notFound();
 
+    const t = await getTranslations("navigation");
+
     return (
         <html lang={locale}>
             <body
@@ -101,8 +104,14 @@ export default async function RootLayout({
                     <TRPCReactProvider>
                         <NuqsAdapter>
                             <div className="overflow-x-hidden">
+                                <Button
+                                    asChild
+                                    className="sr-only absolute focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-60 focus:px-6 focus:py-3 focus:text-white focus:outline-2 focus:outline-white"
+                                >
+                                    <a href="#main-content">{t("skip_to_content")}</a>
+                                </Button>
                                 <Navbar />
-                                <main>
+                                <main id="main-content" tabIndex={-1}>
                                     {children}
                                     <Analytics />
                                     <SpeedInsights />
