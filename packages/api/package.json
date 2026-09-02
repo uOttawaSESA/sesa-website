@@ -1,0 +1,32 @@
+{
+    "name": "@repo/api",
+    "version": "0.1.0",
+    "private": true,
+    "type": "module",
+    "exports": {
+        ".": "./src/index.ts",
+        "./trpc": "./src/trpc.ts",
+        "./routers/*": "./src/routers/*.ts"
+    },
+    "scripts": {
+        "check-types": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@repo/db": "workspace:*",
+        "@repo/env": "workspace:*",
+        "@trpc/server": "catalog:",
+        "dompurify": "catalog:",
+        "drizzle-orm": "catalog:",
+        "jsdom": "catalog:",
+        "nodemailer": "^8.0.5",
+        "superjson": "catalog:",
+        "zod": "catalog:"
+    },
+    "devDependencies": {
+        "@repo/typescript-config": "workspace:*",
+        "@types/jsdom": "catalog:",
+        "@types/node": "catalog:",
+        "@types/nodemailer": "^8.0.1",
+        "typescript": "catalog:"
+    }
+}

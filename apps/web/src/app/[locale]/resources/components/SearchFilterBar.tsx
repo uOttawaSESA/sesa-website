@@ -1,3 +1,4 @@
+import type { ResourceFilters, ResourceSorts } from "@repo/api/routers/resource";
 import { MultiSelect, type MultiSelectRef } from "@repo/ui/components/multi-select";
 import { Popover, PopoverContent, PopoverTrigger } from "@repo/ui/components/popover";
 import {
@@ -12,7 +13,6 @@ import { Trash } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useMemo, useRef } from "react";
-import type { ResourceFilters, ResourceSorts } from "@/server/api/routers/resource";
 
 interface SearchFilterBarProps {
     isGridMode: boolean;
