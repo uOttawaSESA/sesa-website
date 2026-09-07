@@ -35,7 +35,7 @@
         "db:studio": "drizzle-kit studio"
     },
     "dependencies": {
-        "dotenv": "^17.2.0",
+        "dotenv": "^17.4.2",
         "drizzle-orm": "catalog:",
         "postgres": "catalog:"
     },
