@@ -6,7 +6,7 @@ catalog:
   "@radix-ui/react-dialog": ^1.1.15
   "@trpc/server": ^11.10.0
   "@types/jsdom": ^27.0.0
-  "@types/node": ^24.0.13
+  "@types/node": ^26.4.0
   "@types/react": ^19.2.13
   "@types/react-dom": ^19.2.3
   dompurify: ^3.4.13
