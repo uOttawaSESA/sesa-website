@@ -18,7 +18,7 @@
         "dompurify": "catalog:",
         "drizzle-orm": "catalog:",
         "jsdom": "catalog:",
-        "nodemailer": "^8.0.5",
+        "nodemailer": "^9.0.6",
         "superjson": "catalog:",
         "zod": "catalog:"
     },
