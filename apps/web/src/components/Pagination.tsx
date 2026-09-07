@@ -11,6 +11,7 @@ import {
     Pagination as ShadcnPagination,
 } from "@repo/ui/components/pagination";
 import { Popover, PopoverContent, PopoverTrigger } from "@repo/ui/components/popover";
+import { cn } from "@repo/ui/lib/utils";
 import { useTranslations } from "next-intl";
 import { type FC, useRef } from "react";
 
@@ -101,7 +102,10 @@ const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange
                         ariaLabel={t("pagination_aria_previous")}
                         label={t("pagination_previous")}
                         aria-disabled={currentPage === 1}
-                        className={`ml-12 px-0 md:px-6 ${currentPage === 1 ? "pointer-events-none opacity-50" : ""}`}
+                        className={cn(
+                            "ml-12 px-0 md:px-6",
+                            currentPage === 1 && "pointer-events-none opacity-50",
+                        )}
                     />
                 </PaginationItem>
 
@@ -154,9 +158,10 @@ const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange
                                     e.preventDefault();
                                     onPageChange(page as number);
                                 }}
-                                className={`flex h-[36px] w-[36px] items-center justify-center text-sm sm:h-[50px] sm:w-[50px] sm:text-lg ${
-                                    currentPage === page ? "bg-blueviolet-100" : ""
-                                }`}
+                                className={cn(
+                                    "flex h-[36px] w-[36px] items-center justify-center text-sm sm:h-[50px] sm:w-[50px] sm:text-lg",
+                                    currentPage === page && "bg-blueviolet-100",
+                                )}
                             >
                                 {page}
                             </PaginationLink>
@@ -177,9 +182,10 @@ const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange
                         aria-disabled={currentPage === totalPages}
                         ariaLabel={t("pagination_aria_next")}
                         label={t("pagination_next")}
-                        className={`px-0 md:px-6 ${
-                            currentPage === totalPages ? "pointer-events-none opacity-50" : ""
-                        }`}
+                        className={cn(
+                            "px-0 md:px-6",
+                            currentPage === totalPages && "pointer-events-none opacity-50",
+                        )}
                     />
                 </PaginationItem>
             </PaginationContent>

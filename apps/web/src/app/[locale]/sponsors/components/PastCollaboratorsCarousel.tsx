@@ -1,5 +1,5 @@
 "use client";
-
+import { cn } from "@repo/ui/lib/utils";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import Marquee from "react-fast-marquee";
@@ -89,7 +89,10 @@ const PastCollaboratorsCarousel = () => {
                     {logos.concat(logos).map((logo, index) => (
                         <div
                             key={index}
-                            className={`mx-4 flex h-24 min-w-[160px] items-center justify-center rounded-lg p-4 backdrop-blur-lg md:h-28 md:min-w-[200px] md:p-6 ${gradientBorderClass}`}
+                            className={cn(
+                                "mx-4 flex h-24 min-w-[160px] items-center justify-center rounded-lg p-4 backdrop-blur-lg md:h-28 md:min-w-[200px] md:p-6",
+                                gradientBorderClass,
+                            )}
                         >
                             <Image
                                 src={logo.src}

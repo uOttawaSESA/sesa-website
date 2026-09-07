@@ -1,3 +1,4 @@
+import type { ResourceFilters, ResourceSorts } from "@repo/api/routers/resource";
 import { MultiSelect, type MultiSelectRef } from "@repo/ui/components/multi-select";
 import {
     Select,
@@ -10,14 +11,7 @@ import {
 import { Trash } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { useMemo, useRef, useState } from "react";
-import type { ResourceFilters, ResourceSorts } from "@/server/api/routers/resource";
-
-const gradientBorderClass = `
-    border
-    border-solid
-    [border-image:linear-gradient(55deg,rgba(136,36,220,0.7)_41.93%,rgba(177,33,157,0.7)_81.89%)_1]
-`;
+import { useMemo, useRef } from "react";
 
 interface SearchFilterBarProps {
     isGridMode: boolean;

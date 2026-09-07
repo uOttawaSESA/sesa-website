@@ -1,0 +1,12 @@
+{
+    "extends": "@repo/typescript-config/base.json",
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@repo/api": ["./src/index.ts"],
+            "@repo/api/trpc": ["./src/trpc.ts"],
+            "@repo/api/routers/*": ["./src/routers/*.ts"]
+        }
+    },
+    "include": ["src"]
+}

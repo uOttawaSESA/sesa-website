@@ -1,5 +1,6 @@
 "use client";
 import { Button } from "@repo/ui/components/button";
+import { cn } from "@repo/ui/lib/utils";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
@@ -24,7 +25,7 @@ function NavLinkItem({ href, label, isActive, onClick }: NavLinkItemProps) {
     return (
         <Link
             href={href}
-            className={`${navLinkClass} ${isActive ? activeNavLinkClass : "text-white"}`}
+            className={cn(navLinkClass, isActive ? activeNavLinkClass : "text-white")}
             onClick={onClick}
         >
             {label}
@@ -115,7 +116,11 @@ export default function Navbar() {
 
             {/* Mobile Menu Overlay */}
             <div
-                className={`fixed inset-0 z-40 bg-black transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"} lg:hidden`}
+                className={cn(
+                    "fixed inset-0 z-40 bg-black transition-transform duration-300 ease-in-out",
+                    isMobileMenuOpen ? "translate-x-0" : "translate-x-full",
+                    "lg:hidden",
+                )}
             >
                 <nav className="mt-16 flex flex-col items-center gap-8 py-10">
                     {navItems}

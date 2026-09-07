@@ -5,7 +5,10 @@
         "lib": ["es2024"],
         "paths": {
             "@/*": ["./src/*"],
-            "@repo/ui/*": ["../../packages/ui/src/*"]
+            "@repo/ui/*": ["../../packages/ui/src/*"],
+            "@repo/api": ["../../packages/api/src/index.ts"],
+            "@repo/api/trpc": ["../../packages/api/src/trpc.ts"],
+            "@repo/api/routers/*": ["../../packages/api/src/routers/*.ts"]
         }
     },
     "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/**/*"],

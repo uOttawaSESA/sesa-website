@@ -1,8 +1,8 @@
-import { createCallerFactory, createTRPCRouter } from "@/server/api/trpc";
-import { contactRouter } from "./routers/contact";
-import { eventRouter } from "./routers/event";
-import { memberRouter } from "./routers/members";
-import { resourceRouter } from "./routers/resource";
+import { contactRouter } from "@repo/api/routers/contact";
+import { eventRouter } from "@repo/api/routers/event";
+import { memberRouter } from "@repo/api/routers/members";
+import { resourceRouter } from "@repo/api/routers/resource";
+import { createCallerFactory, createTRPCRouter } from "@repo/api/trpc";
 
 /**
  * This is the primary router for your server.

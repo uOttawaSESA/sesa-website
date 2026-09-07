@@ -7,10 +7,10 @@
  * need to use are documented accordingly near the end.
  */
 
-import { db } from "@repo/db";
+import { type Database, db } from "@repo/db";
 import { initTRPC } from "@trpc/server";
 import superjson from "superjson";
-import { ZodError } from "zod";
+import { flattenError, ZodError } from "zod";
 
 /**
  * 1. CONTEXT
@@ -24,7 +24,9 @@ import { ZodError } from "zod";
  *
  * @see https://trpc.io/docs/server/context
  */
-export const createTRPCContext = async (opts: { headers: Headers }) => {
+export const createTRPCContext = async (opts: {
+    headers: Headers;
+}): Promise<{ db: Database; headers: Headers }> => {
     return {
         db,
         ...opts,
@@ -45,7 +47,7 @@ const t = initTRPC.context<typeof createTRPCContext>().create({
             ...shape,
             data: {
                 ...shape.data,
-                zodError: error.cause instanceof ZodError ? error.cause.flatten() : null,
+                zodError: error.cause instanceof ZodError ? flattenError(error.cause) : null,
             },
         };
     },
@@ -62,7 +64,7 @@ export const createCallerFactory = t.createCallerFactory;
  * 3. ROUTER & PROCEDURE (THE IMPORTANT BIT)
  *
  * These are the pieces you use to build your tRPC API. You should import these a lot in the
- * "/src/server/api/routers" directory.
+ * "src/routers" directory.
  */
 
 /**

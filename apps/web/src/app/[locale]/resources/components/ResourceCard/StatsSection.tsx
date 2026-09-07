@@ -1,3 +1,4 @@
+import { cn } from "@repo/ui/lib/utils";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useEffect, useId, useRef, useState } from "react";
@@ -75,9 +76,9 @@ export const StatsSection = ({
     };
 
     return (
-        <div className={`flex ${gapSize} font-[Monocode] text-thistle`}>
+        <div className={cn("flex", gapSize, "font-[Monocode] text-thistle")}>
             {/* Tier with Tooltip */}
-            <div className={`relative flex gap-1 ${layout === "horizontal" ? "w-5" : ""}`}>
+            <div className={cn("relative flex gap-1", layout === "horizontal" && "w-5")}>
                 <div
                     ref={iconRef}
                     role="tooltip"
@@ -91,7 +92,7 @@ export const StatsSection = ({
                         alt="Document"
                         width={iconSize}
                         height={iconSize}
-                        className={`h-${iconSize === 16 ? "4" : "5"} w-${iconSize === 16 ? "4" : "5"} mr-1`}
+                        className={cn(iconSize === 16 ? "h-4 w-4" : "h-5 w-5", "mr-1")}
                     />
                     <span className={textSize}>{tier}</span>
                 </div>
@@ -103,16 +104,19 @@ export const StatsSection = ({
             </div>
 
             {/* Format */}
-            <div className={`flex items-center gap-1 ${layout === "horizontal" ? "w-6" : ""}`}>
+            <div className={cn("flex items-center gap-1", layout === "horizontal" && "w-6")}>
                 <Image
                     src="/resources-page/folder.svg"
                     alt="Document"
                     width={iconSize}
                     height={iconSize}
-                    className={`h-${iconSize === 16 ? "4" : "5"} w-${iconSize === 16 ? "4" : "5"}`}
+                    className={cn(iconSize === 16 ? "h-4 w-4" : "h-5 w-5")}
                 />
                 <span
-                    className={`${format.toLowerCase() === "pdf" ? "uppercase" : "capitalize"} ${textSize}`}
+                    className={cn(
+                        format.toLowerCase() === "pdf" ? "uppercase" : "capitalize",
+                        textSize,
+                    )}
                 >
                     {format}
                 </span>
