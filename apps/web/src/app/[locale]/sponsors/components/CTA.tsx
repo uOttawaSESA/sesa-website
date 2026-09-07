@@ -39,7 +39,7 @@ export default function CTA() {
             </div>
 
             <div className="flex flex-col items-center justify-center gap-5 md:flex-row md:flex-wrap md:gap-8">
-                <p className="z-10 text-center font-heading text-sm text-white uppercase md:text-lg">
+                <p className="text-center font-heading text-sm text-white uppercase md:text-lg">
                     {t("cta_heading")}
                 </p>
                 <Button asChild className="px-5 font-heading text-white uppercase">
