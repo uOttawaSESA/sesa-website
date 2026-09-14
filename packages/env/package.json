@@ -18,11 +18,11 @@
     },
     "dependencies": {
         "@t3-oss/env-core": "^0.13.11",
-        "@types/node": "catalog:",
         "zod": "catalog:"
     },
     "devDependencies": {
         "@repo/typescript-config": "workspace:*",
+        "@types/node": "catalog:",
         "typescript": "catalog:"
     }
 }

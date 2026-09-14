@@ -35,12 +35,12 @@
         "db:studio": "drizzle-kit studio"
     },
     "dependencies": {
+        "@repo/env": "workspace:*",
         "dotenv": "^17.4.2",
         "drizzle-orm": "catalog:",
         "postgres": "catalog:"
     },
     "devDependencies": {
-        "@repo/env": "workspace:*",
         "@repo/typescript-config": "workspace:*",
         "@types/node": "catalog:",
         "drizzle-kit": "catalog:",
