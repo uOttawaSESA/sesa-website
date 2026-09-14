@@ -27,7 +27,7 @@
         "lucide-react": "catalog:",
         "marked": "^15.0.12",
         "next": "^15.5.21",
-        "next-intl": "^4.14.1",
+        "next-intl": "^4.14.3",
         "nuqs": "^2.10.1",
         "react": "catalog:",
         "react-dom": "catalog:",
