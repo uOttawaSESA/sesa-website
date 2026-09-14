@@ -48,7 +48,7 @@
         "@types/react-dom": "catalog:",
         "@types/react-google-recaptcha": "^2.1.9",
         "husky": "catalog:",
-        "postcss": "^8.5.23",
+        "postcss": "^8.5.28",
         "tailwindcss": "^4.2.1",
         "typescript": "catalog:"
     },
