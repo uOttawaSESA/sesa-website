@@ -2,6 +2,8 @@ import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
 
 const nextConfig: NextConfig = {
+    // Don't generate AGENTS.md/CLAUDE.md on `next dev`
+    agentRules: false,
     transpilePackages: ["@repo/ui", "@repo/env", "@repo/db", "@repo/api"],
     images: {
         remotePatterns: [
@@ -19,8 +21,6 @@ const nextConfig: NextConfig = {
             },
         ],
     },
-    // Biome is used for linting, not ESLint
-    eslint: { ignoreDuringBuilds: true },
 };
 
 export default createNextIntlPlugin()(nextConfig);
