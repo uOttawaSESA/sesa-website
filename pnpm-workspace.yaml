@@ -5,7 +5,7 @@ packages:
 catalog:
   "@radix-ui/react-dialog": ^1.1.23
   "@trpc/server": ^11.18.0
-  "@types/jsdom": ^27.0.0
+  "@types/jsdom": ^30.0.0
   "@types/node": ^24.0.13
   "@types/react": ^19.2.18
   "@types/react-dom": ^19.2.7
@@ -13,7 +13,7 @@ catalog:
   drizzle-kit: ^0.31.10
   drizzle-orm: ^0.45.2
   husky: ^9.1.7
-  jsdom: ^26.0.0
+  jsdom: ^30.0.1
   lucide-react: ^0.482.0
   postgres: ^3.4.9
   react: ^19.2.8
