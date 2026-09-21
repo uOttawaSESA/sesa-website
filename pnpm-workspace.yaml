@@ -28,3 +28,9 @@ onlyBuiltDependencies:
   - '@vercel/speed-insights'
   - esbuild
   - sharp
+
+minimumReleaseAge: 7200 # 5 days
+minimumReleaseAgeExclude:
+  - '@repo/*'
+  - caniuse-lite
+minimumReleaseAgeIgnoreMissingTime: false
