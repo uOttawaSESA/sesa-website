@@ -22,7 +22,7 @@
         "@vercel/speed-insights": "^2.0.0",
         "date-fns": "^4.4.0",
         "dompurify": "catalog:",
-        "framer-motion": "^12.34.0",
+        "framer-motion": "^13.2.0",
         "lucide-react": "catalog:",
         "marked": "^18.0.13",
         "next": "^16.3.4",
