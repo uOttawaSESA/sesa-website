@@ -5,7 +5,7 @@ export default defineConfig({
     outDir: "dist",
     // Both ESM & CJS for Next.js compatibility
     format: ["esm", "cjs"],
-    dts: true,
+    dts: false,
     clean: true,
     sourcemap: true,
     splitting: false,
