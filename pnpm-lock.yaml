@@ -40,8 +40,8 @@ catalogs:
       specifier: ^26.0.0
       version: 26.1.0
     lucide-react:
-      specifier: ^0.482.0
-      version: 0.482.0
+      specifier: ^1.46.0
+      version: 1.46.0
     postgres:
       specifier: ^3.4.9
       version: 3.4.9
@@ -133,7 +133,7 @@ importers:
         version: 13.2.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       lucide-react:
         specifier: 'catalog:'
-        version: 0.482.0(react@19.2.8)
+        version: 1.46.0(react@19.2.8)
       marked:
         specifier: ^18.0.13
         version: 18.0.13
@@ -340,7 +340,7 @@ importers:
         version: 8.6.0(react@19.2.8)
       lucide-react:
         specifier: 'catalog:'
-        version: 0.482.0(react@19.2.8)
+        version: 1.46.0(react@19.2.8)
       next-themes:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -2987,8 +2987,8 @@ packages:
   lru-cache@10.4.3:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
 
-  lucide-react@0.482.0:
-    resolution: {integrity: sha512-XM8PzHzSrg8ATmmO+fzf+JyYlVVdQnJjuyLDj2p4V2zEtcKeBNAqAoJIGFv1x2HSBa7kT8gpYUxwdQ0g7nypfw==}
+  lucide-react@1.46.0:
+    resolution: {integrity: sha512-Bv+FZXgZPrxc/NCl1e7JJVQFLdiCxYgxNVhqoV7X0p6I8ADJo8DxBnK1auH0fZz4AmqOJ3jgneL4f1i8LJQRAA==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
@@ -5415,7 +5415,7 @@ snapshots:
 
   lru-cache@10.4.3: {}
 
-  lucide-react@0.482.0(react@19.2.8):
+  lucide-react@1.46.0(react@19.2.8):
     dependencies:
       react: 19.2.8
 
