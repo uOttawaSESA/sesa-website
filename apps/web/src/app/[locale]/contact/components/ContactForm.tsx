@@ -1,40 +1,61 @@
 "use client";
 
 import { envClient } from "@repo/env";
-import { Button } from "@repo/ui/components/button";
-import { Input } from "@repo/ui/components/input";
 import {
-    Select,
     SelectContent,
     SelectGroup,
     SelectItem,
     SelectTrigger,
     SelectValue,
 } from "@repo/ui/components/select";
-import { Textarea } from "@repo/ui/components/textarea";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
+import * as z from "zod";
+import { ErrorText } from "@/components/form/error-text";
+import { useAppForm } from "@/hooks";
 import { Link, useRouter } from "@/i18n/navigation";
 import { api } from "@/trpc/react";
 
+const FormData = z.object({
+    firstName: z.string().nonempty("Must provide a first name"),
+    lastName: z.string().nonempty("Must provide a last name"),
+    email: z.email(),
+    topic: z.string().nonempty("Must select a topic"),
+    message: z.string().nonempty("Must provide a message"),
+});
+
+// biome-ignore-start lint/correctness/noChildrenProp: Recommended by TanStack docs
 const ContactForm: React.FC = () => {
     const router = useRouter();
 
     const t = useTranslations("contact_us");
 
-    const [formData, setFormData] = useState({
-        firstName: "",
-        lastName: "",
-        email: "",
-        topic: undefined as string | undefined,
-        message: "",
-    });
-
     const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
 
     const emailMutation = api.contact.sendEmail.useMutation({
         onSuccess: () => router.push("/thank_you"),
+    });
+
+    const form = useAppForm({
+        defaultValues: {
+            firstName: "",
+            lastName: "",
+            email: "",
+            topic: undefined,
+            message: "",
+        } as Partial<z.infer<typeof FormData>>,
+        validators: {
+            onChange: FormData,
+        },
+        onSubmit: ({ value }) => {
+            if (!recaptchaToken) return;
+            emailMutation.mutate({
+                ...(value as z.infer<typeof FormData>),
+                recaptchaToken,
+            });
+        },
+        onSubmitInvalid: args => console.error(args.formApi.getAllErrors()),
     });
 
     const topicItems = [
@@ -43,109 +64,144 @@ const ContactForm: React.FC = () => {
         { label: t("topic_support"), value: "Support" },
     ] as const;
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name, value } = e.target;
-        setFormData(prevState => ({
-            ...prevState,
-            [name]: value,
-        }));
-    };
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-
-        const { firstName, lastName, email, topic, message } = formData;
-
-        if (!firstName || !lastName || !email || !topic || !message) {
-            alert("Please fill out all fields.");
-            return;
-        }
-
-        if (!recaptchaToken) {
-            alert("Please complete the reCAPTCHA.");
-            return;
-        }
-
-        emailMutation.mutate({ firstName, lastName, email, topic, message, recaptchaToken });
-    };
-
     return (
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form
+            onSubmit={e => {
+                e.preventDefault();
+                form.handleSubmit();
+            }}
+            className="space-y-6"
+        >
             <div className="mb-8">
-                <h2 className="mb-4 font-vcr-osd-mono text-sm text-white uppercase md:text-sm lg:text-base xl:text-base">
+                <label
+                    htmlFor="firstName"
+                    className="mb-4 font-vcr-osd-mono text-sm text-white uppercase md:text-sm lg:text-base xl:text-base"
+                >
                     {t("form_name_label")}
-                </h2>
+                </label>
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                    <Input
-                        type="text"
+                    <form.AppField
                         name="firstName"
-                        value={formData.firstName}
-                        onChange={handleInputChange}
-                        placeholder={t("form_firstname")}
-                        required
-                        autoComplete="given-name"
+                        children={field => (
+                            <div>
+                                <field.TextInput
+                                    type="text"
+                                    id={field.name}
+                                    name={field.name}
+                                    placeholder={t("form_firstname")}
+                                    autoComplete="given-name"
+                                    aria-invalid={!field.state.meta.isValid}
+                                    required
+                                />
+                                <ErrorText field={field} />
+                            </div>
+                        )}
                     />
-                    <Input
-                        type="text"
+                    <form.AppField
                         name="lastName"
-                        value={formData.lastName}
-                        onChange={handleInputChange}
-                        placeholder={t("form_lastname")}
-                        required
-                        autoComplete="family-name"
+                        children={field => (
+                            <div>
+                                <field.TextInput
+                                    type="text"
+                                    id={field.name}
+                                    name={field.name}
+                                    placeholder={t("form_lastname")}
+                                    autoComplete="family-name"
+                                    aria-invalid={!field.state.meta.isValid}
+                                    required
+                                />
+                                <ErrorText field={field} />
+                            </div>
+                        )}
                     />
                 </div>
             </div>
 
             <div className="mb-8">
-                <h2 className="mb-4 font-vcr-osd-mono text-sm text-white uppercase md:text-sm lg:text-base xl:text-base">
+                <label
+                    htmlFor="email"
+                    className="mb-4 font-vcr-osd-mono text-sm text-white uppercase md:text-sm lg:text-base xl:text-base"
+                >
                     {t("form_email_label")}
-                </h2>
-                <Input
-                    type="email"
+                </label>
+                <form.AppField
                     name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder={t("form_email")}
-                    required
-                    autoComplete="email"
+                    children={field => (
+                        <>
+                            <field.TextInput
+                                type="email"
+                                id={field.name}
+                                name={field.name}
+                                placeholder={t("form_email")}
+                                autoComplete="email"
+                                aria-invalid={!field.state.meta.isValid}
+                                required
+                            />
+                            <ErrorText field={field} />
+                        </>
+                    )}
                 />
             </div>
 
             <div className="mb-8">
-                <h2 className="mb-4 font-vcr-osd-mono text-sm text-white uppercase md:text-sm lg:text-base xl:text-base">
-                    {t("form_subject_label")}
-                </h2>
-                <Select
-                    value={formData.topic}
-                    onValueChange={topic => setFormData(prev => ({ ...prev, topic }))}
+                <label
+                    htmlFor="topic"
+                    className="mb-4 font-vcr-osd-mono text-sm text-white uppercase md:text-sm lg:text-base xl:text-base"
                 >
-                    <SelectTrigger className="min-h-14 w-full cursor-pointer bg-transparent! font-sans text-thistle">
-                        <SelectValue placeholder={t("form_subject")} />
-                    </SelectTrigger>
-                    <SelectContent>
-                        <SelectGroup>
-                            {topicItems.map(({ label, value }) => (
-                                <SelectItem className="cursor-pointer" key={value} value={value}>
-                                    {label}
-                                </SelectItem>
-                            ))}
-                        </SelectGroup>
-                    </SelectContent>
-                </Select>
+                    {t("form_subject_label")}
+                </label>
+                <form.AppField
+                    name="topic"
+                    children={field => (
+                        <field.Select>
+                            <SelectTrigger
+                                id={field.name}
+                                name={field.name}
+                                className="min-h-14 w-full cursor-pointer bg-transparent! font-sans text-thistle"
+                                aria-invalid={!field.state.meta.isValid}
+                                onBlur={field.handleBlur}
+                            >
+                                <SelectValue placeholder={t("form_subject")} />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectGroup>
+                                    {topicItems.map(({ label, value }) => (
+                                        <SelectItem
+                                            className="cursor-pointer"
+                                            key={value}
+                                            value={value}
+                                        >
+                                            {label}
+                                        </SelectItem>
+                                    ))}
+                                </SelectGroup>
+                            </SelectContent>
+                        </field.Select>
+                    )}
+                />
             </div>
 
             <div className="mb-8">
-                <h2 className="mb-4 font-vcr-osd-mono text-sm text-white uppercase md:text-sm lg:text-base xl:text-base">
+                <label
+                    htmlFor="message"
+                    className="mb-4 font-vcr-osd-mono text-sm text-white uppercase md:text-sm lg:text-base xl:text-base"
+                >
                     {t("form_body_label")}
-                </h2>
-                <Textarea
+                </label>
+                <form.AppField
                     name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    className="h-48"
-                    placeholder={t("form_body_placeholder")}
-                    required
+                    children={field => (
+                        <>
+                            <field.Textarea
+                                id={field.name}
+                                name="message"
+                                className="h-48"
+                                placeholder={t("form_body_placeholder")}
+                                required
+                            />
+                            <ErrorText field={field} />
+                        </>
+                    )}
                 />
             </div>
 
@@ -168,16 +224,19 @@ const ContactForm: React.FC = () => {
             </div>
 
             <div className="flex justify-center">
-                <Button
-                    type="submit"
-                    className="mt-4 flex items-center gap-3 font-heading text-xl uppercase"
-                    disabled={emailMutation.isPending}
-                >
-                    {emailMutation.isPending ? t("sending") : t("send_message")}
-                </Button>
+                <form.AppForm>
+                    <form.SubmitButton
+                        type="submit"
+                        className="mt-4 flex items-center gap-3 font-heading text-xl uppercase"
+                        disabled={emailMutation.isPending}
+                    >
+                        {emailMutation.isPending ? t("sending") : t("send_message")}
+                    </form.SubmitButton>
+                </form.AppForm>
             </div>
         </form>
     );
 };
+// biome-ignore-end lint/correctness/noChildrenProp: Recommended by TanStack docs
 
 export default ContactForm;

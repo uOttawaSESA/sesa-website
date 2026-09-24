@@ -375,7 +375,9 @@
         "partner_with_us_description": "Ensemble, nous pouvons avoir un impact significatif sur plus de 3500 étudiants de SIGE à uOttawa en comblant l'écart entre l'éducation académique et l'expérience industrielle.",
         "partner_with_us_become_sponsor_button": "Devenir commanditaire",
         "partner_with_us_meet_team_button": "Rencontrer l'équipe",
-        "partner_with_us_team_image_alt": "Équipe des commanditaires"
+        "partner_with_us_team_image_alt": "Équipe des commanditaires",
+        "become": "Devenir",
+        "sponsor": "commanditaire"
     },
     "terms": {
         "our_policies": "Nos",
