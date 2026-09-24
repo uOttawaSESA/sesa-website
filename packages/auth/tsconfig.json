@@ -6,7 +6,12 @@
         "verbatimModuleSyntax": true,
 
         // Strictness
-        "noImplicitOverride": true
+        "noImplicitOverride": true,
+
+        // Transpiling with TypeScript
+        "rootDir": "src",
+        "outDir": "dist",
+        "sourceMap": true
     },
     "include": ["src"]
 }
