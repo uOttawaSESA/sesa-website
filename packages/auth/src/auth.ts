@@ -47,7 +47,7 @@ export const auth = betterAuth({
                     throw APIError.from("FORBIDDEN", {
                         code: "forbidden_member",
                         message:
-                            "You are not authorized to access this application, please contact the Directors if you believe this is a mistake.",
+                            "You are not authorized to access this application, please contact the Co-Directors if you believe this is a mistake.",
                     });
                 }
 
