@@ -6,21 +6,21 @@ catalog:
   "@radix-ui/react-dialog": ^1.1.23
   "@trpc/server": ^11.18.0
   "@types/jsdom": ^27.0.0
-  "@types/node": ^24.0.13
+  "@types/node": ^26.4.1
   "@types/react": ^19.2.18
   "@types/react-dom": ^19.2.7
-  dompurify: ^3.4.14
+  dompurify: ^3.4.15
   drizzle-kit: ^0.31.10
   drizzle-orm: ^0.45.2
   husky: ^9.1.7
   jsdom: ^26.0.0
-  lucide-react: ^0.482.0
+  lucide-react: ^1.46.0
   postgres: ^3.4.9
   react: ^19.2.8
   react-dom: ^19.2.8
   sonner: ^2.0.8
   superjson: ^2.2.6
-  typescript: ^5.9.3
+  typescript: ^7.0.2
   zod: ^4.3.6
 
 onlyBuiltDependencies:
@@ -28,3 +28,9 @@ onlyBuiltDependencies:
   - '@vercel/speed-insights'
   - esbuild
   - sharp
+
+minimumReleaseAge: 7200 # 5 days
+minimumReleaseAgeExclude:
+  - '@repo/*'
+  - caniuse-lite
+minimumReleaseAgeIgnoreMissingTime: false

@@ -28,7 +28,7 @@
     "main": "./dist/index.cjs",
     "types": "./dist/index.d.ts",
     "scripts": {
-        "build": "tsup",
+        "build": "tsup && tsc --emitDeclarationOnly",
         "check-types": "tsc --noEmit",
         "db:generate": "drizzle-kit generate",
         "db:migrate": "drizzle-kit migrate",
