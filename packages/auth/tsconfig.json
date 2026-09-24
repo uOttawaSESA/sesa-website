@@ -1,0 +1,17 @@
+{
+    "extends": "@repo/typescript-config/base.json",
+    "compilerOptions": {
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "verbatimModuleSyntax": true,
+
+        // Strictness
+        "noImplicitOverride": true,
+
+        // Transpiling with TypeScript
+        "rootDir": "src",
+        "outDir": "dist",
+        "sourceMap": true
+    },
+    "include": ["src"]
+}

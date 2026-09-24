@@ -50,6 +50,20 @@
             "when": 1773169485606,
             "tag": "0006_happy_puma",
             "breakpoints": true
+        },
+        {
+            "idx": 7,
+            "version": "7",
+            "when": 1774124325285,
+            "tag": "0007_wild_risque",
+            "breakpoints": true
+        },
+        {
+            "idx": 8,
+            "version": "7",
+            "when": 1774411507876,
+            "tag": "0008_cold_piledriver",
+            "breakpoints": true
         }
     ]
 }
