@@ -4,7 +4,6 @@ import { APIError, betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { nextCookies } from "better-auth/next-js";
 import { eq } from "drizzle-orm";
-import { hasAccess } from "./auth-config.js";
 
 export const auth = betterAuth({
     database: drizzleAdapter(db, {
@@ -35,15 +34,15 @@ export const auth = betterAuth({
                     .from(members)
                     .where(eq(members.discordId, profile.id))
                     .limit(1);
-
-                if (memberRecord.length === 0 || memberRecord[0] === undefined) {
+                const member = memberRecord[0];
+                if (!member) {
                     throw APIError.from("FORBIDDEN", {
                         code: "unauthorized_member",
                         message: "You are not authorized to access this application.",
                     });
                 }
 
-                if (hasAccess(memberRecord[0]) === false) {
+                if (!member.hasAccess) {
                     throw APIError.from("FORBIDDEN", {
                         code: "forbidden_member",
                         message:

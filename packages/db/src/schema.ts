@@ -2,8 +2,10 @@ import { isNull, sql } from "drizzle-orm";
 import {
     boolean,
     index,
+    jsonb,
     pgEnum,
     pgTable,
+    primaryKey,
     smallint,
     text,
     timestamp,
@@ -107,7 +109,7 @@ export const resources = pgTable(
 
 // *** Members *** //
 
-// Order defines which is showed first in the about page
+// Order determines which item is shown first on the About page
 export const teamKeyEnum = pgEnum("team_key_enum", [
     "codirectors",
     "partnerships",
@@ -128,6 +130,7 @@ export const members = pgTable(
 
         teamKey: teamKeyEnum("team_key").notNull(),
         roleKey: roleKeyEnum("role_key").notNull(),
+        hasAccess: boolean("has_access").notNull().default(false),
 
         // Supabase profile img path
         imageUrl: text("image_url").notNull(),
@@ -161,6 +164,78 @@ export const members = pgTable(
     ],
 );
 
+export const permissionEnum = pgEnum("permission_enum", [
+    // Member Management
+    "VIEW_MEMBER",
+    "CREATE_MEMBER",
+    "EDIT_MEMBER",
+    "DELETE_MEMBER",
+    "APPROVE_MEMBER_CHANGE",
+    // Event Management
+    "VIEW_EVENT",
+    "CREATE_EVENT",
+    "EDIT_EVENT",
+    "DELETE_EVENT",
+    "DRAFT_EVENT",
+    "PUBLISH_EVENT",
+    "CANCEL_EVENT_ANNOUNCEMENT",
+    "EDIT_EVENT_LOCATION",
+    // Resource Management
+    "VIEW_RESOURCE",
+    "CREATE_RESOURCE",
+    "EDIT_RESOURCE",
+    "DELETE_RESOURCE",
+    "DRAFT_RESOURCE",
+    // Admin Management
+    "GRANT_PERMISSIONS",
+    "VIEW_AUDIT_LOG",
+]);
+
+export const rolePermissions = pgTable(
+    "role_permissions",
+    {
+        teamKey: teamKeyEnum("team_key").notNull(),
+        roleKey: roleKeyEnum("role_key").notNull(),
+        permission: permissionEnum("permission").notNull(),
+    },
+    table => [
+        primaryKey({
+            columns: [table.teamKey, table.roleKey, table.permission],
+        }),
+    ],
+);
+
+export const memberPermissions = pgTable(
+    "member_permissions",
+    {
+        memberId: uuid("member_id")
+            .notNull()
+            .references(() => members.id, { onDelete: "cascade" }),
+        permission: permissionEnum("permission").notNull(),
+    },
+    table => [
+        primaryKey({
+            columns: [table.memberId, table.permission],
+        }),
+    ],
+);
+
+export const entityTypeEnum = pgEnum("entity_type_enum", ["member", "event", "resource"]);
+export const actionEnum = pgEnum("action_enum", ["CREATE", "UPDATE", "DELETE"]);
+export const statusEnum = pgEnum("status_enum", ["PENDING", "APPROVED", "REJECTED"]);
+export const changeRequests = pgTable("change_requests", {
+    id: uuid("id").defaultRandom().primaryKey().notNull(),
+    entityType: entityTypeEnum("entity_type").notNull(),
+    entityId: uuid("entity_id"),
+    action: actionEnum("action").notNull(),
+    status: statusEnum("status").notNull().default("PENDING"),
+    proposedData: jsonb("proposed_data").notNull(),
+    createdBy: uuid("created_by")
+        .notNull()
+        .references(() => members.id),
+    createdAt: timestamp("created_at", { withTimezone: true, mode: "date" }).defaultNow().notNull(),
+});
+
 // *** Auth Schemas *** //
 
 export const user = pgTable("user", {
@@ -170,16 +245,16 @@ export const user = pgTable("user", {
     emailVerified: boolean("email_verified").notNull(),
     image: text("image"),
     discordId: text("discord_id").unique(),
-    createdAt: timestamp("created_at").notNull(),
-    updatedAt: timestamp("updated_at").notNull(),
+    createdAt: timestamp("created_at", { withTimezone: true, mode: "date" }).defaultNow().notNull(),
+    updatedAt: timestamp("updated_at", { withTimezone: true, mode: "date" }).defaultNow().notNull(),
 });
 
 export const session = pgTable("session", {
     id: text("id").primaryKey(),
     expiresAt: timestamp("expires_at").notNull(),
     token: text("token").notNull().unique(),
-    createdAt: timestamp("created_at").notNull(),
-    updatedAt: timestamp("updated_at").notNull(),
+    createdAt: timestamp("created_at", { withTimezone: true, mode: "date" }).defaultNow().notNull(),
+    updatedAt: timestamp("updated_at", { withTimezone: true, mode: "date" }).defaultNow().notNull(),
     ipAddress: text("ip_address"),
     userAgent: text("user_agent"),
     userId: text("user_id")
@@ -201,8 +276,8 @@ export const account = pgTable("account", {
     refreshTokenExpiresAt: timestamp("refresh_token_expires_at"),
     scope: text("scope"),
     password: text("password"),
-    createdAt: timestamp("created_at").notNull(),
-    updatedAt: timestamp("updated_at").notNull(),
+    createdAt: timestamp("created_at", { withTimezone: true, mode: "date" }).defaultNow().notNull(),
+    updatedAt: timestamp("updated_at", { withTimezone: true, mode: "date" }).defaultNow().notNull(),
 });
 
 export const verification = pgTable("verification", {
@@ -210,6 +285,6 @@ export const verification = pgTable("verification", {
     identifier: text("identifier").notNull(),
     value: text("value").notNull(),
     expiresAt: timestamp("expires_at").notNull(),
-    createdAt: timestamp("created_at"),
-    updatedAt: timestamp("updated_at"),
+    createdAt: timestamp("created_at", { withTimezone: true, mode: "date" }).defaultNow().notNull(),
+    updatedAt: timestamp("updated_at", { withTimezone: true, mode: "date" }).defaultNow().notNull(),
 });
