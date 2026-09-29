@@ -1,4 +1,4 @@
-import { db } from "@repo/db"; //
+import { db } from "@repo/db";
 import { account, members, session, user, verification } from "@repo/db/schema";
 import { APIError, betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";

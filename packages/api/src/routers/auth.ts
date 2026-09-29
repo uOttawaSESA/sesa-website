@@ -1,8 +1,12 @@
 import { memberPermissions, rolePermissions } from "@repo/db/schema";
 import { and, eq } from "drizzle-orm";
-import { createTRPCRouter, protectedProcedure } from "../trpc";
+import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
 
 export const authRouter = createTRPCRouter({
+    getSession: publicProcedure.query(({ ctx }) => {
+        return ctx.session;
+    }),
+
     getCurrentMember: protectedProcedure.query(async ({ ctx }) => {
         const member = await ctx.db.query.members.findFirst({
             where: (members, { eq }) => eq(members.discordId, ctx.session.user.discordId),
