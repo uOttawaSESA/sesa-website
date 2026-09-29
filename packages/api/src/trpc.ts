@@ -7,8 +7,9 @@
  * need to use are documented accordingly near the end.
  */
 
+import { auth } from "@repo/auth";
 import { type Database, db } from "@repo/db";
-import { initTRPC } from "@trpc/server";
+import { initTRPC, TRPCError } from "@trpc/server";
 import superjson from "superjson";
 import { flattenError, ZodError } from "zod";
 
@@ -26,9 +27,14 @@ import { flattenError, ZodError } from "zod";
  */
 export const createTRPCContext = async (opts: {
     headers: Headers;
-}): Promise<{ db: Database; headers: Headers }> => {
+}): Promise<{
+    db: Database;
+    headers: Headers;
+    session: Awaited<ReturnType<typeof auth.api.getSession>>;
+}> => {
     return {
         db,
+        session: await auth.api.getSession({ headers: opts.headers }),
         ...opts,
     };
 };
@@ -105,3 +111,16 @@ const timingMiddleware = t.middleware(async ({ next, path }) => {
  * are logged in.
  */
 export const publicProcedure = t.procedure.use(timingMiddleware);
+
+export const protectedProcedure = publicProcedure.use(({ ctx, next }) => {
+    if (!ctx.session) {
+        throw new TRPCError({ code: "UNAUTHORIZED" });
+    }
+
+    return next({
+        ctx: {
+            ...ctx,
+            session: ctx.session,
+        },
+    });
+});

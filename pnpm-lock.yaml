@@ -207,6 +207,9 @@ importers:
 
   packages/api:
     dependencies:
+      '@repo/auth':
+        specifier: workspace:*
+        version: link:../auth
       '@repo/db':
         specifier: workspace:*
         version: link:../db
