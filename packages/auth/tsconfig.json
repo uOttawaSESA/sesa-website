@@ -11,7 +11,11 @@
         // Transpiling with TypeScript
         "rootDir": "src",
         "outDir": "dist",
-        "sourceMap": true
+        "sourceMap": true,
+
+        // Module resolution
+        "module": "ESNext",
+        "moduleResolution": "Bundler"
     },
     "include": ["src"]
 }

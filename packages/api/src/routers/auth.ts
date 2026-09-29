@@ -1,6 +1,6 @@
 import { memberPermissions, rolePermissions } from "@repo/db/schema";
 import { and, eq } from "drizzle-orm";
-import { createTRPCRouter, protectedProcedure } from "../trpc.js";
+import { createTRPCRouter, protectedProcedure } from "../trpc";
 
 export const authRouter = createTRPCRouter({
     getCurrentMember: protectedProcedure.query(async ({ ctx }) => {
