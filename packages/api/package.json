@@ -12,6 +12,7 @@
         "check-types": "tsc --noEmit"
     },
     "dependencies": {
+        "@repo/auth": "workspace:*",
         "@repo/db": "workspace:*",
         "@repo/env": "workspace:*",
         "@trpc/server": "catalog:",

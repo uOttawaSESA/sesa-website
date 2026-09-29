@@ -1,5 +1,14 @@
 import type { InferInsertModel, InferSelectModel } from "drizzle-orm";
-import type { events, eventsI18n, members, resources } from "./schema.js";
+import type {
+    changeRequests,
+    events,
+    eventsI18n,
+    members,
+    permissionEnum,
+    resources,
+    roleKeyEnum,
+    teamKeyEnum,
+} from "./schema.js";
 
 export type Event = InferSelectModel<typeof events>;
 export type NewEvent = InferInsertModel<typeof events>;
@@ -14,3 +23,10 @@ export type MappedResource = Omit<Resource, "tier"> & { tier: string };
 
 export type Member = InferSelectModel<typeof members>;
 export type NewMember = InferInsertModel<typeof members>;
+
+export type TeamKey = (typeof teamKeyEnum.enumValues)[number];
+export type RoleKey = (typeof roleKeyEnum.enumValues)[number];
+export type Permission = (typeof permissionEnum.enumValues)[number];
+
+export type ChangeRequests = InferSelectModel<typeof changeRequests>;
+export type NewChangeRequests = InferInsertModel<typeof changeRequests>;
