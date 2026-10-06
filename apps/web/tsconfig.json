@@ -1,7 +1,7 @@
 {
     "extends": "@repo/typescript-config/nextjs.json",
     "compilerOptions": {
-        "lib": ["es2024"],
+        "lib": ["es2024", "DOM", "DOM.Iterable"],
         "paths": {
             "@/*": ["./src/*"],
             "@repo/ui/*": ["../../packages/ui/src/*"],
