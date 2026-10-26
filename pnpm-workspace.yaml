@@ -9,9 +9,9 @@ catalog:
   "@types/node": ^26.4.1
   "@types/react": ^19.2.18
   "@types/react-dom": ^19.2.7
-  dompurify: ^3.4.16
+  dompurify: ^3.4.17
   drizzle-kit: ^0.31.11
-  drizzle-orm: ^0.45.3
+  drizzle-orm: ^0.45.4
   husky: ^9.1.7
   jsdom: ^26.0.0
   lucide-react: ^1.46.0
