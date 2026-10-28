@@ -16,7 +16,7 @@
         "@repo/env": "workspace:*",
         "@trpc/server": "catalog:",
         "drizzle-orm": "catalog:",
-        "nodemailer": "^10.0.16",
+        "nodemailer": "^10.1.7",
         "superjson": "catalog:",
         "zod": "catalog:"
     },
