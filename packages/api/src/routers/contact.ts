@@ -1,20 +1,24 @@
 import { createTRPCRouter, publicProcedure } from "@repo/api/trpc";
 import { envServer } from "@repo/env";
 import { TRPCError } from "@trpc/server";
-import DOMPurify from "dompurify";
-import { JSDOM } from "jsdom";
 import nodemailer from "nodemailer";
 import * as z from "zod";
 
-const purify = DOMPurify(new JSDOM("<!DOCTYPE html>").window);
-const transformPurify = (text: string) => purify.sanitize(text, { ALLOWED_TAGS: [] });
+/** Escape user input before interpolating it into the HTML email body. */
+const escapeHtml = (text: string) =>
+    text
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
 
 const EmailRequest = z.object({
-    firstName: z.string().transform(transformPurify),
-    lastName: z.string().transform(transformPurify),
-    email: z.email().transform(transformPurify),
-    topic: z.string().transform(transformPurify),
-    message: z.string().transform(transformPurify),
+    firstName: z.string(),
+    lastName: z.string(),
+    email: z.email(),
+    topic: z.string(),
+    message: z.string(),
     recaptchaToken: z.string().transform(token => encodeURIComponent(token)),
 });
 
@@ -43,6 +47,14 @@ export const contactRouter = createTRPCRouter({
             },
         });
 
+        const safe = {
+            firstName: escapeHtml(firstName),
+            lastName: escapeHtml(lastName),
+            email: escapeHtml(email),
+            topic: escapeHtml(topic),
+            message: escapeHtml(message),
+        };
+
         try {
             await transporter.sendMail({
                 from: envServer.EMAIL_USER, // must match authenticated user
@@ -59,14 +71,14 @@ Message: ${message}
                 html: `
         <div style="font-family: Arial, sans-serif; font-size: 16px; color: #222; background: #faf8ff; padding: 24px; border-radius: 10px;">
             <h2 style="color: #8824dc; margin-bottom: 16px;">Contact Form Submission</h2>
-            <p><strong>First Name:</strong> ${firstName}</p>
-            <p><strong>Last Name:</strong> ${lastName}</p>
-            <p><strong>Email:</strong> <a href="mailto:${email}" style="color:#8824dc;">${email}</a></p>
-            <p><strong>Topic:</strong> ${topic}</p>
+            <p><strong>First Name:</strong> ${safe.firstName}</p>
+            <p><strong>Last Name:</strong> ${safe.lastName}</p>
+            <p><strong>Email:</strong> <a href="mailto:${safe.email}" style="color:#8824dc;">${safe.email}</a></p>
+            <p><strong>Topic:</strong> ${safe.topic}</p>
             <div style="margin-top: 18px;">
                 <strong>Message:</strong>
                 <div style="background: #fff; border-radius: 6px; padding: 12px 16px; margin-top: 6px; color: #333; white-space: pre-line;">
-                    ${message}
+                    ${safe.message}
                 </div>
             </div>
         </div>
