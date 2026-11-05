@@ -17,7 +17,7 @@
         "@biomejs/biome": "2.4.2",
         "husky": "catalog:",
         "lint-staged": "^17.6.0",
-        "tsup": "^8.5.1",
+        "tsup": "^9.0.0",
         "turbo": "^2.11.10",
         "typescript": "catalog:"
     },
