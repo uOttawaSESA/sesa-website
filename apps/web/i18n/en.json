@@ -43,7 +43,7 @@
         "resources_by_students": "Resources by students for students",
         "resources_heading_h1": "Resources at your",
         "resources_heading_h1_highlighted": "Fingertips",
-        "resources_subheading": "Our academic team actively organize free resources to support software engineering students in their studies.",
+        "resources_subheading": "Our academic team actively curates free resources to support software engineering students in their studies.",
         "coming_soon_title": "Coming Fall 2025: Your academic toolbox.",
         "coming_soon_subtitle": "All the resources you need, in one place — launching soon.",
         "explore_all_resources": "Explore all resources",
@@ -67,7 +67,7 @@
 
         "faq_q1": {
             "title": "WHAT IS SESA?",
-            "answer": "SESA is the University of Ottawa **Software Engineering Students’ Association**! We’re an informally and independently run student organization with the mission of enriching SEG student life, promoting software engineering as a field, and supporting students academically and professionally as they begin their careers.\n\nOur initiatives are designed to help students succeed both in and out of the classroom. These include:\n\n- **Professional development workshops** and networking events for students\n- **Academic support** through study resources\n- **Social and community-building events** to bring students together\n- **Student outreach** to inspire and engage future engineers\n- **Advocacy** for the SEG student voice within uOttawa"
+            "answer": "SESA is the University of Ottawa **Software Engineering Students’ Association**! We’re an independently run student organization with the mission of enriching SEG student life, promoting software engineering as a field, and supporting students academically and professionally as they begin their careers.\n\nOur initiatives are designed to help students succeed both in and out of the classroom. These include:\n\n- **Professional development workshops** and networking events for students\n- **Academic support** through study resources\n- **Social and community-building events** to bring students together\n- **Student outreach** to inspire and engage future engineers\n- **Advocacy** for the SEG student voice within uOttawa"
         },
 
         "faq_q2": {
@@ -82,7 +82,7 @@
 
         "faq_q4": {
             "title": "WHAT EVENTS DOES SESA HOST?",
-            "answer": "SESA hosts tech-related events each year at the University of Ottawa, including technical workshops, career fairs, meet and greets, mock interviews, and product launches.\n\nMany of these activities are in partnership with community organizations, such as [Sponsor page](/en/sponsors) to help organize high quality experiences comparable to the professional workplace."
+            "answer": "SESA hosts tech-related events each year at the University of Ottawa, including technical workshops, career fairs, meet and greets, mock interviews, and product launches.\n\nMany of these activities are in partnership with community organizations, such as our [sponsors](/en/sponsors), to help organize high-quality experiences comparable to the professional workplace."
         },
 
         "faq_missed_something": "Did we miss something?",
@@ -92,7 +92,7 @@
         "connect_subtitle": "Connect with us",
         "connect_heading_h1_highlighted": "Connect, engage, and grow",
         "connect_heading_h1": "with us!",
-        "connect_description": "Join our online communities to stay up to date with our latest events, announcements, and resources,",
+        "connect_description": "Join our online communities to stay up to date with our latest events, announcements, and resources.",
 
         "connect_image_alt": "Goal Main Image",
         "instagram_logo_alt": "Instagram Logo",
@@ -103,7 +103,7 @@
         "team_heading_line1_part1": "The",
         "team_heading_line1_highlight": "University of Ottawa’s",
         "team_heading_line1_part2": "Software",
-        "team_heading_line2": "Engineering Students Association",
+        "team_heading_line2": "Engineering Students’ Association",
         "team_subheading_line1": "Our communications team meticulously crafted the web",
         "team_subheading_line2": "design, while our development team built it with heart.",
         "team_become_sponsor_btn": "Become a sponsor",
@@ -122,7 +122,7 @@
         "who_are_we_heading_hl": "future tech builders",
         "who_are_we_p1_bold": "Founded in 2014",
         "who_are_we_p1": "the Software Engineering Students’ Association (SESA) helps students gain practical, hands-on experience, and make connections while still in university.",
-        "who_are_we_p2_bold": "Partnered with the Faculity of Engineering, we address challenges",
+        "who_are_we_p2_bold": "Partnered with the Faculty of Engineering, we address challenges",
         "who_are_we_p2": "in academic support, professional development, and engagement with the software engineering industry.",
         "figure_eecs_students": "EECS students",
         "figure_previous_partners": "Previous partners",
@@ -389,7 +389,7 @@
         "past_collaborators_top": "Our previous partners",
         "past_collaborators_highlight": "PAST",
         "past_collaborators_title_rest": "COLLABORATORS SINCE 2014",
-        "past_collaborators_description": "We’ve had the privilege of working with over 20+ big and small companies that have enhanced our events, including:",
+        "past_collaborators_description": "We’ve had the privilege of working with over 20 big and small companies that have enhanced our events, including:",
 
         "benefits_top": "Benefits",
         "benefits_title_part1": "CONNECT WITH",
@@ -403,7 +403,7 @@
         "partner_with_us_title": "Let’s collaborate to make a",
         "partner_with_us_highlight": "lasting difference",
         "partner_with_us_title_rest": "on aspiring software engineers",
-        "partner_with_us_description": "Together, we can drive a meaningful impact on over 3500+ EECS students at uOttawa by bridging the gap between academic education and industry experience.",
+        "partner_with_us_description": "Together, we can drive a meaningful impact on over 3,500 EECS students at uOttawa by bridging the gap between academic education and industry experience.",
         "partner_with_us_become_sponsor_button": "Become a Sponsor",
         "partner_with_us_meet_team_button": "Meet the Team",
         "partner_with_us_team_image_alt": "Sponsor Team",
