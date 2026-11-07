@@ -40,7 +40,7 @@ export const QuoteCard: React.FC<{ quote: Quote }> = ({ quote }) => {
                     />
                     <div>
                         <p className="z-20 font-heading text-xl uppercase">{quote.memberName}</p>
-                        <p className="text-sm opacity-70">{quote.memberRole}</p>
+                        <p className="text-sm opacity-70">{quote.memberRole[lang]}</p>
                     </div>
                 </div>
                 <div className="mt-6 flex">
