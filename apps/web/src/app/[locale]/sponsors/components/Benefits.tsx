@@ -22,7 +22,7 @@ export default function Benefits() {
             },
             description: {
                 en: "Connect and recruit highly skilled job-ready students pursuing the field of software engineering at uOttawa.",
-                fr: "Connectez-vous et recrutez des étudiants hautement qualifiés et prêts à l'emploi poursuivant le domaine du génie logiciel à l'Université d'Ottawa.",
+                fr: "Connectez-vous et recrutez des étudiants hautement qualifiés et prêts à l’emploi poursuivant le domaine du génie logiciel à l’Université d’Ottawa.",
             },
         },
         {
@@ -34,7 +34,7 @@ export default function Benefits() {
             },
             description: {
                 en: "Give back to your community and make a meaningful difference in software engineering education at the University of Ottawa.",
-                fr: "Redonnez à votre communauté et faites une différence significative dans l'éducation en génie logiciel à l'Université d'Ottawa.",
+                fr: "Redonnez à votre communauté et faites une différence significative dans l’éducation en génie logiciel à l’Université d’Ottawa.",
             },
         },
         {
@@ -46,7 +46,7 @@ export default function Benefits() {
             },
             description: {
                 en: "Increase your brand visibility, survey your target audience, or offer exclusive discounts to students attending uOttawa.",
-                fr: "Augmentez la visibilité de votre marque, sondez votre public cible ou offrez des remises exclusives aux étudiants de l'Université d'Ottawa.",
+                fr: "Augmentez la visibilité de votre marque, sondez votre public cible ou offrez des remises exclusives aux étudiants de l’Université d’Ottawa.",
             },
         },
         {
