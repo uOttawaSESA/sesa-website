@@ -2,8 +2,6 @@ import { Button } from "@repo/ui/components/button";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { getLocale, getTranslations } from "next-intl/server";
-// Precompile i18n
-import localeParams from "@/app/data/locales";
 import type { Member } from "@/app/types/Member";
 import AnimateOnView from "@/components/AnimateOnView";
 import Star from "@/components/decorations/star";
@@ -13,7 +11,9 @@ import { Link } from "@/i18n/navigation";
 import { api } from "@/trpc/server";
 import TeamSection from "./TeamSection";
 import WhatWeDoCard from "./WhatWeDoCard";
-export const generateStaticParams = localeParams;
+
+// Refresh database-backed content hourly
+export const revalidate = 3600;
 
 export async function generateMetadata(): Promise<Metadata> {
     const locale = await getLocale();

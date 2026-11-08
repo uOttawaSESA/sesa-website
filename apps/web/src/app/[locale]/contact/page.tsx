@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { getLocale, getTranslations } from "next-intl/server";
-// Precompile i18n
-import localeParams from "@/app/data/locales";
 import Star from "@/components/decorations/star";
 import ContactDetails from "./components/ContactDetails";
 import ContactForm from "./components/ContactForm";
-export const generateStaticParams = localeParams;
 
 export async function generateMetadata(): Promise<Metadata> {
     const locale = await getLocale();

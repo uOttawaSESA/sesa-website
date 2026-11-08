@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
-// Precompile i18n
-import localeParams from "@/app/data/locales";
 import { api } from "@/trpc/server";
 import Benefits from "./components/Benefits";
 import CTA from "./components/CTA";
@@ -10,7 +8,9 @@ import PastCollaboratorsCarousel from "./components/PastCollaboratorsCarousel";
 import SponsorsGrid from "./components/SponsorsGrid";
 import SponsorsHeader from "./components/SponsorsHeader";
 import TestimonialsCarousel from "./components/TestimonialsCarousel";
-export const generateStaticParams = localeParams;
+
+// Refresh database-backed content hourly
+export const revalidate = 3600;
 
 export async function generateMetadata(): Promise<Metadata> {
     const locale = await getLocale();

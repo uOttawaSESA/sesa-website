@@ -1,11 +1,14 @@
+import { notFound } from "next/navigation";
+import * as rootParams from "next/root-params";
 import { hasLocale } from "next-intl";
 import { getRequestConfig } from "next-intl/server";
 import { routing } from "./routing";
 
-export default getRequestConfig(async ({ requestLocale }) => {
-    // Typically corresponds to the `[locale]` segment
-    const requested = await requestLocale;
-    const locale = hasLocale(routing.locales, requested) ? requested : routing.defaultLocale;
+export default getRequestConfig(async () => {
+    // Read the locale from the `[locale]` root segment rather than request headers, which lets
+    // localized pages be statically rendered
+    const locale = await rootParams.locale();
+    if (!hasLocale(routing.locales, locale)) notFound();
 
     return {
         locale,

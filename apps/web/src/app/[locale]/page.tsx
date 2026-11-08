@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
-import localeParams from "@/app/data/locales";
 import { api, HydrateClient } from "@/trpc/server";
 import Connect from "./HomeComponents/ConnectSection/Connect";
 import Events from "./HomeComponents/EventsSection/Events";
@@ -12,7 +11,9 @@ import Quotes from "./HomeComponents/QuotesSection/Quotes";
 import Resources from "./HomeComponents/ResourcesSection/Resources";
 import Sponsors from "./HomeComponents/SponsorSection/Sponsors";
 import Team from "./HomeComponents/TeamSection/Team";
-export const generateStaticParams = localeParams;
+
+// Refresh database-backed content hourly
+export const revalidate = 3600;
 
 export async function generateMetadata(): Promise<Metadata> {
     const locale = await getLocale();
