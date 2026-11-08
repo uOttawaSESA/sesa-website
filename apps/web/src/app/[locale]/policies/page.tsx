@@ -3,10 +3,7 @@
 import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
-// Precompile i18n
-import localeParams from "@/app/data/locales";
 import AnimateOnView from "@/components/AnimateOnView";
-export const generateStaticParams = localeParams;
 
 export async function generateMetadata(): Promise<Metadata> {
     const locale = await getLocale();

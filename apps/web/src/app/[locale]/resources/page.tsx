@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
-// Precompile i18n
-import localeParams from "@/app/data/locales";
+import { Suspense } from "react";
 import { api, HydrateClient } from "@/trpc/server";
 import FooterSection from "./components/FooterSection";
 import Header from "./components/Header";
 import ResourceSection from "./components/ResourceSection";
-export const generateStaticParams = localeParams;
+
+// Refresh database-backed content hourly
+export const revalidate = 3600;
 
 export async function generateMetadata(): Promise<Metadata> {
     const locale = await getLocale();
@@ -38,6 +39,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Resources() {
     const locale = await getLocale();
     if (locale !== "en" && locale !== "fr") notFound();
+    const t = await getTranslations("resources");
 
     void api.resource.getCursorPage.prefetchInfinite({
         search: null,
@@ -73,7 +75,18 @@ export default async function Resources() {
                 {/* Main Content Container */}
                 <div className="container relative z-30 mx-auto w-full px-4 py-8 md:max-w-7xl">
                     <Header />
-                    <ResourceSection />
+                    {/* Search/filter state lives in the URL, so this renders client-side */}
+                    <Suspense
+                        fallback={
+                            <div className="flex w-full items-center justify-center py-12">
+                                <p className="rounded-md px-4 py-2 font-sans text-violet-400">
+                                    {t("query_state.pending")}
+                                </p>
+                            </div>
+                        }
+                    >
+                        <ResourceSection />
+                    </Suspense>
                 </div>
 
                 {/* Footer Section (CTA and Ange quote) */}

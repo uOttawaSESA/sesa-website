@@ -1,13 +1,12 @@
 import { cn } from "@repo/ui/lib/utils";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Raleway } from "next/font/google";
-import { notFound } from "next/navigation";
 import "./globals.css";
 import "@repo/ui/shadcn.css";
 import { Button } from "@repo/ui/components/button";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import Footer from "@/components/Footer";
@@ -30,6 +29,15 @@ const raleway = Raleway({
     variable: "--font-raleway",
     subsets: ["latin"],
 });
+
+// Fail the build if any page uses a dynamic API (eg. headers() or cookies()) instead of silently
+// falling back to rendering on every request
+export const dynamic = "error";
+
+/** Precompile every page for each locale */
+export function generateStaticParams() {
+    return routing.locales.map(locale => ({ locale }));
+}
 
 export async function generateMetadata(): Promise<Metadata> {
     const locale = await getLocale();
@@ -74,13 +82,10 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function RootLayout({
     children,
-    params,
 }: Readonly<{
     children: React.ReactNode;
-    params: Promise<{ locale: string }>;
 }>) {
-    const { locale } = await params;
-    if (!hasLocale(routing.locales, locale)) notFound();
+    const locale = await getLocale();
 
     const t = await getTranslations("navigation");
 

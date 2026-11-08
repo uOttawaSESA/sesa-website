@@ -3,17 +3,18 @@ import "server-only";
 import { type AppRouter, createCaller } from "@repo/api";
 import { createTRPCContext } from "@repo/api/trpc";
 import { createHydrationHelpers } from "@trpc/react-query/rsc";
-import { headers } from "next/headers";
 import { cache } from "react";
 import { createQueryClient } from "./query-client";
 
 /**
  * This wraps the `createTRPCContext` helper and provides the required context for the tRPC API when
  * handling a tRPC call from a React Server Component.
+ *
+ * Request headers are deliberately not forwarded: reading them would opt every page that prefetches
+ * data out of static rendering.
  */
 const createContext = cache(async () => {
-    const heads = new Headers(await headers());
-    heads.set("x-trpc-source", "rsc");
+    const heads = new Headers({ "x-trpc-source": "rsc" });
 
     return createTRPCContext({
         headers: heads,

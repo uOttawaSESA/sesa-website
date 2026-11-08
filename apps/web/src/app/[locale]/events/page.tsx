@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
-// Precompile i18n
-import localeParams from "@/app/data/locales";
 import Star from "@/components/decorations/star";
 import { api, HydrateClient } from "@/trpc/server";
 import ConnectSESA from "./components/ConnectSESA";
 import EventSection from "./components/EventSection";
 import TeamUpSection from "./components/TeamUpSection";
-export const generateStaticParams = localeParams;
+
+// Refresh database-backed content hourly
+export const revalidate = 3600;
 
 export async function generateMetadata(): Promise<Metadata> {
     const locale = (await getLocale()) as "fr" | "en";
