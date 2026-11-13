@@ -37,8 +37,8 @@ catalogs:
       specifier: ^1.60.0
       version: 1.60.0
     postgres:
-      specifier: ^3.4.9
-      version: 3.4.9
+      specifier: ^4.0.0
+      version: 4.0.0
     react:
       specifier: ^19.3.1
       version: 19.3.1
@@ -212,7 +212,7 @@ importers:
         version: 11.19.0(typescript@7.0.2)
       drizzle-orm:
         specifier: 'catalog:'
-        version: 0.45.4(postgres@3.4.9)
+        version: 0.45.4(postgres@4.0.0)
       nodemailer:
         specifier: ^10.1.7
         version: 10.1.7
@@ -243,10 +243,10 @@ importers:
         version: 17.4.2
       drizzle-orm:
         specifier: 'catalog:'
-        version: 0.45.4(postgres@3.4.9)
+        version: 0.45.4(postgres@4.0.0)
       postgres:
         specifier: 'catalog:'
-        version: 3.4.9
+        version: 4.0.0
     devDependencies:
       '@repo/env':
         specifier: workspace:*
@@ -2975,9 +2975,9 @@ packages:
     resolution: {integrity: sha512-YUbWYCgErwnMAVkjUnYa+KlMBzGpHwiIt/DE7f0G33AuX2LH9UcTk6KgWxd3zRU+pN3u/C+Xl3EnMLM4Hea7Sg==}
     engines: {node: ^10 || ^12 || >=14}
 
-  postgres@3.4.9:
-    resolution: {integrity: sha512-GD3qdB0x1z9xgFI6cdRD6xu2Sp2WCOEoe3mtnyB5Ee0XrrL5Pe+e4CCnJrRMnL1zYtRDZmQQVbvOttLnKDLnaw==}
-    engines: {node: '>=12'}
+  postgres@4.0.0:
+    resolution: {integrity: sha512-kBh8qXtcvvIAc00DftQyOxz7M/3Zxww1tRMXZPLzipNXXl5PIzHml+9zB3Mrge2U8ldc0WF1ZdLp1iYQi7Kh3A==}
+    engines: {node: '>=20'}
 
   prop-types@15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}
@@ -4757,9 +4757,9 @@ snapshots:
       esbuild: 0.25.12
       tsx: 4.23.15
 
-  drizzle-orm@0.45.4(postgres@3.4.9):
+  drizzle-orm@0.45.4(postgres@4.0.0):
     optionalDependencies:
-      postgres: 3.4.9
+      postgres: 4.0.0
 
   embla-carousel-react@8.6.0(react@19.3.1):
     dependencies:
@@ -5137,7 +5137,7 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.2
 
-  postgres@3.4.9: {}
+  postgres@4.0.0: {}
 
   prop-types@15.8.1:
     dependencies:
