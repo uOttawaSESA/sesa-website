@@ -9,7 +9,7 @@
         "./shared": "./src/shared.ts",
         "./routers/*": "./src/routers/*.ts",
         "./admin": "./src/admin/index.ts",
-        "./admin/trpc": "./src/admin/trpc.ts"
+        "./admin/*": "./src/admin/*.ts"
     },
     "scripts": {
         "check-types": "tsc --noEmit"
