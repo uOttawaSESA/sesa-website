@@ -5,12 +5,13 @@
  * Keeping two inits also makes it a type error to merge an admin router into the public `appRouter`.
  */
 
+import { type Actor, resolveActor } from "@repo/api/admin/actor";
 import { type DiscordGateway, fakeDiscordGateway } from "@repo/api/admin/services/discord";
 import { fakeSiteRevalidator, type SiteRevalidator } from "@repo/api/admin/services/revalidator";
 import { type FileStorage, fakeFileStorage } from "@repo/api/admin/services/storage";
 import { errorFormatter, timeProcedure } from "@repo/api/shared";
 import { type Database, db } from "@repo/db";
-import { initTRPC } from "@trpc/server";
+import { initTRPC, TRPCError } from "@trpc/server";
 import superjson from "superjson";
 
 /**
@@ -36,6 +37,8 @@ export const fakeServices: AdminServices = {
 export type AdminContext = AdminServices & {
     db: Database;
     headers: Headers;
+    /** `null` when nobody is signed in; `protectedProcedure` narrows it. */
+    actor: Actor | null;
 };
 
 /**
@@ -47,6 +50,7 @@ export const createAdminContext = async (opts: { headers: Headers }): Promise<Ad
     return {
         db,
         headers: opts.headers,
+        actor: await resolveActor(db, opts.headers),
         ...fakeServices,
     };
 };
@@ -72,3 +76,15 @@ const timingMiddleware = t.middleware(({ next, path }) =>
  * Feature routers should not use this directly.
  */
 export const baseProcedure = t.procedure.use(timingMiddleware);
+
+/**
+ * Base for every admin procedure: rejects the request with `UNAUTHORIZED` unless a signed-in,
+ * active member is making it, and narrows `ctx.actor` to non-null.
+ *
+ * Most procedures want `authorizedProcedure` instead. Use this directly only for procedures every
+ * member may call, like reading their own profile.
+ */
+export const protectedProcedure = baseProcedure.use(({ ctx, next }) => {
+    if (ctx.actor == null) throw new TRPCError({ code: "UNAUTHORIZED" });
+    return next({ ctx: { actor: ctx.actor } });
+});
