@@ -7,6 +7,7 @@
             "@repo/ui/*": ["../../packages/ui/src/*"],
             "@repo/api": ["../../packages/api/src/index.ts"],
             "@repo/api/trpc": ["../../packages/api/src/trpc.ts"],
+            "@repo/api/shared": ["../../packages/api/src/shared.ts"],
             "@repo/api/routers/*": ["../../packages/api/src/routers/*.ts"]
         }
     },

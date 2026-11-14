@@ -9,12 +9,20 @@
         "check-types": "next typegen && tsc --noEmit"
     },
     "dependencies": {
+        "@repo/api": "workspace:*",
+        "@repo/env": "workspace:*",
         "@repo/ui": "workspace:*",
+        "@tanstack/react-query": "catalog:",
+        "@trpc/client": "catalog:",
+        "@trpc/react-query": "catalog:",
+        "@trpc/server": "catalog:",
         "next": "catalog:",
         "react": "catalog:",
-        "react-dom": "catalog:"
+        "react-dom": "catalog:",
+        "superjson": "catalog:"
     },
     "devDependencies": {
+        "@repo/db": "workspace:*",
         "@repo/typescript-config": "workspace:*",
         "@tailwindcss/postcss": "catalog:",
         "@types/node": "catalog:",

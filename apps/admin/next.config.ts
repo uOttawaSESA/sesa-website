@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
         // TypeScript 7 has no JS compiler API, so type-check via the CLI
         useTypeScriptCli: true,
     },
-    transpilePackages: ["@repo/ui"],
+    transpilePackages: ["@repo/ui", "@repo/env", "@repo/db", "@repo/api"],
 };
 
 export default nextConfig;
