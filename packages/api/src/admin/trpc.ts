@@ -6,6 +6,7 @@
  */
 
 import { type Actor, resolveActor } from "@repo/api/admin/actor";
+import { type Action, assertCan } from "@repo/api/admin/permissions";
 import { type DiscordGateway, fakeDiscordGateway } from "@repo/api/admin/services/discord";
 import { fakeSiteRevalidator, type SiteRevalidator } from "@repo/api/admin/services/revalidator";
 import { type FileStorage, fakeFileStorage } from "@repo/api/admin/services/storage";
@@ -88,3 +89,16 @@ export const protectedProcedure = baseProcedure.use(({ ctx, next }) => {
     if (ctx.actor == null) throw new TRPCError({ code: "UNAUTHORIZED" });
     return next({ ctx: { actor: ctx.actor } });
 });
+
+/**
+ * A procedure that requires `action`. Rejects with `UNAUTHORIZED` when signed out and `FORBIDDEN`
+ * when `can(actor, action)` is false.
+ *
+ * The check has no subject. Procedures whose answer depends on the target (e.g. `member.approve`)
+ * must also call `assertCan` with it once the target is loaded.
+ */
+export const authorizedProcedure = (action: Action) =>
+    protectedProcedure.use(({ ctx, next }) => {
+        assertCan(ctx.actor, action);
+        return next();
+    });

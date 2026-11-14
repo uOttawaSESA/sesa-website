@@ -4,6 +4,7 @@
  */
 
 import type { Actor, TeamKey } from "@repo/api/admin/actor";
+import { TRPCError } from "@trpc/server";
 
 /** Every action the admin API checks. Grants in the database store these strings. */
 export const ACTIONS = [
@@ -57,4 +58,14 @@ export type PermissionSubject = { kind: "member"; id: string; teamKey: TeamKey }
 export const can = (actor: Actor, action: Action, _subject?: PermissionSubject): boolean => {
     if (actor.teamKey === "codirectors") return true;
     return actor.grants.includes(action);
+};
+
+/**
+ * Throw `FORBIDDEN` unless `can(actor, action, subject)`. For checks that need the target record,
+ * after `authorizedProcedure` has done the subject-free check.
+ */
+export const assertCan = (actor: Actor, action: Action, subject?: PermissionSubject): void => {
+    if (!can(actor, action, subject)) {
+        throw new TRPCError({ code: "FORBIDDEN", message: `Not allowed: ${action}` });
+    }
 };
