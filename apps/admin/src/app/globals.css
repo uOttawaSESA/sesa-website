@@ -1,0 +1,9 @@
+@import "tailwindcss";
+@import "@repo/ui/theme.css";
+
+@source "./**/*.tsx";
+@source "../../../../packages/ui/src/**/*.tsx";
+
+body {
+    @apply bg-background text-foreground;
+}

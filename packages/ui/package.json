@@ -8,6 +8,7 @@
     },
     "exports": {
         "./shadcn.css": "./src/styles/shadcn.css",
+        "./theme.css": "./src/styles/theme.css",
         "./postcss.config": "./postcss.config.mjs",
         "./lib/*": "./src/lib/*.ts",
         "./components/*": "./src/components/*.tsx"
