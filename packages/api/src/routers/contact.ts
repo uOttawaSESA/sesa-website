@@ -1,5 +1,5 @@
 import { createTRPCRouter, publicProcedure } from "@repo/api/trpc";
-import { envServer } from "@repo/env";
+import { envWebServer } from "@repo/env/web/server";
 import { TRPCError } from "@trpc/server";
 import nodemailer from "nodemailer";
 import * as z from "zod";
@@ -27,7 +27,7 @@ export const contactRouter = createTRPCRouter({
         const { firstName, lastName, email, topic, message, recaptchaToken } = input;
 
         // 1. Verify reCAPTCHA
-        const recaptchaSecret = envServer.RECAPTCHA_SECRET_KEY;
+        const recaptchaSecret = envWebServer.RECAPTCHA_SECRET_KEY;
 
         const recaptchaRes = await fetch(
             `https://www.google.com/recaptcha/api/siteverify?secret=${recaptchaSecret}&response=${recaptchaToken}`,
@@ -42,8 +42,8 @@ export const contactRouter = createTRPCRouter({
         const transporter = nodemailer.createTransport({
             service: "gmail",
             auth: {
-                user: envServer.EMAIL_USER,
-                pass: envServer.EMAIL_PASS,
+                user: envWebServer.EMAIL_USER,
+                pass: envWebServer.EMAIL_PASS,
             },
         });
 
@@ -57,8 +57,8 @@ export const contactRouter = createTRPCRouter({
 
         try {
             await transporter.sendMail({
-                from: envServer.EMAIL_USER, // must match authenticated user
-                to: envServer.EMAIL_USER, // your email, so you receive the message
+                from: envWebServer.EMAIL_USER, // must match authenticated user
+                to: envWebServer.EMAIL_USER, // your email, so you receive the message
                 replyTo: email, // user's email, so you can reply directly
                 subject: `Contact Form Submission: ${topic}`,
                 text: `

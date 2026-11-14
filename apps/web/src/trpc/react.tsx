@@ -1,7 +1,7 @@
 "use client";
 
 import type { AppRouter } from "@repo/api";
-import { envClient } from "@repo/env";
+import { envWebClient } from "@repo/env/web/client";
 import { type QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { httpBatchStreamLink, loggerLink } from "@trpc/client";
 import { createTRPCReact } from "@trpc/react-query";
@@ -73,6 +73,6 @@ export function TRPCReactProvider(props: { children: React.ReactNode }) {
 
 function getBaseUrl() {
     if (typeof window !== "undefined") return window.location.origin;
-    if (envClient.VERCEL_URL) return `https://${envClient.VERCEL_URL}`;
-    return `http://localhost:${envClient.NEXT_PUBLIC_PORT}`;
+    if (envWebClient.VERCEL_URL) return `https://${envWebClient.VERCEL_URL}`;
+    return `http://localhost:${envWebClient.NEXT_PUBLIC_PORT}`;
 }

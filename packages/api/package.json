@@ -6,7 +6,10 @@
     "exports": {
         ".": "./src/index.ts",
         "./trpc": "./src/trpc.ts",
-        "./routers/*": "./src/routers/*.ts"
+        "./shared": "./src/shared.ts",
+        "./routers/*": "./src/routers/*.ts",
+        "./admin": "./src/admin/index.ts",
+        "./admin/trpc": "./src/admin/trpc.ts"
     },
     "scripts": {
         "check-types": "tsc --noEmit"

@@ -7,10 +7,10 @@
  * need to use are documented accordingly near the end.
  */
 
+import { errorFormatter, timeProcedure } from "@repo/api/shared";
 import { type Database, db } from "@repo/db";
 import { initTRPC } from "@trpc/server";
 import superjson from "superjson";
-import { flattenError, ZodError } from "zod";
 
 /**
  * 1. CONTEXT
@@ -42,15 +42,7 @@ export const createTRPCContext = async (opts: {
  */
 const t = initTRPC.context<typeof createTRPCContext>().create({
     transformer: superjson,
-    errorFormatter({ shape, error }) {
-        return {
-            ...shape,
-            data: {
-                ...shape.data,
-                zodError: error.cause instanceof ZodError ? flattenError(error.cause) : null,
-            },
-        };
-    },
+    errorFormatter,
 });
 
 /**
@@ -77,25 +69,11 @@ export const createTRPCRouter = t.router;
 /**
  * Middleware for timing procedure execution and adding an artificial delay in development.
  *
- * You can remove this if you don't like it, but it can help catch unwanted waterfalls by simulating
- * network latency that would occur in production but not in local development.
+ * @see timeProcedure
  */
-const timingMiddleware = t.middleware(async ({ next, path }) => {
-    const start = Date.now();
-
-    if (t._config.isDev) {
-        // artificial delay in dev
-        const waitMs = Math.floor(Math.random() * 400) + 100;
-        await new Promise(resolve => setTimeout(resolve, waitMs));
-    }
-
-    const result = await next();
-
-    const end = Date.now();
-    console.log(`[TRPC] ${path} took ${end - start}ms to execute`);
-
-    return result;
-});
+const timingMiddleware = t.middleware(({ next, path }) =>
+    timeProcedure({ path, isDev: t._config.isDev, next }),
+);
 
 /**
  * Public (unauthenticated) procedure
