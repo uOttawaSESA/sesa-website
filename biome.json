@@ -69,6 +69,40 @@
             "selfCloseVoidElements": "always"
         }
     },
+    "overrides": [
+        {
+            "includes": ["apps/web/**", "packages/api/src/**", "!packages/api/src/admin/**"],
+            "linter": {
+                "rules": {
+                    "style": {
+                        "noRestrictedImports": {
+                            "level": "error",
+                            "options": {
+                                "patterns": [
+                                    {
+                                        "group": [
+                                            "@repo/api/admin",
+                                            "@repo/api/admin/**",
+                                            "@repo/env/admin/**",
+                                            "./admin",
+                                            "./admin/**",
+                                            "../admin",
+                                            "../admin/**"
+                                        ],
+                                        "message": "The public site and public API must not import admin code. See packages/api/src/admin/trpc.ts."
+                                    },
+                                    {
+                                        "group": ["@repo/auth", "@repo/auth/**"],
+                                        "message": "The public site and public API must not depend on auth; only the admin API may."
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    ],
     "assist": {
         "enabled": true,
         "actions": {
