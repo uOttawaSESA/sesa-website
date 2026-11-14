@@ -1,6 +1,6 @@
 "use client";
 
-import { envClient } from "@repo/env";
+import { envWebClient } from "@repo/env/web/client";
 import {
     SelectContent,
     SelectGroup,
@@ -217,7 +217,7 @@ const ContactForm: React.FC = () => {
             {/* reCAPTCHA */}
             <div className="mb-8 flex justify-center">
                 <ReCAPTCHA
-                    sitekey={envClient.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                    sitekey={envWebClient.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
                     onChange={(token: string | null) => setRecaptchaToken(token)}
                     theme="dark"
                 />
