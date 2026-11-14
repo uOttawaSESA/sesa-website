@@ -5,26 +5,53 @@
  * Keeping two inits also makes it a type error to merge an admin router into the public `appRouter`.
  */
 
+import { type DiscordGateway, fakeDiscordGateway } from "@repo/api/admin/services/discord";
+import { fakeSiteRevalidator, type SiteRevalidator } from "@repo/api/admin/services/revalidator";
+import { type FileStorage, fakeFileStorage } from "@repo/api/admin/services/storage";
 import { errorFormatter, timeProcedure } from "@repo/api/shared";
 import { type Database, db } from "@repo/db";
 import { initTRPC } from "@trpc/server";
 import superjson from "superjson";
 
 /**
- * Context for every admin procedure.
+ * Side-effect services, injected so feature routers never build their own clients and tests can
+ * substitute them.
+ */
+export type AdminServices = {
+    discord: DiscordGateway;
+    revalidator: SiteRevalidator;
+    storage: FileStorage;
+};
+
+/** Logging no-op implementation of every service, used by `createAdminContext`. */
+export const fakeServices: AdminServices = {
+    discord: fakeDiscordGateway,
+    revalidator: fakeSiteRevalidator,
+    storage: fakeFileStorage,
+};
+
+/**
+ * Context for every admin procedure. Tests can build one directly and pass it to `createCaller`.
+ */
+export type AdminContext = AdminServices & {
+    db: Database;
+    headers: Headers;
+};
+
+/**
+ * Build the context for a request.
  *
  * @see https://trpc.io/docs/server/context
  */
-export const createAdminContext = async (opts: {
-    headers: Headers;
-}): Promise<{ db: Database; headers: Headers }> => {
+export const createAdminContext = async (opts: { headers: Headers }): Promise<AdminContext> => {
     return {
         db,
-        ...opts,
+        headers: opts.headers,
+        ...fakeServices,
     };
 };
 
-const t = initTRPC.context<typeof createAdminContext>().create({
+const t = initTRPC.context<AdminContext>().create({
     transformer: superjson,
     errorFormatter,
 });
