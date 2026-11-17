@@ -1,3 +1,4 @@
+import { authRouter } from "@repo/api/admin/routers/auth";
 import { baseProcedure, createCallerFactory, createTRPCRouter } from "@repo/api/admin/trpc";
 
 /**
@@ -8,6 +9,7 @@ import { baseProcedure, createCallerFactory, createTRPCRouter } from "@repo/api/
 export const adminRouter = createTRPCRouter({
     /** Smoke test for the admin API wiring. Also keeps the router non-empty, which tRPC's RSC helpers require. */
     health: baseProcedure.query(() => ({ ok: true })),
+    auth: authRouter,
 });
 
 export type AdminRouter = typeof adminRouter;

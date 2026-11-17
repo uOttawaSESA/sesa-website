@@ -1,15 +1,11 @@
-import { memberPermissions } from "@repo/db/schema";
+import { memberPermissions, members } from "@repo/db/schema";
 import { eq } from "drizzle-orm";
-import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
+import { createTRPCRouter, protectedProcedure } from "../trpc";
 
 export const authRouter = createTRPCRouter({
-    getSession: publicProcedure.query(({ ctx }) => {
-        return ctx.session;
-    }),
-
     getCurrentMember: protectedProcedure.query(async ({ ctx }) => {
         const member = await ctx.db.query.members.findFirst({
-            where: (members, { eq }) => eq(members.discordId, ctx.session.user.discordId),
+            where: eq(members.id, ctx.actor.memberId),
         });
 
         if (!member) {
@@ -23,7 +19,7 @@ export const authRouter = createTRPCRouter({
 
         return {
             member,
-            permissions: permissions.map(p => p.permission),
+            permissions: permissions.map(permission => permission.permission),
         };
     }),
 });
