@@ -4,26 +4,26 @@ export const quotesData: Quote[] = [
     {
         heading: {
             en: "Building the future together",
-            fr: "Construire l'avenir ensemble",
+            fr: "Construire l’avenir ensemble",
         },
         quote_part1: {
             en: "SESA empowers the",
-            fr: "SESA autonomise la",
+            fr: "L’AÉGL outille la",
         },
         highlightQuote: {
             en: "next generation",
-            fr: "prochaine génération",
+            fr: "relève",
         },
         quote_part2: {
             en: `of software engineers by connecting them with industry, 
             fostering collaboration, and creating opportunities for growth.`,
-            fr: `d'ingénieurs logiciels en les connectant avec l'industrie, 
-            en favorisant la collaboration et en créant des opportunités de croissance.`,
+            fr: `en génie logiciel en la rapprochant de l’industrie, 
+            en favorisant la collaboration et en créant des occasions de croissance.`,
         },
         buttonLink: "",
         memberImg: "/imgs/team/rolf.webp",
         memberName: "Rolf Addoumie",
-        memberRole: "Co-Director",
+        memberRole: { en: "Co-Director", fr: "Codirection" },
     },
     {
         heading: {
@@ -31,8 +31,8 @@ export const quotesData: Quote[] = [
             fr: "Construire la communauté ensemble",
         },
         quote_part1: {
-            en: "At SESA, we're building more than just events — we're building a",
-            fr: "Chez SESA, nous construisons plus que des événements — nous construisons une",
+            en: "At SESA, we’re building more than just events — we’re building a",
+            fr: "À l’AÉGL, nous bâtissons plus que des événements — nous bâtissons une",
         },
         highlightQuote: {
             en: "community",
@@ -40,12 +40,12 @@ export const quotesData: Quote[] = [
         },
         quote_part2: {
             en: "where software engineering students can grow, connect, and get closer to the future they’re aiming for.",
-            fr: "où les étudiants en génie logiciel peuvent grandir, se connecter, et se rapprocher de l'avenir qu'ils visent.",
+            fr: "où les personnes qui étudient en génie logiciel peuvent grandir, tisser des liens et se rapprocher de l’avenir qu’elles visent.",
         },
         buttonLink: "",
         memberImg: "/imgs/team/asad.webp",
         memberName: "Asad Ali",
-        memberRole: "Co-Director",
+        memberRole: { en: "Co-Director", fr: "Codirection" },
     },
     {
         heading: {
@@ -53,8 +53,8 @@ export const quotesData: Quote[] = [
             fr: "Construire des portes ensemble",
         },
         quote_part1: {
-            en: "Here at SESA, we don't wait for doors to open -",
-            fr: "Ici chez SESA, nous n'attendons pas que les portes s'ouvrent -",
+            en: "Here at SESA, we don’t wait for doors to open —",
+            fr: "À l’AÉGL, nous n’attendons pas que les portes s’ouvrent —",
         },
         highlightQuote: {
             en: "we build our own.",
@@ -67,20 +67,20 @@ export const quotesData: Quote[] = [
         buttonLink: "",
         memberImg: "/imgs/team/kelly.jpg",
         memberName: "Kelly Gao",
-        memberRole: "Advisor",
+        memberRole: { en: "Advisor", fr: "Mentorat" },
     },
     {
         heading: {
             en: "Building momentum together",
-            fr: "Construire de l'élan ensemble",
+            fr: "Prendre de l’élan ensemble",
         },
         quote_part1: {
-            en: "We're building momentum for the next generation of Software Engineers — helping students",
-            fr: "Nous donnons de l'élan à la prochaine génération d'ingénieurs logiciels —",
+            en: "We’re building momentum for the next generation of Software Engineers — helping students",
+            fr: "Nous donnons de l’élan à la relève en génie logiciel —",
         },
         highlightQuote: {
             en: "push boundaries.",
-            fr: "en aidant les étudiants à repousser les limites.",
+            fr: "en l’aidant à repousser les limites.",
         },
         quote_part2: {
             en: "",
@@ -89,6 +89,6 @@ export const quotesData: Quote[] = [
         buttonLink: "",
         memberImg: "/imgs/team/rayen.webp",
         memberName: "Rayen Tamarzizt",
-        memberRole: "Co-Director",
+        memberRole: { en: "Co-Director", fr: "Codirection" },
     },
 ];

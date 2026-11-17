@@ -150,7 +150,7 @@ export const EventCard = ({ event }: EventCardProps) => {
     const maxDescriptionLength = 150; // Number of characters to show initially
     const truncatedDescription =
         description.length > maxDescriptionLength && !showFullDescription
-            ? `${description.slice(0, maxDescriptionLength)}...`
+            ? `${description.slice(0, maxDescriptionLength)}…`
             : description;
 
     // Only create DOMPurify when in browser

@@ -6,5 +6,5 @@ export default interface Quote {
     buttonLink: string;
     memberImg: string;
     memberName: string;
-    memberRole: string;
+    memberRole: { en: string; fr: string };
 }

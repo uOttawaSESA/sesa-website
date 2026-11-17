@@ -48,10 +48,10 @@ const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange
             if (totalPages <= 4) {
                 for (let i = 1; i <= totalPages; i++) pages.push(i);
             } else {
-                if (currentPage <= 2) pages.push(1, 2, "...", totalPages);
+                if (currentPage <= 2) pages.push(1, 2, "…", totalPages);
                 else if (currentPage >= totalPages - 1)
-                    pages.push(1, "...", totalPages - 1, totalPages);
-                else pages.push(1, "...", currentPage, totalPages);
+                    pages.push(1, "…", totalPages - 1, totalPages);
+                else pages.push(1, "…", currentPage, totalPages);
             }
             return pages;
         } else {
@@ -59,11 +59,11 @@ const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange
             if (totalPages <= 7) {
                 for (let i = 1; i <= totalPages; i++) pages.push(i);
             } else {
-                if (currentPage <= 4) pages.push(1, 2, 3, 4, 5, "...", totalPages);
+                if (currentPage <= 4) pages.push(1, 2, 3, 4, 5, "…", totalPages);
                 else if (currentPage >= totalPages - 3)
                     pages.push(
                         1,
-                        "...",
+                        "…",
                         totalPages - 4,
                         totalPages - 3,
                         totalPages - 2,
@@ -73,11 +73,11 @@ const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange
                 else
                     pages.push(
                         1,
-                        "...",
+                        "…",
                         currentPage - 1,
                         currentPage,
                         currentPage + 1,
-                        "...",
+                        "…",
                         totalPages,
                     );
             }
@@ -111,7 +111,7 @@ const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, onPageChange
 
                 {/* Page Numbers */}
                 {pageNumbers.map((page, index) => {
-                    if (page === "...") {
+                    if (page === "…") {
                         return (
                             <PaginationItem key={`ellipsis-${index}`}>
                                 <Popover>

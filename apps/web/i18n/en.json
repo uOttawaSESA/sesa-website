@@ -26,7 +26,7 @@
     },
 
     "homepage": {
-        "we_are_sesa": "Software Engineering Students' Association",
+        "we_are_sesa": "Software Engineering Students’ Association",
         "bridging_the_gap_hl": "Bridging the gap",
         "bridging_the_gap": "between students and industry professionals",
         "purpose": "We connect SEG & EECS students with industry professionals in software engineering, providing resources, networking, and career development.",
@@ -43,9 +43,9 @@
         "resources_by_students": "Resources by students for students",
         "resources_heading_h1": "Resources at your",
         "resources_heading_h1_highlighted": "Fingertips",
-        "resources_subheading": "Our academic team actively organize free resources to support software engineering students in their studies.",
+        "resources_subheading": "Our academic team actively curates free resources to support software engineering students in their studies.",
         "coming_soon_title": "Coming Fall 2025: Your academic toolbox.",
-        "coming_soon_subtitle": "All the resources you need, in one place—launching soon.",
+        "coming_soon_subtitle": "All the resources you need, in one place — launching soon.",
         "explore_all_resources": "Explore all resources",
         "join_our_discord": "Join our discord",
         "thumbs_up_alt": "thumbsUp",
@@ -53,7 +53,7 @@
         "sponsors_partners": "Our sponsors & partners",
         "sponsors_heading_h1_highlighted": "Trusted and sponsored",
         "sponsors_heading_h1": "by the best in the game",
-        "sponsors_subheading": "We're incredibly grateful to our partners who believe in our mission to connect students with industry professionals.",
+        "sponsors_subheading": "We’re incredibly grateful to our partners who believe in our mission to connect students with industry professionals.",
         "become_sponsor_btn": "Become a sponsor",
         "meet_team_btn": "Meet the team",
         "coming_soon_home_btn": "Back to Home",
@@ -62,37 +62,37 @@
 
         "faq_subtitle": "Frequently asked questions",
         "faq_heading_h1": "Got Questions?",
-        "faq_heading_h1_highlighted": "We've got answers!",
-        "faq_description": "We have A's to your Q's below. If you still have questions, contact us and we'll get back to you as soon as possible.",
+        "faq_heading_h1_highlighted": "We’ve got answers!",
+        "faq_description": "We have A’s to your Q’s below. If you still have questions, contact us and we’ll get back to you as soon as possible.",
 
         "faq_q1": {
             "title": "WHAT IS SESA?",
-            "answer": "SESA is the University of Ottawa **Software Engineering Students' Association**! We're an informally and independently run student organization with the mission of enriching SEG student life, promoting software engineering as a field, and supporting students academically and professionally as they begin their careers.\n\nOur initiatives are designed to help students succeed both in and out of the classroom. These include:\n\n- **Professional development workshops** and networking events for students\n- **Academic support** through study resources\n- **Social and community-building events** to bring students together\n- **Student outreach** to inspire and engage future engineers\n- **Advocacy** for the SEG student voice within uOttawa"
+            "answer": "SESA is the University of Ottawa **Software Engineering Students’ Association**! We’re an independently run student organization with the mission of enriching SEG student life, promoting software engineering as a field, and supporting students academically and professionally as they begin their careers.\n\nOur initiatives are designed to help students succeed both in and out of the classroom. These include:\n\n- **Professional development workshops** and networking events for students\n- **Academic support** through study resources\n- **Social and community-building events** to bring students together\n- **Student outreach** to inspire and engage future engineers\n- **Advocacy** for the SEG student voice within uOttawa"
         },
 
         "faq_q2": {
             "title": "WHO CAN JOIN?",
-            "answer": "**SESA events are open to everyone** — not just software engineering students!\n\nWhether you're a high school student, community member, undergraduate, graduate, or alum, you're welcome to attend (unless stated otherwise).\n\n**To become a SESA team member:**\n- **You must be an enrolled uOttawa student** (undergraduate or graduate, full-time or part-time)\n- You don't have to be in the **software engineering program** — just passionate about the community"
+            "answer": "**SESA events are open to everyone** — not just software engineering students!\n\nWhether you’re a high school student, community member, undergraduate, graduate, or alum, you’re welcome to attend (unless stated otherwise).\n\n**To become a SESA team member:**\n- **You must be an enrolled uOttawa student** (undergraduate or graduate, full-time or part-time)\n- You don’t have to be in the **software engineering program** — just passionate about the community"
         },
 
         "faq_q3": {
             "title": "WHAT MAKES SESA SPECIAL?",
-            "answer": "**SESA is run by students, for students**, with a focus on community, collaboration, and creating opportunities.\n\nWe're committed to building an **inclusive space** where anyone can get involved, learn, and grow."
+            "answer": "**SESA is run by students, for students**, with a focus on community, collaboration, and creating opportunities.\n\nWe’re committed to building an **inclusive space** where anyone can get involved, learn, and grow."
         },
 
         "faq_q4": {
             "title": "WHAT EVENTS DOES SESA HOST?",
-            "answer": "SESA hosts tech-related events each year at the University of Ottawa, including technical workshops, career fairs, meet and greets, mock interviews, and product launches.\n\nMany of these activities are in partnership with community organizations, such as [Sponsor page](/en/sponsors) to help organize high quality experiences comparable to the professional workplace."
+            "answer": "SESA hosts tech-related events each year at the University of Ottawa, including technical workshops, career fairs, meet and greets, mock interviews, and product launches.\n\nMany of these activities are in partnership with community organizations, such as our [sponsors](/en/sponsors), to help organize high-quality experiences comparable to the professional workplace."
         },
 
         "faq_missed_something": "Did we miss something?",
         "faq_message_us_btn": "MESSAGE US",
-        "faq_response_time": "We'll get back to you within 48 hours.",
+        "faq_response_time": "We’ll get back to you within 48 hours.",
 
         "connect_subtitle": "Connect with us",
         "connect_heading_h1_highlighted": "Connect, engage, and grow",
         "connect_heading_h1": "with us!",
-        "connect_description": "Join our online communities to stay up to date with our latest events, announcements, and resources,",
+        "connect_description": "Join our online communities to stay up to date with our latest events, announcements, and resources.",
 
         "connect_image_alt": "Goal Main Image",
         "instagram_logo_alt": "Instagram Logo",
@@ -101,9 +101,9 @@
         "youtube_logo_alt": "YouTube Logo",
 
         "team_heading_line1_part1": "The",
-        "team_heading_line1_highlight": "University of Ottawa's",
+        "team_heading_line1_highlight": "University of Ottawa’s",
         "team_heading_line1_part2": "Software",
-        "team_heading_line2": "Engineering Students Association",
+        "team_heading_line2": "Engineering Students’ Association",
         "team_subheading_line1": "Our communications team meticulously crafted the web",
         "team_subheading_line2": "design, while our development team built it with heart.",
         "team_become_sponsor_btn": "Become a sponsor",
@@ -114,15 +114,15 @@
         "partner": "Partner",
         "faculty_of_eng": "Faculty of Engineering",
         "inspiring_heading": "Inspiring Future Software Engineers Since 2014",
-        "inspiring_blurb": "We're a student organization dedicated to enriching SEG student life, promoting software engineering, and supporting academic and professional development.",
+        "inspiring_blurb": "We’re a student organization dedicated to enriching SEG student life, promoting software engineering, and supporting academic and professional development.",
         "meet_the_team": "Meet The Team",
         "join_our_family": "Join Our Family",
         "who_are_we": "Who are we?",
-        "who_are_we_heading": "We're a student-led organization made up of",
+        "who_are_we_heading": "We’re a student-led organization made up of",
         "who_are_we_heading_hl": "future tech builders",
         "who_are_we_p1_bold": "Founded in 2014",
-        "who_are_we_p1": "the Software Engineering Students' Association (SESA) helps students gain practical, hands-on experience, and make connections while still in university.",
-        "who_are_we_p2_bold": "Partnered with the Faculity of Engineering, we address challenges",
+        "who_are_we_p1": "the Software Engineering Students’ Association (SESA) helps students gain practical, hands-on experience, and make connections while still in university.",
+        "who_are_we_p2_bold": "Partnered with the Faculty of Engineering, we address challenges",
         "who_are_we_p2": "in academic support, professional development, and engagement with the software engineering industry.",
         "figure_eecs_students": "EECS students",
         "figure_previous_partners": "Previous partners",
@@ -131,7 +131,7 @@
         "what_do_we_do": "What do we do?",
         "what_do_we_do_heading": "Where",
         "what_do_we_do_heading_hl": "students meet industry",
-        "what_do_we_do_p_bold": "We're preparing the next generation",
+        "what_do_we_do_p_bold": "We’re preparing the next generation",
         "what_do_we_do_p": "of software engineers for the workplace by offering exciting experiences and opportunities in partnership with industry professionals.",
         "become_a_sponsor": "Become a Sponsor",
         "what_do_we_do_cards": {
@@ -189,7 +189,7 @@
         "our_previous_partners": "Where our alumni are now",
         "our_previous_partners_heading_hl": "Beyond SESA",
         "our_previous_partners_p_bold": "Our community of past executive members spans around the globe",
-        "our_previous_partners_p": "making their mark in top industries. Here are just a few places where you'll find the impact of our talented network driving innovation and success.",
+        "our_previous_partners_p": "making their mark in top industries. Here are just a few places where you’ll find the impact of our talented network driving innovation and success.",
         "our_family": "Be a part of our family",
         "our_family_heading": "Are you passionate about",
         "our_family_heading_hl": "Software Engineering?",
@@ -204,21 +204,21 @@
         "contact_us": "Contact us",
         "get_in_touch": "Get in",
         "get_in_touch_hl": "touch",
-        "questions_blurb": "Questions about our organization? Interest in collaborating with us? Send a message to our email, or complete the inquiry form, and we'll respond as soon as possible.",
+        "questions_blurb": "Questions about our organization? Interest in collaborating with us? Send a message to our email, or complete the inquiry form, and we’ll respond as soon as possible.",
         "email_copied": "Email copied!",
         "form_name_label": "Tell us about yourself",
         "form_firstname": "First name",
         "form_lastname": "Last name",
         "form_email_label": "How can we reach you? (So we can reply to you)",
         "form_email": "Email address",
-        "form_subject_label": "What's your message about?",
+        "form_subject_label": "What’s your message about?",
         "form_subject": "Select a topic",
         "form_body_label": "How can we help you?",
         "form_body_placeholder": "Include as much detail as you can.",
         "form_disclosure": "By submitting this form, I confirm that I have read and accept the",
         "form_disclosure_link": "Privacy & Terms",
         "send_message": "Send Message",
-        "sending": "Sending...",
+        "sending": "Sending…",
         "topic_general": "General Inquiry",
         "topic_partnership": "Partnership",
         "topic_support": "Support"
@@ -233,7 +233,7 @@
         },
 
         "query_state": {
-            "pending": "Loading events...",
+            "pending": "Loading events…",
             "no_results": "No events right now. Check back soon!",
             "error": "Failed to load events.",
             "error_details": "Error details"
@@ -257,7 +257,7 @@
         "work_with_us": "Work with us",
         "teamup_heading": "Interested in teaming up on an event?",
         "teamup_blurb": "Whether you’re an organization or student club, we’re open to exploring partnerships that deliver meaningful opportunities and experiences to students pursuing software engineering at the University of Ottawa.",
-        "btn_talk": "Let's Talk",
+        "btn_talk": "Let’s Talk",
         "btn_meet_team": "Meet the Team",
         "btn_view_post": "View Post",
 
@@ -272,7 +272,7 @@
     },
     "resources": {
         "query_state": {
-            "pending": "Loading resources...",
+            "pending": "Loading resources…",
             "error": "Failed to load resources."
         },
         "open": "OPEN",
@@ -282,7 +282,7 @@
             "s_tier": "S Tier: The absolute best (only resource you need realistically).",
             "a_tier": "A Tier: Still great (your main resource, but benefits from comparison).",
             "b_tier": "B Tier: Good (a comparison/reference resource for additional insights).",
-            "c_tier": "C Tier: Limited (you'll need many more resources to supplement this).",
+            "c_tier": "C Tier: Limited (you’ll need many more resources to supplement this).",
             "default": "No tier information available."
         },
 
@@ -312,7 +312,7 @@
         "btn_join_discord": "Join Our Discord",
         "education_quote_1": "True education is born where",
         "education_quote_1_hl": "knowledge meets accessibility.",
-        "education_quote_2": "SESA's academic team is proud to stand at that intersection",
+        "education_quote_2": "SESA’s academic team is proud to stand at that intersection",
         "academic_lead": "Academic Lead",
         "btn_join_team": "Join Our Team",
         "btn_meet_the_team": "Meet the Team",
@@ -369,8 +369,8 @@
         "sort_updated_desc": "Date Updated (New to Old)",
         "sort_tier_asc": "Tier (Worst to Best)",
         "sort_tier_desc": "Tier (Best to Worst)",
-        "sort_alphabetical_asc": "Alphabetical (A-Z)",
-        "sort_alphabetical_desc": "Alphabetical (Z-A)"
+        "sort_alphabetical_asc": "Alphabetical (A–Z)",
+        "sort_alphabetical_desc": "Alphabetical (Z–A)"
     },
     "sponsorships": {
         "header_top": "Sponsors & partners",
@@ -381,15 +381,15 @@
         "header_btn2": "View Benefits",
 
         "cta_heading": "Interested in joining our growing network of industry partners?",
-        "cta_button": "Let's Talk",
-        "cta_disclaimer": "We'll get back to you within 48 hours.",
+        "cta_button": "Let’s Talk",
+        "cta_disclaimer": "We’ll get back to you within 48 hours.",
 
         "testimonials_work_with_us_btn": "Work with us",
 
         "past_collaborators_top": "Our previous partners",
         "past_collaborators_highlight": "PAST",
         "past_collaborators_title_rest": "COLLABORATORS SINCE 2014",
-        "past_collaborators_description": "We've had the privilege of working with over 20+ big and small companies that have enhanced our events, including:",
+        "past_collaborators_description": "We’ve had the privilege of working with over 20 big and small companies that have enhanced our events, including:",
 
         "benefits_top": "Benefits",
         "benefits_title_part1": "CONNECT WITH",
@@ -403,7 +403,7 @@
         "partner_with_us_title": "Let’s collaborate to make a",
         "partner_with_us_highlight": "lasting difference",
         "partner_with_us_title_rest": "on aspiring software engineers",
-        "partner_with_us_description": "Together, we can drive a meaningful impact on over 3500+ EECS students at uOttawa by bridging the gap between academic education and industry experience.",
+        "partner_with_us_description": "Together, we can drive a meaningful impact on over 3,500 EECS students at uOttawa by bridging the gap between academic education and industry experience.",
         "partner_with_us_become_sponsor_button": "Become a Sponsor",
         "partner_with_us_meet_team_button": "Meet the Team",
         "partner_with_us_team_image_alt": "Sponsor Team",
@@ -417,7 +417,7 @@
         "tnc_heading": "Terms & Conditions",
         "tnc": "We are committed to academic integrity. The resources and assistance we provide are intended for educational purposes only. We do not support or condone academic dishonesty, including but not limited to plagiarism, cheating, or any other violation of academic or institutional policies. By using our services, you agree to use the information and help you receive responsibly and in accordance with all applicable rules and regulations.",
         "privacy_heading": "Privacy Policy",
-        "privacy": "Your privacy is important to us. When you use our contact form, we collect the personal information you voluntarily provide, such as your name, email address, and the content of your message. This information is used exclusively to respond to your inquiries and to communicate with you about our club's activities and resources. We do not sell, share, or disclose your information to any third parties."
+        "privacy": "Your privacy is important to us. When you use our contact form, we collect the personal information you voluntarily provide, such as your name, email address, and the content of your message. This information is used exclusively to respond to your inquiries and to communicate with you about our club’s activities and resources. We do not sell, share, or disclose your information to any third parties."
     },
     "navigation": {
         "home": "Home",

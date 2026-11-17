@@ -9,7 +9,7 @@ const InfiniteCarousel = () => {
             image: "/imgs/Events/SocialMedia/desjardins.webp",
             title: "UOTTAWASESA",
             description:
-                "Thank you @desjardinslab and everyone that came out to our Computer Vision event last night...",
+                "Thank you @desjardinslab and everyone that came out to our Computer Vision event last night…",
             logo: "/icons/instagram-plain.svg",
             postLink: "https://www.instagram.com/p/Bp9eQDGFnv3/",
         },
@@ -17,7 +17,7 @@ const InfiniteCarousel = () => {
             image: "/imgs/Events/SocialMedia/kinaxis2.webp",
             title: "UOTTAWASESA",
             description:
-                "If you didn't get a chance to attend today's event, don't worry we will have many more to come!...",
+                "If you didn’t get a chance to attend today’s event, don’t worry we will have many more to come!…",
             logo: "/icons/instagram-plain.svg",
             postLink: "https://www.instagram.com/p/BaZuTxWAdPV/",
         },
@@ -25,7 +25,7 @@ const InfiniteCarousel = () => {
             image: "/imgs/Events/SocialMedia/puppytherapy.webp",
             title: "UOTTAWASESA",
             description:
-                "Here are some of our favorite photos from last week's Puppy Therapy! Again, huge thanks...",
+                "Here are some of our favorite photos from last week’s Puppy Therapy! Again, huge thanks…",
             logo: "/icons/facebook-plain.svg",
             postLink:
                 "https://www.facebook.com/UOttawaSESA/posts/pfbid033DqT2GBGyuJiEWKKvsUNSBLx2BfVUhsTraT8Li6gevPS3qmPuZsntHbDQEphKhgAl",
@@ -34,7 +34,7 @@ const InfiniteCarousel = () => {
             image: "/imgs/Events/SocialMedia/kinaxis.webp",
             title: "UOTTAWASESA",
             description:
-                "Throwback to our LinkedIn Event with @kinaxis and a cool photo booth! #photobooth #kinaxis...",
+                "Throwback to our LinkedIn Event with @kinaxis and a cool photo booth! #photobooth #kinaxis…",
             logo: "/icons/instagram-plain.svg",
             postLink: "https://www.instagram.com/p/BbBFFhvAw1-/",
         },
