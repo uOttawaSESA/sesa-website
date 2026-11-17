@@ -8,8 +8,9 @@
         "./trpc": "./src/trpc.ts",
         "./shared": "./src/shared.ts",
         "./routers/*": "./src/routers/*.ts",
+        "./schemas/*": "./src/schemas/*.ts",
         "./admin": "./src/admin/index.ts",
-        "./admin/trpc": "./src/admin/trpc.ts"
+        "./admin/*": "./src/admin/*.ts"
     },
     "scripts": {
         "check-types": "tsc --noEmit"

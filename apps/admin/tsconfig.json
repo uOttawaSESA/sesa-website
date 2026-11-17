@@ -6,8 +6,9 @@
             "@/*": ["./src/*"],
             "@repo/ui/*": ["../../packages/ui/src/*"],
             "@repo/api/admin": ["../../packages/api/src/admin/index.ts"],
-            "@repo/api/admin/trpc": ["../../packages/api/src/admin/trpc.ts"],
-            "@repo/api/shared": ["../../packages/api/src/shared.ts"]
+            "@repo/api/admin/*": ["../../packages/api/src/admin/*.ts"],
+            "@repo/api/shared": ["../../packages/api/src/shared.ts"],
+            "@repo/api/schemas/*": ["../../packages/api/src/schemas/*.ts"]
         }
     },
     "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

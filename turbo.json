@@ -6,6 +6,7 @@
             "inputs": ["$TURBO_DEFAULT$", ".env*"],
             "outputs": [".next/**", "!.next/cache/**", "dist/**"],
             "env": [
+                "ADMIN_IMPERSONATE_MEMBER_ID",
                 "DATABASE_URL",
                 "EMAIL_PASS",
                 "EMAIL_USER",

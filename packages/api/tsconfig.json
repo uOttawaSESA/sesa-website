@@ -6,8 +6,9 @@
             "@repo/api/trpc": ["./src/trpc.ts"],
             "@repo/api/shared": ["./src/shared.ts"],
             "@repo/api/routers/*": ["./src/routers/*.ts"],
+            "@repo/api/schemas/*": ["./src/schemas/*.ts"],
             "@repo/api/admin": ["./src/admin/index.ts"],
-            "@repo/api/admin/trpc": ["./src/admin/trpc.ts"]
+            "@repo/api/admin/*": ["./src/admin/*.ts"]
         }
     },
     "include": ["src"]
