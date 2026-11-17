@@ -1,5 +1,5 @@
 "use client";
-import type { Event } from "@repo/db/types";
+import type { LocalizedEvent } from "@repo/db/types";
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import { useCallback, useEffect, useMemo, useState } from "react";
@@ -27,7 +27,7 @@ const EventSection = () => {
      * An argument that can be passed to {@link Array#filter} to exclude events by type.
      */
     const typeFilterPredicate = useCallback(
-        (event: Event) => {
+        (event: LocalizedEvent) => {
             if (typeFilter === "all") return true;
             return event.type === typeFilter;
         },
@@ -38,7 +38,7 @@ const EventSection = () => {
      * An argument that can be passed to {@link Array#filter} to exclude events by time.
      */
     const timeFilterPredicate = useCallback(
-        (event: Event) => {
+        (event: LocalizedEvent) => {
             switch (timeFilter) {
                 case "past":
                     return event.startTime < today;
