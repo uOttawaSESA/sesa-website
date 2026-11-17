@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
         // TypeScript 7 has no JS compiler API, so type-check via the CLI
         useTypeScriptCli: true,
     },
-    transpilePackages: ["@repo/ui", "@repo/env", "@repo/db", "@repo/api"],
+    transpilePackages: ["@repo/ui", "@repo/env", "@repo/db", "@repo/api", "@repo/auth"],
     images: {
         remotePatterns: [
             {

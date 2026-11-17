@@ -1,3 +1,4 @@
+import { authRouter } from "@repo/api/routers/auth";
 import { contactRouter } from "@repo/api/routers/contact";
 import { eventRouter } from "@repo/api/routers/event";
 import { memberRouter } from "@repo/api/routers/members";
@@ -10,6 +11,7 @@ import { createCallerFactory, createTRPCRouter } from "@repo/api/trpc";
  * All routers added in /api/routers should be manually added here.
  */
 export const appRouter = createTRPCRouter({
+    auth: authRouter,
     contact: contactRouter,
     event: eventRouter,
     member: memberRouter,

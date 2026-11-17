@@ -4,6 +4,7 @@
  */
 
 import type { Action } from "@repo/api/admin/permissions";
+import type { auth } from "@repo/auth";
 import type { Database } from "@repo/db";
 import { members, type roleKeyEnum, type teamKeyEnum } from "@repo/db/schema";
 import { envAdminServer } from "@repo/env/admin/server";
@@ -48,7 +49,11 @@ export const loadActor = async (db: Database, memberId: string): Promise<Actor |
  * There is no login: in development, `ADMIN_IMPERSONATE_MEMBER_ID` picks the member; otherwise
  * every request is anonymous. `headers` is unused.
  */
-export const resolveActor = async (db: Database, _headers: Headers): Promise<Actor | null> => {
+export const resolveActor = async (
+    db: Database,
+    session: Awaited<ReturnType<typeof auth.api.getSession>>,
+    _headers: Headers,
+): Promise<Actor | null> => {
     const impersonate = envAdminServer.ADMIN_IMPERSONATE_MEMBER_ID;
     if (impersonate != null && process.env.NODE_ENV !== "production") {
         const actor = await loadActor(db, impersonate);
@@ -60,5 +65,12 @@ export const resolveActor = async (db: Database, _headers: Headers): Promise<Act
         return actor;
     }
 
-    return null;
+    if (!session) return null;
+
+    const member = await db.query.members.findFirst({
+        columns: { id: true },
+        where: eq(members.discordId, session.user.discordId),
+    });
+
+    return member ? loadActor(db, member.id) : null;
 };
