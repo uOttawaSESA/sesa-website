@@ -120,6 +120,24 @@ pnpm dev --filter web
 
 Open [http://localhost:3000](http://localhost:3000) to see the website.
 
+### Local database
+
+You don't need access to the shared database to work on the site or the admin API. This starts a local Postgres ([PGlite](https://pglite.dev/), nothing to install), applies every migration and seeds it with test data:
+
+```sh
+pnpm --filter @repo/db db:local
+```
+
+It prints the `POSTGRES_URL` to put in your `.env`, and a member id for `ADMIN_IMPERSONATE_MEMBER_ID` to act as a co-director in the admin panel. Data is kept in `packages/db/.local-db`; add `--reset` to start over.
+
+### Tests
+
+```sh
+pnpm test
+```
+
+Admin API tests live next to the code as `*.test.ts` in `packages/api`. Each test file gets its own in-memory database with the seed data. See `packages/api/src/admin/test/helpers.ts` for calling procedures as a given member.
+
 ## License
 
 This project is licensed under the GNU Affero General Public License, Version 3.0

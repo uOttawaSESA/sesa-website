@@ -28,7 +28,7 @@ export const errorFormatter = ({
  * development.
  *
  * The delay helps catch unwanted waterfalls by simulating network latency that would occur in
- * production but not in local development.
+ * production but not in local development. Skipped under Vitest (`NODE_ENV=test`).
  */
 export const timeProcedure = async <T>(opts: {
     path: string;
@@ -37,7 +37,7 @@ export const timeProcedure = async <T>(opts: {
 }): Promise<T> => {
     const start = Date.now();
 
-    if (opts.isDev) {
+    if (opts.isDev && process.env.NODE_ENV !== "test") {
         const waitMs = Math.floor(Math.random() * 400) + 100;
         await new Promise(resolve => setTimeout(resolve, waitMs));
     }

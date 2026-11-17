@@ -1,4 +1,6 @@
 import type { InferInsertModel, InferSelectModel } from "drizzle-orm";
+import type { PgDatabase, PgQueryResultHKT } from "drizzle-orm/pg-core";
+import type * as schema from "./schema.js";
 import type {
     auditLog,
     changeRequestEntityTypeEnum,
@@ -11,6 +13,12 @@ import type {
     members,
     resources,
 } from "./schema.js";
+
+/**
+ * A Drizzle database over this schema, independent of the driver: production uses postgres-js,
+ * tests and the local database use PGlite. Accept this type, not `typeof db`, so both fit.
+ */
+export type Database = PgDatabase<PgQueryResultHKT, typeof schema>;
 
 export type Event = InferSelectModel<typeof events>;
 export type NewEvent = InferInsertModel<typeof events>;
