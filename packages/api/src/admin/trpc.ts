@@ -11,6 +11,7 @@ import { type DiscordGateway, fakeDiscordGateway } from "@repo/api/admin/service
 import { fakeSiteRevalidator, type SiteRevalidator } from "@repo/api/admin/services/revalidator";
 import { type FileStorage, fakeFileStorage } from "@repo/api/admin/services/storage";
 import { errorFormatter, timeProcedure } from "@repo/api/shared";
+import { auth } from "@repo/auth";
 import { type Database, db } from "@repo/db";
 import { initTRPC, TRPCError } from "@trpc/server";
 import superjson from "superjson";
@@ -38,6 +39,7 @@ export const fakeServices: AdminServices = {
 export type AdminContext = AdminServices & {
     db: Database;
     headers: Headers;
+    session: Awaited<ReturnType<typeof auth.api.getSession>>;
     /** `null` when nobody is signed in; `protectedProcedure` narrows it. */
     actor: Actor | null;
 };
@@ -48,10 +50,13 @@ export type AdminContext = AdminServices & {
  * @see https://trpc.io/docs/server/context
  */
 export const createAdminContext = async (opts: { headers: Headers }): Promise<AdminContext> => {
+    const session = await auth.api.getSession({ headers: opts.headers });
+
     return {
         db,
         headers: opts.headers,
-        actor: await resolveActor(db, opts.headers),
+        session,
+        actor: await resolveActor(db, session, opts.headers),
         ...fakeServices,
     };
 };
