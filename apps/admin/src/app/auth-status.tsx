@@ -3,10 +3,16 @@
 import { authClient } from "@repo/auth/client";
 import { Button } from "@repo/ui/components/button";
 import { useState } from "react";
+import { api } from "../trpc/react";
 
 export function AuthStatus() {
-    const { data: session, isPending } = authClient.useSession();
+    const sessionResult = authClient.useSession();
+    const memberResult = api.auth.getCurrentMember.useQuery(undefined, {
+        enabled: !!sessionResult.data,
+    });
     const [error, setError] = useState<string | null>(null);
+    const isPending = sessionResult.isPending || (!!sessionResult.data && memberResult.isPending);
+    const member = memberResult.data?.member;
 
     const signIn = async () => {
         setError(null);
@@ -47,12 +53,22 @@ export function AuthStatus() {
 
             {isPending ? (
                 <p className="mt-2 text-muted-foreground">Checking login status...</p>
-            ) : session ? (
+            ) : member ? (
                 <div className="mt-3 space-y-3">
                     <p>
-                        Logged in as <strong>{session.user.name}</strong>
+                        Logged in as <strong>{member.name}</strong>
                     </p>
-                    <p className="text-muted-foreground text-sm">{session.user.email}</p>
+                    <p className="text-muted-foreground text-sm">
+                        {member.teamKey} / {member.roleKey}
+                    </p>
+                    {member.email ? (
+                        <p className="text-muted-foreground text-sm">{member.email}</p>
+                    ) : null}
+                    {memberResult.data?.permissions.map(permission => (
+                        <p key={permission} className="text-muted-foreground text-sm">
+                            {permission}
+                        </p>
+                    ))}
                     <Button type="button" variant="outline" size="sm" onClick={signOut}>
                         Sign out
                     </Button>
