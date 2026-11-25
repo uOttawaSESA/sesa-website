@@ -1,6 +1,8 @@
 {
     "extends": "@repo/typescript-config/base.json",
     "compilerOptions": {
+        "module": "ESNext",
+        "moduleResolution": "Bundler",
         "paths": {
             "@repo/api": ["./src/index.ts"],
             "@repo/api/trpc": ["./src/trpc.ts"],

@@ -4,6 +4,7 @@
  */
 
 import type { Action } from "@repo/api/admin/permissions";
+import type { auth } from "@repo/auth";
 import type { Database } from "@repo/db";
 import { members, type roleKeyEnum, type teamKeyEnum } from "@repo/db/schema";
 import { envAdminServer } from "@repo/env/admin/server";
@@ -45,10 +46,14 @@ export const loadActor = async (db: Database, memberId: string): Promise<Actor |
 /**
  * Resolve who is making a request, or `null` if nobody is signed in.
  *
- * There is no login: in development, `ADMIN_IMPERSONATE_MEMBER_ID` picks the member; otherwise
- * every request is anonymous. `headers` is unused.
+ * In development, `ADMIN_IMPERSONATE_MEMBER_ID` can select a member. Otherwise, the
+ * session's Better Auth user is matched to the Discord account and then to a member.
  */
-export const resolveActor = async (db: Database, _headers: Headers): Promise<Actor | null> => {
+export const resolveActor = async (
+    db: Database,
+    session: Awaited<ReturnType<typeof auth.api.getSession>>,
+    _headers: Headers,
+): Promise<Actor | null> => {
     const impersonate = envAdminServer.ADMIN_IMPERSONATE_MEMBER_ID;
     if (impersonate != null && process.env.NODE_ENV !== "production") {
         const actor = await loadActor(db, impersonate);
@@ -60,5 +65,20 @@ export const resolveActor = async (db: Database, _headers: Headers): Promise<Act
         return actor;
     }
 
-    return null;
+    if (!session) return null;
+
+    const discordAccount = await db.query.account.findFirst({
+        columns: { accountId: true },
+        where: (accounts, { and, eq }) =>
+            and(eq(accounts.userId, session.user.id), eq(accounts.providerId, "discord")),
+    });
+
+    if (!discordAccount) return null;
+
+    const member = await db.query.members.findFirst({
+        columns: { id: true },
+        where: eq(members.discordId, discordAccount.accountId),
+    });
+
+    return member ? loadActor(db, member.id) : null;
 };
